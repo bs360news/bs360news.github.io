@@ -1,109 +1,186 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="te">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Suresh 360 Media</title>
+<title>Suresh 360 Media | Latest News, Sports & Movies</title>
+
+<meta name="description" content="Suresh 360 Media - Latest News, Sports and Movies updates.">
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f2f2f2;
+    background: #f3f4f6;
+    color: #222;
 }
 
 header {
-    background: #d60000;
+    background: linear-gradient(135deg, #d40000, #ff3030);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px 15px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 30px;
+    font-size: 32px;
 }
 
 header p {
     margin: 8px 0 0;
+    font-size: 15px;
 }
 
 nav {
     background: #111;
-    text-align: center;
-    padding: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 12px;
+    padding: 9px 13px;
+    border-radius: 6px;
     font-weight: bold;
 }
 
+nav a:hover {
+    background: #d40000;
+}
+
+.search {
+    max-width: 700px;
+    margin: 18px auto;
+    padding: 0 15px;
+}
+
+.search input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
 .container {
-    padding: 20px;
-    max-width: 1000px;
+    max-width: 1050px;
     margin: auto;
+    padding: 10px 15px 30px;
 }
 
 .section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    margin-top: 25px;
 }
 
-.section h2 {
-    color: #d60000;
-    border-bottom: 2px solid #d60000;
-    padding-bottom: 8px;
+.section-title {
+    background: white;
+    padding: 14px;
+    border-left: 5px solid #d40000;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    margin: 0;
+    color: #d40000;
 }
 
 .card {
-    background: #eeeeee;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .card img {
     width: 100%;
-    max-height: 400px;
+    max-height: 430px;
     object-fit: cover;
-    border-radius: 8px;
+    display: block;
+}
+
+.card-content {
+    padding: 16px;
 }
 
 .card h3 {
-    margin-top: 0;
-    font-size: 22px;
+    margin: 0 0 10px;
+    font-size: 21px;
 }
 
 .card p {
-    font-size: 16px;
     line-height: 1.6;
+    color: #444;
+}
+
+.date {
+    color: #777;
+    font-size: 13px;
+}
+
+.whatsapp {
+    display: inline-block;
+    margin-top: 8px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.about {
+    background: white;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 10px;
+    line-height: 1.7;
 }
 
 footer {
     background: #111;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 6px;
 }
 
 @media (max-width: 600px) {
+
     header h1 {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     nav a {
-        margin: 0 6px;
-        font-size: 14px;
+        font-size: 13px;
+        padding: 8px 10px;
     }
 
-    .container {
-        padding: 10px;
+    .card h3 {
+        font-size: 19px;
+    }
+
+    .card img {
+        max-height: 300px;
     }
 }
 </style>
@@ -113,250 +190,217 @@ footer {
 
 <header>
     <h1>Suresh 360 Media</h1>
-    <p>Latest News • Sports • Movies</p>
+    <p>📰 Latest News • 🏏 Sports • 🎬 Movies</p>
 </header>
 
 <nav>
+    <a href="#home">Home</a>
     <a href="#news">📰 News</a>
     <a href="#sports">🏏 Sports</a>
     <a href="#movies">🎬 Movies</a>
+    <a href="#about">About</a>
 </nav>
-<div style="text-align:center; padding:20px; background:white;">
+
+<div class="search">
     <input
         type="text"
         id="searchBox"
-        placeholder="🔎 Search News..."
-        onkeyup="searchNews()"
-        style="width:90%; max-width:500px; padding:12px; font-size:16px; border:1px solid #ccc; border-radius:8px;"
+        placeholder="🔎 Search News, Sports, Movies..."
+        onkeyup="searchPosts()"
     >
 </div>
 
-<script>
-function searchNews() {
-    let input = document.getElementById("searchBox").value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
+<main class="container" id="home">
 
-    cards.forEach(function(card) {
-        let text = card.innerText.toLowerCase();
+    <!-- NEWS -->
+    <section class="section" id="news">
+
+        <div class="section-title">
+            <h2>📰 Latest News</h2>
+        </div>
+
+        <article class="card post">
+            <img src="news.jpg" alt="Latest News">
+
+            <div class="card-content">
+                <h3>ఈరోజు తాజా వార్తలు</h3>
+
+                <p>
+                    మీ తాజా News headline మరియు పూర్తి వివరాలను
+                    ఇక్కడ update చేయండి.
+                </p>
+
+                <div class="date">📅 August 6, 2026</div>
+
+                <a class="whatsapp"
+                   href="https://wa.me/?text=Suresh%20360%20Media%20Latest%20News"
+                   target="_blank">
+                    📲 WhatsApp Share
+                </a>
+            </div>
+        </article>
+
+        <article class="card post">
+            <img src="news2.jpg" alt="News Update">
+
+            <div class="card-content">
+                <h3>ముఖ్యమైన తాజా సమాచారం</h3>
+
+                <p>
+                    ఇక్కడ మీ రెండవ News description పెట్టండి.
+                </p>
+
+                <div class="date">📅 August 6, 2026</div>
+
+                <a class="whatsapp"
+                   href="https://wa.me/?text=Suresh%20360%20Media%20News"
+                   target="_blank">
+                    📲 WhatsApp Share
+                </a>
+            </div>
+        </article>
+
+        <article class="card post">
+            <img src="news3.jpg" alt="News Update">
+
+            <div class="card-content">
+                <h3>మరో తాజా వార్త</h3>
+
+                <p>
+                    ఇక్కడ మీ మూడవ News వివరాలను పెట్టండి.
+                </p>
+
+                <div class="date">📅 August 6, 2026</div>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- SPORTS -->
+    <section class="section" id="sports">
+
+        <div class="section-title">
+            <h2>🏏 Sports</h2>
+        </div>
+
+        <article class="card post">
+            <img src="sports1.jpg" alt="Cricket News">
+
+            <div class="card-content">
+                <h3>🔥 Latest Cricket Update</h3>
+
+                <p>
+                    ఇక్కడ Cricket మరియు Sports latest updates పెట్టండి.
+                </p>
+
+                <div class="date">📅 August 6, 2026</div>
+            </div>
+        </article>
+
+        <article class="card post">
+            <img src="sports2.jpg" alt="Sports News">
+
+            <div class="card-content">
+                <h3>🏏 Cricket Latest News</h3>
+
+                <p>
+                    ఇక్కడ మరో Cricket లేదా Sports News update పెట్టండి.
+                </p>
+
+                <div class="date">📅 August 6, 2026</div>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- MOVIES -->
+    <section class="section" id="movies">
+
+        <div class="section-title">
+            <h2>🎬 Movies</h2>
+        </div>
+
+        <article class="card post">
+            <img src="movie1.jpg" alt="Movie News">
+
+            <div class="card-content">
+                <h3>🎬 Latest Movie Update</h3>
+
+                <p>
+                    ఇక్కడ కొత్త సినిమా News మరియు updates పెట్టండి.
+                </p>
+
+                <div class="date">📅 August 6, 2026</div>
+            </div>
+        </article>
+
+        <article class="card post">
+            <img src="movie2.jpg" alt="Movie News">
+
+            <div class="card-content">
+                <h3>⭐ New Movie News</h3>
+
+                <p>
+                    ఇక్కడ మరో Movie News update పెట్టండి.
+                </p>
+
+                <div class="date">📅 August 6, 2026</div>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2>ℹ️ About Suresh 360 Media</h2>
+
+        <p>
+            <strong>Suresh 360 Media</strong>లో Latest News,
+            Sports మరియు Movies updates అందించబడతాయి.
+        </p>
+
+        <p>
+            తాజా సమాచారం కోసం మా websiteని visit చేయండి.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>© 2026 Suresh 360 Media</p>
+    <p>News • Sports • Movies</p>
+</footer>
+
+
+<script>
+function searchPosts() {
+
+    let input = document
+        .getElementById("searchBox")
+        .value
+        .toLowerCase();
+
+    let posts = document.querySelectorAll(".post");
+
+    posts.forEach(function(post) {
+
+        let text = post.innerText.toLowerCase();
 
         if (text.includes(input)) {
-            card.style.display = "block";
+            post.style.display = "block";
         } else {
-            card.style.display = "none";
+            post.style.display = "none";
         }
+
     });
 }
 </script>
-<div class="container">
 
-<section class="section" id="news">
-
-    <h2>📰 Latest News</h2>
-
-    <!-- News 1 -->
-    <div class="card">
-
-        <img src="news.jpg" alt="News 1">
-
-        <h3>ఈరోజు తాజా వార్తలు</h3>
-
-        <p>
-            మీ మొదటి వార్త వివరాలను ఇక్కడ రాయండి.
-        </p>
-
-        <small>📅 August 6, 2026</small>
-<br><br>
-
-<a
-href="https://wa.me/?text=Suresh%20360%20Media%20-%20Latest%20News"
-target="_blank"
-style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:8px;font-weight:bold;"
->
-📲 Share on WhatsApp
-</a>
-    </div>
-
-    <!-- News 2 -->
-    <div class="card">
-
-        <img src="news2.jpg" alt="News 2">
-
-        <h3>మరో తాజా వార్త</h3>
-
-        <p>
-            మీ రెండవ వార్త వివరాలను ఇక్కడ రాయండి.
-        </p>
-
-        <small>📅 August 6, 2026</small>
-<br><br>
-
-<a
-href="https://wa.me/?text=Suresh%20360%20Media%20-%20Latest%20News"
-target="_blank"
-style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:8px;font-weight:bold;"
->
-📲 Share on WhatsApp
-</a>
-    </div>
-
-
-    <!-- News 3 -->
-    <div class="card">
-
-        <img src="news3.jpg" alt="News 3">
-
-        <h3>ముఖ్యమైన తాజా సమాచారం</h3>
-
-        <p>
-            మీ మూడవ వార్త వివరాలను ఇక్కడ రాయండి.
-        </p>
-
-        <small>📅 August 6, 2026</small>
-<br><br>
-
-<a
-href="https://wa.me/?text=Suresh%20360%20Media%20-%20Latest%20News"
-target="_blank"
-style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:8px;font-weight:bold;"
->
-📲 Share on WhatsApp
-</a>
-    </div>
-
-</section>
-    
-<section class="section" id="sports">
-
-    <h2>🏏 Sports</h2>
-
-    <!-- Sports News 1 -->
-    <div class="card">
-
-        <img src="sports1.jpg" alt="Cricket News">
-
-        <h3>🔥 Latest Cricket Update</h3>
-
-        <p>
-            ఇక్కడ మీ Cricket News మరియు Sports updates వివరాలు రాయవచ్చు.
-        </p>
-
-        <small>📅 August 6, 2026</small>
-<br><br>
-
-<a
-href="https://wa.me/?text=Suresh%20360%20Media%20-%20Latest%20News"
-target="_blank"
-style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:8px;font-weight:bold;"
->
-📲 Share on WhatsApp
-</a>
-    </div>
-
-
-    <!-- Sports News 2 -->
-    <div class="card">
-
-        <img src="sports2.jpg" alt="Sports News">
-
-        <h3>🏏 Cricket Latest News</h3>
-
-        <p>
-            ఇక్కడ మరో Cricket లేదా Sports News update పెట్టవచ్చు.
-        </p>
-
-        <small>📅 August 6, 2026</small>
-<br><br>
-
-<a
-href="https://wa.me/?text=Suresh%20360%20Media%20-%20Latest%20News"
-target="_blank"
-style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:8px;font-weight:bold;"
->
-📲 Share on WhatsApp
-</a>
-    </div>
-
-    
-</section>
-    <section class="section" id="movies">
-
-    <h2>🎬 Movies</h2>
-
-    <!-- Movie News 1 -->
-    <div class="card">
-
-        <img src="movie1.jpg" alt="Movie News">
-
-        <h3>🎬 Latest Movie Update</h3>
-
-        <p>
-            ఇక్కడ కొత్త సినిమాల వార్తలు, updates మరియు సినిమా వివరాలు పెట్టవచ్చు.
-        </p>
-
-        <small>📅 August 6, 2026</small>
-<br><br>
-
-<a
-href="https://wa.me/?text=Suresh%20360%20Media%20-%20Latest%20News"
-target="_blank"
-style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:8px;font-weight:bold;"
->
-📲 Share on WhatsApp
-</a>
-    </div>
-
-
-    <!-- Movie News 2 -->
-    <div class="card">
-
-        <img src="movie2.jpg" alt="Movie News">
-
-        <h3>⭐ New Movie News</h3>
-
-        <p>
-            ఇక్కడ మరో సినిమా News లేదా Movie update పెట్టవచ్చు.
-        </p>
-
-        <small>📅 August 6, 2026</small>
-<br><br>
-
-<a
-href="https://wa.me/?text=Suresh%20360%20Media%20-%20Latest%20News"
-target="_blank"
-style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;border-radius:8px;font-weight:bold;"
->
-📲 Share on WhatsApp
-</a>
-    </div>
-
-    </section>
-    <section class="section" id="about">
-
-    <h2>ℹ️ About Us</h2>
-
-    <p>
-        <strong>Suresh 360 Media</strong> మీకు తాజా News,
-        Sports మరియు Movies updates అందించే digital media platform.
-    </p>
-
-    <p>
-        మా లక్ష్యం ముఖ్యమైన వార్తలను సులభంగా మరియు వేగంగా
-        మీకు అందించడం.
-    </p>
-
-</section>
-
-
-<section class="section" id="contact">
-
-    <h2>📞 Contact Us</h2>
-
-    <p>
-        మీ News, Suggestions లేదా Feedback కోసం మమ్మల్ని సంప్రదించండి.
-    </p>
-
-    <p>
-        📧 Email: suresh360media@gmail.com
-    </p>
-
-</section>
+</body>
+</html>
