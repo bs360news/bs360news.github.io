@@ -121,7 +121,32 @@ footer {
     <a href="#sports">🏏 Sports</a>
     <a href="#movies">🎬 Movies</a>
 </nav>
+<div style="text-align:center; padding:20px; background:white;">
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="🔎 Search News..."
+        onkeyup="searchNews()"
+        style="width:90%; max-width:500px; padding:12px; font-size:16px; border:1px solid #ccc; border-radius:8px;"
+    >
+</div>
 
+<script>
+function searchNews() {
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+        let text = card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
 <div class="container">
 
 <section class="section" id="news">
@@ -150,32 +175,6 @@ style="background:#25D366;color:white;padding:10px 15px;text-decoration:none;bor
 📲 Share on WhatsApp
 </a>
     </div>
-<div style="text-align:center; padding:20px; background:white;">
-    <input
-        type="text"
-        id="searchBox"
-        placeholder="🔎 Search News..."
-        onkeyup="searchNews()"
-        style="width:90%; max-width:500px; padding:12px; font-size:16px; border:1px solid #ccc; border-radius:8px;"
-    >
-</div>
-
-<script>
-function searchNews() {
-    let input = document.getElementById("searchBox").value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
-
-    cards.forEach(function(card) {
-        let text = card.innerText.toLowerCase();
-
-        if (text.includes(input)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-}
-</script>
 
     <!-- News 2 -->
     <div class="card">
