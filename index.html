@@ -75,11 +75,36 @@ nav a {
     border-radius: 8px;
 }
 
+.card h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
 footer {
     background: #111;
     color: white;
     text-align: center;
     padding: 15px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav a {
+        margin: 0 6px;
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px;
+    }
 }
 </style>
 </head>
@@ -92,50 +117,62 @@ footer {
 </header>
 
 <nav>
-    <a href="#news">News</a>
-    <a href="#sports">Sports</a>
-    <a href="#movies">Movies</a>
+    <a href="#news">📰 News</a>
+    <a href="#sports">🏏 Sports</a>
+    <a href="#movies">🎬 Movies</a>
 </nav>
 
 <div class="container">
 
 <section class="section" id="news">
+
     <h2>📰 Latest News</h2>
 
     <div class="card">
+
+        <img src="news.jpg" alt="Latest News">
+
         <h3>ఈరోజు తాజా వార్తలు</h3>
 
-
-  
         <p>
-            ఇది Suresh 360 Mediaలో ప్రచురించిన sample news post.
+            ఇది Suresh 360 Mediaలో ప్రచురించిన తాజా వార్త.
+            మీకు కావాల్సిన News headline మరియు వివరాలను ఇక్కడ మార్చుకోవచ్చు.
         </p>
 
         <small>📅 August 6, 2026</small>
+
     </div>
 
 </section>
 
 <section class="section" id="sports">
+
     <h2>🏏 Sports</h2>
 
     <div class="card">
+
         <h3>Cricket Updates</h3>
+
         <p>
             ఇక్కడ Cricket మరియు Sports వార్తలను పోస్ట్ చేయవచ్చు.
         </p>
+
     </div>
 
 </section>
 
 <section class="section" id="movies">
+
     <h2>🎬 Movies</h2>
 
     <div class="card">
+
         <h3>Latest Movie Updates</h3>
+
         <p>
-            ఇక్కడ సినిమా వార్తలు మరియు updates పోస్ట్ చేయవచ్చు.
+            ఇక్కడ సినిమా వార్తలు మరియు Movie updates పోస్ట్ చేయవచ్చు.
         </p>
+
     </div>
 
 </section>
