@@ -1,390 +1,69 @@
 <!DOCTYPE html>
 <html lang="te">
+
 <head>
-  <link rel="stylesheet" href="style.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Suresh 360 Media</title>
-<article class="news-card">
-    <img src="varanasi.jpg" alt="Varanasi">
+    <title>Suresh 360 Media</title>
 
-    <div class="news-content">
-        <h2>వారణాసి సినిమాపై వైరల్ అవుతున్న వార్తలు</h2>
-
-        <p>
-            మహేష్ బాబు నటిస్తున్న వారణాసి సినిమాపై సోషల్ మీడియాలో
-            ఆసక్తికరమైన వార్తలు వైరల్ అవుతున్నాయి.
-        </p>
-
-        <a href="varanasi.html" class="read-more">
-            Read More →
-        </a>
-    </div>
-</article>
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#f3f5f8;
-  color:#111;
-}
-
-header{
-  background:linear-gradient(135deg,#111827,#dc2626);
-  color:white;
-  padding:18px 15px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 3px 12px #0004;
-}
-
-.top{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.logo{
-  font-size:25px;
-  font-weight:900;
-}
-
-.logo span{
-  color:#ffd700;
-}
-
-.tag{
-  font-size:12px;
-  opacity:.9;
-}
-
-.search{
-  max-width:1100px;
-  margin:15px auto 0;
-  display:flex;
-}
-
-.search input{
-  width:100%;
-  padding:13px;
-  border:0;
-  border-radius:10px 0 0 10px;
-  outline:none;
-  font-size:15px;
-}
-
-.search button{
-  border:0;
-  padding:0 18px;
-  background:#ffd700;
-  border-radius:0 10px 10px 0;
-  font-weight:bold;
-}
-
-nav{
-  background:white;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  padding:10px;
-  overflow-x:auto;
-  box-shadow:0 2px 8px #0001;
-}
-
-nav button{
-  border:0;
-  background:#f1f5f9;
-  padding:10px 17px;
-  border-radius:25px;
-  font-weight:bold;
-  white-space:nowrap;
-}
-
-nav button.active{
-  background:#dc2626;
-  color:white;
-}
-
-.container{
-  max-width:1100px;
-  margin:20px auto;
-  padding:0 12px;
-}
-
-.breaking{
-  background:#111827;
-  color:white;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:20px;
-}
-
-.breaking b{
-  background:#dc2626;
-  padding:7px 10px;
-  border-radius:6px;
-  margin-right:8px;
-}
-
-.section-title{
-  font-size:22px;
-  margin:20px 0 12px;
-  border-left:5px solid #dc2626;
-  padding-left:10px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-
-.card{
-  background:white;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 3px 12px #0001;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-}
-
-.card img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-}
-
-.content{
-  padding:14px;
-}
-
-.category{
-  color:#dc2626;
-  font-size:12px;
-  font-weight:bold;
-}
-
-h3{
-  margin:7px 0;
-  font-size:18px;
-  line-height:1.35;
-}
-
-p{
-  color:#555;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.read{
-  margin-top:12px;
-  width:100%;
-  padding:10px;
-  border:0;
-  background:#111827;
-  color:white;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.share{
-  margin-top:8px;
-  width:100%;
-  padding:10px;
-  border:0;
-  background:#25d366;
-  color:white;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-footer{
-  margin-top:35px;
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:25px 15px;
-}
-
-footer strong{
-  color:#ffd700;
-}
-
-@media(max-width:700px){
-  .logo{
-    font-size:21px;
-  }
-
-  .tag{
-    display:none;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .card img{
-    height:210px;
-  }
-
-  .section-title{
-    font-size:20px;
-  }
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <div class="top">
-    <div>
-      <div class="logo">SURESH <span>360</span> MEDIA</div>
-      <div class="tag">News • Sports • Movies • Entertainment</div>
-    </div>
-  </div>
+    <!-- Header -->
+    <header class="header">
+        <h1>Suresh 360 Media</h1>
+        <p>Latest News • Movies • Sports • Trending</p>
+    </header>
 
-  <div class="search">
-    <input id="searchBox" type="text" placeholder="వార్తలు Search చేయండి...">
-    <button onclick="searchNews()">🔎</button>
-  </div>
-</header>
+    <!-- Navigation -->
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="#latest">Latest News</a>
+        <a href="#movies">Movies</a>
+        <a href="#sports">Sports</a>
+        <a href="#trending">Trending</a>
+    </nav>
 
-<nav>
-  <button class="active" onclick="showCategory('all',this)">🏠 All</button>
-  <button onclick="showCategory('news',this)">📰 News</button>
-  <button onclick="showCategory('sports',this)">🏏 Sports</button>
-  <button onclick="showCategory('movies',this)">🎬 Movies</button>
-</nav>
+    <!-- Main News -->
+    <main>
 
-<main class="container">
+        <section id="latest">
+            <h2 class="section-title">Latest News</h2>
 
-  <div class="breaking">
-    <b>BREAKING</b>
-    తాజా వార్తలు ఎప్పటికప్పుడు Suresh 360 Mediaలో...
-  </div>
+            <!-- News Post 1 -->
+            <article class="news-card">
 
-  <h2 class="section-title">🔥 Latest Updates</h2>
+                <img src="varanasi.jpg" alt="Varanasi Movie">
 
-  <div class="grid" id="newsGrid">
+                <div class="news-content">
 
-    <article class="card" data-category="news">
-      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80">
-      <div class="content">
-        <div class="category">NEWS</div>
-        <h3>తాజా వార్తలు మీ కోసం ఇక్కడే</h3>
-        <p>దేశం, రాష్ట్రం మరియు ప్రపంచంలోని ముఖ్యమైన వార్తలను తెలుసుకోండి.</p>
-        <button class="read" onclick="alert('త్వరలో పూర్తి వార్త అందుబాటులో ఉంటుంది')">Read More</button>
-        <button class="share" onclick="shareNews('తాజా వార్తలు - Suresh 360 Media')">📲 Share</button>
-      </div>
-    </article>
+                    <h2>వారణాసి సినిమాపై వైరల్ అవుతున్న వార్తలు</h2>
 
-    <article class="card" data-category="sports">
-      <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=900&q=80">
-      <div class="content">
-        <div class="category">SPORTS</div>
-        <h3>🏏 Cricket తాజా Updates</h3>
-        <p>క్రికెట్ మ్యాచ్‌లు, ఆటగాళ్ల వార్తలు మరియు ముఖ్యమైన Updates.</p>
-        <button class="read" onclick="alert('త్వరలో పూర్తి వార్త అందుబాటులో ఉంటుంది')">Read More</button>
-        <button class="share" onclick="shareNews('Cricket Latest Updates - Suresh 360 Media')">📲 Share</button>
-      </div>
-    </article>
+                    <p>
+                        మహేష్ బాబు నటిస్తున్న వారణాసి సినిమాపై సోషల్ మీడియాలో
+                        ఆసక్తికరమైన వార్తలు వైరల్ అవుతున్నాయి.
+                    </p>
 
-    <article class="card" data-category="movies">
-      <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80">
-      <div class="content">
-        <div class="category">MOVIES</div>
-        <h3>🎬 సినిమా ప్రపంచం Latest News</h3>
-        <p>కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు మరియు సినిమా Updates.</p>
-        <button class="read" onclick="alert('త్వరలో పూర్తి వార్త అందుబాటులో ఉంటుంది')">Read More</button>
-        <button class="share" onclick="shareNews('Movies Latest News - Suresh 360 Media')">📲 Share</button>
-      </div>
-    </article>
+                    <a href="varanasi.html" class="read-more">
+                        Read More →
+                    </a>
 
-  </div>
+                </div>
 
-</main>
+            </article>
 
-<footer>
-  <strong>SURESH 360 MEDIA</strong>
-  <br><br>
-  News • Sports • Movies • Entertainment
-  <br><br>
-  © 2026 Suresh 360 Media. All Rights Reserved.
-</footer>
+        </section>
 
-<script>
+    </main>
 
-function showCategory(category,btn){
-
-  document.querySelectorAll("nav button")
-  .forEach(b=>b.classList.remove("active"));
-
-  btn.classList.add("active");
-
-  document.querySelectorAll(".card").forEach(card=>{
-
-    if(category==="all" || card.dataset.category===category){
-      card.style.display="block";
-    }else{
-      card.style.display="none";
-    }
-
-  });
-}
-
-function searchNews(){
-
-  let value=document
-  .getElementById("searchBox")
-  .value
-  .toLowerCase();
-
-  document.querySelectorAll(".card").forEach(card=>{
-
-    let text=card.innerText.toLowerCase();
-
-    card.style.display =
-      text.includes(value) ? "block" : "none";
-
-  });
-}
-
-function shareNews(text){
-
-  if(navigator.share){
-
-    navigator.share({
-      title:"Suresh 360 Media",
-      text:text,
-      url:window.location.href
-    });
-
-  }else{
-
-    navigator.clipboard.writeText(
-      text+" "+window.location.href
-    );
-
-    alert("Link copied!");
-
-  }
-}
-
-</script>
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Suresh 360 Media. All Rights Reserved.</p>
+    </footer>
 
 </body>
+
 </html>
