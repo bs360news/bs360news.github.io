@@ -1,375 +1,702 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Suresh 360 Media</title>
 
+<meta name="description"
+content="Suresh 360 Media - Latest News, Sports and Movies Updates">
+
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  background:#f3f5f8;
-  color:#111;
+    font-family:Arial,"Noto Sans Telugu",sans-serif;
+    background:#f3f4f6;
+    color:#222;
 }
 
- 
-header{
-  background:linear-gradient(135deg,#111827,#dc2626);
-  color:white;
-  padding:18px 15px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 3px 12px #0004;
-}
+/* HEADER */
 
-.top{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
+.header{
+    background:linear-gradient(135deg,#8b0000,#e00000);
+    color:white;
+    text-align:center;
+    padding:18px 12px;
 }
 
 .logo{
-  font-size:25px;
-  font-weight:900;
+    width:190px;
+    max-width:80%;
+    height:auto;
 }
 
-.logo span{
-  color:#ffd700;
+.header p{
+    margin-top:8px;
+    font-size:14px;
+    font-weight:bold;
 }
 
-.tag{
-  font-size:12px;
-  opacity:.9;
+
+/* BREAKING NEWS */
+
+.breaking{
+    height:44px;
+    display:flex;
+    align-items:center;
+    background:#111;
+    color:white;
+    overflow:hidden;
 }
+
+.breaking-title{
+    height:44px;
+    display:flex;
+    align-items:center;
+    background:#e00000;
+    padding:0 14px;
+    font-size:13px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.breaking-news{
+    white-space:nowrap;
+    padding-left:20px;
+    font-size:14px;
+    animation:scrollNews 18s linear infinite;
+}
+
+@keyframes scrollNews{
+
+    from{
+        transform:translateX(100%);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+
+}
+
+
+/* NAVIGATION */
+
+.nav{
+    background:#151515;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:5px;
+    padding:9px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    padding:9px 13px;
+    border-radius:6px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.nav a:hover{
+    background:#e00000;
+}
+
+
+/* SEARCH */
 
 .search{
-  max-width:1100px;
-  margin:15px auto 0;
-  display:flex;
+    max-width:900px;
+    margin:18px auto;
+    padding:0 15px;
 }
 
 .search input{
-  width:100%;
-  padding:13px;
-  border:0;
-  border-radius:10px 0 0 10px;
-  outline:none;
-  font-size:15px;
+    width:100%;
+    padding:14px 18px;
+    border:1px solid #ccc;
+    border-radius:30px;
+    font-size:16px;
+    outline:none;
+    background:white;
 }
 
-.search button{
-  border:0;
-  padding:0 18px;
-  background:#ffd700;
-  border-radius:0 10px 10px 0;
-  font-weight:bold;
-}
 
-nav{
-  background:white;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  padding:10px;
-  overflow-x:auto;
-  box-shadow:0 2px 8px #0001;
-}
-
-nav button{
-  border:0;
-  background:#f1f5f9;
-  padding:10px 17px;
-  border-radius:25px;
-  font-weight:bold;
-  white-space:nowrap;
-}
-
-nav button.active{
-  background:#dc2626;
-  color:white;
-}
+/* MAIN */
 
 .container{
-  max-width:1100px;
-  margin:20px auto;
-  padding:0 12px;
+    max-width:1100px;
+    margin:auto;
+    padding:0 15px 35px;
 }
 
-.breaking{
-  background:#111827;
-  color:white;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:20px;
-}
 
-.breaking b{
-  background:#dc2626;
-  padding:7px 10px;
-  border-radius:6px;
-  margin-right:8px;
+/* SECTION */
+
+.section{
+    margin-top:25px;
 }
 
 .section-title{
-  font-size:22px;
-  margin:20px 0 12px;
-  border-left:5px solid #dc2626;
-  padding-left:10px;
+    background:white;
+    border-left:5px solid #e00000;
+    padding:13px 15px;
+    margin-bottom:15px;
+    border-radius:7px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
+.section-title h2{
+    color:#c90000;
+    font-size:22px;
 }
+
+
+/* CARD */
 
 .card{
-  background:white;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 3px 12px #0001;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
+    background:white;
+    margin-bottom:20px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.09);
 }
 
 .card img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
+    width:100%;
+    max-height:500px;
+    object-fit:cover;
+    display:block;
 }
 
-.content{
-  padding:14px;
+.card-content{
+    padding:18px;
 }
 
-.category{
-  color:#dc2626;
-  font-size:12px;
-  font-weight:bold;
+.card h3{
+    font-size:22px;
+    line-height:1.45;
+    margin-bottom:10px;
 }
 
-h3{
-  margin:7px 0;
-  font-size:18px;
-  line-height:1.35;
+.card p{
+    font-size:16px;
+    line-height:1.75;
+    color:#444;
+    margin-top:8px;
 }
 
-p{
-  color:#555;
-  font-size:14px;
-  line-height:1.5;
+.date{
+    color:#777;
+    font-size:13px;
+    margin-top:12px;
 }
 
-.read{
-  margin-top:12px;
-  width:100%;
-  padding:10px;
-  border:0;
-  background:#111827;
-  color:white;
-  border-radius:8px;
-  font-weight:bold;
-}
+
+/* WHATSAPP */
 
 .share{
-  margin-top:8px;
-  width:100%;
-  padding:10px;
-  border:0;
-  background:#25d366;
-  color:white;
-  border-radius:8px;
-  font-weight:bold;
+    display:inline-block;
+    margin-top:14px;
+    padding:10px 15px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:7px;
+    font-weight:bold;
 }
 
-footer{
-  margin-top:35px;
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:25px 15px;
+
+/* ABOUT */
+
+.about{
+    background:white;
+    margin-top:25px;
+    padding:20px;
+    border-radius:10px;
+    line-height:1.7;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
 }
 
-footer strong{
-  color:#ffd700;
+.about h2{
+    color:#c90000;
+    margin-bottom:10px;
 }
 
-@media(max-width:700px){
-  .logo{
-    font-size:21px;
-  }
 
-  .tag{
-    display:none;
-  }
+/* FOOTER */
 
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .card img{
-    height:210px;
-  }
-
-  .section-title{
-    font-size:20px;
-  }
+.footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:22px 12px;
 }
+
+.footer p{
+    margin:5px;
+    font-size:14px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .header{
+        padding:15px 10px;
+    }
+
+    .logo{
+        width:160px;
+    }
+
+    .nav a{
+        font-size:12px;
+        padding:8px 9px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+    .card p{
+        font-size:15px;
+    }
+
+    .card img{
+        max-height:330px;
+    }
+
+    .section-title h2{
+        font-size:20px;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <div class="top">
-    <div>
-      <div class="logo">SURESH <span>360</span> MEDIA</div>
-      <div class="tag">News • Sports • Movies • Entertainment</div>
-    </div>
-  </div>
 
-  <div class="search">
-    <input id="searchBox" type="text" placeholder="వార్తలు Search చేయండి...">
-    <button onclick="searchNews()">🔎</button>
-  </div>
+<!-- HEADER -->
+
+<header class="header">
+
+    <img
+        src="suresh-logo.png"
+        class="logo"
+        alt="Suresh 360 Media Logo"
+    >
+
+    <p>
+        📰 NEWS • 🏏 SPORTS • 🎬 MOVIES
+    </p>
+
 </header>
 
-<nav>
-  <button class="active" onclick="showCategory('all',this)">🏠 All</button>
-  <button onclick="showCategory('news',this)">📰 News</button>
-  <button onclick="showCategory('sports',this)">🏏 Sports</button>
-  <button onclick="showCategory('movies',this)">🎬 Movies</button>
+
+<!-- BREAKING NEWS -->
+
+<div class="breaking">
+
+    <div class="breaking-title">
+        🔴 BREAKING
+    </div>
+
+    <div class="breaking-news">
+        Suresh 360 Media — Latest News • Sports • Movies Updates
+    </div>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<nav class="nav">
+
+    <a href="#home">🏠 Home</a>
+
+    <a href="#news">📰 News</a>
+
+    <a href="#sports">🏏 Sports</a>
+
+    <a href="#movies">🎬 Movies</a>
+
+    <a href="#about">ℹ️ About</a>
+
 </nav>
 
-<main class="container">
 
-  <div class="breaking">
-    <b>BREAKING</b>
-    తాజా వార్తలు ఎప్పటికప్పుడు Suresh 360 Mediaలో...
-  </div>
+<!-- SEARCH -->
 
-  <h2 class="section-title">🔥 Latest Updates</h2>
+<div class="search">
 
-  <div class="grid" id="newsGrid">
+    <input
+        type="text"
+        id="search"
+        placeholder="🔎 Search News, Sports, Movies..."
+        onkeyup="searchNews()"
+    >
 
-    <article class="card" data-category="news">
-      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80">
-      <div class="content">
-        <div class="category">NEWS</div>
-        <h3>తాజా వార్తలు మీ కోసం ఇక్కడే</h3>
-        <p>దేశం, రాష్ట్రం మరియు ప్రపంచంలోని ముఖ్యమైన వార్తలను తెలుసుకోండి.</p>
-        <button class="read" onclick="alert('త్వరలో పూర్తి వార్త అందుబాటులో ఉంటుంది')">Read More</button>
-        <button class="share" onclick="shareNews('తాజా వార్తలు - Suresh 360 Media')">📲 Share</button>
-      </div>
+</div>
+
+
+<main class="container" id="home">
+
+
+<!-- ================= NEWS ================= -->
+
+<section class="section" id="news">
+
+    <div class="section-title">
+
+        <h2>
+            📰 Latest News
+        </h2>
+
+    </div>
+
+
+    <!-- NEWS 1 -->
+
+    <article class="card post">
+
+        <img
+            src="news.jpg"
+            alt="Latest News"
+        >
+
+        <div class="card-content">
+
+            <h3>
+                ఈరోజు తాజా వార్తలు
+            </h3>
+
+            <p>
+                Suresh 360 Mediaలో తాజా వార్తలు మరియు ముఖ్యమైన
+                సమాచారాన్ని ఇక్కడ అందిస్తాము.
+            </p>
+
+            <div class="date">
+                📅 August 6, 2026
+            </div>
+
+            <a
+                class="share"
+                href="https://wa.me/?text=Suresh%20360%20Media%20Latest%20News"
+                target="_blank"
+            >
+                📲 WhatsApp Share
+            </a>
+
+        </div>
+
     </article>
 
-    <article class="card" data-category="sports">
-      <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=900&q=80">
-      <div class="content">
-        <div class="category">SPORTS</div>
-        <h3>🏏 Cricket తాజా Updates</h3>
-        <p>క్రికెట్ మ్యాచ్‌లు, ఆటగాళ్ల వార్తలు మరియు ముఖ్యమైన Updates.</p>
-        <button class="read" onclick="alert('త్వరలో పూర్తి వార్త అందుబాటులో ఉంటుంది')">Read More</button>
-        <button class="share" onclick="shareNews('Cricket Latest Updates - Suresh 360 Media')">📲 Share</button>
-      </div>
+
+    <!-- NEWS 2 -->
+
+    <article class="card post">
+
+        <img
+            src="news2.jpg"
+            alt="News Update"
+        >
+
+        <div class="card-content">
+
+            <h3>
+                ముఖ్యమైన తాజా సమాచారం
+            </h3>
+
+            <p>
+                దేశంలో జరుగుతున్న ముఖ్యమైన పరిణామాలు మరియు
+                తాజా News Updates.
+            </p>
+
+            <div class="date">
+                📅 August 6, 2026
+            </div>
+
+        </div>
+
     </article>
 
-    <article class="card" data-category="movies">
-      <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80">
-      <div class="content">
-        <div class="category">MOVIES</div>
-        <h3>🎬 సినిమా ప్రపంచం Latest News</h3>
-        <p>కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు మరియు సినిమా Updates.</p>
-        <button class="read" onclick="alert('త్వరలో పూర్తి వార్త అందుబాటులో ఉంటుంది')">Read More</button>
-        <button class="share" onclick="shareNews('Movies Latest News - Suresh 360 Media')">📲 Share</button>
-      </div>
+
+    <!-- NEWS 3 -->
+
+    <article class="card post">
+
+        <img
+            src="news3.jpg"
+            alt="News Update"
+        >
+
+        <div class="card-content">
+
+            <h3>
+                మరో తాజా వార్త
+            </h3>
+
+            <p>
+                ఇక్కడ మీ కొత్త News headline మరియు description
+                పెట్టవచ్చు.
+            </p>
+
+            <div class="date">
+                📅 August 6, 2026
+            </div>
+
+        </div>
+
     </article>
 
-  </div>
+</section>
+
+
+
+<!-- ================= SPORTS ================= -->
+
+<section class="section" id="sports">
+
+    <div class="section-title">
+
+        <h2>
+            🏏 Sports
+        </h2>
+
+    </div>
+
+
+    <!-- SPORTS 1 -->
+
+    <article class="card post">
+
+        <img
+            src="sports1.jpg"
+            alt="Cricket News"
+        >
+
+        <div class="card-content">
+
+            <h3>
+                🔥 Latest Cricket Update
+            </h3>
+
+            <p>
+                Cricket మరియు Sports ప్రపంచంలోని తాజా
+                updates కోసం Suresh 360 Mediaను చూడండి.
+            </p>
+
+            <div class="date">
+                📅 August 6, 2026
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- SPORTS 2 -->
+
+    <article class="card post">
+
+        <img
+            src="sports2.jpg"
+            alt="Sports News"
+        >
+
+        <div class="card-content">
+
+            <h3>
+                🏏 Cricket Latest News
+            </h3>
+
+            <p>
+                తాజా Cricket News మరియు Sports updates
+                ఇక్కడ అందిస్తాము.
+            </p>
+
+            <div class="date">
+                📅 August 6, 2026
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+
+<!-- ================= MOVIES ================= -->
+
+<section class="section" id="movies">
+
+    <div class="section-title">
+
+        <h2>
+            🎬 Movies
+        </h2>
+
+    </div>
+
+
+    <!-- MOVIE 1 -->
+
+    <article class="card post">
+
+        <img
+            src="movie1.jpg"
+            alt="Movie News"
+        >
+
+        <div class="card-content">
+
+            <h3>
+                🎬 Latest Movie Update
+            </h3>
+
+            <p>
+                కొత్త సినిమాల విడుదలలు, హీరోలు, హీరోయిన్లు
+                మరియు సినిమా updates ఇక్కడ అందిస్తాము.
+            </p>
+
+            <div class="date">
+                📅 August 6, 2026
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- MOVIE 2 -->
+
+    <article class="card post">
+
+        <img
+            src="movie2.jpg"
+            alt="Movie News"
+        >
+
+        <div class="card-content">
+
+            <h3>
+                ⭐ New Movie News
+            </h3>
+
+            <p>
+                తాజా సినిమా News మరియు Entertainment
+                updates ఇక్కడ అందిస్తాము.
+            </p>
+
+            <div class="date">
+                📅 August 6, 2026
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <h2>
+        ℹ️ About Suresh 360 Media
+    </h2>
+
+    <p>
+        <strong>Suresh 360 Media</strong>లో Latest News,
+        Sports మరియు Movies updates అందించబడతాయి.
+    </p>
+
+    <p>
+        తాజా సమాచారం కోసం మా websiteని visit చేయండి.
+    </p>
+
+</section>
+
 
 </main>
-  
-<footer>
-  <strong>SURESH 360 MEDIA</strong>
-  <br><br>
-  News • Sports • Movies • Entertainment
-  <br><br>
-  © 2026 Suresh 360 Media. All Rights Reserved.
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Suresh 360 Media
+    </p>
+
+    <p>
+        News • Sports • Movies
+    </p>
+
 </footer>
+
+
+
+<!-- SEARCH SCRIPT -->
 
 <script>
 
-function showCategory(category,btn){
-
-  document.querySelectorAll("nav button")
-  .forEach(b=>b.classList.remove("active"));
-
-  btn.classList.add("active");
-
-  document.querySelectorAll(".card").forEach(card=>{
-
-    if(category==="all" || card.dataset.category===category){
-      card.style.display="block";
-    }else{
-      card.style.display="none";
-    }
-
-  });
-}
-
 function searchNews(){
 
-  let value=document
-  .getElementById("searchBox")
-  .value
-  .toLowerCase();
+    let value =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
 
-  document.querySelectorAll(".card").forEach(card=>{
+    let posts =
+        document.querySelectorAll(".post");
 
-    let text=card.innerText.toLowerCase();
 
-    card.style.display =
-      text.includes(value) ? "block" : "none";
+    posts.forEach(function(post){
 
-  });
-}
+        let content =
+            post.innerText.toLowerCase();
 
-function shareNews(text){
 
-  if(navigator.share){
+        if(content.includes(value)){
 
-    navigator.share({
-      title:"Suresh 360 Media",
-      text:text,
-      url:window.location.href
+            post.style.display = "block";
+
+        }else{
+
+            post.style.display = "none";
+
+        }
+
     });
 
-  }else{
-
-    navigator.clipboard.writeText(
-      text+" "+window.location.href
-    );
-
-    alert("Link copied!");
-
-  }
 }
 
 </script>
+
 
 </body>
 </html>
