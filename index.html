@@ -1,178 +1,326 @@
 <!DOCTYPE html>
 <html lang="te">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Suresh 360 Media</title>
+<title>Suresh 360 Media</title>
 
-    <link rel="stylesheet" href="style.css">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f1f3f6;
+  color:#222;
+}
+
+/* HEADER */
+header{
+  background:#111827;
+  color:white;
+  padding:18px 12px;
+  text-align:center;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ef4444;
+}
+
+.tagline{
+  margin-top:5px;
+  font-size:13px;
+  color:#d1d5db;
+}
+
+/* NAVIGATION */
+nav{
+  background:white;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:10px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 8px #0002;
+}
+
+nav button{
+  border:0;
+  background:#eee;
+  padding:9px 14px;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+nav button:hover{
+  background:#ef4444;
+  color:white;
+}
+
+/* BREAKING NEWS */
+.breaking{
+  background:#dc2626;
+  color:white;
+  padding:10px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.breaking b{
+  background:#111827;
+  padding:6px 9px;
+  margin-right:8px;
+}
+
+/* MAIN */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:15px;
+}
+
+.section-title{
+  font-size:22px;
+  font-weight:bold;
+  margin:10px 0 15px;
+  border-left:5px solid #ef4444;
+  padding-left:10px;
+}
+
+/* POST */
+.post{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:20px;
+  box-shadow:0 3px 12px #0001;
+}
+
+.post img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+}
+
+.post-content{
+  padding:15px;
+}
+
+.category{
+  display:inline-block;
+  background:#ef4444;
+  color:white;
+  padding:5px 9px;
+  border-radius:5px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.post h2{
+  font-size:21px;
+  line-height:1.4;
+  margin-bottom:8px;
+}
+
+.post p{
+  color:#666;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.read{
+  display:inline-block;
+  margin-top:12px;
+  background:#111827;
+  color:white;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+.read:hover{
+  background:#ef4444;
+}
+
+/* FOOTER */
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px 10px;
+  margin-top:30px;
+}
+
+footer p{
+  font-size:13px;
+  color:#cbd5e1;
+  margin-top:6px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .logo{
+    font-size:24px;
+  }
+
+  nav{
+    overflow-x:auto;
+    justify-content:flex-start;
+  }
+
+  nav button{
+    white-space:nowrap;
+  }
+
+  .post img{
+    height:200px;
+  }
+
+  .post h2{
+    font-size:19px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <h1>Suresh 360 Media</h1>
-        <p>తెలుగు వార్తలు • Movies • Sports • Trending</p>
-    </header>
+<!-- HEADER -->
+<header>
+  <div class="logo">Suresh <span>360</span> Media</div>
+  <div class="tagline">News • Sports • Movies • Entertainment</div>
+</header>
+
+<!-- MENU -->
+<nav>
+  <button onclick="showAll()">Home</button>
+  <button onclick="filterPosts('news')">News</button>
+  <button onclick="filterPosts('sports')">Sports</button>
+  <button onclick="filterPosts('movies')">Movies</button>
+</nav>
+
+<!-- BREAKING NEWS -->
+<div class="breaking">
+  <b>BREAKING</b>
+  <span> Suresh 360 Media — Latest Updates Here</span>
+</div>
+
+<!-- POSTS -->
+<div class="container">
+
+  <div class="section-title">Latest News</div>
+
+  <!-- NEWS POST 1 -->
+  <article class="post" data-category="news">
+    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="post-content">
+      <span class="category">NEWS</span>
+
+      <h2>తాజా వార్తలు.. ముఖ్యమైన అప్‌డేట్స్ మీకోసం</h2>
+
+      <p>
+        దేశంలో, రాష్ట్రంలో జరుగుతున్న తాజా పరిణామాలు,
+        ముఖ్యమైన వార్తలను Suresh 360 Media ద్వారా తెలుసుకోండి.
+      </p>
+
+      <a class="read" href="news1.html">Read More →</a>
+    </div>
+  </article>
 
 
-    <!-- MENU -->
-    <nav class="menu">
-        <a href="index.html">Home</a>
-        <a href="#latest">Latest News</a>
-        <a href="#movies">Movies</a>
-        <a href="#sports">Sports</a>
-        <a href="#trending">Trending</a>
-    </nav>
+  <!-- SPORTS POST -->
+  <article class="post" data-category="sports">
+    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="post-content">
+      <span class="category">SPORTS</span>
+
+      <h2>క్రికెట్‌లో మరో ఆసక్తికరమైన అప్‌డేట్</h2>
+
+      <p>
+        క్రికెట్ ప్రపంచంలోని తాజా వార్తలు, మ్యాచ్ అప్‌డేట్స్,
+        ప్లేయర్లకు సంబంధించిన ముఖ్యమైన సమాచారం.
+      </p>
+
+      <a class="read" href="sports1.html">Read More →</a>
+    </div>
+  </article>
 
 
-    <!-- MAIN CONTENT -->
-    <main>
+  <!-- MOVIE POST -->
+  <article class="post" data-category="movies">
+    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80">
 
-        <!-- LATEST NEWS -->
-        <section id="latest">
+    <div class="post-content">
+      <span class="category">MOVIES</span>
 
-            <h2 class="section-title">Latest News</h2>
+      <h2>సినిమా ఇండస్ట్రీలో తాజా అప్‌డేట్స్</h2>
 
+      <p>
+        కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు, మూవీ అప్‌డేట్స్
+        మరియు ఎంటర్‌టైన్‌మెంట్ వార్తలు.
+      </p>
 
-            <!-- NEWS POST 1 -->
-            <article class="news-card">
+      <a class="read" href="movie1.html">Read More →</a>
+    </div>
+  </article>
 
-                <img src="varanasi.jpg" alt="Varanasi Movie">
+</div>
 
-                <div class="news-content">
-
-                    <span class="category">MOVIES</span>
-
-                    <h2>
-                        వారణాసి సినిమాపై వైరల్ అవుతున్న వార్తలు
-                    </h2>
-
-                    <p>
-                        మహేష్ బాబు నటిస్తున్న వారణాసి సినిమాపై సోషల్ మీడియాలో
-                        ఆసక్తికరమైన వార్తలు వైరల్ అవుతున్నాయి.
-                    </p>
-
-                    <a href="varanasi.html" class="read-more">
-                        Read More →
-                    </a>
-
-                </div>
-
-            </article>
+<!-- FOOTER -->
+<footer>
+  <strong>Suresh 360 Media</strong>
+  <p>News • Sports • Movies • Entertainment</p>
+  <p>© 2026 Suresh 360 Media</p>
+</footer>
 
 
-            <!-- NEWS POST 2 -->
-            <article class="news-card">
+<script>
 
-                <img src="sports1.jpg" alt="Sports News">
+function filterPosts(category){
 
-                <div class="news-content">
+  let posts = document.querySelectorAll(".post");
 
-                    <span class="category">SPORTS</span>
+  posts.forEach(function(post){
 
-                    <h2>
-                        క్రికెట్‌లో అదిరిపోయే పెర్ఫార్మెన్స్
-                    </h2>
+    if(post.dataset.category === category){
+      post.style.display = "block";
+    }else{
+      post.style.display = "none";
+    }
 
-                    <p>
-                        మ్యాచ్‌లో అద్భుతమైన ప్రదర్శనతో ఆటగాళ్లు
-                        అభిమానులను ఆకట్టుకున్నారు.
-                    </p>
+  });
 
-                    <a href="sports1.html" class="read-more">
-                        Read More →
-                    </a>
+}
 
-                </div>
+function showAll(){
 
-            </article>
+  let posts = document.querySelectorAll(".post");
 
+  posts.forEach(function(post){
+    post.style.display = "block";
+  });
 
-            <!-- NEWS POST 3 -->
-            <article class="news-card">
+}
 
-                <img src="trending1.jpg" alt="Trending News">
-
-                <div class="news-content">
-
-                    <span class="category">TRENDING</span>
-
-                    <h2>
-                        సోషల్ మీడియాలో వైరల్‌గా మారిన తాజా వార్త
-                    </h2>
-
-                    <p>
-                        ఈ వార్త ప్రస్తుతం సోషల్ మీడియాలో ట్రెండింగ్‌గా మారింది.
-                    </p>
-
-                    <a href="trending1.html" class="read-more">
-                        Read More →
-                    </a>
-
-                </div>
-
-            </article>
-
-        </section>
-
-
-        <!-- MOVIES -->
-        <section id="movies">
-
-            <h2 class="section-title">🎬 Movies</h2>
-
-            <p>
-                Latest Telugu movie news and updates.
-            </p>
-
-        </section>
-
-
-        <!-- SPORTS -->
-        <section id="sports">
-
-            <h2 class="section-title">🏏 Sports</h2>
-
-            <p>
-                Cricket and sports latest updates.
-            </p>
-
-        </section>
-
-
-        <!-- TRENDING -->
-        <section id="trending">
-
-            <h2 class="section-title">🔥 Trending</h2>
-
-            <p>
-                Trending news and viral updates.
-            </p>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <h3>Suresh 360 Media</h3>
-
-        <p>
-            Latest Telugu News, Movies, Sports & Trending Updates
-        </p>
-
-        <p>
-            © 2026 Suresh 360 Media
-        </p>
-
-    </footer>
+</script>
 
 </body>
-
 </html>
