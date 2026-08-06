@@ -15,305 +15,185 @@
 
 body{
   font-family:Arial,sans-serif;
-  background:#f3f4f6;
-  color:#111827;
+  background:#f1f3f6;
+  color:#222;
 }
 
 /* HEADER */
 header{
-  background:linear-gradient(135deg,#111827,#dc2626);
+  background:#111827;
   color:white;
-  padding:20px 15px;
-  box-shadow:0 3px 12px #0003;
-}
-
-.top{
-  max-width:1100px;
-  margin:auto;
+  padding:18px 12px;
   text-align:center;
 }
 
 .logo{
-  font-size:29px;
-  font-weight:900;
+  font-size:28px;
+  font-weight:bold;
 }
 
 .logo span{
-  color:#ffd700;
+  color:#ef4444;
 }
 
-.tag{
+.tagline{
   margin-top:5px;
   font-size:13px;
-  color:#eee;
+  color:#d1d5db;
 }
 
-/* SEARCH */
-.search{
-  max-width:700px;
-  margin:18px auto 0;
-  display:flex;
-}
-
-.search input{
-  width:100%;
-  padding:13px;
-  border:0;
-  outline:none;
-  font-size:15px;
-  border-radius:9px 0 0 9px;
-}
-
-.search button{
-  border:0;
-  padding:0 18px;
-  background:#ffd700;
-  font-size:18px;
-  border-radius:0 9px 9px 0;
-}
-
-/* NAV */
+/* NAVIGATION */
 nav{
   background:white;
   display:flex;
   justify-content:center;
   gap:8px;
-  padding:11px;
-  overflow-x:auto;
+  padding:10px;
   position:sticky;
   top:0;
-  z-index:50;
+  z-index:10;
   box-shadow:0 2px 8px #0002;
 }
 
 nav button{
   border:0;
-  background:#f1f5f9;
-  padding:10px 17px;
-  border-radius:25px;
+  background:#eee;
+  padding:9px 14px;
+  border-radius:20px;
   font-weight:bold;
-  white-space:nowrap;
   cursor:pointer;
 }
 
-nav button.active,
 nav button:hover{
+  background:#ef4444;
+  color:white;
+}
+
+/* BREAKING NEWS */
+.breaking{
   background:#dc2626;
   color:white;
+  padding:10px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.breaking b{
+  background:#111827;
+  padding:6px 9px;
+  margin-right:8px;
 }
 
 /* MAIN */
 .container{
-  max-width:1100px;
+  max-width:900px;
   margin:auto;
-  padding:18px 12px;
+  padding:15px;
 }
 
-/* BREAKING */
-.breaking{
-  background:#111827;
-  color:white;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:20px;
-  overflow:hidden;
-}
-
-.breaking b{
-  background:#dc2626;
-  padding:7px 10px;
-  border-radius:6px;
-  margin-right:7px;
-}
-
-/* TITLE */
 .section-title{
-  font-size:23px;
-  margin:20px 0 14px;
-  border-left:5px solid #dc2626;
+  font-size:22px;
+  font-weight:bold;
+  margin:10px 0 15px;
+  border-left:5px solid #ef4444;
   padding-left:10px;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-/* CARD */
-.card{
+/* POST */
+.post{
   background:white;
-  border-radius:14px;
+  border-radius:12px;
   overflow:hidden;
+  margin-bottom:20px;
   box-shadow:0 3px 12px #0001;
-  transition:.2s;
 }
 
-.card:hover{
-  transform:translateY(-3px);
-}
-
-.card img{
+.post img{
   width:100%;
-  height:200px;
+  height:230px;
   object-fit:cover;
   display:block;
 }
 
-.content{
+.post-content{
   padding:15px;
 }
 
 .category{
   display:inline-block;
-  color:#dc2626;
+  background:#ef4444;
+  color:white;
+  padding:5px 9px;
+  border-radius:5px;
   font-size:12px;
   font-weight:bold;
+  margin-bottom:8px;
 }
 
-h3{
-  margin:8px 0;
-  font-size:19px;
+.post h2{
+  font-size:21px;
   line-height:1.4;
+  margin-bottom:8px;
 }
 
-.description{
-  color:#555;
-  font-size:14px;
+.post p{
+  color:#666;
   line-height:1.6;
-}
-
-/* BUTTONS */
-.read,
-.share{
-  width:100%;
-  padding:11px;
-  margin-top:11px;
-  border:0;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
+  font-size:14px;
 }
 
 .read{
+  display:inline-block;
+  margin-top:12px;
   background:#111827;
   color:white;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:6px;
+  font-weight:bold;
 }
 
 .read:hover{
-  background:#dc2626;
-}
-
-.share{
-  background:#22c55e;
-  color:white;
-}
-
-/* NO RESULTS */
-.no-results{
-  display:none;
-  text-align:center;
-  background:white;
-  padding:30px;
-  border-radius:12px;
-  color:#666;
-}
-
-/* ARTICLE VIEW */
-.article-view{
-  display:none;
-  background:white;
-  border-radius:14px;
-  padding:18px;
-  box-shadow:0 3px 12px #0001;
-}
-
-.article-view img{
-  width:100%;
-  max-height:450px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-bottom:15px;
-}
-
-.article-category{
-  color:#dc2626;
-  font-weight:bold;
-  font-size:13px;
-}
-
-.article-view h1{
-  font-size:28px;
-  line-height:1.4;
-  margin:8px 0 15px;
-}
-
-.article-text{
-  color:#444;
-  font-size:16px;
-  line-height:1.8;
-}
-
-.back{
-  border:0;
-  background:#111827;
-  color:white;
-  padding:11px 18px;
-  border-radius:8px;
-  margin-bottom:15px;
-  font-weight:bold;
-  cursor:pointer;
+  background:#ef4444;
 }
 
 /* FOOTER */
 footer{
-  margin-top:35px;
   background:#111827;
   color:white;
   text-align:center;
-  padding:28px 15px;
-}
-
-footer strong{
-  color:#ffd700;
+  padding:25px 10px;
+  margin-top:30px;
 }
 
 footer p{
-  margin-top:8px;
-  color:#bbb;
   font-size:13px;
+  color:#cbd5e1;
+  margin-top:6px;
 }
 
 /* MOBILE */
-@media(max-width:750px){
+@media(max-width:600px){
 
   .logo{
     font-size:24px;
   }
 
   nav{
+    overflow-x:auto;
     justify-content:flex-start;
   }
 
-  .grid{
-    grid-template-columns:1fr;
+  nav button{
+    white-space:nowrap;
   }
 
-  .card img{
-    height:210px;
+  .post img{
+    height:200px;
   }
 
-  .section-title{
-    font-size:21px;
-  }
-
-  .article-view h1{
-    font-size:23px;
-  }
-
-  .article-text{
-    font-size:15px;
+  .post h2{
+    font-size:19px;
   }
 }
 </style>
@@ -323,484 +203,120 @@ footer p{
 
 <!-- HEADER -->
 <header>
-
-  <div class="top">
-
-    <div class="logo">
-      SURESH <span>360</span> MEDIA
-    </div>
-
-    <div class="tag">
-      News • Sports • Movies • Entertainment
-    </div>
-
-  </div>
-
-  <!-- SEARCH -->
-  <div class="search">
-
-    <input
-      id="searchBox"
-      type="text"
-      placeholder="వార్తలు Search చేయండి..."
-      onkeyup="searchNews()"
-    >
-
-    <button onclick="searchNews()">🔎</button>
-
-  </div>
-
+  <div class="logo">Suresh <span>360</span> Media</div>
+  <div class="tagline">News • Sports • Movies • Entertainment</div>
 </header>
 
-
-<!-- NAVIGATION -->
+<!-- MENU -->
 <nav>
-
-  <button class="active"
-    onclick="showCategory('all',this)">
-    🏠 All
-  </button>
-
-  <button
-    onclick="showCategory('news',this)">
-    📰 News
-  </button>
-
-  <button
-    onclick="showCategory('sports',this)">
-    🏏 Sports
-  </button>
-
-  <button
-    onclick="showCategory('movies',this)">
-    🎬 Movies
-  </button>
-
+  <button onclick="showAll()">Home</button>
+  <button onclick="filterPosts('news')">News</button>
+  <button onclick="filterPosts('sports')">Sports</button>
+  <button onclick="filterPosts('movies')">Movies</button>
 </nav>
 
+<!-- BREAKING NEWS -->
+<div class="breaking">
+  <b>BREAKING</b>
+  <span> Suresh 360 Media — Latest Updates Here</span>
+</div>
 
-<main class="container">
+<!-- POSTS -->
+<div class="container">
 
-  <!-- BREAKING -->
-  <div class="breaking">
+  <div class="section-title">Latest News</div>
 
-    <b>BREAKING</b>
+  <!-- NEWS POST 1 -->
+  <article class="post" data-category="news">
+    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80">
 
-    తాజా వార్తలు ఎప్పటికప్పుడు
-    Suresh 360 Mediaలో...
+    <div class="post-content">
+      <span class="category">NEWS</span>
 
-  </div>
+      <h2>తాజా వార్తలు.. ముఖ్యమైన అప్‌డేట్స్ మీకోసం</h2>
 
+      <p>
+        దేశంలో, రాష్ట్రంలో జరుగుతున్న తాజా పరిణామాలు,
+        ముఖ్యమైన వార్తలను Suresh 360 Media ద్వారా తెలుసుకోండి.
+      </p>
 
-  <!-- HOME POSTS -->
-  <div id="homePage">
-
-    <h2 class="section-title">
-      🔥 Latest Updates
-    </h2>
-
-    <div class="grid" id="newsGrid">
-
-
-      <!-- NEWS POST -->
-      <article class="card" data-category="news">
-
-        <img
-          src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1000&q=80"
-          alt="News"
-        >
-
-        <div class="content">
-
-          <div class="category">
-            📰 NEWS
-          </div>
-
-          <h3>
-            తాజా వార్తలు మీ కోసం ఇక్కడే
-          </h3>
-
-          <p class="description">
-            దేశం, రాష్ట్రం మరియు ప్రపంచంలోని
-            ముఖ్యమైన వార్తలను తెలుసుకోండి.
-          </p>
-
-          <button
-            class="read"
-            onclick="openArticle(
-              'news'
-            )">
-            Read More →
-          </button>
-
-          <button
-            class="share"
-            onclick="shareNews(
-              'తాజా వార్తలు - Suresh 360 Media'
-            )">
-            📲 Share
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- SPORTS POST -->
-      <article class="card" data-category="sports">
-
-        <img
-          src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1000&q=80"
-          alt="Cricket"
-        >
-
-        <div class="content">
-
-          <div class="category">
-            🏏 SPORTS
-          </div>
-
-          <h3>
-            Cricket తాజా Updates
-          </h3>
-
-          <p class="description">
-            క్రికెట్ మ్యాచ్‌లు, ఆటగాళ్ల వార్తలు
-            మరియు ముఖ్యమైన Updates.
-          </p>
-
-          <button
-            class="read"
-            onclick="openArticle(
-              'sports'
-            )">
-            Read More →
-          </button>
-
-          <button
-            class="share"
-            onclick="shareNews(
-              'Cricket Latest Updates - Suresh 360 Media'
-            )">
-            📲 Share
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- MOVIES POST -->
-      <article class="card" data-category="movies">
-
-        <img
-          src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1000&q=80"
-          alt="Movies"
-        >
-
-        <div class="content">
-
-          <div class="category">
-            🎬 MOVIES
-          </div>
-
-          <h3>
-            సినిమా ప్రపంచం Latest News
-          </h3>
-
-          <p class="description">
-            కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు
-            మరియు సినిమా Updates.
-          </p>
-
-          <button
-            class="read"
-            onclick="openArticle(
-              'movies'
-            )">
-            Read More →
-          </button>
-
-          <button
-            class="share"
-            onclick="shareNews(
-              'Movies Latest News - Suresh 360 Media'
-            )">
-            📲 Share
-          </button>
-
-        </div>
-
-      </article>
+      <a class="read" href="news1.html">Read More →</a>
     </div>
+  </article>
 
-  </div>
 
+  <!-- SPORTS POST -->
+  <article class="post" data-category="sports">
+    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80">
 
-  <!-- ARTICLE PAGE -->
-  <div class="article-view" id="articleView">
+    <div class="post-content">
+      <span class="category">SPORTS</span>
 
-    <button class="back" onclick="backHome()">
-      ← Back
-    </button>
+      <h2>క్రికెట్‌లో మరో ఆసక్తికరమైన అప్‌డేట్</h2>
 
-    <img id="articleImage" src="" alt="Article">
+      <p>
+        క్రికెట్ ప్రపంచంలోని తాజా వార్తలు, మ్యాచ్ అప్‌డేట్స్,
+        ప్లేయర్లకు సంబంధించిన ముఖ్యమైన సమాచారం.
+      </p>
 
-    <div class="article-category" id="articleCategory">
+      <a class="read" href="sports1.html">Read More →</a>
     </div>
+  </article>
 
-    <h1 id="articleTitle">
-    </h1>
 
-    <div class="article-text" id="articleText">
+  <!-- MOVIE POST -->
+  <article class="post" data-category="movies">
+    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80">
+
+    <div class="post-content">
+      <span class="category">MOVIES</span>
+
+      <h2>సినిమా ఇండస్ట్రీలో తాజా అప్‌డేట్స్</h2>
+
+      <p>
+        కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు, మూవీ అప్‌డేట్స్
+        మరియు ఎంటర్‌టైన్‌మెంట్ వార్తలు.
+      </p>
+
+      <a class="read" href="movie1.html">Read More →</a>
     </div>
+  </article>
 
-    <button
-      class="share"
-      onclick="shareArticle()">
-      📲 Share This News
-    </button>
-
-  </div>
-
-</main>
-
+</div>
 
 <!-- FOOTER -->
 <footer>
-
-  <strong>
-    SURESH 360 MEDIA
-  </strong>
-
-  <p>
-    News • Sports • Movies • Entertainment
-  </p>
-
-  <p>
-    © 2026 Suresh 360 Media. All Rights Reserved.
-  </p>
-
+  <strong>Suresh 360 Media</strong>
+  <p>News • Sports • Movies • Entertainment</p>
+  <p>© 2026 Suresh 360 Media</p>
 </footer>
 
 
 <script>
 
-/* ARTICLE DATA */
+function filterPosts(category){
 
-const articles = {
+  let posts = document.querySelectorAll(".post");
 
-  news: {
+  posts.forEach(function(post){
 
-    category:"📰 NEWS",
+    if(post.dataset.category === category){
+      post.style.display = "block";
+    }else{
+      post.style.display = "none";
+    }
 
-    title:"తాజా వార్తలు మీ కోసం ఇక్కడే",
-
-    image:
-    "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80",
-
-    text:
-    "దేశం, రాష్ట్రం మరియు ప్రపంచంలోని ముఖ్యమైన వార్తలను Suresh 360 Media ద్వారా తెలుసుకోండి. తాజా పరిణామాలు, ముఖ్యమైన అప్‌డేట్స్ మరియు ప్రజలకు ఉపయోగపడే సమాచారాన్ని ఎప్పటికప్పుడు అందించడమే మా లక్ష్యం."
-  },
-
-
-  sports: {
-
-    category:"🏏 SPORTS",
-
-    title:"Cricket తాజా Updates",
-
-    image:
-    "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80",
-
-    text:
-    "క్రికెట్ మ్యాచ్‌లు, ఆటగాళ్ల ప్రదర్శనలు, ముఖ్యమైన రికార్డులు మరియు స్పోర్ట్స్ ప్రపంచంలోని తాజా Updates గురించి తెలుసుకోండి. క్రికెట్ అభిమానుల కోసం ముఖ్యమైన సమాచారాన్ని ఇక్కడ అందిస్తున్నాం."
-  },
-
-
-  movies: {
-
-    category:"🎬 MOVIES",
-
-    title:"సినిమా ప్రపంచం Latest News",
-
-    image:
-    "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80",
-
-    text:
-    "కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు, మూవీ అప్‌డేట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ ప్రపంచంలోని తాజా విషయాలను ఇక్కడ తెలుసుకోండి."
-  }
-
-};
-
-
-/* CATEGORY FILTER */
-
-function showCategory(category,btn){
-
-  document
-    .querySelectorAll("nav button")
-    .forEach(function(b){
-      b.classList.remove("active");
-    });
-
-  btn.classList.add("active");
-
-  document
-    .querySelectorAll(".card")
-    .forEach(function(card){
-
-      if(
-        category==="all" ||
-        card.dataset.category===category
-      ){
-
-        card.style.display="block";
-
-      }else{
-
-        card.style.display="none";
-
-      }
-
-    });
-
-  document.getElementById("noResults")
-    .style.display="none";
-
-}
-
-
-/* SEARCH */
-
-function searchNews(){
-
-  let value=
-    document
-    .getElementById("searchBox")
-    .value
-    .toLowerCase()
-    .trim();
-
-  let visible=0;
-
-  document
-    .querySelectorAll(".card")
-    .forEach(function(card){
-
-      let text=
-        card.innerText.toLowerCase();
-
-      if(text.includes(value)){
-
-        card.style.display="block";
-        visible++;
-
-      }else{
-
-        card.style.display="none";
-
-      }
-
-    });
-
-
-  document.getElementById("noResults")
-    .style.display =
-      visible===0 ? "block" : "none";
-
-}
-
-
-/* OPEN ARTICLE */
-
-function openArticle(type){
-
-  let article=articles[type];
-
-  document.getElementById("homePage")
-    .style.display="none";
-
-  document.getElementById("articleView")
-    .style.display="block";
-
-  document.getElementById("articleImage")
-    .src=article.image;
-
-  document.getElementById("articleCategory")
-    .innerText=article.category;
-
-  document.getElementById("articleTitle")
-    .innerText=article.title;
-
-  document.getElementById("articleText")
-    .innerText=article.text;
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
   });
 
 }
 
+function showAll(){
 
-/* BACK HOME */
+  let posts = document.querySelectorAll(".post");
 
-function backHome(){
-
-  document.getElementById("articleView")
-    .style.display="none";
-
-  document.getElementById("homePage")
-    .style.display="block";
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
+  posts.forEach(function(post){
+    post.style.display = "block";
   });
-
-}
-
-
-/* SHARE */
-
-function shareNews(text){
-
-  let url=window.location.href;
-
-  if(navigator.share){
-
-    navigator.share({
-
-      title:"Suresh 360 Media",
-
-      text:text,
-
-      url:url
-
-    });
-
-  }else{
-
-    navigator.clipboard
-      .writeText(text+" "+url);
-
-    alert("Link copied!");
-
-  }
-
-}
-
-
-/* SHARE ARTICLE */
-
-function shareArticle(){
-
-  let title=
-    document.getElementById("articleTitle")
-    .innerText;
-
-  shareNews(title);
 
 }
 
