@@ -6,7 +6,6 @@
 
 <title>Suresh 360 Media</title>
 
-  
 <style>
 *{
   margin:0;
@@ -56,7 +55,6 @@ nav{
   box-shadow:0 2px 8px #0002;
 }
 
-  
 nav button{
   border:0;
   background:#eee;
@@ -69,6 +67,28 @@ nav button{
 nav button:hover{
   background:#ef4444;
   color:white;
+}
+
+/* SEARCH */
+.search-box{
+  max-width:900px;
+  margin:15px auto 5px;
+  padding:0 15px;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px 18px;
+  border:1px solid #ddd;
+  border-radius:30px;
+  font-size:15px;
+  outline:none;
+  background:white;
+  box-shadow:0 2px 8px #0001;
+}
+
+.search-box input:focus{
+  border-color:#ef4444;
 }
 
 /* BREAKING NEWS */
@@ -159,6 +179,19 @@ nav button:hover{
   background:#ef4444;
 }
 
+/* NO RESULTS */
+.no-results{
+  display:none;
+  background:white;
+  padding:30px 15px;
+  text-align:center;
+  border-radius:12px;
+  color:#666;
+  margin-bottom:20px;
+  box-shadow:0 3px 12px #0001;
+  font-size:16px;
+}
+
 /* FOOTER */
 footer{
   background:#111827;
@@ -217,10 +250,20 @@ footer p{
   <button onclick="filterPosts('movies')">Movies</button>
 </nav>
 
+<!-- SEARCH -->
+<div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="🔍 Search News, Sports, Movies..."
+    onkeyup="searchPosts()"
+  >
+</div>
+
 <!-- BREAKING NEWS -->
 <div class="breaking">
   <b>BREAKING</b>
-  <span> Suresh 360 Media — Latest Updates Here</span>
+  <span>Suresh 360 Media — Latest Updates Here</span>
 </div>
 
 <!-- POSTS -->
@@ -230,9 +273,11 @@ footer p{
 
   <!-- NEWS POST 1 -->
   <article class="post" data-category="news">
+
     <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80">
 
     <div class="post-content">
+
       <span class="category">NEWS</span>
 
       <h2>తాజా వార్తలు.. ముఖ్యమైన అప్‌డేట్స్ మీకోసం</h2>
@@ -242,16 +287,21 @@ footer p{
         ముఖ్యమైన వార్తలను Suresh 360 Media ద్వారా తెలుసుకోండి.
       </p>
 
-      <a class="read" href="news1.html">Read More →</a>
+      <a class="read" href="news1.html">
+        Read More →
+      </a>
+
     </div>
   </article>
 
 
   <!-- SPORTS POST -->
   <article class="post" data-category="sports">
+
     <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80">
 
     <div class="post-content">
+
       <span class="category">SPORTS</span>
 
       <h2>క్రికెట్‌లో మరో ఆసక్తికరమైన అప్‌డేట్</h2>
@@ -261,16 +311,21 @@ footer p{
         ప్లేయర్లకు సంబంధించిన ముఖ్యమైన సమాచారం.
       </p>
 
-      <a class="read" href="sports1.html">Read More →</a>
+      <a class="read" href="sports1.html">
+        Read More →
+      </a>
+
     </div>
   </article>
 
 
   <!-- MOVIE POST -->
   <article class="post" data-category="movies">
+
     <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80">
 
     <div class="post-content">
+
       <span class="category">MOVIES</span>
 
       <h2>సినిమా ఇండస్ట్రీలో తాజా అప్‌డేట్స్</h2>
@@ -280,45 +335,146 @@ footer p{
         మరియు ఎంటర్‌టైన్‌మెంట్ వార్తలు.
       </p>
 
-      <a class="read" href="movie1.html">Read More →</a>
+      <a class="read" href="movie1.html">
+        Read More →
+      </a>
+
     </div>
   </article>
+
+
+  <!-- NO RESULTS -->
+  <div class="no-results" id="noResults">
+    😔 News ఏమీ కనిపించలేదు.
+  </div>
 
 </div>
 
 <!-- FOOTER -->
 <footer>
+
   <strong>Suresh 360 Media</strong>
-  <p>News • Sports • Movies • Entertainment</p>
-  <p>© 2026 Suresh 360 Media</p>
+
+  <p>
+    News • Sports • Movies • Entertainment
+  </p>
+
+  <p>
+    © 2026 Suresh 360 Media
+  </p>
+
 </footer>
 
 
 <script>
 
-function filterPosts(category){
-
-  let posts = document.querySelectorAll(".post");
-
-  posts.forEach(function(post){
-
-    if(post.dataset.category === category){
-      post.style.display = "block";
-    }else{
-      post.style.display = "none";
-    }
-
-  });
-
-}
-
+/* SHOW ALL */
 function showAll(){
+
+  document.getElementById("searchInput").value = "";
 
   let posts = document.querySelectorAll(".post");
 
   posts.forEach(function(post){
     post.style.display = "block";
   });
+
+  document.getElementById("noResults").style.display = "none";
+}
+
+
+/* CATEGORY FILTER */
+function filterPosts(category){
+
+  document.getElementById("searchInput").value = "";
+
+  let posts = document.querySelectorAll(".post");
+
+  let found = false;
+
+  posts.forEach(function(post){
+
+    if(post.dataset.category === category){
+
+      post.style.display = "block";
+      found = true;
+
+    }else{
+
+      post.style.display = "none";
+
+    }
+
+  });
+
+  if(found){
+
+    document.getElementById("noResults").style.display = "none";
+
+  }else{
+
+    document.getElementById("noResults").style.display = "block";
+
+  }
+
+}
+
+
+/* SEARCH */
+function searchPosts(){
+
+  let input = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+  let posts = document.querySelectorAll(".post");
+
+  let found = false;
+
+  posts.forEach(function(post){
+
+    let text = post.innerText.toLowerCase();
+
+    if(text.includes(input)){
+
+      post.style.display = "block";
+      found = true;
+
+    }else{
+
+      post.style.display = "none";
+
+    }
+
+  });
+
+
+  /* EMPTY SEARCH */
+  if(input === ""){
+
+    posts.forEach(function(post){
+      post.style.display = "block";
+    });
+
+    document.getElementById("noResults").style.display = "none";
+
+    return;
+
+  }
+
+
+  /* NO RESULTS */
+  if(found){
+
+    document.getElementById("noResults").style.display = "none";
+
+  }else{
+
+    document.getElementById("noResults").style.display = "block";
+
+  }
 
 }
 
