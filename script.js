@@ -31,7 +31,7 @@ const posts = [
         date: "August 7, 2026",
         snippet: "ఇక్కడ చిన్న వివరణ రాయండి...",
         fullContent: "ఇక్కడ పూర్తి వార్త లేదా వ్యాసం రాయండి..."
-}
+},
 ];
 
 // Load Posts Dynamic గా జనరేట్ చేయడం
