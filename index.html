@@ -1,326 +1,105 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Suresh 360 Media</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#f1f3f6;
-  color:#222;
-}
-
-/* HEADER */
-header{
-  background:#111827;
-  color:white;
-  padding:18px 12px;
-  text-align:center;
-}
-
-.logo{
-  font-size:28px;
-  font-weight:bold;
-}
-
-.logo span{
-  color:#ef4444;
-}
-
-.tagline{
-  margin-top:5px;
-  font-size:13px;
-  color:#d1d5db;
-}
-
-/* NAVIGATION */
-nav{
-  background:white;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  padding:10px;
-  position:sticky;
-  top:0;
-  z-index:10;
-  box-shadow:0 2px 8px #0002;
-}
-
-nav button{
-  border:0;
-  background:#eee;
-  padding:9px 14px;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-nav button:hover{
-  background:#ef4444;
-  color:white;
-}
-
-/* BREAKING NEWS */
-.breaking{
-  background:#dc2626;
-  color:white;
-  padding:10px;
-  overflow:hidden;
-  white-space:nowrap;
-}
-
-.breaking b{
-  background:#111827;
-  padding:6px 9px;
-  margin-right:8px;
-}
-
-/* MAIN */
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:15px;
-}
-
-.section-title{
-  font-size:22px;
-  font-weight:bold;
-  margin:10px 0 15px;
-  border-left:5px solid #ef4444;
-  padding-left:10px;
-}
-
-/* POST */
-.post{
-  background:white;
-  border-radius:12px;
-  overflow:hidden;
-  margin-bottom:20px;
-  box-shadow:0 3px 12px #0001;
-}
-
-.post img{
-  width:100%;
-  height:230px;
-  object-fit:cover;
-  display:block;
-}
-
-.post-content{
-  padding:15px;
-}
-
-.category{
-  display:inline-block;
-  background:#ef4444;
-  color:white;
-  padding:5px 9px;
-  border-radius:5px;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
-.post h2{
-  font-size:21px;
-  line-height:1.4;
-  margin-bottom:8px;
-}
-
-.post p{
-  color:#666;
-  line-height:1.6;
-  font-size:14px;
-}
-
-.read{
-  display:inline-block;
-  margin-top:12px;
-  background:#111827;
-  color:white;
-  text-decoration:none;
-  padding:10px 16px;
-  border-radius:6px;
-  font-weight:bold;
-}
-
-.read:hover{
-  background:#ef4444;
-}
-
-/* FOOTER */
-footer{
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:25px 10px;
-  margin-top:30px;
-}
-
-footer p{
-  font-size:13px;
-  color:#cbd5e1;
-  margin-top:6px;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-
-  .logo{
-    font-size:24px;
-  }
-
-  nav{
-    overflow-x:auto;
-    justify-content:flex-start;
-  }
-
-  nav button{
-    white-space:nowrap;
-  }
-
-  .post img{
-    height:200px;
-  }
-
-  .post h2{
-    font-size:19px;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suresh 360 Media</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="logo">Suresh <span>360</span> Media</div>
-  <div class="tagline">News • Sports • Movies • Entertainment</div>
-</header>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="logo">Suresh 360 <span>Media</span></div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="filterPosts('all')">Home</a></li>
+                <li><a href="#" onclick="filterPosts('news')">News</a></li>
+                <li><a href="#" onclick="filterPosts('sports')">Sports</a></li>
+                <li><a href="#" onclick="filterPosts('movies')">Movies</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- MENU -->
-<nav>
-  <button onclick="showAll()">Home</button>
-  <button onclick="filterPosts('news')">News</button>
-  <button onclick="filterPosts('sports')">Sports</button>
-  <button onclick="filterPosts('movies')">Movies</button>
-</nav>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Welcome to Suresh 360 Media</h1>
+        <p>లేటెస్ట్ వార్తలు, స్పోర్ట్స్ మరియు సినిమా అప్‌డేట్స్ మీ కోసం!</p>
+    </section>
 
-<!-- BREAKING NEWS -->
-<div class="breaking">
-  <b>BREAKING</b>
-  <span> Suresh 360 Media — Latest Updates Here</span>
-</div>
+    <!-- MAIN POSTS CONTAINER -->
+    <main class="container">
+        <h2 class="section-title">Latest Updates</h2>
+        <div class="posts-grid">
 
-<!-- POSTS -->
-<div class="container">
+            <!-- NEWS POST -->
+            <article class="post" data-category="news">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600" alt="News Image">
+                <div class="post-content">
+                    <span class="category">NEWS</span>
+                    <h2>సురేష్ 360 మీడియా గ్రాండ్ లాంచ్</h2>
+                    <p>తాజా వార్తలు మరియు బ్రేకింగ్ న్యూస్ అప్‌డేట్స్ కోసం సురేష్ 360 మీడియాను వీక్షించండి.</p>
+                    <a class="read" href="news1.html">Read More →</a>
+                </div>
+            </article>
 
-  <div class="section-title">Latest News</div>
+            <!-- SPORTS POST -->
+            <article class="post" data-category="sports">
+                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600" alt="Sports Image">
+                <div class="post-content">
+                    <span class="category">SPORTS</span>
+                    <h2>క్రికెట్ ప్రపంచంలో సంచలనం</h2>
+                    <p>తాజా మ్యాచ్ వివరాలు మరియు ప్లేయర్ల రికార్డుల గురించిన పూర్తి వివరాలు మీ కోసం.</p>
+                    <a class="read" href="sports1.html">Read More →</a>
+                </div>
+            </article>
 
-  <!-- NEWS POST 1 -->
-  <article class="post" data-category="news">
-    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80">
+            <!-- MOVIE POST 1 -->
+            <article class="post" data-category="movies">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600" alt="Movie Image">
+                <div class="post-content">
+                    <span class="category">MOVIES</span>
+                    <h2>సినిమా ఇండస్ట్రీలో తాజా అప్‌డేట్స్</h2>
+                    <p>కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు, మూవీ అప్‌డేట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ వార్తలు.</p>
+                    <a class="read" href="movie1.html">Read More →</a>
+                </div>
+            </article>
 
-    <div class="post-content">
-      <span class="category">NEWS</span>
+            <!-- MOVIE POST 2 (కొత్త మూవీ పోస్ట్) -->
+            <article class="post" data-category="movies">
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600" alt="Movie Image">
+                <div class="post-content">
+                    <span class="category">MOVIES</span>
+                    <h2>బాక్సాఫీస్ వద్ద రికార్డుల సునామీ</h2>
+                    <p>ఈ వారం విడుదలైన కొత్త సినిమా థియేటర్లలో భారీ కలెక్షన్లతో దూసుకుపోతోంది.</p>
+                    <a class="read" href="movie2.html">Read More →</a>
+                </div>
+            </article>
 
-      <h2>తాజా వార్తలు.. ముఖ్యమైన అప్‌డేట్స్ మీకోసం</h2>
+        </div>
+    </main>
 
-      <p>
-        దేశంలో, రాష్ట్రంలో జరుగుతున్న తాజా పరిణామాలు,
-        ముఖ్యమైన వార్తలను Suresh 360 Media ద్వారా తెలుసుకోండి.
-      </p>
+    <!-- FOOTER -->
+    <footer>
+        <strong>Suresh 360 Media</strong>
+        <p>News • Sports • Movies • Entertainment</p>
+        <p>&copy; 2026 Suresh 360 Media</p>
+    </footer>
 
-      <a class="read" href="news1.html">Read More →</a>
-    </div>
-  </article>
-
-
-  <!-- SPORTS POST -->
-  <article class="post" data-category="sports">
-    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80">
-
-    <div class="post-content">
-      <span class="category">SPORTS</span>
-
-      <h2>క్రికెట్‌లో మరో ఆసక్తికరమైన అప్‌డేట్</h2>
-
-      <p>
-        క్రికెట్ ప్రపంచంలోని తాజా వార్తలు, మ్యాచ్ అప్‌డేట్స్,
-        ప్లేయర్లకు సంబంధించిన ముఖ్యమైన సమాచారం.
-      </p>
-
-      <a class="read" href="sports1.html">Read More →</a>
-    </div>
-  </article>
-
-
-  <!-- MOVIE POST -->
-  <article class="post" data-category="movies">
-    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80">
-
-    <div class="post-content">
-      <span class="category">MOVIES</span>
-
-      <h2>సినిమా ఇండస్ట్రీలో తాజా అప్‌డేట్స్</h2>
-
-      <p>
-        కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు, మూవీ అప్‌డేట్స్
-        మరియు ఎంటర్‌టైన్‌మెంట్ వార్తలు.
-      </p>
-
-      <a class="read" href="movie1.html">Read More →</a>
-    </div>
-  </article>
-
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <strong>Suresh 360 Media</strong>
-  <p>News • Sports • Movies • Entertainment</p>
-  <p>© 2026 Suresh 360 Media</p>
-</footer>
-
-
-<script>
-
-function filterPosts(category){
-
-  let posts = document.querySelectorAll(".post");
-
-  posts.forEach(function(post){
-
-    if(post.dataset.category === category){
-      post.style.display = "block";
-    }else{
-      post.style.display = "none";
-    }
-
-  });
-
-}
-
-function showAll(){
-
-  let posts = document.querySelectorAll(".post");
-
-  posts.forEach(function(post){
-    post.style.display = "block";
-  });
-
-}
-
-</script>
+    <!-- FILTER SCRIPT -->
+    <script>
+        function filterPosts(category) {
+            let posts = document.querySelectorAll(".post");
+            posts.forEach(function(post) {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = "block";
+                } else {
+                    post.style.display = "none";
+                }
+            });
+        }
+    </script>
 
 </body>
-</html> 
+</html>
+
