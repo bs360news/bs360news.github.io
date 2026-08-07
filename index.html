@@ -1,36 +1,253 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="te">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suresh 360 Media</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* BLUE NAVBAR HEADER */
+        .navbar {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            padding: 15px 20px;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .logo span {
+            color: #38bdf8;
+        }
+        .navbar nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+        .navbar nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .navbar nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* SEARCH BAR SECTION */
+        .search-section {
+            background: #ffffff;
+            padding: 18px 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
+        }
+        .search-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 20px;
+            border: 2px solid #0284c7;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            background-color: #f0f9ff;
+            color: #0369a1;
+            transition: all 0.3s;
+        }
+        .search-box:focus {
+            border-color: #0369a1;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(2, 132, 199, 0.3);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            padding: 0 15px;
+            flex: 1;
+        }
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+            border-left: 5px solid #2563eb;
+            padding-left: 10px;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+        .post {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e0f2fe;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+        }
+        .post img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+        .post-content {
+            padding: 18px;
+        }
+        .category {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .post-content h2 {
+            font-size: 17px;
+            margin: 10px 0 8px 0;
+            color: #0f172a;
+            line-height: 1.4;
+        }
+        .post-content p {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .read {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+        .read:hover {
+            background: #1d4ed8;
+        }
+
+        /* LARGE BLUE FOOTER */
+        footer {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 35px 20px 20px 20px;
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .footer-info h3 {
+            font-size: 20px;
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+        .footer-info p {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .footer-email {
+            font-size: 14px;
+            color: #ffffff;
+            background: #1e293b;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+        .footer-email a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .copyright {
+            text-align: center;
+            width: 100%;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #334155;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- NAVBAR HEADER -->
+    <!-- BLUE NAVBAR HEADER -->
     <header class="navbar">
-        <div class="logo">Suresh 360 <span>Media</span></div>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="filterPosts('all')">Home</a></li>
-                <li><a href="#" onclick="filterPosts('news')">News</a></li>
-                <li><a href="#" onclick="filterPosts('sports')">Sports</a></li>
-                <li><a href="#" onclick="filterPosts('movies')">Movies</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <div class="logo">Suresh 360 <span>Media</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="filterPosts('all')">Home</a></li>
+                    <li><a href="#" onclick="filterPosts('news')">News</a></li>
+                    <li><a href="#" onclick="filterPosts('sports')">Sports</a></li>
+                    <li><a href="#" onclick="filterPosts('movies')">Movies</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1>Welcome to Suresh 360 Media</h1>
-        <p>లేటెస్ట్ వార్తలు, స్పోర్ట్స్ మరియు సినిమా అప్‌డేట్స్ మీ కోసం!</p>
+    <!-- BLUE SEARCH BAR -->
+    <section class="search-section">
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-box" placeholder="🔍 వార్తలు లేదా సినిమాల కోసం సెర్చ్ చేయండి..." onkeyup="searchPosts()">
+        </div>
     </section>
 
     <!-- MAIN POSTS GRID -->
     <main class="container">
         <h2 class="section-title">Latest Updates</h2>
-        <div class="posts-grid">
+        <div class="posts-grid" id="posts-grid">
 
             <!-- NEWS POST -->
             <article class="post" data-category="news">
@@ -79,19 +296,46 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
+    <!-- LARGE FOOTER WITH EMAIL -->
     <footer>
-        <strong>Suresh 360 Media</strong>
-        <p>News • Sports • Movies • Entertainment</p>
-        <p>&copy; 2026 Suresh 360 Media</p>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Suresh 360 Media</h3>
+                <p>News • Sports • Movies • Entertainment</p>
+            </div>
+            <div class="footer-email">
+                📧 Contact Us: <a href="mailto:suresh360media@gmail.com">suresh360media@gmail.com</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Suresh 360 Media. All rights reserved.
+        </div>
     </footer>
 
-    <!-- CATEGORY FILTER SCRIPT -->
+    <!-- SCRIPT FOR FILTER & SEARCH -->
     <script>
+        // Category Filter
         function filterPosts(category) {
             let posts = document.querySelectorAll(".post");
             posts.forEach(function(post) {
                 if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = "block";
+                } else {
+                    post.style.display = "none";
+                }
+            });
+        }
+
+        // Search Function
+        function searchPosts() {
+            let input = document.getElementById('search-input').value.toLowerCase();
+            let posts = document.querySelectorAll('.post');
+
+            posts.forEach(function(post) {
+                let title = post.querySelector('h2').innerText.toLowerCase();
+                let text = post.querySelector('p').innerText.toLowerCase();
+                
+                if (title.includes(input) || text.includes(input)) {
                     post.style.display = "block";
                 } else {
                     post.style.display = "none";
