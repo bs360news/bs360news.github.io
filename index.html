@@ -1,3 +1,5 @@
+
+    
 <!DOCTYPE html>
 <html lang="te">
 <head>
@@ -22,6 +24,7 @@ body{
 }
 
 /* HEADER */
+
 header{
     background:linear-gradient(135deg,#8b0000,#e00000);
     color:white;
@@ -42,6 +45,7 @@ header p{
 }
 
 /* BREAKING */
+
 .breaking{
     background:#111;
     color:white;
@@ -55,7 +59,8 @@ header p{
     border-radius:4px;
 }
 
-/* NAVIGATION */
+/* NAV */
+
 nav{
     background:#151515;
     text-align:center;
@@ -81,6 +86,7 @@ nav a:hover{
 }
 
 /* SEARCH */
+
 .search{
     max-width:1000px;
     margin:18px auto;
@@ -97,6 +103,7 @@ nav a:hover{
 }
 
 /* MAIN */
+
 .container{
     max-width:1050px;
     margin:auto;
@@ -104,6 +111,7 @@ nav a:hover{
 }
 
 /* SECTION */
+
 .section{
     margin-top:25px;
 }
@@ -122,6 +130,7 @@ nav a:hover{
 }
 
 /* CARD */
+
 .card{
     background:white;
     border-radius:12px;
@@ -160,6 +169,7 @@ nav a:hover{
 }
 
 /* READ MORE */
+
 .readmore{
     display:inline-block;
     background:#e00000;
@@ -171,7 +181,8 @@ nav a:hover{
     font-weight:bold;
 }
 
-/* FULL POST */
+/* FULL ARTICLES */
+
 .fullpost{
     display:none;
 }
@@ -196,6 +207,7 @@ nav a:hover{
 }
 
 /* BACK */
+
 .back{
     display:inline-block;
     background:#222;
@@ -207,6 +219,7 @@ nav a:hover{
 }
 
 /* SHARE */
+
 .share-buttons{
     display:flex;
     gap:10px;
@@ -235,6 +248,7 @@ nav a:hover{
 }
 
 /* FOOTER */
+
 footer{
     background:#111;
     color:white;
@@ -248,6 +262,7 @@ footer p{
 }
 
 /* MOBILE */
+
 @media(max-width:600px){
 
     .logo{
@@ -278,9 +293,12 @@ footer p{
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -295,31 +313,44 @@ footer p{
 
 </header>
 
+
+<!-- BREAKING -->
+
 <div class="breaking">
+
     <b>🔴 BREAKING</b>
+
     &nbsp;
+
     Suresh 360 Media — Latest Updates
+
 </div>
+
+
+<!-- NAVIGATION -->
 
 <nav>
 
-    <a href="#home" onclick="goHome(); return false;">
+    <a href="#home" onclick="goHome();return false;">
         🏠 Home
     </a>
 
-    <a href="#news" onclick="goHome(); return false;">
+    <a href="#news" onclick="goHome();return false;">
         📰 News
     </a>
 
-    <a href="#sports" onclick="goHome(); return false;">
+    <a href="#sports" onclick="goHome();return false;">
         🏏 Sports
     </a>
 
-    <a href="#movies" onclick="goHome(); return false;">
+    <a href="#movies" onclick="goHome();return false;">
         🎬 Movies
     </a>
 
 </nav>
+
+
+<!-- SEARCH -->
 
 <div class="search">
 
@@ -331,17 +362,25 @@ footer p{
 
 </div>
 
+
+<!-- MAIN -->
+
 <main class="container">
 
-<!-- HOME -->
+
+<!-- ================= HOME ================= -->
+
 <div id="home">
 
-<!-- NEWS -->
+
+<!-- ================= NEWS ================= -->
+
 <section class="section" id="news">
 
     <div class="title">
         <h2>📰 ముఖ్యమైన తాజా వార్తలు</h2>
     </div>
+
 
     <article class="card post">
 
@@ -367,7 +406,7 @@ footer p{
             <a
                 href="#"
                 class="readmore"
-                onclick="openPost('news1'); return false;">
+                onclick="openPost('news1');return false;">
 
                 Read More →
 
@@ -379,6 +418,7 @@ footer p{
 
 
     <!-- MAGUDAM -->
+
     <article class="card post">
 
         <img
@@ -404,7 +444,7 @@ footer p{
             <a
                 href="#"
                 class="readmore"
-                onclick="openPost('magudam'); return false;">
+                onclick="openPost('magudam');return false;">
 
                 Read More →
 
@@ -417,7 +457,8 @@ footer p{
 </section>
 
 
-<!-- SPORTS -->
+<!-- ================= SPORTS ================= -->
+
 <section class="section" id="sports">
 
     <div class="title">
@@ -448,7 +489,7 @@ footer p{
             <a
                 href="#"
                 class="readmore"
-                onclick="openPost('sports1'); return false;">
+                onclick="openPost('sports1');return false;">
 
                 Read More →
 
@@ -461,7 +502,8 @@ footer p{
 </section>
 
 
-<!-- MOVIES -->
+<!-- ================= MOVIES ================= -->
+
 <section class="section" id="movies">
 
     <div class="title">
@@ -492,7 +534,7 @@ footer p{
             <a
                 href="#"
                 class="readmore"
-                onclick="openPost('movie1'); return false;">
+                onclick="openPost('movie1');return false;">
 
                 Read More →
 
@@ -507,16 +549,18 @@ footer p{
 </div>
 
 
-<!-- FULL NEWS -->
+<!-- ================================================= -->
+<!-- FULL NEWS ARTICLE -->
+<!-- ================================================= -->
+
 <article
     class="fullpost"
-    id="news1"
-    style="display:none;">
+    id="news1">
 
     <a
         href="#"
         class="back"
-        onclick="goHome(); return false;">
+        onclick="goHome();return false;">
 
         ← Back to Home
 
@@ -575,16 +619,18 @@ footer p{
 </article>
 
 
-<!-- FULL MAGUDAM -->
+<!-- ================================================= -->
+<!-- FULL MAGUDAM ARTICLE -->
+<!-- ================================================= -->
+
 <article
     class="fullpost"
-    id="magudam"
-    style="display:none;">
+    id="magudam">
 
     <a
         href="#"
         class="back"
-        onclick="goHome(); return false;">
+        onclick="goHome();return false;">
 
         ← Back to Home
 
@@ -650,16 +696,18 @@ footer p{
 </article>
 
 
-<!-- FULL SPORTS -->
+<!-- ================================================= -->
+<!-- FULL SPORTS ARTICLE -->
+<!-- ================================================= -->
+
 <article
     class="fullpost"
-    id="sports1"
-    style="display:none;">
+    id="sports1">
 
     <a
         href="#"
         class="back"
-        onclick="goHome(); return false;">
+        onclick="goHome();return false;">
 
         ← Back to Home
 
@@ -714,16 +762,18 @@ footer p{
 </article>
 
 
-<!-- FULL MOVIE -->
+<!-- ================================================= -->
+<!-- FULL MOVIE ARTICLE -->
+<!-- ================================================= -->
+
 <article
     class="fullpost"
-    id="movie1"
-    style="display:none;">
+    id="movie1">
 
     <a
         href="#"
         class="back"
-        onclick="goHome(); return false;">
+        onclick="goHome();return false;">
 
         ← Back to Home
 
@@ -748,6 +798,12 @@ footer p{
             <p>
                 ఇక్కడ పూర్తి Movie News article
                 రాయవచ్చు.
+            </p>
+
+            <p>
+                కొత్త సినిమా విడుదలలు, ట్రైలర్లు,
+                హీరోలు, హీరోయిన్లు మరియు
+                Entertainment Updates ఇక్కడ రాయవచ్చు.
             </p>
 
             <div class="share-buttons">
@@ -777,28 +833,35 @@ footer p{
 
 </article>
 
+
 </main>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-    <p>© 2026 Suresh 360 Media</p>
-    <p>News • Sports • Movies</p>
+    <p>
+        © 2026 Suresh 360 Media
+    </p>
+
+    <p>
+        News • Sports • Movies
+    </p>
 
 </footer>
 
 
 <script>
 
-/* OPEN POST */
+/* OPEN ARTICLE */
 
 function openPost(id){
 
-    var home = document.getElementById("home");
+    document.getElementById("home").style.display = "none";
 
-    home.style.display = "none";
-
-    var posts = document.querySelectorAll(".fullpost");
+    var posts =
+        document.querySelectorAll(".fullpost");
 
     posts.forEach(function(post){
 
@@ -806,7 +869,8 @@ function openPost(id){
 
     });
 
-    var selected = document.getElementById(id);
+    var selected =
+        document.getElementById(id);
 
     if(selected){
 
@@ -818,13 +882,14 @@ function openPost(id){
 }
 
 
-/* GO HOME */
+/* HOME */
 
 function goHome(){
 
     document.getElementById("home").style.display = "block";
 
-    var posts = document.querySelectorAll(".fullpost");
+    var posts =
+        document.querySelectorAll(".fullpost");
 
     posts.forEach(function(post){
 
@@ -834,7 +899,8 @@ function goHome(){
 
     document.getElementById("search").value = "";
 
-    var cards = document.querySelectorAll(".post");
+    var cards =
+        document.querySelectorAll(".post");
 
     cards.forEach(function(card){
 
@@ -897,13 +963,14 @@ function sharePost(){
 
     }else{
 
-        navigator.clipboard.writeText(
-            window.location.href
-        ).then(function(){
+        navigator.clipboard
+        .writeText(window.location.href)
+        .then(function(){
 
             alert("Link copied! Share it anywhere.");
 
-        }).catch(function(){
+        })
+        .catch(function(){
 
             alert("Share link: " + window.location.href);
 
@@ -917,5 +984,3 @@ function sharePost(){
 
 </body>
 </html>
-
-    
