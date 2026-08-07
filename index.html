@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="te">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Suresh 360 Media</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -20,6 +22,7 @@ body{
 }
 
 /* HEADER */
+
 header{
     background:linear-gradient(135deg,#8b0000,#e00000);
     color:white;
@@ -40,6 +43,7 @@ header p{
 }
 
 /* BREAKING */
+
 .breaking{
     background:#111;
     color:white;
@@ -53,7 +57,8 @@ header p{
     border-radius:4px;
 }
 
-/* NAV */
+/* NAVIGATION */
+
 nav{
     background:#151515;
     text-align:center;
@@ -79,6 +84,7 @@ nav a:hover{
 }
 
 /* SEARCH */
+
 .search{
     max-width:1000px;
     margin:18px auto;
@@ -95,6 +101,7 @@ nav a:hover{
 }
 
 /* MAIN */
+
 .container{
     max-width:1050px;
     margin:auto;
@@ -102,6 +109,7 @@ nav a:hover{
 }
 
 /* SECTION */
+
 .section{
     margin-top:25px;
 }
@@ -120,6 +128,7 @@ nav a:hover{
 }
 
 /* CARD */
+
 .card{
     background:white;
     border-radius:12px;
@@ -158,6 +167,7 @@ nav a:hover{
 }
 
 /* READ MORE */
+
 .readmore{
     display:inline-block;
     background:#e00000;
@@ -169,7 +179,8 @@ nav a:hover{
     font-weight:bold;
 }
 
-/* FULL POST */
+/* FULL POSTS */
+
 .fullpost{
     display:none;
 }
@@ -193,7 +204,8 @@ nav a:hover{
     margin:15px 0;
 }
 
-/* BACK */
+/* BACK BUTTON */
+
 .back{
     display:inline-block;
     background:#222;
@@ -205,6 +217,7 @@ nav a:hover{
 }
 
 /* SHARE */
+
 .share-buttons{
     display:flex;
     gap:10px;
@@ -233,6 +246,7 @@ nav a:hover{
 }
 
 /* FOOTER */
+
 footer{
     background:#111;
     color:white;
@@ -246,6 +260,7 @@ footer p{
 }
 
 /* MOBILE */
+
 @media(max-width:600px){
 
     .logo{
@@ -272,20 +287,21 @@ footer p{
     .fullpost p{
         font-size:15px;
     }
-.fullpost{
-    display:none;
+
 }
-}
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
     <img
-        src="suresh-logo.png. jpg"
+        src="suresh-logo.png"
         class="logo"
         alt="Suresh 360 Media">
 
@@ -295,50 +311,86 @@ footer p{
 
 </header>
 
-<!-- BREAKING -->
+
+<!-- ================= BREAKING ================= -->
+
 <div class="breaking">
+
     <b>🔴 BREAKING</b>
-    &nbsp; Suresh 360 Media — Latest Updates
+
+    &nbsp;
+
+    Suresh 360 Media — Latest Updates
+
 </div>
 
-<!-- NAV -->
+
+<!-- ================= NAVIGATION ================= -->
+
 <nav>
-    <a href="#home" onclick="goHome()">🏠 Home</a>
-    <a href="#news" onclick="goHome()">📰 News</a>
-    <a href="#sports" onclick="goHome()">🏏 Sports</a>
-    <a href="#movies" onclick="goHome()">🎬 Movies</a>
+
+    <a href="#home" onclick="goHome()">
+        🏠 Home
+    </a>
+
+    <a href="#news" onclick="goHome()">
+        📰 News
+    </a>
+
+    <a href="#sports" onclick="goHome()">
+        🏏 Sports
+    </a>
+
+    <a href="#movies" onclick="goHome()">
+        🎬 Movies
+    </a>
+
 </nav>
 
-<!-- SEARCH -->
+
+<!-- ================= SEARCH ================= -->
+
 <div class="search">
+
     <input
         id="search"
         type="text"
         placeholder="🔎 Search News, Sports, Movies..."
         onkeyup="searchPosts()">
+
 </div>
 
 
-<!-- MAIN -->
+<!-- ================= MAIN ================= -->
+
 <main class="container">
 
-<!-- HOME -->
+
+<!-- ================= HOME ================= -->
+
 <div id="home">
+
 
 <!-- ================= NEWS ================= -->
 
 <section class="section" id="news">
 
     <div class="title">
-        <h2>📰 Latest News</h2>
+
+        <h2>
+            📰 ముఖ్యమైన తాజా వార్తలు
+        </h2>
+
     </div>
 
+
     <!-- NEWS POST -->
+
     <article class="card post">
 
         <img
             src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80"
-            alt="Latest News">
+            alt="News">
 
         <div class="content">
 
@@ -359,18 +411,22 @@ footer p{
                 href="#news1"
                 class="readmore"
                 onclick="openPost('news1')">
+
                 Read More →
+
             </a>
 
         </div>
+
     </article>
 
 
-    <!-- MAGUDAM POST -->
+    <!-- ================= MAGUDAM CARD ================= -->
+
     <article class="card post">
 
         <img
-            src="magudam.png. jpg"
+            src="magudam.jpg"
             alt="Magudam Movie">
 
         <div class="content">
@@ -380,8 +436,9 @@ footer p{
             </h3>
 
             <p>
-                విశాల్ దర్శకత్వంలో తెరకెక్కుతున్న ‘మగుడం’
-                సినిమాపై ప్రేక్షకుల్లో భారీ అంచనాలు ఉన్నాయి.
+                విశాల్ దర్శకత్వంలో తెరకెక్కుతున్న
+                ‘మగుడం’ సినిమాపై ప్రేక్షకుల్లో
+                భారీ అంచనాలు ఉన్నాయి.
             </p>
 
             <div class="date">
@@ -392,10 +449,13 @@ footer p{
                 href="#magudam"
                 class="readmore"
                 onclick="openPost('magudam')">
+
                 Read More →
+
             </a>
 
         </div>
+
     </article>
 
 </section>
@@ -406,8 +466,13 @@ footer p{
 <section class="section" id="sports">
 
     <div class="title">
-        <h2>🏏 Sports</h2>
+
+        <h2>
+            🏏 Sports
+        </h2>
+
     </div>
+
 
     <article class="card post">
 
@@ -434,10 +499,13 @@ footer p{
                 href="#sports1"
                 class="readmore"
                 onclick="openPost('sports1')">
+
                 Read More →
+
             </a>
 
         </div>
+
     </article>
 
 </section>
@@ -448,8 +516,13 @@ footer p{
 <section class="section" id="movies">
 
     <div class="title">
-        <h2>🎬 Movies</h2>
+
+        <h2>
+            🎬 Movies
+        </h2>
+
     </div>
+
 
     <article class="card post">
 
@@ -464,7 +537,8 @@ footer p{
             </h3>
 
             <p>
-                కొత్త సినిమాలు మరియు Entertainment News.
+                కొత్త సినిమాలు మరియు
+                Entertainment News.
             </p>
 
             <div class="date">
@@ -475,10 +549,13 @@ footer p{
                 href="#movie1"
                 class="readmore"
                 onclick="openPost('movie1')">
+
                 Read More →
+
             </a>
 
         </div>
+
     </article>
 
 </section>
@@ -490,14 +567,19 @@ footer p{
 <!-- FULL NEWS -->
 <!-- ================================================= -->
 
-<article class="fullpost" id="news1">
+<article
+    class="fullpost"
+    id="news1">
 
     <a
         href="#home"
         class="back"
         onclick="goHome()">
+
         ← Back to Home
+
     </a>
+
 
     <div class="card">
 
@@ -525,19 +607,25 @@ footer p{
                 మరియు పూర్తి కథనం ఇక్కడ కనిపిస్తుంది.
             </p>
 
+
             <div class="share-buttons">
 
                 <a
                     class="whatsapp"
                     href="https://wa.me/?text=Suresh%20360%20Media%20News"
                     target="_blank">
+
                     🟢 WhatsApp Share
+
                 </a>
+
 
                 <button
                     class="normal-share"
                     onclick="sharePost()">
+
                     📤 Share
+
                 </button>
 
             </div>
@@ -550,17 +638,22 @@ footer p{
 
 
 <!-- ================================================= -->
-<!-- FULL MAGUDAM ARTICLE -->
+<!-- FULL MAGUDAM -->
 <!-- ================================================= -->
 
-<article class="fullpost" id="magudam">
+<article
+    class="fullpost"
+    id="magudam">
 
     <a
         href="#home"
         class="back"
         onclick="goHome()">
+
         ← Back to Home
+
     </a>
+
 
     <div class="card">
 
@@ -574,10 +667,13 @@ footer p{
                 📅 August 7, 2026
             </div>
 
-            <!-- YOUR IMAGE -->
+
+            <!-- MAGUDAM IMAGE -->
+
             <img
-                src="magudam.png.jpg"
+                src="magudam.jpg"
                 alt="Magudam Movie">
+
 
             <p>
                 నటుడు విశాల్ దర్శకత్వంలో తెరకెక్కుతున్న
@@ -588,18 +684,13 @@ footer p{
             <p>
                 ‘మగుడం’ సినిమా ఆగస్టు 14, 2026న
                 ప్రపంచవ్యాప్తంగా విడుదల కానుంది.
-                సినిమాకు సంబంధించిన ట్రైలర్‌ను
-                ఆగస్టు 7న విడుదల చేయనున్నట్లు
-                ప్రకటించారు.
             </p>
 
             <p>
                 సినిమా విడుదలకు ముందు ట్రైలర్‌పై కూడా
-                ప్రేక్షకుల్లో ఆసక్తి పెరిగింది. విశాల్
-                దర్శకుడిగా ఎలాంటి కథను చూపించబోతున్నారో
-                తెలుసుకోవడానికి అభిమానులు
-                ఎదురుచూస్తున్నారు.
+                ప్రేక్షకుల్లో ఆసక్తి పెరిగింది.
             </p>
+
 
             <div class="share-buttons">
 
@@ -607,13 +698,18 @@ footer p{
                     class="whatsapp"
                     href="https://wa.me/?text=Suresh%20360%20Media%20Magudam%20News"
                     target="_blank">
+
                     🟢 WhatsApp Share
+
                 </a>
+
 
                 <button
                     class="normal-share"
                     onclick="sharePost()">
+
                     📤 Share
+
                 </button>
 
             </div>
@@ -629,14 +725,19 @@ footer p{
 <!-- FULL SPORTS -->
 <!-- ================================================= -->
 
-<article class="fullpost" id="sports1">
+<article
+    class="fullpost"
+    id="sports1">
 
     <a
         href="#home"
         class="back"
         onclick="goHome()">
+
         ← Back to Home
+
     </a>
+
 
     <div class="card">
 
@@ -659,19 +760,25 @@ footer p{
                 రాయవచ్చు.
             </p>
 
+
             <div class="share-buttons">
 
                 <a
                     class="whatsapp"
                     href="https://wa.me/?text=Suresh%20360%20Media%20Cricket%20News"
                     target="_blank">
+
                     🟢 WhatsApp Share
+
                 </a>
+
 
                 <button
                     class="normal-share"
                     onclick="sharePost()">
+
                     📤 Share
+
                 </button>
 
             </div>
@@ -687,14 +794,19 @@ footer p{
 <!-- FULL MOVIE -->
 <!-- ================================================= -->
 
-<article class="fullpost" id="movie1">
+<article
+    class="fullpost"
+    id="movie1">
 
     <a
         href="#home"
         class="back"
         onclick="goHome()">
+
         ← Back to Home
+
     </a>
+
 
     <div class="card">
 
@@ -717,19 +829,25 @@ footer p{
                 రాయవచ్చు.
             </p>
 
+
             <div class="share-buttons">
 
                 <a
                     class="whatsapp"
                     href="https://wa.me/?text=Suresh%20360%20Media%20Movie%20News"
                     target="_blank">
+
                     🟢 WhatsApp Share
+
                 </a>
+
 
                 <button
                     class="normal-share"
                     onclick="sharePost()">
+
                     📤 Share
+
                 </button>
 
             </div>
@@ -740,10 +858,11 @@ footer p{
 
 </article>
 
+
 </main>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -760,19 +879,22 @@ footer p{
 
 <script>
 
-/* OPEN POST */
+/* OPEN FULL ARTICLE */
 
 function openPost(id){
 
-    document.getElementById("home").style.display="none";
+    document.getElementById("home").style.display = "none";
 
-    var posts=document.getElementsByClassName("fullpost");
+    var posts =
+        document.getElementsByClassName("fullpost");
 
-    for(var i=0;i<posts.length;i++){
-        posts[i].style.display="none";
+    for(var i = 0; i < posts.length; i++){
+
+        posts[i].style.display = "none";
+
     }
 
-    document.getElementById(id).style.display="block";
+    document.getElementById(id).style.display = "block";
 
     window.scrollTo(0,0);
 }
@@ -782,12 +904,15 @@ function openPost(id){
 
 function goHome(){
 
-    document.getElementById("home").style.display="block";
+    document.getElementById("home").style.display = "block";
 
-    var posts=document.getElementsByClassName("fullpost");
+    var posts =
+        document.getElementsByClassName("fullpost");
 
-    for(var i=0;i<posts.length;i++){
-        posts[i].style.display="none";
+    for(var i = 0; i < posts.length; i++){
+
+        posts[i].style.display = "none";
+
     }
 
     window.scrollTo(0,0);
@@ -798,36 +923,47 @@ function goHome(){
 
 function searchPosts(){
 
-    var value=document
-        .getElementById("search")
+    var value =
+        document.getElementById("search")
         .value
         .toLowerCase();
 
-    var posts=document.getElementsByClassName("post");
+    var posts =
+        document.getElementsByClassName("post");
 
-    for(var i=0;i<posts.length;i++){
+    for(var i = 0; i < posts.length; i++){
 
-        var text=posts[i].innerText.toLowerCase();
+        var text =
+            posts[i].innerText.toLowerCase();
 
-        if(text.indexOf(value)!==-1){
-            posts[i].style.display="block";
+        if(text.indexOf(value) !== -1){
+
+            posts[i].style.display = "block";
+
         }else{
-            posts[i].style.display="none";
+
+            posts[i].style.display = "none";
+
         }
+
     }
 }
 
 
-/* SHARE */
+/* NORMAL SHARE */
 
 function sharePost(){
 
     if(navigator.share){
 
         navigator.share({
+
             title:"Suresh 360 Media",
-            text:"Latest News from Suresh 360 Media",
+
+            text:"Suresh 360 Media Latest News",
+
             url:window.location.href
+
         });
 
     }else{
@@ -841,6 +977,7 @@ function sharePost(){
         });
 
     }
+
 }
 
 </script>
