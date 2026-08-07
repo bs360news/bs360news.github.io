@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="te">
 <head>
 
@@ -22,7 +22,6 @@ body{
 }
 
 /* HEADER */
-
 header{
     background:linear-gradient(135deg,#8b0000,#e00000);
     color:white;
@@ -43,7 +42,6 @@ header p{
 }
 
 /* BREAKING */
-
 .breaking{
     background:#111;
     color:white;
@@ -58,7 +56,6 @@ header p{
 }
 
 /* NAVIGATION */
-
 nav{
     background:#151515;
     text-align:center;
@@ -84,7 +81,6 @@ nav a:hover{
 }
 
 /* SEARCH */
-
 .search{
     max-width:1000px;
     margin:18px auto;
@@ -101,7 +97,6 @@ nav a:hover{
 }
 
 /* MAIN */
-
 .container{
     max-width:1050px;
     margin:auto;
@@ -109,7 +104,6 @@ nav a:hover{
 }
 
 /* SECTION */
-
 .section{
     margin-top:25px;
 }
@@ -128,7 +122,6 @@ nav a:hover{
 }
 
 /* CARD */
-
 .card{
     background:white;
     border-radius:12px;
@@ -167,7 +160,6 @@ nav a:hover{
 }
 
 /* READ MORE */
-
 .readmore{
     display:inline-block;
     background:#e00000;
@@ -179,10 +171,9 @@ nav a:hover{
     font-weight:bold;
 }
 
-/* FULL POSTS */
-
+/* FULL POST */
 .fullpost{
-    display:none;
+    display:none !important;
 }
 
 .fullpost h1{
@@ -204,8 +195,7 @@ nav a:hover{
     margin:15px 0;
 }
 
-/* BACK BUTTON */
-
+/* BACK */
 .back{
     display:inline-block;
     background:#222;
@@ -217,7 +207,6 @@ nav a:hover{
 }
 
 /* SHARE */
-
 .share-buttons{
     display:flex;
     gap:10px;
@@ -246,7 +235,6 @@ nav a:hover{
 }
 
 /* FOOTER */
-
 footer{
     background:#111;
     color:white;
@@ -260,7 +248,6 @@ footer p{
 }
 
 /* MOBILE */
-
 @media(max-width:600px){
 
     .logo{
@@ -295,9 +282,6 @@ footer p{
 
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
 <header>
 
     <img
@@ -311,44 +295,31 @@ footer p{
 
 </header>
 
-
-<!-- ================= BREAKING ================= -->
-
 <div class="breaking">
-
     <b>🔴 BREAKING</b>
-
     &nbsp;
-
     Suresh 360 Media — Latest Updates
-
 </div>
-
-
-<!-- ================= NAVIGATION ================= -->
 
 <nav>
 
-    <a href="#home" onclick="goHome()">
+    <a href="#home" onclick="goHome(); return false;">
         🏠 Home
     </a>
 
-    <a href="#news" onclick="goHome()">
+    <a href="#news" onclick="goHome(); return false;">
         📰 News
     </a>
 
-    <a href="#sports" onclick="goHome()">
+    <a href="#sports" onclick="goHome(); return false;">
         🏏 Sports
     </a>
 
-    <a href="#movies" onclick="goHome()">
+    <a href="#movies" onclick="goHome(); return false;">
         🎬 Movies
     </a>
 
 </nav>
-
-
-<!-- ================= SEARCH ================= -->
 
 <div class="search">
 
@@ -360,31 +331,17 @@ footer p{
 
 </div>
 
-
-<!-- ================= MAIN ================= -->
-
 <main class="container">
 
-
-<!-- ================= HOME ================= -->
-
+<!-- HOME -->
 <div id="home">
 
-
-<!-- ================= NEWS ================= -->
-
+<!-- NEWS -->
 <section class="section" id="news">
 
     <div class="title">
-
-        <h2>
-            📰 ముఖ్యమైన తాజా వార్తలు
-        </h2>
-
+        <h2>📰 ముఖ్యమైన తాజా వార్తలు</h2>
     </div>
-
-
-    <!-- NEWS POST -->
 
     <article class="card post">
 
@@ -408,9 +365,9 @@ footer p{
             </div>
 
             <a
-                href="#news1"
+                href="#"
                 class="readmore"
-                onclick="openPost('news1')">
+                onclick="openPost('news1'); return false;">
 
                 Read More →
 
@@ -421,8 +378,7 @@ footer p{
     </article>
 
 
-    <!-- ================= MAGUDAM CARD ================= -->
-
+    <!-- MAGUDAM -->
     <article class="card post">
 
         <img
@@ -446,9 +402,9 @@ footer p{
             </div>
 
             <a
-                href="#magudam"
+                href="#"
                 class="readmore"
-                onclick="openPost('magudam')">
+                onclick="openPost('magudam'); return false;">
 
                 Read More →
 
@@ -461,18 +417,12 @@ footer p{
 </section>
 
 
-<!-- ================= SPORTS ================= -->
-
+<!-- SPORTS -->
 <section class="section" id="sports">
 
     <div class="title">
-
-        <h2>
-            🏏 Sports
-        </h2>
-
+        <h2>🏏 Sports</h2>
     </div>
-
 
     <article class="card post">
 
@@ -496,9 +446,9 @@ footer p{
             </div>
 
             <a
-                href="#sports1"
+                href="#"
                 class="readmore"
-                onclick="openPost('sports1')">
+                onclick="openPost('sports1'); return false;">
 
                 Read More →
 
@@ -511,18 +461,12 @@ footer p{
 </section>
 
 
-<!-- ================= MOVIES ================= -->
-
+<!-- MOVIES -->
 <section class="section" id="movies">
 
     <div class="title">
-
-        <h2>
-            🎬 Movies
-        </h2>
-
+        <h2>🎬 Movies</h2>
     </div>
-
 
     <article class="card post">
 
@@ -546,9 +490,9 @@ footer p{
             </div>
 
             <a
-                href="#movie1"
+                href="#"
                 class="readmore"
-                onclick="openPost('movie1')">
+                onclick="openPost('movie1'); return false;">
 
                 Read More →
 
@@ -563,23 +507,20 @@ footer p{
 </div>
 
 
-<!-- ================================================= -->
 <!-- FULL NEWS -->
-<!-- ================================================= -->
-
 <article
     class="fullpost"
-    id="news1">
+    id="news1"
+    style="display:none;">
 
     <a
-        href="#home"
+        href="#"
         class="back"
-        onclick="goHome()">
+        onclick="goHome(); return false;">
 
         ← Back to Home
 
     </a>
-
 
     <div class="card">
 
@@ -598,15 +539,13 @@ footer p{
                 alt="News">
 
             <p>
-                ఇక్కడ మీ పూర్తి News article
-                రాయవచ్చు.
+                ఇక్కడ మీ పూర్తి News article రాయవచ్చు.
             </p>
 
             <p>
                 తాజా సమాచారం, ముఖ్యమైన వివరాలు
                 మరియు పూర్తి కథనం ఇక్కడ కనిపిస్తుంది.
             </p>
-
 
             <div class="share-buttons">
 
@@ -618,7 +557,6 @@ footer p{
                     🟢 WhatsApp Share
 
                 </a>
-
 
                 <button
                     class="normal-share"
@@ -637,23 +575,20 @@ footer p{
 </article>
 
 
-<!-- ================================================= -->
 <!-- FULL MAGUDAM -->
-<!-- ================================================= -->
-
 <article
     class="fullpost"
-    id="magudam">
+    id="magudam"
+    style="display:none;">
 
     <a
-        href="#home"
+        href="#"
         class="back"
-        onclick="goHome()">
+        onclick="goHome(); return false;">
 
         ← Back to Home
 
     </a>
-
 
     <div class="card">
 
@@ -667,13 +602,9 @@ footer p{
                 📅 August 7, 2026
             </div>
 
-
-            <!-- MAGUDAM IMAGE -->
-
             <img
                 src="magudam.jpg"
                 alt="Magudam Movie">
-
 
             <p>
                 నటుడు విశాల్ దర్శకత్వంలో తెరకెక్కుతున్న
@@ -691,7 +622,6 @@ footer p{
                 ప్రేక్షకుల్లో ఆసక్తి పెరిగింది.
             </p>
 
-
             <div class="share-buttons">
 
                 <a
@@ -702,7 +632,6 @@ footer p{
                     🟢 WhatsApp Share
 
                 </a>
-
 
                 <button
                     class="normal-share"
@@ -721,23 +650,20 @@ footer p{
 </article>
 
 
-<!-- ================================================= -->
 <!-- FULL SPORTS -->
-<!-- ================================================= -->
-
 <article
     class="fullpost"
-    id="sports1">
+    id="sports1"
+    style="display:none;">
 
     <a
-        href="#home"
+        href="#"
         class="back"
-        onclick="goHome()">
+        onclick="goHome(); return false;">
 
         ← Back to Home
 
     </a>
-
 
     <div class="card">
 
@@ -760,7 +686,6 @@ footer p{
                 రాయవచ్చు.
             </p>
 
-
             <div class="share-buttons">
 
                 <a
@@ -771,7 +696,6 @@ footer p{
                     🟢 WhatsApp Share
 
                 </a>
-
 
                 <button
                     class="normal-share"
@@ -790,23 +714,20 @@ footer p{
 </article>
 
 
-<!-- ================================================= -->
 <!-- FULL MOVIE -->
-<!-- ================================================= -->
-
 <article
     class="fullpost"
-    id="movie1">
+    id="movie1"
+    style="display:none;">
 
     <a
-        href="#home"
+        href="#"
         class="back"
-        onclick="goHome()">
+        onclick="goHome(); return false;">
 
         ← Back to Home
 
     </a>
-
 
     <div class="card">
 
@@ -829,7 +750,6 @@ footer p{
                 రాయవచ్చు.
             </p>
 
-
             <div class="share-buttons">
 
                 <a
@@ -840,7 +760,6 @@ footer p{
                     🟢 WhatsApp Share
 
                 </a>
-
 
                 <button
                     class="normal-share"
@@ -858,62 +777,70 @@ footer p{
 
 </article>
 
-
 </main>
 
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
-    <p>
-        © 2026 Suresh 360 Media
-    </p>
-
-    <p>
-        News • Sports • Movies
-    </p>
+    <p>© 2026 Suresh 360 Media</p>
+    <p>News • Sports • Movies</p>
 
 </footer>
 
 
 <script>
 
-/* OPEN FULL ARTICLE */
+/* OPEN POST */
 
 function openPost(id){
 
-    document.getElementById("home").style.display = "none";
+    var home = document.getElementById("home");
 
-    var posts =
-        document.getElementsByClassName("fullpost");
+    home.style.display = "none";
 
-    for(var i = 0; i < posts.length; i++){
+    var posts = document.querySelectorAll(".fullpost");
 
-        posts[i].style.display = "none";
+    posts.forEach(function(post){
+
+        post.style.display = "none";
+
+    });
+
+    var selected = document.getElementById(id);
+
+    if(selected){
+
+        selected.style.display = "block";
 
     }
-
-    document.getElementById(id).style.display = "block";
 
     window.scrollTo(0,0);
 }
 
 
-/* HOME */
+/* GO HOME */
 
 function goHome(){
 
     document.getElementById("home").style.display = "block";
 
-    var posts =
-        document.getElementsByClassName("fullpost");
+    var posts = document.querySelectorAll(".fullpost");
 
-    for(var i = 0; i < posts.length; i++){
+    posts.forEach(function(post){
 
-        posts[i].style.display = "none";
+        post.style.display = "none";
 
-    }
+    });
+
+    document.getElementById("search").value = "";
+
+    var cards = document.querySelectorAll(".post");
+
+    cards.forEach(function(card){
+
+        card.style.display = "block";
+
+    });
 
     window.scrollTo(0,0);
 }
@@ -926,31 +853,33 @@ function searchPosts(){
     var value =
         document.getElementById("search")
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
 
     var posts =
-        document.getElementsByClassName("post");
+        document.querySelectorAll(".post");
 
-    for(var i = 0; i < posts.length; i++){
+    posts.forEach(function(post){
 
         var text =
-            posts[i].innerText.toLowerCase();
+            post.innerText.toLowerCase();
 
-        if(text.indexOf(value) !== -1){
+        if(text.includes(value)){
 
-            posts[i].style.display = "block";
+            post.style.display = "block";
 
         }else{
 
-            posts[i].style.display = "none";
+            post.style.display = "none";
 
         }
 
-    }
+    });
+
 }
 
 
-/* NORMAL SHARE */
+/* SHARE */
 
 function sharePost(){
 
@@ -968,11 +897,15 @@ function sharePost(){
 
     }else{
 
-        navigator.clipboard
-        .writeText(window.location.href)
-        .then(function(){
+        navigator.clipboard.writeText(
+            window.location.href
+        ).then(function(){
 
             alert("Link copied! Share it anywhere.");
+
+        }).catch(function(){
+
+            alert("Share link: " + window.location.href);
 
         });
 
@@ -984,3 +917,5 @@ function sharePost(){
 
 </body>
 </html>
+
+    
