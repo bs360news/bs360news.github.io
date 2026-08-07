@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Suresh 360 Media</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -19,6 +21,9 @@ body{
     color:#222;
 }
 
+
+/* HEADER */
+
 header{
     background:linear-gradient(135deg,#8b0000,#e00000);
     color:white;
@@ -29,12 +34,17 @@ header{
 .logo{
     width:190px;
     max-width:80%;
+    height:auto;
 }
 
 header p{
     margin-top:8px;
+    font-size:14px;
     font-weight:bold;
 }
+
+
+/* BREAKING */
 
 .breaking{
     background:#111;
@@ -49,22 +59,34 @@ header p{
     padding:8px 12px;
 }
 
+
+/* NAVIGATION */
+
 nav{
-    background:#171717;
+    background:#151515;
     padding:10px;
     text-align:center;
     position:sticky;
     top:0;
-    z-index:10;
+    z-index:100;
 }
 
 nav a{
     color:white;
     text-decoration:none;
     margin:0 7px;
+    padding:8px 10px;
+    border-radius:5px;
     font-weight:bold;
     font-size:14px;
 }
+
+nav a:hover{
+    background:#e00000;
+}
+
+
+/* SEARCH */
 
 .search{
     max-width:900px;
@@ -78,13 +100,20 @@ nav a{
     border:1px solid #ccc;
     border-radius:30px;
     font-size:16px;
+    outline:none;
 }
 
+
+/* CONTAINER */
+
 .container{
-    max-width:1000px;
+    max-width:1050px;
     margin:auto;
     padding:0 15px 40px;
 }
+
+
+/* SECTION */
 
 .section{
     margin-top:25px;
@@ -96,29 +125,33 @@ nav a{
     padding:13px 15px;
     margin-bottom:15px;
     border-radius:7px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
 }
 
 .title h2{
     color:#c00000;
 }
 
+
+/* CARD */
+
 .card{
     background:white;
     border-radius:12px;
     overflow:hidden;
     margin-bottom:20px;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
+    box-shadow:0 3px 12px rgba(0,0,0,.1);
 }
 
 .card img{
     width:100%;
-    height:300px;
+    height:320px;
     object-fit:cover;
     display:block;
 }
 
 .content{
-    padding:17px;
+    padding:18px;
 }
 
 .content h3{
@@ -129,7 +162,7 @@ nav a{
 
 .content p{
     font-size:15px;
-    line-height:1.7;
+    line-height:1.75;
     color:#444;
 }
 
@@ -139,6 +172,9 @@ nav a{
     margin-top:10px;
 }
 
+
+/* READ MORE */
+
 .readmore{
     display:inline-block;
     background:#e00000;
@@ -146,23 +182,20 @@ nav a{
     text-decoration:none;
     padding:10px 16px;
     border-radius:6px;
-    margin-top:12px;
+    margin-top:13px;
     font-weight:bold;
 }
 
-.share{
-    display:inline-block;
-    background:#25d366;
-    color:white;
-    text-decoration:none;
-    padding:10px 15px;
-    border-radius:6px;
-    margin-top:12px;
-    font-weight:bold;
-}
+
+/* FULL POST */
 
 .fullpost{
     display:none;
+}
+
+.fullpost h1{
+    font-size:28px;
+    line-height:1.5;
 }
 
 .fullpost img{
@@ -173,37 +206,72 @@ nav a{
     margin:15px 0;
 }
 
-.fullpost h1{
-    font-size:27px;
-    line-height:1.5;
-}
-
 .fullpost p{
     font-size:17px;
     line-height:1.9;
     margin:15px 0;
 }
 
+
+/* BACK */
+
 .back{
     display:inline-block;
     background:#222;
     color:white;
     text-decoration:none;
-    padding:10px 15px;
+    padding:10px 16px;
     border-radius:6px;
     margin-bottom:15px;
 }
+
+
+/* SHARE BUTTONS */
+
+.share-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.whatsapp,
+.normal-share{
+    padding:11px 16px;
+    border-radius:7px;
+    color:white;
+    text-decoration:none;
+    border:0;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.whatsapp{
+    background:#25D366;
+}
+
+.normal-share{
+    background:#333;
+}
+
+
+/* FOOTER */
 
 footer{
     background:#111;
     color:white;
     text-align:center;
     padding:22px 10px;
+    margin-top:20px;
 }
 
 footer p{
     margin:5px;
 }
+
+
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -213,7 +281,8 @@ footer p{
 
     nav a{
         font-size:12px;
-        margin:0 4px;
+        margin:0 2px;
+        padding:7px 6px;
     }
 
     .card img{
@@ -231,37 +300,62 @@ footer p{
     .fullpost p{
         font-size:15px;
     }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
 <img
-class="logo"
 src="suresh-logo.png"
+class="logo"
 alt="Suresh 360 Media">
 
-<p>📰 NEWS • 🏏 SPORTS • 🎬 MOVIES</p>
+<p>
+📰 NEWS • 🏏 SPORTS • 🎬 MOVIES
+</p>
 
 </header>
 
 
+<!-- BREAKING NEWS -->
+
 <div class="breaking">
+
 <b>🔴 BREAKING</b>
-&nbsp; Suresh 360 Media Latest Updates
+
+&nbsp;
+
+Suresh 360 Media — Latest Updates
+
 </div>
 
 
+<!-- NAV -->
+
 <nav>
+
 <a href="#home" onclick="goHome()">🏠 Home</a>
+
 <a href="#news" onclick="goHome()">📰 News</a>
+
 <a href="#sports" onclick="goHome()">🏏 Sports</a>
+
 <a href="#movies" onclick="goHome()">🎬 Movies</a>
+
 </nav>
 
+
+<!-- SEARCH -->
 
 <div class="search">
 
@@ -277,10 +371,12 @@ onkeyup="searchPosts()">
 <main class="container">
 
 
+<!-- HOME -->
+
 <div id="home">
 
 
-<!-- NEWS -->
+<!-- ================= NEWS ================= -->
 
 <section class="section" id="news">
 
@@ -288,6 +384,8 @@ onkeyup="searchPosts()">
 <h2>📰 Latest News</h2>
 </div>
 
+
+<!-- NEWS 1 -->
 
 <article class="card post">
 
@@ -302,8 +400,8 @@ alt="News">
 </h3>
 
 <p>
-దేశంలో జరుగుతున్న ముఖ్యమైన పరిణామాలు మరియు
-తాజా వార్తల సమాచారం.
+దేశంలో జరుగుతున్న ముఖ్యమైన పరిణామాలు
+మరియు తాజా వార్తల సమాచారం.
 </p>
 
 <div class="date">
@@ -314,12 +412,17 @@ alt="News">
 href="#news1"
 class="readmore"
 onclick="openPost('news1')">
+
 Read More →
+
 </a>
 
 </div>
+
 </article>
 
+
+<!-- NEWS 2 -->
 
 <article class="card post">
 
@@ -346,16 +449,19 @@ alt="Breaking News">
 href="#news2"
 class="readmore"
 onclick="openPost('news2')">
+
 Read More →
+
 </a>
 
 </div>
+
 </article>
 
 </section>
 
 
-<!-- SPORTS -->
+<!-- ================= SPORTS ================= -->
 
 <section class="section" id="sports">
 
@@ -363,6 +469,8 @@ Read More →
 <h2>🏏 Sports</h2>
 </div>
 
+
+<!-- SPORTS 1 -->
 
 <article class="card post">
 
@@ -389,12 +497,17 @@ Cricket ప్రపంచంలోని తాజా వార్తలు,
 href="#sports1"
 class="readmore"
 onclick="openPost('sports1')">
+
 Read More →
+
 </a>
 
 </div>
+
 </article>
 
+
+<!-- SPORTS 2 -->
 
 <article class="card post">
 
@@ -421,16 +534,19 @@ Sports ప్రపంచంలోని తాజా updates
 href="#sports2"
 class="readmore"
 onclick="openPost('sports2')">
+
 Read More →
+
 </a>
 
 </div>
+
 </article>
 
 </section>
 
 
-<!-- MOVIES -->
+<!-- ================= MOVIES ================= -->
 
 <section class="section" id="movies">
 
@@ -438,6 +554,8 @@ Read More →
 <h2>🎬 Movies</h2>
 </div>
 
+
+<!-- MOVIE 1 -->
 
 <article class="card post">
 
@@ -452,8 +570,8 @@ alt="Cinema">
 </h3>
 
 <p>
-కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు మరియు
-Entertainment News.
+కొత్త సినిమాలు, హీరోలు, హీరోయిన్లు
+మరియు Entertainment News.
 </p>
 
 <div class="date">
@@ -464,12 +582,17 @@ Entertainment News.
 href="#movie1"
 class="readmore"
 onclick="openPost('movie1')">
+
 Read More →
+
 </a>
 
 </div>
+
 </article>
 
+
+<!-- MOVIE 2 -->
 
 <article class="card post">
 
@@ -496,10 +619,13 @@ updates ఇక్కడ అందిస్తాము.
 href="#movie2"
 class="readmore"
 onclick="openPost('movie2')">
+
 Read More →
+
 </a>
 
 </div>
+
 </article>
 
 </section>
@@ -507,12 +633,19 @@ Read More →
 </div>
 
 
+<!-- ================================================= -->
 <!-- FULL NEWS 1 -->
+<!-- ================================================= -->
 
 <article class="fullpost" id="news1">
 
-<a href="#home" class="back" onclick="goHome()">
-← Back
+<a
+href="#home"
+class="back"
+onclick="goHome()">
+
+← Back to Home
+
 </a>
 
 <div class="card">
@@ -533,8 +666,8 @@ alt="News">
 
 <p>
 ఇక్కడ మీ పూర్తి News article రాయవచ్చు.
-మీరు నాకు News పంపితే ఈ భాగాన్ని పూర్తి
-scriptతో మార్చుకోవచ్చు.
+మీరు నాకు News పంపితే ఈ sectionలో
+మీ పూర్తి script పెట్టుకోవచ్చు.
 </p>
 
 <p>
@@ -542,25 +675,49 @@ scriptతో మార్చుకోవచ్చు.
 పూర్తి కథనం ఇక్కడ కనిపిస్తుంది.
 </p>
 
+
+<div class="share-buttons">
+
 <a
-class="share"
-href="https://wa.me/?text=Suresh%20360%20Media%20News"
+class="whatsapp"
+href="https://wa.me/?text=Suresh%20360%20Media%20Latest%20News"
 target="_blank">
-📲 WhatsApp Share
+
+🟢 WhatsApp Share
+
 </a>
 
+
+<button
+class="normal-share"
+onclick="sharePost()">
+
+📤 Share
+
+</button>
+
 </div>
+
+</div>
+
 </div>
 
 </article>
 
 
+<!-- ================================================= -->
 <!-- FULL NEWS 2 -->
+<!-- ================================================= -->
 
 <article class="fullpost" id="news2">
 
-<a href="#home" class="back" onclick="goHome()">
-← Back
+<a
+href="#home"
+class="back"
+onclick="goHome()">
+
+← Back to Home
+
 </a>
 
 <div class="card">
@@ -585,29 +742,52 @@ alt="Breaking News">
 </p>
 
 <p>
-మీరు కొత్త News పంపినప్పుడు ఈ textను
-మీ News scriptతో మార్చవచ్చు.
+మీరు కొత్త News పంపినప్పుడు ఇక్కడ
+పూర్తి script పెట్టవచ్చు.
 </p>
 
+
+<div class="share-buttons">
+
 <a
-class="share"
+class="whatsapp"
 href="https://wa.me/?text=Suresh%20360%20Media%20News"
 target="_blank">
-📲 WhatsApp Share
+
+🟢 WhatsApp Share
+
 </a>
 
+<button
+class="normal-share"
+onclick="sharePost()">
+
+📤 Share
+
+</button>
+
 </div>
+
+</div>
+
 </div>
 
 </article>
 
 
+<!-- ================================================= -->
 <!-- FULL SPORTS 1 -->
+<!-- ================================================= -->
 
 <article class="fullpost" id="sports1">
 
-<a href="#home" class="back" onclick="goHome()">
-← Back
+<a
+href="#home"
+class="back"
+onclick="goHome()">
+
+← Back to Home
+
 </a>
 
 <div class="card">
@@ -631,25 +811,48 @@ alt="Cricket">
 రాయవచ్చు.
 </p>
 
+
+<div class="share-buttons">
+
 <a
-class="share"
+class="whatsapp"
 href="https://wa.me/?text=Suresh%20360%20Media%20Cricket%20News"
 target="_blank">
-📲 WhatsApp Share
+
+🟢 WhatsApp Share
+
 </a>
 
+<button
+class="normal-share"
+onclick="sharePost()">
+
+📤 Share
+
+</button>
+
 </div>
+
+</div>
+
 </div>
 
 </article>
 
 
+<!-- ================================================= -->
 <!-- FULL SPORTS 2 -->
+<!-- ================================================= -->
 
 <article class="fullpost" id="sports2">
 
-<a href="#home" class="back" onclick="goHome()">
-← Back
+<a
+href="#home"
+class="back"
+onclick="goHome()">
+
+← Back to Home
+
 </a>
 
 <div class="card">
@@ -673,25 +876,48 @@ alt="Cricket Stadium">
 కనిపిస్తుంది.
 </p>
 
+
+<div class="share-buttons">
+
 <a
-class="share"
+class="whatsapp"
 href="https://wa.me/?text=Suresh%20360%20Media%20Sports"
 target="_blank">
-📲 WhatsApp Share
+
+🟢 WhatsApp Share
+
 </a>
 
+<button
+class="normal-share"
+onclick="sharePost()">
+
+📤 Share
+
+</button>
+
 </div>
+
+</div>
+
 </div>
 
 </article>
 
 
+<!-- ================================================= -->
 <!-- FULL MOVIE 1 -->
+<!-- ================================================= -->
 
 <article class="fullpost" id="movie1">
 
-<a href="#home" class="back" onclick="goHome()">
-← Back
+<a
+href="#home"
+class="back"
+onclick="goHome()">
+
+← Back to Home
+
 </a>
 
 <div class="card">
@@ -715,25 +941,48 @@ alt="Cinema">
 కనిపిస్తుంది.
 </p>
 
+
+<div class="share-buttons">
+
 <a
-class="share"
+class="whatsapp"
 href="https://wa.me/?text=Suresh%20360%20Media%20Movie%20News"
 target="_blank">
-📲 WhatsApp Share
+
+🟢 WhatsApp Share
+
 </a>
 
+<button
+class="normal-share"
+onclick="sharePost()">
+
+📤 Share
+
+</button>
+
 </div>
+
+</div>
+
 </div>
 
 </article>
 
 
+<!-- ================================================= -->
 <!-- FULL MOVIE 2 -->
+<!-- ================================================= -->
 
 <article class="fullpost" id="movie2">
 
-<a href="#home" class="back" onclick="goHome()">
-← Back
+<a
+href="#home"
+class="back"
+onclick="goHome()">
+
+← Back to Home
+
 </a>
 
 <div class="card">
@@ -757,14 +1006,30 @@ alt="Movie">
 కనిపిస్తుంది.
 </p>
 
+
+<div class="share-buttons">
+
 <a
-class="share"
+class="whatsapp"
 href="https://wa.me/?text=Suresh%20360%20Media%20Movie"
 target="_blank">
-📲 WhatsApp Share
+
+🟢 WhatsApp Share
+
 </a>
 
+<button
+class="normal-share"
+onclick="sharePost()">
+
+📤 Share
+
+</button>
+
 </div>
+
+</div>
+
 </div>
 
 </article>
@@ -775,39 +1040,57 @@ target="_blank">
 
 <footer>
 
-<p>© 2026 Suresh 360 Media</p>
-<p>News • Sports • Movies</p>
+<p>
+© 2026 Suresh 360 Media
+</p>
+
+<p>
+News • Sports • Movies
+</p>
 
 </footer>
 
 
 <script>
 
+/* OPEN POST */
+
 function openPost(id){
 
-document.getElementById("home").style.display="none";
+document.getElementById("home")
+.style.display="none";
 
-var posts=document.getElementsByClassName("fullpost");
+var posts =
+document.getElementsByClassName("fullpost");
 
 for(var i=0;i<posts.length;i++){
+
 posts[i].style.display="none";
+
 }
 
-document.getElementById(id).style.display="block";
+document.getElementById(id)
+.style.display="block";
 
 window.scrollTo(0,0);
 
 }
 
+
+/* HOME */
 
 function goHome(){
 
-document.getElementById("home").style.display="block";
+document.getElementById("home")
+.style.display="block";
 
-var posts=document.getElementsByClassName("fullpost");
+var posts =
+document.getElementsByClassName("fullpost");
 
 for(var i=0;i<posts.length;i++){
+
 posts[i].style.display="none";
+
 }
 
 window.scrollTo(0,0);
@@ -815,21 +1098,22 @@ window.scrollTo(0,0);
 }
 
 
+/* SEARCH */
+
 function searchPosts(){
 
-var value=document
-.getElementById("search")
+var value =
+document.getElementById("search")
 .value
 .toLowerCase();
 
-var posts=document
-.getElementsByClassName("post");
+var posts =
+document.getElementsByClassName("post");
 
 for(var i=0;i<posts.length;i++){
 
-var text=posts[i]
-.innerText
-.toLowerCase();
+var text =
+posts[i].innerText.toLowerCase();
 
 if(text.indexOf(value)!==-1){
 
@@ -845,7 +1129,37 @@ posts[i].style.display="none";
 
 }
 
+
+/* NORMAL SHARE */
+
+function sharePost(){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Suresh 360 Media",
+
+text:"Latest News from Suresh 360 Media",
+
+url:window.location.href
+
+});
+
+}else{
+
+navigator.clipboard.writeText(
+window.location.href
+);
+
+alert("Link copied! Share it anywhere.");
+
+}
+
+}
+
 </script>
+
 
 </body>
 </html>
