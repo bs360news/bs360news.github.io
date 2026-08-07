@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Suresh 360 Media</title>
 
 <style>
+
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#f2f2f2;
+    background:#f3f3f3;
+    color:#222;
 }
 
 header{
-    background:#d60000;
+    background:#d40000;
     color:white;
     text-align:center;
-    padding:20px;
+    padding:20px 10px;
 }
 
 header img{
@@ -24,10 +32,22 @@ header img{
     max-width:80%;
 }
 
-nav{
+header p{
+    margin:8px 0 0;
+    font-weight:bold;
+}
+
+.breaking{
     background:#111;
-    text-align:center;
+    color:white;
     padding:12px;
+    text-align:center;
+}
+
+nav{
+    background:#171717;
+    padding:12px;
+    text-align:center;
 }
 
 nav a{
@@ -37,13 +57,6 @@ nav a{
     font-weight:bold;
 }
 
-.breaking{
-    background:#222;
-    color:white;
-    padding:12px;
-    text-align:center;
-}
-
 .search{
     padding:15px;
     text-align:center;
@@ -51,10 +64,10 @@ nav a{
 
 .search input{
     width:90%;
-    max-width:600px;
+    max-width:650px;
     padding:13px;
-    border-radius:25px;
     border:1px solid #ccc;
+    border-radius:25px;
     font-size:16px;
 }
 
@@ -64,8 +77,11 @@ nav a{
     padding:10px;
 }
 
-h2{
-    color:#d60000;
+.section-title{
+    color:#d40000;
+    border-left:5px solid #d40000;
+    padding-left:10px;
+    margin-top:25px;
 }
 
 .card{
@@ -82,24 +98,28 @@ h2{
 }
 
 .content{
-    padding:15px;
+    padding:16px;
 }
 
 .content h3{
     font-size:21px;
+    line-height:1.5;
 }
 
 .content p{
     line-height:1.7;
+    color:#444;
 }
 
-.share{
+.readmore{
     display:inline-block;
-    background:#25d366;
+    background:#d40000;
     color:white;
-    padding:10px 15px;
     text-decoration:none;
+    padding:10px 16px;
     border-radius:6px;
+    font-weight:bold;
+    margin-top:8px;
 }
 
 footer{
@@ -109,163 +129,231 @@ footer{
     padding:20px;
     margin-top:30px;
 }
+
 </style>
+
 </head>
 
 <body>
 
+
 <header>
-    <img src="suresh-logo.png" alt="Suresh 360 Media">
-    <p>NEWS • SPORTS • MOVIES</p>
+
+<img src="suresh-logo.png" alt="Suresh 360 Media">
+
+<p>NEWS • SPORTS • MOVIES</p>
+
 </header>
 
+
 <div class="breaking">
-    🔴 BREAKING NEWS — Suresh 360 Media Latest Updates
+🔴 BREAKING NEWS — Suresh 360 Media Latest Updates
 </div>
+
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#sports">Sports</a>
-    <a href="#movies">Movies</a>
+
+<a href="#home">Home</a>
+<a href="#news">News</a>
+<a href="#sports">Sports</a>
+<a href="#movies">Movies</a>
+
 </nav>
 
+
 <div class="search">
-    <input id="search" type="text"
-    placeholder="🔎 Search News, Sports, Movies..."
-    onkeyup="searchPosts()">
+
+<input
+type="text"
+id="search"
+placeholder="🔎 Search News, Sports, Movies..."
+onkeyup="searchPosts()">
+
 </div>
 
-<div class="container" id="home">
+
+<main class="container" id="home">
+
+
+<!-- NEWS -->
 
 <section id="news">
-<h2>📰 Latest News</h2>
 
-<div class="card post">
-    <img src="news.jpg" alt="Latest News">
+<h2 class="section-title">
+📰 Latest News
+</h2>
 
-    <div class="content">
-        <h3>ఈరోజు తాజా వార్తలు</h3>
 
-        <p>
-            Suresh 360 Mediaలో తాజా వార్తలు మరియు ముఖ్యమైన
-            సమాచారాన్ని ఇక్కడ అందిస్తాము.
-        </p>
+<article class="card post">
 
-        <a class="share"
-        href="https://wa.me/?text=Suresh%20360%20Media%20Latest%20News"
-        target="_blank">
-        📲 WhatsApp Share
-        </a>
-    </div>
+<img src="news.jpg" alt="Latest News">
+
+<div class="content">
+
+<h3>
+ఈరోజు తాజా వార్తలు
+</h3>
+
+<p>
+Suresh 360 Mediaలో తాజా వార్తలు మరియు ముఖ్యమైన
+సమాచారాన్ని ఇక్కడ అందిస్తాము.
+</p>
+
+<a
+class="readmore"
+href="post1.html">
+Read More →
+</a>
+
 </div>
 
-<div class="card post">
-    <img src="news2.jpg" alt="News">
+</article>
 
-    <div class="content">
-        <h3>ముఖ్యమైన తాజా సమాచారం</h3>
-        <p>తాజా News Updates ఇక్కడ అందిస్తాము.</p>
-    </div>
+
+<article class="card post">
+
+<img src="news2.jpg" alt="News">
+
+<div class="content">
+
+<h3>
+ముఖ్యమైన తాజా సమాచారం
+</h3>
+
+<p>
+తాజా News Updates ఇక్కడ అందిస్తాము.
+</p>
+
+<a
+class="readmore"
+href="post2.html">
+Read More →
+</a>
+
 </div>
+
+</article>
 
 </section>
 
+
+<!-- SPORTS -->
 
 <section id="sports">
-<h2>🏏 Sports</h2>
 
-<div class="card post">
-    <img src="sports1.jpg" alt="Sports">
+<h2 class="section-title">
+🏏 Sports
+</h2>
 
-    <div class="content">
-        <h3>🔥 Latest Cricket Update</h3>
-        <p>తాజా Cricket మరియు Sports News Updates.</p>
-    </div>
+
+<article class="card post">
+
+<img src="sports1.jpg" alt="Sports">
+
+<div class="content">
+
+<h3>
+🔥 Latest Cricket Update
+</h3>
+
+<p>
+తాజా Cricket మరియు Sports News Updates.
+</p>
+
+<a
+class="readmore"
+href="post3.html">
+Read More →
+</a>
+
 </div>
 
-<div class="card post">
-    <img src="sports2.jpg" alt="Sports">
-
-    <div class="content">
-        <h3>🏏 Cricket Latest News</h3>
-        <p>Cricket ప్రపంచంలోని తాజా వార్తలు.</p>
-    </div>
-</div>
+</article>
 
 </section>
 
+
+<!-- MOVIES -->
 
 <section id="movies">
-<h2>🎬 Movies</h2>
 
-<div class="card post">
-    <img src="movie1.jpg" alt="Movies">
-
-    <div class="content">
-        <h3>🎬 Latest Movie Update</h3>
-        <p>కొత్త సినిమాల తాజా Updates ఇక్కడ అందిస్తాము.</p>
-    </div>
-</div>
-
-<div class="card post">
-    <img src="movie2.jpg" alt="Movies">
-
-    <div class="content">
-        <h3>⭐ New Movie News</h3>
-        <p>Latest Movie మరియు Entertainment News.</p>
-    </div>
-</div>
-
-</section>
+<h2 class="section-title">
+🎬 Movies
+</h2>
 
 
-<section>
-<h2>ℹ️ About Suresh 360 Media</h2>
+<article class="card post">
 
-<div class="card">
+<img src="movie1.jpg" alt="Movie">
+
 <div class="content">
+
+<h3>
+🎬 Latest Movie Update
+</h3>
+
 <p>
-Suresh 360 Mediaలో News, Sports మరియు Movies
-తాజా Updates అందిస్తాము.
+కొత్త సినిమాల తాజా Updates ఇక్కడ అందిస్తాము.
 </p>
-</div>
-</div>
-</section>
+
+<a
+class="readmore"
+href="post4.html">
+Read More →
+</a>
 
 </div>
+
+</article>
+
+</section>
+
+
+</main>
+
 
 <footer>
+
 <p>© 2026 Suresh 360 Media</p>
+
 <p>News • Sports • Movies</p>
+
 </footer>
 
 
 <script>
+
 function searchPosts(){
 
-    var input = document
-        .getElementById("search")
-        .value
-        .toLowerCase();
+let input =
+document.getElementById("search")
+.value
+.toLowerCase();
 
-    var posts = document
-        .getElementsByClassName("post");
+let posts =
+document.getElementsByClassName("post");
 
-    for(var i = 0; i < posts.length; i++){
+for(let i=0;i<posts.length;i++){
 
-        var text = posts[i]
-            .innerText
-            .toLowerCase();
+let text =
+posts[i].innerText.toLowerCase();
 
-        if(text.indexOf(input) !== -1){
-            posts[i].style.display = "block";
-        }else{
-            posts[i].style.display = "none";
-        }
-    }
+if(text.includes(input)){
+
+posts[i].style.display="block";
+
+}else{
+
+posts[i].style.display="none";
+
 }
+
+}
+
+}
+
 </script>
+
 
 </body>
 </html>
