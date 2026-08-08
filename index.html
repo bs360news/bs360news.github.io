@@ -1,32 +1,208 @@
-<div id="posts-container"></div>
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Suresh 360 Media - తెలుగు వార్తలు, స్పోర్ట్స్, సినిమాలు, ఎంటర్‌టైన్‌మెంట్">
+<title>Suresh 360 Media | తెలుగు న్యూస్</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans Telugu","Nirmala UI","Segoe UI",Arial,sans-serif;background:#f5f5f5;color:#171717}
+a{text-decoration:none;color:inherit}
+.topline{height:34px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:center;gap:22px;font-size:13px;color:#555}
+.header{background:#fff;border-bottom:1px solid #ddd}
+.header-inner{max-width:1250px;margin:auto;min-height:82px;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:58px;height:58px;border-radius:8px;background:#e60000;color:#fff;display:grid;place-items:center;font-weight:900;font-size:17px;line-height:1;text-align:center;border:3px solid #fff;box-shadow:0 1px 5px #bbb}
+.logo-text{font-size:25px;font-weight:900}.logo-text span{color:#e60000}
+.header-tools{display:flex;align-items:center;gap:18px;color:#333;font-size:14px}
+.tool{display:flex;align-items:center;gap:5px}.live-dot{color:#e60000;font-weight:800}
+.menu-btn{font-size:27px;cursor:pointer}
+.nav{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #ddd;overflow-x:auto}
+.nav ul{max-width:1250px;margin:auto;display:flex;list-style:none;white-space:nowrap}
+.nav a{display:block;padding:13px 15px;font-weight:800;font-size:15px}
+.nav a:hover,.nav a.active{color:#e60000;background:#fff5f5}
+.breaking{max-width:1250px;margin:10px auto;background:#ffe8e8;display:flex;align-items:center;min-height:40px;overflow:hidden}
+.breaking strong{background:#e60000;color:#fff;padding:10px 17px;position:relative}
+.breaking strong:after{content:"";position:absolute;right:-12px;top:0;border-top:20px solid transparent;border-bottom:20px solid transparent;border-left:12px solid #e60000}
+.breaking p{padding:0 20px;font-size:14px;white-space:nowrap}
+.ad{max-width:1250px;margin:14px auto;background:#fff;border:1px dashed #ddd;height:105px;display:grid;place-items:center;color:#999;font-size:13px}
+.container{max-width:1250px;margin:auto;padding:0 15px 40px}
+.section-head{display:flex;align-items:center;gap:12px;margin:22px 0 12px;border-bottom:2px solid #222;padding-bottom:7px}
+.section-head h2{font-size:22px}.section-head span{width:6px;height:25px;background:#e60000;display:inline-block}
+.main-grid{display:grid;grid-template-columns:1.45fr 1fr .9fr;gap:18px}
+.card{background:#fff;border:1px solid #e5e5e5;overflow:hidden}
+.hero img{width:100%;height:285px;object-fit:cover;display:block}
+.card-body{padding:12px 14px}
+.tag{display:inline-block;color:#e60000;font-size:12px;font-weight:900;margin-bottom:6px}
+.hero h1{font-size:24px;line-height:1.35}
+.news-list{display:flex;flex-direction:column;gap:0}
+.news-item{display:grid;grid-template-columns:115px 1fr;gap:12px;padding:10px;border-bottom:1px solid #e5e5e5}
+.news-item img{width:115px;height:78px;object-fit:cover}
+.news-item h3{font-size:16px;line-height:1.4}
+.live-box{background:#111;color:#fff}
+.live-title{background:#e60000;padding:10px 14px;font-size:21px;font-weight:900}
+.live-screen{height:210px;background:linear-gradient(135deg,#173c85,#f2c400 55%,#fff);display:grid;place-items:center;text-align:center;padding:20px}
+.live-screen div{background:rgba(0,0,0,.65);padding:15px;width:90%;font-size:18px;font-weight:800}
+.live-controls{padding:10px 14px;color:#ddd;font-size:13px}
+.ad-side{margin-top:16px;min-height:150px;background:#fff;border:1px dashed #ccc;display:grid;place-items:center;color:#aaa}
+.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.small-card img{width:100%;height:150px;object-fit:cover}
+.small-card h3{font-size:16px;line-height:1.4;padding:10px 12px 14px}
+.search-wrap{margin:18px 0;display:flex;gap:8px}
+.search{flex:1;border:1px solid #ccc;padding:12px 15px;background:#fff;font-size:15px;outline:none}
+.search:focus{border-color:#e60000}
+footer{background:#171717;color:#ddd;margin-top:20px}
+.footer-inner{max-width:1250px;margin:auto;padding:30px 18px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+footer h3{color:#fff;margin-bottom:9px}footer p,footer li{font-size:13px;line-height:1.8;color:#aaa}
+footer ul{list-style:none}.copyright{border-top:1px solid #333;text-align:center;padding:14px;font-size:12px;color:#888}
+.hidden{display:none!important}
+@media(max-width:900px){
+.main-grid{grid-template-columns:1fr 1fr}.hero{grid-row:auto}.live-col{grid-column:1/-1}
+.category-grid{grid-template-columns:repeat(2,1fr)}
+.footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.topline{justify-content:flex-start;padding-left:12px;overflow:hidden;gap:13px}
+.topline span:nth-child(n+5){display:none}
+.header-inner{min-height:70px;padding:9px 12px}.logo-mark{width:48px;height:48px}.logo-text{font-size:20px}
+.header-tools .tool:nth-child(-n+2){display:none}
+.nav a{padding:11px 12px;font-size:14px}
+.breaking{margin:8px 10px}.breaking p{overflow:hidden;text-overflow:ellipsis}
+.ad{margin:10px;height:70px}
+.container{padding:0 10px 25px}.main-grid{grid-template-columns:1fr}.live-col{grid-column:auto}
+.hero img{height:230px}.hero h1{font-size:21px}
+.category-grid{grid-template-columns:1fr 1fr;gap:10px}.small-card img{height:115px}.small-card h3{font-size:14px;padding:8px}
+.footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
 
-<input
-    type="text"
-    id="search-input"
-    placeholder="🔍 వార్తలు సెర్చ్ చేయండి..."
-    oninput="searchPosts()"
->
-
-<div id="post-modal">
-
-    <div class="modal-content">
-
-        <button onclick="closeModal()">
-            ✕
-        </button>
-
-        <h2 id="modal-title"></h2>
-
-        <img id="modal-img">
-
-        <p id="modal-date"></p>
-
-        <div id="modal-body"></div>
-
-        <h3>Related News</h3>
-
-        <div id="related-posts"></div>
-
-    </div>
-
+<div class="topline">
+<span>News</span><span>తెలుగు</span><span>English</span><span>ಕನ್ನಡ</span><span>हिन्दी</span><span>தமிழ்</span><span>മലയാളം</span>
 </div>
+
+<header class="header">
+<div class="header-inner">
+<div class="logo">
+<div class="logo-mark">S360<br>MEDIA</div>
+<div class="logo-text">Suresh 360 <span>Media</span></div>
+</div>
+<div class="header-tools">
+<div class="tool">☀️ <span>వాతావరణం</span></div>
+<div class="tool">🔴 <span class="live-dot">LIVE</span> TV</div>
+<div class="tool">👤</div>
+<div class="menu-btn">☰</div>
+</div>
+</div>
+</header>
+
+<nav class="nav">
+<ul>
+<li><a class="active" href="#" onclick="filterPosts('all');return false">హోమ్</a></li>
+<li><a href="#" onclick="filterPosts('news');return false">తాజా వార్తలు</a></li>
+<li><a href="#" onclick="filterPosts('ap');return false">ఆంధ్రప్రదేశ్</a></li>
+<li><a href="#" onclick="filterPosts('ts');return false">తెలంగాణ</a></li>
+<li><a href="#" onclick="filterPosts('sports');return false">క్రికెట్</a></li>
+<li><a href="#" onclick="filterPosts('movies');return false">సినిమా</a></li>
+<li><a href="#" onclick="filterPosts('ent');return false">ఎంటర్‌టైన్‌మెంట్</a></li>
+<li><a href="#" onclick="filterPosts('business');return false">బిజినెస్</a></li>
+</ul>
+</nav>
+
+<div class="breaking">
+<strong>BREAKING</strong>
+<p id="ticker">సురేష్ 360 మీడియా తాజా వార్తలు, బ్రేకింగ్ న్యూస్ మరియు ముఖ్యమైన అప్‌డేట్స్ మీ కోసం...</p>
+</div>
+
+<div class="ad">ADVERTISEMENT</div>
+
+<main class="container">
+<div class="search-wrap">
+<input id="search-input" class="search" placeholder="🔍 వార్తలు, సినిమాలు, స్పోర్ట్స్ కోసం సెర్చ్ చేయండి..." oninput="searchPosts()">
+</div>
+
+<div class="section-head"><span></span><h2>తెలుగు న్యూస్</h2></div>
+
+<section class="main-grid">
+<article class="card hero post" data-category="news">
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1000" alt="ప్రధాన వార్త">
+<div class="card-body">
+<span class="tag">తాజా వార్తలు</span>
+<h1>సురేష్ 360 మీడియా గ్రాండ్ లాంచ్.. ఇకపై తాజా వార్తలు మీ ముందుకు</h1>
+<p style="margin-top:8px;color:#666;font-size:14px">బ్రేకింగ్ న్యూస్, సినిమా, స్పోర్ట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్ కోసం Suresh 360 Media.</p>
+<a class="read" href="news1.html" style="display:inline-block;margin-top:10px;background:#e60000;color:#fff;padding:8px 14px;font-weight:800">పూర్తి వార్త →</a>
+</div>
+</article>
+
+<div class="card news-list">
+<article class="news-item post" data-category="movies">
+<img src="ramcharan.jpg.webp" alt="సినిమా">
+<div><span class="tag">సినిమా</span><h3>‘చరణ్ కాకపోతే ఆ సినిమా ఆడేది కాదు’.. పరుచూరి రివ్యూ!</h3></div>
+</article>
+<article class="news-item post" data-category="sports">
+<img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600" alt="క్రికెట్">
+<div><span class="tag">స్పోర్ట్స్</span><h3>క్రికెట్ ప్రపంచంలో సంచలనం.. తాజా మ్యాచ్ వివరాలు</h3></div>
+</article>
+<article class="news-item post" data-category="movies">
+<img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600" alt="సినిమా">
+<div><span class="tag">ఎంటర్‌టైన్‌మెంట్</span><h3>సినిమా ఇండస్ట్రీలో తాజా అప్‌డేట్స్ మీ కోసం</h3></div>
+</article>
+<article class="news-item post" data-category="sports">
+<img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600" alt="క్రికెట్">
+<div><span class="tag">క్రికెట్</span><h3>5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!</h3></div>
+</article>
+</div>
+
+<div class="live-col">
+<div class="card live-box">
+<div class="live-title">▣ LIVE TV</div>
+<div class="live-screen"><div>🔴 SURESH 360<br>LIVE NEWS</div></div>
+<div class="live-controls">లైవ్ ప్రసారం త్వరలో అందుబాటులోకి వస్తుంది</div>
+</div>
+<div class="ad-side">ADVERTISEMENT</div>
+</div>
+</section>
+
+<div class="section-head"><span></span><h2>సినిమా & ఎంటర్‌టైన్‌మెంట్</h2></div>
+<section class="category-grid">
+<article class="card small-card post" data-category="movies"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=700" alt="సినిమా"><h3>బాక్సాఫీస్ వద్ద రికార్డుల సునామీ.. కొత్త సినిమా అప్‌డేట్</h3></article>
+<article class="card small-card post" data-category="movies"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=700" alt="సినిమా"><h3>కొత్త సినిమాలు, హీరోలు, హీరోయిన్ల తాజా వార్తలు</h3></article>
+<article class="card small-card post" data-category="ent"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700" alt="ఎంటర్‌టైన్‌మెంట్"><h3>ఎంటర్‌టైన్‌మెంట్ ప్రపంచంలో ఈరోజు ముఖ్యమైన అప్‌డేట్స్</h3></article>
+<article class="card small-card post" data-category="sports"><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=700" alt="స్పోర్ట్స్"><h3>క్రికెట్‌లో స్టార్ ప్లేయర్ల రికార్డులు, తాజా వార్తలు</h3></article>
+</section>
+</main>
+
+<footer>
+<div class="footer-inner">
+<div><h3>Suresh 360 Media</h3><p>News • Sports • Movies • Entertainment</p><p>తెలుగు ప్రజలకు తాజా వార్తలు మరియు వినోద సమాచారం.</p></div>
+<div><h3>విభాగాలు</h3><ul><li>తాజా వార్తలు</li><li>స్పోర్ట్స్</li><li>సినిమా</li><li>ఎంటర్‌టైన్‌మెంట్</li></ul></div>
+<div><h3>Contact</h3><p>📧 suresh360media@gmail.com</p></div>
+</div>
+<div class="copyright">© 2026 Suresh 360 Media. All rights reserved.</div>
+</footer>
+
+<script>
+function filterPosts(category){
+ document.querySelectorAll('.post').forEach(p=>{
+   p.classList.toggle('hidden',category!=='all' && p.dataset.category!==category);
+ });
+ document.getElementById('search-input').value='';
+}
+function searchPosts(){
+ const q=document.getElementById('search-input').value.trim().toLowerCase();
+ document.querySelectorAll('.post').forEach(p=>{
+   const text=p.innerText.toLowerCase();
+   p.classList.toggle('hidden',q && !text.includes(q));
+ });
+}
+const ticker=[
+'సురేష్ 360 మీడియా తాజా వార్తలు మీ ముందుకు...',
+'సినిమా, స్పోర్ట్స్, తెలుగు రాష్ట్రాల ముఖ్యమైన అప్‌డేట్స్...',
+'బ్రేకింగ్ న్యూస్ కోసం Suresh 360 Mediaను ఫాలో అవ్వండి...'
+];
+let ti=0;setInterval(()=>{ti=(ti+1)%ticker.length;document.getElementById('ticker').textContent=ticker[ti]},4000);
+</script>
+</body>
+</html>
