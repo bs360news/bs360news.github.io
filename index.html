@@ -88,6 +88,14 @@ footer ul{list-style:none}.copyright{border-top:1px solid #333;text-align:center
 .category-grid{grid-template-columns:1fr 1fr;gap:10px}.small-card img{height:115px}.small-card h3{font-size:14px;padding:8px}
 .footer-inner{grid-template-columns:1fr}
 }
+    /* ఇమేజ్ సైజును సరిచేసే కోడ్ */
+.card img, .latest-updates img {
+    width: 100%;
+    max-height: 220px; /* ఇమేజ్ ఎత్తును నియంత్రిస్తుంది */
+    object-fit: cover; /* ఇమేజ్ సాగకుండా (stretch అవ్వకుండా) అందంగా చూపిస్తుంది */
+    border-radius: 8px;
+}
+
 </style>
 </head>
 <body>
