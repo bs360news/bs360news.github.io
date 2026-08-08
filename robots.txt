@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://suryabhai941.github.io/suresh/sitemap.xml
