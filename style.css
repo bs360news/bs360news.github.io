@@ -1,194 +1,71 @@
-<!DOCTYPE html>
-<html lang="te">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suresh 360 Media - Cricket Records</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
+/* ========================================
+   RELATED POSTS
+======================================== */
 
-        .media-card {
-            max-width: 600px;
-            width: 100%;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 1px solid #e1e4e8;
-        }
+#related-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
 
-        .brand-header {
-            background-color: #d32f2f;
-            color: #ffffff;
-            text-align: center;
-            padding: 12px;
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+.related-item {
+    background: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-        .content-body {
-            padding: 20px;
-        }
+.related-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border-color: #d32f2f;
+}
 
-        .article-title {
-            color: #111111;
-            font-size: 20px;
-            margin-top: 0;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #d32f2f;
-            padding-bottom: 8px;
-        }
+.related-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+}
 
-        .intro-text {
-            font-size: 14px;
-            color: #555555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+.related-item h4 {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #222;
+    padding: 10px;
+    margin: 0;
+}
 
-        .section-box {
-            background-color: #f9f9f9;
-            border-left: 4px solid #1976d2;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-            border-radius: 0 8px 8px 0;
-        }
+/* Mobile */
+@media (max-width: 700px) {
 
-        .player-name {
-            color: #1976d2;
-            font-size: 16px;
-            margin: 0 0 8px 0;
-        }
+    #related-posts {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
 
-        .record-list {
-            list-style-type: none;
-            padding-left: 0;
-            margin: 0;
-        }
+    .related-item img {
+        height: 100px;
+    }
 
-        .record-list li {
-            font-size: 14px;
-            color: #333333;
-            line-height: 1.5;
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 20px;
-        }
+    .related-item h4 {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
 
-        .record-list li::before {
-            content: "❄️";
-            position: absolute;
-            left: 0;
-            font-size: 12px;
-        }
+@media (max-width: 450px) {
 
-        .team-box {
-            border-left-color: #e65100;
-        }
+    #related-posts {
+        grid-template-columns: 1fr;
+    }
 
-        .team-title {
-            color: #e65100;
-        }
+    .related-item img {
+        height: 150px;
+    }
 
-        .footer-call {
-            background-color: #f1f3f4;
-            text-align: center;
-            padding: 15px;
-            font-size: 13px;
-            color: #444444;
-            font-weight: bold;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .hashtags {
-            color: #1976d2;
-            font-size: 12px;
-            margin-top: 8px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="media-card">
-        <!-- Suresh 360 Media Header -->
-        <div class="brand-header">
-            SURESH 360 MEDIA
-        </div>
-
-        <div class="content-body">
-            <h2 class="article-title">💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!</h2>
-            
-            <p class="intro-text">
-                అంతర్జాతీయ వన్డే క్రికెట్ (Mens ODI) చరిత్రలో ఎప్పటికీ గుర్తుండిపోయేలా కొంతమంది ఆటగాళ్లు మరియు జట్లు నెలకొల్పిన అత్యుత్తమ రికార్డులు ఇవే!
-            </p>
-
-            <!-- 1. Rohit Sharma -->
-            <div class="section-box">
-                <h3 class="player-name">👑 రోహిత్ శర్మ (IND)</h3>
-                <ul class="record-list">
-                    <li><b>అత్యధిక వ్యక్తిగత స్కోరు:</b> 264 పరుగులు (శ్రీలంకపై)</li>
-                    <li><b>అత్యధిక డబుల్ సెంచరీలు:</b> 3 ద్విశతకాలు</li>
-                </ul>
-            </div>
-
-            <!-- 2. Virat Kohli -->
-            <div class="section-box">
-                <h3 class="player-name">👑 విరాట్ కోహ్లీ (IND)</h3>
-                <ul class="record-list">
-                    <li><b>అత్యధిక సెంచరీలు:</b> 54 సెంచరీలు</li>
-                </ul>
-            </div>
-
-            <!-- 3. Sachin Tendulkar -->
-            <div class="section-box">
-                <h3 class="player-name">👑 సచిన్ టెండూల్కర్ (IND)</h3>
-                <ul class="record-list">
-                    <li><b>అత్యధిక పరుగులు:</b> 18,426 పరుగులు</li>
-                </ul>
-            </div>
-
-            <!-- 4. Chaminda Vaas -->
-            <div class="section-box">
-                <h3 class="player-name">⚡ చమిందా వాస్ (SL)</h3>
-                <ul class="record-list">
-                    <li><b>బెస్ట్ బౌలింగ్ ఫిగర్స్:</b> 8/19 (vs జింబాబ్వే)</li>
-                </ul>
-            </div>
-
-            <!-- 5. Muttiah Muralitharan -->
-            <div class="section-box">
-                <h3 class="player-name">⚡ ముత్తయ్య మురళీధరన్ (SL)</h3>
-                <ul class="record-list">
-                    <li><b>అత్యధిక వికెట్లు:</b> 534 వికెట్లు</li>
-                </ul>
-            </div>
-
-            <!-- 6. Team Records -->
-            <div class="section-box team-box">
-                <h3 class="player-name team-title">🏆 జట్ల రికార్డులు (Team Records)</h3>
-                <ul class="record-list">
-                    <li><b>అత్యధిక టీమ్ స్కోర్:</b> ఇంగ్లండ్ — 498/4 (vs నెదర్లాండ్స్)</li>
-                    <li><b>అత్యల్ప టీమ్ స్కోర్:</b> జింబాబ్వే — 35 పరుగులు (vs శ్రీలంక)</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- Footer -->
-        <div class="footer-call">
-            💬 ఈ రికార్డులలో మీ ఫేవరెట్ రికార్డ్ ఏంటో కామెంట్ చేయండి!<br>
-            <div class="hashtags">#Suresh360Media #CricketRecords #RohitSharma #ViratKohli #SachinTendulkar #TeamIndia</div>
-        </div>
-    </div>
-
-</body>
-</html>
+}
 
