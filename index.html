@@ -65,32 +65,61 @@
         .tag{display:inline-block;color:#e60000;font-size:12px;font-weight:900;margin-bottom:6px}
         .hero h1{font-size:22px;line-height:1.35}
         
-        .news-list{display:flex;flex-direction:column}
-        .news-item{display:grid;grid-template-columns:100px 1fr;gap:12px;padding:12px;border-bottom:1px solid #e5e5e5;background:#fff}
-        .news-item img,
-        .sports-card img, .movie-card img, .breaking-card img, .news-card img, .related-item img {
-            width: 100px;
-            height: 75px;
+        /* NEWS LIST: 2 ITEMS PER ROW (2 COLUMN GRID) */
+        .news-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            border-radius: 6px;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .news-item img {
+            width: 100%;
+            height: 110px;
             object-fit: cover;
             border-radius: 6px;
             display: block;
+            margin-bottom: 8px;
         }
-        .news-item h3{font-size:14px;line-height:1.4;margin-bottom:4px}
-        .news-item a.read-btn{color:#e60000;font-size:12px;font-weight:bold;display:inline-block;margin-top:4px}
+
+        .news-item h3 {
+            font-size: 13px;
+            line-height: 1.35;
+            margin-bottom: 4px;
+        }
+
+        .news-item a.read-btn {
+            color: #e60000;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 4px;
+        }
         
         .share-row { margin-top: 8px; display: flex; align-items: center; }
         .share-row button {
             background-color: #1877f2;
             color: #ffffff;
             border: none;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             cursor: pointer;
+            width: 100%;
         }
 
-        .time-stamp { font-size: 11px; color: #888; margin-top: 4px; }
+        .time-stamp { font-size: 10px; color: #888; margin-top: 4px; }
 
         /* DARK MODE */
         body.dark-mode { background: #121212; color: #e0e0e0; }
@@ -125,8 +154,8 @@
         @media (max-width: 600px) {
             .main-grid{grid-template-columns:1fr}
             .hero img{height:200px}
-            .news-item img { width: 85px; height: 65px; }
-            .news-item { grid-template-columns: 85px 1fr; }
+            .news-list{grid-template-columns:repeat(2, 1fr); gap: 8px;} /* Mobile view lo kooda 2 per row */
+            .news-item img { height: 90px; }
             .category-grid{grid-template-columns:1fr 1fr;gap:10px}
             .footer-inner{grid-template-columns:1fr}
         }
@@ -203,30 +232,29 @@
             </div>
         </article>
 
-        <!-- News List -->
+        <!-- News List (Now 2 Cards Per Row) -->
         <div class="news-list">
             <article class="news-item post" data-category="cinema">
-    <img src="hero3.png.png" alt="Varanasi Movie News">
-    <div>
-        <span class="tag">VARANASI UPDATE</span>
-        <h3>🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?</h3>
-        <div class="time-stamp">🕒 Just Now</div>
-        <a href="varanasiupdate1.html" class="read-btn">Read More →</a>
-        <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-    </div>
-</article>
+                <img src="hero3.png.png" alt="Varanasi Movie News">
+                <div>
+                    <span class="tag">VARANASI UPDATE</span>
+                    <h3>🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?</h3>
+                    <div class="time-stamp">🕒 Just Now</div>
+                    <a href="varanasiupdate1.html" class="read-btn">Read More →</a>
+                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                </div>
+            </article>
 
-<!-- మమితా బైజు వార్త కార్డ్ -->
-<article class="news-item post" data-category="movies">
-    <img src="premalu.webp" alt="మమితా బైజు">
-    <div>
-        <span class="tag">MOVIES</span>
-        <h3>‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం.. సోషల్ మీడియాకు గుడ్ బై! 😲</h3>
-        <div class="time-stamp">🕒 Just now</div>
-        <a href="premalu.html" class="read-btn">Read More →</a>
-        <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-    </div>
-</article>
+            <article class="news-item post" data-category="movies">
+                <img src="premalu.webp" alt="మమితా బైజు">
+                <div>
+                    <span class="tag">MOVIES</span>
+                    <h3>‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం.. సోషల్ మీడియాకు గుడ్ బై! 😲</h3>
+                    <div class="time-stamp">🕒 Just now</div>
+                    <a href="premalu.html" class="read-btn">Read More →</a>
+                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                </div>
+            </article>
 
             <article class="news-item post" data-category="gold">
                 <img src="gold.jpg" alt="Gold Rate News">
