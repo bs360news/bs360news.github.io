@@ -60,3 +60,53 @@ setInterval(() => {
     }
 }, 4000);
 
+// Live Date & Clock System
+function updateClock() {
+    const now = new Date();
+    const clockElem = document.getElementById('live-clock');
+    const dateElem = document.getElementById('live-date');
+    if(clockElem) clockElem.innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    if(dateElem) dateElem.innerText = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' }); 
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// --- ఇక్కడ Auto Time Ago Code యాడ్ చేయండి ---
+function updateTimeAgo() {
+    const timeElements = document.querySelectorAll('.time-stamp[data-time]');
+    
+    timeElements.forEach(el => {
+        const postTime = new Date(el.getAttribute('data-time')).getTime();
+        const currentTime = new Date().getTime();
+        const diffInSeconds = Math.floor((currentTime - postTime) / 1000);
+
+        let timeString = "";
+
+        if (diffInSeconds < 60) {
+            timeString = "Just Now";
+        } else if (diffInSeconds < 3600) {
+            const mins = Math.floor(diffInSeconds / 60);
+            timeString = `${mins} min${mins > 1 ? 's' : ''} ago`;
+        } else if (diffInSeconds < 86400) {
+            const hours = Math.floor(diffInSeconds / 3600);
+            timeString = `${hours} hour${hours > 1 ? 's' : ''} ago`;
+        } else {
+            const days = Math.floor(diffInSeconds / 86400);
+            timeString = `${days} day${days > 1 ? 's' : ''} ago`;
+        }
+
+        el.innerText = `🕒 ${timeString}`;
+    });
+}
+
+setInterval(updateTimeAgo, 60000);
+updateTimeAgo();
+// ---------------------------------------------
+
+// Filter Posts by Category
+function filterPosts(category){
+ document.querySelectorAll('.post').forEach(p=>{
+   p.classList.toggle('hidden', category !== 'all' && p.dataset.category !== category);
+ });
+ document.getElementById('search-input').value = '';
+}
