@@ -3,493 +3,222 @@
 <head>
     <meta name="google-site-verification" content="cDWNd6xGVkNHdjG-QnyEVKWSvOEqSHFnQnOFJppsq2M" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Suresh 360 Media | తెలుగు తాజా వార్తలు, సినిమాలు, స్పోర్ట్స్</title>
-    <meta name="description" content="Suresh 360 Media - తెలుగు తాజా వార్తలు, బ్రేకింగ్ న్యూస్, సినిమా, స్పోర్ట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్.">
-    <meta name="keywords" content="Suresh 360 Media, Telugu News, Telugu Movies, Cricket News, Sports News">
+    <meta name="description" content="Suresh 360 Media - తెలుగు తాజా వార్తలు, బ్రేకింగ్ న్యూస్, సినిమా, స్పోర్ట్స్ అప్‌డేట్స్.">
+    <meta name="keywords" content="Suresh 360 Media, Telugu News, Telugu Movies, Cricket News">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://suryabhai941.github.io/suresh/">
 
-    <!-- Social Media Sharing Meta Tags (OG Tags) -->
-    <meta property="og:title" content="Suresh 360 Media | తెలుగు తాజా వార్తలు">
-    <meta property="og:description" content="తెలుగు తాజా వార్తలు, సినిమా మరియు స్పోర్ట్స్ అప్‌డేట్స్.">
-    <meta property="og:url" content="https://suryabhai941.github.io/suresh/">
-    <meta property="og:type" content="website">
-
     <style>
-        /* BASE STYLES */
+        /* BASE & FULL WIDTH RESET */
         *{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:"Noto Sans Telugu","Nirmala UI","Segoe UI",Arial,sans-serif;background:#f5f5f5;color:#171717;transition:background 0.3s, color 0.3s}
+        html, body { width: 100%; overflow-x: hidden; background: #f5f5f5; color: #171717; font-family: "Segoe UI", "Noto Sans Telugu", Arial, sans-serif; transition: background 0.3s, color 0.3s; }
         a{text-decoration:none;color:inherit}
-        
-        .topline{height:auto;padding:5px 12px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:13px;color:#555;flex-wrap:wrap;}
-        .topline-langs{display:flex;gap:12px;overflow-x:auto;}
-        .datetime-box{font-size:14px;font-weight:bold;color:#e60000;white-space:nowrap;display:flex;align-items:center;gap:8px;}
-        
-        .header{background:#fff;border-bottom:1px solid #ddd}
-        .header-inner{max-width:1250px;margin:auto;min-height:82px;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:20px}
-        .logo{display:flex;align-items:center;gap:10px}
-        .logo-mark{width:58px;height:58px;border-radius:8px;background:#e60000;color:#fff;display:grid;place-items:center;font-weight:900;font-size:17px;line-height:1;text-align:center;border:3px solid #fff;box-shadow:0 1px 5px #bbb}
-        .logo-text{font-size:25px;font-weight:900}.logo-text span{color:#e60000}
-        .header-tools{display:flex;align-items:center;gap:12px;color:#333;font-size:14px}
-        .tool{display:flex;align-items:center;gap:5px}.live-dot{color:#e60000;font-weight:800}
-        
-        /* STICKY NAVIGATION */
-        .nav{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #ddd;overflow-x:auto;position:sticky;top:0;z-index:100;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
+
+        /* HEADER LAYOUT ORDER */
+        .main-header { background: #fff; width: 100%; border-bottom: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .header-section { width: 100%; max-width: 1250px; margin: auto; padding: 10px 15px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+        /* 1. TOP LOGO */
+        .logo-wrap { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 2px; }
+        .logo-mark { width: 50px; height: 50px; border-radius: 8px; background: #e60000; color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 15px; line-height: 1; text-align: center; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .logo-text { font-size: 24px; font-weight: 900; color: #111; }
+        .logo-text span { color: #e60000; }
+
+        /* 2. LANGUAGES & ENGLISH DATE BAR */
+        .lang-date-bar { width: 100%; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; padding: 6px 12px; border-radius: 6px; border: 1px solid #eee; flex-wrap: wrap; gap: 8px; }
+        .lang-list { display: flex; gap: 10px; font-size: 13px; font-weight: 600; color: #555; overflow-x: auto; white-space: nowrap; max-width: 100%; }
+        .datetime-box { font-size: 13px; font-weight: 800; color: #e60000; letter-spacing: 0.5px; font-family: 'Segoe UI', Tahoma, sans-serif; white-space: nowrap; }
+
+        /* 3. ACTION BUTTONS ROW (FB, YT, DARK, LIVE) */
+        .action-row { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .fb-btn { background: #1877F2; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .yt-btn { background: #FF0000; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .theme-btn { background: #333; color: #fff; border: none; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        .live-tool { display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 800; background: #fff0f0; padding: 5px 12px; border-radius: 20px; border: 1px solid #ffccd0; }
+
+        /* NAV BAR */
+        .nav{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #ddd;overflow-x:auto;position:sticky;top:0;z-index:100;width:100%;}
         .nav ul{max-width:1250px;margin:auto;display:flex;list-style:none;white-space:nowrap}
-        .nav a{display:block;padding:13px 15px;font-weight:800;font-size:15px;transition:0.2s}
+        .nav a{display:block;padding:12px 15px;font-weight:800;font-size:14px;color:#333;}
         .nav a:hover,.nav a.active{color:#e60000;background:#fff5f5}
-        
-        .breaking{max-width:1250px;margin:10px auto;background:#ffe8e8;display:flex;align-items:center;min-height:40px;overflow:hidden}
-        .breaking strong{background:#e60000;color:#fff;padding:10px 17px;position:relative;white-space:nowrap}
-        .breaking p{padding:0 20px;font-size:14px;white-space:nowrap;font-weight:bold;transition:opacity 0.3s ease-in-out;}
-        .ad{max-width:1250px;margin:14px auto;background:#fff;border:1px dashed #ddd;height:105px;display:grid;place-items:center;color:#999;font-size:13px}
-        .container{max-width:1250px;margin:auto;padding:0 15px 40px}
-        .section-head{display:flex;align-items:center;gap:12px;margin:22px 0 12px;border-bottom:2px solid #222;padding-bottom:7px}
-        .section-head h2{font-size:22px}.section-head span{width:6px;height:25px;background:#e60000;display:inline-block}
-        
-        .main-grid{display:grid;grid-template-columns:1.45fr 1fr .9fr;gap:18px}
-        .card{background:#fff;border:1px solid #e5e5e5;overflow:hidden;border-radius:6px;transition:transform 0.2s, box-shadow 0.2s}
-        .card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-        .hero img{width:100%;height:285px;object-fit:cover;display:block;transition:transform 0.3s}
-        .hero:hover img{transform:scale(1.02)}
-        .card-body{padding:12px 14px}
-        .tag{display:inline-block;color:#e60000;font-size:12px;font-weight:900;margin-bottom:6px}
-        .hero h1{font-size:24px;line-height:1.35}
-        
-        /* NEWS ITEM CARDS */
+
+        /* CONTINUOUS SCROLLING BREAKING NEWS */
+        .breaking{width:100%;max-width:1250px;margin:10px auto;background:#ffe8e8;display:flex;align-items:center;min-height:40px;overflow:hidden;border-radius:4px;}
+        .breaking strong{background:#e60000;color:#fff;padding:10px 15px;white-space:nowrap;font-size:13px;z-index:2;}
+        .marquee-box { overflow: hidden; white-space: nowrap; width: 100%; }
+        .marquee-content { display: inline-block; padding-left: 100%; animation: marquee 18s linear infinite; font-weight: bold; font-size: 14px; color: #111; }
+        @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+
+        /* CONTAINER & CARDS */
+        .container{width:100%;max-width:1250px;margin:auto;padding:0 12px 40px}
+        .search-wrap{margin:15px 0;}
+        .search{width:100%;border:1px solid #ccc;padding:10px 15px;background:#fff;font-size:14px;outline:none;border-radius:6px}
+
+        .section-head{display:flex;align-items:center;gap:10px;margin:18px 0 12px;border-bottom:2px solid #222;padding-bottom:6px}
+        .section-head h2{font-size:20px}.section-head span{width:5px;height:22px;background:#e60000;display:inline-block}
+
+        .main-grid{display:grid;grid-template-columns:1.5fr 1fr .9fr;gap:16px}
+        .card{background:#fff;border:1px solid #e5e5e5;border-radius:6px;overflow:hidden;}
+        .hero img{width:100%;height:260px;object-fit:cover;display:block;}
+        .card-body{padding:12px}
+        .tag{display:inline-block;color:#e60000;font-size:11px;font-weight:900;margin-bottom:4px}
+        .hero h1{font-size:20px;line-height:1.4}
+
         .news-list{display:flex;flex-direction:column;gap:10px}
-        .news-item{display:grid;grid-template-columns:100px 1fr;gap:12px;padding:12px;border-bottom:1px solid #e5e5e5;background:#fff;border-radius:6px}
-        .news-item img,
-        .sports-card img, .movie-card img, .breaking-card img, .news-card img, .related-item img {
-            width: 100px;
-            height: 75px;
-            object-fit: cover;
-            border-radius: 6px;
-            display: block;
-            transition: transform 0.3s;
-        }
-        .news-item:hover img{transform:scale(1.05)}
-        .news-item h3{font-size:15px;line-height:1.4;margin-bottom:4px}
-        .news-item a.read-btn{color:#e60000;font-size:12px;font-weight:bold;display:inline-block;margin-top:2px}
-        
-        /* SHARE & ACTION BUTTONS */
-        .share-row { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .share-row button {
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-        .share-btn { background-color: #1877f2; color: #ffffff; }
-        .voice-btn { background-color: #333; color: #ffffff; }
-        .bookmark-btn { background-color: #f0f0f0; color: #333; }
-        .share-row button:hover { transform: scale(1.03); }
+        .news-item{display:grid;grid-template-columns:100px 1fr;gap:10px;padding:10px;background:#fff;border-radius:6px;border:1px solid #e5e5e5;}
+        .news-item img{width:100px;height:75px;object-fit:cover;border-radius:5px;}
+        .news-item h3{font-size:14px;line-height:1.3;}
 
-        /* TIME STAMP & SOCIAL */
-        .time-stamp { font-size: 11px; color: #888; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
-        .social-links { display: flex; gap: 10px; margin-top: 10px; }
-        .social-links a { 
-            display: flex; align-items: center; justify-content: center;
-            width: 32px; height: 32px; background: #333; color: #fff; 
-            border-radius: 50%; font-size: 14px; transition: transform 0.2s; 
-        }
-        .social-links a:hover { transform: scale(1.1); }
-        .social-links a.fb { background: #1877F2; }
-        .social-links a.yt { background: #FF0000; }
-
-        /* HEADER BUTTONS */
-        .fb-btn { background: #1877F2; color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 4px; }
-        .yt-btn { background: #FF0000; color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 4px; }
+        .share-row { margin-top: 8px; display: flex; gap: 6px; }
+        .share-row button { border: none; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: bold; cursor: pointer; }
+        .share-btn { background-color: #1877f2; color: #fff; }
+        .voice-btn { background-color: #333; color: #fff; }
+        .bookmark-btn { background-color: #eee; color: #333; }
 
         /* DARK MODE */
         body.dark-mode { background: #121212; color: #e0e0e0; }
-        body.dark-mode .header, body.dark-mode .nav, body.dark-mode .card, body.dark-mode .news-item,
-        body.dark-mode .topline { background: #1e1e1e; color: #fff; border-color: #333; }
+        body.dark-mode .main-header, body.dark-mode .nav, body.dark-mode .card, body.dark-mode .news-item, body.dark-mode .lang-date-bar { background: #1e1e1e; color: #fff; border-color: #333; }
         body.dark-mode .nav a { color: #ddd; }
-        body.dark-mode .nav a:hover, body.dark-mode .nav a.active { background: #2a2a2a; color: #ff4d4d; }
+        body.dark-mode .logo-text { color: #fff; }
         body.dark-mode .search { background: #2a2a2a; color: #fff; border-color: #444; }
-        body.dark-mode .news-item { border-bottom-color: #333; }
-        body.dark-mode .bookmark-btn { background-color: #333; color: #fff; }
 
-        /* THEME TOGGLE BUTTON */
-        .theme-btn { background: #eee; border: none; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; transition: 0.2s; }
-        body.dark-mode .theme-btn { background: #333; color: #fff; }
-
-        /* LIVE & SEARCH */
-        .live-box{background:#111;color:#fff}
-        .live-title{background:#e60000;padding:10px 14px;font-size:21px;font-weight:900}
-        .live-screen{height:210px;background:linear-gradient(135deg,#173c85,#f2c400 55%,#fff);display:grid;place-items:center;text-align:center;padding:20px}
-        .live-screen div{background:rgba(0,0,0,.65);padding:15px;width:90%;font-size:18px;font-weight:800}
-        .live-controls{padding:10px 14px;color:#ddd;font-size:13px}
-        .ad-side{margin-top:16px;min-height:150px;background:#fff;border:1px dashed #ccc;display:grid;place-items:center;color:#aaa}
-        
-        .category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-        .small-card img{width:100%;height:150px;object-fit:cover}
-        .small-card h3{font-size:16px;line-height:1.4;padding:10px 12px 14px}
-        
-        .search-wrap{margin:18px 0;display:flex;gap:8px}
-        .search{flex:1;border:1px solid #ccc;padding:12px 15px;background:#fff;font-size:15px;outline:none;border-radius:4px}
-        .search:focus{border-color:#e60000}
-        
-        /* BACK TO TOP BUTTON */
-        #scrollTopBtn {
-            display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;
-            border: none; outline: none; background-color: #e60000; color: white;
-            cursor: pointer; padding: 12px 16px; border-radius: 50%; font-size: 16px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        footer{background:#171717;color:#ddd;margin-top:20px}
-        .footer-inner{max-width:1250px;margin:auto;padding:30px 18px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
-        footer h3{color:#fff;margin-bottom:9px}footer p,footer li{font-size:13px;line-height:1.8;color:#aaa}
-        footer ul{list-style:none}.copyright{border-top:1px solid #333;text-align:center;padding:14px;font-size:12px;color:#888}
-        .hidden{display:none!important}
-
-        /* RESPONSIVE MEDIA QUERIES */
+        /* RESPONSIVE FULL WIDTH FIX */
         @media (max-width: 900px) {
-            .main-grid{grid-template-columns:1fr 1fr}.hero{grid-row:auto}.live-col{grid-column:1/-1}
-            .category-grid{grid-template-columns:repeat(2,1fr)}
-            .footer-inner{grid-template-columns:1fr 1fr}
-        }
-        @media (max-width: 700px) {
-            .news-item img, .sports-card img, .movie-card img, .breaking-card img, .news-card img, .related-item img { width: 90px; height: 68px; }
-            .news-item { grid-template-columns: 90px 1fr; }
+            .main-grid{grid-template-columns:1fr;}
         }
         @media (max-width: 600px) {
-            .topline{justify-content:space-between;padding:6px 12px;}
-            .header-inner{min-height:70px;padding:9px 12px}.logo-mark{width:48px;height:48px}.logo-text{font-size:20px}
-            .container{padding:0 10px 25px}.main-grid{grid-template-columns:1fr}.live-col{grid-column:auto}
-            .hero img{height:210px}.hero h1{font-size:20px}
-            .category-grid{grid-template-columns:1fr 1fr;gap:10px}.small-card img{height:115px}.small-card h3{font-size:14px;padding:8px}
-            .footer-inner{grid-template-columns:1fr}
-        }
-        @media (max-width: 450px) {
-            .news-item img, .sports-card img, .movie-card img, .breaking-card img, .news-card img, .related-item img { width: 80px; height: 60px; }
-            .news-item { grid-template-columns: 80px 1fr; }
+            .header-section { padding: 8px 10px; }
+            .hero img{height:200px;}
+            .news-item { grid-template-columns: 85px 1fr; }
+            .news-item img { width: 85px; height: 65px; }
         }
     </style>
 </head>
 <body>
 
-<button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆</button>
-
-<div class="topline">
-    <div class="topline-langs">
-        <span>News</span><span>తెలుగు</span><span>English</span><span>కನ್ನಡ</span><span>హిन्दी</span>
-    </div>
-    <div class="datetime-box">
-        <span id="live-date"></span> | <span id="live-clock" style="font-size:16px;"></span>
-    </div>
-</div>
-
-<header class="header">
-    <div class="header-inner">
-        <div class="logo">
+<header class="main-header">
+    <div class="header-section">
+        <!-- 1. TOP LOGO -->
+        <div class="logo-wrap">
             <div class="logo-mark">S360<br>MEDIA</div>
             <div class="logo-text">Suresh 360 <span>Media</span></div>
         </div>
-        <div class="header-tools">
+
+        <!-- 2. LANGUAGES & ELEGANT ENGLISH DATE -->
+        <div class="lang-date-bar">
+            <div class="lang-list">
+                <span>News</span> | <span>తెలుగు</span> | <span>English</span> | <span>కನ್ನಡ</span> | <span>హిन्दी</span>
+            </div>
+            <div class="datetime-box">
+                📅 <span id="live-date"></span> | ⏰ <span id="live-clock"></span>
+            </div>
+        </div>
+
+        <!-- 3. SOCIAL & MODE BUTTONS -->
+        <div class="action-row">
             <a href="https://www.facebook.com/share/1C1xKdnMhC/" target="_blank" class="fb-btn">📘 Facebook</a>
             <a href="https://youtube.com/@suresh360media?si=Qp3VmS6r4Nru57uC" target="_blank" class="yt-btn">▶ YouTube</a>
             <button class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
-            <div class="tool">🔴 <span class="live-dot">LIVE</span> TV</div>
-            <div class="menu-btn">☰</div>
+            <div class="live-tool">🔴 <span style="color:#e60000;">LIVE</span> TV</div>
         </div>
     </div>
 </header>
 
 <nav class="nav">
     <ul>
-        <li><a class="active" href="#" onclick="filterPosts('all');return false">హోమ్</a></li>
-        <li><a href="#" onclick="filterPosts('movies');return false">🎬 సినిమా స్టోరీస్</a></li>
-        <li><a href="#" onclick="filterPosts('news');return false">తాజా వార్తలు</a></li>
-        <li><a href="#" onclick="filterPosts('gold');return false">గోల్డ్ రేట్</a></li>
-        <li><a href="#" onclick="filterPosts('ap');return false">ఆంధ్రప్రదేశ్</a></li>
-        <li><a href="#" onclick="filterPosts('ts');return false">తెలంగాణ</a></li>
-        <li><a href="#" onclick="filterPosts('sports');return false">క్రికెట్</a></li>
+        <li><a class="active" href="#">హోమ్</a></li>
+        <li><a href="#">🎬 సినిమా స్టోరీస్</a></li>
+        <li><a href="#">తాజా వార్తలు</a></li>
+        <li><a href="#">గోల్డ్ రేట్</a></li>
+        <li><a href="#">ఆంధ్రప్రదేశ్</a></li>
+        <li><a href="#">తెలంగాణ</a></li>
+        <li><a href="#">క్రికెట్</a></li>
     </ul>
 </nav>
 
+<!-- SMOOTH SCROLLING BREAKING NEWS -->
 <div class="breaking">
     <strong>BREAKING</strong>
-    <p id="ticker">🎬 టాలీవుడ్ తాజా సినిమా బిగ్ అప్‌డేట్స్ మరియు రివ్యూస్ మీ కోసం...</p>
+    <div class="marquee-box">
+        <div class="marquee-content">
+            🎬 టాలీవుడ్ తాజా సినిమా బిగ్ అప్‌డేట్స్ & రివ్యూస్ 🔥 | 🎬 మహేష్ బాబు బర్త్‌డే స్పెషల్ ఆర్టికల్ 🔥 | 🎬 పరుచూరి చరణ్ మూవీ రివ్యూ 🔥 | Suresh 360 Media తాజా వార్తలు
+        </div>
+    </div>
 </div>
-
-<div class="ad">ADVERTISEMENT</div>
 
 <main class="container">
     <div class="search-wrap">
-        <input id="search-input" class="search" placeholder="🔍 వార్తలు, సినిమాలు, స్పోర్ట్స్ కోసం సెర్చ్ చేయండి..." oninput="searchPosts()">
+        <input id="search-input" class="search" placeholder="🔍 వార్తలు, సినిమాలు, స్పోర్ట్స్ కోసం సెర్చ్ చేయండి...">
     </div>
 
     <div class="section-head"><span></span><h2>🎬 సినిమా & ముఖ్యాంశాలు</h2></div>
 
     <section class="main-grid">
-        
-        <!-- Main Hero Card -->
-        <article class="card hero post" data-category="movies">
+        <article class="card hero">
             <img src="birthday1.png.jpg" alt="Mahesh Babu">
             <div class="card-body">
                 <span class="tag">🎬 సినిమా బిగ్ అప్‌డేట్</span>
                 <h1>సూపర్ స్టార్ మహేష్ బాబు బర్త్‌డే.. 5000+ పిల్లలకి ఉచిత గుండె ఆపరేషన్లు!</h1>
-                <div class="time-stamp">🕒 2 Hours ago</div>
-                <p style="margin-top:8px;color:#666;font-size:14px">టాలీవుడ్ మరియు ఇండియన్ సినిమా తాజా విశేషాలు, సినిమా రివ్యూస్ కోసం Suresh 360 Media ఫాలో అవ్వండి.</p>
-                <a class="read" href="mahesh.html" style="display:inline-block;margin-top:10px;background:#e60000;color:#fff;padding:8px 14px;font-weight:800;border-radius:4px">పూర్తి వార్త →</a>
+                <p style="margin-top:6px;color:#666;font-size:13px">టాలీవుడ్ తాజా విశేషాలు మరియు రివ్యూస్ కోసం Suresh 360 Media ఫాలో అవ్వండి.</p>
                 <div class="share-row">
-                    <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
-                    <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
-                    <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                    <button class="share-btn">🔗 Share</button>
+                    <button class="voice-btn">🔊 వినండి</button>
+                    <button class="bookmark-btn">🔖 Save</button>
                 </div>
             </div>
         </article>
 
         <div class="news-list">
-            <article class="news-item post" data-category="movies">
+            <article class="news-item">
                 <img src="ramcharan.jpg.webp" alt="సినిమా">
                 <div>
                     <span class="tag">MOVIES</span>
                     <h3>‘చరణ్ కాకపోతే ఆ సినిమా ఆడేది కాదు’.. పరుచూరి రివ్యూ!</h3>
-                    <div class="time-stamp">🕒 3 Hours ago</div>
                     <div class="share-row">
-                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
-                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
-                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                        <button class="share-btn">🔗 Share</button>
+                        <button class="voice-btn">🔊 వినండి</button>
                     </div>
                 </div>
             </article>
 
-            <article class="news-item post" data-category="gold">
-                <img src="gold.jpg" alt="Gold Rate News">
+            <article class="news-item">
+                <img src="gold.jpg" alt="Gold Rate">
                 <div>
                     <span class="tag">GOLD UPDATE</span>
                     <h3>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h3>
-                    <div class="time-stamp">🕒 3 Hours ago</div>
-                    <a href="./gold.html" class="read-btn">Read More →</a>
                     <div class="share-row">
-                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
-                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
-                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="sports">
-                <img src="cricket.png" alt="Cricket Records">
-                <div>
-                    <span class="tag">SPORTS</span>
-                    <h3>💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!</h3>
-                    <div class="time-stamp">🕒 5 Hours ago</div>
-                    <a href="rvs.html" class="read-btn">Read More →</a>
-                    <div class="share-row">
-                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
-                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
-                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="sports">
-                <img src="dhoni,rohith.png" alt="Dhoni Vs Rohit">
-                <div>
-                    <span class="tag">SPORTS</span>
-                    <h3>🏏 ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్ కెప్టెన్ ఎవరు? 🔥</h3>
-                    <div class="time-stamp">🕒 6 Hours ago</div>
-                    <a href="rd.html" class="read-btn">Read More →</a>
-                    <div class="share-row">
-                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
-                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
-                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="ts">
-                <img src="1000124891.jpg" alt="rain news">
-                <div>
-                    <span class="tag">తెలంగాణ</span>
-                    <h3>కాసేపట్లో ఈ జిల్లాల్లో వర్షం.. అలర్ట్ జారీ చేసిన వాతావరణ కేంద్రం!</h3>
-                    <div class="time-stamp">🕒 7 Hours ago</div>
-                    <a href="news4.html" class="read-btn">Read More →</a>
-                    <div class="share-row">
-                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
-                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
-                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                        <button class="share-btn">🔗 Share</button>
+                        <button class="voice-btn">🔊 వినండి</button>
                     </div>
                 </div>
             </article>
         </div>
-
-        <!-- Live TV Banner -->
-        <div class="live-col">
-            <div class="card live-box">
-                <div class="live-title">▣ LIVE TV</div>
-                <div class="live-screen"><div>🔴 SURESH 360<br>LIVE NEWS</div></div>
-                <div class="live-controls">లైవ్ ప్రసారం త్వరలో అందుబాటులోకి వస్తుంది</div>
-            </div>
-            <div class="ad-side">ADVERTISEMENT</div>
-        </div>
-
     </section>
-
-    <!-- Bottom Categories Grid -->
-    <div class="section-head"><span></span><h2>🎬 సినిమా ప్రత్యేక కంటెంట్</h2></div>
-    <section class="category-grid">
-        <article class="card small-card post" data-category="movies">
-            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=700" alt="సినిమా">
-            <h3>బాక్సాఫీస్ వద్ద రికార్డుల సునామీ.. కొత్త సినిమా అప్‌డేట్</h3>
-        </article>
-        <article class="card small-card post" data-category="movies">
-            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=700" alt="సినిమా">
-            <h3>కొత్త సినిమాలు, హీరోలు, హీరోయిన్ల తాజా ముచ్చట్లు</h3>
-        </article>
-        <article class="card small-card post" data-category="ent">
-            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700" alt="ఎంటర్‌టైన్‌మెంట్">
-            <h3>ఎంటర్‌టైన్‌మెంట్ ప్రపంచంలో ఈరోజు ముఖ్యమైన అప్‌డేట్స్</h3>
-        </article>
-        <article class="card small-card post" data-category="sports">
-            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=700" alt="స్పోర్ట్స్">
-            <h3>క్రికెట్‌లో స్టార్ ప్లేయర్ల రికార్డులు, తాజా వార్తలు</h3>
-        </article>
-    </section>
-
 </main>
 
-<footer>
-    <div class="footer-inner">
-        <div>
-            <h3>Suresh 360 Media</h3>
-            <p>News • Sports • Movies • Entertainment</p>
-            <p>తెలుగు ప్రజలకు తాజా వార్తలు మరియు వినోద సమాచారం.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/1C1xKdnMhC/" target="_blank" class="fb">f</a>
-                <a href="https://youtube.com/@suresh360media?si=Qp3VmS6r4Nru57uC" target="_blank" class="yt">▶</a>
-            </div>
-        </div>
-        <div><h3>విభాగాలు</h3><ul><li>సినిమా స్టోరీస్</li><li>తాజా వార్తలు</li><li>స్పోర్ట్స్</li><li>ఎంటర్‌టైన్‌మెంట్</li></ul></div>
-        <div><h3>Contact</h3><p>📧 suresh360media@gmail.com</p></div>
-    </div>
-    <div class="copyright">© 2026 Suresh 360 Media. All rights reserved.</div>
-</footer>
-
 <script>
-// Filter Posts by Category
-function filterPosts(category){
- document.querySelectorAll('.post').forEach(p=>{
-   p.classList.toggle('hidden', category !== 'all' && p.dataset.category !== category);
- });
- document.getElementById('search-input').value = '';
-}
-
-// Live Search System
-function searchPosts(){
- const q = document.getElementById('search-input').value.trim().toLowerCase();
- document.querySelectorAll('.post').forEach(p=>{
-   const text = p.innerText.toLowerCase();
-   p.classList.toggle('hidden', q && !text.includes(q));
- });
-}
-
-// Web Share API
-function sharePost(btn){
- const postElement = btn.closest('.post');
- const title = postElement.querySelector('h1, h3').innerText;
- if (navigator.share) {
-   navigator.share({ title: title, url: window.location.href });
- } else {
-   navigator.clipboard.writeText(window.location.href);
-   alert('లింక్ కాపీ అయింది!');
- }
-}
-
-// Voice News Reader Feature
-function readNews(btn) {
-    const post = btn.closest('.post');
-    const title = post.querySelector('h1, h3').innerText;
-    
-    if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const msg = new SpeechSynthesisUtterance(title);
-        msg.lang = 'te-IN';
-        window.speechSynthesis.speak(msg);
-    } else {
-        alert('మీ బ్రౌజర్‌లో ఆడియో ఫీచర్ సపోర్ట్ చేయదు.');
-    }
-}
-
-// Bookmark / Save Feature
-function toggleBookmark(btn) {
-    if (btn.innerText === "🔖 Save") {
-        btn.innerText = "✅ Saved";
-        btn.style.backgroundColor = "#28a745";
-        btn.style.color = "#fff";
-    } else {
-        btn.innerText = "🔖 Save";
-        btn.style.backgroundColor = "";
-        btn.style.color = "";
-    }
-}
-
-// Dark Mode Toggle
-function toggleTheme(){
- document.body.classList.toggle('dark-mode');
- const btn = document.querySelector('.theme-btn');
- btn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light' : '🌙 Dark';
-}
-
-// Breaking News Ticker Fast Scrolling (2 Seconds)
-const ticker = [
- '🎬 టాలీవుడ్ తాజా సినిమా బిగ్ అప్‌డేట్స్ మరియు రివ్యూస్ మీ కోసం...',
- '🎬 కొత్త సినిమాలు, హీరోల బర్త్‌డే స్పెషల్ ఆర్టికల్స్...',
- 'సురేష్ 360 మీడియా బ్రేకింగ్ న్యూస్ అప్‌డేట్స్...',
- 'సినిమా, స్పోర్ట్స్, తెలుగు రాష్ట్రాల ముఖ్యమైన వార్తలు...'
-];
-let ti = 0;
-setInterval(() => {
- ti = (ti + 1) % ticker.length;
- const tickerElem = document.getElementById('ticker');
- if(tickerElem) {
-     tickerElem.style.opacity = '0';
-     setTimeout(() => {
-         tickerElem.textContent = ticker[ti];
-         tickerElem.style.opacity = '1';
-     }, 200);
- }
-}, 2000); // Fast interval (2000ms = 2s)
-
-// Live Date and Clock
+// Stylish English Date & Time Display
 function updateClock() {
     const now = new Date();
     const clockElem = document.getElementById('live-clock');
     const dateElem = document.getElementById('live-date');
     
     if(clockElem) {
-        clockElem.innerText = now.toLocaleTimeString();
+        clockElem.innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
     }
     if(dateElem) {
-        const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' };
-        dateElem.innerText = now.toLocaleDateString('te-IN', options);
+        const options = { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' };
+        dateElem.innerText = now.toLocaleDateString('en-US', options); // Example: Sun, 09 Aug 2026
     }
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// Back to Top Button Logic
-window.onscroll = function() {
-    const btn = document.getElementById("scrollTopBtn");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
-    }
-};
-
-function scrollToTop() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+// Dark Mode Toggle
+function toggleTheme(){
+    document.body.classList.toggle('dark-mode');
 }
 </script>
 
