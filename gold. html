@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>గోల్డ్ & సిల్వర్ రేట్ల భారీ పెంపు</title>
+    <title>గోల్డ్ & సిల్వర్ రేట్ల భారీ పెంపు | Suresh 360 Media</title>
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Noto Sans Telugu", "Segoe UI", Arial, sans-serif;
             background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
+            padding: 20px 10px;
             display: flex;
             justify-content: center;
         }
         .card {
             background-color: #ffffff;
-            max-width: 450px;
-            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .card img {
             width: 100%;
@@ -29,37 +30,46 @@
             padding: 20px;
             color: #333333;
         }
-        /* హోమ్ బటన్ స్టైలింగ్ */
+        /* హోమ్ బటన్ */
         .back-btn {
             display: inline-block;
             margin-bottom: 15px;
             text-decoration: none;
-            color: #d97706;
+            color: #ffffff;
+            background-color: #e60000;
+            padding: 8px 14px;
+            border-radius: 5px;
             font-weight: bold;
             font-size: 14px;
+            transition: background 0.2s;
         }
         .back-btn:hover {
-            text-decoration: underline;
+            background-color: #cc0000;
         }
         h2 {
-            color: #222222;
+            color: #111111;
             font-size: 20px;
-            margin-top: 0;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
         p {
-            line-height: 1.6;
-            font-size: 16px;
-            color: #555555;
+            line-height: 1.7;
+            font-size: 15px;
+            color: #444444;
         }
         .bold-text {
             font-weight: bold;
             color: #000000;
         }
         .note {
-            font-size: 14px;
-            color: #777777;
+            font-size: 13px;
+            color: #e60000;
             margin-top: 15px;
             font-weight: bold;
+            background-color: #fff0f0;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 4px solid #e60000;
         }
     </style>
 </head>
@@ -68,8 +78,8 @@
 <div class="card">
     <img src="gold.jpg" alt="Gold Rates News Image">
     <div class="content">
-        <!-- హోమ్‌కి వెళ్లే లింక్ -->
-        <a href="index.html" class="back-btn">← Back to Home</a>
+        <!-- GitHub Pages కోసం బ్యాక్ బటన్ -->
+        <a href="./index.html" class="back-btn">← Back to Home</a>
         
         <h2>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h2>
         <p>
@@ -82,4 +92,5 @@
 
 </body>
 </html>
+
 
