@@ -429,3 +429,24 @@ document.addEventListener(
     }
 );
 
+function sharePost(button) {
+    const card = button.closest(".post");
+
+    const title =
+        card?.querySelector("h2")?.innerText ||
+        document.title;
+
+    const url = window.location.href;
+
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: title,
+            url: url
+        }).catch(() => {});
+    } else {
+        navigator.clipboard.writeText(url).then(() => {
+            alert("Post link copied! 🔗");
+        });
+    }
+}
