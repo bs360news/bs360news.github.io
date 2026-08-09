@@ -209,19 +209,18 @@
             </div>
         </article>
 
-        <!-- News List Section -->
-        <div class="card news-list">
-            
-            <article class="news-item post" data-category="gold">
-                <img src="gold.jpg" alt="Gold Rate News">
-                <div>
-                    <span class="tag">GOLD UPDATE</span>
-                    <h3>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h3>
-                    <div class="time-stamp">🕒 3 Hours ago</div>
-                    <a href="gold.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
+<article class="news-item post" data-category="gold">
+    <img src="gold.jpg" alt="Gold Rate News">
+    <div>
+        <span class="tag">GOLD UPDATE</span>
+        <h3>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h3>
+        <div class="time-stamp">🕒 3 Hours ago</div>
+        <!-- onclick నియంత్రణతో ప్రత్యక్ష లింక్ -->
+        <a href="gold.html" class="read-btn" onclick="window.location.href='gold.html'; return true;">Read More →</a>
+        <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+    </div>
+</article>
+
 
             <article class="news-item post" data-category="movies">
                 <img src="birthday1.png.jpg" alt="Mahesh Babu">
