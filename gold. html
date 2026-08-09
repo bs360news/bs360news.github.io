@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>గోల్డ్ & సిల్వర్ రేట్ల భారీ పెంపు</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            background-color: #ffffff;
+            max-width: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .content {
+            padding: 20px;
+            color: #333333;
+        }
+        h2 {
+            color: #222222;
+            font-size: 20px;
+            margin-top: 0;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555555;
+        }
+        .bold-text {
+            font-weight: bold;
+            color: #000000;
+        }
+        .note {
+            font-size: 14px;
+            color: #777777;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="gold.jpg" alt="Gold Rates News Image">
+    <div class="content">
+        <h2>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h2>
+        <p>
+            హైదరాబాద్ బులియన్ మార్కెట్‌లో గత వారం బంగారం ధరల్లో భారీ పెరుగుదల నమోదైంది. 
+            ఈనెల <span class="bold-text">3(సోమవారం)</span> నుంచి నిన్నటి వరకు <span class="bold-text">24 క్యారెట్ల 10 గ్రాముల</span> గోల్డ్ రేటు <span class="bold-text">రూ.8,130</span> పెరిగి <span class="bold-text">రూ.1,52,350</span>, <span class="bold-text">22 క్యారెట్ల 10 గ్రాముల</span> పసిడి ధర <span class="bold-text">రూ.7,450</span> పెరిగి <span class="bold-text">రూ.1,39,650</span>కి చేరింది. అటు <span class="bold-text">KG సిల్వర్ రేట్</span> గత వారం రోజుల్లో <span class="bold-text">రూ.14,900</span> ఎగిసి <span class="bold-text">రూ.2,49,900</span>గా ఉంది.
+        </p>
+        <p class="note">NOTE: ఈ ధరలపై GST (3%) అదనం.</p>
+    </div>
+</div>
+
+</body>
+</html>
