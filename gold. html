@@ -29,6 +29,18 @@
             padding: 20px;
             color: #333333;
         }
+        /* హోమ్ బటన్ స్టైలింగ్ */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #d97706;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
         h2 {
             color: #222222;
             font-size: 20px;
@@ -56,6 +68,9 @@
 <div class="card">
     <img src="gold.jpg" alt="Gold Rates News Image">
     <div class="content">
+        <!-- హోమ్‌కి వెళ్లే లింక్ -->
+        <a href="index.html" class="back-btn">← Back to Home</a>
+        
         <h2>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h2>
         <p>
             హైదరాబాద్ బులియన్ మార్కెట్‌లో గత వారం బంగారం ధరల్లో భారీ పెరుగుదల నమోదైంది. 
@@ -67,3 +82,4 @@
 
 </body>
 </html>
+
