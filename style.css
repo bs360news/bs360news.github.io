@@ -34,3 +34,31 @@
         height: 60px;
     }
 }
+/* SHARE BUTTON */
+
+.share-row {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.share-row button {
+    background: #1877f2;
+    color: #fff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.share-row button:hover {
+    background: #0d65d9;
+    transform: scale(1.03);
+}
+
+.share-row button:active {
+    transform: scale(0.97);
+}
