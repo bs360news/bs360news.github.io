@@ -53,6 +53,15 @@
     font-weight: 600;
     transition: 0.2s;
 }
+.share-row button {
+    background-color: #1877f2 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 .share-row button:hover {
     background: #0d65d9;
