@@ -10,6 +10,12 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://suryabhai941.github.io/suresh/">
 
+    <!-- Social Media Sharing Meta Tags (OG Tags) -->
+    <meta property="og:title" content="Suresh 360 Media | తెలుగు తాజా వార్తలు">
+    <meta property="og:description" content="తెలుగు తాజా వార్తలు, సినిమా మరియు స్పోర్ట్స్ అప్‌డేట్స్.">
+    <meta property="og:url" content="https://suryabhai941.github.io/suresh/">
+    <meta property="og:type" content="website">
+
     <style>
         /* BASE STYLES */
         *{box-sizing:border-box;margin:0;padding:0}
@@ -22,17 +28,17 @@
         .logo{display:flex;align-items:center;gap:10px}
         .logo-mark{width:58px;height:58px;border-radius:8px;background:#e60000;color:#fff;display:grid;place-items:center;font-weight:900;font-size:17px;line-height:1;text-align:center;border:3px solid #fff;box-shadow:0 1px 5px #bbb}
         .logo-text{font-size:25px;font-weight:900}.logo-text span{color:#e60000}
-        .header-tools{display:flex;align-items:center;gap:15px;color:#333;font-size:14px}
+        .header-tools{display:flex;align-items:center;gap:12px;color:#333;font-size:14px}
         .tool{display:flex;align-items:center;gap:5px}.live-dot{color:#e60000;font-weight:800}
-        .menu-btn{font-size:27px;cursor:pointer}
         
-        .nav{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #ddd;overflow-x:auto}
+        /* STICKY NAVIGATION */
+        .nav{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #ddd;overflow-x:auto;position:sticky;top:0;z-index:100;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
         .nav ul{max-width:1250px;margin:auto;display:flex;list-style:none;white-space:nowrap}
-        .nav a{display:block;padding:13px 15px;font-weight:800;font-size:15px}
+        .nav a{display:block;padding:13px 15px;font-weight:800;font-size:15px;transition:0.2s}
         .nav a:hover,.nav a.active{color:#e60000;background:#fff5f5}
         
         .breaking{max-width:1250px;margin:10px auto;background:#ffe8e8;display:flex;align-items:center;min-height:40px;overflow:hidden}
-        .breaking strong{background:#e60000;color:#fff;padding:10px 17px;position:relative}
+        .breaking strong{background:#e60000;color:#fff;padding:10px 17px;position:relative;white-space:nowrap}
         .breaking p{padding:0 20px;font-size:14px;white-space:nowrap}
         .ad{max-width:1250px;margin:14px auto;background:#fff;border:1px dashed #ddd;height:105px;display:grid;place-items:center;color:#999;font-size:13px}
         .container{max-width:1250px;margin:auto;padding:0 15px 40px}
@@ -40,15 +46,17 @@
         .section-head h2{font-size:22px}.section-head span{width:6px;height:25px;background:#e60000;display:inline-block}
         
         .main-grid{display:grid;grid-template-columns:1.45fr 1fr .9fr;gap:18px}
-        .card{background:#fff;border:1px solid #e5e5e5;overflow:hidden;border-radius:6px}
-        .hero img{width:100%;height:285px;object-fit:cover;display:block}
+        .card{background:#fff;border:1px solid #e5e5e5;overflow:hidden;border-radius:6px;transition:transform 0.2s, box-shadow 0.2s}
+        .card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+        .hero img{width:100%;height:285px;object-fit:cover;display:block;transition:transform 0.3s}
+        .hero:hover img{transform:scale(1.02)}
         .card-body{padding:12px 14px}
         .tag{display:inline-block;color:#e60000;font-size:12px;font-weight:900;margin-bottom:6px}
         .hero h1{font-size:24px;line-height:1.35}
         
-        /* NEWS ITEM CARDS & IMAGES */
-        .news-list{display:flex;flex-direction:column}
-        .news-item{display:grid;grid-template-columns:100px 1fr;gap:12px;padding:12px;border-bottom:1px solid #e5e5e5}
+        /* NEWS ITEM CARDS & IMAGES WITH HOVER ANIMATION */
+        .news-list{display:flex;flex-direction:column;gap:10px}
+        .news-item{display:grid;grid-template-columns:100px 1fr;gap:12px;padding:12px;border-bottom:1px solid #e5e5e5;background:#fff;border-radius:6px}
         .news-item img,
         .sports-card img, .movie-card img, .breaking-card img, .news-card img, .related-item img {
             width: 100px;
@@ -56,26 +64,28 @@
             object-fit: cover;
             border-radius: 6px;
             display: block;
+            transition: transform 0.3s;
         }
+        .news-item:hover img{transform:scale(1.05)}
         .news-item h3{font-size:15px;line-height:1.4;margin-bottom:4px}
         .news-item a.read-btn{color:#e60000;font-size:12px;font-weight:bold;display:inline-block;margin-top:2px}
         
-        /* SHARE BUTTON */
-        .share-row { margin-top: 10px; display: flex; align-items: center; }
+        /* SHARE & ACTION BUTTONS */
+        .share-row { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .share-row button {
-            background-color: #1877f2;
-            color: #ffffff;
             border: none;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             cursor: pointer;
             display: inline-block;
-            transition: background-color 0.2s, transform 0.2s;
+            transition: transform 0.2s;
         }
-        .share-row button:hover { background-color: #0d65d9; transform: scale(1.03); }
-        .share-row button:active { transform: scale(0.97); }
+        .share-btn { background-color: #1877f2; color: #ffffff; }
+        .voice-btn { background-color: #333; color: #ffffff; }
+        .bookmark-btn { background-color: #f0f0f0; color: #333; }
+        .share-row button:hover { transform: scale(1.03); }
 
         /* TIME STAMP & SOCIAL */
         .time-stamp { font-size: 11px; color: #888; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
@@ -89,14 +99,18 @@
         .social-links a.wa { background: #25D366; }
         .social-links a.yt { background: #FF0000; }
 
+        /* WHATSAPP BTN IN HEADER */
+        .wa-btn { background: #25D366; color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 4px; }
+
         /* DARK MODE */
         body.dark-mode { background: #121212; color: #e0e0e0; }
-        body.dark-mode .header, body.dark-mode .nav, body.dark-mode .card, 
+        body.dark-mode .header, body.dark-mode .nav, body.dark-mode .card, body.dark-mode .news-item,
         body.dark-mode .topline { background: #1e1e1e; color: #fff; border-color: #333; }
         body.dark-mode .nav a { color: #ddd; }
         body.dark-mode .nav a:hover, body.dark-mode .nav a.active { background: #2a2a2a; color: #ff4d4d; }
         body.dark-mode .search { background: #2a2a2a; color: #fff; border-color: #444; }
         body.dark-mode .news-item { border-bottom-color: #333; }
+        body.dark-mode .bookmark-btn { background-color: #333; color: #fff; }
 
         /* THEME TOGGLE BUTTON */
         .theme-btn { background: #eee; border: none; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; transition: 0.2s; }
@@ -118,6 +132,14 @@
         .search{flex:1;border:1px solid #ccc;padding:12px 15px;background:#fff;font-size:15px;outline:none;border-radius:4px}
         .search:focus{border-color:#e60000}
         
+        /* BACK TO TOP BUTTON */
+        #scrollTopBtn {
+            display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;
+            border: none; outline: none; background-color: #e60000; color: white;
+            cursor: pointer; padding: 12px 16px; border-radius: 50%; font-size: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
         footer{background:#171717;color:#ddd;margin-top:20px}
         .footer-inner{max-width:1250px;margin:auto;padding:30px 18px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
         footer h3{color:#fff;margin-bottom:9px}footer p,footer li{font-size:13px;line-height:1.8;color:#aaa}
@@ -150,8 +172,11 @@
 </head>
 <body>
 
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆</button>
+
 <div class="topline">
-    <span>News</span><span>తెలుగు</span><span>English</span><span>ಕನ್ನಡ</span><span>హిन्दी</span><span>தமிழ்</span><span>മലയാളം</span>
+    <span>News</span><span>తెలుగు</span><span>English</span><span>కನ್ನಡ</span><span>హిन्दी</span><span>தமிழ்</span><span>മലയാളം</span>
+    <span id="live-clock" style="margin-left: auto; padding-right: 15px; font-weight: bold; color: #e60000;"></span>
 </div>
 
 <header class="header">
@@ -161,6 +186,7 @@
             <div class="logo-text">Suresh 360 <span>Media</span></div>
         </div>
         <div class="header-tools">
+            <a href="https://whatsapp.com" target="_blank" class="wa-btn">💬 Join WA</a>
             <button class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
             <div class="tool">🔴 <span class="live-dot">LIVE</span> TV</div>
             <div class="menu-btn">☰</div>
@@ -205,22 +231,29 @@
                 <div class="time-stamp">🕒 2 Hours ago</div>
                 <p style="margin-top:8px;color:#666;font-size:14px">బ్రేకింగ్ న్యూస్, సినిమా, స్పోర్ట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్ కోసం Suresh 360 Media.</p>
                 <a class="read" href="news1.html" style="display:inline-block;margin-top:10px;background:#e60000;color:#fff;padding:8px 14px;font-weight:800;border-radius:4px">పూర్తి వార్త →</a>
-                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                <div class="share-row">
+                    <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
+                    <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                </div>
             </div>
         </article>
 
-<article class="news-item post" data-category="gold">
-    <img src="gold.jpg" alt="Gold Rate News">
-    <div>
-        <span class="tag">GOLD UPDATE</span>
-        <h3>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h3>
-        <div class="time-stamp">🕒 3 Hours ago</div>
-        <!-- onclick నియంత్రణతో ప్రత్యక్ష లింక్ -->
-      <a href="./gold.html" class="read-btn">Read More →</a>
-        <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-    </div>
-</article>
-
+        <div class="news-list">
+            <article class="news-item post" data-category="gold">
+                <img src="gold.jpg" alt="Gold Rate News">
+                <div>
+                    <span class="tag">GOLD UPDATE</span>
+                    <h3>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h3>
+                    <div class="time-stamp">🕒 3 Hours ago</div>
+                    <a href="./gold.html" class="read-btn">Read More →</a>
+                    <div class="share-row">
+                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
+                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
+                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                    </div>
+                </div>
+            </article>
 
             <article class="news-item post" data-category="movies">
                 <img src="birthday1.png.jpg" alt="Mahesh Babu">
@@ -229,7 +262,11 @@
                     <h3>సూపర్ స్టార్ మహేష్ బాబు బర్త్‌డే.. 5000+ పిల్లలకి ఉచిత గుండె ఆపరేషన్లు!</h3>
                     <div class="time-stamp">🕒 3 Hours ago</div>
                     <a href="mahesh.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                    <div class="share-row">
+                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
+                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
+                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                    </div>
                 </div>
             </article>
 
@@ -239,7 +276,11 @@
                     <span class="tag">MOVIES</span>
                     <h3>‘చరణ్ కాకపోతే ఆ సినిమా ఆడేది కాదు’.. పరుచూరి రివ్యూ!</h3>
                     <div class="time-stamp">🕒 4 Hours ago</div>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                    <div class="share-row">
+                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
+                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
+                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                    </div>
                 </div>
             </article>
 
@@ -250,7 +291,11 @@
                     <h3>💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!</h3>
                     <div class="time-stamp">🕒 5 Hours ago</div>
                     <a href="rvs.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                    <div class="share-row">
+                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
+                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
+                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                    </div>
                 </div>
             </article>
 
@@ -261,7 +306,11 @@
                     <h3>🏏 ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్ కెప్టెన్ ఎవరు? 🔥</h3>
                     <div class="time-stamp">🕒 6 Hours ago</div>
                     <a href="rd.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                    <div class="share-row">
+                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
+                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
+                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                    </div>
                 </div>
             </article>
 
@@ -272,10 +321,13 @@
                     <h3>కాసేపట్లో ఈ జిల్లాల్లో వర్షం.. అలర్ట్ జారీ చేసిన వాతావరణ కేంద్రం!</h3>
                     <div class="time-stamp">🕒 7 Hours ago</div>
                     <a href="news4.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+                    <div class="share-row">
+                        <button class="share-btn" onclick="sharePost(this)">🔗 Share</button>
+                        <button class="voice-btn" onclick="readNews(this)">🔊 వినండి</button>
+                        <button class="bookmark-btn" onclick="toggleBookmark(this)">🔖 Save</button>
+                    </div>
                 </div>
             </article>
-
         </div>
 
         <!-- Live TV Banner -->
@@ -360,6 +412,34 @@ function sharePost(btn){
  }
 }
 
+// Voice News Reader Feature
+function readNews(btn) {
+    const post = btn.closest('.post');
+    const title = post.querySelector('h1, h3').innerText;
+    
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance(title);
+        msg.lang = 'te-IN';
+        window.speechSynthesis.speak(msg);
+    } else {
+        alert('మీ బ్రౌజర్‌లో ఆడియో ఫీచర్ సపోర్ట్ చేయదు.');
+    }
+}
+
+// Bookmark / Save Feature
+function toggleBookmark(btn) {
+    if (btn.innerText === "🔖 Save") {
+        btn.innerText = "✅ Saved";
+        btn.style.backgroundColor = "#28a745";
+        btn.style.color = "#fff";
+    } else {
+        btn.innerText = "🔖 Save";
+        btn.style.backgroundColor = "";
+        btn.style.color = "";
+    }
+}
+
 // Dark Mode Toggle
 function toggleTheme(){
  document.body.classList.toggle('dark-mode');
@@ -378,8 +458,34 @@ setInterval(() => {
  ti = (ti + 1) % ticker.length;
  document.getElementById('ticker').textContent = ticker[ti];
 }, 4000);
+
+// Live Clock
+function updateClock() {
+    const now = new Date();
+    const clockElem = document.getElementById('live-clock');
+    if(clockElem) {
+        clockElem.innerText = now.toLocaleTimeString();
+    }
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Back to Top Button Logic
+window.onscroll = function() {
+    const btn = document.getElementById("scrollTopBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
 </script>
 
 </body>
 </html>
+
 
