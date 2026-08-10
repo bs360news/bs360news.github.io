@@ -11,7 +11,8 @@ function filterPosts(category) {
 
 // Live Search System
 function searchPosts() {
-    const q = document.getElementById('search-input').value.trim().toLowerCase();
+    const searchInput = document.getElementById('search-input');
+    const q = searchInput ? searchInput.value.trim().toLowerCase() : '';
     document.querySelectorAll('.post').forEach(p => {
         const text = p.innerText.toLowerCase();
         p.classList.toggle('hidden', q && !text.includes(q));
@@ -71,15 +72,20 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// --- ఇక్కడ Auto Time Ago Code యాడ్ చేయండి ---
+// Auto Time Ago System
 function updateTimeAgo() {
     const timeElements = document.querySelectorAll('.time-stamp[data-time]');
     
     timeElements.forEach(el => {
-        const postTime = new Date(el.getAttribute('data-time')).getTime();
-        const currentTime = new Date().getTime();
-        const diffInSeconds = Math.floor((currentTime - postTime) / 1000);
+        const timeAttr = el.getAttribute('data-time');
+        if (!timeAttr) return;
 
+        const postTime = new Date(timeAttr).getTime();
+        const currentTime = new Date().getTime();
+
+        if (isNaN(postTime)) return;
+
+        const diffInSeconds = Math.floor((currentTime - postTime) / 1000);
         let timeString = "";
 
         if (diffInSeconds < 60) {
@@ -99,14 +105,6 @@ function updateTimeAgo() {
     });
 }
 
-setInterval(updateTimeAgo, 60000);
+// Initial Run and Interval Set for Time Ago
 updateTimeAgo();
-// ---------------------------------------------
-
-// Filter Posts by Category
-function filterPosts(category){
- document.querySelectorAll('.post').forEach(p=>{
-   p.classList.toggle('hidden', category !== 'all' && p.dataset.category !== category);
- });
- document.getElementById('search-input').value = '';
-}
+setInterval(updateTimeAgo, 60000);
