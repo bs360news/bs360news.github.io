@@ -9,161 +9,13 @@
     <meta name="keywords" content="Suresh 360 Media, Telugu News, Telugu Movies, Cricket News, Sports News">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://suryabhai941.github.io/suresh/">
-
-    <style>
-        /* BASE STYLES */
-        *{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:"Noto Sans Telugu","Nirmala UI","Segoe UI",Arial,sans-serif;background:#f5f5f5;color:#171717;transition:background 0.3s, color 0.3s}
-        a{text-decoration:none;color:inherit}
-        
-        /* HEADER SECTION */
-        .top-header { background: #fff; text-align: center; padding: 15px 10px 10px; border-bottom: 1px solid #eee; }
-        .logo-wrap { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
-        .logo-mark { width: 50px; height: 50px; border-radius: 8px; background: #e60000; color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 14px; line-height: 1; text-align: center; border: 2px solid #fff; box-shadow: 0 1px 4px #ccc; }
-        .logo-text { font-size: 26px; font-weight: 900; font-family: 'Segoe UI', cursive, sans-serif; }
-        .logo-text span { color: #e60000; }
-
-        .lang-line { font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 600; }
-        .lang-line span { margin: 0 4px; }
-
-        .date-clock-line { font-size: 13px; font-weight: 800; color: #e60000; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-
-        .action-buttons { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 5px; }
-        .btn-fb { background: #1877F2; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 4px; }
-        .btn-yt { background: #FF0000; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 4px; }
-        .btn-dark { background: #222; color: #fff; border: none; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; }
-        .btn-live { background: #fff; color: #e60000; border: 1px solid #ffd0d0; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; display: flex; align-items: center; gap: 4px; }
-
-        /* NAV BAR */
-        .nav{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #ddd;overflow-x:auto;position:sticky;top:0;z-index:100}
-        .nav ul{max-width:1250px;margin:auto;display:flex;list-style:none;white-space:nowrap}
-        .nav a{display:block;padding:12px 15px;font-weight:800;font-size:15px;color:#333}
-        .nav a:hover,.nav a.active{color:#e60000;border-bottom:3px solid #e60000;background:#fff5f5}
-        
-        /* BREAKING MARQUEE */
-        .breaking{max-width:1250px;margin:10px auto;background:#ffe8e8;display:flex;align-items:center;min-height:42px;overflow:hidden;border-radius:4px;}
-        .breaking strong{background:#e60000;color:#fff;padding:10px 16px;white-space:nowrap;font-size:13px;z-index:2;font-weight:900;}
-        .marquee-container { width: 100%; overflow: hidden; white-space: nowrap; }
-        .marquee-text { display: inline-block; padding-left: 100%; animation: scroll-left 16s linear infinite; font-weight: bold; font-size: 14px; color: #222; }
-        @keyframes scroll-left { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
-
-        .ad{max-width:1250px;margin:14px auto;background:#fff;border:1px dashed #ddd;height:95px;display:grid;place-items:center;color:#999;font-size:13px}
-        .container{max-width:1250px;margin:auto;padding:0 15px 40px}
-        
-        .search-wrap{margin:15px 0;display:flex;gap:8px}
-        .search{flex:1;border:1px solid #ccc;padding:11px 15px;background:#fff;font-size:14px;outline:none;border-radius:4px}
-        .search:focus{border-color:#e60000}
-
-        .section-head{display:flex;align-items:center;gap:10px;margin:20px 0 12px;border-bottom:2px solid #222;padding-bottom:7px}
-        .section-head h2{font-size:20px;font-weight:800}.section-head span{width:6px;height:24px;background:#e60000;display:inline-block}
-        
-        /* GRID & CARDS */
-        .main-grid{display:grid;grid-template-columns:1.45fr 1fr .9fr;gap:18px}
-        .card{background:#fff;border:1px solid #e5e5e5;overflow:hidden;border-radius:6px}
-        .hero img{width:100%;height:270px;object-fit:cover;display:block}
-        .card-body{padding:12px 14px}
-        .tag{display:inline-block;color:#e60000;font-size:12px;font-weight:900;margin-bottom:6px}
-        .hero h1{font-size:22px;line-height:1.35}
-        
-        /* NEWS LIST: 2 ITEMS PER ROW (2 COLUMN GRID) */
-        .news-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .news-item {
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            border: 1px solid #e5e5e5;
-            background: #fff;
-            border-radius: 6px;
-            height: 100%;
-            justify-content: space-between;
-        }
-
-        .news-item img {
-            width: 100%;
-            height: 110px;
-            object-fit: cover;
-            border-radius: 6px;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .news-item h3 {
-            font-size: 13px;
-            line-height: 1.35;
-            margin-bottom: 4px;
-        }
-
-        .news-item a.read-btn {
-            color: #e60000;
-            font-size: 11px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 4px;
-        }
-        
-        .share-row { margin-top: 8px; display: flex; align-items: center; }
-        .share-row button {
-            background-color: #1877f2;
-            color: #ffffff;
-            border: none;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .time-stamp { font-size: 10px; color: #888; margin-top: 4px; }
-
-        /* DARK MODE */
-        body.dark-mode { background: #121212; color: #e0e0e0; }
-        body.dark-mode .top-header, body.dark-mode .nav, body.dark-mode .card, body.dark-mode .news-item { background: #1e1e1e; color: #fff; border-color: #333; }
-        body.dark-mode .nav a { color: #ddd; }
-        body.dark-mode .search { background: #2a2a2a; color: #fff; border-color: #444; }
-
-        /* LIVE & SIDEBAR */
-        .live-box{background:#111;color:#fff;border-radius:6px;overflow:hidden;}
-        .live-title{background:#e60000;padding:10px 14px;font-size:18px;font-weight:900}
-        .live-screen{height:190px;background:linear-gradient(135deg,#173c85,#f2c400 55%,#fff);display:grid;place-items:center;text-align:center;padding:15px}
-        .live-screen div{background:rgba(0,0,0,.65);padding:12px;width:90%;font-size:16px;font-weight:800}
-        .live-controls{padding:10px 14px;color:#ddd;font-size:12px}
-        .ad-side{margin-top:16px;min-height:150px;background:#fff;border:1px dashed #ccc;display:grid;place-items:center;color:#aaa;border-radius:6px;}
-        
-        .category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-        .small-card img{width:100%;height:140px;object-fit:cover}
-        .small-card h3{font-size:14px;line-height:1.4;padding:10px}
-        
-        footer{background:#171717;color:#ddd;margin-top:30px}
-        .footer-inner{max-width:1250px;margin:auto;padding:25px 18px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
-        footer h3{color:#fff;margin-bottom:8px}footer p,footer li{font-size:13px;line-height:1.8;color:#aaa}
-        footer ul{list-style:none}.copyright{border-top:1px solid #333;text-align:center;padding:12px;font-size:12px;color:#888}
-        .hidden{display:none!important}
-
-        /* RESPONSIVE MEDIA QUERIES */
-        @media (max-width: 900px) {
-            .main-grid{grid-template-columns:1fr 1fr}.hero{grid-row:auto}.live-col{grid-column:1/-1}
-            .category-grid{grid-template-columns:repeat(2,1fr)}
-            .footer-inner{grid-template-columns:1fr 1fr}
-        }
-        @media (max-width: 600px) {
-            .main-grid{grid-template-columns:1fr}
-            .hero img{height:200px}
-            .news-list{grid-template-columns:repeat(2, 1fr); gap: 8px;} /* Mobile view lo kooda 2 per row */
-            .news-item img { height: 90px; }
-            .category-grid{grid-template-columns:1fr 1fr;gap:10px}
-            .footer-inner{grid-template-columns:1fr}
-        }
-    </style>
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- TOP HEADER DESIGN MATCHED TO YOUR IMAGE -->
+<!-- TOP HEADER -->
 <header class="top-header">
     <div class="logo-wrap">
         <div class="logo-mark">S360<br>MEDIA</div>
@@ -198,7 +50,7 @@
     </ul>
 </nav>
 
-<!-- BREAKING SCROLLING BAR WITH "సినిమా కబుర్లు" -->
+<!-- BREAKING SCROLLING BAR -->
 <div class="breaking">
     <strong>BREAKING</strong>
     <div class="marquee-container">
@@ -215,128 +67,20 @@
         <input id="search-input" class="search" placeholder="🔍 సినిమాలు, నటీనటులు, రివ్యూల కోసం సెర్చ్ చేయండి..." oninput="searchPosts()">
     </div>
 
-    <div class="section-head"><span></span><h2>🎬 సినిమా & ముఖ్యాంశాలు</h2></div>
-
-    <section class="main-grid">
-        
+    <!-- MAIN FEATURED TOP SECTION -->
+    <div class="top-featured-grid">
         <!-- Main Hero Card -->
         <article class="card hero post" data-category="news">
             <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1000" alt="ప్రధాన వార్త">
             <div class="card-body">
                 <span class="tag">తాజా వార్తలు</span>
                 <h1>సురేష్ 360 మీడియా గ్రాండ్ లాంచ్.. ఇకపై తాజా వార్తలు మీ ముందుకు</h1>
-              
-<div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
-
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
                 <p style="margin-top:8px;color:#666;font-size:14px">బ్రేకింగ్ న్యూస్, సినిమా, స్పోర్ట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్ కోసం Suresh 360 Media.</p>
                 <a class="read" href="news1.html" style="display:inline-block;margin-top:10px;background:#e60000;color:#fff;padding:8px 14px;font-weight:800;border-radius:4px">పూర్తి వార్త →</a>
                 <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
             </div>
         </article>
-
-        <!-- News List (Now 2 Cards Per Row) -->
-        <div class="news-list">
-            <article class="news-item post" data-category="cinema">
-    <img src="janvi.jpg" alt="Sreeleela and Janhvi Kapoor">
-    <div>
-        <span class="tag">MOVIES</span>
-        <h3>🔥 శ్రీలీల, జాన్వీ కపూర్ క్రేజీ కాంబో! ఆస్కార్ విన్నర్‌తో ఏక్తా కపూర్ బిగ్ ప్లాన్!</h3>
-        <div class="time-stamp" data-time="2026-08-10T08:00:00">🕒 Updating...</div>
-        <a href="janvi.html" class="read-btn">Read More →</a>
-        <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-    </div>
-</article>
-
-            <article class="news-item post" data-category="cinema">
-                <img src="hero3.png.png" alt="Varanasi Movie News">
-                <div>
-                    <span class="tag">VARANASI UPDATE</span>
-                    <h3>🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?</h3>
-                    <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
-                    <a href="varanasiupdate1.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-    
-
-            <article class="news-item post" data-category="movies">
-                <img src="premalu.webp" alt="మమితా బైజు">
-                <div>
-                    <span class="tag">MOVIES</span>
-                    <h3>‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం.. సోషల్ మీడియాకు గుడ్ బై! 😲</h3>
-                    <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
-                    <a href="premalu.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="gold">
-                <img src="gold.jpg" alt="Gold Rate News">
-                <div>
-                    <span class="tag">GOLD UPDATE</span>
-                    <h3>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h3>
-                   <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
-                    <a href="gold.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="movies">
-                <img src="birthday1.png.jpg" alt="Mahesh Babu">
-                <div>
-                    <span class="tag">MOVIES</span>
-                    <h3>సూపర్ స్టార్ మహేష్ బాబు బర్త్‌డే.. 5000+ పిల్లలకి ఉచిత గుండె ఆపరేషన్లు!</h3>
-                   <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div> 
-                    <a href="mahesh.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="movies">
-                <img src="ramcharan.jpg.webp" alt="సినిమా">
-                <div>
-                    <span class="tag">MOVIES</span>
-                    <h3>‘చరణ్ కాకపోతే ఆ సినిమా ఆడేది కాదు’.. పరుచూరి రివ్యూ!</h3>
-                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div> 
-                    <a href="charan.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="sports">
-                <img src="cricket.png" alt="Cricket Records">
-                <div>
-                    <span class="tag">SPORTS</span>
-                    <h3>💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!</h3>
-                  <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div> 
-                    <a href="rvs.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="sports">
-                <img src="dhoni,rohith.png" alt="Dhoni Vs Rohit">
-                <div>
-                    <span class="tag">SPORTS</span>
-                    <h3>🏏 ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్ కెప్టెన్ ఎవరు? 🔥</h3>
-               <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>  
-                    <a href="rd.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-
-            <article class="news-item post" data-category="ts">
-                <img src="1000124891.jpg" alt="rain news">
-                <div>
-                    <span class="tag">తెలంగాణ</span>
-                 <h3>కాసేపట్లో ఈ జిల్లాల్లో వర్షం.. అలర్ట్ జారీ చేసిన వాతావరణ కేంద్రం!</h3>
-           <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>         
-                    <a href="news4.html" class="read-btn">Read More →</a>
-                    <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
-                </div>
-            </article>
-
-        </div>
 
         <!-- Live TV Banner -->
         <div class="live-col">
@@ -347,8 +91,111 @@
             </div>
             <div class="ad-side">ADVERTISEMENT</div>
         </div>
+    </div>
 
-    </section>
+    <div class="section-head"><span></span><h2>🎬 సినిమా & ముఖ్యాంశాలు</h2></div>
+
+    <!-- TV9 STYLE GRID LAYOUT (5 ITEMS PER ROW) -->
+    <div class="news-list">
+        <article class="news-item post" data-category="cinema">
+            <img src="janvi.jpg" alt="Sreeleela and Janhvi Kapoor">
+            <div>
+                <span class="tag">MOVIES</span>
+                <h3>🔥 శ్రీలీల, జాన్వీ కపూర్ క్రేజీ కాంబో! ఆస్కార్ విన్నర్‌తో ఏక్తా కపూర్ బిగ్ ప్లాన్!</h3>
+                <div class="time-stamp" data-time="2026-08-10T08:00:00">🕒 Updating...</div>
+                <a href="janvi.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="cinema">
+            <img src="hero3.png.png" alt="Varanasi Movie News">
+            <div>
+                <span class="tag">VARANASI UPDATE</span>
+                <h3>🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
+                <a href="varanasiupdate1.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="movies">
+            <img src="premalu.webp" alt="మమితా బైజు">
+            <div>
+                <span class="tag">MOVIES</span>
+                <h3>‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం.. సోషల్ మీడియాకు గుడ్ బై! 😲</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
+                <a href="premalu.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="gold">
+            <img src="gold.jpg" alt="Gold Rate News">
+            <div>
+                <span class="tag">GOLD UPDATE</span>
+                <h3>వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>
+                <a href="gold.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="movies">
+            <img src="birthday1.png.jpg" alt="Mahesh Babu">
+            <div>
+                <span class="tag">MOVIES</span>
+                <h3>సూపర్ స్టార్ మహేష్ బాబు బర్త్‌డే.. 5000+ పిల్లలకి ఉచిత గుండె ఆపరేషన్లు!</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div> 
+                <a href="mahesh.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="movies">
+            <img src="ramcharan.jpg.webp" alt="సినిమా">
+            <div>
+                <span class="tag">MOVIES</span>
+                <h3>‘చరణ్ కాకపోతే ఆ సినిమా ఆడేది కాదు’.. పరుచూరి రివ్యూ!</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div> 
+                <a href="charan.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="sports">
+            <img src="cricket.png" alt="Cricket Records">
+            <div>
+                <span class="tag">SPORTS</span>
+                <h3>💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div> 
+                <a href="rvs.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="sports">
+            <img src="dhoni,rohith.png" alt="Dhoni Vs Rohit">
+            <div>
+                <span class="tag">SPORTS</span>
+                <h3>🏏 ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్ కెప్టెన్ ఎవరు? 🔥</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>  
+                <a href="rd.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+
+        <article class="news-item post" data-category="ts">
+            <img src="1000124891.jpg" alt="rain news">
+            <div>
+                <span class="tag">తెలంగాణ</span>
+                <h3>కాసేపట్లో ఈ జిల్లాల్లో వర్షం.. అలర్ట్ జారీ చేసిన వాతావరణ కేంద్రం!</h3>
+                <div class="time-stamp" data-time="2026-03-31T09:00:00">🕒 Updating...</div>         
+                <a href="news4.html" class="read-btn">Read More →</a>
+                <div class="share-row"><button onclick="sharePost(this)">🔗 Share</button></div>
+            </div>
+        </article>
+    </div>
 
     <!-- Bottom Categories Grid -->
     <div class="section-head"><span></span><h2>సినిమా & ఎంటర్‌టైన్‌మెంట్</h2></div>
