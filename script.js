@@ -1,4 +1,4 @@
-// Filter Posts by Category
+// 1. Filter Posts by Category
 function filterPosts(category) {
     document.querySelectorAll('.post').forEach(p => {
         p.classList.toggle('hidden', category !== 'all' && p.dataset.category !== category);
@@ -9,7 +9,7 @@ function filterPosts(category) {
     }
 }
 
-// Live Search System
+// 2. Live Search System
 function searchPosts() {
     const searchInput = document.getElementById('search-input');
     const q = searchInput ? searchInput.value.trim().toLowerCase() : '';
@@ -19,7 +19,7 @@ function searchPosts() {
     });
 }
 
-// Web Share API System
+// 3. Web Share API System
 function sharePost(btn) {
     const postElement = btn.closest('.post');
     const titleElement = postElement ? postElement.querySelector('h1, h3') : null;
@@ -36,16 +36,16 @@ function sharePost(btn) {
     }
 }
 
-// Dark / Light Theme Toggle
+// 4. Dark / Light Theme Toggle
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
-    const btn = document.querySelector('.theme-btn');
+    const btn = document.querySelector('.btn-dark') || document.querySelector('.theme-btn');
     if (btn) {
         btn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light' : '🌙 Dark';
     }
 }
 
-// Breaking News Ticker System
+// 5. Breaking News Ticker System
 const ticker = [
     'సురేష్ 360 మీడియా తాజా వార్తలు మీ ముందుకు...',
     'సినిమా, స్పోర్ట్స్, తెలుగు రాష్ట్రాల ముఖ్యమైన అప్‌డేట్స్...',
@@ -61,18 +61,18 @@ setInterval(() => {
     }
 }, 4000);
 
-// Live Date & Clock System
+// 6. Live Date & Clock System
 function updateClock() {
     const now = new Date();
     const clockElem = document.getElementById('live-clock');
     const dateElem = document.getElementById('live-date');
-    if(clockElem) clockElem.innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-    if(dateElem) dateElem.innerText = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' }); 
+    if (clockElem) clockElem.innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    if (dateElem) dateElem.innerText = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' });
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// Auto Time Ago System
+// 7. REAL-TIME TIME AGO SYSTEM
 function updateTimeAgo() {
     const timeElements = document.querySelectorAll('.time-stamp[data-time]');
     
@@ -81,14 +81,14 @@ function updateTimeAgo() {
         if (!timeAttr) return;
 
         const postTime = new Date(timeAttr).getTime();
-        const currentTime = new Date().getTime();
+        const currentTime = new Date().getTime(); // Real current time
 
         if (isNaN(postTime)) return;
 
         const diffInSeconds = Math.floor((currentTime - postTime) / 1000);
         let timeString = "";
 
-        if (diffInSeconds < 60) {
+        if (diffInSeconds <= 60) {
             timeString = "Just Now";
         } else if (diffInSeconds < 3600) {
             const mins = Math.floor(diffInSeconds / 60);
@@ -105,43 +105,12 @@ function updateTimeAgo() {
     });
 }
 
-// Initial Run and Interval Set for Time Ago
-updateTimeAgo();
-setInterval(updateTimeAgo, 60000);
-// Auto Time Ago System
-function updateTimeAgo() {
-    const timeElements = document.querySelectorAll('.time-stamp[data-time]');
-    
-    timeElements.forEach(el => {
-        const timeAttr = el.getAttribute('data-time');
-        if (!timeAttr) return;
-
-        const postTime = new Date(timeAttr).getTime();
-        const currentTime = new Date().getTime();
-
-        if (isNaN(postTime)) return;
-
-        const diffInSeconds = Math.floor((currentTime - postTime) / 1000);
-        let timeString = "";
-
-        if (diffInSeconds < 60) {
-            timeString = "Just Now";
-        } else if (diffInSeconds < 3600) {
-            const mins = Math.floor(diffInSeconds / 60);
-            timeString = `${mins} min${mins > 1 ? 's' : ''} ago`;
-        } else if (diffInSeconds < 86400) {
-            const hours = Math.floor(diffInSeconds / 3600);
-            timeString = `${hours} hour${hours > 1 ? 's' : ''} ago`;
-        } else {
-            const days = Math.floor(diffInSeconds / 86400);
-            timeString = `${days} day${days > 1 ? 's' : ''} ago`;
-        }
-
-        el.innerText = `🕒 ${timeString}`;
-    });
+// Execution setup:
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateTimeAgo);
+} else {
+    updateTimeAgo();
 }
 
-// Page Load అవ్వగానే మరియు ప్రతి నిమిషానికి టైమ్ అప్‌డేట్ అవుతుంది
-document.addEventListener('DOMContentLoaded', updateTimeAgo);
+// Refresh time difference every 60 seconds
 setInterval(updateTimeAgo, 60000);
-
