@@ -202,3 +202,15 @@
     </div>
 
 </div>
+<div id="home-posts"></div>
+
+<script>
+fetch("home-posts.html")
+.then(response => response.text())
+.then(data => {
+    document.getElementById("home-posts").innerHTML = data;
+})
+.catch(error => {
+    console.log("Posts loading failed:", error);
+});
+</script>
