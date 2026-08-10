@@ -108,3 +108,40 @@ function updateTimeAgo() {
 // Initial Run and Interval Set for Time Ago
 updateTimeAgo();
 setInterval(updateTimeAgo, 60000);
+// Auto Time Ago System
+function updateTimeAgo() {
+    const timeElements = document.querySelectorAll('.time-stamp[data-time]');
+    
+    timeElements.forEach(el => {
+        const timeAttr = el.getAttribute('data-time');
+        if (!timeAttr) return;
+
+        const postTime = new Date(timeAttr).getTime();
+        const currentTime = new Date().getTime();
+
+        if (isNaN(postTime)) return;
+
+        const diffInSeconds = Math.floor((currentTime - postTime) / 1000);
+        let timeString = "";
+
+        if (diffInSeconds < 60) {
+            timeString = "Just Now";
+        } else if (diffInSeconds < 3600) {
+            const mins = Math.floor(diffInSeconds / 60);
+            timeString = `${mins} min${mins > 1 ? 's' : ''} ago`;
+        } else if (diffInSeconds < 86400) {
+            const hours = Math.floor(diffInSeconds / 3600);
+            timeString = `${hours} hour${hours > 1 ? 's' : ''} ago`;
+        } else {
+            const days = Math.floor(diffInSeconds / 86400);
+            timeString = `${days} day${days > 1 ? 's' : ''} ago`;
+        }
+
+        el.innerText = `🕒 ${timeString}`;
+    });
+}
+
+// Page Load అవ్వగానే మరియు ప్రతి నిమిషానికి టైమ్ అప్‌డేట్ అవుతుంది
+document.addEventListener('DOMContentLoaded', updateTimeAgo);
+setInterval(updateTimeAgo, 60000);
+
