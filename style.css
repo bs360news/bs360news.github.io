@@ -1,325 +1,230 @@
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-
-    font-family:
-        "Nirmala UI",
-        "Noto Sans Telugu",
-        "Segoe UI",
-        Tahoma,
-        Geneva,
-        Verdana,
-        sans-serif;
+    box-sizing: border-box;
 }
 
 
-/* =========================
+/* =====================================================
    BODY
-========================= */
+===================================================== */
 
 body {
-    background-color: #f8fafc;
-    color: #1e293b;
+    font-family:
+        "Noto Sans Telugu",
+        "Nirmala UI",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f4f4f4;
+    color: #222;
 
     min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
 }
 
 
-button,
-input {
-    font: inherit;
-}
+/* =====================================================
+   HEADER
+===================================================== */
 
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-    background: linear-gradient(
-        135deg,
-        #1e3a8a,
-        #2563eb
-    );
-
-    padding: 15px 20px;
-
+.site-header {
     width: 100%;
-
-    box-shadow:
-        0 4px 12px
-        rgba(37, 99, 235, 0.25);
-
-    position: sticky;
-    top: 0;
-
-    z-index: 100;
+    background: #111;
+    border-bottom: 4px solid #e60000;
 }
 
+.header-inner {
+    max-width: 1400px;
+    margin: auto;
 
-.nav-container {
-    max-width: 1100px;
-
-    margin: 0 auto;
+    min-height: 70px;
 
     display: flex;
-
-    flex-wrap: wrap;
-
+    align-items: center;
     justify-content: space-between;
 
-    align-items: center;
-
-    gap: 10px;
+    padding: 12px 25px;
 }
 
 
-.logo {
-    color: #ffffff;
+/* LOGO */
 
-    font-size: 22px;
-
-    font-weight: bold;
-
-    letter-spacing: 0.5px;
-}
-
-
-.logo span {
-    color: #38bdf8;
-}
-
-
-.navbar nav ul {
-    display: flex;
-
-    list-style: none;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-}
-
-
-.navbar nav a {
-    color: #ffffff;
-
+.logo a {
+    color: #fff;
     text-decoration: none;
 
-    font-size: 15px;
+    font-size: 24px;
+    font-weight: 800;
 
-    font-weight: 600;
-
-    transition: color 0.3s;
+    letter-spacing: 1px;
 }
 
 
-.navbar nav a:hover {
-    color: #38bdf8;
+/* NAVIGATION */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.main-nav a:hover {
+    color: #ff3333;
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
 
-.search-section {
-    background: #ffffff;
-
-    padding: 18px 15px;
-
-    box-shadow:
-        0 2px 8px
-        rgba(0, 0, 0, 0.06);
-
-    margin-bottom: 25px;
-}
-
-
-.search-container {
-    max-width: 1100px;
+.container {
+    width: 100%;
+    max-width: 1400px;
 
     margin: 0 auto;
 
-    display: flex;
-
-    justify-content: center;
+    padding: 25px;
 }
 
 
-.search-box {
-    width: 100%;
+/* =====================================================
+   PAGE TITLE
+===================================================== */
 
-    max-width: 600px;
+.page-title {
+    background: #fff;
 
-    padding: 12px 20px;
+    padding: 18px 20px;
 
-    border: 2px solid #0284c7;
+    margin-bottom: 22px;
 
-    border-radius: 25px;
+    border-radius: 8px;
 
-    font-size: 15px;
-
-    outline: none;
-
-    background-color: #f0f9ff;
-
-    color: #0369a1;
-
-    transition: all 0.3s;
-}
-
-
-.search-box:focus {
-    border-color: #0369a1;
-
-    background-color: #ffffff;
+    border-left: 5px solid #e60000;
 
     box-shadow:
-        0 0 10px
-        rgba(2, 132, 199, 0.3);
+        0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.page-title h1 {
+    font-size: 25px;
+    color: #111;
+
+    margin-bottom: 4px;
+}
+
+.page-title p {
+    color: #777;
+    font-size: 14px;
 }
 
 
-/* =========================
-   MAIN CONTENT
-========================= */
+/* =====================================================
+   NEWS GRID
+===================================================== */
 
-.container {
-    max-width: 1250px;
+.news-list {
 
-    width: 100%;
-
-    margin: 0 auto 40px auto;
-
-    padding: 0 15px;
-
-    flex: 1;
-}
-
-
-.section-heading-row {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 12px;
-}
-
-
-.section-title {
-    font-size: 22px;
-
-    margin-bottom: 20px;
-
-    color: #1e3a8a;
-
-    border-left: 5px solid #2563eb;
-
-    padding-left: 10px;
-}
-
-
-.show-all-btn {
-    border: 0;
-
-    background: #e0f2fe;
-
-    color: #0369a1;
-
-    padding: 7px 12px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
-
-    font-weight: 700;
-
-    margin-bottom: 20px;
-}
-
-
-/* =========================
-   POSTS GRID
-   DESKTOP = 5 POSTS PER ROW
-========================= */
-
-.posts-grid {
     display: grid;
+
+    /*
+       DESKTOP:
+       EXACTLY 5 POSTS PER ROW
+    */
 
     grid-template-columns:
         repeat(5, minmax(0, 1fr));
 
-    gap: 15px;
+    gap: 18px;
 
-    width: 100%;
+    align-items: stretch;
 }
 
 
-/* =========================
+/* =====================================================
    POST CARD
-========================= */
+===================================================== */
 
-.post {
-    background: #ffffff;
+.news-item {
 
-    border-radius: 10px;
+    background: #fff;
+
+    border: 1px solid #e3e3e3;
+
+    border-radius: 8px;
 
     overflow: hidden;
 
-    box-shadow:
-        0 4px 12px
-        rgba(0, 0, 0, 0.06);
-
-    border: 1px solid #e0f2fe;
-
-    transition:
-        transform 0.3s,
-        box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 
     min-width: 0;
 
-    display: flex;
-
-    flex-direction: column;
-}
-
-
-.post:hover {
-    transform: translateY(-4px);
+    height: 100%;
 
     box-shadow:
-        0 8px 20px
-        rgba(37, 99, 235, 0.15);
+        0 2px 8px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
-/* =========================
-   POST IMAGE
-========================= */
+/* HOVER */
 
-.post-image {
+.news-item:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   POST IMAGE
+===================================================== */
+
+.news-item > img {
+
     width: 100%;
+
+    /*
+       SMALL CARD IMAGE
+    */
 
     height: 150px;
 
     object-fit: cover;
 
     display: block;
+
+    background: #eee;
 }
 
 
-/* =========================
+/* =====================================================
    POST CONTENT
-========================= */
+===================================================== */
 
 .post-content {
+
     padding: 12px;
 
     display: flex;
@@ -330,644 +235,392 @@ input {
 }
 
 
-/* CATEGORY */
+/* =====================================================
+   TAG
+===================================================== */
 
-.category {
+.tag {
+
     display: inline-block;
 
     width: fit-content;
 
-    background: #e0f2fe;
+    background: #e60000;
 
-    color: #0369a1;
+    color: #fff;
 
     font-size: 10px;
 
-    font-weight: bold;
+    font-weight: 800;
 
     padding: 4px 7px;
 
-    border-radius: 4px;
+    border-radius: 3px;
+
+    margin-bottom: 8px;
 
     text-transform: uppercase;
 }
 
 
-/* TITLE */
+/* =====================================================
+   POST TITLE
+===================================================== */
 
-.post-content h2 {
+.news-item h3 {
+
+    color: #111;
+
     font-size: 14px;
 
-    margin: 8px 0 7px 0;
+    line-height: 1.5;
 
-    color: #0f172a;
+    font-weight: 700;
 
-    line-height: 1.4;
+    margin-bottom: 8px;
 }
 
 
-/* DESCRIPTION */
+/* =====================================================
+   TIME
+===================================================== */
 
-.post-content p {
-    font-size: 12px;
+.time-stamp {
 
-    color: #64748b;
+    color: #777;
+
+    font-size: 11px;
 
     margin-bottom: 10px;
 
-    line-height: 1.5;
-}
-
-
-/* DATE */
-
-.post-date {
-    font-size: 11px !important;
-
-    color: #94a3b8 !important;
-
-    margin-bottom: 9px !important;
-}
-
-
-/* READ MORE */
-
-.read,
-.read-more-btn {
-    display: inline-block;
-
-    background: #2563eb;
-
-    color: #ffffff;
-
-    padding: 7px 10px;
-
-    border-radius: 5px;
-
-    border: 0;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    font-size: 11px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.3s;
-
-    margin-top: auto;
-}
-
-
-.read:hover,
-.read-more-btn:hover {
-    background: #1d4ed8;
-}
-
-
-/* =========================
-   MODAL
-========================= */
-
-.modal {
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1000;
-
-    background:
-        rgba(15, 23, 42, 0.72);
-
-    padding: 25px 15px;
-
-    overflow-y: auto;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-.modal.show {
-    display: flex;
-}
-
-
-.modal-content {
-    position: relative;
-
-    width: 100%;
-
-    max-width: 850px;
-
-    max-height: 92vh;
-
-    overflow-y: auto;
-
-    background: #ffffff;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0, 0, 0, 0.3);
-}
-
-
-.modal-close {
-    position: absolute;
-
-    right: 12px;
-
-    top: 12px;
-
-    width: 38px;
-
-    height: 38px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background:
-        rgba(0, 0, 0, 0.65);
-
-    color: #ffffff;
-
-    font-size: 25px;
-
-    cursor: pointer;
-
-    z-index: 5;
-}
-
-
-.modal-image {
-    width: 100%;
-
-    height: 330px;
-
-    object-fit: cover;
-
     display: block;
 }
 
 
-.modal-body-wrap {
-    padding: 25px;
-}
+/* =====================================================
+   READ MORE
+===================================================== */
 
+.read-btn {
 
-.modal-category {
     display: inline-block;
 
-    background: #e0f2fe;
-
-    color: #0369a1;
-
-    padding: 4px 9px;
-
-    border-radius: 4px;
-
-    font-size: 11px;
-
-    font-weight: bold;
-}
-
-
-.modal-body-wrap h2 {
-    color: #0f172a;
-
-    font-size: 27px;
-
-    line-height: 1.4;
-
-    margin: 10px 0;
-}
-
-
-.modal-date {
-    color: #64748b;
-
-    font-size: 13px;
-
-    margin-bottom: 18px;
-}
-
-
-.modal-article {
-    color: #334155;
-
-    font-size: 16px;
-
-    line-height: 1.9;
-
-    white-space: pre-line;
-}
-
-
-/* =========================
-   SHARE
-========================= */
-
-.share-row {
-    margin-top: 20px;
-}
-
-
-.share-row button {
-    border: 0;
-
-    background: #2563eb;
-
-    color: #fff;
-
-    border-radius: 6px;
-
-    padding: 9px 15px;
-
-    cursor: pointer;
-
-    font-weight: 700;
-}
-
-
-/* =========================
-   RELATED POSTS
-========================= */
-
-.related-title {
-    color: #1e3a8a;
-
-    border-left: 4px solid #2563eb;
-
-    padding-left: 8px;
-
-    margin: 25px 0 14px;
-}
-
-
-.related-posts {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 14px;
-}
-
-
-.related-item {
-    background: #f8fafc;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 8px;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-
-.related-item:hover {
-    transform: translateY(-3px);
-
-    border-color: #2563eb;
-}
-
-
-.related-item img {
-    width: 100%;
-
-    height: 110px;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-
-.related-item h4 {
-    font-size: 13px;
-
-    line-height: 1.45;
-
-    color: #1e293b;
-
-    padding: 9px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #0f172a;
-
-    color: #f8fafc;
-
-    padding: 35px 20px 20px 20px;
-
-    margin-top: auto;
-
-    width: 100%;
-}
-
-
-.footer-content {
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 15px;
-}
-
-
-.footer-info h3 {
-    font-size: 20px;
-
-    color: #38bdf8;
-
-    margin-bottom: 5px;
-}
-
-
-.footer-info p {
-    font-size: 13px;
-
-    color: #94a3b8;
-}
-
-
-.footer-email {
-    font-size: 14px;
-
-    color: #ffffff;
-
-    background: #1e293b;
-
-    padding: 12px 18px;
-
-    border-radius: 8px;
-
-    border: 1px solid #334155;
-}
-
-
-.footer-email a {
-    color: #38bdf8;
+    color: #e60000;
 
     text-decoration: none;
-
-    font-weight: bold;
-}
-
-
-.copyright {
-    text-align: center;
-
-    width: 100%;
-
-    margin-top: 25px;
-
-    padding-top: 15px;
-
-    border-top: 1px solid #334155;
 
     font-size: 12px;
 
-    color: #64748b;
+    font-weight: 800;
+
+    margin-top: auto;
+
+    padding-top: 5px;
+}
+
+.read-btn:hover {
+
+    color: #990000;
+
+    text-decoration: underline;
 }
 
 
-/* =========================
-   TABLET
-   4 POSTS PER ROW
-========================= */
+/* =====================================================
+   SHARE
+===================================================== */
+
+.share-row {
+
+    margin-top: 10px;
+
+    padding-top: 8px;
+
+    border-top: 1px solid #eee;
+}
+
+.share-row button {
+
+    width: 100%;
+
+    border: 0;
+
+    background: #222;
+
+    color: #fff;
+
+    border-radius: 4px;
+
+    padding: 7px 8px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.share-row button:hover {
+
+    background: #e60000;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    margin-top: 35px;
+
+    background: #111;
+
+    color: #fff;
+
+    text-align: center;
+
+    padding: 20px;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   LARGE LAPTOP
+===================================================== */
 
 @media (max-width: 1200px) {
 
     .container {
-        max-width: 1100px;
+        padding: 20px;
     }
 
-    .posts-grid {
+    .news-list {
+
+        /*
+          4 PER ROW
+        */
+
         grid-template-columns:
             repeat(4, minmax(0, 1fr));
+
+        gap: 15px;
+    }
+
+    .news-item > img {
+        height: 145px;
     }
 
 }
 
 
-/* =========================
-   SMALL TABLET
-   3 POSTS PER ROW
-========================= */
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media (max-width: 900px) {
 
-    .posts-grid {
+    .header-inner {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+    .main-nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+
+    }
+
+    .news-list {
+
+        /*
+          3 PER ROW
+        */
+
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
 
-        gap: 12px;
+        gap: 14px;
     }
 
-    .post-image {
-        height: 150px;
+    .news-item > img {
+
+        height: 140px;
+
     }
 
-    .post-content h2 {
-        font-size: 14px;
+    .news-item h3 {
+
+        font-size: 13px;
+
     }
 
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-   2 POSTS PER ROW
-========================= */
+===================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
-    .nav-container {
-        justify-content: center;
+    .container {
+
+        padding: 12px;
+
     }
 
+    .header-inner {
 
-    .navbar nav ul {
-        justify-content: center;
+        padding: 12px;
+
+    }
+
+    .logo a {
+
+        font-size: 20px;
+
+    }
+
+    .main-nav {
 
         gap: 10px;
+
     }
 
+    .main-nav a {
 
-    .navbar nav a {
-        font-size: 13px;
+        font-size: 11px;
+
     }
 
+    .page-title {
 
-    .section-heading-row {
-        align-items: flex-start;
+        padding: 14px;
+
     }
 
+    .page-title h1 {
 
-    .posts-grid {
+        font-size: 20px;
+
+    }
+
+    .news-list {
+
+        /*
+          2 PER ROW ON MOBILE
+        */
+
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
-        gap: 9px;
+        gap: 10px;
+
     }
 
+    .news-item > img {
 
-    .post-image {
-        height: 120px;
+        height: 105px;
+
     }
-
 
     .post-content {
+
         padding: 9px;
+
     }
 
+    .tag {
 
-    .post-content h2 {
-        font-size: 13px;
+        font-size: 8px;
 
-        line-height: 1.35;
+        padding: 3px 5px;
+
+        margin-bottom: 5px;
+
     }
 
+    .news-item h3 {
 
-    .post-content p {
         font-size: 11px;
+
+        line-height: 1.4;
+
+        margin-bottom: 5px;
+
     }
 
+    .time-stamp {
 
-    .read-more-btn {
-        width: 100%;
+        font-size: 9px;
 
-        text-align: center;
+        margin-bottom: 6px;
+
+    }
+
+    .read-btn {
 
         font-size: 10px;
 
-        padding: 7px 5px;
     }
 
+    .share-row {
 
-    .modal {
-        padding: 10px;
+        margin-top: 7px;
 
-        align-items: flex-start;
+        padding-top: 6px;
+
     }
 
+    .share-row button {
 
-    .modal-content {
-        max-height: 96vh;
-    }
+        font-size: 9px;
 
+        padding: 6px;
 
-    .modal-image {
-        height: 220px;
-    }
-
-
-    .modal-body-wrap {
-        padding: 18px;
-    }
-
-
-    .modal-body-wrap h2 {
-        font-size: 21px;
-    }
-
-
-    .related-posts {
-        grid-template-columns: 1fr 1fr;
     }
 
 }
 
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
 
-    .logo {
-        font-size: 19px;
-    }
+    .news-list {
 
+        /*
+          1 PER ROW
+          ON VERY SMALL SCREENS
+        */
 
-    .navbar {
-        padding: 12px 10px;
-    }
-
-
-    .search-section {
-        padding: 13px 10px;
-    }
-
-
-    .container {
-        padding: 0 8px 30px;
-    }
-
-
-    .posts-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 8px;
-    }
-
-
-    .post-image {
-        height: 100px;
-    }
-
-
-    .post-content {
-        padding: 8px;
-    }
-
-
-    .post-content h2 {
-        font-size: 12px;
-    }
-
-
-    .category {
-        font-size: 9px;
-
-        padding: 3px 5px;
-    }
-
-
-    .post-date {
-        font-size: 10px !important;
-    }
-
-
-    .related-posts {
         grid-template-columns: 1fr;
+
+    }
+
+    .news-item > img {
+
+        height: 170px;
+
+    }
+
+    .news-item h3 {
+
+        font-size: 13px;
+
     }
 
 }
