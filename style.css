@@ -1,626 +1,624 @@
-/* =====================================================
-   RESET
-===================================================== */
-
+/* BASE RESET & FONTS */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-
-
-/* =====================================================
-   BODY
-===================================================== */
 
 body {
-    font-family:
-        "Noto Sans Telugu",
-        "Nirmala UI",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background: #f4f4f4;
-    color: #222;
-
-    min-height: 100vh;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.site-header {
+    font-family: "Noto Sans Telugu", "Nirmala UI", "Segoe UI", Arial, sans-serif;
+    background: #f5f5f5;
+    color: #171717;
+    transition: background 0.3s, color 0.3s;
     width: 100%;
-    background: #111;
-    border-bottom: 4px solid #e60000;
+    overflow-x: hidden;
 }
 
-.header-inner {
-    max-width: 1400px;
-    margin: auto;
-
-    min-height: 70px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 12px 25px;
-}
-
-
-/* LOGO */
-
-.logo a {
-    color: #fff;
+a {
     text-decoration: none;
-
-    font-size: 24px;
-    font-weight: 800;
-
-    letter-spacing: 1px;
+    color: inherit;
 }
 
-
-/* NAVIGATION */
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
-
-.main-nav a {
-    color: #fff;
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    transition: 0.2s;
-}
-
-.main-nav a:hover {
-    color: #ff3333;
-}
-
-
-/* =====================================================
-   MAIN CONTAINER
-===================================================== */
-
-.container {
-    width: 100%;
-    max-width: 1400px;
-
-    margin: 0 auto;
-
-    padding: 25px;
-}
-
-
-/* =====================================================
-   PAGE TITLE
-===================================================== */
-
-.page-title {
+/* TOP HEADER & LOGO SECTION */
+.top-header {
     background: #fff;
+    text-align: center;
+    padding: 15px 10px 10px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
 
-    padding: 18px 20px;
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
 
-    margin-bottom: 22px;
-
+.logo-mark {
+    width: 58px;
+    height: 58px;
     border-radius: 8px;
-
-    border-left: 5px solid #e60000;
-
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.page-title h1 {
-    font-size: 25px;
-    color: #111;
-
-    margin-bottom: 4px;
-}
-
-.page-title p {
-    color: #777;
-    font-size: 14px;
-}
-
-
-/* =====================================================
-   NEWS GRID
-===================================================== */
-
-.news-list {
-
+    background: #e60000;
+    color: #fff;
     display: grid;
-
-    /*
-       DESKTOP:
-       EXACTLY 5 POSTS PER ROW
-    */
-
-    grid-template-columns:
-        repeat(5, minmax(0, 1fr));
-
-    gap: 18px;
-
-    align-items: stretch;
+    place-items: center;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 1.1;
+    text-align: center;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 5px #bbb;
 }
 
+.logo-text {
+    font-size: 26px;
+    font-weight: 900;
+    font-family: 'Segoe UI', cursive, sans-serif;
+}
 
-/* =====================================================
-   POST CARD
-===================================================== */
+.logo-text span {
+    color: #e60000;
+}
 
-.news-item {
+.lang-line {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
 
+.lang-line span {
+    margin: 0 4px;
+}
+
+.date-clock-line {
+    font-size: 13px;
+    font-weight: 800;
+    color: #e60000;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* ACTION & SOCIAL BUTTONS */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.btn-fb {
+    background: #1877F2;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-yt {
+    background: #FF0000;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-dark {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-live {
     background: #fff;
-
-    border: 1px solid #e3e3e3;
-
-    border-radius: 8px;
-
-    overflow: hidden;
-
+    color: #e60000;
+    border: 1px solid #ffd0d0;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
     display: flex;
-    flex-direction: column;
-
-    min-width: 0;
-
-    height: 100%;
-
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.05);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    align-items: center;
+    gap: 4px;
 }
 
-
-/* HOVER */
-
-.news-item:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-
-/* =====================================================
-   POST IMAGE
-===================================================== */
-
-.news-item > img {
-
+/* NAVIGATION MENU */
+.nav {
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: 100%;
-
-    /*
-       SMALL CARD IMAGE
-    */
-
-    height: 150px;
-
-    object-fit: cover;
-
-    display: block;
-
-    background: #eee;
 }
 
-
-/* =====================================================
-   POST CONTENT
-===================================================== */
-
-.post-content {
-
-    padding: 12px;
-
+.nav ul {
+    max-width: 1250px;
+    margin: auto;
     display: flex;
-
-    flex-direction: column;
-
-    flex: 1;
+    list-style: none;
+    white-space: nowrap;
+    padding: 0 15px;
 }
 
+.nav a {
+    display: block;
+    padding: 13px 15px;
+    font-weight: 800;
+    font-size: 15px;
+    color: #333;
+}
 
-/* =====================================================
-   TAG
-===================================================== */
+.nav a:hover, .nav a.active {
+    color: #e60000;
+    background: #fff5f5;
+    border-bottom: 3px solid #e60000;
+}
+
+/* BREAKING NEWS & SCROLLING ANIMATION */
+.breaking {
+    max-width: 1250px;
+    margin: 10px auto;
+    background: #ffe8e8;
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    overflow: hidden;
+}
+
+.breaking strong {
+    background: #e60000;
+    color: #fff;
+    padding: 10px 17px;
+    white-space: nowrap;
+    font-size: 13px;
+    z-index: 2;
+    font-weight: 900;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 16s linear infinite;
+    font-weight: bold;
+    font-size: 14px;
+    color: #222;
+}
+
+@keyframes scroll-left {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+.ad {
+    max-width: 1250px;
+    margin: 14px auto;
+    background: #fff;
+    border: 1px dashed #ddd;
+    height: 105px;
+    display: grid;
+    place-items: center;
+    color: #999;
+    font-size: 13px;
+}
+
+/* CONTAINER & LAYOUT */
+.container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 15px 40px;
+}
+
+.search-wrap {
+    margin: 18px 0;
+    display: flex;
+    gap: 8px;
+}
+
+.search {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    background: #fff;
+    font-size: 15px;
+    outline: none;
+    border-radius: 4px;
+}
+
+.search:focus {
+    border-color: #e60000;
+}
+
+.section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0 12px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 7px;
+}
+
+.section-head h2 {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.section-head span {
+    width: 6px;
+    height: 25px;
+    background: #e60000;
+    display: inline-block;
+}
+
+/* TOP FEATURED GRID (HERO + LIVE TV) */
+.top-featured-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 12px 14px;
+}
 
 .tag {
-
     display: inline-block;
-
-    width: fit-content;
-
-    background: #e60000;
-
-    color: #fff;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    padding: 4px 7px;
-
-    border-radius: 3px;
-
-    margin-bottom: 8px;
-
+    color: #e60000;
+    font-size: 12px;
+    font-weight: 900;
+    margin-bottom: 6px;
     text-transform: uppercase;
 }
 
+.hero h1 {
+    font-size: 23px;
+    line-height: 1.35;
+}
 
-/* =====================================================
-   POST TITLE
-===================================================== */
+/* TV9 STYLE 5-COLUMN NEWS GRID */
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 items per row for desktop */
+    gap: 10px;
+    width: 100%;
+}
 
-.news-item h3 {
+.news-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    height: 100%;
+    justify-content: space-between;
+}
 
-    color: #111;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-    font-weight: 700;
-
+.news-item img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
     margin-bottom: 8px;
 }
 
-
-/* =====================================================
-   TIME
-===================================================== */
-
-.time-stamp {
-
-    color: #777;
-
-    font-size: 11px;
-
-    margin-bottom: 10px;
-
-    display: block;
+.news-item h3 {
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 4px;
+    font-weight: 700;
 }
 
-
-/* =====================================================
-   READ MORE
-===================================================== */
-
-.read-btn {
-
-    display: inline-block;
-
+.news-item a.read-btn {
     color: #e60000;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    margin-top: auto;
-
-    padding-top: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 4px;
 }
 
-.read-btn:hover {
-
-    color: #990000;
-
-    text-decoration: underline;
-}
-
-
-/* =====================================================
-   SHARE
-===================================================== */
-
+/* SHARE BUTTON */
 .share-row {
-
-    margin-top: 10px;
-
-    padding-top: 8px;
-
-    border-top: 1px solid #eee;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
 }
 
 .share-row button {
-
-    width: 100%;
-
-    border: 0;
-
-    background: #222;
-
-    color: #fff;
-
-    border-radius: 4px;
-
-    padding: 7px 8px;
-
-    cursor: pointer;
-
+    background-color: #1877f2;
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
     font-size: 11px;
-
-    font-weight: 700;
-
-    transition: 0.2s;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .share-row button:hover {
-
-    background: #e60000;
+    background-color: #0d65d9;
+    transform: scale(1.02);
 }
 
+.share-row button:active {
+    transform: scale(0.97);
+}
 
-/* =====================================================
-   FOOTER
-===================================================== */
+.time-stamp {
+    font-size: 10px;
+    color: #888;
+    margin-top: 4px;
+}
 
-.site-footer {
-
-    margin-top: 35px;
-
+/* LIVE TV BOX */
+.live-box {
     background: #111;
-
     color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+.live-title {
+    background: #e60000;
+    padding: 10px 14px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.live-screen {
+    flex: 1;
+    min-height: 180px;
+    background: linear-gradient(135deg, #173c85, #f2c400 55%, #fff);
+    display: grid;
+    place-items: center;
     text-align: center;
+    padding: 15px;
+}
 
-    padding: 20px;
+.live-screen div {
+    background: rgba(0, 0, 0, .65);
+    padding: 12px;
+    width: 90%;
+    font-size: 16px;
+    font-weight: 800;
+}
 
+.live-controls {
+    padding: 10px 14px;
+    color: #ddd;
     font-size: 12px;
 }
 
-
-/* =====================================================
-   LARGE LAPTOP
-===================================================== */
-
-@media (max-width: 1200px) {
-
-    .container {
-        padding: 20px;
-    }
-
-    .news-list {
-
-        /*
-          4 PER ROW
-        */
-
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr));
-
-        gap: 15px;
-    }
-
-    .news-item > img {
-        height: 145px;
-    }
-
+.ad-side {
+    margin-top: 16px;
+    min-height: 120px;
+    background: #fff;
+    border: 1px dashed #ccc;
+    display: grid;
+    place-items: center;
+    color: #aaa;
+    border-radius: 6px;
 }
 
+/* CATEGORY GRID */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 100%;
+}
 
-/* =====================================================
-   TABLET
-===================================================== */
+.small-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+
+.small-card h3 {
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 8px;
+}
+
+/* DARK MODE STYLES */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .top-header,
+body.dark-mode .nav,
+body.dark-mode .card,
+body.dark-mode .news-item {
+    background: #1e1e1e;
+    color: #fff;
+    border-color: #333;
+}
+
+body.dark-mode .nav a {
+    color: #ddd;
+}
+
+body.dark-mode .nav a:hover, 
+body.dark-mode .nav a.active {
+    background: #2a2a2a;
+    color: #ff4d4d;
+}
+
+body.dark-mode .search {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #444;
+}
+
+/* FOOTER */
+footer {
+    background: #171717;
+    color: #ddd;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.footer-inner {
+    max-width: 1250px;
+    margin: auto;
+    padding: 25px 18px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+}
+
+footer h3 {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+footer p, footer li {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #aaa;
+}
+
+footer ul {
+    list-style: none;
+}
+
+.copyright {
+    border-top: 1px solid #333;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    color: #888;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* RESPONSIVE DESIGN (MEDIA QUERIES) */
+@media (max-width: 1200px) {
+    .news-list, .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
 
 @media (max-width: 900px) {
-
-    .header-inner {
-
-        flex-direction: column;
-
-        gap: 12px;
-
+    .top-featured-grid {
+        grid-template-columns: 1fr;
     }
-
-    .main-nav {
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 15px;
-
+    .news-list, .category-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
-
-    .news-list {
-
-        /*
-          3 PER ROW
-        */
-
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-
-        gap: 14px;
-    }
-
-    .news-item > img {
-
-        height: 140px;
-
-    }
-
-    .news-item h3 {
-
-        font-size: 13px;
-
-    }
-
 }
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media (max-width: 600px) {
-
-    .container {
-
-        padding: 12px;
-
+    .news-list, .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
-
-    .header-inner {
-
-        padding: 12px;
-
+    .news-item img {
+        height: 95px;
     }
-
-    .logo a {
-
-        font-size: 20px;
-
+    .hero img {
+        height: 200px;
     }
-
-    .main-nav {
-
-        gap: 10px;
-
+    .hero h1 {
+        font-size: 18px;
     }
-
-    .main-nav a {
-
-        font-size: 11px;
-
+    .footer-inner {
+        grid-template-columns: 1fr;
     }
-
-    .page-title {
-
-        padding: 14px;
-
-    }
-
-    .page-title h1 {
-
-        font-size: 20px;
-
-    }
-
-    .news-list {
-
-        /*
-          2 PER ROW ON MOBILE
-        */
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 10px;
-
-    }
-
-    .news-item > img {
-
-        height: 105px;
-
-    }
-
-    .post-content {
-
-        padding: 9px;
-
-    }
-
-    .tag {
-
-        font-size: 8px;
-
-        padding: 3px 5px;
-
-        margin-bottom: 5px;
-
-    }
-
-    .news-item h3 {
-
-        font-size: 11px;
-
-        line-height: 1.4;
-
-        margin-bottom: 5px;
-
-    }
-
-    .time-stamp {
-
-        font-size: 9px;
-
-        margin-bottom: 6px;
-
-    }
-
-    .read-btn {
-
-        font-size: 10px;
-
-    }
-
-    .share-row {
-
-        margin-top: 7px;
-
-        padding-top: 6px;
-
-    }
-
-    .share-row button {
-
-        font-size: 9px;
-
-        padding: 6px;
-
-    }
-
 }
 
 
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
+/* ==============================
+   ALL POSTS SHOW FIX
+   ============================== */
 
-@media (max-width: 380px) {
+#home-posts {
+    width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
 
-    .news-list {
+#home-posts .news-list {
+    width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 
-        /*
-          1 PER ROW
-          ON VERY SMALL SCREENS
-        */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
 
-        grid-template-columns: 1fr;
+#home-posts .news-item {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+}
 
+/* Tablet */
+@media (max-width: 900px) {
+    #home-posts .news-list {
+        grid-template-columns: repeat(3, 1fr);
     }
+}
 
-    .news-item > img {
-
-        height: 170px;
-
+/* Mobile */
+@media (max-width: 600px) {
+    #home-posts .news-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
-
-    .news-item h3 {
-
-        font-size: 13px;
-
-    }
-
 }
