@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>చిరంజీవి కీలక వ్యాఖ్యలు - (chiranjeevi.html)</title>
+    <title>టికెట్ రేట్లు పెంచకపోవడమే ఈ సినిమాల సక్సెస్‌కు కారణమా? - (chiranjeevi.html)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,6 +41,13 @@
             font-size: 24px;
             margin-top: 0;
         }
+        .latest-title {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
         .img-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -60,6 +67,71 @@
             line-height: 1.8;
             font-size: 16px;
         }
+        
+        /* HOME POSTS STYLES */
+        #home-posts .news-list {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+
+        #home-posts .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            height: 100%;
+        }
+
+        #home-posts .news-item img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #home-posts .news-item h3 {
+            font-size: 13px;
+            line-height: 1.35;
+            margin-bottom: 4px;
+        }
+
+        #home-posts .read-btn {
+            color: #e60000;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        #home-posts .share-row button {
+            width: 100%;
+        }
+
+        @media(max-width:1200px){
+            #home-posts .news-list {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media(max-width:900px){
+            #home-posts .news-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media(max-width:600px){
+            #home-posts .news-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #home-posts .news-item img {
+                height: 95px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -77,169 +149,63 @@
     <!-- Article Body -->
     <p>రెండు నెలలుగా టాలీవుడ్‌లో సక్సెస్ రేట్ పెరిగింది. థియేటర్లలో ప్రేక్షకుల సందడి మళ్లీ కనిపిస్తోంది. దీనికి ప్రధాన కారణాల్లో టికెట్ ధరలను భారీగా పెంచకపోవడం కూడా ఒకటని ట్రేడ్ వర్గాలు చెబుతున్నాయి. ముఖ్యంగా ‘మా ఇంటి బంగారం’, ‘లెనిన్’, ‘చెన్నై లవ్ స్టోరీ’, ‘కొరియన్ కనకరాజు’ సినిమాలు అందుకు ఉదాహరణగా నిలుస్తున్నాయి.</p>
  
-  
-       <!-- Hero Image 1  -->
-     < div class="img-gallery">
-        <img src="i3.jpg" alt=" కొరియన్ కానలరాజు సినిమాలు">
+    <!-- Hero Image 2 -->
+    <div class="img-gallery">
+        <img src="i3.jpg" alt="కొరియన్ కానలరాజు సినిమాలు">
     </div>
     <p>ఇక వరుణ్ తేజ్ ‘కొరియన్ కనకరాజు’ ఆగస్టు 7న విడుదలైంది. సాక్‌నిల్క్ ట్రాకింగ్ ప్రకారం తొలి రోజు ఇండియా గ్రాస్ రూ.4.83 కోట్లు, రెండో రోజు రూ.4.77 కోట్లు, మూడో రోజు రూ.5.58 కోట్లు, నాలుగో రోజు రూ.2.42 కోట్లు, ఐదో రోజు రూ.1.82 కోట్లు వచ్చాయి. ఐదు రోజుల్లో ఇండియా గ్రాస్ రూ.19.42 కోట్లకు చేరింది. మరో రిపోర్టు ప్రకారం ఐదో రోజు నాటికి వరల్డ్‌వైడ్ గ్రాస్ సుమారు రూ.24.02 కోట్లుగా ఉంది.</p>
 
-       <!-- Hero Image 2  -->
+    <!-- Hero Image 3 -->
     <div class="img-gallery">   
-        <img src="i4.webp" alt="  చెనై లవ్ స్టోరీ సినిమాలు">
+        <img src="i4.webp" alt="చెనై లవ్ స్టోరీ సినిమాలు">
     </div>
     <p>కిరణ్ అబ్బవరం నటించిన ‘చెన్నై లవ్ స్టోరీ’ కూడా మంచి వసూళ్లు రాబట్టింది. తొలి రోజు ఇండియా నెట్ రూ.4.95 కోట్లు, ఇండియా గ్రాస్ రూ.5.69 కోట్లు, వరల్డ్‌వైడ్ గ్రాస్ రూ.8.29 కోట్లు నమోదయ్యాయి. ట్రేడ్ రిపోర్టుల ప్రకారం తొలి వారం ఇండియా గ్రాస్ సుమారు రూ.30.97 కోట్లకు చేరింది. రెండో వారంతో కలిపి 14 రోజులకు ఇండియా గ్రాస్ సుమారు రూ.42.04 కోట్లుగా నమోదైంది.</p>
-    <!-- Hero Image 3 -->
+    
+    <!-- Hero Image 4 -->
     <div class="img-gallery">   
         <img src="i5.jpg" alt="లెనిన్ సినిమాలు">
     </div>
+    <p>‘లెనిన్’ విషయానికి వస్తే.. అఖిల్ అక్కినేని నటించిన ఈ సినిమా తొలి రోజున ఇండియాలో రూ.7.15 కోట్ల నెట్, రూ.8.22 కోట్ల గ్రాస్ సాధించింది. ఓవర్సీస్ కలెక్షన్న్స్ కలుపుకుని తొలి రోజు వరల్డ్‌వైడ్ గ్రాస్ సుమారు రూ.11.52 కోట్లు. రెండో రోజున ఇండియా నెట్ రూ.8.85 కోట్లు రాగా, రెండు రోజుల్లో ఇండియా నెట్ రూ.16 కోట్లకు చేరింది.</p>
 
-    <p>‘లెనిన్’ విషయానికి వస్తే.. అఖిల్ అక్కినేని నటించిన ఈ సినిమా తొలి రోజున ఇండియాలో రూ.7.15 కోట్ల నెట్, రూ.8.22 కోట్ల గ్రాస్ సాధించింది. ఓవర్సీస్ కలెక్షన్స్ కలుపుకుని తొలి రోజు వరల్డ్‌వైడ్ గ్రాస్ సుమారు రూ.11.52 కోట్లు. రెండో రోజున ఇండియా నెట్ రూ.8.85 కోట్లు రాగా, రెండు రోజుల్లో ఇండియా నెట్ రూ.16 కోట్లకు చేరింది.</p>
-
-    <!-- Hero Image 4 -->
+    <!-- Hero Image 5 -->
     <div class="img-gallery">   
         <img src="i2.webp" alt="మా ఇంటి బంగారం సినిమాలు">
     </div>
-
     <p>‘మా ఇంటి బంగారం’ మొదటి రోజే ఇండియాలో సుమారు రూ.5.35 కోట్ల నెట్ వసూళ్లు సాధించింది. మూడో రోజుకు ఇండియా నెట్ రూ.10.10 కోట్లకు చేరింది. ఆ తర్వాత కూడా సినిమా మంచి వసూళ్లు రాబట్టింది. నిర్మాతల ప్రకారం ఈ సినిమా వరల్డ్‌వైడ్‌గా రూ.100 కోట్లకు పైగా గ్రాస్ సాధించింది.</p>
-  <p>అయితే కేవలం టికెట్ రేట్లు పెంచకపోవడమే ఈ సినిమాల సక్సెస్‌కు కారణమని చెప్పలేం. కంటెంట్, హీరోహీరోయిన్ల క్రేజ్, మౌత్ టాక్, ప్రమోషన్స్, రిలీజ్ టైమింగ్ వంటి అంశాలు కూడా కీలకమే.
+
+    <p>అయితే కేవలం టికెట్ రేట్లు పెంచకపోవడమే ఈ సినిమాల సక్సెస్‌కు కారణమని చెప్పలేం. కంటెంట్, హీరోహీరోయిన్ల క్రేజ్, మౌత్ టాక్, ప్రమోషన్స్, రిలీజ్ టైమింగ్ వంటి అంశాలు కూడా కీలకమే.
 ఇక రాబోయే సినిమాలు కూడా టికెట్ ధరలను అందుబాటులో ఉంచుతూ మంచి కంటెంట్‌తో వస్తే.. అబోవ్ యావరేజ్ టాక్ వచ్చినా థియేటర్లలో మంచి ఆక్యుపెన్సీ, లాంగ్ రన్ కలెక్షన్స్ సాధించే అవకాశం ఉందని ట్రేడ్ వర్గాల్లో చర్చ జరుగుతోంది.
 మొత్తంగా చూస్తే.. ‘టికెట్ రేటు తక్కువ + మంచి కంటెంట్ + పాజిటివ్ మౌత్ టాక్’ అనే ఫార్ములా టాలీవుడ్‌కు కొత్త సక్సెస్ మంత్రంగా మారుతుందా? అనేది రాబోయే సినిమాల ఫలితాలు తేల్చాల్సి ఉంది.</p>
+
+    <!-- HOME BUTTON -->
     <a href="index.html" class="back-btn">&larr; హోమ్ పేజీకి వెళ్లండి</a>
-</div>
-
-</body>
-</html>
-
-<!-- HOME BUTTON -->
-
-    <a
-        href="index.html"
-        class="back-btn"
-    >
-        ← హోమ్ పేజీకి వెళ్లండి
-    </a>
-
 
     <!-- LATEST POSTS -->
-
-    <h2 class="latest-title">
-        📰 తాజా పోస్టులు
-    </h2>
-
+    <h2 class="latest-title">📰 తాజా పోస్టులు</h2>
 
     <div id="home-posts">
-
         Loading latest posts...
-
     </div>
-
-
 </div>
 
-
-
-<!-- LOAD HOME POSTS -->
-
+<!-- LOAD HOME POSTS SCRIPT -->
 <script>
-
 fetch("home-posts.html")
-
 .then(function(response){
-
     if(!response.ok){
-
         throw new Error("home-posts.html not found");
-
     }
-
     return response.text();
-
 })
-
 .then(function(data){
-
     document.getElementById("home-posts").innerHTML = data;
-
 })
-
 .catch(function(error){
-
     document.getElementById("home-posts").innerHTML =
         "<p style='text-align:center;color:red;'>Latest posts loading failed.</p>";
-
     console.log(error);
-
 });
-
 </script>
 
-
 </body>
-
 </html>
-<style>
-#home-posts .news-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    width: 100%;
-}
-
-#home-posts .news-item {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 6px;
-    height: 100%;
-}
-
-#home-posts .news-item img {
-    width: 100%;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
-    margin-bottom: 8px;
-}
-
-#home-posts .news-item h3 {
-    font-size: 13px;
-    line-height: 1.35;
-    margin-bottom: 4px;
-}
-
-#home-posts .read-btn {
-    color: #e60000;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-#home-posts .share-row button {
-    width: 100%;
-}
-
-@media(max-width:1200px){
-    #home-posts .news-list {
-        grid-template-columns: repeat(4,1fr);
-    }
-}
-
-@media(max-width:900px){
-    #home-posts .news-list {
-        grid-template-columns: repeat(3,1fr);
-    }
-}
-
-@media(max-width:600px){
-    #home-posts .news-list {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    #home-posts .news-item img {
-        height: 95px;
-    }
-}
-</style>
