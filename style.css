@@ -736,13 +736,12 @@ body.dark-mode .news-content .time-stamp {
   }
 }
 .tag {
-    background: #e60000;
-    color: #ffffff !important;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 10px;
-    line-height: 1.2;
+    background: none !important;        /* బ్యాక్‌గ్రౌండ్ కలర్ పూర్తిగా పోతుంది */
+    background-color: transparent !important;
+    color: #0275d8 !important;         /* టెక్స్ట్ నీలం రంగులో కనిపిస్తుంది (లేదా మీకు నచ్చిన రంగు) */
+    font-size: 12px !important;
+    font-weight: bold !important;
+    padding: 0 !important;
+    display: inline-block !important;
+    margin-bottom: 6px !important;
 }
