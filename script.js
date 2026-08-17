@@ -1,9 +1,9 @@
 // =====================================================
-// BS 360 NEWS - MAIN JAVASCRIPT
+// BS 360 NEWS - MAIN JAVASCRIPT (OPTIMIZED)
 // =====================================================
 
-// 1. FILTER POSTS BY CATEGORY
-function filterPosts(category) {
+// 1. FILTER POSTS BY CATEGORY (WITH NAV ACTIVE CLASS SYNC)
+function filterPosts(category, element = null) {
     document.querySelectorAll('.post').forEach(post => {
         const postCategory = post.dataset.category;
         if (category === 'all' || postCategory === category) {
@@ -13,6 +13,12 @@ function filterPosts(category) {
         }
     });
 
+    // Active Tab Highlight
+    if (element) {
+        document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+        element.classList.add('active');
+    }
+
     // Clear search inputs
     const searchInput = document.getElementById('search-input');
     const headerSearchInput = document.getElementById('header-search-input');
@@ -21,7 +27,7 @@ function filterPosts(category) {
     if (headerSearchInput) headerSearchInput.value = '';
 }
 
-// 2. LIVE SEARCH SYSTEM (Syncs both inputs)
+// 2. LIVE SEARCH SYSTEM (SYNC BOTH INPUTS)
 function searchPosts(customQuery = null) {
     const searchInput = document.getElementById('search-input');
     const headerSearchInput = document.getElementById('header-search-input');
@@ -33,6 +39,10 @@ function searchPosts(customQuery = null) {
     
     query = query.trim().toLowerCase();
 
+    // Sync input values
+    if (searchInput && searchInput.value !== query) searchInput.value = query;
+    if (headerSearchInput && headerSearchInput.value !== query) headerSearchInput.value = query;
+
     document.querySelectorAll('.post').forEach(post => {
         const text = post.innerText.toLowerCase();
         if (!query || text.includes(query)) {
@@ -43,7 +53,7 @@ function searchPosts(customQuery = null) {
     });
 }
 
-// 3. SHARE POST
+// 3. SHARE POST (WITH BETTER USER FEEDBACK)
 function sharePost(button) {
     const post = button.closest('.post');
     if (!post) return;
@@ -68,7 +78,11 @@ function sharePost(button) {
     } else {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(shareUrl)
-                .then(() => alert('లింక్ కాపీ అయింది!'))
+                .then(() => {
+                    const originalText = button.innerHTML;
+                    button.innerText = '✓ లింక్ కాపీ అయింది!';
+                    setTimeout(() => { button.innerHTML = originalText; }, 2000);
+                })
                 .catch(() => alert('లింక్ కాపీ చేయలేకపోయాం.'));
         } else {
             alert(shareUrl);
@@ -118,7 +132,7 @@ function updateClock() {
     }
 
     if (dateElement) {
-        dateElement.innerText = '📅 ' + now.toLocaleDateString('en-IN', {
+        dateElement.innerText = '📅 ' + now.toLocaleDateString('te-IN', {
             weekday: 'short',
             day: '2-digit',
             month: 'short',
@@ -129,7 +143,7 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 
-// 7. REAL-TIME "TIME AGO"
+// 7. REAL-TIME "TIME AGO" (IN TELUGU)
 function updateTimeAgo() {
     const timeElements = document.querySelectorAll('.time-stamp[data-time]');
 
@@ -146,16 +160,16 @@ function updateTimeAgo() {
         let text = '';
 
         if (difference < 60) {
-            text = 'Just Now';
+            text = 'ఇప్పుడే';
         } else if (difference < 3600) {
             const minutes = Math.floor(difference / 60);
-            text = `${minutes} min${minutes > 1 ? 's' : ''} ago`;
+            text = `${minutes} నిమిషాల క్రితం`;
         } else if (difference < 86400) {
             const hours = Math.floor(difference / 3600);
-            text = `${hours} hour${hours > 1 ? 's' : ''} ago`;
+            text = `${hours} గంటల క్రితం`;
         } else {
             const days = Math.floor(difference / 86400);
-            text = `${days} day${days > 1 ? 's' : ''} ago`;
+            text = `${days} రోజుల క్రితం`;
         }
 
         element.innerText = `🕒 ${text}`;
@@ -164,18 +178,21 @@ function updateTimeAgo() {
 
 setInterval(updateTimeAgo, 60000);
 
-// 8. MOBILE MENU TOGGLE & SEARCH BINDINGS
+// 8. EVENT BINDINGS
 document.addEventListener('DOMContentLoaded', () => {
     loadTheme();
     updateClock();
     updateTimeAgo();
 
-    // Header Search Input Event Binding
+    // Input Listeners
+    const searchInput = document.getElementById('search-input');
     const headerSearchInput = document.getElementById('header-search-input');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => searchPosts(e.target.value));
+    }
     if (headerSearchInput) {
-        headerSearchInput.addEventListener('input', (e) => {
-            searchPosts(e.target.value);
-        });
+        headerSearchInput.addEventListener('input', (e) => searchPosts(e.target.value));
     }
 
     // Mobile Menu Toggle
