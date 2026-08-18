@@ -81,7 +81,11 @@ ul {
     cursor: pointer;
     border-radius: 2px;
 }
-<style>
+
+
+/* =====================================================
+   BS 360 NEWS PULSE - LIKE / COMMENT / SHARE
+===================================================== */
 
 .bs-news-pulse {
     margin: 28px 0;
@@ -168,6 +172,7 @@ ul {
     font-size: 12px;
 }
 
+
 /* LIKE ACTIVE */
 
 #bsLikeBtn.bs-liked .pulse-icon {
@@ -195,6 +200,7 @@ ul {
     }
 
 }
+
 
 /* COMMENT WRITE */
 
@@ -254,6 +260,7 @@ ul {
     background: #c90000;
 }
 
+
 /* COMMENTS */
 
 .bs-comments {
@@ -279,6 +286,7 @@ ul {
     border-radius: 10px;
     margin-left: 8px;
 }
+
 
 /* COMMENT CARD */
 
@@ -331,6 +339,7 @@ ul {
     cursor: pointer;
     font-size: 13px;
 }
+
 
 /* MOBILE */
 
@@ -390,10 +399,11 @@ ul {
 
 }
 
-</style>
+
 /* =====================================================
    MAIN BRAND HEADER
 ===================================================== */
+
 .brand-header {
     background: #fff;
     padding: 15px 0;
@@ -406,7 +416,9 @@ ul {
     justify-content: space-between;
 }
 
+
 /* LOGO STYLES */
+
 .brand-logo {
     display: flex;
     align-items: center;
@@ -455,7 +467,9 @@ ul {
     margin-top: 4px;
 }
 
+
 /* HEADER SEARCH */
+
 .header-search {
     display: flex;
     align-items: center;
@@ -480,7 +494,9 @@ ul {
     cursor: pointer;
 }
 
+
 /* HEADER ACTIONS */
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -534,7 +550,9 @@ ul {
     100% { opacity: 1; }
 }
 
+
 /* Mobile Toggle */
+
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -551,9 +569,11 @@ ul {
     border-radius: 2px;
 }
 
+
 /* =====================================================
    MAIN NAVIGATION & SUB-BARS
 ===================================================== */
+
 .main-nav {
     background: #fff;
     border-top: 1px solid #eee;
@@ -595,12 +615,15 @@ ul {
     color: #333;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: #e60000;
     background: #fff5f5;
 }
 
+
 /* Live Ticker Bar */
+
 .live-ticker-bar {
     background: #fff0f0;
     padding: 8px 0;
@@ -618,7 +641,9 @@ ul {
     margin-right: 8px;
 }
 
+
 /* Headlines Bar */
+
 .headlines-bar {
     background: #111;
     color: #fff;
@@ -636,9 +661,11 @@ ul {
     white-space: nowrap;
 }
 
+
 /* =====================================================
    MAIN CONTENT & CARDS
 ===================================================== */
+
 .main-container {
     padding-top: 20px;
     padding-bottom: 40px;
@@ -694,8 +721,11 @@ ul {
     font-weight: 800;
 }
 
+
 /* GRID LAYOUTS */
-.top-featured-grid, .featured-grid {
+
+.top-featured-grid,
+.featured-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
@@ -731,12 +761,14 @@ ul {
     line-height: 1.6;
 }
 
+
 /* =====================================================
-   OPTIMIZED TAG STYLE (BEST NEWS PORTAL LOOK)
+   OPTIMIZED TAG STYLE
 ===================================================== */
+
 .tag {
-    background-color: #e60000 !important; /* క్లాసిక్ బ్రైట్ రెడ్ */
-    color: #ffffff !important;           /* ప్యూర్ వైట్ అక్షరాలు */
+    background-color: #e60000 !important;
+    color: #ffffff !important;
     font-size: 11px !important;
     font-weight: 800 !important;
     padding: 3px 8px !important;
@@ -748,9 +780,11 @@ ul {
     letter-spacing: 0.5px !important;
 }
 
+
 /* =====================================================
    EENADU STYLE LAYOUT FOR BS 360 NEWS
 ===================================================== */
+
 .news-list {
     display: flex !important;
     flex-direction: column !important;
@@ -793,7 +827,7 @@ ul {
 .news-content h3 {
     font-size: 15px !important;
     font-weight: 700 !important;
-    color: #0066cc !important; /* ఈనాడు టైప్ బ్లూ హెడ్డింగ్ */
+    color: #0066cc !important;
     margin: 2px 0 4px 0 !important;
     line-height: 1.35 !important;
     cursor: pointer;
@@ -823,7 +857,9 @@ ul {
     padding: 0 !important;
 }
 
+
 /* LIVE BOX */
+
 .live-box {
     background: #000;
     color: #fff;
@@ -876,9 +912,11 @@ ul {
     color: #aaa;
 }
 
+
 /* =====================================================
    DARK MODE OVERRIDES
 ===================================================== */
+
 body.dark-mode {
     background: #121212;
     color: #f0f0f0;
@@ -914,9 +952,11 @@ body.dark-mode .logo-black {
     color: #fff;
 }
 
+
 /* =====================================================
    FOOTER STYLES
 ===================================================== */
+
 .site-footer {
     background: #111;
     color: #aaa;
@@ -948,36 +988,50 @@ body.dark-mode .logo-black {
     background: #0a0a0a;
 }
 
+
 /* =====================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   RESPONSIVE DESIGN
 ===================================================== */
+
 @media (max-width: 992px) {
-    .header-search, .date-time-box {
+
+    .header-search,
+    .date-time-box {
         display: none;
     }
-    .featured-grid, .top-featured-grid {
+
+    .featured-grid,
+    .top-featured-grid {
         grid-template-columns: 1fr;
     }
+
     .mobile-menu-toggle {
         display: flex;
     }
+
 }
 
 @media (max-width: 576px) {
+
     .hero img {
         height: 200px;
     }
+
     .footer-inner {
         grid-template-columns: 1fr;
     }
+
 }
 
 @media (max-width: 480px) {
+
     .news-item.post img {
         width: 95px !important;
         height: 68px !important;
     }
+
     .news-content h3 {
         font-size: 14px !important;
     }
+
 }
