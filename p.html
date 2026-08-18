@@ -97,7 +97,41 @@
     <div class="img-gallery">
         <img src="p1.jpg" alt="సలార్-2 ప్రభాస్">
     </div>
+<!-- LIKE & COMMENT SECTION -->
+<div class="social-box">
 
+    <div class="social-actions">
+
+        <button id="likeBtn" class="social-btn like-btn" onclick="toggleLike()">
+            ❤️ <span id="likeCount">0</span>
+        </button>
+
+        <button class="social-btn" onclick="focusComment()">
+            💬 <span id="commentCount">0</span>
+        </button>
+
+        <button class="social-btn" onclick="copyArticleLink()">
+            🔗 Copy link
+        </button>
+
+    </div>
+
+    <div class="comment-area">
+
+        <input
+            type="text"
+            id="commentInput"
+            placeholder="మీ కామెంట్‌ను ఇక్కడ రాయండి..."
+            onkeydown="commentEnter(event)"
+        >
+
+        <button onclick="addComment()">Comment</button>
+
+    </div>
+
+    <div id="commentsList"></div>
+
+</div>
     <!-- Article Content -->
     <p>పాన్ ఇండియా స్టార్ ప్రభాస్ అభిమానులు ఎంతో ఆసక్తిగా ఎదురుచూస్తున్న సినిమాల్లో ‘సలార్-2’ కూడా ఒకటి. ప్రశాంత్ నీల్ దర్శకత్వంలో తెరకెక్కుతున్న ఈ సినిమాపై ఇప్పటికే భారీ అంచనాలు నెలకొన్నాయి. ‘సలార్: పార్ట్ 1 – సీజ్‌ఫైర్’కు కొనసాగింపుగా రూపొందుతున్న ఈ చిత్రం ఎప్పుడు ప్రేక్షకుల ముందుకు వస్తుందా అని అభిమానులు ఆసక్తిగా ఎదురుచూస్తున్నారు.</p>
 
