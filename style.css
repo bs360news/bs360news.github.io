@@ -1035,3 +1035,20 @@ body.dark-mode .logo-black {
     }
 
 }
+.save-action.bs-saved .pulse-icon {
+    background: #e60000 !important;
+    color: #fff !important;
+}
+
+.save-action.bs-saved {
+    color: #e60000 !important;
+}
+
+#bsLikeBtn.bs-liked .pulse-icon {
+    background: #e60000 !important;
+    color: #fff !important;
+}
+
+#bsLikeBtn {
+    transition: transform 0.18s ease;
+}
