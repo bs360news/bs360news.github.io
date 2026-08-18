@@ -114,7 +114,65 @@
     <div class="img-gallery">
         <img src="n1.jpg.webp" alt="సుప్రీంకోర్టు కావేరీ జలాల తీర్పు">
     </div>
+<!-- BS 360 NEWS PULSE -->
+<div class="bs-news-pulse">
 
+    <div class="pulse-actions">
+
+        <button id="bsLikeBtn"
+                class="pulse-action like-action"
+                onclick="bsToggleLike()">
+            ❤️
+            <span id="bsLikeCount">0</span>
+            <strong>Like</strong>
+        </button>
+
+        <button class="pulse-action comment-action"
+                onclick="bsFocusComment()">
+            💬
+            <span id="bsCommentCount">0</span>
+            <strong>Comment</strong>
+        </button>
+
+        <button class="pulse-action share-action"
+                onclick="bsShareArticle()">
+            ↗️
+            <strong>Share</strong>
+        </button>
+
+        <button class="pulse-action save-action"
+                onclick="bsSaveArticle()">
+            🔖
+            <span id="bsSaveText">Save</span>
+            <strong>Save</strong>
+        </button>
+
+    </div>
+
+    <div class="bs-comment-write">
+
+        <input
+            type="text"
+            id="bsCommentInput"
+            placeholder="మీ కామెంట్‌ను ఇక్కడ రాయండి..."
+            onkeydown="if(event.key==='Enter') bsAddComment()"
+        >
+
+        <button onclick="bsAddComment()">
+            Comment
+        </button>
+
+    </div>
+
+    <div class="bs-comments">
+
+        <h3>💬 పాఠకుల కామెంట్స్</h3>
+
+        <div id="bsCommentsList"></div>
+
+    </div>
+
+</div>
     <!-- Article Content -->
     <p>కావేరీ నదీ జలాల విడుదల వివాదంపై సుప్రీంకోర్టు కీలక ఆదేశాలు జారీ చేసింది. కావేరీ జల నిర్వహణ ప్రాధికార సంస్థ (CWMA) ఇచ్చిన ఆదేశాలను కర్ణాటక ప్రభుత్వం తప్పనిసరిగా అమలు చేయాలని అత్యున్నత న్యాయస్థానం స్పష్టం చేసింది. తమిళనాడుకు నీటి విడుదలపై తాజా పరిస్థితిని పరిశీలించేందుకు విచారణను ఒక వారం పాటు వాయిదా వేస్తూ, తదుపరి విచారణను ఆగస్టు 24వ తేదీకి ఖరారు చేసింది.</p>
 
