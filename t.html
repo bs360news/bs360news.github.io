@@ -99,61 +99,108 @@
     <div class="img-gallery">
         <img src="t1.jpeg" alt="నాగచైతన్య తండేల్ సినిమా">
     </div>
-<!-- NEWS PULSE SOCIAL SECTION -->
+
+<!-- ================================
+     BS 360 NEWS PULSE
+================================ -->
+
 <div class="bs-news-pulse">
 
     <div class="pulse-actions">
 
-        <button id="bsLikeBtn" class="pulse-action like-action" onclick="bsToggleLike()">
-            <span class="pulse-icon">♥</span>
-            <span class="pulse-number" id="bsLikeCount">2.8K</span>
-            <small>Likes</small>
+        <!-- LIKE -->
+        <button id="bsLikeBtn"
+                class="pulse-action like-action"
+                onclick="bsToggleLike()">
+
+            <div class="pulse-icon">❤️</div>
+
+            <span class="pulse-number" id="bsLikeCount">0</span>
+
+            <strong>Like</strong>
+
+            <small>ఈ వార్త నచ్చిందా?</small>
+
         </button>
 
-        <button class="pulse-action comment-action" onclick="bsFocusComment()">
-            <span class="pulse-icon">💬</span>
+
+        <!-- COMMENT -->
+        <button class="pulse-action comment-action"
+                onclick="bsFocusComment()">
+
+            <div class="pulse-icon">💬</div>
+
             <span class="pulse-number" id="bsCommentCount">0</span>
-            <small>Comments</small>
+
+            <strong>Comment</strong>
+
+            <small>మీ అభిప్రాయం చెప్పండి</small>
+
         </button>
 
-        <button class="pulse-action share-action" onclick="bsShareArticle()">
-            <span class="pulse-icon">↗</span>
+
+        <!-- SHARE -->
+        <button class="pulse-action share-action"
+                onclick="bsShareArticle()">
+
+            <div class="pulse-icon">↗️</div>
+
+            <span class="pulse-number">Share</span>
+
             <strong>Share</strong>
-            <small>This Article</small>
+
+            <small>ఫ్రెండ్స్‌కి పంపండి</small>
+
         </button>
 
-        <button class="pulse-action save-action" onclick="bsSaveArticle()">
-            <span class="pulse-icon">♡</span>
-            <strong id="bsSaveText">Save</strong>
-            <small>For Later</small>
+
+        <!-- SAVE -->
+        <button class="pulse-action save-action"
+                onclick="bsSaveArticle()">
+
+            <div class="pulse-icon">🔖</div>
+
+            <span class="pulse-number" id="bsSaveText">Save</span>
+
+            <strong>Save</strong>
+
+            <small>తర్వాత చదవండి</small>
+
         </button>
 
     </div>
 
-    <!-- COMMENT INPUT -->
+
+    <!-- COMMENT BOX -->
+
     <div class="bs-comment-write">
 
-        <div class="bs-user-logo">BS<br><small>360</small></div>
+        <div class="bs-user-logo">
+            BS
+            <small>360</small>
+        </div>
 
         <input
             type="text"
             id="bsCommentInput"
-            placeholder="మీ అభిప్రాయం ఇక్కడ రాయండి..."
+            placeholder="మీ కామెంట్‌ను ఇక్కడ రాయండి..."
             onkeydown="if(event.key==='Enter') bsAddComment()"
         >
 
         <button onclick="bsAddComment()">
-            ➤ పోస్ట్ చేయండి
+            Comment
         </button>
 
     </div>
 
+
     <!-- COMMENTS -->
+
     <div class="bs-comments">
 
         <div class="bs-comments-title">
-            👥 టాప్ కామెంట్స్
-            <span>🔴 LIVE</span>
+            💬 పాఠకుల కామెంట్స్
+            <span id="bsCommentBadge">LIVE</span>
         </div>
 
         <div id="bsCommentsList"></div>
