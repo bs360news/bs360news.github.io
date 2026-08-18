@@ -1,7 +1,201 @@
 // =====================================================
 // BS 360 NEWS - MAIN JAVASCRIPT (OPTIMIZED)
 // =====================================================
+<script>
 
+let bsLiked = false;
+
+let bsLikes = localStorage.getItem("bs360_likes");
+
+if (!bsLikes) {
+    bsLikes = 2800;
+}
+
+bsLikes = Number(bsLikes);
+
+document.getElementById("bsLikeCount").innerText =
+    bsFormatNumber(bsLikes);
+
+
+/* LIKE */
+
+function bsToggleLike() {
+
+    const btn = document.getElementById("bsLikeBtn");
+
+    if (!bsLiked) {
+
+        bsLikes++;
+        bsLiked = true;
+
+        btn.classList.add("bs-liked");
+
+    } else {
+
+        bsLikes--;
+        bsLiked = false;
+
+        btn.classList.remove("bs-liked");
+
+    }
+
+    document.getElementById("bsLikeCount").innerText =
+        bsFormatNumber(bsLikes);
+
+    localStorage.setItem("bs360_likes", bsLikes);
+}
+
+
+/* NUMBER FORMAT */
+
+function bsFormatNumber(number) {
+
+    if (number >= 1000) {
+        return (number / 1000).toFixed(1) + "K";
+    }
+
+    return number;
+}
+
+
+/* COMMENT FOCUS */
+
+function bsFocusComment() {
+
+    document.getElementById("bsCommentInput").focus();
+
+}
+
+
+/* ADD COMMENT */
+
+function bsAddComment() {
+
+    const input =
+        document.getElementById("bsCommentInput");
+
+    const text = input.value.trim();
+
+    if (!text) {
+        return;
+    }
+
+    const card =
+        document.createElement("div");
+
+    card.className = "bs-comment-card";
+
+    card.innerHTML = `
+
+        <div class="bs-comment-head">
+
+            <div class="bs-avatar">
+                R
+            </div>
+
+            <div>
+
+                <div class="bs-comment-name">
+                    Reader
+                </div>
+
+                <div class="bs-comment-time">
+                    ఇప్పుడే
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bs-comment-text">
+            ${bsEscape(text)}
+        </div>
+
+        <button class="bs-comment-like">
+            ❤️ Like
+        </button>
+    `;
+
+    document
+        .getElementById("bsCommentsList")
+        .prepend(card);
+
+    input.value = "";
+
+    let count =
+        Number(
+            document.getElementById("bsCommentCount").innerText
+        );
+
+    document.getElementById("bsCommentCount").innerText =
+        count + 1;
+}
+
+
+/* SHARE */
+
+function bsShareArticle() {
+
+    if (navigator.share) {
+
+        navigator.share({
+
+            title: document.title,
+
+            text: "BS 360 NEWS - తాజా వార్త",
+
+            url: window.location.href
+
+        });
+
+    } else {
+
+        navigator.clipboard.writeText(
+            window.location.href
+        );
+
+        alert("🔗 Article link copied!");
+
+    }
+
+}
+
+
+/* SAVE */
+
+function bsSaveArticle() {
+
+    const btn =
+        document.getElementById("bsSaveText");
+
+    if (btn.innerText === "Save") {
+
+        btn.innerText = "Saved";
+
+        alert("🔖 Article saved!");
+
+    } else {
+
+        btn.innerText = "Save";
+
+    }
+
+}
+
+
+/* SECURITY */
+
+function bsEscape(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+</script>
 // 1. FILTER POSTS BY CATEGORY (WITH NAV ACTIVE CLASS SYNC)
 function filterPosts(category, element = null) {
     document.querySelectorAll('.post').forEach(post => {
