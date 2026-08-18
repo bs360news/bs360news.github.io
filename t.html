@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="te">
 <head>
@@ -101,11 +102,11 @@
 
 
         /* =========================================
-           BS 360 NEWS PULSE
+           BS 360 NEWS PULSE (COMPACT & REDUCED SIZE)
         ========================================= */
 
         .bs-news-pulse {
-            margin: 28px 0;
+            margin: 20px 0;
             font-family: Arial, sans-serif;
         }
 
@@ -117,15 +118,16 @@
             grid-template-columns: repeat(4, 1fr);
             background: linear-gradient(135deg, #fff, #f8fbff);
             border: 1px solid #e4e8ef;
-            border-radius: 18px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
         }
 
 
         .pulse-action {
             position: relative;
-            min-height: 105px;
+            min-height: 42px;
+            padding: 4px 2px;
             border: none;
             background: transparent;
             cursor: pointer;
@@ -135,7 +137,7 @@
             align-items: center;
             justify-content: center;
 
-            gap: 3px;
+            gap: 1px;
 
             border-right: 1px solid #e5e5e5;
 
@@ -152,13 +154,13 @@
 
         .pulse-action:hover {
             background: #f5f8ff;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
 
         .pulse-icon {
-            width: 48px;
-            height: 48px;
+            width: 22px;
+            height: 22px;
 
             border-radius: 50%;
 
@@ -166,9 +168,9 @@
             align-items: center;
             justify-content: center;
 
-            font-size: 25px;
+            font-size: 13px;
 
-            margin-bottom: 4px;
+            margin-bottom: 0px;
 
             transition:
                 transform .2s,
@@ -200,19 +202,20 @@
 
 
         .pulse-number {
-            font-size: 21px;
-            font-weight: 800;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1;
         }
 
 
         .pulse-action strong {
-            font-size: 18px;
+            font-size: 11px;
+            line-height: 1.1;
         }
 
 
         .pulse-action small {
-            color: #777;
-            font-size: 12px;
+            display: none;
         }
 
 
@@ -256,30 +259,29 @@
         ========================================= */
 
         .bs-comment-write {
-            margin-top: 14px;
-            padding: 12px;
+            margin-top: 8px;
+            padding: 6px 8px;
 
             display: flex;
             align-items: center;
 
-            gap: 12px;
+            gap: 6px;
 
             background: white;
 
             border: 1px solid #e2e2e2;
 
-            border-radius: 16px;
+            border-radius: 8px;
 
-            box-shadow:
-                0 3px 12px rgba(0,0,0,.06);
+            box-shadow: none;
         }
 
 
         .bs-user-logo {
-            width: 48px;
-            height: 48px;
+            width: 28px;
+            height: 28px;
 
-            min-width: 48px;
+            min-width: 28px;
 
             border-radius: 50%;
 
@@ -301,30 +303,31 @@
 
             flex-direction: column;
 
-            line-height: 16px;
+            line-height: 10px;
+            font-size: 10px;
         }
 
 
         .bs-user-logo small {
             color: #ffd500;
-            font-size: 10px;
+            font-size: 7px;
         }
 
 
         .bs-comment-write input {
             flex: 1;
 
-            border: none;
+            border: 1.5px solid #000;
 
             outline: none;
 
-            font-size: 15px;
+            font-size: 12px;
 
-            padding: 13px;
+            padding: 5px 10px;
 
-            background: #f7f7f7;
+            background: #fff;
 
-            border-radius: 25px;
+            border-radius: 6px;
         }
 
 
@@ -336,17 +339,18 @@
 
 
         .bs-comment-write button {
-            border: none;
+            border: 1px solid #757575;
 
-            background: #e60000;
+            background: #f0f0f0;
 
-            color: white;
+            color: #000;
 
-            padding: 13px 20px;
+            padding: 5px 10px;
 
-            border-radius: 25px;
+            border-radius: 6px;
 
             font-weight: bold;
+            font-size: 12px;
 
             cursor: pointer;
 
@@ -355,8 +359,7 @@
 
 
         .bs-comment-write button:hover {
-            background: #c90000;
-            transform: scale(1.03);
+            background: #e0e0e0;
         }
 
 
@@ -365,53 +368,52 @@
         ========================================= */
 
         .bs-comments {
-            margin-top: 15px;
+            margin-top: 10px;
 
-            padding: 18px;
+            padding: 10px;
 
             background: white;
 
             border: 1px solid #e5e5e5;
 
-            border-radius: 16px;
+            border-radius: 8px;
 
-            box-shadow:
-                0 3px 12px rgba(0,0,0,.05);
+            box-shadow: none;
         }
 
 
         .bs-comments-title {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
 
 
         .bs-comments-title span {
-            font-size: 10px;
+            font-size: 9px;
 
             color: #e60000;
 
             border: 1px solid #ffb5b5;
 
-            padding: 4px 7px;
+            padding: 2px 5px;
 
-            border-radius: 10px;
+            border-radius: 6px;
 
-            margin-left: 8px;
+            margin-left: 6px;
         }
 
 
         /* COMMENT CARD */
 
         .bs-comment-card {
-            padding: 13px;
+            padding: 8px;
 
             border: 1px solid #eee;
 
-            border-radius: 12px;
+            border-radius: 6px;
 
-            margin-top: 10px;
+            margin-top: 6px;
 
             background: #fff;
         }
@@ -422,13 +424,13 @@
 
             align-items: center;
 
-            gap: 9px;
+            gap: 6px;
         }
 
 
         .bs-avatar {
-            width: 38px;
-            height: 38px;
+            width: 28px;
+            height: 28px;
 
             border-radius: 50%;
 
@@ -442,31 +444,34 @@
             justify-content: center;
 
             font-weight: bold;
+            font-size: 12px;
         }
 
 
         .bs-comment-name {
             font-weight: bold;
+            font-size: 12px;
         }
 
 
         .bs-comment-time {
             color: #999;
-            font-size: 11px;
+            font-size: 10px;
         }
 
 
         .bs-comment-text {
-            margin: 8px 0 5px 47px;
+            margin: 4px 0 4px 34px;
 
             color: #333;
 
-            line-height: 1.6;
+            line-height: 1.4;
+            font-size: 12px;
         }
 
 
         .bs-comment-like {
-            margin-left: 47px;
+            margin-left: 34px;
 
             border: none;
 
@@ -476,7 +481,7 @@
 
             cursor: pointer;
 
-            font-size: 13px;
+            font-size: 11px;
         }
 
 
@@ -527,65 +532,60 @@
 
             .pulse-actions {
                 grid-template-columns: repeat(4, 1fr);
-                border-radius: 13px;
+                border-radius: 6px;
             }
 
 
             .pulse-action {
-                min-height: 88px;
+                min-height: 38px;
             }
 
 
             .pulse-icon {
-                width: 38px;
-                height: 38px;
+                width: 18px;
+                height: 18px;
 
-                font-size: 19px;
-            }
-
-
-            .pulse-number {
-                font-size: 15px;
-            }
-
-
-            .pulse-action strong {
-                font-size: 13px;
-            }
-
-
-            .pulse-action small {
-                font-size: 9px;
-            }
-
-
-            .bs-comment-write {
-                padding: 8px;
-                gap: 7px;
-            }
-
-
-            .bs-user-logo {
-                width: 38px;
-                height: 38px;
-                min-width: 38px;
-            }
-
-
-            .bs-comment-write input {
-                font-size: 12px;
-                padding: 10px;
-            }
-
-
-            .bs-comment-write button {
-                padding: 10px 11px;
                 font-size: 11px;
             }
 
 
+            .pulse-number {
+                font-size: 12px;
+            }
+
+
+            .pulse-action strong {
+                font-size: 10px;
+            }
+
+
+            .bs-comment-write {
+                padding: 5px;
+                gap: 5px;
+            }
+
+
+            .bs-user-logo {
+                width: 24px;
+                height: 24px;
+                min-width: 24px;
+            }
+
+
+            .bs-comment-write input {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+
+
+            .bs-comment-write button {
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+
+
             .bs-comments {
-                padding: 12px;
+                padding: 8px;
             }
 
         }
