@@ -81,7 +81,118 @@ ul {
     cursor: pointer;
     border-radius: 2px;
 }
+<style>
 
+.social-box {
+    margin-top: 25px;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+}
+
+.social-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.social-btn {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    padding: 9px 14px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.social-btn:hover {
+    background: #f2f2f2;
+}
+
+.like-btn {
+    color: #555;
+}
+
+.like-btn.liked {
+    color: #e60023;
+}
+
+.comment-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.comment-area input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 22px;
+    font-size: 15px;
+    outline: none;
+}
+
+.comment-area input:focus {
+    border-color: #1976d2;
+}
+
+.comment-area button {
+    border: none;
+    background: #1976d2;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comment-item {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+.comment-user {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    font-size: 15px;
+    color: #333;
+}
+
+@media(max-width:600px) {
+
+    .social-actions {
+        gap: 5px;
+    }
+
+    .social-btn {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .comment-area {
+        flex-direction: column;
+    }
+
+    .comment-area button {
+        width: 100%;
+    }
+
+}
+
+</style>
 /* =====================================================
    MAIN BRAND HEADER
 ===================================================== */
