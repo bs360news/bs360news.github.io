@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="te">
 <head>
@@ -102,115 +101,105 @@
 
 
         /* =========================================
-           BS 360 NEWS PULSE (COMPACT & REDUCED SIZE)
+           BS 360 NEWS PULSE (X / TWITTER STYLE)
         ========================================= */
 
         .bs-news-pulse {
             margin: 20px 0;
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
 
-        /* ACTION BAR */
+        /* ACTION BAR (X / TWITTER STYLE) */
 
         .pulse-actions {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            background: linear-gradient(135deg, #fff, #f8fbff);
-            border: 1px solid #e4e8ef;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            border-top: 1px solid #eff3f4;
+            border-bottom: 1px solid #eff3f4;
+            padding: 4px 10px;
+            box-shadow: none;
+            border-radius: 0;
         }
 
 
         .pulse-action {
             position: relative;
-            min-height: 42px;
-            padding: 4px 2px;
+            min-height: auto;
+            padding: 8px 12px;
             border: none;
             background: transparent;
             cursor: pointer;
 
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
 
-            gap: 1px;
+            gap: 6px;
 
-            border-right: 1px solid #e5e5e5;
-
-            transition:
-                background .25s,
-                transform .2s;
-        }
-
-
-        .pulse-action:last-child {
             border-right: none;
+
+            color: #536471;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            border-radius: 9999px;
         }
 
 
         .pulse-action:hover {
-            background: #f5f8ff;
-            transform: translateY(-1px);
+            transform: none;
+        }
+
+
+        /* HOVER EFFECTS - X STYLE */
+
+        .like-action:hover {
+            color: #f91880;
+            background-color: rgba(249, 24, 128, 0.1);
+        }
+
+        .comment-action:hover {
+            color: #1d9bf0;
+            background-color: rgba(29, 155, 240, 0.1);
+        }
+
+        .share-action:hover {
+            color: #00ba7c;
+            background-color: rgba(0, 186, 124, 0.1);
+        }
+
+        .save-action:hover {
+            color: #1d9bf0;
+            background-color: rgba(29, 155, 240, 0.1);
         }
 
 
         .pulse-icon {
-            width: 22px;
-            height: 22px;
-
-            border-radius: 50%;
-
-            display: flex;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            background: transparent !important;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-
-            font-size: 13px;
-
-            margin-bottom: 0px;
-
-            transition:
-                transform .2s,
-                background .2s;
-        }
-
-
-        .like-action .pulse-icon {
-            background: #fff0f2;
-            color: #ed1c24;
-        }
-
-
-        .comment-action .pulse-icon {
-            background: #f0eaff;
-        }
-
-
-        .share-action .pulse-icon {
-            background: #eaf5ff;
-            color: #1261a0;
-        }
-
-
-        .save-action .pulse-icon {
-            background: #fff5e8;
-            color: #ed8500;
+            font-size: 16px;
+            margin-bottom: 0;
+            transition: transform 0.2s ease;
         }
 
 
         .pulse-number {
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 400;
             line-height: 1;
+            color: inherit;
         }
 
 
         .pulse-action strong {
-            font-size: 11px;
-            line-height: 1.1;
+            display: none;
         }
 
 
@@ -220,17 +209,17 @@
 
 
         /* =========================================
-           LIKE ACTIVE
+           LIKE ACTIVE (X PINK HEART)
         ========================================= */
 
         #bsLikeBtn.bs-liked {
-            color: #ed1c24;
+            color: #f91880;
         }
 
 
         #bsLikeBtn.bs-liked .pulse-icon {
-            background: #ed1c24;
-            color: white;
+            background: transparent !important;
+            color: #f91880;
 
             animation:
                 bsHeartPulse .45s ease;
@@ -244,7 +233,7 @@
             }
 
             60% {
-                transform: scale(1.25);
+                transform: scale(1.3);
             }
 
             100% {
@@ -255,167 +244,171 @@
 
 
         /* =========================================
-           COMMENT BOX
+           COMMENT BOX (X / TWITTER STYLE)
         ========================================= */
 
         .bs-comment-write {
-            margin-top: 8px;
-            padding: 6px 8px;
+            margin-top: 12px;
+            padding: 8px 12px;
 
             display: flex;
             align-items: center;
 
-            gap: 6px;
+            gap: 10px;
 
-            background: white;
+            background: #ffffff;
 
-            border: 1px solid #e2e2e2;
+            border: 1px solid #eff3f4;
 
-            border-radius: 8px;
+            border-radius: 20px;
 
             box-shadow: none;
         }
 
 
         .bs-user-logo {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
 
-            min-width: 28px;
+            min-width: 32px;
 
             border-radius: 50%;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #111,
-                    #e60000
-                );
+            background: #1d9bf0;
 
             color: white;
 
-            font-weight: 900;
+            font-weight: 700;
 
             display: flex;
 
             align-items: center;
             justify-content: center;
 
-            flex-direction: column;
+            flex-direction: row;
 
-            line-height: 10px;
-            font-size: 10px;
+            line-height: 1;
+            font-size: 11px;
         }
 
 
         .bs-user-logo small {
-            color: #ffd500;
-            font-size: 7px;
+            color: #ffffff;
+            font-size: 8px;
+            margin-left: 1px;
         }
 
 
         .bs-comment-write input {
             flex: 1;
 
-            border: 1.5px solid #000;
+            border: none;
 
             outline: none;
 
-            font-size: 12px;
+            font-size: 14px;
 
-            padding: 5px 10px;
+            padding: 6px 0;
 
-            background: #fff;
+            background: transparent;
 
-            border-radius: 6px;
+            border-radius: 0;
+            color: #0f1419;
         }
 
 
         .bs-comment-write input:focus {
-            background: #fff;
-            box-shadow:
-                0 0 0 2px #e6000022;
+            background: transparent;
+            box-shadow: none;
         }
 
 
         .bs-comment-write button {
-            border: 1px solid #757575;
+            border: none;
 
-            background: #f0f0f0;
+            background: #1d9bf0;
 
-            color: #000;
+            color: #fff;
 
-            padding: 5px 10px;
+            padding: 6px 14px;
 
-            border-radius: 6px;
+            border-radius: 9999px;
 
-            font-weight: bold;
-            font-size: 12px;
+            font-weight: 700;
+            font-size: 13px;
 
             cursor: pointer;
 
-            transition: .2s;
+            transition: background-color .2s;
         }
 
 
         .bs-comment-write button:hover {
-            background: #e0e0e0;
+            background: #1a8cd8;
         }
 
 
         /* =========================================
-           COMMENTS
+           COMMENTS (X / TWITTER STYLE)
         ========================================= */
 
         .bs-comments {
-            margin-top: 10px;
+            margin-top: 12px;
 
-            padding: 10px;
+            padding: 12px;
 
-            background: white;
+            background: #ffffff;
 
-            border: 1px solid #e5e5e5;
+            border: 1px solid #eff3f4;
 
-            border-radius: 8px;
+            border-radius: 12px;
 
             box-shadow: none;
         }
 
 
         .bs-comments-title {
-            font-size: 14px;
-            font-weight: 800;
-            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0f1419;
+            display: flex;
+            align-items: center;
         }
 
 
         .bs-comments-title span {
-            font-size: 9px;
+            font-size: 10px;
 
-            color: #e60000;
+            color: #1d9bf0;
 
-            border: 1px solid #ffb5b5;
+            border: 1px solid #1d9bf0;
 
-            padding: 2px 5px;
+            padding: 2px 6px;
 
-            border-radius: 6px;
+            border-radius: 9999px;
 
-            margin-left: 6px;
+            margin-left: 8px;
         }
 
 
         /* COMMENT CARD */
 
         .bs-comment-card {
-            padding: 8px;
+            padding: 10px 0;
 
-            border: 1px solid #eee;
+            border: none;
+            border-bottom: 1px solid #eff3f4;
 
-            border-radius: 6px;
+            border-radius: 0;
 
-            margin-top: 6px;
+            margin-top: 0;
 
-            background: #fff;
+            background: transparent;
+        }
+
+        .bs-comment-card:last-child {
+            border-bottom: none;
         }
 
 
@@ -424,17 +417,17 @@
 
             align-items: center;
 
-            gap: 6px;
+            gap: 8px;
         }
 
 
         .bs-avatar {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
 
             border-radius: 50%;
 
-            background: #d71920;
+            background: #536471;
 
             color: white;
 
@@ -444,62 +437,66 @@
             justify-content: center;
 
             font-weight: bold;
-            font-size: 12px;
+            font-size: 13px;
         }
 
 
         .bs-comment-name {
-            font-weight: bold;
-            font-size: 12px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #0f1419;
         }
 
 
         .bs-comment-time {
-            color: #999;
-            font-size: 10px;
+            color: #536471;
+            font-size: 11px;
+            margin-left: 4px;
         }
 
 
         .bs-comment-text {
-            margin: 4px 0 4px 34px;
+            margin: 4px 0 6px 40px;
 
-            color: #333;
+            color: #0f1419;
 
             line-height: 1.4;
-            font-size: 12px;
+            font-size: 13px;
         }
 
 
         .bs-comment-like {
-            margin-left: 34px;
+            margin-left: 40px;
 
             border: none;
 
             background: transparent;
 
-            color: #777;
+            color: #536471;
 
             cursor: pointer;
 
-            font-size: 11px;
+            font-size: 12px;
+            padding: 0;
+            transition: color 0.2s;
         }
 
 
         .bs-comment-like:hover {
-            color: #e60000;
+            color: #f91880;
         }
 
 
         /* SAVE ACTIVE */
 
         .save-action.bs-saved {
-            color: #e60000;
+            color: #1d9bf0;
         }
 
 
         .save-action.bs-saved .pulse-icon {
-            background: #e60000;
-            color: white;
+            background: transparent !important;
+            color: #1d9bf0;
         }
 
 
@@ -531,21 +528,18 @@
 
 
             .pulse-actions {
-                grid-template-columns: repeat(4, 1fr);
-                border-radius: 6px;
+                padding: 2px 4px;
             }
 
 
             .pulse-action {
-                min-height: 38px;
+                min-height: auto;
+                padding: 6px 8px;
             }
 
 
             .pulse-icon {
-                width: 18px;
-                height: 18px;
-
-                font-size: 11px;
+                font-size: 15px;
             }
 
 
@@ -554,38 +548,32 @@
             }
 
 
-            .pulse-action strong {
-                font-size: 10px;
-            }
-
-
             .bs-comment-write {
-                padding: 5px;
-                gap: 5px;
+                padding: 6px 10px;
+                gap: 8px;
             }
 
 
             .bs-user-logo {
-                width: 24px;
-                height: 24px;
-                min-width: 24px;
+                width: 28px;
+                height: 28px;
+                min-width: 28px;
             }
 
 
             .bs-comment-write input {
-                font-size: 11px;
-                padding: 4px 8px;
+                font-size: 13px;
             }
 
 
             .bs-comment-write button {
-                padding: 4px 8px;
-                font-size: 10px;
+                padding: 5px 12px;
+                font-size: 12px;
             }
 
 
             .bs-comments {
-                padding: 8px;
+                padding: 10px;
             }
 
         }
