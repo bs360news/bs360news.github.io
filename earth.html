@@ -88,6 +88,109 @@
     <div class="img-gallery">   
         <img src="image51.jpg" alt="సౌరకుటుంబం మరియు తోకచుక్క">
     </div>
+<!-- BS360NEWS Action Buttons & Comments Section -->
+<style>
+  .bs360-news-card { background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+  .bs360-actions { display: flex; gap: 15px; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; }
+  .bs360-btn { background: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+  .bs360-btn:hover { background: #0056b3; }
+  .bs360-comments-section { margin-top: 20px; }
+  .bs360-input { width: 70%; padding: 8px; margin-right: 5px; border: 1px solid #ccc; border-radius: 4px; }
+  .bs360-comments-list { list-style-type: none; padding: 0; margin-top: 10px; }
+  .bs360-comments-list li { background: #f8f9fa; padding: 8px; margin-bottom: 5px; border-radius: 4px; border-left: 3px solid #007bff; }
+</style>
+
+<div class="bs360-news-card">
+  <!-- Action Buttons -->
+  <div class="bs360-actions">
+    <button id="likeBtn" class="bs360-btn">❤️ Like (<span id="likeCount">0</span>)</button>
+    <button id="shareBtn" class="bs360-btn">↗ Share (<span id="shareCount">0</span>)</button>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="bs360-comments-section">
+    <h3>💬 కామెంట్లు (<span id="commentCount">0</span>)</h3>
+    <input type="text" id="commentInput" class="bs360-input" placeholder="మీ అభిప్రాయాన్ని రాయండి...">
+    <button id="addCommentBtn" class="bs360-btn">Add</button>
+    <ul id="commentsList" class="bs360-comments-list"></ul>
+  </div>
+</div>
+
+<!-- Firebase Script -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  import { getFirestore, doc, onSnapshot, updateDoc, increment, collection, addDoc, query, orderBy, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC6VG8Hr7f1bavFbFD0X-x7zrxg9hNFzuI",
+    authDomain: "bs360news.firebaseapp.com",
+    projectId: "bs360news",
+    storageBucket: "bs360news.firebasestorage.app",
+    messagingSenderId: "890038972122",
+    appId: "1:890038972122:web:b35998960fc3061120bfe3",
+    measurementId: "G-5KKLM3N8WM"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  signInAnonymously(auth).catch((error) => console.error("Auth Error:", error));
+
+  const postRef = doc(db, "posts", "news_post_1");
+
+  // Likes & Shares Sync
+  onSnapshot(postRef, (docSnap) => {
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      document.getElementById("likeCount").innerText = data.likes || 0;
+      document.getElementById("shareCount").innerText = data.shares || 0;
+    }
+  });
+
+  // Like Click
+  document.getElementById("likeBtn").addEventListener("click", async () => {
+    await updateDoc(postRef, { likes: increment(1) }).catch(async () => {
+      await setDoc(postRef, { likes: 1, shares: 0 });
+    });
+  });
+
+  // Share Click
+  document.getElementById("shareBtn").addEventListener("click", async () => {
+    await updateDoc(postRef, { shares: increment(1) }).catch(async () => {
+      await setDoc(postRef, { likes: 0, shares: 1 });
+    });
+  });
+
+  // Comments Sync
+  const commentsRef = collection(db, "posts", "news_post_1", "comments");
+  const q = query(commentsRef, orderBy("timestamp", "desc"));
+
+  onSnapshot(q, (snapshot) => {
+    const list = document.getElementById("commentsList");
+    list.innerHTML = "";
+    document.getElementById("commentCount").innerText = snapshot.size;
+    
+    snapshot.forEach((doc) => {
+      const li = document.createElement("li");
+      li.textContent = doc.data().text;
+      list.appendChild(li);
+    });
+  });
+
+  // Add Comment Click
+  document.getElementById("addCommentBtn").addEventListener("click", async () => {
+    const input = document.getElementById("commentInput");
+    if (input.value.trim() !== "") {
+      await addDoc(commentsRef, {
+        text: input.value,
+        timestamp: new Date()
+      });
+      input.value = "";
+    }
+  });
+</script>
 
     <p>రెండో అద్భుతం... <strong>తోకచుక్క కనువిందు!</strong> ప్రసిద్ధ '109P/స్విఫ్ట్-టుట్లీ' తోకచుక్క విడిచిపెట్టిన వ్యర్థాల వల్ల ఏర్పడే ఆస్టరాయిడ్ ఉల్కాపాతం కనువిందు చేయనుంది.</p>
     <ul>
