@@ -2,6 +2,135 @@
 <html lang="te">
 <head>
     <meta charset="UTF-8">
+<!-- BS360NEWS Follow Button Widget -->
+<style>
+  .bs360-follow-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    padding: 12px 16px;
+    max-width: 470px;
+    margin: 10px auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .bs360-profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .bs360-profile-info img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .bs360-profile-details h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #262626;
+  }
+  .bs360-profile-details p {
+    margin: 2px 0 0 0;
+    font-size: 13px;
+    color: #8e8e8e;
+  }
+  .bs360-follow-btn {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .bs360-follow-btn:hover {
+    background-color: #1877f2;
+  }
+  .bs360-follow-btn.following {
+    background-color: #efefef;
+    color: #262626;
+    border: 1px solid #dbdbdb;
+  }
+</style>
+
+<div class="bs360-follow-box">
+  <div class="bs360-profile-info">
+    <img src="https://via.placeholder.com/42" alt="BS360NEWS Logo">
+    <div class="bs360-profile-details">
+      <h4>BS360NEWS Official</h4>
+      <p><span id="followerCount">0</span> ఫాలోవర్స్</p>
+    </div>
+  </div>
+  <button id="followBtn" class="bs360-follow-btn">+ Follow</button>
+</div>
+
+<!-- Firebase Follow Script -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  import { getFirestore, doc, onSnapshot, updateDoc, increment, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC6VG8Hr7f1bavFbFD0X-x7zrxg9hNFzuI",
+    authDomain: "bs360news.firebaseapp.com",
+    projectId: "bs360news",
+    storageBucket: "bs360news.firebasestorage.app",
+    messagingSenderId: "890038972122",
+    appId: "1:890038972122:web:b35998960fc3061120bfe3",
+    measurementId: "G-5KKLM3N8WM"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  signInAnonymously(auth).catch((error) => console.error("Auth Error:", error));
+
+  // Site Profile Document reference
+  const siteRef = doc(db, "site_data", "bs360news_profile");
+  const followBtn = document.getElementById("followBtn");
+  const isFollowingKey = "is_following_bs360news";
+
+  // Check Local Follow State
+  if (localStorage.getItem(isFollowingKey)) {
+    followBtn.innerText = "Following";
+    followBtn.classList.add("following");
+  }
+
+  // Real-time Follower Count Sync
+  onSnapshot(siteRef, (docSnap) => {
+    if (docSnap.exists()) {
+      document.getElementById("followerCount").innerText = docSnap.data().followers || 0;
+    }
+  });
+
+  // Follow / Unfollow Toggle Action
+  followBtn.addEventListener("click", async () => {
+    const isFollowing = localStorage.getItem(isFollowingKey);
+
+    if (!isFollowing) {
+      localStorage.setItem(isFollowingKey, "true");
+      followBtn.innerText = "Following";
+      followBtn.classList.add("following");
+
+      await updateDoc(siteRef, { followers: increment(1) }).catch(async () => {
+        await setDoc(siteRef, { followers: 1 });
+      });
+    } else {
+      localStorage.removeItem(isFollowingKey);
+      followBtn.innerText = "+ Follow";
+      followBtn.classList.remove("following");
+
+      await updateDoc(siteRef, { followers: increment(-1) });
+    }
+  });
+</script>
 
     <!-- 🔽 ఈ క్రింది విధంగా <style> లోపల పేస్ట్ చేయండి 🔽 -->
     <style>
