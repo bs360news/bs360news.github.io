@@ -1052,3 +1052,107 @@ body.dark-mode .logo-black {
 #bsLikeBtn {
     transition: transform 0.18s ease;
 }
+
+
+/* =====================================================
+   NEW COMPACT & MODERN DESIGN OVERRIDES (ADDED BELOW)
+===================================================== */
+
+/* 1. Main Action Bar - App Style Container */
+.pulse-actions {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+    padding: 6px !important;
+}
+
+/* 2. Compact Action Buttons */
+.pulse-action {
+    min-height: 58px !important;
+    border-right: 1px solid #f1f5f9 !important;
+    border-radius: 10px !important;
+    padding: 4px !important;
+    gap: 2px !important;
+}
+
+.pulse-action:hover {
+    background: #f8fafc !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 3. Small Modern Icons */
+.pulse-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 15px !important;
+    margin-bottom: 0px !important;
+}
+
+/* 4. Numbers & Labels Styling */
+.pulse-number {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+}
+
+.pulse-action strong {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+.pulse-action small {
+    font-size: 10px !important;
+}
+
+/* 5. Mobile Dynamic Scaling */
+@media(max-width: 600px) {
+    .pulse-actions {
+        border-radius: 12px !important;
+    }
+    
+    .pulse-action {
+        min-height: 52px !important;
+    }
+
+    .pulse-icon {
+        width: 24px !important;
+        height: 24px !important;
+        font-size: 13px !important;
+    }
+
+    .pulse-number {
+        font-size: 11px !important;
+    }
+
+    .pulse-action strong {
+        font-size: 10px !important;
+    }
+
+    .pulse-action small {
+        font-size: 8px !important;
+    }
+}
+
+/* 6. Modern Comment Section Adjustment */
+.bs-comment-write {
+    border-radius: 20px !important;
+    padding: 6px 10px !important;
+}
+
+.bs-user-logo {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: 12px !important;
+}
+
+.bs-comment-write input {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+}
+
+.bs-comment-write button {
+    padding: 8px 14px !important;
+    font-size: 12px !important;
+    border-radius: 18px !important;
+}
