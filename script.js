@@ -37,7 +37,7 @@ let bsLikes =
     );
 
 
-if (isNaN(bsLikes)) {
+if (isNaN(bsLikes) || bsLikes === 0) {
 
     bsLikes = 2800;
 
@@ -622,8 +622,26 @@ function loadBsNewsPulse() {
 
 
     // =================================================
-    // LOAD LIKE COUNT
+    // LOAD LIKE COUNT & STATE
     // =================================================
+
+    bsLiked =
+        localStorage.getItem(
+            bsLikeStateKey
+        ) === "true";
+
+    let savedLikes =
+        Number(
+            localStorage.getItem(
+                bsLikeCountKey
+            )
+        );
+
+    if (!isNaN(savedLikes) && savedLikes > 0) {
+
+        bsLikes = savedLikes;
+
+    }
 
     if (likeCount) {
 
@@ -634,10 +652,6 @@ function loadBsNewsPulse() {
 
     }
 
-
-    // =================================================
-    // LOAD LIKE STATE
-    // =================================================
 
     if (likeButton) {
 
