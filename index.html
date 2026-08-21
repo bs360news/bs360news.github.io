@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
+    
     <meta charset="UTF-8">
+    <!-- OneSignal Web Push SDK -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "221108dd-3f19-4881-b338-b0e893659f26",
+    });
+  });
+</script>
+
 <!-- BS360NEWS Follow Button Widget -->
 <style>
   .bs360-follow-box {
