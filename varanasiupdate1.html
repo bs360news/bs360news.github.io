@@ -1,104 +1,845 @@
 <!DOCTYPE html>
 <html lang="te">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>వారణాసి అప్‌డేట్ 1</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .article-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 15px;
-            color: #0275d8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .tag {
-            background: #d9534f;
-            color: #fff;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        h1 {
-            color: #222;
-            font-size: 24px;
-            margin-top: 0;
-        }
-        .img-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .img-gallery img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        p {
-            color: #333;
-            line-height: 1.8;
-            font-size: 16px;
-        }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది? | BS Telugu News
+</title>
+
+<style>
+
+/* BASIC */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Noto Sans Telugu", "Segoe UI", Arial, sans-serif;
+    background: #f4f4f4;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 15px 8px;
+}
+
+
+/* ARTICLE CARD */
+
+.article-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.10);
+    overflow: hidden;
+}
+
+
+/* BRAND HEADER */
+
+.brand-header {
+    background: #d32f2f;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* CONTENT */
+
+.article-content {
+    padding: 20px;
+}
+
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    background: #d32f2f;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    background: #b71c1c;
+}
+
+
+/* TAG */
+
+.tag {
+    background: #d32f2f;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+
+/* TITLE */
+
+h1 {
+    color: #111111;
+    font-size: 28px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 10px;
+}
+
+
+/* IMAGE GALLERY */
+
+.img-gallery {
+    width: 100%;
+    margin: 18px 0;
+    text-align: center;
+}
+
+.img-gallery img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 9px;
+    border: 1px solid #dddddd;
+}
+
+
+/* ACTION BAR */
+
+.action-bar {
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    padding: 10px 0;
+    margin: 15px 0 22px 0;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.action-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-btn span {
+    font-size: 12px;
+    margin-top: 3px;
+    color: #333333;
+}
+
+.like-active {
+    color: #e91e63;
+}
+
+
+/* COMMENT BOX */
+
+.comment-area {
+    display: flex;
+    margin-top: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 20px;
+    padding: 4px 10px;
+    background: #fafafa;
+}
+
+.comment-area input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.comment-area button {
+    border: none;
+    background: transparent;
+    color: #1976d2;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.comments {
+    margin-top: 10px;
+}
+
+.comment {
+    padding: 8px 0;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 14px;
+}
+
+
+/* PARAGRAPHS */
+
+p {
+    color: #333333;
+    line-height: 1.9;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+/* HIGHLIGHT BOX */
+
+.highlight-box {
+    background: #f9f9f9;
+    border-left: 4px solid #1976d2;
+    padding: 14px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.highlight-box h2 {
+    color: #1976d2;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.highlight-box p {
+    margin-bottom: 0;
+}
+
+
+/* IMPORTANT BOX */
+
+.warning-box {
+    background: #fff3f3;
+    border-left: 4px solid #d32f2f;
+    padding: 14px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.warning-box strong {
+    color: #d32f2f;
+}
+
+
+/* FOOTER */
+
+.article-footer {
+    background: #f1f3f4;
+    padding: 15px;
+    text-align: center;
+    color: #555555;
+    font-size: 13px;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    body {
+        padding: 8px 5px;
+    }
+
+    .article-container {
+        border-radius: 8px;
+    }
+
+    .article-content {
+        padding: 15px;
+    }
+
+    .brand-header {
+        font-size: 18px;
+        padding: 11px;
+    }
+
+    h1 {
+        font-size: 21px;
+        line-height: 1.5;
+    }
+
+    .img-gallery img {
+        height: 150px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    .action-buttons {
+        gap: 20px;
+    }
+
+    .action-btn {
+        font-size: 20px;
+    }
+
+}
+
+</style>
+
 </head>
+
+
 <body>
 
-<div class="article-container">
-    <a href="index.html" class="back-btn">&larr; Back to Home</a>
-    <div><span class="tag">CINEMA UPDATE</span></div>
-    <h1>🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?</h1>
 
-    <!-- Hero Images Section -->
-    <div class="img-gallery">
-        <img src="hero1.png.jpg" alt="మహేష్ బాబు స్టిల్ 1">
-        
- 
+<div class="article-container">
+
+
+    <!-- BRAND -->
+
+    <div class="brand-header">
+
+        BS Telugu News
+
     </div>
 
-    <p>వారణాసి మూవీ నుంచి ఇవాళ వచ్చిన అప్‌డేట్‌పై మహేష్ బాబు ఫ్యాన్స్‌లో అసంతృప్తి వ్యక్తమవుతున్నట్లు సోషల్ మీడియాలో చర్చ జరుగుతోంది. సినిమా నుంచి కొత్త అప్‌డేట్ వస్తుందని అభిమానులు ఎంతో ఆసక్తిగా ఎదురుచూస్తున్న సమయంలో, అప్‌డేట్ విషయంలో తమకు మరింత క్లారిటీ కావాలని కొందరు అభిమానులు అభిప్రాయపడుతున్నారు. ముఖ్యంగా సినిమా నుంచి వచ్చిన సమాచారం, ప్రచారంలో ఉన్న విషయాలపై ఫ్యాన్స్‌లో భిన్నమైన స్పందనలు కనిపిస్తున్నాయి.</p>
 
-    <p>రాజమౌళి దర్శకత్వంలో మహేష్ బాబు హీరోగా తెరకెక్కుతున్న సినిమా కావడంతో ‘వారణాసి’పై మొదటి నుంచే భారీ అంచనాలు ఉన్నాయి. ఈ సినిమాకు సంబంధించిన ప్రతి చిన్న విషయం కూడా సోషల్ మీడియాలో వైరల్ అవుతోంది. మహేష్ బాబు లుక్, ఆయన పాత్ర, సినిమా కథ, షూటింగ్, విడుదల తేదీ వంటి విషయాలపై అభిమానులు ఎప్పటికప్పుడు ఆసక్తిగా ఎదురుచూస్తున్నారు.</p>
+    <div class="article-content">
 
-    <p>అయితే తాజాగా వచ్చిన అప్‌డేట్ విషయంలో కొంతమంది మహేష్ అభిమానులు నిరాశ వ్యక్తం చేస్తున్నట్లు వార్తలు వస్తున్నాయి. తమ అభిమాన హీరోకు సంబంధించిన అప్‌డేట్ మరింత ప్రత్యేకంగా, ఆసక్తికరంగా ఉండాలని ఫ్యాన్స్ కోరుకుంటున్నారు. సినిమా స్థాయి, రాజమౌళి దర్శకత్వం, మహేష్ బాబు క్రేజ్‌ను దృష్టిలో పెట్టుకుని మేకర్స్ నుంచి భారీ అప్‌డేట్స్ రావాలని అభిమానులు ఆశిస్తున్నారు.</p>
- <!-- Hero Images Section -->
-    <div class="img-gallery">   
-<img src="hero2.png.png" alt="మహేష్ బాబు స్టిల్ 2">
-    
-    <p>ఇక రాజమౌళి సినిమా అంటేనే ప్రేక్షకుల్లో భారీ అంచనాలు ఉంటాయి. గతంలో ఆయన సినిమాల విషయంలో కూడా అప్‌డేట్స్‌ను చాలా జాగ్రత్తగా ప్లాన్ చేశారు. అందుకే ‘వారణాసి’ విషయంలో కూడా మేకర్స్ ఏ చిన్న విషయాన్ని బయటకు తీసుకొచ్చినా దేశవ్యాప్తంగా అభిమానులు, సినీ ప్రేక్షకులు ఆసక్తిగా గమనిస్తున్నారు.</p>
 
-    <p>మహేష్ బాబు అభిమానులు కూడా ఈ సినిమా కోసం చాలా కాలంగా ఎదురుచూస్తున్నారు. ముఖ్యంగా మహేష్ బాబు ఈ సినిమాలో ఎలాంటి పాత్రలో కనిపించబోతున్నారు, ఆయన లుక్ ఎలా ఉంటుంది, కథ ఏ నేపథ్యంలో సాగుతుంది అనే విషయాలపై అభిమానుల్లో ఆసక్తి రోజురోజుకూ పెరుగుతోంది.</p>
+        <!-- BACK -->
 
-    <p>సోషల్ మీడియాలో ప్రస్తుతం ‘వారణాసి’కి సంబంధించిన అనేక రకాల పోస్టులు, వార్తలు వైరల్ అవుతున్నాయి. అయితే వాటిలో ఏది నిజమైన సమాచారం, ఏది కేవలం ప్రచారం అనేది అధికారిక ప్రకటన వచ్చే వరకు స్పష్టంగా చెప్పలేం. అందుకే అభిమానులు కూడా అధికారికంగా మేకర్స్ నుంచి వచ్చే అప్‌డేట్ కోసం ఎదురుచూస్తున్నారు.</p>
+        <a
+            href="index.html"
+            class="back-btn"
+        >
 
-    <!-- Hero Images Section -->
-    <div class="img-gallery">
-<img src="hero3.png.png" alt="మహేష్ బాబు స్టిల్ 3">
+            ← Back to Home
 
-    
-    <p>మహేష్ బాబు, రాజమౌళి కాంబినేషన్ కావడంతో ఈ సినిమాపై కేవలం టాలీవుడ్‌లోనే కాకుండా దేశవ్యాప్తంగా భారీ ఆసక్తి ఉంది. సినిమా నుంచి వచ్చే ప్రతి అప్‌డేట్ సోషల్ మీడియాలో ట్రెండ్ అయ్యే అవకాశం ఉంది. ఇలాంటి సమయంలో అభిమానుల అంచనాలకు తగ్గట్టుగా మేకర్స్ నుంచి మరింత ఆసక్తికరమైన సమాచారం వస్తుందా అనేది ఇప్పుడు చూడాలి.</p>
+        </a>
 
-    <p>మొత్తానికి ‘వారణాసి’పై ఇప్పటికే భారీ హైప్ ఉంది. సినిమా నుంచి వచ్చే ప్రతి అప్‌డేట్‌పై అభిమానులు ప్రత్యేకంగా దృష్టి పెడుతున్నారు. ప్రస్తుతం అప్‌డేట్ విషయంలో సోషల్ మీడియాలో జరుగుతున్న చర్చ ఎంతవరకు వెళ్తుంది, మేకర్స్ నుంచి తదుపరి అధికారిక సమాచారం ఎప్పుడు వస్తుంది అనేది వేచి చూడాలి.</p>
+
+        <!-- TAG -->
+
+        <div>
+
+            <span class="tag">
+
+                CINEMA UPDATE
+
+            </span>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+
+            🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?
+
+        </h1>
+
+
+        <!-- IMAGE 1 -->
+
+        <div class="img-gallery">
+
+            <img
+                src="hero1.png.jpg"
+                alt="మహేష్ బాబు స్టిల్ 1"
+            >
+
+        </div>
+
+
+        <!-- ACTION BAR -->
+
+        <div class="action-bar">
+
+            <div class="action-buttons">
+
+
+                <button
+                    class="action-btn"
+                    onclick="toggleLike()"
+                >
+
+                    <span id="likeIcon">
+                        ♡
+                    </span>
+
+                    <span id="likeCount">
+                        0
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="action-btn"
+                    onclick="focusComment()"
+                >
+
+                    💬
+
+                    <span id="commentCount">
+                        0
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="action-btn"
+                    onclick="sharePost()"
+                >
+
+                    ➤
+
+                    <span>
+                        Share
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="action-btn"
+                    onclick="savePost()"
+                >
+
+                    🔖
+
+                    <span>
+                        Save
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- COMMENT -->
+
+            <div class="comment-area">
+
+                <input
+                    type="text"
+                    id="commentInput"
+                    placeholder="మీ కామెంట్‌ను ఇక్కడ రాయండి..."
+                >
+
+                <button onclick="addComment()">
+
+                    Comment
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="comments"
+                class="comments"
+            ></div>
+
+        </div>
+
+
+        <!-- ARTICLE -->
+
+        <p>
+
+            వారణాసి మూవీ నుంచి ఇవాళ వచ్చిన అప్‌డేట్‌పై
+            మహేష్ బాబు ఫ్యాన్స్‌లో అసంతృప్తి వ్యక్తమవుతున్నట్లు
+            సోషల్ మీడియాలో చర్చ జరుగుతోంది. సినిమా నుంచి
+            కొత్త అప్‌డేట్ వస్తుందని అభిమానులు ఎంతో
+            ఆసక్తిగా ఎదురుచూస్తున్న సమయంలో, అప్‌డేట్
+            విషయంలో తమకు మరింత క్లారిటీ కావాలని కొందరు
+            అభిమానులు అభిప్రాయపడుతున్నారు. ముఖ్యంగా
+            సినిమా నుంచి వచ్చిన సమాచారం, ప్రచారంలో ఉన్న
+            విషయాలపై ఫ్యాన్స్‌లో భిన్నమైన స్పందనలు
+            కనిపిస్తున్నాయి.
+
+        </p>
+
+
+        <p>
+
+            రాజమౌళి దర్శకత్వంలో మహేష్ బాబు హీరోగా
+            తెరకెక్కుతున్న సినిమా కావడంతో ‘వారణాసి’పై
+            మొదటి నుంచే భారీ అంచనాలు ఉన్నాయి. ఈ సినిమాకు
+            సంబంధించిన ప్రతి చిన్న విషయం కూడా సోషల్
+            మీడియాలో వైరల్ అవుతోంది. మహేష్ బాబు లుక్,
+            ఆయన పాత్ర, సినిమా కథ, షూటింగ్, విడుదల తేదీ
+            వంటి విషయాలపై అభిమానులు ఎప్పటికప్పుడు
+            ఆసక్తిగా ఎదురుచూస్తున్నారు.
+
+        </p>
+
+
+        <p>
+
+            ముఖ్యంగా మహేష్ బాబు కెరీర్‌లో ఈ సినిమా
+            ప్రత్యేకమైన ప్రాజెక్ట్‌గా నిలుస్తుందని అభిమానులు
+            భావిస్తున్నారు. రాజమౌళి దర్శకత్వంలో సినిమా
+            కావడంతో కథ, విజువల్స్, యాక్షన్ సన్నివేశాలు
+            ఏ స్థాయిలో ఉంటాయనే ఆసక్తి కూడా పెరుగుతోంది.
+            సినిమా గురించి చిన్న సమాచారం బయటకు వచ్చినా
+            వెంటనే అభిమానులు దానిపై చర్చ మొదలుపెడుతున్నారు.
+
+        </p>
+
+
+        <!-- IMAGE 2 -->
+
+        <div class="img-gallery">
+
+            <img
+                src="hero2.png.png"
+                alt="మహేష్ బాబు స్టిల్ 2"
+            >
+
+        </div>
+
+
+        <p>
+
+            అయితే తాజాగా వచ్చిన అప్‌డేట్ విషయంలో కొంతమంది
+            మహేష్ అభిమానులు నిరాశ వ్యక్తం చేస్తున్నట్లు
+            వార్తలు వస్తున్నాయి. తమ అభిమాన హీరోకు సంబంధించిన
+            అప్‌డేట్ మరింత ప్రత్యేకంగా, ఆసక్తికరంగా ఉండాలని
+            ఫ్యాన్స్ కోరుకుంటున్నారు. సినిమా స్థాయి, రాజమౌళి
+            దర్శకత్వం, మహేష్ బాబు క్రేజ్‌ను దృష్టిలో పెట్టుకుని
+            మేకర్స్ నుంచి భారీ అప్‌డేట్స్ రావాలని అభిమానులు
+            ఆశిస్తున్నారు.
+
+        </p>
+
+
+        <p>
+
+            ఇక రాజమౌళి సినిమా అంటేనే ప్రేక్షకుల్లో భారీ
+            అంచనాలు ఉంటాయి. గతంలో ఆయన సినిమాల విషయంలో
+            కూడా అప్‌డేట్స్‌ను చాలా జాగ్రత్తగా ప్లాన్ చేశారు.
+            అందుకే ‘వారణాసి’ విషయంలో కూడా మేకర్స్ ఏ చిన్న
+            విషయాన్ని బయటకు తీసుకొచ్చినా దేశవ్యాప్తంగా
+            అభిమానులు, సినీ ప్రేక్షకులు ఆసక్తిగా గమనిస్తున్నారు.
+
+        </p>
+
+
+        <div class="highlight-box">
+
+            <h2>
+
+                🎬 ‘వారణాసి’పై ఎందుకు ఇంత క్రేజ్?
+
+            </h2>
+
+            <p>
+
+                మహేష్ బాబు హీరోగా నటించడం, రాజమౌళి
+                దర్శకత్వం వహించడం ఈ సినిమాపై అంచనాలు
+                పెరగడానికి ప్రధాన కారణాలుగా అభిమానులు
+                భావిస్తున్నారు. సినిమా నుంచి వచ్చే ప్రతి
+                అప్‌డేట్‌ను ప్రేక్షకులు ఆసక్తిగా గమనిస్తున్నారు.
+
+            </p>
+
+        </div>
+
+
+        <p>
+
+            మహేష్ బాబు అభిమానులు కూడా ఈ సినిమా కోసం
+            చాలా కాలంగా ఎదురుచూస్తున్నారు. ముఖ్యంగా
+            మహేష్ బాబు ఈ సినిమాలో ఎలాంటి పాత్రలో
+            కనిపించబోతున్నారు, ఆయన లుక్ ఎలా ఉంటుంది,
+            కథ ఏ నేపథ్యంలో సాగుతుంది అనే విషయాలపై
+            అభిమానుల్లో ఆసక్తి రోజురోజుకూ పెరుగుతోంది.
+
+        </p>
+
+
+        <p>
+
+            సోషల్ మీడియాలో ప్రస్తుతం ‘వారణాసి’కి
+            సంబంధించిన అనేక రకాల పోస్టులు, వార్తలు
+            వైరల్ అవుతున్నాయి. అయితే వాటిలో ఏది
+            నిజమైన సమాచారం, ఏది కేవలం ప్రచారం అనేది
+            అధికారిక ప్రకటన వచ్చే వరకు స్పష్టంగా
+            చెప్పలేం. అందుకే అభిమానులు కూడా
+            అధికారికంగా మేకర్స్ నుంచి వచ్చే
+            అప్‌డేట్ కోసం ఎదురుచూస్తున్నారు.
+
+        </p>
+
+
+        <!-- IMAGE 3 -->
+
+        <div class="img-gallery">
+
+            <img
+                src="hero3.png.png"
+                alt="మహేష్ బాబు స్టిల్ 3"
+            >
+
+        </div>
+
+
+        <p>
+
+            మహేష్ బాబు, రాజమౌళి కాంబినేషన్ కావడంతో
+            ఈ సినిమాపై కేవలం టాలీవుడ్‌లోనే కాకుండా
+            దేశవ్యాప్తంగా భారీ ఆసక్తి ఉంది. సినిమా
+            నుంచి వచ్చే ప్రతి అప్‌డేట్ సోషల్ మీడియాలో
+            ట్రెండ్ అయ్యే అవకాశం ఉంది. ఇలాంటి సమయంలో
+            అభిమానుల అంచనాలకు తగ్గట్టుగా మేకర్స్ నుంచి
+            మరింత ఆసక్తికరమైన సమాచారం వస్తుందా అనేది
+            ఇప్పుడు చూడాలి.
+
+        </p>
+
+
+        <p>
+
+            సినిమా షూటింగ్‌కు సంబంధించిన విషయాలు,
+            నటీనటుల పాత్రలు, కథకు సంబంధించిన వివరాలు
+            వంటి అంశాలపై కూడా సోషల్ మీడియాలో
+            రకరకాల చర్చలు జరుగుతున్నాయి. అయితే
+            అధికారికంగా ప్రకటించని విషయాలను నిజమైన
+            వార్తలుగా భావించకపోవడం మంచిది.
+            మేకర్స్ నుంచి వచ్చే సమాచారం మాత్రమే
+            నమ్మదగినదిగా పరిగణించాలి.
+
+        </p>
+
+
+        <p>
+
+            మరోవైపు మహేష్ బాబు అభిమానులు తమ హీరో
+            నుంచి వచ్చే కొత్త లుక్ లేదా ప్రత్యేక
+            అప్‌డేట్ కోసం ఆసక్తిగా ఎదురుచూస్తున్నారు.
+            సినిమా స్థాయికి తగ్గట్టుగా ఒక భారీ
+            అప్‌డేట్ వస్తే సోషల్ మీడియాలో మరోసారి
+            పెద్ద ఎత్తున చర్చ జరిగే అవకాశం ఉందని
+            అభిమానులు భావిస్తున్నారు.
+
+        </p>
+
+
+        <div class="warning-box">
+
+            <strong>
+
+                ⚠️ ముఖ్య గమనిక
+
+            </strong>
+
+            <p style="margin-top:8px; margin-bottom:0;">
+
+                సోషల్ మీడియాలో ప్రచారంలో ఉన్న ప్రతి
+                సమాచారం అధికారికం కావాల్సిన అవసరం లేదు.
+                ‘వారణాసి’కి సంబంధించిన ముఖ్యమైన
+                విషయాల కోసం మేకర్స్ అధికారిక ప్రకటనను
+                మాత్రమే ఆధారంగా తీసుకోవాలి.
+
+            </p>
+
+        </div>
+
+
+        <p>
+
+            మొత్తానికి ‘వారణాసి’పై ఇప్పటికే భారీ హైప్ ఉంది.
+            సినిమా నుంచి వచ్చే ప్రతి అప్‌డేట్‌పై అభిమానులు
+            ప్రత్యేకంగా దృష్టి పెడుతున్నారు. ప్రస్తుతం
+            అప్‌డేట్ విషయంలో సోషల్ మీడియాలో జరుగుతున్న
+            చర్చ ఎంతవరకు వెళ్తుంది, మేకర్స్ నుంచి తదుపరి
+            అధికారిక సమాచారం ఎప్పుడు వస్తుంది అనేది
+            వేచి చూడాలి.
+
+        </p>
+
+
+        <p>
+
+            మహేష్ బాబు ఫ్యాన్స్‌కు ఈ సినిమా కేవలం
+            మరో సినిమా మాత్రమే కాకుండా ఎంతో ప్రత్యేకమైన
+            ప్రాజెక్ట్‌గా మారింది. రాజమౌళి దర్శకత్వం
+            కావడంతో సినిమాపై దేశవ్యాప్తంగా అంచనాలు
+            ఉన్నాయి. అందుకే ఇకపై వచ్చే ప్రతి అధికారిక
+            అప్‌డేట్ మరింత ఆసక్తిని పెంచే అవకాశం ఉంది.
+
+        </p>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="article-footer">
+
+        🎬 వారణాసి గురించి మీ అభిప్రాయం ఏమిటో
+        కామెంట్ చేయండి!
+
+        <br><br>
+
+        #Varanasi #MaheshBabu #Rajamouli
+        #CinemaUpdate #BSTeluguNews
+
+    </div>
+
+
 </div>
 
+
+<!-- LIKE / COMMENT / SHARE SCRIPT -->
+
+<script>
+
+let liked = false;
+let likes = 0;
+let commentsCount = 0;
+
+
+function toggleLike() {
+
+    if (!liked) {
+
+        liked = true;
+
+        likes++;
+
+        document.getElementById("likeIcon")
+            .innerText = "♥";
+
+        document.getElementById("likeIcon")
+            .classList.add("like-active");
+
+    } else {
+
+        liked = false;
+
+        likes--;
+
+        document.getElementById("likeIcon")
+            .innerText = "♡";
+
+        document.getElementById("likeIcon")
+            .classList.remove("like-active");
+
+    }
+
+    document.getElementById("likeCount")
+        .innerText = likes;
+
+}
+
+
+function focusComment() {
+
+    document.getElementById("commentInput")
+        .focus();
+
+}
+
+
+function addComment() {
+
+    const input =
+        document.getElementById("commentInput");
+
+    const text =
+        input.value.trim();
+
+    if (text === "") {
+
+        return;
+
+    }
+
+    commentsCount++;
+
+    document.getElementById("commentCount")
+        .innerText = commentsCount;
+
+    const comment =
+        document.createElement("div");
+
+    comment.className = "comment";
+
+    comment.innerText = "💬 " + text;
+
+    document.getElementById("comments")
+        .appendChild(comment);
+
+    input.value = "";
+
+}
+
+
+function sharePost() {
+
+    if (navigator.share) {
+
+        navigator.share({
+
+            title: document.title,
+
+            text: "వారణాసి మూవీ అప్‌డేట్ చూడండి"
+
+        });
+
+    } else {
+
+        alert(
+            "Share option మీ browser లో అందుబాటులో లేదు."
+        );
+
+    }
+
+}
+
+
+function savePost() {
+
+    alert(
+        "ఈ పోస్ట్‌ను Save చేసుకున్నట్లు గుర్తించబడింది."
+    );
+
+}
+
+</script>
+
+
 </body>
+
 </html>
