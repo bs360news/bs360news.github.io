@@ -472,22 +472,24 @@
 
     .news-item{
       display:grid;
-      grid-template-columns:180px 1fr;
+      grid-template-columns:140px 1fr;
+      gap:12px;
       border-bottom:1px solid #e5e7eb !important;
       padding-bottom:15px !important;
-      margin-bottom:10px !important;
+      margin-bottom:15px !important;
       border-radius:0 !important;
+      align-items:start;
     }
 
     .news-item img{
       width:100%;
-      height:125px;
+      height:110px;
       object-fit:cover;
       border-radius:6px;
     }
 
     .news-content{
-      padding:0 0 0 14px !important;
+      padding:0 !important;
     }
 
     .news-item h3{cursor:pointer}
@@ -702,15 +704,18 @@
       }
 
       .news-item{
-        grid-template-columns:120px 1fr
+        grid-template-columns:110px 1fr;
+        gap:10px;
+        padding-bottom:15px !important;
+        margin-bottom:15px !important;
       }
 
       .news-item img{
-        height:95px
+        height:90px;
       }
 
       .news-content{
-        padding:0 0 0 10px !important;
+        padding:0 !important;
       }
 
       .news-item h3{
