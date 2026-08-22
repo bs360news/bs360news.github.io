@@ -1,236 +1,635 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="te">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suresh 360 Media - Cricket Records</title>
+
+    <title>5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు | BS 360 NEWS</title>
+<div class="img-gallery">
+    <img src="cricket.png" alt="Cricket Records">
+</div>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
+        * {
+            box-sizing: border-box;
         }
 
-        .media-card {
-            max-width: 500px;
+        html {
             width: 100%;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 1px solid #e1e4e8;
+            overflow-x: hidden;
         }
 
-        .brand-header {
-            background-color: #d32f2f;
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            color: #222;
+        }
+
+        .article-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tag {
+            background-color: #cc0000;
             color: #ffffff;
-            text-align: center;
-            padding: 12px;
-            font-size: 20px;
+            font-size: 12px;
             font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
-        .content-body {
-            padding: 15px;
+        h1 {
+            color: #222;
+            font-size: 30px;
+            margin: 0 0 18px 0;
+            line-height: 1.4;
+            font-weight: 700;
         }
 
-     
-        .article-title {
-            color: #111111;
-            font-size: 18px;
-            margin-top: 0;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #d32f2f;
-            padding-bottom: 8px;
+        /* ACTION AREA */
+
+        .ig-card {
+            max-width: 100%;
+            margin: 15px 0 25px 0;
+            font-family: sans-serif;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+            padding: 10px 0;
         }
 
-        .intro-text {
-            font-size: 13px;
-            color: #555555;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .section-box {
-            background-color: #f9f9f9;
-            border-left: 4px solid #1976d2;
-            padding: 10px;
-            margin-bottom: 12px;
-            border-radius: 0 8px 8px 0;
+        .ig-actions {
             display: flex;
             align-items: center;
-            gap: 10px;
+            padding: 5px 0;
         }
 
-        .player-details {
-            flex-grow: 1;
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 28px;
+            cursor: pointer;
+            font-size: 22px;
+            color: #222;
         }
 
-        .player-name {
+        .action-item span {
+            font-size: 13px;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .bookmark {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .liked {
+            color: #ed4956;
+        }
+
+        .comment-input-container {
+            display: flex;
+            background: #fafafa;
+            border: 1px solid #dddddd;
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin-top: 12px;
+        }
+
+        .comment-input-container input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .comment-input-container button {
+            border: none;
+            background: transparent;
+            color: #0095f6;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .comments-display {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .single-comment {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* ARTICLE */
+
+        p {
+            color: #333;
+            line-height: 1.9;
+            font-size: 17px;
+            margin: 0 0 20px 0;
+        }
+
+        .record-box {
+            background: #f9f9f9;
+            border-left: 4px solid #1976d2;
+            padding: 14px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .record-box h2 {
             color: #1976d2;
-            font-size: 15px;
-            margin: 0 0 4px 0;
+            font-size: 20px;
+            margin: 0 0 8px 0;
         }
 
-        .record-list {
-            list-style-type: none;
-            padding-left: 0;
+        .record-box ul {
             margin: 0;
+            padding-left: 20px;
         }
 
-        .record-list li {
-            font-size: 12px;
-            color: #333333;
-            line-height: 1.4;
-            margin-bottom: 2px;
+        .record-box li {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 5px;
         }
 
         .team-box {
             border-left-color: #e65100;
-            display: block;
         }
 
-        .team-title {
+        .team-box h2 {
             color: #e65100;
         }
 
-        .footer-call {
-            background-color: #f1f3f4;
-            text-align: center;
-            padding: 12px;
-            font-size: 12px;
-            color: #444444;
-            font-weight: bold;
-            border-top: 1px solid #e0e0e0;
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
         }
 
-        .hashtags {
-            color: #1976d2;
-            font-size: 11px;
-            margin-top: 6px;
+        .highlight-box strong {
+            color: #e65100;
+        }
+
+        .latest-title {
+            font-size: 21px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 8px;
+        }
+
+        #home-posts {
+            width: 100%;
+        }
+
+        #home-posts .news-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+
+        #home-posts .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        #home-posts .news-item h3 {
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0 0 5px 0;
+        }
+
+        @media (max-width: 600px) {
+
+            .article-container {
+                padding: 14px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .action-item {
+                margin-right: 22px;
+                font-size: 21px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .record-box h2 {
+                font-size: 18px;
+            }
+
+            .record-box li {
+                font-size: 15px;
+            }
+
+            #home-posts .news-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            #home-posts .news-item h3 {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="media-card">
-        <!-- Brand Header -->
-        <div class="brand-header">
-            SURESH 360 MEDIA
+<div class="article-container">
+
+    <div>
+        <span class="tag">క్రీడలు & క్రికెట్</span>
+    </div>
+
+    <h1>
+        💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!
+    </h1>
+
+    <div class="ig-card">
+
+        <div class="ig-actions">
+
+            <div class="action-item" onclick="toggleLike()">
+                <span id="likeIcon">♡</span>
+                <span id="likeCount">0</span>
+            </div>
+
+            <div class="action-item" onclick="focusComment()">
+                <span>💬</span>
+                <span id="commentCount">0</span>
+            </div>
+
+            <div class="action-item" onclick="sharePost()">
+                <span>➤</span>
+                <span id="shareCount">0</span>
+            </div>
+
+            <div class="action-item bookmark">
+                <span>🔖</span>
+            </div>
+
         </div>
 
-        <div class="content-body">
-            <h2 class="article-title">💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!</h2>
-            
-            <p class="intro-text">
-                అంతర్జాతీయ వన్డే క్రికెట్ (Mens ODI) చరిత్రలో ఎప్పటికీ గుర్తుండిపోయేలా కొంతమంది ఆటగాళ్లు మరియు జట్లు నెలకొల్పిన అత్యుత్తమ రికార్డులు ఇవే!
-            </p>
+        <div class="comment-input-container">
+            <input
+                type="text"
+                id="commentInput"
+                placeholder="మీ అభిప్రాయాన్ని రాయండి..."
+            >
 
-            <!-- Main Image (Small Fixed Size) -->
-            <div style="text-align: center; margin-bottom: 15px;">
-                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=500" alt="Cricket Match" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px;">
-            </div>
-<div class="action-bar-wrapper">
-    <!-- Top Action Buttons -->
-    <div class="top-actions">
-        <button class="action-btn">
-            <span class="icon">❤️</span>
-            <span class="count">0</span>
-        </button>
+            <button onclick="addComment()">
+                పోస్ట్ చేయండి
+            </button>
+        </div>
 
-        <button class="action-btn">
-            <span class="icon">💬</span>
-            <span class="count">0</span>
-        </button>
+        <div id="commentsList" class="comments-display"></div>
 
-        <button class="action-btn copy-btn">
-            <span class="icon">🔗</span>
-            <span>Copy link</span>
-        </button>
     </div>
 
-    <!-- Comment Input Box Area -->
-    <div class="comment-box-area">
-        <input type="text" class="comment-input" placeholder="మీ కామెంట్‌ను ఇక్కడ రాయండి">
-        <button class="submit-comment-btn">Comment</button>
+
+    <p>
+        అంతర్జాతీయ వన్డే క్రికెట్ చరిత్ర అనేది ఎన్నో అద్భుతమైన రికార్డులకు
+        వేదికగా నిలిచింది. వేలాది మ్యాచ్‌లు, వందలాది మంది ఆటగాళ్లు, ఎన్నో
+        చిరస్మరణీయ ఇన్నింగ్స్‌లు ఈ ఫార్మాట్‌ను ప్రత్యేకంగా నిలబెట్టాయి.
+        ముఖ్యంగా భారత క్రికెట్ అభిమానులు ఎప్పటికీ మర్చిపోలేని విధంగా
+        కొంతమంది భారత ఆటగాళ్లు తమ పేర్లపై అద్భుతమైన రికార్డులను
+        నమోదు చేశారు. కొన్ని రికార్డులు భవిష్యత్తులో కూడా చాలా కాలం
+        పాటు చెరిగిపోకుండా ఉండే అవకాశాలు కనిపిస్తున్నాయి.
+    </p>
+
+    <p>
+        వన్డే క్రికెట్‌లో వ్యక్తిగత స్కోరు విషయానికి వస్తే రోహిత్ శర్మ
+        సాధించిన 264 పరుగుల ఇన్నింగ్స్ ప్రత్యేకమైనది. భారీ స్కోర్లు
+        సాధించే సామర్థ్యం ఉన్న రోహిత్, తన రోజున ఎంతటి విధ్వంసకర
+        బ్యాటింగ్ చేయగలడో ఈ ఇన్నింగ్స్ ద్వారా చూపించాడు. ఒకే వన్డేలో
+        264 పరుగులు చేయడం సాధారణ విషయం కాదు. అందుకే ఈ రికార్డు
+        వన్డే చరిత్రలో అత్యంత ప్రత్యేకమైన వ్యక్తిగత స్కోర్లలో ఒకటిగా
+        నిలిచిపోయింది.
+    </p>
+
+
+    <div class="record-box">
+
+        <h2>👑 రోహిత్ శర్మ (IND)</h2>
+
+        <ul>
+            <li>
+                <b>అత్యధిక వ్యక్తిగత స్కోరు:</b>
+                264 పరుగులు
+            </li>
+
+            <li>
+                <b>అత్యధిక డబుల్ సెంచరీలు:</b>
+                3
+            </li>
+        </ul>
+
     </div>
+
+
+    <p>
+        భారత బ్యాటింగ్‌కు మరో పెద్ద పేరు విరాట్ కోహ్లీ. పరుగుల వేటలో
+        తనకంటూ ప్రత్యేకమైన గుర్తింపు తెచ్చుకున్న కోహ్లీ, వన్డే క్రికెట్‌లో
+        ఎన్నో అద్భుతమైన సెంచరీలను నమోదు చేశాడు. ఒత్తిడిలో కూడా
+        మ్యాచ్‌ను గెలిపించే సామర్థ్యం, లక్ష్యాన్ని ఛేదించే సమయంలో
+        చూపించే స్థిరత్వం అతన్ని ప్రత్యేక ఆటగాడిగా నిలబెట్టాయి.
+        వన్డేల్లో అతని సెంచరీల సంఖ్య కూడా చాలా కాలం పాటు చర్చనీయాంశంగా
+        ఉండే రికార్డుల్లో ఒకటి.
+    </p>
+
+
+    <div class="record-box">
+
+        <h2>👑 విరాట్ కోహ్లీ (IND)</h2>
+
+        <ul>
+            <li>
+                <b>అత్యధిక సెంచరీలు:</b>
+                54
+            </li>
+        </ul>
+
+    </div>
+
+
+    <p>
+        భారత క్రికెట్ చరిత్రలో సచిన్ టెండూల్కర్ పేరు ప్రత్యేకంగా
+        చెప్పాల్సిన అవసరం లేదు. ఎన్నో సంవత్సరాల పాటు ప్రపంచ క్రికెట్‌లో
+        ఆధిపత్యం చూపించిన సచిన్, వన్డేల్లో భారీ సంఖ్యలో పరుగులు
+        సాధించాడు. అతని 18,426 వన్డే పరుగులు అతని స్థాయి, దీర్ఘకాలిక
+        కెరీర్ మరియు స్థిరమైన బ్యాటింగ్‌కు నిదర్శనం. ఒక ఆటగాడు
+        ఇంతటి భారీ పరుగుల సంఖ్యను సాధించడం క్రికెట్‌లోనే ఒక
+        గొప్ప ఘట్టంగా చెప్పవచ్చు.
+    </p>
+
+
+    <div class="record-box">
+
+        <h2>👑 సచిన్ టెండూల్కర్ (IND)</h2>
+
+        <ul>
+            <li>
+                <b>అత్యధిక పరుగులు:</b>
+                18,426
+            </li>
+        </ul>
+
+    </div>
+
+
+    <p>
+        బౌలింగ్ విభాగంలో శ్రీలంకకు చెందిన చమిందా వాస్ కూడా తనకంటూ
+        ప్రత్యేకమైన రికార్డును నమోదు చేశాడు. ఒక వన్డే మ్యాచ్‌లో
+        8 వికెట్లు తీసుకుని కేవలం 19 పరుగులు మాత్రమే ఇవ్వడం
+        అద్భుతమైన బౌలింగ్ ప్రదర్శనగా నిలిచింది. కొత్త బంతితో
+        వికెట్లు పడగొట్టడంలో చమిందా వాస్‌కు ఉన్న నైపుణ్యం ఈ
+        ప్రదర్శనలో స్పష్టంగా కనిపించింది.
+    </p>
+
+
+    <div class="record-box">
+
+        <h2>⚡ చమిందా వాస్ (SL)</h2>
+
+        <ul>
+            <li>
+                <b>బెస్ట్ బౌలింగ్ ఫిగర్స్:</b>
+                8/19
+            </li>
+        </ul>
+
+    </div>
+
+
+    <p>
+        శ్రీలంక క్రికెట్‌లో మరో దిగ్గజం ముత్తయ్య మురళీధరన్.
+        స్పిన్ బౌలింగ్‌లో తన ప్రత్యేక శైలితో ప్రపంచ బ్యాటర్లను
+        ఇబ్బంది పెట్టిన మురళీధరన్, వన్డే క్రికెట్‌లో భారీ సంఖ్యలో
+        వికెట్లు సాధించాడు. 534 వికెట్లతో అతని పేరు వన్డే క్రికెట్
+        చరిత్రలో అత్యంత విజయవంతమైన బౌలర్ల జాబితాలో నిలిచింది.
+        ఒకే బౌలర్ ఇంత పెద్ద సంఖ్యలో వికెట్లు సాధించడం అతని
+        స్థిరత్వాన్ని తెలియజేస్తుంది.
+    </p>
+
+
+    <div class="record-box">
+
+        <h2>⚡ ముత్తయ్య మురళీధరన్ (SL)</h2>
+
+        <ul>
+            <li>
+                <b>అత్యధిక వికెట్లు:</b>
+                534
+            </li>
+        </ul>
+
+    </div>
+
+
+    <p>
+        వ్యక్తిగత ఆటగాళ్ల రికార్డులతో పాటు జట్ల రికార్డులు కూడా
+        వన్డే క్రికెట్‌లో ఎంతో ఆసక్తికరంగా ఉంటాయి. ఒక జట్టు
+        భారీ స్కోరు సాధించినప్పుడు ఆ మ్యాచ్ క్రికెట్ అభిమానుల
+        జ్ఞాపకాల్లో నిలిచిపోతుంది. అదే విధంగా ఒక జట్టు చాలా తక్కువ
+        పరుగులకే ఆలౌట్ అయితే అది కూడా రికార్డు పుస్తకాల్లో
+        చేరుతుంది. వన్డే క్రికెట్‌లో ఇలాంటి రికార్డులు మ్యాచ్
+        పరిస్థితులు ఎంత వేగంగా మారగలవో చూపిస్తాయి.
+    </p>
+
+
+    <div class="record-box team-box">
+
+        <h2>🏆 జట్ల రికార్డులు</h2>
+
+        <ul>
+            <li>
+                <b>అత్యధిక టీమ్ స్కోర్:</b>
+                ఇంగ్లండ్ — 498/4
+                (నెదర్లాండ్స్‌పై)
+            </li>
+
+            <li>
+                <b>అత్యల్ప టీమ్ స్కోర్:</b>
+                జింబాబ్వే — 35 పరుగులు
+                (శ్రీలంకపై)
+            </li>
+        </ul>
+
+    </div>
+
+
+    <div class="highlight-box">
+
+        <strong>🔥 ముఖ్యమైన విషయం:</strong>
+
+        <p style="margin:8px 0 0 0;">
+            వన్డే క్రికెట్‌లో కొన్ని రికార్డులు కాలంతో పాటు
+            మారవచ్చు. కానీ ఒక ఆటగాడు లేదా జట్టు సాధించిన
+            అసాధారణ ప్రదర్శనలు మాత్రం క్రికెట్ అభిమానుల
+            జ్ఞాపకాల్లో ఎప్పటికీ నిలిచిపోతాయి. రోహిత్ శర్మ
+            264 పరుగులు, సచిన్ భారీ పరుగుల రికార్డు,
+            మురళీధరన్ వికెట్లు, చమిందా వాస్ బౌలింగ్ ప్రదర్శన
+            వంటి రికార్డులు వన్డే క్రికెట్ ప్రత్యేకతను
+            తెలియజేస్తాయి.
+        </p>
+
+    </div>
+
+
+    <p>
+        మొత్తంగా చూస్తే వన్డే క్రికెట్ చరిత్ర అనేది కేవలం
+        పరుగులు, వికెట్లు, విజయాల గురించి మాత్రమే కాదు.
+        ఎన్నో తరాల ఆటగాళ్లు తమ ప్రతిభతో సృష్టించిన
+        చిరస్మరణీయ క్షణాల సమాహారం. రోహిత్ శర్మ, విరాట్ కోహ్లీ,
+        సచిన్ టెండూల్కర్, చమిందా వాస్, ముత్తయ్య మురళీధరన్
+        వంటి దిగ్గజాలు తమ ప్రదర్శనలతో ఈ ఫార్మాట్‌కు
+        ప్రత్యేక గుర్తింపు తీసుకొచ్చారు.
+    </p>
+
+    <p>
+        భవిష్యత్తులో కొత్త ఆటగాళ్లు ఈ రికార్డులను అధిగమించే
+        అవకాశం ఉన్నప్పటికీ, ప్రస్తుత రికార్డులు క్రికెట్
+        చరిత్రలో ప్రత్యేకమైన స్థానాన్ని కలిగి ఉంటాయి.
+        ముఖ్యంగా 5000 వన్డేల ప్రయాణంలో ఇలాంటి ఎన్నో
+        అద్భుతమైన రికార్డులు నమోదయ్యాయి. అందుకే వన్డే
+        క్రికెట్‌ను ప్రపంచవ్యాప్తంగా కోట్లాది మంది అభిమానులు
+        ఇప్పటికీ ఎంతో ఆసక్తిగా చూస్తున్నారు.
+    </p>
+
+
+    <h2 class="latest-title">
+        📰 తాజా పోస్టులు
+    </h2>
+
+    <div id="home-posts">
+        Latest posts loading...
+    </div>
+
 </div>
 
-            <!-- Rohit Sharma -->
-            <div class="section-box">
-                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=150" alt="Rohit Sharma" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #1976d2;">
-                <div class="player-details">
-                    <h3 class="player-name">👑 రోహిత్ శర్మ (IND)</h3>
-                    <ul class="record-list">
-                        <li><b>అత్యధిక వ్యక్తిగత స్కోరు:</b> 264 పరుగులు</li>
-                        <li><b>అత్యధిక డబుల్ సెంచరీలు:</b> 3</li>
-                    </ul>
-                </div>
-            </div>
 
-            <!-- Virat Kohli -->
-            <div class="section-box">
-                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=150" alt="Virat Kohli" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #1976d2;">
-                <div class="player-details">
-                    <h3 class="player-name">👑 విరాట్ కోహ్లీ (IND)</h3>
-                    <ul class="record-list">
-                        <li><b>అత్యధిక సెంచరీలు:</b> 54</li>
-                    </ul>
-                </div>
-            </div>
+<script>
 
-            <!-- Sachin Tendulkar -->
-            <div class="section-box">
-                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=150" alt="Sachin Tendulkar" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #1976d2;">
-                <div class="player-details">
-                    <h3 class="player-name">👑 సచిన్ టెండూల్కర్ (IND)</h3>
-                    <ul class="record-list">
-                        <li><b>అత్యధిక పరుగులు:</b> 18,426</li>
-                    </ul>
-                </div>
-            </div>
+let liked = false;
+let likeCount = 0;
+let shareCount = 0;
+let comments = [];
 
-            <!-- Chaminda Vaas -->
-            <div class="section-box">
-                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=150" alt="Chaminda Vaas" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #1976d2;">
-                <div class="player-details">
-                    <h3 class="player-name">⚡ చమిందా వాస్ (SL)</h3>
-                    <ul class="record-list">
-                        <li><b>బెస్ట్ బౌలింగ్ ఫిగర్స్:</b> 8/19</li>
-                    </ul>
-                </div>
-            </div>
 
-            <!-- Muralitharan -->
-            <div class="section-box">
-                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=150" alt="Muralitharan" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #1976d2;">
-                <div class="player-details">
-                    <h3 class="player-name">⚡ ముత్తయ్య మురళీధరన్ (SL)</h3>
-                    <ul class="record-list">
-                        <li><b>అత్యధిక వికెట్లు:</b> 534</li>
-                    </ul>
-                </div>
-            </div>
+function toggleLike() {
 
-            <!-- Team Records -->
-            <div class="section-box team-box">
-                <h3 class="player-name team-title">🏆 జట్ల రికార్డులు (Team Records)</h3>
-                <ul class="record-list">
-                    <li><b>అత్యధిక టీమ్ స్కోర్:</b> ఇంగ్లండ్ — 498/4 (vs నెదర్లాండ్స్)</li>
-                    <li><b>అత్యల్ప టీమ్ స్కోర్:</b> జింబాబ్వే — 35 పరుగులు (vs శ్రీంక)</li>
-                </ul>
-            </div>
-        </div>
+    if (!liked) {
 
-        <!-- Footer -->
-        <div class="footer-call">
-            💬 ఈ రికార్డులలో మీ ఫేవరెట్ రికార్డ్ ఏంటో కామెంట్ చేయండి!<br>
-            <div class="hashtags">#Suresh360Media #CricketRecords #RohitSharma #ViratKohli #TeamIndia</div>
-        </div>
-    </div>
+        liked = true;
+        likeCount++;
+
+        document.getElementById("likeIcon").innerText = "♥";
+        document.getElementById("likeIcon").classList.add("liked");
+
+    } else {
+
+        liked = false;
+        likeCount--;
+
+        document.getElementById("likeIcon").innerText = "♡";
+        document.getElementById("likeIcon").classList.remove("liked");
+    }
+
+    document.getElementById("likeCount").innerText = likeCount;
+}
+
+
+function focusComment() {
+
+    document.getElementById("commentInput").focus();
+
+}
+
+
+function addComment() {
+
+    const input = document.getElementById("commentInput");
+
+    const text = input.value.trim();
+
+    if (text === "") {
+        return;
+    }
+
+    comments.push(text);
+
+    input.value = "";
+
+    document.getElementById("commentCount").innerText =
+        comments.length;
+
+    const commentsList =
+        document.getElementById("commentsList");
+
+    const div = document.createElement("div");
+
+    div.className = "single-comment";
+
+    div.innerText = text;
+
+    commentsList.appendChild(div);
+}
+
+
+function sharePost() {
+
+    shareCount++;
+
+    document.getElementById("shareCount").innerText =
+        shareCount;
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: document.title,
+            text: "ఈ క్రికెట్ రికార్డుల కథనాన్ని చూడండి"
+        });
+
+    } else {
+
+        alert("షేర్ ఆప్షన్ మీ బ్రౌజర్‌లో అందుబాటులో లేదు.");
+
+    }
+}
+
+</script>
+
 
 </body>
 </html>
