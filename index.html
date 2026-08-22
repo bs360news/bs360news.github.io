@@ -356,7 +356,7 @@
 
     .card-body,
     .news-content{
-      padding:12px 0 !important;
+      padding:0 !important;
     }
 
     .tag{
@@ -401,7 +401,9 @@
 
     .share-row{
       display:flex;
-      gap:8px
+      gap:8px;
+      margin-top:8px;
+      clear:both;
     }
 
     .share-row button{
@@ -470,29 +472,38 @@
       gap:20px
     }
 
+    /* Text wrapping layout around image */
     .news-item{
-      display:grid;
-      grid-template-columns:140px 1fr;
-      gap:12px;
+      display:block !important;
       border-bottom:1px solid #e5e7eb !important;
       padding-bottom:15px !important;
       margin-bottom:15px !important;
       border-radius:0 !important;
-      align-items:start;
+    }
+
+    .news-item::after{
+      content: "";
+      display: table;
+      clear: both;
     }
 
     .news-item img{
-      width:100%;
-      height:110px;
-      object-fit:cover;
-      border-radius:6px;
+      float: left;
+      width: 110px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-right: 12px;
+      margin-bottom: 6px;
     }
 
     .news-content{
-      padding:0 !important;
+      display: block;
     }
 
-    .news-item h3{cursor:pointer}
+    .news-item h3{
+      cursor:pointer;
+    }
 
     .category-grid{
       grid-template-columns:repeat(4,1fr)
@@ -504,7 +515,10 @@
     }
 
     .category-grid .news-item img{
-      height:170px
+      float: none;
+      width: 100%;
+      height:170px;
+      margin-right: 0;
     }
 
     .site-footer{
@@ -703,19 +717,9 @@
         grid-template-columns:1fr
       }
 
-      .news-item{
-        grid-template-columns:110px 1fr;
-        gap:10px;
-        padding-bottom:15px !important;
-        margin-bottom:15px !important;
-      }
-
       .news-item img{
-        height:90px;
-      }
-
-      .news-content{
-        padding:0 !important;
+        width: 100px;
+        height: 85px;
       }
 
       .news-item h3{
@@ -731,7 +735,10 @@
       }
 
       .category-grid .news-item img{
-        height:190px
+        float: none;
+        width: 100%;
+        height:190px;
+        margin-right:0;
       }
 
       .footer-inner{
