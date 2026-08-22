@@ -1,1158 +1,206 @@
 /* =====================================================
-   BASE RESET & FONTS
+   BS360 NEWS - CLEAN / ADS FRIENDLY FINAL OVERRIDES
 ===================================================== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
+/* PAGE */
 body {
-    font-family: "Noto Sans Telugu", "Nirmala UI", "Segoe UI", Arial, sans-serif;
-    background: #f4f6f8;
+    background: #f6f7f9;
     color: #171717;
-    transition: background 0.3s, color 0.3s;
-    width: 100%;
-    overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-.container {
-    max-width: 1250px;
-    margin: auto;
-    padding: 0 15px;
-}
-
-/* =====================================================
-   TOP BAR (BREAKING TICKER)
-===================================================== */
-.top-bar {
-    background: #e60000;
-    color: #fff;
-    font-size: 13px;
-    padding: 4px 0;
-}
-
-.top-bar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.top-left {
-    display: flex;
-    align-items: center;
-    width: 90%;
-    overflow: hidden;
-}
-
-.breaking-tag {
-    background: #000;
-    color: #fff;
-    padding: 4px 10px;
-    font-weight: 900;
-    white-space: nowrap;
-    margin-right: 10px;
-    border-radius: 2px;
-}
-
-.ticker-text {
-    font-weight: 600;
-}
-
-.top-controls {
-    display: flex;
-    gap: 4px;
-}
-
-.nav-arrow {
-    background: rgba(0, 0, 0, 0.2);
-    border: none;
-    color: #fff;
-    padding: 2px 8px;
-    cursor: pointer;
-    border-radius: 2px;
-}
-
-
-/* =====================================================
-   BS 360 NEWS PULSE - LIKE / COMMENT / SHARE
-===================================================== */
-
-.bs-news-pulse {
-    margin: 28px 0;
-    font-family: Arial, sans-serif;
-}
-
-/* MAIN ACTION BAR */
-
-.pulse-actions {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background: linear-gradient(135deg, #fff, #f8fbff);
-    border: 1px solid #e4e8ef;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
-}
-
-.pulse-action {
-    position: relative;
-    min-height: 105px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    border-right: 1px solid #e5e5e5;
-    transition: .25s;
-}
-
-.pulse-action:last-child {
-    border-right: none;
-}
-
-.pulse-action:hover {
-    background: #f5f8ff;
-    transform: translateY(-2px);
-}
-
-.pulse-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    margin-bottom: 4px;
-}
-
-.like-action .pulse-icon {
-    background: #fff0f2;
-    color: #ed1c24;
-}
-
-.comment-action .pulse-icon {
-    background: #f0eaff;
-}
-
-.share-action .pulse-icon {
-    background: #eaf5ff;
-    color: #1261a0;
-}
-
-.save-action .pulse-icon {
-    background: #fff5e8;
-    color: #ed8500;
-}
-
-.pulse-number {
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.pulse-action strong {
-    font-size: 18px;
-}
-
-.pulse-action small {
-    color: #777;
-    font-size: 12px;
-}
-
-
-/* LIKE ACTIVE */
-
-#bsLikeBtn.bs-liked .pulse-icon {
-    background: #ed1c24;
-    color: white;
-    animation: bsHeartPulse .45s ease;
-}
-
-#bsLikeBtn.bs-liked {
-    color: #ed1c24;
-}
-
-@keyframes bsHeartPulse {
-
-    0% {
-        transform: scale(.7);
-    }
-
-    60% {
-        transform: scale(1.25);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
-}
-
-
-/* COMMENT WRITE */
-
-.bs-comment-write {
-    margin-top: 14px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: white;
-    border: 1px solid #e2e2e2;
-    border-radius: 16px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.06);
-}
-
-.bs-user-logo {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg,#111,#e60000);
-    color: white;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    line-height: 16px;
-}
-
-.bs-user-logo small {
-    color: #ffd500;
-    font-size: 10px;
-}
-
-.bs-comment-write input {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    padding: 13px;
-    background: #f7f7f7;
-    border-radius: 25px;
-}
-
-.bs-comment-write button {
-    border: none;
-    background: #e60000;
-    color: white;
-    padding: 13px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.bs-comment-write button:hover {
-    background: #c90000;
-}
-
-
-/* COMMENTS */
-
-.bs-comments {
-    margin-top: 15px;
-    padding: 18px;
-    background: white;
-    border: 1px solid #e5e5e5;
-    border-radius: 16px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.05);
-}
-
-.bs-comments-title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.bs-comments-title span {
-    font-size: 10px;
-    color: #e60000;
-    border: 1px solid #ffb5b5;
-    padding: 4px 7px;
-    border-radius: 10px;
-    margin-left: 8px;
-}
-
-
-/* COMMENT CARD */
-
-.bs-comment-card {
-    padding: 13px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    margin-top: 10px;
-    background: #fff;
-}
-
-.bs-comment-head {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
-
-.bs-avatar {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #d71920;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-.bs-comment-name {
-    font-weight: bold;
-}
-
-.bs-comment-time {
-    color: #999;
-    font-size: 11px;
-}
-
-.bs-comment-text {
-    margin: 8px 0 5px 47px;
-    color: #333;
-    line-height: 1.6;
-}
-
-.bs-comment-like {
-    margin-left: 47px;
-    border: none;
-    background: transparent;
-    color: #777;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-
-/* MOBILE */
-
-@media(max-width:600px) {
-
-    .pulse-actions {
-        grid-template-columns: repeat(4, 1fr);
-        border-radius: 13px;
-    }
-
-    .pulse-action {
-        min-height: 88px;
-    }
-
-    .pulse-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 19px;
-    }
-
-    .pulse-number {
-        font-size: 15px;
-    }
-
-    .pulse-action strong {
-        font-size: 13px;
-    }
-
-    .pulse-action small {
-        font-size: 9px;
-    }
-
-    .bs-comment-write {
-        padding: 8px;
-        gap: 7px;
-    }
-
-    .bs-user-logo {
-        width: 38px;
-        height: 38px;
-        min-width: 38px;
-    }
-
-    .bs-comment-write input {
-        font-size: 12px;
-        padding: 10px;
-    }
-
-    .bs-comment-write button {
-        padding: 10px 11px;
-        font-size: 11px;
-    }
-
-    .bs-comments {
-        padding: 12px;
-    }
-
-}
-
-
-/* =====================================================
-   MAIN BRAND HEADER
-===================================================== */
-
-.brand-header {
-    background: #fff;
-    padding: 15px 0;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.brand-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-/* LOGO STYLES */
-
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-mark {
-    width: 55px;
-    height: 55px;
-    border-radius: 8px;
-    background: #e60000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    font-size: 13px;
-    line-height: 1;
-    box-shadow: 0 2px 6px rgba(230, 0, 0, 0.3);
-}
-
-.logo-name {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-black {
-    font-size: 28px;
-    font-weight: 900;
-    color: #000;
-    line-height: 1;
-}
-
-.logo-red {
-    font-size: 28px;
-    font-weight: 900;
-    color: #e60000;
-    line-height: 1;
-}
-
-.logo-tagline {
-    font-size: 11px;
-    color: #666;
-    font-weight: 600;
-    margin-top: 4px;
-}
-
-
-/* HEADER SEARCH */
-
-.header-search {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 4px 12px;
-    background: #f9f9f9;
-}
-
-.header-search input {
-    border: none;
-    background: transparent;
-    outline: none;
-    padding: 6px;
-    width: 220px;
-    font-size: 14px;
-}
-
-.header-search button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-
-/* HEADER ACTIONS */
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.date-time-box {
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    font-weight: 700;
-    color: #333;
-    text-align: right;
-}
-
-.theme-button {
-    background: #111;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.live-button {
-    background: #e60000;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    box-shadow: 0 2px 8px rgba(230, 0, 0, 0.4);
-}
-
-.live-dot {
-    width: 8px;
-    height: 8px;
-    background: #fff;
-    border-radius: 50%;
-    display: inline-block;
-    animation: pulse 1s infinite alternate;
-}
-
-@keyframes pulse {
-    0% { opacity: 0.3; }
-    100% { opacity: 1; }
-}
-
-
-/* Mobile Toggle */
-
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.mobile-menu-toggle span {
-    width: 24px;
-    height: 3px;
-    background: #000;
-    border-radius: 2px;
-}
-
-
-/* =====================================================
-   MAIN NAVIGATION & SUB-BARS
-===================================================== */
-
-.main-nav {
-    background: #fff;
-    border-top: 1px solid #eee;
-    border-bottom: 2px solid #e60000;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.lang-selector {
-    font-size: 13px;
-    font-weight: 700;
-    color: #666;
-    padding-right: 15px;
-}
-
-.lang-selector a.active {
-    color: #e60000;
-    border-bottom: 2px solid #e60000;
-}
-
-.nav-links {
-    display: flex;
-    white-space: nowrap;
-    overflow-x: auto;
-}
-
-.nav-links a {
-    display: block;
-    padding: 12px 16px;
-    font-weight: 800;
-    font-size: 14px;
-    color: #333;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #e60000;
-    background: #fff5f5;
-}
-
-
-/* Live Ticker Bar */
-
-.live-ticker-bar {
-    background: #fff0f0;
-    padding: 8px 0;
-    font-size: 13px;
-    border-bottom: 1px solid #ffd6d6;
-}
-
-.live-tag {
-    background: #e60000;
-    color: #fff;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 11px;
-    margin-right: 8px;
-}
-
-
-/* Headlines Bar */
-
-.headlines-bar {
-    background: #111;
-    color: #fff;
-    padding: 6px 0;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-}
-
-.headlines-label {
-    background: #e60000;
-    padding: 4px 10px;
-    font-weight: bold;
-    margin-right: 10px;
-    white-space: nowrap;
-}
-
-
-/* =====================================================
-   MAIN CONTENT & CARDS
-===================================================== */
-
-.main-container {
-    padding-top: 20px;
-    padding-bottom: 40px;
-}
-
-.ad {
-    margin: 15px 0;
-    background: #fff;
-    border: 1px dashed #ccc;
-    height: 90px;
-    display: grid;
-    place-items: center;
-    color: #888;
-    font-size: 12px;
-}
-
-.search-section {
-    margin-bottom: 20px;
-}
-
-.search-box {
-    display: flex;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.search-box input {
-    flex: 1;
-    border: none;
-    padding: 12px;
-    font-size: 14px;
-    outline: none;
-}
-
-.search-box button {
-    background: #e60000;
-    color: #fff;
-    border: none;
-    padding: 0 20px;
-    cursor: pointer;
-}
-
-.section-heading {
-    border-left: 5px solid #e60000;
-    padding-left: 10px;
-    margin: 25px 0 15px;
-}
-
-.section-heading h2 {
-    font-size: 20px;
-    font-weight: 800;
-}
-
-
-/* GRID LAYOUTS */
-
-.top-featured-grid,
-.featured-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-}
-
+/* MAIN CARDS - NO BIG BOX EFFECT */
 .card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.hero img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 15px;
-}
-
-.hero h1 {
-    font-size: 22px;
-    margin: 8px 0;
-    line-height: 1.4;
-}
-
-.summary {
-    color: #555;
-    font-size: 14px;
-    margin-top: 8px;
-    line-height: 1.6;
-}
-
-
-/* =====================================================
-   OPTIMIZED TAG STYLE
-===================================================== */
-
-.tag {
-    background-color: #e60000 !important;
-    color: #ffffff !important;
-    font-size: 11px !important;
-    font-weight: 800 !important;
-    padding: 3px 8px !important;
-    border-radius: 3px !important;
-    display: inline-block !important;
-    margin-bottom: 6px !important;
-    line-height: 1.2 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-}
-
-
-/* =====================================================
-   EENADU STYLE LAYOUT FOR BS 360 NEWS
-===================================================== */
-
-.news-list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.news-item.post {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 12px !important;
-    padding: 10px 0 !important;
-    border-bottom: 1px solid #e0e0e0 !important;
-    background-color: #ffffff;
-    transition: background-color 0.2s ease;
-}
-
-.news-item.post:hover {
-    background-color: #f9f9f9;
-}
-
-.news-item.post img {
-    width: 110px !important;
-    height: 75px !important;
-    object-fit: cover !important;
-    border-radius: 4px !important;
-    flex-shrink: 0 !important;
-    cursor: pointer;
-}
-
-.news-content {
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-}
-
-.news-content h3 {
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    color: #0066cc !important;
-    margin: 2px 0 4px 0 !important;
-    line-height: 1.35 !important;
-    cursor: pointer;
-}
-
-.news-content h3:hover {
-    color: #004499 !important;
-    text-decoration: underline !important;
-}
-
-.news-content .time-stamp {
-    font-size: 11px !important;
-    color: #666666 !important;
-    margin-top: 2px !important;
-}
-
-.news-content .share-row {
-    margin-top: 4px !important;
-}
-
-.news-content .share-row button {
-    background: none !important;
+    background: transparent !important;
     border: none !important;
-    color: #555 !important;
-    font-size: 12px !important;
-    cursor: pointer;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* FEATURED NEWS */
+.top-featured-grid .card {
+    background: #fff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+
+/* SECTION TITLE - NO BOX */
+.section-heading {
+    background: transparent !important;
+    border-left: 4px solid #e60000;
+    padding: 5px 0 5px 10px;
+    margin: 25px 0 12px;
+}
+
+/* NEWS LIST */
+.news-list {
+    background: transparent !important;
+}
+
+/* NEWS ITEMS - REMOVE BOX BACKGROUND */
+.news-item.post {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 12px 0 !important;
+}
+
+/* HOVER - VERY LIGHT */
+.news-item.post:hover {
+    background: #fafafa !important;
+}
+
+/* NEWS IMAGE */
+.news-item.post img {
+    border-radius: 5px !important;
+}
+
+/* NEWS CONTENT */
+.news-content {
+    background: transparent !important;
+}
+
+/* SUMMARY */
+.summary {
+    background: transparent !important;
+}
+
+/* SHARE BUTTON */
+.news-content .share-row button {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* LIVE BOX */
+.live-box {
+    border-radius: 6px !important;
+    box-shadow: none !important;
+}
+
+/* ADVERTISEMENT SPACE */
+.ad-side {
+    background: #fafafa !important;
+    border: 1px dashed #d5d5d5 !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+}
+
+/* =====================================================
+   LIKE / COMMENT / SHARE AREA
+===================================================== */
+
+/* MAIN ACTION BAR - REMOVE HEAVY BOX */
+.pulse-actions {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     padding: 0 !important;
 }
 
-
-/* LIVE BOX */
-
-.live-box {
-    background: #000;
-    color: #fff;
-    border-radius: 6px;
-    overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+/* ACTION BUTTONS */
+.pulse-action {
+    background: transparent !important;
+    border-right: 1px solid #e5e7eb !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
-.live-title {
-    background: #e60000;
-    padding: 10px;
-    font-weight: 900;
+/* NO BIG HOVER BOX */
+.pulse-action:hover {
+    background: #fafafa !important;
+    transform: none !important;
 }
 
-.live-screen {
-    flex: 1;
-    background: #1a1a1a;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 20px;
+/* COMMENT INPUT */
+.bs-comment-write {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 8px 0 !important;
 }
 
-.live-logo {
-    background: #e60000;
-    display: inline-block;
-    padding: 4px 8px;
-    font-weight: bold;
-    border-radius: 4px;
-    margin-bottom: 8px;
+/* COMMENT INPUT FIELD */
+.bs-comment-write input {
+    background: #f5f6f7 !important;
+    border: 1px solid #e2e5e8 !important;
+    box-shadow: none !important;
 }
 
-.live-controls {
-    padding: 10px;
-    background: #111;
-    font-size: 12px;
-    color: #aaa;
-    text-align: center;
+/* COMMENTS SECTION */
+.bs-comments {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 10px 0 !important;
 }
 
-.ad-side {
-    margin-top: 15px;
-    height: 150px;
-    background: #fff;
-    border: 1px dashed #ccc;
-    display: grid;
-    place-items: center;
-    color: #aaa;
+/* INDIVIDUAL COMMENT */
+.bs-comment-card {
+    background: #fff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
 }
-
 
 /* =====================================================
-   DARK MODE OVERRIDES
+   ABOUT SECTION
+===================================================== */
+
+main > section.card[style] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* =====================================================
+   DARK MODE
 ===================================================== */
 
 body.dark-mode {
     background: #121212;
-    color: #f0f0f0;
 }
 
-body.dark-mode .brand-header,
-body.dark-mode .main-nav,
 body.dark-mode .card,
-body.dark-mode .search-box {
-    background: #1e1e1e;
-    color: #fff;
-    border-color: #333;
+body.dark-mode .news-item.post,
+body.dark-mode .bs-comment-write,
+body.dark-mode .bs-comments {
+    background: transparent !important;
+    border-color: #303030 !important;
+    box-shadow: none !important;
 }
 
-body.dark-mode .news-item.post {
-    background-color: #121212 !important;
-    border-bottom-color: #2c2c2c !important;
+body.dark-mode .news-item.post:hover {
+    background: #181818 !important;
 }
 
-body.dark-mode .news-content h3 {
-    color: #4da6ff !important;
+body.dark-mode .bs-comment-card {
+    background: #1e1e1e !important;
+    border-color: #333 !important;
 }
-
-body.dark-mode .news-content .time-stamp {
-    color: #aaa !important;
-}
-
-body.dark-mode .nav-links a {
-    color: #ccc;
-}
-
-body.dark-mode .logo-black {
-    color: #fff;
-}
-
 
 /* =====================================================
-   FOOTER STYLES
+   MOBILE
 ===================================================== */
 
-.site-footer {
-    background: #111;
-    color: #aaa;
-    margin-top: 40px;
-}
+@media (max-width: 600px) {
 
-.footer-inner {
-    padding: 40px 15px;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 30px;
-}
-
-.footer-column h3 {
-    color: #fff;
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: #aaa;
-    line-height: 2;
-}
-
-.copyright {
-    border-top: 1px solid #222;
-    text-align: center;
-    padding: 15px;
-    font-size: 12px;
-    background: #0a0a0a;
-}
-
-
-/* =====================================================
-   RESPONSIVE DESIGN
-===================================================== */
-
-@media (max-width: 992px) {
-
-    .header-search,
-    .date-time-box {
-        display: none;
+    .news-item.post {
+        padding: 10px 0 !important;
     }
 
-    .featured-grid,
-    .top-featured-grid {
-        grid-template-columns: 1fr;
+    .section-heading {
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
 
-    .mobile-menu-toggle {
-        display: flex;
+    .top-featured-grid .card {
+        border-radius: 6px !important;
     }
 
-}
-
-@media (max-width: 576px) {
-
-    .hero img {
-        height: 200px;
-    }
-
-    .footer-inner {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-@media (max-width: 480px) {
-
-    .news-item.post img {
-        width: 95px !important;
-        height: 68px !important;
-    }
-
-    .news-content h3 {
-        font-size: 14px !important;
-    }
-
-}
-.save-action.bs-saved .pulse-icon {
-    background: #e60000 !important;
-    color: #fff !important;
-}
-
-.save-action.bs-saved {
-    color: #e60000 !important;
-}
-
-#bsLikeBtn.bs-liked .pulse-icon {
-    background: #e60000 !important;
-    color: #fff !important;
-}
-
-#bsLikeBtn {
-    transition: transform 0.18s ease;
-}
-
-
-/* =====================================================
-   NEW COMPACT & MODERN DESIGN OVERRIDES (ADDED BELOW)
-===================================================== */
-
-/* 1. Main Action Bar - App Style Container */
-.pulse-actions {
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
-    padding: 6px !important;
-}
-
-/* 2. Compact Action Buttons */
-.pulse-action {
-    min-height: 58px !important;
-    border-right: 1px solid #f1f5f9 !important;
-    border-radius: 10px !important;
-    padding: 4px !important;
-    gap: 2px !important;
-}
-
-.pulse-action:hover {
-    background: #f8fafc !important;
-    transform: translateY(-1px) !important;
-}
-
-/* 3. Small Modern Icons */
-.pulse-icon {
-    width: 28px !important;
-    height: 28px !important;
-    font-size: 15px !important;
-    margin-bottom: 0px !important;
-}
-
-/* 4. Numbers & Labels Styling */
-.pulse-number {
-    font-size: 13px !important;
-    font-weight: 700 !important;
-}
-
-.pulse-action strong {
-    font-size: 12px !important;
-    font-weight: 600 !important;
-}
-
-.pulse-action small {
-    font-size: 10px !important;
-}
-
-/* 5. Mobile Dynamic Scaling */
-@media(max-width: 600px) {
-    .pulse-actions {
-        border-radius: 12px !important;
-    }
-    
-    .pulse-action {
-        min-height: 52px !important;
-    }
-
-    .pulse-icon {
-        width: 24px !important;
-        height: 24px !important;
-        font-size: 13px !important;
-    }
-
-    .pulse-number {
-        font-size: 11px !important;
-    }
-
-    .pulse-action strong {
-        font-size: 10px !important;
-    }
-
-    .pulse-action small {
-        font-size: 8px !important;
-    }
-}
-
-/* 6. Modern Comment Section Adjustment */
-.bs-comment-write {
-    border-radius: 20px !important;
-    padding: 6px 10px !important;
-}
-
-.bs-user-logo {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    font-size: 12px !important;
-}
-
-.bs-comment-write input {
-    font-size: 13px !important;
-    padding: 8px 12px !important;
-}
-
-.bs-comment-write button {
-    padding: 8px 14px !important;
-    font-size: 12px !important;
-    border-radius: 18px !important;
 }
