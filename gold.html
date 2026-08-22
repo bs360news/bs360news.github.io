@@ -4,230 +4,323 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-    గోల్డ్ & సిల్వర్ రేట్ల భారీ పెంపు | BS Telugu News
+వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే? | BS Telugu News
 </title>
-
-<link rel="stylesheet" href="style.css">
 
 <style>
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    font-family:"Noto Sans Telugu","Segoe UI",Arial,sans-serif;
-    background:#f4f4f4;
-    padding:20px 10px;
+html {
+    width: 100%;
+    overflow-x: hidden;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    color: #222;
+}
 
-/* CARD */
+.article-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-.card{
-    background:#fff;
-    max-width:600px;
-    width:100%;
-    margin:0 auto;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
+.tag {
+    background-color: #cc0000;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+h1 {
+    color: #222;
+    font-size: 30px;
+    margin: 0 0 18px 0;
+    line-height: 1.4;
+    font-weight: 700;
 }
 
 
 /* IMAGE */
 
-.card > img{
-    width:100%;
-    height:auto;
-    display:block;
+.img-gallery {
+    width: 100%;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.img-gallery img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 
-/* CONTENT */
+/* ACTION BAR */
 
-.content{
-    padding:20px;
-    color:#333;
+.ig-card {
+    max-width: 100%;
+    margin: 15px 0 25px 0;
+    font-family: sans-serif;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    padding: 10px 0;
+}
+
+.ig-actions {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 28px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #222;
+}
+
+.action-item span {
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.bookmark {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.liked {
+    color: #ed4956;
 }
 
 
-/* BACK BUTTON */
+/* COMMENT */
 
-.back-btn{
-    display:inline-block;
-    margin-bottom:15px;
-    text-decoration:none;
-    color:#fff;
-    background:#e60000;
-    padding:8px 14px;
-    border-radius:5px;
-    font-weight:bold;
-    font-size:14px;
+.comment-input-container {
+    display: flex;
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 20px;
+    padding: 4px 12px;
+    margin-top: 12px;
 }
 
-.back-btn:hover{
-    background:#cc0000;
+.comment-input-container input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.comment-input-container button {
+    border: none;
+    background: transparent;
+    color: #0095f6;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.comments-display {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.single-comment {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 
-/* TITLE */
+/* ARTICLE */
 
-h2{
-    color:#111;
-    font-size:22px;
-    line-height:1.5;
-    margin-bottom:15px;
+p {
+    color: #333;
+    line-height: 1.9;
+    font-size: 17px;
+    margin: 0 0 20px 0;
+}
+
+.bold-text {
+    font-weight: bold;
+    color: #000;
 }
 
 
-/* PARAGRAPH */
+/* HIGHLIGHT */
 
-p{
-    line-height:1.8;
-    font-size:16px;
-    color:#444;
+.highlight-box {
+    background: #fff8e1;
+    border-left: 4px solid #ff9800;
+    padding: 15px;
+    margin: 22px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.highlight-box strong {
+    color: #e65100;
 }
 
 
-/* BOLD */
+/* PRICE BOX */
 
-.bold-text{
-    font-weight:bold;
-    color:#000;
+.price-box {
+    background: #f9f9f9;
+    border-left: 4px solid #1976d2;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.price-box h2 {
+    color: #1976d2;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.price-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.price-box li {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 4px;
 }
 
 
 /* NOTE */
 
-.note{
-    font-size:13px;
-    color:#e60000;
-    margin-top:15px;
-    font-weight:bold;
-    background:#fff0f0;
-    padding:10px 12px;
-    border-radius:4px;
-    border-left:4px solid #e60000;
+.note {
+    font-size: 14px;
+    color: #e60000;
+    background: #fff0f0;
+    padding: 12px;
+    border-left: 4px solid #e60000;
+    border-radius: 0 6px 6px 0;
+    font-weight: bold;
 }
 
 
-/* LATEST POSTS */
+/* LATEST */
 
-.latest-title{
-    max-width:900px;
-    margin:35px auto 20px;
-    padding:12px;
-    background:#e60000;
-    color:#fff;
-    border-radius:6px;
-    text-align:center;
-    font-size:22px;
+.latest-title {
+    font-size: 21px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 8px;
 }
 
 
 /* HOME POSTS */
 
-#home-posts{
-    max-width:900px;
-    margin:0 auto;
+#home-posts {
+    width: 100%;
 }
 
-#home-posts .news-list{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-    width:100%;
+#home-posts .news-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
 }
 
-#home-posts .news-item{
-    display:flex;
-    flex-direction:column;
-    padding:10px;
-    background:#fff;
-    border:1px solid #e5e5e5;
-    border-radius:6px;
-    height:100%;
+#home-posts .news-item {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    height: 100%;
 }
 
-#home-posts .news-item img{
-    width:100%;
-    height:110px;
-    object-fit:cover;
-    border-radius:4px;
-    display:block;
-    margin-bottom:8px;
+#home-posts .news-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 8px;
 }
 
-#home-posts .news-item h3{
-    font-size:13px;
-    line-height:1.35;
-    margin-bottom:4px;
-}
-
-#home-posts .read-btn{
-    color:#e60000;
-    font-size:11px;
-    font-weight:bold;
-}
-
-#home-posts .share-row button{
-    width:100%;
+#home-posts .news-item h3 {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 0 5px 0;
 }
 
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(max-width:1200px){
+@media (max-width: 600px) {
 
-    #home-posts .news-list{
-        grid-template-columns:repeat(4,1fr);
+    .article-container {
+        padding: 14px;
     }
 
-}
-
-@media(max-width:900px){
-
-    #home-posts .news-list{
-        grid-template-columns:repeat(3,1fr);
+    h1 {
+        font-size: 25px;
     }
 
-}
-
-@media(max-width:600px){
-
-    body{
-        padding:10px 5px;
+    .img-gallery img {
+        height: 140px;
     }
 
-    .card{
-        border-radius:8px;
+    .action-item {
+        margin-right: 22px;
+        font-size: 21px;
     }
 
-    .content{
-        padding:15px;
+    p {
+        font-size: 16px;
     }
 
-    h2{
-        font-size:20px;
+    .price-box li {
+        font-size: 15px;
     }
 
-    p{
-        font-size:15px;
+    #home-posts .news-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
 
-    #home-posts .news-list{
-        grid-template-columns:repeat(2,1fr);
+    #home-posts .news-item img {
+        height: 100px;
     }
 
-    #home-posts .news-item img{
-        height:95px;
+    #home-posts .news-item h3 {
+        font-size: 12px;
     }
 
 }
@@ -240,133 +333,590 @@ p{
 <body>
 
 
-<!-- GOLD ARTICLE -->
+<div class="article-container">
 
-<div class="card">
 
-    <img
-        src="gold.jpg"
-        alt="Gold Rates News Image"
-    >
+    <!-- CATEGORY -->
 
-    <div class="content">
+    <div>
 
-        <!-- HOME BUTTON -->
+        <span class="tag">
+            బిజినెస్ & గోల్డ్
+        </span>
 
-        <a
-            href="./index.html"
-            class="back-btn"
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h1>
+
+        💰 వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?
+
+    </h1>
+
+
+    <!-- IMAGE -->
+
+    <div class="img-gallery">
+
+        <img
+            src="gold.jpg"
+            alt="Gold Rates News Image"
         >
-            ← Back to Home
-        </a>
+
+    </div>
 
 
-        <!-- TITLE -->
+    <!-- ACTION BAR -->
+
+    <div class="ig-card">
+
+
+        <div class="ig-actions">
+
+
+            <!-- LIKE -->
+
+            <div
+                class="action-item"
+                onclick="toggleLike()"
+            >
+
+                <span id="likeIcon">
+                    ♡
+                </span>
+
+                <span id="likeCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <!-- COMMENT -->
+
+            <div
+                class="action-item"
+                onclick="focusComment()"
+            >
+
+                <span>
+                    💬
+                </span>
+
+                <span id="commentCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <!-- SHARE -->
+
+            <div
+                class="action-item"
+                onclick="sharePost()"
+            >
+
+                <span>
+                    ➤
+                </span>
+
+                <span id="shareCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <!-- BOOKMARK -->
+
+            <div class="action-item bookmark">
+
+                <span>
+                    🔖
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMMENT BOX -->
+
+        <div class="comment-input-container">
+
+            <input
+                type="text"
+                id="commentInput"
+                placeholder="మీ అభిప్రాయాన్ని రాయండి..."
+            >
+
+            <button onclick="addComment()">
+
+                పోస్ట్ చేయండి
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="commentsList"
+            class="comments-display"
+        ></div>
+
+    </div>
+
+
+    <!-- ARTICLE CONTENT -->
+
+
+    <p>
+
+        హైదరాబాద్ బులియన్ మార్కెట్‌లో గత వారం
+        బంగారం ధరల్లో భారీ పెరుగుదల నమోదైంది.
+        కొద్ది రోజుల వ్యవధిలోనే పసిడి ధరలు
+        గణనీయంగా పెరగడంతో బంగారం కొనుగోలు
+        చేయాలని భావిస్తున్న వినియోగదారుల్లో
+        ఆసక్తి నెలకొంది. ముఖ్యంగా పెళ్లిళ్లు,
+        శుభకార్యాలు, పెట్టుబడుల కోసం బంగారం
+        కొనుగోలు చేసే వారు ప్రస్తుత ధరలను
+        జాగ్రత్తగా పరిశీలిస్తున్నారు.
+
+    </p>
+
+
+    <p>
+
+        ఈనెల
+
+        <span class="bold-text">
+            3(సోమవారం)
+        </span>
+
+        నుంచి నిన్నటి వరకు
+
+        <span class="bold-text">
+            24 క్యారెట్ల 10 గ్రాముల
+        </span>
+
+        గోల్డ్ రేటు
+
+        <span class="bold-text">
+            రూ.8,130
+        </span>
+
+        పెరిగి
+
+        <span class="bold-text">
+            రూ.1,52,350
+        </span>
+
+        కి చేరింది.
+
+        అంటే కేవలం వారం రోజుల వ్యవధిలోనే
+        24 క్యారెట్ల బంగారం ధరలో భారీ మార్పు
+        నమోదైంది. పెట్టుబడిదారులు ఈ ధరల
+        పెరుగుదలను ప్రత్యేకంగా గమనిస్తున్నారు.
+
+    </p>
+
+
+    <div class="price-box">
 
         <h2>
-            వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?
+            🪙 బంగారం తాజా ధరలు
         </h2>
 
+        <ul>
 
-        <!-- ARTICLE -->
-
-        <p>
-
-            హైదరాబాద్ బులియన్ మార్కెట్‌లో గత వారం
-            బంగారం ధరల్లో భారీ పెరుగుదల నమోదైంది.
-
-            ఈనెల
-            <span class="bold-text">
-                3(సోమవారం)
-            </span>
-            నుంచి నిన్నటి వరకు
-
-            <span class="bold-text">
-                24 క్యారెట్ల 10 గ్రాముల
-            </span>
-
-            గోల్డ్ రేటు
-
-            <span class="bold-text">
-                రూ.8,130
-            </span>
-
-            పెరిగి
-
-            <span class="bold-text">
+            <li>
+                <b>24 క్యారెట్ల 10 గ్రాములు:</b>
                 రూ.1,52,350
-            </span>
+            </li>
 
-            ,
+            <li>
+                <b>24 క్యారెట్ల పెరుగుదల:</b>
+                రూ.8,130
+            </li>
 
-            <span class="bold-text">
-                22 క్యారెట్ల 10 గ్రాముల
-            </span>
-
-            పసిడి ధర
-
-            <span class="bold-text">
-                రూ.7,450
-            </span>
-
-            పెరిగి
-
-            <span class="bold-text">
+            <li>
+                <b>22 క్యారెట్ల 10 గ్రాములు:</b>
                 రూ.1,39,650
-            </span>
+            </li>
 
-            కి చేరింది.
+            <li>
+                <b>22 క్యారెట్ల పెరుగుదల:</b>
+                రూ.7,450
+            </li>
 
-            అటు
+        </ul>
 
-            <span class="bold-text">
-                KG సిల్వర్ రేట్
-            </span>
+    </div>
 
-            గత వారం రోజుల్లో
 
-            <span class="bold-text">
-                రూ.14,900
-            </span>
+    <p>
 
-            ఎగిసి
+        మరోవైపు
 
-            <span class="bold-text">
+        <span class="bold-text">
+            22 క్యారెట్ల 10 గ్రాముల
+        </span>
+
+        పసిడి ధర కూడా భారీగా పెరిగింది.
+        గత వారం రోజుల్లో ఈ ధర
+
+        <span class="bold-text">
+            రూ.7,450
+        </span>
+
+        పెరిగి
+
+        <span class="bold-text">
+            రూ.1,39,650
+        </span>
+
+        కి చేరింది. సాధారణంగా ఆభరణాల
+        తయారీకి 22 క్యారెట్ల బంగారాన్ని
+        ఎక్కువగా ఉపయోగిస్తారు. దీంతో
+        ఆభరణాలు కొనుగోలు చేసే వారికి
+        ఈ ధరల పెరుగుదల నేరుగా ప్రభావం
+        చూపే అవకాశం ఉంది.
+
+    </p>
+
+
+    <p>
+
+        బంగారం మాత్రమే కాకుండా వెండి ధరలు
+        కూడా గత వారం రోజుల్లో భారీగా
+        పెరిగాయి. హైదరాబాద్ మార్కెట్‌లో
+        కిలో వెండి ధర
+
+        <span class="bold-text">
+            రూ.14,900
+        </span>
+
+        పెరిగి
+
+        <span class="bold-text">
+            రూ.2,49,900
+        </span>
+
+        గా ఉంది. వెండి ధరల్లో కూడా ఇంతటి
+        మార్పు రావడంతో బులియన్ మార్కెట్‌లో
+        పరిస్థితులను కొనుగోలుదారులు
+        ఆసక్తిగా గమనిస్తున్నారు.
+
+    </p>
+
+
+    <div class="price-box">
+
+        <h2>
+            🥈 వెండి ధర
+        </h2>
+
+        <ul>
+
+            <li>
+                <b>కిలో వెండి ధర:</b>
                 రూ.2,49,900
-            </span>
+            </li>
 
-            గా ఉంది.
+            <li>
+                <b>గత వారం పెరుగుదల:</b>
+                రూ.14,900
+            </li>
 
-        </p>
+        </ul>
+
+    </div>
 
 
-        <!-- NOTE -->
+    <p>
 
-        <p class="note">
+        బంగారం ధరలు పెరగడానికి అనేక మార్కెట్
+        అంశాలు ప్రభావం చూపుతాయి. అంతర్జాతీయ
+        మార్కెట్ పరిస్థితులు, పెట్టుబడిదారుల
+        డిమాండ్, కరెన్సీ మార్పులు, ఆర్థిక
+        పరిస్థితులు వంటి అంశాలు పసిడి ధరలపై
+        ప్రభావం చూపే అవకాశం ఉంటుంది.
+        అందువల్ల బంగారం ధరలు ఒకే స్థాయిలో
+        కొనసాగుతాయని చెప్పడం సాధ్యం కాదు.
 
-            NOTE: ఈ ధరలపై GST (3%) అదనం.
+    </p>
+
+
+    <p>
+
+        ముఖ్యంగా బంగారం కొనుగోలు చేయాలని
+        భావిస్తున్న కుటుంబాలు ధరలు పెరుగుతున్న
+        సమయంలో తమ అవసరాన్ని బట్టి నిర్ణయం
+        తీసుకోవాల్సి ఉంటుంది. పెళ్లిళ్లు,
+        శుభకార్యాల కోసం ఆభరణాలు కొనుగోలు
+        చేసే వారు ముందుగానే ధరలను పరిశీలించడం
+        ద్వారా తమ బడ్జెట్‌ను ప్లాన్ చేసుకోవచ్చు.
+        పెట్టుబడి కోసం కొనుగోలు చేసే వారు
+        మార్కెట్ పరిస్థితులను గమనించడం
+        మరింత అవసరం.
+
+    </p>
+
+
+    <div class="highlight-box">
+
+        <strong>
+            📈 గత వారం గోల్డ్ & సిల్వర్ ధరల పరిస్థితి
+        </strong>
+
+        <p style="margin-top:8px;">
+
+            24 క్యారెట్ల 10 గ్రాముల బంగారం
+            రూ.8,130 పెరిగింది.
+
+            <br><br>
+
+            22 క్యారెట్ల 10 గ్రాముల బంగారం
+            రూ.7,450 పెరిగింది.
+
+            <br><br>
+
+            కిలో వెండి ధర
+            రూ.14,900 పెరిగింది.
 
         </p>
 
     </div>
 
+
+    <p>
+
+        బంగారం ధరల పెరుగుదలతో పాటు వెండి
+        ధర కూడా పెరగడం ప్రస్తుతం బులియన్
+        మార్కెట్‌లో ప్రధాన అంశంగా మారింది.
+        రెండు లోహాల ధరల్లో మార్పులు రావడంతో
+        రాబోయే రోజుల్లో ధరలు ఎలా కొనసాగుతాయనే
+        అంశంపై కొనుగోలుదారులు ఆసక్తిగా
+        ఎదురుచూస్తున్నారు.
+
+    </p>
+
+
+    <p>
+
+        అయితే బంగారం, వెండి ధరలు ప్రతిరోజూ
+        మారే అవకాశం ఉంటుంది. ఒక రోజు ఉన్న
+        ధర మరుసటి రోజు అదే విధంగా ఉండకపోవచ్చు.
+        అందువల్ల కొనుగోలు చేసే ముందు స్థానిక
+        బులియన్ మార్కెట్‌లో ఉన్న తాజా ధరలను
+        తెలుసుకోవడం మంచిది. ముఖ్యంగా ఆభరణాల
+        కొనుగోలు సమయంలో మేకింగ్ ఛార్జీలు,
+        GST వంటి అదనపు ఖర్చులను కూడా
+        పరిగణనలోకి తీసుకోవాలి.
+
+    </p>
+
+
+    <p>
+
+        ప్రస్తుతం హైదరాబాద్‌లో బంగారం ధరలు
+        రికార్డు స్థాయిలో ఉండటంతో వినియోగదారులు
+        ఒక్కసారిగా పెద్ద మొత్తంలో కొనుగోలు
+        చేయడానికి బదులుగా తమ అవసరాన్ని,
+        బడ్జెట్‌ను పరిశీలించి నిర్ణయం తీసుకోవడం
+        మంచిదని మార్కెట్‌ను గమనిస్తున్న వారు
+        భావిస్తున్నారు. ధరలు తగ్గుతాయా లేదా
+        మరింత పెరుగుతాయా అనేది భవిష్యత్
+        మార్కెట్ పరిస్థితులపై ఆధారపడి ఉంటుంది.
+
+    </p>
+
+
+    <p>
+
+        మొత్తంగా చూస్తే గత వారం రోజుల్లో
+        హైదరాబాద్ బులియన్ మార్కెట్‌లో
+        బంగారం, వెండి ధరలు భారీగా పెరిగాయి.
+        24 క్యారెట్ల బంగారం రూ.1,52,350కి,
+        22 క్యారెట్ల బంగారం రూ.1,39,650కి
+        చేరగా, కిలో వెండి ధర రూ.2,49,900గా
+        ఉంది. ఈ పెరుగుదల కొనుగోలుదారులపై
+        ప్రభావం చూపుతున్నప్పటికీ, మార్కెట్
+        పరిస్థితులను బట్టి ధరల్లో మళ్లీ
+        మార్పులు రావచ్చు.
+
+    </p>
+
+
+    <!-- NOTE -->
+
+    <p class="note">
+
+        NOTE: ఈ ధరలపై GST (3%) అదనం.
+
+    </p>
+
+
+    <!-- LATEST POSTS -->
+
+    <h2 class="latest-title">
+
+        📰 తాజా పోస్టులు
+
+    </h2>
+
+
+    <div id="home-posts">
+
+        Loading latest posts...
+
+    </div>
+
+
 </div>
 
 
-<!-- LATEST POSTS -->
+<!-- LIKE / COMMENT / SHARE -->
 
-<h2 class="latest-title">
+<script>
 
-    📰 తాజా పోస్టులు
+let liked = false;
 
-</h2>
+let likeCount = 0;
+
+let shareCount = 0;
+
+let comments = [];
 
 
-<div id="home-posts">
+function toggleLike() {
 
-    Loading latest posts...
+    if (!liked) {
 
-</div>
+        liked = true;
+
+        likeCount++;
+
+        document.getElementById(
+            "likeIcon"
+        ).innerText = "♥";
+
+        document.getElementById(
+            "likeIcon"
+        ).classList.add("liked");
+
+    } else {
+
+        liked = false;
+
+        likeCount--;
+
+        document.getElementById(
+            "likeIcon"
+        ).innerText = "♡";
+
+        document.getElementById(
+            "likeIcon"
+        ).classList.remove("liked");
+
+    }
+
+    document.getElementById(
+        "likeCount"
+    ).innerText = likeCount;
+
+}
+
+
+function focusComment() {
+
+    document.getElementById(
+        "commentInput"
+    ).focus();
+
+}
+
+
+function addComment() {
+
+    const input =
+        document.getElementById(
+            "commentInput"
+        );
+
+    const text =
+        input.value.trim();
+
+    if (text === "") {
+
+        return;
+
+    }
+
+    comments.push(text);
+
+    input.value = "";
+
+    document.getElementById(
+        "commentCount"
+    ).innerText = comments.length;
+
+
+    const commentsList =
+        document.getElementById(
+            "commentsList"
+        );
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.className =
+        "single-comment";
+
+    div.innerText = text;
+
+    commentsList.appendChild(div);
+
+}
+
+
+function sharePost() {
+
+    shareCount++;
+
+    document.getElementById(
+        "shareCount"
+    ).innerText = shareCount;
+
+
+    if (navigator.share) {
+
+        navigator.share({
+
+            title:
+                document.title,
+
+            text:
+                "ఈ గోల్డ్ రేట్ల వార్తను చూడండి"
+
+        });
+
+    } else {
+
+        alert(
+            "షేర్ ఆప్షన్ మీ బ్రౌజర్‌లో అందుబాటులో లేదు."
+        );
+
+    }
+
+}
+
+</script>
 
 
 <!-- LOAD HOME POSTS -->
@@ -375,9 +925,9 @@ p{
 
 fetch("home-posts.html")
 
-.then(function(response){
+.then(function(response) {
 
-    if(!response.ok){
+    if (!response.ok) {
 
         throw new Error(
             "home-posts.html not found"
@@ -389,7 +939,7 @@ fetch("home-posts.html")
 
 })
 
-.then(function(data){
+.then(function(data) {
 
     document.getElementById(
         "home-posts"
@@ -397,12 +947,12 @@ fetch("home-posts.html")
 
 })
 
-.catch(function(error){
+.catch(function(error) {
 
     document.getElementById(
         "home-posts"
     ).innerHTML =
-    "<p style='text-align:center;color:red;'>Latest posts loading failed.</p>";
+        "<p style='text-align:center;color:red;'>Latest posts loading failed.</p>";
 
     console.log(error);
 
