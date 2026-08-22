@@ -5,7 +5,7 @@
 
 
 /* =====================================================
-   PAGE BACKGROUND
+   PAGE BACKGROUND - PURE WHITE
 ===================================================== */
 
 html,
@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    background-color: #ffffff !important;
     background: #ffffff !important;
     color: #171717;
 }
@@ -29,7 +30,8 @@ body {
 .container,
 .main-container,
 .news-list {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
     border: none !important;
     box-shadow: none !important;
 }
@@ -51,8 +53,7 @@ body {
 
 
 /* =====================================================
-   NEWS ITEM
-   IMPORTANT: REMOVE WHITE ROUNDED BOX
+   NEWS ITEM - WHITE BACKGROUND
 ===================================================== */
 
 .news-list .news-item,
@@ -65,11 +66,11 @@ body {
 
     width: 100% !important;
 
-    background: transparent !important;
-    background-color: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
-    border-bottom: 1px solid #dddddd !important;
+    border-bottom: 1px solid #e5e7eb !important;
 
     border-radius: 0 !important;
 
@@ -91,11 +92,11 @@ body {
 .news-list .news-item.card,
 .news-list .post.card,
 .news-list article.card {
-    background: transparent !important;
-    background-color: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
-    border-bottom: 1px solid #dddddd !important;
+    border-bottom: 1px solid #e5e7eb !important;
 
     border-radius: 0 !important;
 
@@ -111,8 +112,8 @@ body {
 .news-list .news-item.post:hover,
 .news-list article:hover,
 .news-list .post:hover {
-    background: transparent !important;
-    background-color: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
     box-shadow: none !important;
     transform: none !important;
 }
@@ -148,8 +149,8 @@ body {
 .news-list .post-content {
     flex: 1 !important;
 
-    background: transparent !important;
-    background-color: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     border-radius: 0 !important;
@@ -193,7 +194,8 @@ body {
 
 .news-list .summary,
 .news-list .news-content .summary {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     box-shadow: none !important;
@@ -209,7 +211,8 @@ body {
 ===================================================== */
 
 .news-list .share-row {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
     border: none !important;
     box-shadow: none !important;
 
@@ -218,7 +221,8 @@ body {
 
 .news-list .share-row button,
 .news-list .share-row a {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     box-shadow: none !important;
@@ -249,11 +253,11 @@ body {
 
 /* =====================================================
    FEATURED NEWS
-   Keep featured cards separate
 ===================================================== */
 
 .top-featured-grid .card,
 .featured-grid .card {
+    background-color: #ffffff !important;
     background: #ffffff !important;
 
     border: 1px solid #e5e7eb !important;
@@ -268,7 +272,8 @@ body {
 ===================================================== */
 
 .section-heading {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     border-left: 4px solid #e60000 !important;
@@ -292,24 +297,18 @@ body {
 ===================================================== */
 
 .card {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
     box-shadow: none !important;
 }
 
 
-/*
-   IMPORTANT:
-   News-list cards മാത്രം transparent.
-   ఇతర important cards disturb కాకుండా
-   .news-list లోనే remove చేస్తున్నాం.
-*/
-
-
 /* =====================================================
    ADVERTISEMENT AREA
-   CLEAN + ADS FRIENDLY
 ===================================================== */
 
 .ad {
+    background-color: #ffffff !important;
     background: #ffffff !important;
 
     border: 1px dashed #d5d5d5 !important;
@@ -319,7 +318,7 @@ body {
 }
 
 .ad-side {
-    background: #fafafa !important;
+    background-color: #fafafa !important;
 
     border: 1px dashed #d5d5d5 !important;
     border-radius: 4px !important;
@@ -343,14 +342,13 @@ body {
 ===================================================== */
 
 .bs-news-pulse {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 }
 
-
-/* Action bar - no outer box */
-
 .pulse-actions {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     border-radius: 0 !important;
@@ -360,11 +358,9 @@ body {
     padding: 0 !important;
 }
 
-
-/* Individual buttons */
-
 .pulse-action {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     border-right: 1px solid #e5e7eb !important;
@@ -376,21 +372,13 @@ body {
     transform: none !important;
 }
 
-
-/* Last button */
-
 .pulse-action:last-child {
     border-right: none !important;
 }
 
-
-/* Hover */
-
 .pulse-action:hover {
     background: #fafafa !important;
-
     box-shadow: none !important;
-
     transform: none !important;
 }
 
@@ -400,7 +388,8 @@ body {
 ===================================================== */
 
 .bs-comment-write {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     border-radius: 0 !important;
@@ -410,9 +399,6 @@ body {
     padding: 8px 0 !important;
 }
 
-
-/* Input itself */
-
 .bs-comment-write input {
     background: #f5f6f7 !important;
 
@@ -421,9 +407,6 @@ body {
 
     box-shadow: none !important;
 }
-
-
-/* Comment button */
 
 .bs-comment-write button {
     box-shadow: none !important;
@@ -435,7 +418,8 @@ body {
 ===================================================== */
 
 .bs-comments {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     border-radius: 0 !important;
@@ -445,11 +429,8 @@ body {
     padding: 10px 0 !important;
 }
 
-
-/* Individual comment can have a small card */
-
 .bs-comment-card {
-    background: #ffffff !important;
+    background-color: #ffffff !important;
 
     border: 1px solid #e5e7eb !important;
     border-radius: 8px !important;
@@ -463,7 +444,8 @@ body {
 ===================================================== */
 
 main > section.card[style] {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
 
     border: none !important;
     border-radius: 0 !important;
@@ -476,51 +458,41 @@ main > section.card[style] {
    DARK MODE
 ===================================================== */
 
-body.dark-mode {
+body.dark-mode,
+body.dark-mode html {
+    background-color: #121212 !important;
     background: #121212 !important;
     color: #f0f0f0 !important;
 }
 
-
-/* News list */
-
+body.dark-mode .container,
+body.dark-mode .main-container,
 body.dark-mode .news-list,
 body.dark-mode .news-list .news-item,
 body.dark-mode .news-list .news-content,
-body.dark-mode .news-list article {
-    background: transparent !important;
-    background-color: transparent !important;
-
+body.dark-mode .news-list article,
+body.dark-mode .card,
+body.dark-mode .top-featured-grid .card,
+body.dark-mode .bs-news-pulse {
+    background-color: #121212 !important;
+    background: #121212 !important;
     border-color: #303030 !important;
 }
-
-
-/* News title */
 
 body.dark-mode .news-list .news-content h3 {
     color: #f0f0f0 !important;
 }
 
-
-/* Summary */
-
 body.dark-mode .news-list .summary {
     color: #bbbbbb !important;
 }
-
-
-/* Time */
 
 body.dark-mode .news-list .time-stamp {
     color: #999999 !important;
 }
 
-
-/* Comment */
-
 body.dark-mode .bs-comment-card {
-    background: #1e1e1e !important;
-
+    background-color: #1e1e1e !important;
     border-color: #333333 !important;
 }
 
@@ -536,15 +508,12 @@ body.dark-mode .bs-comment-card {
         max-width: 100% !important;
     }
 
-
     .news-list .news-item,
     .news-list .news-item.post,
     .news-list article {
         padding: 11px 0 !important;
-
         gap: 10px !important;
     }
-
 
     .news-list .news-item img,
     .news-list .news-item.post img,
@@ -553,28 +522,23 @@ body.dark-mode .bs-comment-card {
         height: 68px !important;
     }
 
-
     .news-list .news-content {
         padding-left: 8px !important;
     }
-
 
     .news-list .news-content h3 {
         font-size: 14px !important;
         line-height: 1.4 !important;
     }
 
-
     .news-list .time-stamp {
         font-size: 10px !important;
     }
-
 
     .section-heading {
         margin-top: 20px !important;
         margin-bottom: 10px !important;
     }
-
 
     .top-featured-grid .card {
         border-radius: 6px !important;
@@ -584,18 +548,15 @@ body.dark-mode .bs-comment-card {
 
 
 /* =====================================================
-   EXTRA SAFETY:
-   REMOVE UNWANTED WRAPPER BOXES INSIDE NEWS LIST
+   EXTRA SAFETY
 ===================================================== */
 
 .news-list > div,
 .news-list > article {
-    background: transparent !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
     box-shadow: none !important;
 }
-
-
-/* But don't remove actual image styling */
 
 .news-list img {
     box-shadow: none !important;
