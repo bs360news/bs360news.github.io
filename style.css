@@ -204,3 +204,60 @@ body.dark-mode .bs-comment-card {
     }
 
 }
+/* =====================================================
+   CLEAN NEWS PAGE BACKGROUND
+===================================================== */
+
+body {
+    background: #fff !important;
+}
+
+/* News list background */
+.news-list {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* News item - no individual card */
+.news-item.post,
+.news-item.post.card {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 14px 0 !important;
+    margin: 0 !important;
+}
+
+/* Content background remove */
+.news-content {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Hover also clean */
+.news-item.post:hover {
+    background: transparent !important;
+    transform: none !important;
+}
+
+/* Images */
+.news-item.post img {
+    border-radius: 4px !important;
+}
+
+/* Main containers also stay clean */
+.main-container,
+.container {
+    background: transparent !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .news-item.post {
+        padding: 11px 0 !important;
+    }
+}
