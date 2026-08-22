@@ -1,151 +1,462 @@
 /* =====================================================
-   BS360 NEWS - CLEAN / ADS FRIENDLY FINAL OVERRIDES
+   BS360 NEWS
+   CLEAN + ADS FRIENDLY FINAL CSS
 ===================================================== */
 
-/* PAGE */
+
+/* =====================================================
+   PAGE BACKGROUND
+===================================================== */
+
+html,
 body {
-    background: #f6f7f9;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #ffffff !important;
     color: #171717;
 }
 
-/* MAIN CARDS - NO BIG BOX EFFECT */
-.card {
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+body {
+    overflow-x: hidden;
 }
 
-/* FEATURED NEWS */
-.top-featured-grid .card {
-    background: #fff !important;
-    border: 1px solid #e5e7eb !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-}
 
-/* SECTION TITLE - NO BOX */
-.section-heading {
-    background: transparent !important;
-    border-left: 4px solid #e60000;
-    padding: 5px 0 5px 10px;
-    margin: 25px 0 12px;
-}
+/* =====================================================
+   MAIN CONTAINERS
+===================================================== */
 
-/* NEWS LIST */
+.container,
+.main-container,
 .news-list {
     background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* NEWS ITEMS - REMOVE BOX BACKGROUND */
-.news-item.post {
+
+/* =====================================================
+   NEWS LIST - NO CARD / NO BOX
+===================================================== */
+
+.news-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 !important;
+}
+
+
+/* =====================================================
+   NEWS ITEM
+   IMPORTANT: REMOVE WHITE ROUNDED BOX
+===================================================== */
+
+.news-list .news-item,
+.news-list .news-item.post,
+.news-list article,
+.news-list .post {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    width: 100% !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    border-bottom: 1px solid #dddddd !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+    outline: none !important;
+
+    padding: 14px 0 !important;
+    margin: 0 !important;
+
+    transform: none !important;
+}
+
+
+/* =====================================================
+   REMOVE CARD CLASS EFFECT
+===================================================== */
+
+.news-list .card,
+.news-list .news-item.card,
+.news-list .post.card,
+.news-list article.card {
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    border-bottom: 1px solid #dddddd !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =====================================================
+   NEWS ITEM HOVER
+===================================================== */
+
+.news-list .news-item:hover,
+.news-list .news-item.post:hover,
+.news-list article:hover,
+.news-list .post:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+
+/* =====================================================
+   NEWS IMAGE
+===================================================== */
+
+.news-list .news-item img,
+.news-list .news-item.post img,
+.news-list article img {
+    width: 110px !important;
+    height: 75px !important;
+
+    object-fit: cover !important;
+
+    flex-shrink: 0 !important;
+
+    border-radius: 4px !important;
+
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* =====================================================
+   NEWS CONTENT
+===================================================== */
+
+.news-list .news-content,
+.news-list .card-body,
+.news-list .post-content {
+    flex: 1 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    padding: 0 0 0 12px !important;
+}
+
+
+/* =====================================================
+   NEWS TITLE
+===================================================== */
+
+.news-list .news-content h3 {
+    margin: 0 0 5px 0 !important;
+
+    font-size: 15px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.4 !important;
+
+    color: #111111 !important;
+}
+
+
+/* =====================================================
+   TIME
+===================================================== */
+
+.news-list .time-stamp,
+.news-list .news-content .time-stamp {
+    color: #777777 !important;
+    font-size: 11px !important;
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.news-list .summary,
+.news-list .news-content .summary {
+    background: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    color: #555555 !important;
+
+    line-height: 1.6 !important;
+}
+
+
+/* =====================================================
+   SHARE
+===================================================== */
+
+.news-list .share-row {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+
+    margin-top: 5px !important;
+}
+
+.news-list .share-row button,
+.news-list .share-row a {
+    background: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    color: #555555 !important;
+}
+
+
+/* =====================================================
+   TAG
+===================================================== */
+
+.news-list .tag {
+    display: inline-block !important;
+
+    background: #e60000 !important;
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 3px !important;
+
+    padding: 3px 7px !important;
+
+    font-size: 10px !important;
+    font-weight: 800 !important;
+}
+
+
+/* =====================================================
+   FEATURED NEWS
+   Keep featured cards separate
+===================================================== */
+
+.top-featured-grid .card,
+.featured-grid .card {
+    background: #ffffff !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+    background: transparent !important;
+
+    border: none !important;
+    border-left: 4px solid #e60000 !important;
+
     border-radius: 0 !important;
+
     box-shadow: none !important;
-    padding: 12px 0 !important;
+
+    padding: 5px 0 5px 10px !important;
+
+    margin: 25px 0 12px !important;
 }
 
-/* HOVER - VERY LIGHT */
-.news-item.post:hover {
+.section-heading h2 {
+    margin: 0 !important;
+}
+
+
+/* =====================================================
+   NORMAL CARDS OUTSIDE NEWS LIST
+===================================================== */
+
+.card {
+    box-shadow: none !important;
+}
+
+
+/*
+   IMPORTANT:
+   News-list cards മാത്രം transparent.
+   ఇతర important cards disturb కాకుండా
+   .news-list లోనే remove చేస్తున్నాం.
+*/
+
+
+/* =====================================================
+   ADVERTISEMENT AREA
+   CLEAN + ADS FRIENDLY
+===================================================== */
+
+.ad {
+    background: #ffffff !important;
+
+    border: 1px dashed #d5d5d5 !important;
+    border-radius: 4px !important;
+
+    box-shadow: none !important;
+}
+
+.ad-side {
     background: #fafafa !important;
-}
 
-/* NEWS IMAGE */
-.news-item.post img {
-    border-radius: 5px !important;
-}
+    border: 1px dashed #d5d5d5 !important;
+    border-radius: 4px !important;
 
-/* NEWS CONTENT */
-.news-content {
-    background: transparent !important;
-}
-
-/* SUMMARY */
-.summary {
-    background: transparent !important;
-}
-
-/* SHARE BUTTON */
-.news-content .share-row button {
-    background: transparent !important;
     box-shadow: none !important;
 }
 
-/* LIVE BOX */
+
+/* =====================================================
+   LIVE BOX
+===================================================== */
+
 .live-box {
     border-radius: 6px !important;
     box-shadow: none !important;
 }
 
-/* ADVERTISEMENT SPACE */
-.ad-side {
-    background: #fafafa !important;
-    border: 1px dashed #d5d5d5 !important;
-    box-shadow: none !important;
-    border-radius: 4px !important;
-}
 
 /* =====================================================
-   LIKE / COMMENT / SHARE AREA
+   LIKE / COMMENT / SHARE
 ===================================================== */
 
-/* MAIN ACTION BAR - REMOVE HEAVY BOX */
+.bs-news-pulse {
+    background: transparent !important;
+}
+
+
+/* Action bar - no outer box */
+
 .pulse-actions {
     background: transparent !important;
+
     border: none !important;
     border-radius: 0 !important;
+
     box-shadow: none !important;
+
     padding: 0 !important;
 }
 
-/* ACTION BUTTONS */
+
+/* Individual buttons */
+
 .pulse-action {
     background: transparent !important;
-    border-right: 1px solid #e5e7eb !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
 
-/* NO BIG HOVER BOX */
-.pulse-action:hover {
-    background: #fafafa !important;
+    border: none !important;
+    border-right: 1px solid #e5e7eb !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
     transform: none !important;
 }
 
-/* COMMENT INPUT */
+
+/* Last button */
+
+.pulse-action:last-child {
+    border-right: none !important;
+}
+
+
+/* Hover */
+
+.pulse-action:hover {
+    background: #fafafa !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+/* =====================================================
+   COMMENT WRITE
+===================================================== */
+
 .bs-comment-write {
     background: transparent !important;
+
     border: none !important;
     border-radius: 0 !important;
+
     box-shadow: none !important;
+
     padding: 8px 0 !important;
 }
 
-/* COMMENT INPUT FIELD */
+
+/* Input itself */
+
 .bs-comment-write input {
     background: #f5f6f7 !important;
+
     border: 1px solid #e2e5e8 !important;
+    border-radius: 20px !important;
+
     box-shadow: none !important;
 }
 
-/* COMMENTS SECTION */
+
+/* Comment button */
+
+.bs-comment-write button {
+    box-shadow: none !important;
+}
+
+
+/* =====================================================
+   COMMENTS SECTION
+===================================================== */
+
 .bs-comments {
     background: transparent !important;
+
     border: none !important;
     border-radius: 0 !important;
+
     box-shadow: none !important;
+
     padding: 10px 0 !important;
 }
 
-/* INDIVIDUAL COMMENT */
+
+/* Individual comment can have a small card */
+
 .bs-comment-card {
-    background: #fff !important;
+    background: #ffffff !important;
+
     border: 1px solid #e5e7eb !important;
     border-radius: 8px !important;
+
     box-shadow: none !important;
 }
+
 
 /* =====================================================
    ABOUT SECTION
@@ -153,36 +464,66 @@ body {
 
 main > section.card[style] {
     background: transparent !important;
+
     border: none !important;
-    box-shadow: none !important;
     border-radius: 0 !important;
+
+    box-shadow: none !important;
 }
+
 
 /* =====================================================
    DARK MODE
 ===================================================== */
 
 body.dark-mode {
-    background: #121212;
+    background: #121212 !important;
+    color: #f0f0f0 !important;
 }
 
-body.dark-mode .card,
-body.dark-mode .news-item.post,
-body.dark-mode .bs-comment-write,
-body.dark-mode .bs-comments {
+
+/* News list */
+
+body.dark-mode .news-list,
+body.dark-mode .news-list .news-item,
+body.dark-mode .news-list .news-content,
+body.dark-mode .news-list article {
     background: transparent !important;
+    background-color: transparent !important;
+
     border-color: #303030 !important;
-    box-shadow: none !important;
 }
 
-body.dark-mode .news-item.post:hover {
-    background: #181818 !important;
+
+/* News title */
+
+body.dark-mode .news-list .news-content h3 {
+    color: #f0f0f0 !important;
 }
+
+
+/* Summary */
+
+body.dark-mode .news-list .summary {
+    color: #bbbbbb !important;
+}
+
+
+/* Time */
+
+body.dark-mode .news-list .time-stamp {
+    color: #999999 !important;
+}
+
+
+/* Comment */
 
 body.dark-mode .bs-comment-card {
     background: #1e1e1e !important;
-    border-color: #333 !important;
+
+    border-color: #333333 !important;
 }
+
 
 /* =====================================================
    MOBILE
@@ -190,74 +531,72 @@ body.dark-mode .bs-comment-card {
 
 @media (max-width: 600px) {
 
-    .news-item.post {
-        padding: 10px 0 !important;
+    .news-list {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    .section-heading {
-        margin-top: 20px;
-        margin-bottom: 10px;
+
+    .news-list .news-item,
+    .news-list .news-item.post,
+    .news-list article {
+        padding: 11px 0 !important;
+
+        gap: 10px !important;
     }
+
+
+    .news-list .news-item img,
+    .news-list .news-item.post img,
+    .news-list article img {
+        width: 95px !important;
+        height: 68px !important;
+    }
+
+
+    .news-list .news-content {
+        padding-left: 8px !important;
+    }
+
+
+    .news-list .news-content h3 {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+    }
+
+
+    .news-list .time-stamp {
+        font-size: 10px !important;
+    }
+
+
+    .section-heading {
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+    }
+
 
     .top-featured-grid .card {
         border-radius: 6px !important;
     }
 
 }
+
+
 /* =====================================================
-   CLEAN NEWS PAGE BACKGROUND
+   EXTRA SAFETY:
+   REMOVE UNWANTED WRAPPER BOXES INSIDE NEWS LIST
 ===================================================== */
 
-body {
-    background: #fff !important;
-}
-
-/* News list background */
-.news-list {
+.news-list > div,
+.news-list > article {
     background: transparent !important;
-    border: none !important;
     box-shadow: none !important;
 }
 
-/* News item - no individual card */
-.news-item.post,
-.news-item.post.card {
-    background: transparent !important;
-    border: none !important;
-    border-bottom: 1px solid #ddd !important;
-    border-radius: 0 !important;
+
+/* But don't remove actual image styling */
+
+.news-list img {
     box-shadow: none !important;
-    padding: 14px 0 !important;
-    margin: 0 !important;
-}
-
-/* Content background remove */
-.news-content {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* Hover also clean */
-.news-item.post:hover {
-    background: transparent !important;
-    transform: none !important;
-}
-
-/* Images */
-.news-item.post img {
-    border-radius: 4px !important;
-}
-
-/* Main containers also stay clean */
-.main-container,
-.container {
-    background: transparent !important;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .news-item.post {
-        padding: 11px 0 !important;
-    }
 }
