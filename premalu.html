@@ -12,51 +12,217 @@
 ‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం | BS Telugu News
 </title>
 
-<link rel="stylesheet" href="style.css">
-
 <style>
+
+/* BASIC */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    font-family:"Noto Sans Telugu","Segoe UI",Arial,sans-serif;
+    background:#f4f4f4;
+    padding:15px 8px;
+    width:100%;
+    overflow-x:hidden;
+}
+
+
+/* ARTICLE */
 
 .article-page{
     max-width:900px;
+    width:100%;
     margin:20px auto;
     padding:20px;
     background:#fff;
-    border-radius:10px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.10);
 }
+
+
+/* BRAND */
+
+.brand-header{
+    background:#d32f2f;
+    color:#fff;
+    text-align:center;
+    padding:12px;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:8px;
+    margin-bottom:18px;
+}
+
+
+/* TITLE */
 
 .article-page h1{
     color:#111;
     line-height:1.5;
     margin-bottom:12px;
+    font-size:28px;
+    border-bottom:2px solid #d32f2f;
+    padding-bottom:10px;
 }
+
+
+/* TIME */
 
 .time-stamp{
     font-size:13px;
     color:#666;
-    margin-bottom:20px;
+    margin-bottom:18px;
     display:block;
 }
+
+
+/* IMAGE */
 
 .main-img{
     width:100%;
-    max-height:450px;
+    height:300px;
     object-fit:cover;
-    border-radius:8px;
+    border-radius:9px;
     border:1px solid #ddd;
-    margin-bottom:20px;
+    margin-bottom:18px;
     display:block;
 }
 
+
+/* ACTION BAR */
+
+.action-bar{
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    padding:10px 0;
+    margin-bottom:22px;
+}
+
+.action-buttons{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+.action-btn{
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-size:22px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.action-btn span{
+    font-size:12px;
+    margin-top:3px;
+    color:#333;
+}
+
+.like-active{
+    color:#e91e63;
+}
+
+
+/* COMMENT */
+
+.comment-area{
+    display:flex;
+    margin-top:12px;
+    border:1px solid #ddd;
+    border-radius:20px;
+    padding:4px 10px;
+    background:#fafafa;
+}
+
+.comment-area input{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    padding:8px;
+    font-size:14px;
+}
+
+.comment-area button{
+    border:none;
+    background:transparent;
+    color:#1976d2;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.comments{
+    margin-top:10px;
+}
+
+.comment{
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+
+/* CONTENT */
+
 .content{
-    font-size:16px;
+    font-size:17px;
     color:#333;
     line-height:1.9;
     margin-bottom:20px;
 }
 
 .content p{
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
+
+
+/* HIGHLIGHT */
+
+.highlight-box{
+    background:#f9f9f9;
+    border-left:4px solid #1976d2;
+    padding:15px;
+    margin:22px 0;
+    border-radius:0 8px 8px 0;
+}
+
+.highlight-box h2{
+    color:#1976d2;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.highlight-box p{
+    margin-bottom:0;
+}
+
+
+/* IMPORTANT NOTE */
+
+.note{
+    background:#fff0f0;
+    border-left:4px solid #e60000;
+    padding:13px;
+    margin:20px 0;
+    border-radius:0 6px 6px 0;
+    color:#d00000;
+    font-size:14px;
+    line-height:1.7;
+}
+
+
+/* BACK BUTTON */
 
 .back-btn{
     display:inline-block;
@@ -148,6 +314,7 @@
 
 }
 
+
 @media(max-width:900px){
 
     #home-posts .news-list{
@@ -156,24 +323,39 @@
 
 }
 
+
 @media(max-width:600px){
+
+    body{
+        padding:8px 5px;
+    }
 
     .article-page{
         padding:15px;
         margin:10px auto;
+        border-radius:8px;
     }
 
     .article-page h1{
-        font-size:20px;
+        font-size:21px;
     }
 
     .main-img{
-        max-height:250px;
+        height:180px;
+        max-height:180px;
     }
 
     .content{
         font-size:15px;
-        line-height:1.8;
+        line-height:1.85;
+    }
+
+    .action-buttons{
+        gap:20px;
+    }
+
+    .action-btn{
+        font-size:20px;
     }
 
     #home-posts .news-list{
@@ -199,13 +381,32 @@
 <div class="article-page">
 
 
+    <!-- BRAND -->
+
+    <div class="brand-header">
+
+        BS Telugu News
+
+    </div>
+
+
+    <!-- TITLE -->
+
     <h1>
-        ‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం.. సోషల్ మీడియాకు గుడ్ బై! 😲
+
+        ‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం..
+        సోషల్ మీడియాకు గుడ్ బై! 😲
+
     </h1>
 
 
+    <!-- TIME -->
+
     <div class="time-stamp">
-        📅 Published on BS Telugu News | 🕒 Just Now
+
+        📅 Published on BS Telugu News |
+        🕒 Just Now
+
     </div>
 
 
@@ -218,31 +419,354 @@
     >
 
 
+    <!-- ACTION BAR -->
+
+    <div class="action-bar">
+
+        <div class="action-buttons">
+
+
+            <!-- LIKE -->
+
+            <button
+                class="action-btn"
+                onclick="toggleLike()"
+            >
+
+                <span id="likeIcon">
+                    ♡
+                </span>
+
+                <span id="likeCount">
+                    0
+                </span>
+
+            </button>
+
+
+            <!-- COMMENT -->
+
+            <button
+                class="action-btn"
+                onclick="focusComment()"
+            >
+
+                💬
+
+                <span id="commentCount">
+                    0
+                </span>
+
+            </button>
+
+
+            <!-- SHARE -->
+
+            <button
+                class="action-btn"
+                onclick="sharePost()"
+            >
+
+                ➤
+
+                <span>
+                    Share
+                </span>
+
+            </button>
+
+
+            <!-- SAVE -->
+
+            <button
+                class="action-btn"
+                onclick="savePost()"
+            >
+
+                🔖
+
+                <span>
+                    Save
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- COMMENT BOX -->
+
+        <div class="comment-area">
+
+            <input
+                type="text"
+                id="commentInput"
+                placeholder="మీ కామెంట్‌ను ఇక్కడ రాయండి"
+            >
+
+            <button onclick="addComment()">
+
+                Comment
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="comments"
+            class="comments"
+        ></div>
+
+    </div>
+
+
     <!-- CONTENT -->
 
     <div class="content">
 
+
         <p>
-            ‘ప్రేమలు’ సినిమాతో సౌత్ ప్రేక్షకులకు దగ్గరైన మలయాళ బ్యూటీ
-            మమితా బైజు కీలక నిర్ణయం తీసుకున్నారు. మానసిక ప్రశాంతత కోసం
-            ఇకపై సోషల్ మీడియాకు దూరంగా ఉండాలని నిర్ణయించుకున్నట్లు తెలిపారు.
+
+            ‘ప్రేమలు’ సినిమాతో సౌత్ ప్రేక్షకులకు
+            దగ్గరైన మలయాళ బ్యూటీ మమితా బైజు
+            కీలక నిర్ణయం తీసుకున్నారు. మానసిక
+            ప్రశాంతత కోసం ఇకపై సోషల్ మీడియాకు
+            దూరంగా ఉండాలని నిర్ణయించుకున్నట్లు
+            తెలిపారు. ఈ నిర్ణయం ఇప్పుడు సినీ
+            వర్గాల్లో, ముఖ్యంగా ఆమె అభిమానుల్లో
+            ఆసక్తికరమైన చర్చకు కారణంగా మారింది.
+
         </p>
 
 
         <p>
-            తన సినిమా అప్‌డేట్స్‌ను ఇకపై తన పీఆర్ టీమ్ మాత్రమే చూసుకుంటుందని
-            మమితా వెల్లడించారు. సోషల్ మీడియా వల్ల వచ్చే అనవసరమైన హడావుడికి
-            దూరంగా ఉండటమే శ్రేయస్కరమని ఆమె భావిస్తున్నట్లు పేర్కొన్నారు.
+
+            సినిమాల్లో బిజీగా ఉంటూనే సోషల్ మీడియాలో
+            యాక్టివ్‌గా కనిపించే మమితా బైజు,
+            ఇప్పుడు సోషల్ మీడియా నుంచి కొంతకాలం
+            దూరంగా ఉండాలని నిర్ణయించుకోవడం
+            అభిమానులకు ఊహించని విషయంగా మారింది.
+            తన వ్యక్తిగత ప్రశాంతత, పని మీద ఎక్కువ
+            దృష్టి పెట్టేందుకు ఈ నిర్ణయం తీసుకున్నట్లు
+            ఆమె వెల్లడించినట్లు సమాచారం.
+
         </p>
 
 
         <p>
-            మరోవైపు, తాను ఐకాన్ స్టార్ అల్లు అర్జున్‌కు వీరాభిమానినని,
-            ఆయన సినిమాలను పదిసార్లకు పైగా చూస్తానని ఈ సందర్భంగా చెప్పారు.
-            ప్రస్తుతం సూర్య కాంబినేషన్‌లో వస్తున్న
-            ‘విశ్వనాథ్ అండ్ సన్స్’తో పాటు మూడు భాషల్లో పలు సినిమాలతో
-            మమితా చాలా బిజీగా గడుపుతున్నారు.
+
+            తన సినిమా అప్‌డేట్స్‌ను ఇకపై తన
+            పీఆర్ టీమ్ మాత్రమే చూసుకుంటుందని
+            మమితా వెల్లడించారు. సోషల్ మీడియా వల్ల
+            వచ్చే అనవసరమైన హడావుడికి దూరంగా
+            ఉండటమే శ్రేయస్కరమని ఆమె భావిస్తున్నట్లు
+            పేర్కొన్నారు. నటీనటులకు సోషల్ మీడియా
+            ద్వారా అభిమానులతో నేరుగా కనెక్ట్ అయ్యే
+            అవకాశం ఉన్నప్పటికీ, అదే సమయంలో
+            అనవసరమైన చర్చలు, కామెంట్లు కూడా
+            ఎదురయ్యే పరిస్థితులు ఉంటాయి.
+
         </p>
+
+
+        <div class="highlight-box">
+
+            <h2>
+
+                ⭐ మమితా బైజు కీలక నిర్ణయం
+
+            </h2>
+
+            <p>
+
+                ఇకపై తన సినిమా అప్‌డేట్స్‌ను
+                పీఆర్ టీమ్ చూసుకుంటుందని మమితా
+                తెలిపారు. వ్యక్తిగతంగా సోషల్ మీడియాకు
+                కొంత దూరంగా ఉండి సినిమాలపై
+                దృష్టి పెట్టాలని నిర్ణయించుకున్నట్లు
+                తెలుస్తోంది.
+
+            </p>
+
+        </div>
+
+
+        <p>
+
+            ‘ప్రేమలు’ సినిమా తర్వాత మమితా బైజుకు
+            తెలుగు ప్రేక్షకుల్లో కూడా మంచి గుర్తింపు
+            వచ్చింది. ఈ సినిమాలో ఆమె నటన,
+            స్క్రీన్ ప్రెజెన్స్ ప్రేక్షకులను ఆకట్టుకుంది.
+            సినిమా విజయంతో పాటు మమితా పాత్ర కూడా
+            సోషల్ మీడియాలో పెద్ద ఎత్తున చర్చకు
+            వచ్చింది. దీంతో ఆమెకు వరుసగా కొత్త
+            అవకాశాలు వస్తున్నాయి.
+
+        </p>
+
+
+        <p>
+
+            మరోవైపు, తాను ఐకాన్ స్టార్ అల్లు అర్జున్‌కు
+            వీరాభిమానినని మమితా చెప్పిన విషయం కూడా
+            అభిమానుల్లో ఆసక్తిని కలిగించింది. అల్లు
+            అర్జున్ సినిమాలను పదిసార్లకు పైగా
+            చూస్తానని ఆమె చెప్పినట్లు సమాచారం.
+            ఆయన నటన, డ్యాన్స్, స్క్రీన్ ప్రెజెన్స్
+            తనకు చాలా ఇష్టమని ఆమె గతంలో చెప్పిన
+            విషయాలను అభిమానులు ఇప్పుడు గుర్తు
+            చేసుకుంటున్నారు.
+
+        </p>
+
+
+        <p>
+
+            ప్రస్తుతం మమితా బైజు సినిమాలతో
+            చాలా బిజీగా గడుపుతున్నారు. సూర్య
+            కాంబినేషన్‌లో వస్తున్న ‘విశ్వనాథ్
+            అండ్ సన్స్’తో పాటు మూడు భాషల్లో
+            పలు సినిమాల్లో నటిస్తున్నట్లు సమాచారం.
+            వరుస ప్రాజెక్టులతో బిజీగా ఉన్న నేపథ్యంలో
+            సోషల్ మీడియా కంటే తన కెరీర్‌పై
+            ఎక్కువ దృష్టి పెట్టాలని ఆమె భావిస్తున్నట్లు
+            తెలుస్తోంది.
+
+        </p>
+
+
+        <p>
+
+            ఒక నటిగా సినిమా షూటింగ్‌లు,
+            ప్రమోషన్ కార్యక్రమాలు, ప్రయాణాలు,
+            మీడియా ఇంటర్వ్యూలు ఇలా అనేక పనులతో
+            బిజీగా ఉండాల్సి ఉంటుంది. దీనికి తోడు
+            సోషల్ మీడియాలో నిరంతరం యాక్టివ్‌గా
+            ఉండటం కూడా కొంత ఒత్తిడిని కలిగించే
+            అవకాశం ఉంటుంది. అందుకే వ్యక్తిగత
+            సమయాన్ని కాపాడుకోవడానికి మమితా
+            తీసుకున్న నిర్ణయం ఇప్పుడు చర్చనీయాంశంగా
+            మారింది.
+
+        </p>
+
+
+        <p>
+
+            సోషల్ మీడియాలో ఒక స్టార్ గురించి
+            చిన్న విషయం బయటకు వచ్చినా అది
+            క్షణాల్లో వైరల్ అవుతుంది. అదే సమయంలో
+            అభిమానుల నుంచి వచ్చే ప్రేమతో పాటు
+            విమర్శలు కూడా ఎదుర్కోవాల్సి ఉంటుంది.
+            ఇలాంటి పరిస్థితుల్లో కొంతకాలం సోషల్
+            మీడియాకు దూరంగా ఉండటం ద్వారా తన
+            మానసిక ప్రశాంతతను కాపాడుకోవచ్చని
+            మమితా భావిస్తున్నట్లు తెలుస్తోంది.
+
+        </p>
+
+
+        <div class="highlight-box">
+
+            <h2>
+
+                🎬 ప్రస్తుతం మమితా చేతిలో సినిమాలు
+
+            </h2>
+
+            <p>
+
+                ప్రస్తుతం మమితా బైజు పలు
+                భాషల్లో సినిమాలతో బిజీగా ఉన్నారు.
+                కొత్త అవకాశాలు వస్తున్న నేపథ్యంలో
+                తన సినిమా కెరీర్‌పై మరింత దృష్టి
+                పెట్టే అవకాశం ఉంది.
+
+            </p>
+
+        </div>
+
+
+        <p>
+
+            మమితా సోషల్ మీడియాకు దూరంగా ఉన్నా,
+            ఆమె సినిమా అప్‌డేట్స్ మాత్రం పీఆర్ టీమ్
+            ద్వారా అభిమానులకు అందుబాటులో ఉంటాయి.
+            అందువల్ల అభిమానులు ఆమె కొత్త సినిమాలకు
+            సంబంధించిన పోస్టర్లు, టీజర్లు, ట్రైలర్లు,
+            రిలీజ్ అప్‌డేట్స్ వంటి విషయాలను
+            అధికారిక సోషల్ మీడియా ఖాతాల ద్వారా
+            తెలుసుకునే అవకాశం ఉంటుంది.
+
+        </p>
+
+
+        <p>
+
+            ముఖ్యంగా తెలుగు ప్రేక్షకుల్లో మమితాకు
+            ‘ప్రేమలు’ తర్వాత వచ్చిన క్రేజ్‌ను
+            దృష్టిలో పెట్టుకుంటే, ఆమె తదుపరి
+            సినిమాలపై కూడా ఆసక్తి పెరగడం సహజమే.
+            కొత్త ప్రాజెక్టుల్లో ఆమె ఎలాంటి పాత్రలు
+            ఎంచుకుంటారు, ఏ హీరోలతో కలిసి నటిస్తారు,
+            భవిష్యత్తులో టాలీవుడ్‌లో మరిన్ని
+            అవకాశాలు వస్తాయా అనే విషయాలు
+            అభిమానులు ఆసక్తిగా గమనిస్తున్నారు.
+
+        </p>
+
+
+        <p>
+
+            మమితా బైజు తీసుకున్న ఈ నిర్ణయం
+            తాత్కాలికమా లేదా ఎక్కువకాలం
+            కొనసాగుతుందా అనేది మాత్రం
+            ఆమె భవిష్యత్ నిర్ణయాలపై ఆధారపడి
+            ఉంటుంది. అయితే ప్రస్తుతం ఆమె
+            సినిమాలపై దృష్టి పెట్టాలని భావిస్తున్న
+            విషయం మాత్రం స్పష్టంగా కనిపిస్తోంది.
+
+        </p>
+
+
+        <p>
+
+            మొత్తంగా చూస్తే ‘ప్రేమలు’ సినిమాతో
+            ప్రేక్షకులకు దగ్గరైన మమితా బైజు
+            ఇప్పుడు సోషల్ మీడియాకు కొంతకాలం
+            దూరంగా ఉండాలని తీసుకున్న నిర్ణయం
+            అభిమానుల్లో చర్చకు దారితీసింది.
+            మానసిక ప్రశాంతత కోసం తీసుకున్న
+            ఈ నిర్ణయాన్ని అభిమానులు ఎలా
+            స్వీకరిస్తారనేది చూడాలి.
+
+        </p>
+
+
+        <p>
+
+            ఇదిలా ఉంటే, మమితా బైజు నటిస్తున్న
+            కొత్త సినిమాలపై అంచనాలు కొనసాగుతున్నాయి.
+            సోషల్ మీడియాకు దూరంగా ఉన్నప్పటికీ
+            ఆమె సినిమా ప్రయాణం మాత్రం కొనసాగనుంది.
+            రాబోయే రోజుల్లో ఆమె నుంచి వచ్చే
+            కొత్త సినిమా అప్‌డేట్స్ కోసం అభిమానులు
+            ఆసక్తిగా ఎదురుచూస్తున్నారు.
+
+        </p>
+
+
+        <p class="note">
+
+            ⚠️ గమనిక: సోషల్ మీడియాకు సంబంధించిన
+            అప్‌డేట్స్ కాలానుగుణంగా మారవచ్చు.
+            అధికారిక ప్రకటనలు, మమితా బైజు
+            పీఆర్ టీమ్ నుంచి వచ్చే సమాచారాన్నే
+            తుది సమాచారంగా పరిగణించాలి.
+
+        </p>
+
 
     </div>
 
@@ -253,8 +777,11 @@
         href="index.html"
         class="back-btn"
     >
+
         ← హోమ్ పేజీకి వెళ్లండి
+
     </a>
+
 
 </div>
 
@@ -273,6 +800,125 @@
     Loading latest posts...
 
 </div>
+
+
+<!-- LIKE / COMMENT / SHARE SCRIPT -->
+
+<script>
+
+let liked = false;
+let likes = 0;
+let commentsCount = 0;
+
+
+function toggleLike(){
+
+    if(!liked){
+
+        liked = true;
+        likes++;
+
+        document.getElementById("likeIcon")
+            .innerText = "♥";
+
+        document.getElementById("likeIcon")
+            .classList.add("like-active");
+
+    }else{
+
+        liked = false;
+        likes--;
+
+        document.getElementById("likeIcon")
+            .innerText = "♡";
+
+        document.getElementById("likeIcon")
+            .classList.remove("like-active");
+
+    }
+
+    document.getElementById("likeCount")
+        .innerText = likes;
+
+}
+
+
+function focusComment(){
+
+    document.getElementById("commentInput")
+        .focus();
+
+}
+
+
+function addComment(){
+
+    const input =
+        document.getElementById("commentInput");
+
+    const text =
+        input.value.trim();
+
+    if(text === ""){
+
+        return;
+
+    }
+
+    commentsCount++;
+
+    document.getElementById("commentCount")
+        .innerText = commentsCount;
+
+    const comment =
+        document.createElement("div");
+
+    comment.className = "comment";
+
+    comment.innerText =
+        "💬 " + text;
+
+    document.getElementById("comments")
+        .appendChild(comment);
+
+    input.value = "";
+
+}
+
+
+function sharePost(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:document.title,
+
+            text:
+            "మమితా బైజు తాజా నిర్ణయం గురించి ఈ వార్త చూడండి"
+
+        });
+
+    }else{
+
+        alert(
+            "Share option మీ browser లో అందుబాటులో లేదు."
+        );
+
+    }
+
+}
+
+
+function savePost(){
+
+    alert(
+        "పోస్ట్ సేవ్ చేసినట్లు గుర్తించబడింది."
+    );
+
+}
+
+</script>
 
 
 <!-- LOAD HOME POSTS -->
