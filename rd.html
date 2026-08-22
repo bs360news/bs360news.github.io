@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="te">
 
@@ -13,9 +12,29 @@
     ధోనీ Vs రోహిత్.. గ్రేటెస్ట్ కెప్టెన్ ఎవరు? | BS Telugu News
 </title>
 
-<link rel="stylesheet" href="style.css">
-
 <style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    font-family:"Noto Sans Telugu","Segoe UI",Arial,sans-serif;
+    background:#f4f4f4;
+    padding:15px 8px;
+    width:100%;
+    overflow-x:hidden;
+}
+
+
+/* MAIN CARD */
 
 .media-card{
     max-width:600px;
@@ -28,6 +47,9 @@
     border:1px solid #e1e4e8;
 }
 
+
+/* BRAND */
+
 .brand-header{
     background:#d32f2f;
     color:#fff;
@@ -38,18 +60,28 @@
     letter-spacing:1px;
 }
 
+
+/* CONTENT */
+
 .content-body{
     padding:20px;
 }
 
+
+/* TITLE */
+
 .article-title{
     color:#111;
     font-size:20px;
+    line-height:1.5;
     margin-top:0;
     margin-bottom:12px;
     border-bottom:2px solid #d32f2f;
     padding-bottom:8px;
 }
+
+
+/* INTRO */
 
 .intro-text{
     font-size:14px;
@@ -57,6 +89,7 @@
     line-height:1.8;
     margin-bottom:20px;
 }
+
 
 /* TOP IMAGE */
 
@@ -72,6 +105,7 @@
     height:250px;
     object-fit:cover;
     border-radius:8px;
+    border:1px solid #ddd;
 }
 
 
@@ -103,9 +137,117 @@
 
 .player-name{
     color:#1976d2;
-    font-size:16px;
+    font-size:15px;
     line-height:1.8;
     margin:0;
+}
+
+
+/* ARTICLE TEXT */
+
+.article-text{
+    color:#333;
+    font-size:15px;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+
+/* HIGHLIGHT */
+
+.highlight-box{
+    background:#f9f9f9;
+    border-left:4px solid #e65100;
+    padding:12px;
+    margin:18px 0;
+    border-radius:0 8px 8px 0;
+}
+
+.highlight-box h3{
+    color:#e65100;
+    font-size:16px;
+    margin-bottom:6px;
+}
+
+.highlight-box p{
+    color:#444;
+    font-size:14px;
+    line-height:1.8;
+}
+
+
+/* ACTION BAR */
+
+.action-bar{
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    padding:10px 0;
+    margin:18px 0;
+}
+
+.action-buttons{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.action-btn{
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-size:21px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.action-btn span{
+    font-size:11px;
+    margin-top:3px;
+    color:#333;
+}
+
+.like-active{
+    color:#e91e63;
+}
+
+
+/* COMMENT */
+
+.comment-area{
+    display:flex;
+    margin-top:10px;
+    border:1px solid #ddd;
+    border-radius:20px;
+    padding:3px 8px;
+    background:#fafafa;
+}
+
+.comment-area input{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    padding:8px;
+    font-size:13px;
+}
+
+.comment-area button{
+    border:none;
+    background:transparent;
+    color:#1976d2;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.comments{
+    margin-top:8px;
+}
+
+.comment{
+    padding:7px 0;
+    border-bottom:1px solid #eee;
+    font-size:13px;
 }
 
 
@@ -149,7 +291,8 @@
 /* LATEST POSTS */
 
 .latest-title{
-    margin:35px 0 20px;
+    max-width:900px;
+    margin:35px auto 20px;
     padding:12px;
     background:#e60000;
     color:#fff;
@@ -160,6 +303,11 @@
 
 
 /* HOME POSTS */
+
+#home-posts{
+    max-width:900px;
+    margin:0 auto;
+}
 
 #home-posts .news-list{
     display:grid;
@@ -224,6 +372,10 @@
 
 @media(max-width:600px){
 
+    body{
+        padding:8px 5px;
+    }
+
     .media-card{
         margin:10px auto;
         border-radius:8px;
@@ -238,7 +390,7 @@
     }
 
     .image-grid img{
-        height:200px;
+        height:180px;
     }
 
     .section-box{
@@ -252,6 +404,15 @@
 
     .player-name{
         font-size:14px;
+    }
+
+    .article-text{
+        font-size:14px;
+        line-height:1.85;
+    }
+
+    .action-buttons{
+        gap:20px;
     }
 
     #home-posts .news-list{
@@ -280,7 +441,9 @@
     <!-- BRAND -->
 
     <div class="brand-header">
+
         BS Telugu News
+
     </div>
 
 
@@ -290,17 +453,25 @@
         <!-- TITLE -->
 
         <h2 class="article-title">
+
             ధోనీ Vs రోహిత్.. గ్రేటెస్ట్ కెప్టెన్ ఎవరు? 🏏🔥
+
         </h2>
 
 
         <!-- INTRO -->
 
         <p class="intro-text">
-            ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్ కెప్టెన్ ఎవరు? 🏏🔥
-            టీమిండియాకు ఇద్దరూ అద్భుతమైన కెప్టెన్లు. ధోనీ కెప్టెన్సీలో
-            భారత్ ఎన్నో చారిత్రాత్మక విజయాలు సాధించింది. రోహిత్ శర్మ కూడా
-            తన కెప్టెన్సీలో టీమిండియాకు గొప్ప విజయాలు అందించాడు.
+
+            ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్
+            కెప్టెన్ ఎవరు? 🏏🔥 టీమిండియాకు ఇద్దరూ
+            అద్భుతమైన కెప్టెన్లు. ధోనీ కెప్టెన్సీలో
+            భారత్ ఎన్నో చారిత్రాత్మక విజయాలు సాధించింది.
+            రోహిత్ శర్మ కూడా తన కెప్టెన్సీలో టీమిండియాకు
+            గొప్ప విజయాలు అందించాడు. ఇద్దరి కెప్టెన్సీ
+            స్టైల్ వేర్వేరుగా ఉన్నప్పటికీ భారత క్రికెట్‌పై
+            వీరిద్దరి ప్రభావం మాత్రం చాలా ప్రత్యేకమైనది.
+
         </p>
 
 
@@ -312,6 +483,87 @@
                 src="dhoni,rohith.png"
                 alt="Dhoni Vs Rohit Sharma"
             >
+
+        </div>
+
+
+        <!-- ACTION BAR -->
+
+        <div class="action-bar">
+
+            <div class="action-buttons">
+
+                <button
+                    class="action-btn"
+                    onclick="toggleLike()"
+                >
+
+                    <span id="likeIcon">♡</span>
+
+                    <span id="likeCount">0</span>
+
+                </button>
+
+
+                <button
+                    class="action-btn"
+                    onclick="focusComment()"
+                >
+
+                    💬
+
+                    <span id="commentCount">0</span>
+
+                </button>
+
+
+                <button
+                    class="action-btn"
+                    onclick="sharePost()"
+                >
+
+                    ➤
+
+                    <span>Share</span>
+
+                </button>
+
+
+                <button
+                    class="action-btn"
+                    onclick="savePost()"
+                >
+
+                    🔖
+
+                    <span>Save</span>
+
+                </button>
+
+            </div>
+
+
+            <div class="comment-area">
+
+                <input
+                    type="text"
+                    id="commentInput"
+                    placeholder="మీ కామెంట్‌ను ఇక్కడ రాయండి"
+                >
+
+                <button onclick="addComment()">
+
+                    Comment
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="comments"
+                class="comments"
+            ></div>
 
         </div>
 
@@ -330,24 +582,71 @@
 
                 <h3 class="player-name">
 
-                    ధోనీ కెప్టెన్సీలో టీమిండియా ఎన్నో
-                    చారిత్రాత్మక విజయాలు సాధించింది.
-
-                    ముఖ్యంగా 2007లో జరిగిన T20 వరల్డ్ కప్‌లో
-                    యువ భారత జట్టుకు కెప్టెన్‌గా వ్యవహరించిన ధోనీ…
-                    ఎవరూ పెద్దగా అంచనా వేయని సమయంలో టీమిండియాను
-                    ఛాంపియన్‌గా నిలిపాడు.
-
-                    <br><br>
-
-                    ఆ తర్వాత 2011లో వన్డే వరల్డ్ కప్.
-                    భారత అభిమానులు ఎప్పటికీ మర్చిపోలేని టోర్నమెంట్ అది.
-                    స్వదేశంలో జరిగిన ఆ వరల్డ్ కప్‌లో ధోనీ తన కెప్టెన్సీతో
-                    జట్టును విజయపథంలో నడిపించాడు.
+                    🏆 ఎంఎస్ ధోనీ
 
                 </h3>
 
+                <p class="article-text">
+
+                    ధోనీ కెప్టెన్సీలో టీమిండియా ఎన్నో
+                    చారిత్రాత్మక విజయాలు సాధించింది.
+                    ముఖ్యంగా 2007లో జరిగిన T20 వరల్డ్
+                    కప్‌లో యువ భారత జట్టుకు కెప్టెన్‌గా
+                    వ్యవహరించిన ధోనీ.. ఎవరూ పెద్దగా
+                    అంచనా వేయని సమయంలో టీమిండియాను
+                    ఛాంపియన్‌గా నిలిపాడు.
+
+                </p>
+
             </div>
+
+        </div>
+
+
+        <p class="article-text">
+
+            2007 T20 వరల్డ్ కప్ విజయం ధోనీ కెప్టెన్సీకి
+            ఒక ప్రత్యేకమైన గుర్తింపును తీసుకొచ్చింది.
+            యువ ఆటగాళ్లపై నమ్మకం ఉంచడం, కీలక సమయాల్లో
+            ప్రశాంతంగా నిర్ణయాలు తీసుకోవడం ధోనీ
+            కెప్టెన్సీలో ఎక్కువగా కనిపించిన అంశాలు.
+            మ్యాచ్ ఎంత ఒత్తిడిలో ఉన్నా ధోనీ తన
+            ప్రశాంతతను కోల్పోకుండా పరిస్థితిని
+            అంచనా వేసి నిర్ణయం తీసుకునేవాడిగా
+            అభిమానుల్లో ప్రత్యేక గుర్తింపు పొందాడు.
+
+        </p>
+
+
+        <p class="article-text">
+
+            ఆ తర్వాత 2011లో వన్డే వరల్డ్ కప్.
+            భారత అభిమానులు ఎప్పటికీ మర్చిపోలేని
+            టోర్నమెంట్ అది. స్వదేశంలో జరిగిన ఆ
+            వరల్డ్ కప్‌లో ధోనీ తన కెప్టెన్సీతో
+            జట్టును విజయపథంలో నడిపించాడు. ఫైనల్‌లో
+            కూడా కీలక సమయంలో ముందుకు వచ్చి
+            బ్యాటింగ్ చేసి జట్టుకు విజయాన్ని
+            అందించడంలో తన వంతు పాత్ర పోషించాడు.
+
+        </p>
+
+
+        <div class="highlight-box">
+
+            <h3>
+                🏆 ధోనీ కెప్టెన్సీ ప్రత్యేకత
+            </h3>
+
+            <p>
+
+                ఒత్తిడిలో ప్రశాంతంగా ఉండటం,
+                యువ ఆటగాళ్లపై నమ్మకం ఉంచడం,
+                కీలక సమయాల్లో ధైర్యంగా నిర్ణయాలు
+                తీసుకోవడం ధోనీ కెప్టెన్సీలో
+                కనిపించిన ముఖ్యమైన లక్షణాలు.
+
+            </p>
 
         </div>
 
@@ -366,28 +665,190 @@
 
                 <h3 class="player-name">
 
-                    అయితే మరోవైపు రోహిత్ శర్మ కూడా కెప్టెన్‌గా
-                    తనదైన ముద్ర వేశాడు.
-
-                    <br><br>
-
-                    రోహిత్ కెప్టెన్సీలో భారత జట్టు వైట్ బాల్ క్రికెట్‌లో
-                    చాలా బలమైన జట్టుగా మారింది.
-
-                    ముఖ్యంగా పెద్ద టోర్నమెంట్లలో జట్టును ముందుండి
-                    నడిపించడం, ఆటగాళ్లకు స్వేచ్ఛ ఇవ్వడం,
-                    పరిస్థితులకు తగ్గట్టుగా నిర్ణయాలు తీసుకోవడం
-                    రోహిత్ కెప్టెన్సీలో కనిపించిన ముఖ్యమైన అంశాలు.
-
-                    <br><br>
-
-                    రోహిత్‌కి మరో ప్రత్యేకత ఏంటంటే…
-                    కెప్టెన్‌గా ఉండటమే కాకుండా బ్యాటర్‌గా కూడా
-                    జట్టుకు భారీ ఇన్నింగ్స్‌లు అందించడం.
+                    🔥 రోహిత్ శర్మ
 
                 </h3>
 
+                <p class="article-text">
+
+                    అయితే మరోవైపు రోహిత్ శర్మ కూడా
+                    కెప్టెన్‌గా తనదైన ముద్ర వేశాడు.
+                    వైట్ బాల్ క్రికెట్‌లో రోహిత్
+                    కెప్టెన్సీకి ప్రత్యేకమైన గుర్తింపు
+                    వచ్చింది.
+
+                </p>
+
             </div>
+
+        </div>
+
+
+        <p class="article-text">
+
+            రోహిత్ కెప్టెన్సీలో భారత జట్టు వైట్
+            బాల్ క్రికెట్‌లో చాలా బలమైన జట్టుగా
+            మారింది. ముఖ్యంగా పెద్ద టోర్నమెంట్లలో
+            జట్టును ముందుండి నడిపించడం, ఆటగాళ్లకు
+            స్వేచ్ఛ ఇవ్వడం, పరిస్థితులకు తగ్గట్టుగా
+            నిర్ణయాలు తీసుకోవడం రోహిత్ కెప్టెన్సీలో
+            కనిపించిన ముఖ్యమైన అంశాలు.
+
+        </p>
+
+
+        <p class="article-text">
+
+            రోహిత్‌కి మరో ప్రత్యేకత ఏంటంటే..
+            కెప్టెన్‌గా ఉండటమే కాకుండా బ్యాటర్‌గా
+            కూడా జట్టుకు భారీ ఇన్నింగ్స్‌లు
+            అందించడం. ఓపెనర్‌గా జట్టుకు మంచి
+            ఆరంభాలు అందిస్తూ, అవసరమైన సమయంలో
+            దూకుడైన బ్యాటింగ్ చేయడం ద్వారా
+            మ్యాచ్‌పై ప్రభావం చూపించగలిగాడు.
+
+        </p>
+
+
+        <p class="article-text">
+
+            కెప్టెన్‌గా ఆటగాళ్లపై నమ్మకం ఉంచడం
+            రోహిత్‌లో కనిపించిన మరో ముఖ్యమైన
+            లక్షణంగా చెప్పుకోవచ్చు. యువ ఆటగాళ్లకు
+            అవకాశాలు ఇవ్వడం, వారికి తమ సహజమైన
+            ఆటను ఆడే స్వేచ్ఛ ఇవ్వడం ద్వారా
+            జట్టులో మంచి వాతావరణాన్ని
+            కొనసాగించడానికి ప్రయత్నించాడు.
+
+        </p>
+
+
+        <div class="highlight-box">
+
+            <h3>
+                🔥 రోహిత్ కెప్టెన్సీ ప్రత్యేకత
+            </h3>
+
+            <p>
+
+                దూకుడైన ఆలోచన, ఆటగాళ్లకు స్వేచ్ఛ,
+                పరిస్థితులకు తగ్గట్టుగా ఫీల్డింగ్
+                మరియు బౌలింగ్ మార్పులు చేయడం,
+                బ్యాటర్‌గా కూడా జట్టుకు సహకరించడం
+                రోహిత్ కెప్టెన్సీలోని ముఖ్యమైన
+                అంశాలుగా కనిపించాయి.
+
+            </p>
+
+        </div>
+
+
+        <!-- COMPARISON -->
+
+        <p class="article-text">
+
+            మరి ధోనీ, రోహిత్ ఇద్దరిలో గ్రేటెస్ట్
+            కెప్టెన్ ఎవరు అనే ప్రశ్నకు ఒక్క మాటలో
+            సమాధానం చెప్పడం అంత సులభం కాదు.
+            ఎందుకంటే ఇద్దరూ వేర్వేరు కాలాల్లో,
+            వేర్వేరు పరిస్థితుల్లో టీమిండియాను
+            నడిపించారు. ధోనీ భారత క్రికెట్‌కు
+            ఒక కొత్త తరాన్ని పరిచయం చేసి పెద్ద
+            టోర్నమెంట్లలో విజయాలు అందించగా,
+            రోహిత్ కూడా ఆధునిక క్రికెట్‌లో
+            బలమైన జట్టును నడిపించే బాధ్యతను
+            సమర్థవంతంగా నిర్వహించాడు.
+
+        </p>
+
+
+        <p class="article-text">
+
+            ధోనీ కెప్టెన్సీలోని ప్రశాంతత ఒక
+            ప్రత్యేకమైన బలం అయితే, రోహిత్
+            కెప్టెన్సీలోని దూకుడు మరో ప్రత్యేకమైన
+            బలం. ధోనీ కీలక సమయంలో ఒక్క నిర్ణయంతో
+            మ్యాచ్‌ను మార్చగలిగేవాడు. రోహిత్
+            కూడా పరిస్థితిని బట్టి ఆటగాళ్లను
+            ఉపయోగించడంలో తనదైన శైలిని చూపించాడు.
+
+        </p>
+
+
+        <p class="article-text">
+
+            కెప్టెన్‌గా మాత్రమే కాకుండా జట్టును
+            ఒక యూనిట్‌గా నడిపించడం కూడా చాలా
+            ముఖ్యం. ఈ విషయంలో ఇద్దరి శైలులు
+            వేర్వేరుగా ఉన్నప్పటికీ, ఆటగాళ్లతో
+            మంచి సంబంధాలు కొనసాగించడం ఇద్దరిలోనూ
+            కనిపించింది. అందుకే అభిమానులు
+            ఇద్దరినీ తమకు ఇష్టమైన కెప్టెన్లుగా
+            భావిస్తారు.
+
+        </p>
+
+
+        <p class="article-text">
+
+            ధోనీ అభిమానులు ఆయనకు వచ్చిన
+            పెద్ద టోర్నమెంట్ విజయాలను ప్రధానంగా
+            ప్రస్తావిస్తారు. మరోవైపు రోహిత్
+            అభిమానులు అతని దూకుడైన కెప్టెన్సీ,
+            బ్యాటింగ్ సామర్థ్యం, ఆధునిక క్రికెట్‌లో
+            జట్టును ముందుకు తీసుకెళ్లే విధానాన్ని
+            ప్రస్తావిస్తారు. అందుకే సోషల్ మీడియాలో
+            ధోనీ Vs రోహిత్ అనే చర్చ ఎప్పటికప్పుడు
+            ఆసక్తిని కలిగిస్తూనే ఉంటుంది.
+
+        </p>
+
+
+        <p class="article-text">
+
+            వాస్తవానికి ఇద్దరు కెప్టెన్లను
+            పోల్చడం కంటే భారత క్రికెట్‌కు
+            ఇద్దరూ అందించిన సేవలను గుర్తించడం
+            ముఖ్యమని చాలామంది అభిమానులు
+            భావిస్తారు. ఒకరు భారత క్రికెట్‌లో
+            ఒక ప్రత్యేక యుగానికి నాయకత్వం వహిస్తే,
+            మరొకరు మరో దశలో జట్టును ముందుకు
+            తీసుకెళ్లే బాధ్యతను నిర్వహించారు.
+
+        </p>
+
+
+        <p class="article-text">
+
+            చివరికి గ్రేటెస్ట్ కెప్టెన్ ఎవరు అనే
+            నిర్ణయం ప్రతి అభిమాని వ్యక్తిగత
+            అభిప్రాయంపై ఆధారపడి ఉంటుంది.
+            కొందరికి ధోనీ ప్రశాంతమైన కెప్టెన్సీ
+            నచ్చితే, మరికొందరికి రోహిత్ దూకుడైన
+            నాయకత్వం నచ్చుతుంది. ఇద్దరి కెప్టెన్సీకి
+            ప్రత్యేకమైన బలం ఉంది.
+
+        </p>
+
+
+        <!-- FINAL -->
+
+        <div class="highlight-box">
+
+            <h3>
+                🏏 మీ అభిప్రాయం ఏంటి?
+            </h3>
+
+            <p>
+
+                ధోనీ లేదా రోహిత్.. ఇద్దరిలో
+                మీ ఫేవరెట్ కెప్టెన్ ఎవరు?
+                ధోనీ ప్రశాంతమైన నాయకత్వమా?
+                లేక రోహిత్ దూకుడైన కెప్టెన్సీనా?
+                మీ అభిప్రాయాన్ని కామెంట్‌లో
+                తప్పకుండా చెప్పండి.
+
+            </p>
 
         </div>
 
@@ -399,7 +860,8 @@
 
     <div class="footer-call">
 
-        💬 ధోనీ లేదా రోహిత్.. మీ ఫేవరెట్ కెప్టెన్ ఎవరు?
+        💬 ధోనీ లేదా రోహిత్..
+        మీ ఫేవరెట్ కెప్టెన్ ఎవరు?
 
         <br>
 
@@ -429,7 +891,9 @@
         href="index.html"
         class="back-btn"
     >
+
         ← హోమ్ పేజీకి వెళ్లండి
+
     </a>
 
 </div>
@@ -449,6 +913,125 @@
     Loading latest posts...
 
 </div>
+
+
+<!-- LIKE / COMMENT / SHARE -->
+
+<script>
+
+let liked = false;
+let likes = 0;
+let commentsCount = 0;
+
+
+function toggleLike(){
+
+    if(!liked){
+
+        liked = true;
+        likes++;
+
+        document.getElementById("likeIcon")
+            .innerText = "♥";
+
+        document.getElementById("likeIcon")
+            .classList.add("like-active");
+
+    }else{
+
+        liked = false;
+        likes--;
+
+        document.getElementById("likeIcon")
+            .innerText = "♡";
+
+        document.getElementById("likeIcon")
+            .classList.remove("like-active");
+
+    }
+
+    document.getElementById("likeCount")
+        .innerText = likes;
+
+}
+
+
+function focusComment(){
+
+    document.getElementById("commentInput")
+        .focus();
+
+}
+
+
+function addComment(){
+
+    const input =
+        document.getElementById("commentInput");
+
+    const text =
+        input.value.trim();
+
+    if(text === ""){
+
+        return;
+
+    }
+
+    commentsCount++;
+
+    document.getElementById("commentCount")
+        .innerText = commentsCount;
+
+    const comment =
+        document.createElement("div");
+
+    comment.className = "comment";
+
+    comment.innerText =
+        "💬 " + text;
+
+    document.getElementById("comments")
+        .appendChild(comment);
+
+    input.value = "";
+
+}
+
+
+function sharePost(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:document.title,
+
+            text:
+            "ధోనీ Vs రోహిత్.. గ్రేటెస్ట్ కెప్టెన్ ఎవరు?"
+
+        });
+
+    }else{
+
+        alert(
+            "Share option మీ browser లో అందుబాటులో లేదు."
+        );
+
+    }
+
+}
+
+
+function savePost(){
+
+    alert(
+        "ఈ పోస్ట్ Save చేసినట్లు గుర్తించబడింది."
+    );
+
+}
+
+</script>
 
 
 <!-- LOAD HOME POSTS -->
