@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>దేశీయ స్టాక్ మార్కెట్ ట్రేడింగ్ అప్‌డేట్స్ - BS 360 NEWS</title>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="దేశీయ స్టాక్ మార్కెట్ ట్రేడింగ్ అప్‌డేట్స్">
+    <meta name="twitter:description" content="తాజా బిజినెస్ & స్టాక్ మార్కెట్ వార్తల వివరాల కోసం BS 360 NEWS">
+    <meta name="twitter:image" content="https://suryabhai941.github.io/stock.jpg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="దేశీయ స్టాక్ మార్కెట్ ట్రేడింగ్ అప్‌డేట్స్">
+    <meta property="og:description" content="తాజా బిజినెస్ & స్టాక్ మార్కెట్ వార్తల వివరాల కోసం BS 360 NEWS">
+    <meta property="og:image" content="https://suryabhai941.github.io/stock.jpg">
+    <meta property="og:url" content="https://suryabhai941.github.io/stock.html">
+
+    <style>
+        * { box-sizing: border-box; }
+        html { width: 100%; overflow-x: hidden; }
+        body { font-family: Arial, sans-serif; background: #ffffff; margin: 0; padding: 0; width: 100%; overflow-x: hidden; color: #222; }
+
+        .article-container { width: 100%; max-width: 900px; margin: 0 auto; padding: 20px; }
+        .tag { background-color: #cc0000; color: #ffffff; font-size: 12px; font-weight: bold; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; line-height: 1.3; }
+        h1 { color: #222; font-size: 30px; margin: 0 0 18px 0; line-height: 1.4; font-weight: 700; }
+        h2 { color: #111; font-size: 22px; margin: 25px 0 12px 0; font-weight: 700; border-left: 4px solid #cc0000; padding-left: 10px; }
+        .img-gallery { width: 100%; margin: 18px 0; }
+        .img-gallery img { display: block; width: 100%; height: auto; object-fit: cover; border-radius: 10px; }
+
+        /* INSTAGRAM UI STYLES */
+        .ig-card { max-width: 100%; margin: 15px 0 25px 0; font-family: sans-serif; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee; padding: 10px 0; }
+        .ig-actions { display: flex; align-items: center; padding: 5px 0; }
+        .action-item { display: flex; flex-direction: column; align-items: center; margin-right: 28px; cursor: pointer; font-size: 22px; color: #222; }
+        .action-item span { font-size: 13px; margin-top: 4px; font-weight: 500; }
+        .bookmark { margin-left: auto; margin-right: 0; }
+        .fa-heart.liked { color: #ed4956; font-weight: 900; }
+        .comment-input-container { display: flex; background: #fafafa; border: 1px solid #dddddd; border-radius: 20px; padding: 4px 12px; margin-top: 12px; }
+        .comment-input-container input { flex: 1; border: none; background: transparent; padding: 8px; outline: none; font-size: 14px; }
+        .comment-input-container button { border: none; background: transparent; color: #0095f6; font-weight: bold; cursor: pointer; font-size: 14px; }
+        .comments-display { margin-top: 12px; font-size: 14px; }
+        .single-comment { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+
+        p { color: #333; line-height: 1.9; font-size: 17px; margin: 0 0 20px 0; }
+        .punchline { background-color: #f8f9fa; border-left: 4px solid #0095f6; padding: 15px; font-weight: bold; font-size: 18px; margin: 25px 0; }
+
+        @media (max-width: 600px) {
+            .article-container { padding: 14px; }
+            h1 { font-size: 25px; }
+            h2 { font-size: 19px; }
+            .action-item { margin-right: 22px; font-size: 21px; }
+            p { font-size: 16px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="article-container">
+
+    <div>
+        <span class="tag">బిజినెస్ & స్టాక్ మార్కెట్</span>
+    </div>
+
+    <h1>📈 లాభాలతో ప్రారంభమై.. నష్టాల్లో ముగిసిన స్టాక్ మార్కెట్లు!</h1>
+
+    <div class="img-gallery">
+        <img src="stock.jpg" alt="స్టాక్ మార్కెట్ అప్‌డేట్స్">
+    </div>
+
+    <!-- INSTAGRAM UI DESIGN -->
+    <div class="ig-card">
+      <div class="ig-actions">
+        <div class="action-item" onclick="toggleLike()">
+          <i class="fa-regular fa-heart" id="likeIcon"></i>
+          <span id="likeCount">0</span>
+        </div>
+
+        <div class="action-item" onclick="focusComment()">
+          <i class="fa-regular fa-comment"></i>
+          <span id="commentCount">0</span>
+        </div>
+
+        <div class="action-item" onclick="sharePost()">
+          <i class="fa-regular fa-paper-plane"></i>
+          <span id="shareCount">0</span>
+        </div>
+
+        <div class="action-item bookmark">
+          <i class="fa-regular fa-bookmark"></i>
+        </div>
+      </div>
+
+      <div class="comment-input-container">
+        <input type="text" id="commentInput" placeholder="మీ అభిప్రాయాన్ని రాయండి...">
+        <button onclick="addComment()">పోస్ట్ చేయండి</button>
+      </div>
+
+      <div id="commentsList" class="comments-display"></div>
+    </div>
+
+    <!-- ARTICLE CONTENT -->
+    <p>దేశీయ స్టాక్ మార్కెట్లు సోమవారం ఉదయం లాభాలతో ట్రేడింగ్‌ను ప్రారంభించాయి. అంతర్జాతీయ మార్కెట్ల నుంచి వచ్చిన సానుకూల సంకేతాలు, క్రూడ్ ఆయిల్ ధరలు కొంత తగ్గడం వంటి అంశాలు ఇన్వెస్టర్ల సెంటిమెంట్‌ను బలపరిచాయి. దీంతో మార్కెట్ ప్రారంభంలోనే సెన్సెక్స్ 200 పాయింట్లకు పైగా లాభపడగా, నిఫ్టీ 24,300 స్థాయిని దాటింది.</p>
+
+    <h2>ఉదయం కనిపించిన లాభాల జోరు</h2>
+    <p>ట్రేడింగ్ ప్రారంభ సమయంలో సెన్సెక్స్ దాదాపు 249 పాయింట్లు పెరిగి 77,789 స్థాయిని తాకింది. మరోవైపు నిఫ్టీ 50 కూడా 24,313 వరకు వెళ్లింది. మార్కెట్‌లోని కీలకమైన పెద్ద కంపెనీల షేర్లలో కొనుగోళ్లు జరగడం సూచీలకు మద్దతుగా నిలిచింది. ముఖ్యంగా హెచ్‌డీఎఫ్‌సీ బ్యాంక్, ఇన్ఫోసిస్, ఐసీఐసీఐ బ్యాంక్, రిలయన్స్ ఇండస్ట్రీస్, టాటా స్టీల్, హెచ్‌సీఎల్ టెక్నాలజీస్, కోటక్ మహీంద్రా బ్యాంక్ వంటి షేర్లు ప్రారంభంలో మార్కెట్‌ను ముందుకు నడిపించాయి.</p>
+
+    <p>హెచ్‌డీఎఫ్‌సీ బ్యాంక్ షేరు ప్రారంభంలో దాదాపు 0.70 శాతం పెరిగింది. ఇన్ఫోసిస్ 1.56 శాతం, హెచ్‌సీఎల్ టెక్నాలజీస్ 1.08 శాతం, హిందాల్కో 1.44 శాతం, టాటా స్టీల్ 0.72 శాతం వరకు లాభపడ్డాయి. దీంతో ఐటీ, మెటల్, బ్యాంకింగ్ రంగాల్లోని కొన్ని కీలక షేర్లలో కొనుగోళ్ల ఆసక్తి కనిపించింది.</p>
+
+    <h2>లాభాలను తగ్గించిన గ్లోబల్ ఆందోళనలు</h2>
+    <p>అయితే మార్కెట్‌లో ఈ ప్రారంభ ఉత్సాహం పూర్తిస్థాయిలో కొనసాగలేదు. అంతర్జాతీయ పరిణామాలు, ముఖ్యంగా ఇరాన్‌పై అమెరికా తీసుకోబోతున్న కొత్త ఆంక్షలు, చమురు సరఫరాకు సంబంధించిన ఆందోళనలు ఇన్వెస్టర్లలో అప్రమత్తతను పెంచాయి. క్రూడ్ ఆయిల్ ధరల కదలిక కూడా మార్కెట్‌పై ప్రభావం చూపుతోంది. ముడి చమురు ధరలు పెరిగితే దిగుమతులపై ఆధారపడే భారత ఆర్థిక వ్యవస్థకు ఖర్చులు పెరిగే అవకాశం ఉండటంతో, ఇన్వెస్టర్లు ఈ అంశాన్ని నిశితంగా గమనిస్తున్నారు.</p>
+
+    <h2>చివరకు నష్టాల్లో ముగింపు</h2>
+    <p>మార్కెట్ ముగిసే సమయానికి ప్రారంభ లాభాలు పూర్తిగా నిలబడలేదు. సోమవారం ట్రేడింగ్ చివర్లో సెన్సెక్స్ 171.72 పాయింట్లు తగ్గి 77,369.11 వద్ద ముగిసింది. నిఫ్టీ 32.95 పాయింట్లు పడిపోయి 24,219.05 వద్ద స్థిరపడింది. అంటే ఉదయం లాభాలతో ప్రారంభమైన మార్కెట్లు చివరికి స్వల్ప నష్టాలతో ముగిశాయి.</p>
+
+    <h2>రంగాలు & షేర్ల పనితీరు</h2>
+    <p>సెక్టార్ల విషయానికి వస్తే ఐటీ, మెటల్ రంగాల్లో కొంత బలం కనిపించింది. హెచ్‌సీఎల్ టెక్నాలజీస్, హిందాల్కో, జేఎస్‌డబ్ల్యూ స్టీల్, టాటా స్టీల్ వంటి షేర్లు మార్కెట్‌కు కొంత మద్దతు ఇచ్చాయి. మరోవైపు ఫైనాన్షియల్ రంగంలోని కొన్ని షేర్లలో అమ్మకాల ఒత్తిడి కనిపించింది. బజాజ్ ఫైనాన్స్, బజాజ్ ఫిన్‌సర్వ్, ఎస్‌బీఐ లైఫ్, అదానీ పోర్ట్స్ వంటి షేర్లు ఒత్తిడిని ఎదుర్కొన్నాయి.</p>
+
+    <p>విస్తృత మార్కెట్‌లో కూడా మిశ్రమ పరిస్థితి కనిపించింది. నిఫ్టీ మిడ్‌క్యాప్ ఇండెక్స్ స్వల్పంగా లాభపడగా, స్మాల్‌క్యాప్ ఇండెక్స్ నష్టాల్లో ముగిసింది. ఇది మార్కెట్‌లో ఇన్వెస్టర్లు పూర్తిగా రిస్క్ తీసుకోవడానికి సిద్ధంగా లేరనే సంకేతంగా నిపుణులు భావిస్తున్నారు.</p>
+
+    <h2>ముగింపు</h2>
+    <p>మొత్తంగా చూస్తే, సోమవారం భారత స్టాక్ మార్కెట్లు ఉదయం బలమైన లాభాలతో ప్రారంభమైనప్పటికీ, అంతర్జాతీయ భౌగోళిక రాజకీయ పరిణామాలు, ఇరాన్‌కు సంబంధించిన అమెరికా ఆంక్షలు, చమురు ధరల కదలికలు మార్కెట్‌పై ప్రభావం చూపాయి. అందువల్ల ఉదయం కనిపించిన ర్యాలీ చివరి వరకు కొనసాగలేదు. ప్రస్తుతం ఇన్వెస్టర్లు రాబోయే రోజుల్లో గ్లోబల్ మార్కెట్ల కదలికలు, క్రూడ్ ఆయిల్ ధరలు, విదేశీ పెట్టుబడుల ప్రవాహం, కంపెనీల షేర్ పనితీరును జాగ్రత్తగా గమనిస్తున్నారు.</p>
+
+    <div class="punchline">
+        💡 గమనిక: పై కథనంలో ఉదయం మార్కెట్ పరిస్థితి మరియు అదే రోజు మార్కెట్ ముగింపు రెండింటినీ కలిపి వివరించాం. కాబట్టి స్క్రీన్‌షాట్‌లో కనిపిస్తున్న ప్రారంభ లాభాల సంఖ్యలు, రోజు చివరి ముగింపు సంఖ్యలు వేర్వేరుగా ఉంటాయి.
+    </div>
+
+</div>
+
+<!-- FIREBASE FIRESTORE SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyC6VG8Hr7f1bavFbFD0X-x7zrxg9hNFzuI",
+    authDomain: "bs360news.firebaseapp.com",
+    projectId: "bs360news",
+    storageBucket: "bs360news.firebasestorage.app",
+    messagingSenderId: "890038972122",
+    appId: "1:890038972122:web:b35998960fc3061120bfe3"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // Post ID Updated for Stock Market Post
+  const postId = "stock_market_post";
+  const postRef = db.collection("posts").doc(postId);
+
+  let localLiked = localStorage.getItem(`liked_${postId}`) === "true";
+
+  // Real-time Likes and Shares Update
+  postRef.onSnapshot((docSnap) => {
+    if (docSnap.exists) {
+      const data = docSnap.data();
+      document.getElementById("likeCount").innerText = data.likes || 0;
+      document.getElementById("shareCount").innerText = data.shares || 0;
+    } else {
+      postRef.set({ likes: 0, commentCount: 0, shares: 0 });
+    }
+  });
+
+  // Real-time Comments List & Count Update
+  db.collection("posts").doc(postId).collection("comments")
+    .orderBy("timestamp", "desc")
+    .onSnapshot((snapshot) => {
+      document.getElementById("commentCount").innerText = snapshot.size;
+      const commentsList = document.getElementById("commentsList");
+      commentsList.innerHTML = "";
+      snapshot.forEach((doc) => {
+        const div = document.createElement("div");
+        div.className = "single-comment";
+        div.innerText = doc.data().text;
+        commentsList.appendChild(div);
+      });
+    });
+
+  if (localLiked) {
+    const icon = document.getElementById("likeIcon");
+    icon.classList.remove("fa-regular");
+    icon.classList.add("fa-solid", "liked");
+  }
+
+  // Like Function
+  function toggleLike() {
+    const icon = document.getElementById("likeIcon");
+    if (!localLiked) {
+      postRef.update({ likes: firebase.firestore.FieldValue.increment(1) });
+      localLiked = true;
+      localStorage.setItem(`liked_${postId}`, "true");
+      icon.classList.remove("fa-regular");
+      icon.classList.add("fa-solid", "liked");
+    } else {
+      postRef.update({ likes: firebase.firestore.FieldValue.increment(-1) });
+      localLiked = false;
+      localStorage.setItem(`liked_${postId}`, "false");
+      icon.classList.remove("fa-solid", "liked");
+      icon.classList.add("fa-regular");
+    }
+  }
+
+  function focusComment() {
+    document.getElementById("commentInput").focus();
+  }
+
+  // Add Comment
+  function addComment() {
+    const input = document.getElementById("commentInput");
+    const text = input.value.trim();
+    if (text !== "") {
+      postRef.collection("comments").add({
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      input.value = "";
+    }
+  }
+
+  // Share Function
+  function sharePost() {
+    postRef.update({ shares: firebase.firestore.FieldValue.increment(1) });
+    if (navigator.share) {
+      navigator.share({ title: document.title, url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert("లింక్ కాపీ చేయబడింది!");
+    }
+  }
+</script>
+
+</body>
+</html>
