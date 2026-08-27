@@ -1,42 +1,605 @@
-<article
-  class="news-item post"
-  data-category="movies"
-  data-url="jadal.html">
+<!DOCTYPE html>
+<html lang="te">
 
-  <img
-    src="jadal.webp"
-    alt="ది ప్యారడైజ్ సినిమాలో నాని, కీర్తి సురేష్"
-    loading="lazy">
+<head>
 
-  <div class="news-content">
+<meta charset="UTF-8">
 
-    <span class="tag">
-      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
-    </span>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <h3>
-      ‘ది ప్యారడైజ్’లో కీర్తి సురేష్.. నాని జడ లాగుతున్న పోస్ట్ వైరల్.. అసలు విషయం ఏంటంటే?
-    </h3>
+<title>
+ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన - BS 360 NEWS
+</title>
 
-    <div class="time-stamp"
-      data-time="2026-08-27T16:45:00+05:30">
-      🕒 Loading...
-    </div>
+<meta name="description"
+content="FIH ఉమెన్స్ హాకీ వరల్డ్ కప్‌లో భారత మహిళల జట్టు జర్మనీపై 3-1తో విజయం సాధించి ఐదో స్థానంలో నిలిచింది. 1974 తర్వాత వరల్డ్ కప్‌లో భారత్‌కు ఇదే అత్యుత్తమ ఫినిష్.">
 
-    <p class="summary">
-      నాని–శ్రీకాంత్ ఓదెల కాంబినేషన్‌లో తెరకెక్కుతున్న ‘ది ప్యారడైజ్’పై అంచనాలు పెరుగుతున్న వేళ.. కీర్తి సురేష్ నాని జడ లాగుతున్నట్లుగా ఉన్న పోస్ట్ సోషల్ మీడియాలో వైరల్‌గా మారింది. ఈ పోస్ట్ వెనుక అసలు విషయం ఏంటనే చర్చ మొదలైంది.
-    </p>
+<link rel="canonical"
+href="https://bs360news.github.io/haki.html">
 
-    <div class="share-row">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-      <button
-        type="button"
-        onclick="sharePost(this)">
-        🔗 Share
-      </button>
 
-    </div>
+<!-- Twitter -->
 
-  </div>
+<meta name="twitter:card"
+content="summary_large_image">
 
-</article>
+<meta name="twitter:title"
+content="ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన">
+
+<meta name="twitter:description"
+content="భారత మహిళల హాకీ జట్టు జర్మనీపై 3-1తో విజయం సాధించి వరల్డ్ కప్‌లో ఐదో స్థానాన్ని కైవసం చేసుకుంది.">
+
+<meta name="twitter:image"
+content="https://bs360news.github.io/haki.webp">
+
+
+<!-- Open Graph -->
+
+<meta property="og:type"
+content="article">
+
+<meta property="og:title"
+content="ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన">
+
+<meta property="og:description"
+content="FIH ఉమెన్స్ హాకీ వరల్డ్ కప్‌లో భారత్ 3-1తో జర్మనీని ఓడించి ఐదో స్థానంలో నిలిచింది.">
+
+<meta property="og:image"
+content="https://bs360news.github.io/haki.webp">
+
+<meta property="og:url"
+content="https://bs360news.github.io/haki.html">
+
+
+<style>
+
+/* ================================
+   BASIC RESET
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #222222;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* ================================
+   ARTICLE CONTAINER
+================================ */
+
+.article-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* ================================
+   CATEGORY
+================================ */
+
+.tag {
+    background: #cc0000;
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    padding: 5px 10px;
+
+    border-radius: 4px;
+
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    line-height: 1.3;
+}
+
+
+/* ================================
+   TITLE
+================================ */
+
+h1 {
+    color: #222222;
+
+    font-size: 30px;
+
+    margin: 0 0 18px 0;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+}
+
+
+/* ================================
+   HEADINGS
+================================ */
+
+h2 {
+    color: #111111;
+
+    font-size: 22px;
+
+    margin: 25px 0 12px 0;
+
+    font-weight: 700;
+
+    border-left: 4px solid #cc0000;
+
+    padding-left: 10px;
+}
+
+
+/* ================================
+   IMAGE
+================================ */
+
+.img-gallery {
+    width: 100%;
+
+    margin: 18px 0 25px 0;
+
+    display: block;
+}
+
+.img-gallery img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 10px;
+
+    border: 1px solid #e5e5e5;
+
+    margin: 0 auto;
+}
+
+
+/* ================================
+   PARAGRAPHS
+================================ */
+
+p {
+    color: #333333;
+
+    line-height: 1.9;
+
+    font-size: 17px;
+
+    margin: 0 0 20px 0;
+}
+
+
+/* ================================
+   LATEST POSTS
+================================ */
+
+.latest-title {
+    font-size: 21px;
+
+    margin-top: 30px;
+
+    margin-bottom: 15px;
+
+    border-bottom: 2px solid #eeeeee;
+
+    padding-bottom: 8px;
+
+    border-left: none;
+
+    padding-left: 0;
+}
+
+
+#home-posts {
+    width: 100%;
+}
+
+
+#home-posts .news-list {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+#home-posts .news-item {
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 8px;
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 8px;
+
+    height: 100%;
+}
+
+
+#home-posts .news-item img {
+    width: 100%;
+
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+
+#home-posts .news-item h3 {
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    margin: 0 0 5px 0;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .article-container {
+        padding: 14px;
+    }
+
+
+    h1 {
+        font-size: 25px;
+
+        line-height: 1.4;
+    }
+
+
+    h2 {
+        font-size: 19px;
+    }
+
+
+    p {
+        font-size: 16px;
+
+        line-height: 1.85;
+    }
+
+
+    .img-gallery {
+        width: 100%;
+
+        margin: 15px 0 20px 0;
+    }
+
+
+    .img-gallery img {
+        width: 100%;
+
+        max-width: 100%;
+
+        height: 260px;
+
+        object-fit: cover;
+
+        object-position: center;
+
+        border-radius: 8px;
+    }
+
+
+    #home-posts .news-list {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 8px;
+    }
+
+
+    #home-posts .news-item img {
+        height: 100px;
+    }
+
+
+    #home-posts .news-item h3 {
+        font-size: 12px;
+    }
+
+}
+
+
+/* ================================
+   DARK MODE
+================================ */
+
+body.dark-mode {
+    background: #121212;
+
+    color: #f0f0f0;
+}
+
+
+body.dark-mode .article-container,
+body.dark-mode #home-posts .news-item {
+    background: #121212;
+}
+
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode p {
+    color: #f0f0f0;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="article-container">
+
+
+<!-- CATEGORY -->
+
+<div>
+
+<span class="tag">
+🏑 స్పోర్ట్స్ & హాకీ
+</span>
+
+</div>
+
+
+<!-- TITLE -->
+
+<h1>
+ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన
+</h1>
+
+
+<!-- IMAGE -->
+
+<div class="img-gallery">
+
+<img
+src="haki.webp"
+alt="భారత మహిళల హాకీ జట్టు"
+loading="eager">
+
+</div>
+
+
+<!-- ARTICLE CONTENT -->
+
+
+<p>
+ప్రపంచ హాకీ వేదికపై భారత మహిళల జట్టు మరోసారి చరిత్ర సృష్టించింది. FIH ఉమెన్స్ హాకీ వరల్డ్ కప్‌లో జర్మనీపై భారత మహిళల జట్టు 3-1తో అద్భుతమైన విజయం సాధించింది. ఈ విజయంతో భారత్ టోర్నీలో ఐదో స్థానాన్ని సొంతం చేసుకుంది.
+</p>
+
+
+<p>
+ఈ ఫలితం భారత మహిళల హాకీ చరిత్రలో ఎంతో ప్రత్యేకమైనది. 1974లో జరిగిన తొలి మహిళల హాకీ వరల్డ్ కప్‌లో భారత్ నాలుగో స్థానంలో నిలిచింది. ఆ తర్వాత వరల్డ్ కప్‌లో భారత్‌కు లభించిన అత్యుత్తమ ఫినిష్ ఇదే కావడం విశేషం. దాదాపు 52 ఏళ్ల తర్వాత భారత జట్టు మరోసారి టాప్-5లో నిలిచింది. 1
+</p>
+
+
+<h2>
+🏑 తొలి అర్ధభాగంలో గోల్ కోసం తీవ్ర పోరు
+</h2>
+
+
+<p>
+జర్మనీతో జరిగిన 5వ–6వ స్థానాల వర్గీకరణ మ్యాచ్ ప్రారంభం నుంచే ఉత్కంఠగా సాగింది. ఇరు జట్లు మొదటి రెండు క్వార్టర్లలో డిఫెన్స్‌కు ఎక్కువ ప్రాధాన్యత ఇచ్చాయి. జర్మనీకి కొన్ని అవకాశాలు లభించినప్పటికీ భారత డిఫెన్స్ వాటిని సమర్థంగా అడ్డుకుంది.
+</p>
+
+
+<p>
+మొదటి 30 నిమిషాల ఆట పూర్తయ్యే సమయానికి ఇరు జట్లూ ఒక్క గోల్ కూడా చేయలేకపోయాయి. దీంతో హాఫ్ టైమ్‌కు స్కోరు 0-0గా నిలిచింది. మ్యాచ్ రెండో అర్ధభాగంలోనే అసలు కథ మారిపోయింది. 2
+</p>
+
+
+<h2>
+🔥 మూడో క్వార్టర్‌లో భారత్ దూకుడు
+</h2>
+
+
+<p>
+మూడో క్వార్టర్ ప్రారంభమైన తర్వాత భారత క్రీడాకారిణులు ఆట వేగాన్ని పూర్తిగా మార్చేశారు. 43వ నిమిషంలో ఇషికా అద్భుతమైన ఫీల్డ్ గోల్ సాధించి భారత్‌కు 1-0 ఆధిక్యాన్ని అందించింది.
+</p>
+
+
+<p>
+ఆ గోల్ వచ్చిన వెంటనే భారత్ మరింత ఉత్సాహంతో ఆడింది. 44వ నిమిషంలో లభించిన పెనాల్టీ కార్నర్‌ను నవనీత్ కౌర్ గోల్‌గా మలిచింది. దీంతో భారత్ 2-0 ఆధిక్యంలోకి వెళ్లింది. 3
+</p>
+
+
+<h2>
+⭐ నవనీత్ కౌర్ మరోసారి మెరుపు
+</h2>
+
+
+<p>
+భారత్‌కు వచ్చిన ఆధిక్యంతో జట్టు ఆట మరింత దూకుడుగా మారింది. 47వ నిమిషంలో నవనీత్ కౌర్ మరోసారి గోల్ సాధించారు. ఈసారి ఫీల్డ్ గోల్‌తో జట్టు ఆధిక్యాన్ని 3-0కి పెంచారు.
+</p>
+
+
+<p>
+నవనీత్ కౌర్ ఈ మ్యాచ్‌లో రెండు గోల్స్ సాధించడం ద్వారా భారత విజయానికి ప్రధాన కారణాల్లో ఒకరిగా నిలిచారు. ఆమె అద్భుత ప్రదర్శనకు తోడు ఇషికా గోల్ కూడా భారత్‌ను చారిత్రాత్మక విజయానికి చేరువ చేసింది. 4
+</p>
+
+
+<h2>
+🇩🇪 చివర్లో జర్మనీకి ఓ గోల్
+</h2>
+
+
+<p>
+మ్యాచ్ చివరి దశలో జర్మనీ స్కోరు తగ్గించే ప్రయత్నం చేసింది. 59వ నిమిషంలో లిన్ క్రింగ్స్ ఫీల్డ్ గోల్ సాధించి జర్మనీకి ఒక గోల్ అందించారు.
+</p>
+
+
+<p>
+అయితే అప్పటికే భారత్ 3-0 ఆధిక్యంలో ఉండటంతో ఆ గోల్ ఫలితాన్ని మార్చలేకపోయింది. చివరకు భారత్ 3-1తో విజయాన్ని నమోదు చేసి ఐదో స్థానాన్ని ఖాయం చేసుకుంది. 5
+</p>
+
+
+<h2>
+🏆 1974 తర్వాత అత్యుత్తమ వరల్డ్ కప్ ఫినిష్
+</h2>
+
+
+<p>
+ఈ విజయం భారత మహిళల హాకీ జట్టుకు ఎంతో ప్రత్యేకమైనది. 1974లో తొలి మహిళల హాకీ వరల్డ్ కప్‌లో భారత్ నాలుగో స్థానంలో నిలిచింది. ఇప్పుడు 2026 వరల్డ్ కప్‌లో ఐదో స్థానంలో నిలవడం ద్వారా మరోసారి చరిత్రలో తన పేరును నమోదు చేసుకుంది.
+</p>
+
+
+<p>
+దాదాపు ఐదు దశాబ్దాల తర్వాత వరల్డ్ కప్‌లో భారత మహిళల జట్టు టాప్-5లో నిలవడం ఆటగాళ్లకు, అభిమానులకు ఎంతో గర్వకారణంగా మారింది. 6
+</p>
+
+
+<h2>
+🇮🇳 భారత జట్టు అద్భుత పోరాటం
+</h2>
+
+
+<p>
+ఈ టోర్నీలో భారత మహిళల జట్టు ఎన్నో సవాళ్లను ఎదుర్కొంది. ముఖ్యమైన మ్యాచ్‌ల్లో ఒత్తిడిని తట్టుకుని ముందుకు సాగిన జట్టు చివరకు జర్మనీపై కీలక విజయాన్ని సాధించింది.
+</p>
+
+
+<p>
+ముఖ్యంగా తొలి అర్ధభాగంలో గోల్ చేయలేకపోయినా భారత ఆటగాళ్లు నిరాశ చెందలేదు. రెండో అర్ధభాగంలో దూకుడును పెంచి కేవలం కొన్ని నిమిషాల వ్యవధిలో మూడు గోల్స్ సాధించడం జట్టు మానసిక బలాన్ని చూపించింది.
+</p>
+
+
+<h2>
+📈 భారత మహిళల హాకీకి కొత్త ఉత్సాహం
+</h2>
+
+
+<p>
+వరల్డ్ కప్‌లో ఐదో స్థానంతో ముగించడం భారత మహిళల హాకీకి కొత్త ఉత్సాహాన్ని ఇచ్చే ఫలితంగా భావించవచ్చు. అంతర్జాతీయ స్థాయిలో భారత మహిళల హాకీ జట్టు క్రమంగా తన స్థాయిని పెంచుకుంటూ వస్తోంది.
+</p>
+
+
+<p>
+జర్మనీ వంటి బలమైన జట్టుపై 3-1తో విజయం సాధించడం భారత ఆటగాళ్లలో ఆత్మవిశ్వాసాన్ని మరింత పెంచే అవకాశం ఉంది. ముఖ్యంగా ఇషికా, నవనీత్ కౌర్ గోల్స్ మ్యాచ్‌ను భారత్ వైపు తిప్పడంలో కీలక పాత్ర పోషించాయి.
+</p>
+
+
+<h2>
+🎯 అభిమానుల్లో ఆనందం
+</h2>
+
+
+<p>
+భారత మహిళల జట్టు చారిత్రాత్మక విజయంతో దేశవ్యాప్తంగా హాకీ అభిమానుల్లో ఆనందం నెలకొంది. 1974 తర్వాత అత్యుత్తమ వరల్డ్ కప్ ఫినిష్ సాధించడం భారత మహిళల హాకీ భవిష్యత్తుపై ఆశలను మరింత పెంచింది.
+</p>
+
+
+<p>
+మొత్తంగా చూస్తే.. జర్మనీపై 3-1 విజయం, ఐదో స్థానం, 1974 తర్వాత అత్యుత్తమ వరల్డ్ కప్ ప్రదర్శన.. ఇవన్నీ భారత మహిళల హాకీ జట్టు సాధించిన గొప్ప విజయాల్లో ఒకటిగా నిలిచాయి. ఈ టోర్నీలో చూపించిన పోరాట పటిమతో భారత జట్టు అభిమానుల ప్రశంసలు అందుకుంది.
+</p>
+
+
+<!-- LATEST POSTS -->
+
+<h2 class="latest-title">
+📰 తాజా పోస్టులు
+</h2>
+
+
+<div id="home-posts">
+Loading latest posts...
+</div>
+
+
+</div>
+
+
+<!-- LOAD LATEST POSTS -->
+
+<script>
+
+fetch("home-posts.html")
+
+.then(response => {
+
+if (response.ok) {
+
+return response.text();
+
+}
+
+throw new Error(
+"Latest posts failed"
+);
+
+})
+
+.then(data => {
+
+document.getElementById(
+"home-posts"
+).innerHTML = data;
+
+})
+
+.catch(() => {
+
+document.getElementById(
+"home-posts"
+).innerHTML =
+"<p style='text-align:center;color:red;'>Latest posts loading failed.</p>";
+
+});
+
+</script>
+
+
+</body>
+
+</html>
