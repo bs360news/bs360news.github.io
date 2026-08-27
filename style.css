@@ -630,3 +630,23 @@ body.dark-mode .bs-comment-card {
 .more-movies a:hover {
     text-decoration: underline;
 }
+.img-gallery {
+    width: 100%;
+    margin: 18px 0 25px 0;
+}
+
+.img-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+}.img-gallery img {
+    width: 100%;
+    min-height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+}
