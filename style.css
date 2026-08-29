@@ -1,12 +1,11 @@
 /* =====================================================
-   BS360 NEWS
-   CLEAN + ADS FRIENDLY FINAL CSS
-   ARTICLE LAYOUT
+BS360 NEWS
+CLEAN + ADS FRIENDLY FINAL CSS
+ARTICLE LAYOUT
 ===================================================== */
 
-
 /* =====================================================
-   ROOT / PAGE
+ROOT / PAGE
 ===================================================== */
 
 :root {
@@ -54,7 +53,7 @@ img {
 
 
 /* =====================================================
-   MAIN CONTAINERS
+MAIN CONTAINERS
 ===================================================== */
 
 .container,
@@ -69,7 +68,7 @@ img {
 
 
 /* =====================================================
-   TOP BAR
+TOP BAR
 ===================================================== */
 
 .top-bar {
@@ -113,7 +112,7 @@ img {
 
 
 /* =====================================================
-   BRAND HEADER
+BRAND HEADER
 ===================================================== */
 
 .brand-header {
@@ -222,7 +221,7 @@ img {
 
 
 /* =====================================================
-   NAVIGATION
+NAVIGATION
 ===================================================== */
 
 .main-nav {
@@ -271,7 +270,7 @@ img {
 
 
 /* =====================================================
-   LIVE TICKER
+LIVE TICKER
 ===================================================== */
 
 .live-ticker-bar {
@@ -289,7 +288,7 @@ img {
 
 
 /* =====================================================
-   HEADLINES
+HEADLINES
 ===================================================== */
 
 .headlines-bar {
@@ -313,7 +312,7 @@ img {
 
 
 /* =====================================================
-   SEARCH
+SEARCH
 ===================================================== */
 
 .search-section {
@@ -346,7 +345,7 @@ img {
 
 
 /* =====================================================
-   FEATURED AREA
+FEATURED AREA
 ===================================================== */
 
 .top-featured-grid,
@@ -374,7 +373,7 @@ img {
 
 
 /* =====================================================
-   COMMON CARDS
+COMMON CARDS
 ===================================================== */
 
 .card,
@@ -391,8 +390,8 @@ img {
 
 
 /* =====================================================
-   ARTICLE IMAGE GALLERY
-   ARTICLE PAGE ONLY
+ARTICLE IMAGE GALLERY
+ARTICLE PAGE ONLY
 ===================================================== */
 
 .img-gallery {
@@ -418,7 +417,7 @@ img {
 
 
 /* =====================================================
-   COMMON TYPOGRAPHY
+COMMON TYPOGRAPHY
 ===================================================== */
 
 .tag {
@@ -464,11 +463,14 @@ h3 {
 
 
 /* =====================================================
-   NEWS LIST
-   DESKTOP:
-   ARTICLE 1 = BIG
-   ARTICLE 2 + 3 = TWO COLUMNS
-   ARTICLE 4+ = HORIZONTAL
+NEWS LIST
+DESKTOP
+
+1 = BIG FULL WIDTH
+2 + 3 = TWO COLUMNS
+4+ = SMALL SINGLE ROW
+
+TEXT LEFT + IMAGE RIGHT
 ===================================================== */
 
 .news-list {
@@ -478,7 +480,10 @@ h3 {
     padding: 0 !important;
 
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 18px !important;
 
     background: #ffffff !important;
@@ -488,12 +493,15 @@ h3 {
 
 
 /* =====================================================
-   ALL NEWS ARTICLES BASE
+ALL ARTICLE BASE
+
+CLEAN FLAT NEWS STYLE
 ===================================================== */
 
 .news-list > .news-item,
 .news-list > article,
 .news-list > .post {
+
     position: relative;
 
     width: 100% !important;
@@ -503,10 +511,10 @@ h3 {
 
     background: #ffffff !important;
 
-    border: 1px solid var(--border) !important;
-    border-radius: 12px !important;
+    border: none !important;
+    border-radius: 0 !important;
 
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: none !important;
 
     overflow: hidden;
 
@@ -516,37 +524,30 @@ h3 {
     display: flex !important;
     flex-direction: column !important;
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+    transition: none !important;
 }
 
 
-/* =====================================================
-   ARTICLE HOVER
-===================================================== */
+/* Remove old card hover */
 
 .news-list > .news-item:hover,
 .news-list > article:hover,
 .news-list > .post:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.09) !important;
-
-    border-color: #d6dbe1 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
 }
 
 
 /* =====================================================
-   ARTICLE 1
-   BIG FULL WIDTH
+ARTICLE 1
+BIG FULL WIDTH
 ===================================================== */
 
 .news-list > .news-item:first-child,
 .news-list > article:first-child,
 .news-list > .post:first-child {
+
     grid-column: 1 / -1;
 
     width: 100% !important;
@@ -555,303 +556,71 @@ h3 {
 
     padding: 0 !important;
 
-    border-radius: 14px !important;
+    border-bottom: 1px solid #e5e7eb !important;
 }
 
 
 /* =====================================================
-   ARTICLE 1 IMAGE
+ARTICLE 1 IMAGE
+BIG IMAGE
 ===================================================== */
 
 .news-list > .news-item:first-child img,
 .news-list > article:first-child img,
 .news-list > .post:first-child img {
+
     display: block !important;
 
     width: 100% !important;
-    height: 360px !important;
+
+    height: 380px !important;
 
     object-fit: cover !important;
-    object-position: center;
+
+    object-position: center !important;
 
     margin: 0 !important;
 
     border: none !important;
-    border-radius: 0 !important;
+
+    border-radius: 8px !important;
 
     box-shadow: none !important;
 }
 
 
 /* =====================================================
-   ARTICLE 1 CONTENT
+ARTICLE 1 CONTENT
 ===================================================== */
 
 .news-list > .news-item:first-child .news-content,
 .news-list > article:first-child .news-content,
 .news-list > .post:first-child .news-content {
-    padding: 18px 20px 20px !important;
+
+    padding: 12px 0 16px !important;
+
     background: #ffffff !important;
 }
 
 
 /* =====================================================
-   ARTICLE 1 TITLE
+ARTICLE 1 TITLE
+MAX 2 LINES
 ===================================================== */
 
 .news-list > .news-item:first-child h3,
 .news-list > article:first-child h3,
 .news-list > .post:first-child h3 {
-    margin: 7px 0 8px !important;
+
+    margin: 5px 0 6px !important;
 
     font-size: 27px !important;
 
-    line-height: 1.45 !important;
+    line-height: 1.4 !important;
 
     font-weight: 800 !important;
 
     color: #111111 !important;
-}
-
-
-/* =====================================================
-   ARTICLE 1 SUMMARY
-===================================================== */
-
-.news-list > .news-item:first-child .summary,
-.news-list > article:first-child .summary,
-.news-list > .post:first-child .summary {
-    margin: 0 0 13px !important;
-
-    font-size: 15px !important;
-
-    line-height: 1.7 !important;
-
-    color: #555555 !important;
-}
-
-
-/* =====================================================
-   ARTICLE 2 + 3
-   TWO COLUMN CARDS
-===================================================== */
-
-.news-list > .news-item:nth-child(2),
-.news-list > .news-item:nth-child(3),
-.news-list > article:nth-child(2),
-.news-list > article:nth-child(3),
-.news-list > .post:nth-child(2),
-.news-list > .post:nth-child(3) {
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 100%;
-}
-
-
-/* =====================================================
-   ARTICLE 2 + 3 IMAGE
-===================================================== */
-
-.news-list > .news-item:nth-child(2) img,
-.news-list > .news-item:nth-child(3) img,
-.news-list > article:nth-child(2) img,
-.news-list > article:nth-child(3) img,
-.news-list > .post:nth-child(2) img,
-.news-list > .post:nth-child(3) img {
-    display: block !important;
-
-    width: 100% !important;
-
-    height: 210px !important;
-
-    object-fit: cover !important;
-
-    margin: 0 !important;
-
-    border: none !important;
-
-    border-radius: 0 !important;
-}
-
-
-/* =====================================================
-   ARTICLE 2 + 3 CONTENT
-===================================================== */
-
-.news-list > .news-item:nth-child(2) .news-content,
-.news-list > .news-item:nth-child(3) .news-content,
-.news-list > article:nth-child(2) .news-content,
-.news-list > article:nth-child(3) .news-content,
-.news-list > .post:nth-child(2) .news-content,
-.news-list > .post:nth-child(3) .news-content {
-    flex: 1;
-
-    padding: 13px 15px 15px !important;
-
-    background: #ffffff !important;
-}
-
-
-/* =====================================================
-   ARTICLE 2 + 3 TITLE
-===================================================== */
-
-.news-list > .news-item:nth-child(2) h3,
-.news-list > .news-item:nth-child(3) h3,
-.news-list > article:nth-child(2) h3,
-.news-list > article:nth-child(3) h3,
-.news-list > .post:nth-child(2) h3,
-.news-list > .post:nth-child(3) h3 {
-    margin: 6px 0 7px !important;
-
-    font-size: 19px !important;
-
-    line-height: 1.45 !important;
-
-    font-weight: 750 !important;
-
-    color: #111111 !important;
-}
-
-
-/* =====================================================
-   ARTICLE 2 + 3 SUMMARY
-===================================================== */
-
-.news-list > .news-item:nth-child(2) .summary,
-.news-list > .news-item:nth-child(3) .summary,
-.news-list > article:nth-child(2) .summary,
-.news-list > article:nth-child(3) .summary,
-.news-list > .post:nth-child(2) .summary,
-.news-list > .post:nth-child(3) .summary {
-    margin: 0 0 10px !important;
-
-    color: #555555 !important;
-
-    font-size: 14px !important;
-
-    line-height: 1.6 !important;
-
-    display: -webkit-box;
-
-    -webkit-box-orient: vertical;
-
-    -webkit-line-clamp: 3;
-
-    overflow: hidden;
-}
-
-
-/* =====================================================
-   ARTICLE 4 ONWARDS
-   HORIZONTAL
-   TEXT LEFT + IMAGE RIGHT
-===================================================== */
-
-.news-list > .news-item:nth-child(n + 4),
-.news-list > article:nth-child(n + 4),
-.news-list > .post:nth-child(n + 4) {
-    grid-column: 1 / -1;
-
-    display: flex !important;
-
-    flex-direction: row !important;
-
-    align-items: center !important;
-
-    min-height: 115px;
-
-    padding: 10px !important;
-
-    background: #ffffff !important;
-}
-
-
-/* =====================================================
-   ARTICLE 4+ IMAGE
-===================================================== */
-
-.news-list > .news-item:nth-child(n + 4) img,
-.news-list > article:nth-child(n + 4) img,
-.news-list > .post:nth-child(n + 4) img {
-    order: 2;
-
-    flex: 0 0 125px;
-
-    width: 125px !important;
-
-    height: 90px !important;
-
-    object-fit: cover !important;
-
-    margin: 0 !important;
-
-    border-radius: 8px !important;
-
-    border: none !important;
-}
-
-
-/* =====================================================
-   ARTICLE 4+ CONTENT
-===================================================== */
-
-.news-list > .news-item:nth-child(n + 4) .news-content,
-.news-list > article:nth-child(n + 4) .news-content,
-.news-list > .post:nth-child(n + 4) .news-content {
-    order: 1;
-
-    flex: 1;
-
-    min-width: 0;
-
-    padding: 4px 12px 4px 4px !important;
-
-    background: #ffffff !important;
-}
-
-
-/* =====================================================
-   ARTICLE 4+ TITLE
-===================================================== */
-
-.news-list > .news-item:nth-child(n + 4) h3,
-.news-list > article:nth-child(n + 4) h3,
-.news-list > .post:nth-child(n + 4) h3 {
-    margin: 4px 0 5px !important;
-
-    font-size: 17px !important;
-
-    line-height: 1.45 !important;
-
-    font-weight: 700 !important;
-
-    color: #111111 !important;
-
-    display: -webkit-box;
-
-    -webkit-box-orient: vertical;
-
-    -webkit-line-clamp: 3;
-
-    overflow: hidden;
-}
-
-
-/* =====================================================
-   ARTICLE 4+ SUMMARY
-===================================================== */
-
-.news-list > .news-item:nth-child(n + 4) .summary,
-.news-list > article:nth-child(n + 4) .summary,
-.news-list > .post:nth-child(n + 4) .summary {
-    margin: 0 0 7px !important;
-
-    color: #666666 !important;
-
-    font-size: 13px !important;
-
-    line-height: 1.5 !important;
 
     display: -webkit-box;
 
@@ -864,10 +633,297 @@ h3 {
 
 
 /* =====================================================
-   READ MORE
+ARTICLE 1 SUMMARY
+===================================================== */
+
+.news-list > .news-item:first-child .summary,
+.news-list > article:first-child .summary,
+.news-list > .post:first-child .summary {
+
+    margin: 0 0 10px !important;
+
+    font-size: 15px !important;
+
+    line-height: 1.6 !important;
+
+    color: #555555 !important;
+}
+
+
+/* =====================================================
+ARTICLE 2 + 3
+TWO COLUMNS
+===================================================== */
+
+.news-list > .news-item:nth-child(2),
+.news-list > .news-item:nth-child(3),
+.news-list > article:nth-child(2),
+.news-list > article:nth-child(3),
+.news-list > .post:nth-child(2),
+.news-list > .post:nth-child(3) {
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    min-width: 0;
+
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+
+/* =====================================================
+ARTICLE 2 + 3 IMAGE
+===================================================== */
+
+.news-list > .news-item:nth-child(2) img,
+.news-list > .news-item:nth-child(3) img,
+.news-list > article:nth-child(2) img,
+.news-list > article:nth-child(3) img,
+.news-list > .post:nth-child(2) img,
+.news-list > .post:nth-child(3) img {
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 205px !important;
+
+    object-fit: cover !important;
+
+    object-position: center !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+
+    border-radius: 7px !important;
+}
+
+
+/* =====================================================
+ARTICLE 2 + 3 CONTENT
+===================================================== */
+
+.news-list > .news-item:nth-child(2) .news-content,
+.news-list > .news-item:nth-child(3) .news-content,
+.news-list > article:nth-child(2) .news-content,
+.news-list > article:nth-child(3) .news-content,
+.news-list > .post:nth-child(2) .news-content,
+.news-list > .post:nth-child(3) .news-content {
+
+    padding: 8px 0 12px !important;
+
+    background: #ffffff !important;
+}
+
+
+/* =====================================================
+ARTICLE 2 + 3 TITLE
+MAX 2 LINES
+===================================================== */
+
+.news-list > .news-item:nth-child(2) h3,
+.news-list > .news-item:nth-child(3) h3,
+.news-list > article:nth-child(2) h3,
+.news-list > article:nth-child(3) h3,
+.news-list > .post:nth-child(2) h3,
+.news-list > .post:nth-child(3) h3 {
+
+    margin: 4px 0 5px !important;
+
+    font-size: 20px !important;
+
+    line-height: 1.45 !important;
+
+    font-weight: 700 !important;
+
+    color: #111111 !important;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+ARTICLE 2 + 3 SUMMARY
+HIDE FOR CLEAN LAYOUT
+===================================================== */
+
+.news-list > .news-item:nth-child(2) .summary,
+.news-list > .news-item:nth-child(3) .summary,
+.news-list > article:nth-child(2) .summary,
+.news-list > article:nth-child(3) .summary,
+.news-list > .post:nth-child(2) .summary,
+.news-list > .post:nth-child(3) .summary {
+
+    display: none !important;
+}
+
+
+/* =====================================================
+ARTICLE 4 ONWARDS
+SINGLE ROW
+
+TEXT LEFT
+IMAGE RIGHT
+===================================================== */
+
+.news-list > .news-item:nth-child(n + 4),
+.news-list > article:nth-child(n + 4),
+.news-list > .post:nth-child(n + 4) {
+
+    grid-column: 1 / -1;
+
+    width: 100% !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    min-height: 82px;
+
+    padding: 9px 0 !important;
+
+    background: #ffffff !important;
+
+    border-bottom: 1px solid #dddddd !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =====================================================
+ARTICLE 4+ IMAGE
+SMALL RIGHT IMAGE
+===================================================== */
+
+.news-list > .news-item:nth-child(n + 4) img,
+.news-list > article:nth-child(n + 4) img,
+.news-list > .post:nth-child(n + 4) img {
+
+    order: 2;
+
+    flex: 0 0 105px;
+
+    width: 105px !important;
+
+    height: 68px !important;
+
+    object-fit: cover !important;
+
+    object-position: center !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+
+    border-radius: 6px !important;
+}
+
+
+/* =====================================================
+ARTICLE 4+ CONTENT
+===================================================== */
+
+.news-list > .news-item:nth-child(n + 4) .news-content,
+.news-list > article:nth-child(n + 4) .news-content,
+.news-list > .post:nth-child(n + 4) .news-content {
+
+    order: 1;
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 0 12px 0 0 !important;
+
+    background: #ffffff !important;
+}
+
+
+/* =====================================================
+ARTICLE 4+ TITLE
+SINGLE LINE
+===================================================== */
+
+.news-list > .news-item:nth-child(n + 4) h3,
+.news-list > article:nth-child(n + 4) h3,
+.news-list > .post:nth-child(n + 4) h3 {
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    font-size: 17px !important;
+
+    line-height: 1.45 !important;
+
+    font-weight: 600 !important;
+
+    color: #111111 !important;
+
+    white-space: nowrap !important;
+
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+
+    display: block !important;
+}
+
+
+/* =====================================================
+ARTICLE 4+ SUMMARY HIDE
+===================================================== */
+
+.news-list > .news-item:nth-child(n + 4) .summary,
+.news-list > article:nth-child(n + 4) .summary,
+.news-list > .post:nth-child(n + 4) .summary {
+
+    display: none !important;
+}
+
+
+/* =====================================================
+ARTICLE 4+ READ MORE HIDE
+===================================================== */
+
+.news-list > .news-item:nth-child(n + 4) .read-more-btn,
+.news-list > article:nth-child(n + 4) .read-more-btn,
+.news-list > .post:nth-child(n + 4) .read-more-btn {
+
+    display: none !important;
+}
+
+
+/* =====================================================
+ARTICLE 4+ SHARE HIDE
+===================================================== */
+
+.news-list > .news-item:nth-child(n + 4) .share-row,
+.news-list > article:nth-child(n + 4) .share-row,
+.news-list > .post:nth-child(n + 4) .share-row {
+
+    display: none !important;
+}
+
+
+/* =====================================================
+READ MORE
 ===================================================== */
 
 .news-list .read-more-btn {
+
     display: inline-flex !important;
 
     align-items: center;
@@ -898,10 +954,6 @@ h3 {
     line-height: 1.2;
 
     cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
 }
 
 .news-list .read-more-btn:hover {
@@ -916,10 +968,11 @@ h3 {
 
 
 /* =====================================================
-   SHARE
+SHARE
 ===================================================== */
 
 .news-list .share-row {
+
     display: flex;
 
     background: #ffffff !important;
@@ -937,6 +990,7 @@ h3 {
 
 .news-list .share-row button,
 .news-list .share-row a {
+
     background: transparent !important;
 
     border: none !important;
@@ -954,10 +1008,11 @@ h3 {
 
 
 /* =====================================================
-   SECTION HEADING
+SECTION HEADING
 ===================================================== */
 
 .section-heading {
+
     background: #ffffff !important;
 
     border: none !important;
@@ -980,10 +1035,11 @@ h3 {
 
 
 /* =====================================================
-   ADVERTISEMENT
+ADVERTISEMENT
 ===================================================== */
 
 .ad {
+
     background: #ffffff !important;
 
     border: 1px dashed #d5d5d5 !important;
@@ -996,6 +1052,7 @@ h3 {
 }
 
 .ad-side {
+
     background: #fafafa !important;
 
     border: 1px dashed #d5d5d5 !important;
@@ -1007,7 +1064,7 @@ h3 {
 
 
 /* =====================================================
-   LIVE BOX
+LIVE BOX
 ===================================================== */
 
 .live-box {
@@ -1050,7 +1107,7 @@ h3 {
 
 
 /* =====================================================
-   LIKE / COMMENT / SHARE
+LIKE / COMMENT / SHARE
 ===================================================== */
 
 .bs-news-pulse {
@@ -1088,7 +1145,7 @@ h3 {
 }
 
 .pulse-action:last-child {
-    border-right: none !important;
+    border-right: none;
 }
 
 .pulse-action:hover {
@@ -1101,10 +1158,11 @@ h3 {
 
 
 /* =====================================================
-   COMMENT WRITE
+COMMENT WRITE
 ===================================================== */
 
 .bs-comment-write {
+
     background: #ffffff !important;
 
     border: none !important;
@@ -1117,6 +1175,7 @@ h3 {
 }
 
 .bs-comment-write input {
+
     background: #f5f6f7 !important;
 
     border: 1px solid #e2e5e8 !important;
@@ -1132,10 +1191,11 @@ h3 {
 
 
 /* =====================================================
-   COMMENTS
+COMMENTS
 ===================================================== */
 
 .bs-comments {
+
     background: #ffffff !important;
 
     border: none !important;
@@ -1148,6 +1208,7 @@ h3 {
 }
 
 .bs-comment-card {
+
     background: #ffffff !important;
 
     border: 1px solid #e5e7eb !important;
@@ -1159,10 +1220,11 @@ h3 {
 
 
 /* =====================================================
-   ABOUT SECTION
+ABOUT SECTION
 ===================================================== */
 
 main > section.card[style] {
+
     background: #ffffff !important;
 
     border: none !important;
@@ -1174,10 +1236,11 @@ main > section.card[style] {
 
 
 /* =====================================================
-   MORE MOVIES / MORE ARTICLES
+MORE MOVIES / MORE ARTICLES
 ===================================================== */
 
 .more-movies {
+
     margin: 25px 0;
 
     padding: 14px;
@@ -1196,6 +1259,7 @@ main > section.card[style] {
 }
 
 .more-movies a {
+
     color: var(--red);
 
     text-decoration: none;
@@ -1209,10 +1273,11 @@ main > section.card[style] {
 
 
 /* =====================================================
-   SMALL NEWS
+SMALL NEWS
 ===================================================== */
 
 .small-news {
+
     display: flex;
 
     align-items: center;
@@ -1234,6 +1299,7 @@ main > section.card[style] {
 }
 
 .small-news h3 {
+
     font-size: 18px;
 
     line-height: 1.5;
@@ -1244,6 +1310,7 @@ main > section.card[style] {
 }
 
 .small-news img {
+
     width: 125px;
 
     height: 90px;
@@ -1257,7 +1324,7 @@ main > section.card[style] {
 
 
 /* =====================================================
-   HIDDEN ARTICLES
+HIDDEN ARTICLES
 ===================================================== */
 
 .news-list .hidden {
@@ -1266,10 +1333,11 @@ main > section.card[style] {
 
 
 /* =====================================================
-   DARK MODE
+DARK MODE
 ===================================================== */
 
 body.dark-mode {
+
     --bg: #121212;
     --card: #121212;
     --text: #f0f0f0;
@@ -1291,7 +1359,9 @@ body.dark-mode .card,
 body.dark-mode .top-featured-grid .card,
 body.dark-mode .featured-grid .card,
 body.dark-mode .bs-news-pulse {
+
     background: #121212 !important;
+
     border-color: #303030 !important;
 }
 
@@ -1299,6 +1369,7 @@ body.dark-mode .brand-header,
 body.dark-mode .main-nav,
 body.dark-mode .headlines-bar,
 body.dark-mode .section-heading {
+
     background: #121212 !important;
 }
 
@@ -1324,19 +1395,26 @@ body.dark-mode .news-list .share-row a {
 }
 
 body.dark-mode .bs-comment-card {
+
     background: #1e1e1e !important;
+
     border-color: #333333 !important;
 }
 
 body.dark-mode .search-box input {
+
     background: #101820;
+
     color: #ffffff;
 }
 
 body.dark-mode .share-row button,
 body.dark-mode .theme-button {
+
     background: #18212b;
+
     color: #ffffff;
+
     border-color: #39495a;
 }
 
@@ -1346,23 +1424,29 @@ body.dark-mode .live-controls {
 }
 
 body.dark-mode .live-ticker-bar {
+
     background: #102a44;
+
     color: #dceeff;
 }
 
 body.dark-mode .more-movies {
+
     background: #1e1e1e;
+
     color: #eeeeee;
 }
 
 body.dark-mode .small-news {
+
     background: #121212;
+
     border-color: #303030;
 }
 
 
 /* =====================================================
-   TABLET
+TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
@@ -1399,8 +1483,10 @@ body.dark-mode .small-news {
 
 
 /* =====================================================
-   MOBILE
-   SAME ARTICLE STRUCTURE
+MOBILE
+1 = BIG
+2 + 3 = TWO COLUMNS
+4+ = HORIZONTAL ROW
 ===================================================== */
 
 @media (max-width: 600px) {
@@ -1411,7 +1497,10 @@ body.dark-mode .small-news {
 
     .container,
     .main-container {
+
         width: 100%;
+
+        max-width: 100%;
     }
 
 
@@ -1468,411 +1557,4 @@ body.dark-mode .small-news {
 
     .nav-links li a {
         padding: 10px 9px;
-        font-size: 13px;
-    }
-
-
-    /* -------------------------------------------------
-       HERO
-    ------------------------------------------------- */
-
-    .hero img {
-        height: 230px;
-    }
-
-    h1 {
-        font-size: 23px;
-    }
-
-
-    /* =================================================
-       NEWS GRID
-       ARTICLE 1 = FULL WIDTH
-       ARTICLE 2 + 3 = SIDE BY SIDE
-       ARTICLE 4+ = FULL WIDTH HORIZONTAL
-    ================================================= */
-
-    .news-list {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 10px !important;
-    }
-
-
-    /* =================================================
-       ARTICLE 1 MOBILE
-    ================================================= */
-
-    .news-list > .news-item:first-child,
-    .news-list > article:first-child,
-    .news-list > .post:first-child {
-        grid-column: 1 / -1;
-
-        display: block !important;
-    }
-
-
-    /* ARTICLE 1 IMAGE */
-
-    .news-list > .news-item:first-child img,
-    .news-list > article:first-child img,
-    .news-list > .post:first-child img {
-        width: 100% !important;
-
-        height: 230px !important;
-
-        object-fit: cover !important;
-    }
-
-
-    /* ARTICLE 1 CONTENT */
-
-    .news-list > .news-item:first-child .news-content,
-    .news-list > article:first-child .news-content,
-    .news-list > .post:first-child .news-content {
-        padding: 12px !important;
-    }
-
-
-    /* ARTICLE 1 TITLE */
-
-    .news-list > .news-item:first-child h3,
-    .news-list > article:first-child h3,
-    .news-list > .post:first-child h3 {
-        font-size: 20px !important;
-
-        line-height: 1.4 !important;
-    }
-
-
-    /* ARTICLE 1 SUMMARY */
-
-    .news-list > .news-item:first-child .summary,
-    .news-list > article:first-child .summary,
-    .news-list > .post:first-child .summary {
-        font-size: 13px !important;
-
-        line-height: 1.55 !important;
-    }
-
-
-    /* =================================================
-       ARTICLE 2 + 3 MOBILE
-       SIDE BY SIDE
-    ================================================= */
-
-    .news-list > .news-item:nth-child(2),
-    .news-list > .news-item:nth-child(3),
-    .news-list > article:nth-child(2),
-    .news-list > article:nth-child(3),
-    .news-list > .post:nth-child(2),
-    .news-list > .post:nth-child(3) {
-        display: flex !important;
-
-        flex-direction: column !important;
-    }
-
-
-    /* ARTICLE 2 + 3 IMAGE */
-
-    .news-list > .news-item:nth-child(2) img,
-    .news-list > .news-item:nth-child(3) img,
-    .news-list > article:nth-child(2) img,
-    .news-list > article:nth-child(3) img,
-    .news-list > .post:nth-child(2) img,
-    .news-list > .post:nth-child(3) img {
-        width: 100% !important;
-
-        height: 125px !important;
-
-        object-fit: cover !important;
-    }
-
-
-    /* ARTICLE 2 + 3 CONTENT */
-
-    .news-list > .news-item:nth-child(2) .news-content,
-    .news-list > .news-item:nth-child(3) .news-content,
-    .news-list > article:nth-child(2) .news-content,
-    .news-list > article:nth-child(3) .news-content,
-    .news-list > .post:nth-child(2) .news-content,
-    .news-list > .post:nth-child(3) .news-content {
-        padding: 9px !important;
-    }
-
-
-    /* ARTICLE 2 + 3 TITLE */
-
-    .news-list > .news-item:nth-child(2) h3,
-    .news-list > .news-item:nth-child(3) h3,
-    .news-list > article:nth-child(2) h3,
-    .news-list > article:nth-child(3) h3,
-    .news-list > .post:nth-child(2) h3,
-    .news-list > .post:nth-child(3) h3 {
-        font-size: 14px !important;
-
-        line-height: 1.4 !important;
-
-        display: -webkit-box;
-
-        -webkit-box-orient: vertical;
-
-        -webkit-line-clamp: 3;
-
-        overflow: hidden;
-    }
-
-
-    /* ARTICLE 2 + 3 SUMMARY */
-
-    .news-list > .news-item:nth-child(2) .summary,
-    .news-list > .news-item:nth-child(3) .summary,
-    .news-list > article:nth-child(2) .summary,
-    .news-list > article:nth-child(3) .summary,
-    .news-list > .post:nth-child(2) .summary,
-    .news-list > .post:nth-child(3) .summary {
-        font-size: 12px !important;
-
-        line-height: 1.45 !important;
-
-        -webkit-line-clamp: 2;
-    }
-
-
-    /* =================================================
-       ARTICLE 4 ONWARDS MOBILE
-       FULL WIDTH HORIZONTAL
-       TEXT LEFT + IMAGE RIGHT
-    ================================================= */
-
-    .news-list > .news-item:nth-child(n + 4),
-    .news-list > article:nth-child(n + 4),
-    .news-list > .post:nth-child(n + 4) {
-        grid-column: 1 / -1;
-
-        display: flex !important;
-
-        flex-direction: row !important;
-
-        align-items: center !important;
-
-        min-height: 92px;
-
-        padding: 8px !important;
-    }
-
-
-    /* ARTICLE 4+ IMAGE */
-
-    .news-list > .news-item:nth-child(n + 4) img,
-    .news-list > article:nth-child(n + 4) img,
-    .news-list > .post:nth-child(n + 4) img {
-        order: 2;
-
-        flex: 0 0 100px;
-
-        width: 100px !important;
-
-        height: 72px !important;
-
-        object-fit: cover !important;
-
-        border-radius: 6px !important;
-    }
-
-
-    /* ARTICLE 4+ CONTENT */
-
-    .news-list > .news-item:nth-child(n + 4) .news-content,
-    .news-list > article:nth-child(n + 4) .news-content,
-    .news-list > .post:nth-child(n + 4) .news-content {
-        order: 1;
-
-        padding: 3px 8px 3px 3px !important;
-
-        min-width: 0;
-    }
-
-
-    /* ARTICLE 4+ TITLE */
-
-    .news-list > .news-item:nth-child(n + 4) h3,
-    .news-list > article:nth-child(n + 4) h3,
-    .news-list > .post:nth-child(n + 4) h3 {
-        font-size: 13px !important;
-
-        line-height: 1.4 !important;
-
-        -webkit-line-clamp: 3;
-    }
-
-
-    /* ARTICLE 4+ SUMMARY */
-
-    .news-list > .news-item:nth-child(n + 4) .summary,
-    .news-list > article:nth-child(n + 4) .summary,
-    .news-list > .post:nth-child(n + 4) .summary {
-        font-size: 11px !important;
-
-        line-height: 1.4 !important;
-
-        -webkit-line-clamp: 2;
-    }
-
-
-    /* READ MORE */
-
-    .news-list .read-more-btn {
-        font-size: 10px !important;
-
-        padding: 6px 8px !important;
-
-        margin-top: 3px !important;
-    }
-
-
-    /* TAG */
-
-    .news-list .tag {
-        font-size: 9px !important;
-
-        padding: 3px 6px !important;
-    }
-
-
-    /* TIME */
-
-    .news-list .time-stamp {
-        font-size: 9px !important;
-    }
-
-
-    /* =================================================
-       ARTICLE IMAGE GALLERY MOBILE
-    ================================================= */
-
-    .img-gallery {
-        width: 100%;
-        margin: 15px 0 22px;
-    }
-
-    .img-gallery img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        min-height: 260px;
-        max-height: 420px;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 8px;
-    }
-
-
-    /* =================================================
-       SMALL NEWS MOBILE
-    ================================================= */
-
-    .small-news {
-        gap: 10px;
-        padding: 10px 0;
-    }
-
-    .small-news h3 {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-
-    .small-news img {
-        width: 100px;
-        height: 75px;
-    }
-
-
-    /* =================================================
-       SECTION HEADING MOBILE
-    ================================================= */
-
-    .section-heading {
-        margin-top: 20px !important;
-        margin-bottom: 10px !important;
-    }
-
-    .section-heading h2 {
-        font-size: 19px;
-    }
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.site-footer {
-    background: #111827;
-    color: #dbe4ef;
-    margin-top: 40px;
-}
-
-.footer-inner {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr;
-    gap: 25px;
-    padding: 35px 0;
-    background: transparent !important;
-}
-
-.footer-column h3 {
-    color: #ffffff;
-    margin-top: 0;
-}
-
-.footer-column p {
-    color: #b9c3cf;
-    font-size: 14px;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-column li {
-    margin: 7px 0;
-}
-
-.footer-links a:hover {
-    color: #60a5fa;
-}
-
-.footer-social a {
-    color: #60a5fa;
-}
-
-.copyright {
-    text-align: center;
-    border-top: 1px solid #293548;
-    padding: 15px;
-    font-size: 13px;
-    color: #aeb9c7;
-}
-
-
-/* =====================================================
-   FOOTER MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .footer-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .headlines-bar marquee {
-        font-size: 12px;
-    }
-}
+        font-size: 13
