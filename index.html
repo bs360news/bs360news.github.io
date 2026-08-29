@@ -5,10 +5,89 @@
 
   <meta charset="UTF-8">
 
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>BS 360 NEWS | తెలుగు తాజా వార్తలు</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <title>BS 360 NEWS | తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్</title>
+
+  <meta name="description" content="BS 360 NEWSలో తెలుగు తాజా వార్తలు, సినిమా, క్రికెట్, స్పోర్ట్స్, ఆంధ్రప్రదేశ్, తెలంగాణ, గోల్డ్ రేట్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్ తెలుసుకోండి.">
+
+  <meta name="author" content="BS 360 NEWS">
+
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="canonical" href="https://bs360news.com/">
+
+  <link rel="icon" type="image/png" href="dp.png.png">
+
+  <link rel="apple-touch-icon" href="dp.png.png">
+
+
+  <!-- Open Graph -->
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:title" content="BS 360 NEWS | తెలుగు తాజా వార్తలు">
+
+  <meta property="og:description" content="తెలుగు తాజా వార్తలు, సినిమా, క్రికెట్, స్పోర్ట్స్, గోల్డ్ రేట్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్.">
+
+  <meta property="og:url" content="https://bs360news.com/">
+
+  <meta property="og:site_name" content="BS 360 NEWS">
+
+  <meta property="og:locale" content="te_IN">
+
+  <meta property="og:image" content="https://bs360news.com/dp.png.png">
+
+  <meta property="og:image:alt" content="BS 360 NEWS">
+
+
+  <!-- Twitter -->
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="twitter:title" content="BS 360 NEWS | తెలుగు తాజా వార్తలు">
+
+  <meta name="twitter:description" content="తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్.">
+
+  <meta name="twitter:image" content="https://bs360news.com/dp.png.png">
+
+
+  <!-- Schema -->
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"BS 360 NEWS",
+    "url":"https://bs360news.com/",
+    "description":"తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్, రాష్ట్ర వార్తలు మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్.",
+    "inLanguage":"te-IN"
+  }
+  </script>
+
+
+  <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWXPS1N2TL"></script>
+
+  <script>
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-EWXPS1N2TL');
+
+  </script>
 
 </head>
 
@@ -17,1473 +96,3007 @@
 
 
 <!-- =====================================================
-     HEADER
+     TOP BREAKING BAR
 ===================================================== -->
 
-<header class="site-header">
+<div class="top-bar">
 
-  <div class="container header-inner">
+  <div class="container top-bar-inner">
 
-    <div class="logo">
-      BS 360 NEWS
+    <div>
+
+      <span class="breaking-tag">
+        ⚡ BREAKING NEWS
+      </span>
+
+      <span class="ticker-text">
+        🔥 BS 360 NEWS — తాజా వార్తలు, సినిమా, క్రికెట్, స్పోర్ట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్
+      </span>
+
     </div>
 
-    <button
-      type="button"
-      id="themeButton"
-      onclick="toggleTheme()">
-      🌙 Dark
-    </button>
 
-    <button
-      type="button"
-      class="mobile-menu"
-      onclick="toggleMobileNav()">
-      ☰
-    </button>
+    <div class="top-controls">
+
+      <button
+        class="nav-arrow"
+        type="button"
+        aria-label="Previous">
+        ❮
+      </button>
+
+      <button
+        class="nav-arrow"
+        type="button"
+        aria-label="Next">
+        ❯
+      </button>
+
+    </div>
 
   </div>
 
-
-  <nav class="main-nav">
-
-    <div class="container">
-
-      <div id="navLinks">
-
-        <a href="#" onclick="filterPosts('all');return false;">
-          తాజా వార్తలు
-        </a>
-
-        <a href="#" onclick="filterPosts('news');return false;">
-          వార్తలు
-        </a>
-
-        <a href="#" onclick="filterPosts('ap');return false;">
-          ఏపీ
-        </a>
-
-        <a href="#" onclick="filterPosts('ts');return false;">
-          తెలంగాణ
-        </a>
-
-        <a href="#" onclick="filterPosts('movies');return false;">
-          సినిమా
-        </a>
-
-        <a href="#" onclick="filterPosts('sports');return false;">
-          స్పోర్ట్స్
-        </a>
-
-        <a href="#" onclick="filterPosts('gold');return false;">
-          గోల్డ్
-        </a>
-
-      </div>
-
-    </div>
-
-  </nav>
-
-</header>
-
+</div>
 
 
 <!-- =====================================================
-     LIVE DATE + TIME
+     BRAND HEADER
 ===================================================== -->
 
-<section class="live-info">
+<header class="brand-header">
 
-  <div id="live-clock">
-    ⏰ Loading...
+  <div class="container brand-inner">
+
+
+    <a
+      href="./"
+      class="brand-logo"
+      aria-label="BS 360 NEWS Home">
+
+
+      <div class="logo-mark">
+
+        <span>BS360</span>
+
+        <span>NEWS</span>
+
+      </div>
+
+
+      <div class="logo-name">
+
+        <div>
+
+          <span>BS 360 </span>
+
+          <span class="logo-red">
+            NEWS
+          </span>
+
+        </div>
+
+
+        <span class="logo-tagline">
+          Fast | Fair | Fearless
+        </span>
+
+      </div>
+
+
+    </a>
+
+
+    <div class="header-actions">
+
+
+      <!-- LIVE INDIA DATE + TIME -->
+
+      <div class="date-time-box">
+
+        <span id="live-date">
+          📅 Loading...
+        </span>
+
+        <span id="live-clock">
+          ⏰ Loading...
+        </span>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="theme-button"
+        id="themeButton"
+        onclick="toggleTheme()">
+
+        🌙 Dark
+
+      </button>
+
+
+      <div class="live-button">
+
+        <span class="live-dot"></span>
+
+        LIVE
+
+      </div>
+
+
+    </div>
+
+
+    <button
+      class="mobile-menu-toggle"
+      type="button"
+      aria-label="Navigation menu"
+      onclick="toggleMobileNav()">
+
+      ☰
+
+    </button>
+
+
   </div>
 
-  <div id="live-date">
-    📅 Loading...
+</header>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav
+  class="main-nav"
+  aria-label="Main Navigation">
+
+  <div class="container nav-container">
+
+
+    <div class="lang-selector">
+
+      <a
+        href="./"
+        class="active">
+        తెలుగు
+      </a>
+
+      |
+
+      <span>
+        English
+      </span>
+
+      |
+
+      <span>
+        हिन्दी
+      </span>
+
+    </div>
+
+
+    <ul
+      class="nav-links"
+      id="navLinks">
+
+
+      <li>
+
+        <a
+          href="./"
+          class="active"
+          onclick="filterPosts('all');return false;">
+
+          🏠 హోమ్
+
+        </a>
+
+      </li>
+
+
+      <li>
+
+        <a
+          href="#"
+          onclick="filterPosts('news');return false;">
+
+          📰 తాజా వార్తలు
+
+        </a>
+
+      </li>
+
+
+      <li>
+
+        <a
+          href="#"
+          onclick="filterPosts('movies');return false;">
+
+          🎬 సినిమా
+
+        </a>
+
+      </li>
+
+
+      <li>
+
+        <a
+          href="#"
+          onclick="filterPosts('sports');return false;">
+
+          🏏 స్పోర్ట్స్
+
+        </a>
+
+      </li>
+
+
+      <li>
+
+        <a
+          href="#"
+          onclick="filterPosts('gold');return false;">
+
+          💰 గోల్డ్ రేట్
+
+        </a>
+
+      </li>
+
+
+      <li>
+
+        <a
+          href="#"
+          onclick="filterPosts('ap');return false;">
+
+          ఆంధ్రప్రదేశ్
+
+        </a>
+
+      </li>
+
+
+      <li>
+
+        <a
+          href="#"
+          onclick="filterPosts('ts');return false;">
+
+          తెలంగాణ
+
+        </a>
+
+      </li>
+
+
+    </ul>
+
   </div>
 
-</section>
+</nav>
 
+
+<!-- =====================================================
+     LIVE TICKER
+===================================================== -->
+
+<div class="live-ticker-bar">
+
+  <div class="container">
+
+    <span class="live-tag">
+      🔴 LIVE
+    </span>
+
+    ప్రత్యక్ష అప్‌డేట్స్ కోసం BS 360 NEWSతో కనెక్ట్‌గా ఉండండి.
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADLINES
+===================================================== -->
+
+<div class="headlines-bar">
+
+  <div
+    class="container"
+    style="display:flex;align-items:center">
+
+    <span class="headlines-label">
+      ❗ TOP HEADLINES
+    </span>
+
+    <marquee
+      behavior="scroll"
+      direction="left"
+      scrollamount="5">
+
+      తెలుగు రాష్ట్రాలు, సినిమా, క్రికెట్, స్పోర్ట్స్ మరియు జాతీయ వార్తల తాజా అప్‌డేట్స్
+
+    </marquee>
+
+  </div>
+
+</div>
+
+
+<main class="container">
 
 
 <!-- =====================================================
      SEARCH
 ===================================================== -->
 
-<section class="search-section">
+<section
+  class="search-section"
+  aria-label="News search">
 
-  <div class="container">
+
+  <div class="search-box">
 
     <input
       type="search"
       id="search-input"
-      placeholder="వార్తలను వెతకండి..."
+      placeholder="🔍 వార్తలు, సినిమాలు, క్రికెట్ కోసం సెర్చ్ చేయండి..."
       aria-label="వార్తలను వెతకండి"
       oninput="searchPosts()">
+
+
+    <button
+      type="button"
+      onclick="searchPosts()">
+
+      Search
+
+    </button>
 
   </div>
 
 </section>
 
 
-
 <!-- =====================================================
-     MAIN
+     LIVE FEATURE
 ===================================================== -->
 
-<main>
-
-  <div class="container">
-
-
-    <!-- =================================================
-         NEWS POSTS
-    ================================================= -->
-
-    <section class="news-list">
+<section
+  class="top-featured-grid"
+  aria-label="Featured news">
 
 
-      <!-- POST 1 -->
+  <aside class="live-col">
 
-      <article
-        class="news-item post"
-        data-category="news ap ts"
-        data-url="r.html">
 
-        <img
-          src="r1.webp"
-          alt="ఆంధ్రప్రదేశ్ తెలంగాణ వర్షాలు"
-          loading="lazy">
+    <div class="live-box">
 
-        <div class="news-content">
+      <div class="live-title">
+        🔴 LIVE NEWS
+      </div>
 
-          <span class="tag">
-            వాతావరణ వార్తలు
+
+      <div class="live-screen">
+
+        <div>
+
+          <span class="live-logo">
+            🔴 BS 360 NEWS
           </span>
 
-          <h3>
-            బంగాళాఖాతంలో వాయుగుండం.. ఏపీ, తెలంగాణకు భారీ వర్ష సూచన!
-          </h3>
+          <br>
 
-          <div
-            class="time-stamp"
-            data-time="2026-08-18T08:40:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="r.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
+          LIVE NEWS
 
         </div>
 
-      </article>
+      </div>
 
 
+      <div class="live-controls">
 
-      <!-- POST 2 -->
+        లైవ్ ప్రసారం త్వరలో అందుబాటులోకి వస్తుంది. తాజా వార్తల కోసం మా సైట్‌ను సందర్శించండి.
 
-      <article
-        class="news-item post"
-        data-category="news"
-        data-url="vjy.html">
-
-        <img
-          src="v.jpg"
-          alt="కావేరీ నదీ జలాల వివాదం"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            జాతీయ వార్తలు
-          </span>
-
-          <h3>
-            కావేరీ జలాల వివాదం.. కర్ణాటకకు సుప్రీంకోర్టు కీలక ఆదేశాలు!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-17T15:10:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="vjy.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 3 -->
-
-      <article
-        class="news-item post"
-        data-category="news ap"
-        data-url="n.html">
-
-        <img
-          src="n1.webp"
-          alt="కొణిదెల నాగబాబు నియామకం"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            రాష్ట్ర వార్తలు
-          </span>
-
-          <h3>
-            కొణిదెల నాగబాబుకు ఏపీ సర్కార్ బంపర్ ఆఫర్.. కేబినెట్ ర్యాంక్‌తో కీలక నియామకం!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-16T08:40:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="n.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 4 -->
-
-      <article
-        class="news-item post"
-        data-category="news"
-        data-url="india.html">
-
-        <img
-          src="i.1.webp"
-          alt="గురేజ్ లోయలో స్వాతంత్య్ర దినోత్సవ వేడుకలు"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            జాతీయ వార్తలు
-          </span>
-
-          <h3>
-            LoC వద్ద మువ్వన్నెల పతాకం.. గురేజ్ లోయలో ఘనంగా స్వాతంత్య్ర దినోత్సవ వేడుకలు!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-14T12:40:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="india.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 5 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="Fouzi.html">
-
-        <img
-          src="f.jpg"
-          alt="ఫౌజీ సినిమా అప్‌డేట్"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-14T12:40:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="Fouzi.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 6 -->
-
-      <article
-        class="news-item post"
-        data-category="sports news"
-        data-url="kl.html">
-
-        <img
-          src="c1.jpeg"
-          alt="శ్రీలంక క్రికెట్ అప్‌డేట్"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            క్రీడా వార్తలు
-          </span>
-
-          <h3>
-            రాహుల్‌తోనే శ్రీలంకకు ప్రమాదం - ధనంజయ డి సిల్వా కీలక వ్యాఖ్యలు
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-13T21:55:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="kl.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 7 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="v.html">
-
-        <img
-          src="v.jpg"
-          alt="విశ్వనాథ్ అండ్ సన్స్ ప్రీ రిలీజ్ బిజినెస్"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            విశ్వనాథ్ అండ్ సన్స్ ప్రీ-రిలీజ్ బిజినెస్ రూ.215 కోట్లు!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-13T14:15:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="v.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 8 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="toxic.html">
-
-        <img
-          src="t6.jpg"
-          alt="టాక్సిక్ మూవీ అప్‌డేట్"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            భారీ బడ్జెట్‌తో ‘టాక్సిక్’.. హీరోయిన్స్ రెమ్యునరేషన్స్ ఇవేనా?
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-12T22:15:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="toxic.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 9 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="hit.html">
-
-        <img
-          src="i1.jpg"
-          alt="సినిమా టికెట్ ధరలు"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            టికెట్ రేట్లు పెంచకపోవడమే ఈ సినిమాల సక్సెస్‌కు కారణమా?
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-12T21:15:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="hit.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 10 -->
-
-      <article
-        class="news-item post"
-        data-category="news"
-        data-url="earth.html">
-
-        <img
-          src="image51.jpg"
-          alt="ఆకాశంలో అరుదైన ఖగోళ అద్భుతాలు"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            ఖగోళ వార్తలు
-          </span>
-
-          <h3>
-            🌌 రేపు ఆకాశంలో 3 అరుదైన అద్భుతాలు! 6 గ్రహాల వరుస, తోకచుక్క, సూర్యగ్రహణం!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-11T09:30:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="earth.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 11 -->
-
-      <article
-        class="news-item post"
-        data-category="news"
-        data-url="oil.html">
-
-        <img
-          src="images (20).jpeg"
-          alt="భారత ఇంధన వ్యూహం"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            జాతీయ వార్తలు
-          </span>
-
-          <h3>
-            భారత్ మాస్టర్ ప్లాన్: ప్రపంచాన్ని తిప్పికొట్టిన భారత ఇంధన వ్యూహం!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T19:02:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="oil.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 12 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="chiranjeevi.html">
-
-        <img
-          src="hq720.jpg"
-          alt="చిరంజీవి కీలక వ్యాఖ్యలు"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            🔥 “కంటెంట్ ఉంటే ఆడియన్స్ థియేటర్లకు వస్తారు”.. చిరంజీవి కీలక వ్యాఖ్యలు!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-11T20:00:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="chiranjeevi.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 13 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="janvi.html">
-
-        <img
-          src="janvi.jpg"
-          alt="జాన్వీ కపూర్ మరియు శ్రీలీల"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            🔥 శ్రీలీల, జాన్వీ కపూర్ క్రేజీ కాంబో! ఆస్కార్ విన్నర్‌తో ఏక్తా కపూర్ బిగ్ ప్లాన్!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T10:30:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="janvi.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 14 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="varanasiupdate1.html">
-
-        <img
-          src="hero3.png.png"
-          alt="వారణాసి మూవీ అప్‌డేట్"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T11:00:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="varanasiupdate1.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 15 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="premalu.html">
-
-        <img
-          src="premalu.webp"
-          alt="మమితా బైజు"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            ‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం.. సోషల్ మీడియాకు గుడ్ బై!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T11:45:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="premalu.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 16 -->
-
-      <article
-        class="news-item post"
-        data-category="gold news"
-        data-url="gold.html">
-
-        <img
-          src="gold.jpg"
-          alt="గోల్డ్ రేట్"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            గోల్డ్ రేట్
-          </span>
-
-          <h3>
-            వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T12:15:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="gold.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 17 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="mahesh.html">
-
-        <img
-          src="birthday1.png.jpg"
-          alt="మహేష్ బాబు"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            సూపర్ స్టార్ మహేష్ బాబు బర్త్‌డే.. 5000+ పిల్లలకి ఉచిత గుండె ఆపరేషన్లు!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T12:50:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="mahesh.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 18 -->
-
-      <article
-        class="news-item post"
-        data-category="movies news"
-        data-url="movie3.html">
-
-        <img
-          src="ramcharan.jpg.webp"
-          alt="రామ్ చరణ్"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            సినిమా వార్తలు
-          </span>
-
-          <h3>
-            ‘చరణ్ కాకపోతే ఆ సినిమా ఆడేది కాదు’.. పరుచూరి రివ్యూ!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T13:20:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="movie3.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 19 -->
-
-      <article
-        class="news-item post"
-        data-category="sports news"
-        data-url="rvs.html">
-
-        <img
-          src="cricket.png"
-          alt="క్రికెట్ రికార్డులు"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            క్రీడా వార్తలు
-          </span>
-
-          <h3>
-            💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T14:30:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="rvs.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- POST 20 -->
-
-      <article
-        class="news-item post"
-        data-category="sports news"
-        data-url="rd.html">
-
-        <img
-          src="dhoni,rohith.png"
-          alt="ధోనీ మరియు రోహిత్ శర్మ"
-          loading="lazy">
-
-        <div class="news-content">
-
-          <span class="tag">
-            క్రీడా వార్తలు
-          </span>
-
-          <h3>
-            🏏 ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్ కెప్టెన్ ఎవరు?
-          </h3>
-
-          <div
-            class="time-stamp"
-            data-time="2026-08-10T14:10:00+05:30">
-            🕒 Loading...
-          </div>
-
-          <a
-            class="read-more-btn"
-            href="rd.html"
-            aria-label="పూర్తి వార్త చదవండి">
-            పూర్తి వార్త చదవండి →
-          </a>
-
-        </div>
-
-      </article>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         NO RESULTS
-    ================================================= -->
-
-    <div
-      id="noResults"
-      class="no-results">
-
-      మీ సెర్చ్‌కు సరిపోయే వార్తలు కనిపించలేదు.
+      </div>
 
     </div>
 
 
-
-    <!-- =================================================
-         ABOUT
-    ================================================= -->
-
-    <section
-      class="card"
-      style="margin-top:30px;padding:20px;">
-
-      <h2>
-        BS 360 NEWS గురించి
-      </h2>
-
-      <p>
-        BS 360 NEWS తెలుగు పాఠకులకు తాజా వార్తలు, సినిమా, క్రికెట్, స్పోర్ట్స్, ఆంధ్రప్రదేశ్, తెలంగాణ, జాతీయ అంశాలు మరియు ఎంటర్‌టైన్‌మెంట్ సమాచారాన్ని ఒకే వేదికపై అందించడానికి రూపొందించిన డిజిటల్ న్యూస్ ప్లాట్‌ఫామ్.
-      </p>
-
-      <p>
-        మా లక్ష్యం పాఠకులకు సులభంగా అర్థమయ్యే తెలుగు భాషలో వార్తలను అందించడం. ప్రతి కథనాన్ని ప్రచురించే ముందు సమాచారం, సందర్భం మరియు సంబంధిత వివరాలను స్పష్టంగా అందించే విధంగా కంటెంట్‌ను రూపొందించడానికి ప్రయత్నిస్తున్నాము.
-      </p>
-
-    </section>
-
-
-  </div>
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="site-footer">
-
-  <div class="container footer-inner">
-
-
-    <div class="footer-column">
-
-      <h3>
-        BS 360 NEWS
-      </h3>
-
-      <p>
-        News • Sports • Movies • Entertainment
-      </p>
-
-      <p>
-        తెలుగు ప్రజలకు తాజా వార్తలు, సినిమా, క్రికెట్ మరియు వినోద సమాచారం అందించే డిజిటల్ మీడియా ప్లాట్‌ఫామ్.
-      </p>
-
+    <div class="ad-side">
+      ADVERTISEMENT SPACE
     </div>
 
 
-
-    <div class="footer-column">
-
-      <h3>
-        విభాగాలు
-      </h3>
-
-      <ul>
-
-        <li>తాజా వార్తలు</li>
-
-        <li>స్పోర్ట్స్</li>
-
-        <li>సినిమా</li>
-
-        <li>ఎంటర్‌టైన్‌మెంట్</li>
-
-        <li>గోల్డ్ రేట్</li>
-
-      </ul>
-
-    </div>
+  </aside>
 
 
-
-    <div class="footer-column">
-
-      <h3>
-        ముఖ్యమైన లింకులు
-      </h3>
-
-      <ul class="footer-links">
-
-        <li>
-          <a href="about.html">
-            ℹ️ About Us
-          </a>
-        </li>
-
-        <li>
-          <a href="contact.html">
-            📧 Contact Us
-          </a>
-        </li>
-
-        <li>
-          <a href="privacy-policy.html">
-            🔒 Privacy Policy
-          </a>
-        </li>
-
-        <li>
-          <a href="disclaimer.html">
-            ⚠️ Disclaimer
-          </a>
-        </li>
-
-        <li>
-          <a href="terms.html">
-            📄 Terms & Conditions
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
-
-
-    <div class="footer-column">
-
-      <h3>
-        Contact
-      </h3>
-
-      <p>
-        📧 newsb386@gmail.com
-      </p>
-
-      <p>
-        Follow us for latest updates.
-      </p>
-
-    </div>
-
-
-  </div>
-
-
-
-  <div class="copyright">
-
-    © 2026 BS 360 NEWS. All rights reserved.
-
-  </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
+</section>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7586406136288714"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-7586406136288714"
+     data-ad-slot="6852376001"></ins>
 <script>
-
-
-/* LIVE INDIA DATE + TIME */
-
-function updateClock(){
-
-  const now = new Date();
-
-  const clock =
-    document.getElementById("live-clock");
-
-  const date =
-    document.getElementById("live-date");
-
-
-  if(clock){
-
-    clock.textContent =
-      "⏰ " +
-      now.toLocaleTimeString(
-        "en-IN",
-        {
-          hour:"2-digit",
-          minute:"2-digit",
-          second:"2-digit",
-          hour12:true,
-          timeZone:"Asia/Kolkata"
-        }
-      );
-
-  }
-
-
-  if(date){
-
-    date.textContent =
-      "📅 " +
-      now.toLocaleDateString(
-        "en-IN",
-        {
-          weekday:"short",
-          month:"short",
-          day:"2-digit",
-          year:"numeric",
-          timeZone:"Asia/Kolkata"
-        }
-      );
-
-  }
-
-}
-
-
-updateClock();
-
-setInterval(
-  updateClock,
-  1000
-);
-
-
-
-/* CATEGORY FILTER */
-
-function filterPosts(category){
-
-  document
-    .querySelectorAll(".post")
-    .forEach(post=>{
-
-      const cats =
-        (post.dataset.category || "")
-        .split(/\s+/);
-
-      post.classList.toggle(
-        "hidden",
-        category !== "all" &&
-        !cats.includes(category)
-      );
-
-    });
-
-
-  const searchInput =
-    document.getElementById(
-      "search-input"
-    );
-
-
-  if(searchInput){
-
-    searchInput.value = "";
-
-  }
-
-
-  const noResults =
-    document.getElementById(
-      "noResults"
-    );
-
-
-  if(noResults){
-
-    noResults.style.display =
-      "none";
-
-  }
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-
-/* SEARCH */
-
-function searchPosts(){
-
-  const input =
-    document.getElementById(
-      "search-input"
-    );
-
-
-  const query =
-    input
-      ? input.value.trim().toLowerCase()
-      : "";
-
-
-  let visible = 0;
-
-
-  document
-    .querySelectorAll(".post")
-    .forEach(post=>{
-
-      const match =
-        !query ||
-        post.innerText
-          .toLowerCase()
-          .includes(query);
-
-
-      post.classList.toggle(
-        "hidden",
-        !match
-      );
-
-
-      if(match){
-
-        visible++;
-
-      }
-
-    });
-
-
-  const noResults =
-    document.getElementById(
-      "noResults"
-    );
-
-
-  if(noResults){
-
-    noResults.style.display =
-      query && visible === 0
-        ? "block"
-        : "none";
-
-  }
-
-}
-
-
-
-/* OPEN ARTICLE */
-
-function openArticle(url){
-
-  if(url){
-
-    window.location.href = url;
-
-  }
-
-}
-
-
-
-/* ARTICLE CLICK */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  ()=>{
-
-    document
-      .querySelectorAll(
-        ".post[data-url]"
-      )
-      .forEach(post=>{
-
-        const url =
-          post.dataset.url;
-
-        const image =
-          post.querySelector(
-            "img"
-          );
-
-        const title =
-          post.querySelector(
-            "h1,h2,h3"
-          );
-
-
-        if(image){
-
-          image.style.cursor =
-            "pointer";
-
-          image.addEventListener(
-            "click",
-            ()=>openArticle(url)
-          );
-
-        }
-
-
-        if(title){
-
-          title.style.cursor =
-            "pointer";
-
-          title.addEventListener(
-            "click",
-            ()=>openArticle(url)
-          );
-
-        }
-
-      });
-
-
-    const saved =
-      localStorage.getItem(
-        "bs360-theme"
-      );
-
-
-    if(saved === "dark"){
-
-      setDark(true);
-
-    }
-
-  }
-);
-
-
-
-/* DARK MODE */
-
-function setDark(value){
-
-  document.body.classList.toggle(
-    "dark-mode",
-    value
-  );
-
-
-  localStorage.setItem(
-    "bs360-theme",
-    value
-      ? "dark"
-      : "light"
-  );
-
-
-  const btn =
-    document.getElementById(
-      "themeButton"
-    );
-
-
-  if(btn){
-
-    btn.textContent =
-      value
-        ? "☀️ Light"
-        : "🌙 Dark";
-
-  }
-
-}
-
-
-function toggleTheme(){
-
-  setDark(
-    !document.body
-      .classList
-      .contains(
-        "dark-mode"
-      )
-  );
-
-}
-
-
-
-/* MOBILE NAV */
-
-function toggleMobileNav(){
-
-  const nav =
-    document.getElementById(
-      "navLinks"
-    );
-
-
-  if(nav){
-
-    nav.style.display =
-      nav.style.display === "flex"
-        ? "none"
-        : "flex";
-
-  }
-
-}
-
-
+     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+<!-- =====================================================
+     NEWS HEADING
+===================================================== -->
 
-</body>
+<div class="section-heading">
 
-</html>
+  <h2>
+    📰 తాజా వార్తలు & ముఖ్యాంశాలు
+  </h2>
+
+</div>
+
+
+<!-- =====================================================
+     ALL NEWS
+===================================================== -->
+<article
+  class="news-item post"
+  data-category="movies"
+  data-url="paradise6.html">
+
+  <img
+    src="paradise6.jpg"
+    alt="ది ప్యారడైజ్ యెష నాగుల సాంగ్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🔥 The Paradise: దుమ్మురేపుతున్న యెష నాగుల సాంగ్.. షేక్ అవుతున్న యూట్యూబ్
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-29T17:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నేచురల్ స్టార్ నాని నటిస్తున్న ది ప్యారడైజ్ నుంచి మోస్ట్ ఎవైటెడ్ సెకండ్ సింగిల్ యెష నాగుల కట్ట మీద విడుదలైంది. అనిరుధ్ రవిచందర్ మ్యూజిక్, ఫోక్ బీట్స్, మాస్ ఎనర్జీతో పాటకు మంచి స్పందన వస్తోంది.
+    </p>
+
+    <a
+      class="read-more-btn"
+      href="paradise6.html"
+      aria-label="పూర్తి వార్త చదవండి">
+
+      పూర్తి వార్త చదవండి <span>→</span>
+
+    </a>
+
+    <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+
+        🔗 Share
+
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+<article
+  class="news-item post"
+  data-category="national"
+  data-url="nepal5.html">
+
+  <img
+    src="nepal5.png"
+    alt="నేపాల్ వరదల్లో చిక్కుకున్న భారతీయులు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🇳🇵 నేషనల్ & వరల్డ్ న్యూస్
+    </span>
+
+    <h3>
+      🇳🇵 నేపాల్ వరదల్లో చిక్కుకున్న భారతీయులకు భారీ ఊరట.. 106 మంది సురక్షితంగా భారత్‌కు చేరిక
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-29T17:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నేపాల్ వరదల్లో చిక్కుకున్న మహారాష్ట్రకు చెందిన 106 మంది పర్యాటకులు సురక్షితంగా భారత్‌కు చేరుకున్నారు. మరో 84 మందిని కూడా స్వదేశానికి తీసుకురావడానికి చర్యలు కొనసాగుతున్నాయి.
+    </p>
+
+    <a
+      class="read-more-btn"
+      href="nepal5.html"
+      aria-label="పూర్తి వార్త చదవండి">
+
+      పూర్తి వార్త చదవండి <span>→</span>
+
+    </a>
+
+    <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+
+        🔗 Share
+
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
+  <!-- STYLE 3 : SMALL LIST BOX -->
+  <article
+  class="news-item post"
+  data-category="national"
+  data-url="america.html">
+
+  <img
+    src="america.png"
+    alt="అమెరికా ఆంక్షలతో ఇరాన్ ఆర్థిక సంక్షోభం"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🌍 నేషనల్ & వరల్డ్ న్యూస్
+    </span>
+
+    <h3>
+      🇺🇸 అమెరికా ఆంక్షలతో ఇరాన్‌కు భారీ దెబ్బ.. 66% ద్రవ్యోల్బణం, 35% పడిపోయిన వాణిజ్యం!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-29T16:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      అమెరికా ఆంక్షలు, యుద్ధ పరిస్థితుల ప్రభావంతో ఇరాన్ ఆర్థిక వ్యవస్థపై తీవ్ర ఒత్తిడి పెరుగుతోంది. దేశ ఎగుమతులు, దిగుమతులు దాదాపు 35 శాతం వరకు పడిపోయినట్లు సమాచారం.
+    </p>
+
+    <a
+      class="read-more-btn"
+      href="america.html"
+      aria-label="పూర్తి వార్త చదవండి">
+
+      పూర్తి వార్త చదవండి <span>→</span>
+
+    </a>
+
+    <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+
+        🔗 Share
+
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+
+  <article
+  class="news-item post"
+  data-category="national"
+  data-url="nepal3.html">
+
+  <img
+    src="nepal4.jpg"
+    alt="నేపాల్‌లో భారీ ఫ్లాష్ ఫ్లడ్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🌊 నేషనల్ & వరల్డ్ న్యూస్
+    </span>
+
+    <h3>
+      🌊 నేపాల్‌లో భయానక వరదలు.. అసలు కారణం ఇదేనా? హిమనదం కూలిపోవడంతో పెను విపత్తు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-29T13:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నేపాల్-టిబెట్ సరిహద్దులో సంభవించిన భారీ ఫ్లాష్ ఫ్లడ్‌కు హిమనదం కూలిపోవడం, మంచు-రాళ్ల అవలాంచ్, భారీ debris ప్రవాహం ప్రధాన కారణాలుగా భావిస్తున్నారు. నదీ ప్రవాహం ఒక్కసారిగా పెరగడంతో పలు ప్రాంతాల్లో తీవ్ర నష్టం జరిగింది. ఏర్పడిన నీటి నిల్వల కారణంగా మరోసారి వరద వచ్చే ప్రమాదంపై అధికారులు అప్రమత్తంగా ఉన్నారు.
+    </p>
+
+    
+      <a class="read-more-btn" href="nepal3.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+
+
+  
+<article
+  class="news-item post"
+  data-category="movies"
+  data-url="paradise5.html">
+
+  <img
+    src="Paradise.png"
+    alt="ది ప్యారడైజ్ నాని"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎬 యెషనాగుల పాటతో ‘ది ప్యారడైజ్’పై మరింత పెరిగిన అంచనాలు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-29T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నాని హీరోగా శ్రీకాంత్ ఓదెల దర్శకత్వంలో తెరకెక్కుతున్న భారీ యాక్షన్ డ్రామా ‘ది ప్యారడైజ్’ సినిమాపై ఇప్పటికే భారీ అంచనాలు ఉన్నాయి. తాజాగా విడుదలైన ‘యెషనాగుల’ పాటతో ఈ సినిమాపై హైప్ మరింత పెరిగింది. తెలంగాణ జానపద సంగీతం, మాస్ బీట్స్, అనిరుధ్ రవిచందర్ సంగీతం ప్రేక్షకులను ఆకట్టుకుంటున్నాయి.
+    </p>
+
+    
+      <a class="read-more-btn" href="paradise5.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+  
+
+<article
+  class="news-item post"
+  data-category="movies"
+  data-url="irumudi2.html">
+
+  <img
+    src="ravi2.jpg"
+    alt="మాస్ మహారాజా రవితేజ ఇరుముడి సినిమా"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎬 Irumudi: ఒకరు కాదు ముగ్గురు.. రవితేజ ‘ఇరుముడి’ సినిమాను మిస్ చేసుకున్న స్టార్ హీరోలు ఎవరో తెలుసా?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-29T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      మాస్ మహారాజా రవితేజ నటించిన ‘ఇరుముడి’ సినిమా ప్రస్తుతం ప్రేక్షకుల్లో ఆసక్తిని పెంచుతోంది. ఈ సినిమా కథను రవితేజ కంటే ముందు నాగచైతన్య, గోపీచంద్, సూర్య వంటి స్టార్ హీరోలకు చెప్పారనే ప్రచారం సోషల్ మీడియాలో వైరల్ అవుతోంది. అయితే ఈ ముగ్గురు హీరోలను సంప్రదించినట్లు ఇప్పటివరకు అధికారిక ధృవీకరణ లేదు.
+    </p>
+
+    
+      <a class="read-more-btn" href="irumudi2.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
+  <article
+  class="news-item post"
+  data-category="sports"
+  data-url="praja.html">
+
+  <img
+    src="IMG_20260828_181250.jpg"
+    alt="ప్రజ్ఞానంద"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      ♟️ స్పోర్ట్స్ & చెస్
+    </span>
+
+    <h3>
+      🇮🇳 చెస్‌లో ప్రజ్ఞానంద చరిత్ర.. Grand Chess Tour టైటిల్ గెలిచిన తొలి భారతీయుడిగా రికార్డు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-28T18:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      భారత యువ గ్రాండ్‌మాస్టర్ ఆర్. ప్రజ్ఞానంద 2026 Grand Chess Tour టైటిల్‌ను గెలుచుకుని చరిత్ర సృష్టించాడు. ఆరు పాయింట్ల వెనుకబాటు నుంచి అద్భుతమైన కమ్‌బ్యాక్ చేసి టైటిల్‌ను సొంతం చేసుకున్నాడు.
+    </p>
+
+    
+      <a class="read-more-btn" href="praja.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+
+
+
+  
+<article
+  class="news-item post"
+  data-category="national"
+  data-url="air.html">
+
+  <img
+    src="air.webp"
+    alt="ఢిల్లీలో వాయు కాలుష్యం"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🌫️ నేషనల్ & తాజా వార్తలు
+    </span>
+
+    <h3>
+      🌫️ ఢిల్లీలో మళ్లీ పెరిగిన వాయు కాలుష్యం.. AQI 170 దాటడంతో ఆందోళన
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-28T09:40:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      దేశ రాజధాని ఢిల్లీలో మళ్లీ వాయు కాలుష్యం పెరిగింది.  PM2.5, PM10 కాలుష్య కణాల ప్రభావంతో గాలి నాణ్యతపై ఆందోళన నెలకొంది.
+
+    
+      <a class="read-more-btn" href="air.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
+  <article
+  class="news-item post"
+  data-category="sports"
+  data-url="surya1.html">
+
+  <img
+    src="surya.jpg"
+    alt="సూర్యకుమార్ యాదవ్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🏏 స్పోర్ట్స్ & క్రికెట్
+    </span>
+
+    <h3>
+      🇮🇳 టీమిండియా కోసం హార్డ్ వర్క్ చేస్తున్నా.. సూర్యకుమార్ యాదవ్ కీలక వ్యాఖ్యలు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-28T11:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      టీమిండియా స్టార్ క్రికెటర్ సూర్యకుమార్ యాదవ్ తన ఆటపై మరింత దృష్టి పెట్టినట్లు తెలుస్తోంది. టీమిండియా కోసం హార్డ్ వర్క్ చేస్తున్నానంటూ సూర్యకుమార్ కీలక వ్యాఖ్యలు చేశారు. 
+    </p>
+
+    
+      <a class="read-more-btn" href="surya1.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+  
+
+  <article
+  class="news-item post"
+  data-category="movies"
+  data-url="rip.html">
+
+  <img
+    src="rip.jpg"
+    alt="సీనియర్ నటుడు జీవీ నారాయణరావు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-28T08:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      తెలుగు సినీ పరిశ్రమలో విషాదం నెలకొంది. ప్రముఖ సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు (73) హైదరాబాద్‌లో గుండెపోటుతో కన్నుమూశారు. 
+
+    
+      <a class="read-more-btn" href="rip.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+  
+<article
+  class="news-item post"
+  data-category="movies"
+  data-url="am.html">
+
+  <img
+    src="am.jpg"
+    alt="శ్వేతా లక్ష్మన్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-28T09:45:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      ‘సహ: లైఫ్ ఆఫ్ సంజు’ సినిమాపై యంగ్ హీరోయిన్ శ్వేతా లక్ష్మన్ సంచలన వ్యాఖ్యలు చేశారు. సినిమా ప్రేక్షకులను నిరాశపరిస్తే అమీర్‌పేట సెంటర్‌లో నిలబడి గుండు గీయించుకుంటానంటూ ఛాలెంజ్ చేశారు.
+    </p>
+
+    
+      <a class="read-more-btn" href="am.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+  
+  <article
+  class="news-item post"
+  data-category="sports"
+  data-url="kohli.html">
+
+  <img
+    src="kohli.jpg"
+    alt="విరాట్ కోహ్లీ"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🏏 స్పోర్ట్స్ & క్రికెట్
+    </span>
+
+    <h3>
+      ‘కింగ్’ కోహ్లీ ఈజ్ నంబర్ వన్.. Forbes India-2026లో టాప్-5లో విరాట్ కోహ్లీ
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-27T22:45:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      Forbes India-2026 మోస్ట్ వాల్యూయబుల్ సెలబ్రిటీల జాబితాలో విరాట్ కోహ్లీ అగ్రస్థానంలో నిలిచారు. 
+    </p>
+
+    
+      <a class="read-more-btn" href="kohli.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+<article
+  class="news-item post"
+  data-category="movies"
+  data-url="prabhasfa.html">
+
+  <img
+    src="prabhasfa.jpg"
+    alt="కృష్ణంరాజు మరియు అక్కినేని నాగేశ్వరరావు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      Krishnam Raju: ఆ హీరోకు నేను పెద్ద ఫ్యాన్.. ఆయన షర్ట్ మడతపెట్టే స్టైల్, మ్యానరిజం అంటే చాలా ఇష్టం.. కృష్ణంరాజు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-27T22:38:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      కృష్ణంరాజు తన అభిమాన నటుడు అక్కినేని నాగేశ్వరరావు గురించి గతంలో చేసిన ఆసక్తికర వ్యాఖ్యలు మరోసారి వైరల్ అవుతున్నాయి. 
+    </p>
+
+    
+      <a class="read-more-btn" href="prabhasfa.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
+<article
+  class="news-item post"
+  data-category="sports"
+  data-url="haki.html">
+
+  <img
+    src="haki.jpg"
+    alt="భారత మహిళల హాకీ జట్టు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🏑 స్పోర్ట్స్ & హాకీ
+    </span>
+
+    <h3>
+      ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-27T20:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      FIH ఉమెన్స్ హాకీ వరల్డ్ కప్‌లో భారత మహిళల జట్టు జర్మనీపై 3-1తో ఘన విజయం సాధించి ఐదో స్థానాన్ని కైవసం చేసుకుంది. 1974 తర్వాత వరల్డ్ కప్‌లో భారత మహిళల జట్టుకు ఇదే అత్యుత్తమ ప్రదర్శన కావడం విశేషం.
+    </p>
+
+    
+      <a class="read-more-btn" href="haki.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+  
+  <article
+  class="news-item post"
+  data-category="movies"
+  data-url="jadal.html">
+
+  <img
+    src="jadal.webp"
+    alt="ది ప్యారడైజ్ సినిమాలో నాని, కీర్తి సురేష్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      ‘ది ప్యారడైజ్’లో కీర్తి సురేష్.. నాని జడ లాగుతున్న పోస్ట్ వైరల్.. అసలు విషయం ఏంటంటే?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-27T16:45:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నాని–శ్రీకాంత్ ఓదెల కాంబినేషన్‌లో తెరకెక్కుతున్న ‘ది ప్యారడైజ్’పై అంచనాలు పెరుగుతున్న వేళ.. కీర్తి సురేష్ నాని జడ లాగుతున్నట్లుగా ఉన్న పోస్ట్ సోషల్ మీడియాలో వైరల్‌గా మారింది.
+    </p>
+
+    
+      <a class="read-more-btn" href="jadal.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+
+
+  
+  <article
+  class="news-item post"
+  data-category="movies"
+  data-url="king100.html">
+
+  <img
+    src="king100.webp"
+    alt="నాగార్జున 100వ సినిమా King100"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      “100 సినిమాలు పూర్తయ్యాయి.. కానీ కింగ్ కథ ఇంకా ముగియలేదు!”.. నాగార్జున 100వ సినిమా King100
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-27T19:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నాగార్జున 100వ సినిమాగా తెరకెక్కుతున్న King100పై భారీ అంచనాలు నెలకొన్నాయి. ఆగస్టు 29న బర్త్‌డే సందర్భంగా ఈ సినిమా నుంచి ప్రత్యేకమైన గ్లింప్స్ రాబోతోంది.
+    </p>
+
+    
+      <a class="read-more-btn" href="king100.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+
+  
+<article
+  class="news-item post"
+  data-category="movies"
+  data-url="naresh.html">
+
+  <img
+    src="naresh.jpg"
+    alt="జబర్దస్త్ నరేష్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      అప్పట్లో రూ.36 లక్షలు పెట్టి ల్యాండ్ కొన్న.. ఆ తర్వాత వారం రోజులకే ఏమైందంటే..?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-27T16:19:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      జబర్దస్త్ నరేష్ రూ.36 లక్షలతో ల్యాండ్ కొనుగోలు చేసిన తర్వాత కొద్ది రోజులకే కరోనా లాక్‌డౌన్ రావడంతో ఎదురైన ఆర్థిక ఇబ్బందులను పంచుకున్నారు.
+    </p>
+
+    
+      <a class="read-more-btn" href="naresh.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+</article>
+
+  <article
+  class="news-item post"
+  data-category="sports"
+  data-url="lanka.html">
+
+  <img
+    src="lanka.webp"
+    alt="శ్రీలంక యువ బ్యాటర్ సోనల్ దినుష"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🏏 క్రికెట్ & స్పోర్ట్స్
+    </span>
+
+    <h3>
+      IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
+    </h3>
+
+    <div
+      class="time-stamp"
+      data-time="2026-08-27T17:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary"> 
+      భారత్‌తో జరిగిన రెండో టెస్టులో శ్రీలంక యువ బ్యాటర్ సోనల్ దినుష
+      అరుదైన ప్రపంచ రికార్డు సృష్టించాడు.
+    </p>
+
+    
+      <a class="read-more-btn" href="lanka.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+        🔗 Share
+      </button>
+
+    </div>
+
+  </div>
+
+  </article>
+  
+<article
+  class="news-item post"
+  data-category="movies"
+  data-url="ramya.html">
+
+  <img
+    src="ramya.jpg"
+    alt="రమ్యకృష్ణ"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      🎬 సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      “ఆయన లేకపోతే నేను స్టార్ హీరోయిన్‌ను అయ్యేదాన్ని కాదు!”.. రమ్యకృష్ణ ఎమోషనల్ కామెంట్స్
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-27T16:45:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      హీరోయిన్‌గా ఎదిగే సమయంలో ఎన్నో కష్టాలు.. ఒక దశలో “ఐరన్ లెగ్” అనే ముద్ర కూడా. సినిమాలే వద్దనుకున్న సమయంలో రమ్యకృష్ణకు అండగా నిలిచిన ఆ దర్శకుడు ఎవరు? తన స్టార్‌డమ్ వెనుక ఉన్న వ్యక్తి గురించి ఆమె చేసిన ఆసక్తికర వ్యాఖ్యలు ఇప్పుడు వైరల్‌గా మారాయి.
+    </p>
+
+    
+      <a class="read-more-btn" href="ramya.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+<section class="news-list" id="newsList">
+
+     <article
+  class="news-item post"
+  data-category="sports news"
+  data-url="indsl.html">
+
+  <img
+    src="sl1.jpg"
+    alt="భారత్ vs శ్రీలంక 2వ టెస్ట్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      క్రికెట్ & స్పోర్ట్స్
+    </span>
+
+    <h3>
+      🏏 భారత్ vs శ్రీలంక 2వ టెస్ట్: శ్రీలంక 229/6.. భారత్‌కు కావాల్సింది 4 వికెట్లు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-26T21:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      భారత్–శ్రీలంక రెండో టెస్ట్‌లో నాలుగో రోజు ఆట ముగిసే సమయానికి శ్రీలంక 72.4 ఓవర్లలో 229/6 చేసింది. శ్రీలంక 16 పరుగుల ఆధిక్యంలో ఉంది. భారత్‌కు ఇప్పుడు మిగిలిన 4 వికెట్లు పడగొట్టాల్సి ఉంది. 
+
+    
+      <a class="read-more-btn" href="indsl.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+     </article>
+
+     <article
+  class="news-item post"
+  data-category="business news"
+  data-url="petrol.html">
+
+  <img
+    src="petrol.jpeg"
+    alt="పెట్రోల్–డీజిల్ ధరల వివరాలు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      బిజినెస్ & బిజినెస్ వార్తలు
+    </span>
+
+    <h3>
+      ⛽ పెట్రోల్–డీజిల్ ధరలు: ఆగస్టు 26న ఏ నగరంలో ఎంత? హైదరాబాద్‌లో పెట్రోల్ ధర ఎంతంటే..
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-26T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      ఆగస్టు 26న ప్రధాన నగరాల్లో పెట్రోల్, డీజిల్ తాజా ధరల వివరాలు. హైదరాబాద్‌లో లీటర్ పెట్రోల్ ధర ₹115.69 దాటగా, అంతర్జాతీయ చమురు మార్కెట్ ప్రభావం మరియు నగరాల వారీ వ్యత్యాసాలపై ప్రత్యేక కథనం.
+    </p>
+
+    
+      <a class="read-more-btn" href="petrol.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+     
+
+     <article
+  class="news-item post"
+  data-category="international news"
+  data-url="nepal.html">
+
+  <img
+    src="nepal.jpg"
+    alt="నేపాల్ భారీ ఫ్లాష్ ఫ్లడ్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      అంతర్జాతీయ వార్తలు
+    </span>
+
+    <h3>
+      🌊 నేపాల్‌లో భారీ ఫ్లాష్‌ ఫ్లడ్.. 105 మంది భారతీయులు సహా 384 మంది గల్లంతు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-26T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నేపాల్‌ రసువా జిల్లాలో భోటే కోషి నదిలో ఒక్కసారిగా ఉప్పొంగిన భారీ వరద విధ్వంసం సృష్టించింది. 105 మంది భారతీయులతో సహా వందలాది మంది గల్లంతైనట్లు ప్రాథమిక నివేదికలు వెల్లడించాయి.
+    </p>
+
+    
+      <a class="read-more-btn" href="nepal.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+     
+
+<article
+  class="news-item post"
+  data-category="entertainment movies news"
+  data-url="ravinews.html">
+
+  <img
+    src="IMG_20260826_151445.jpg"
+    alt="ఇరుముడి తర్వాత రవితేజ కొత్త సినిమా"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎬 ఇరుముడి తర్వాత రవితేజ కొత్త సినిమా.. హసిత్ గోలితో మాస్ మహారాజా మరో ఎంటర్‌టైనర్
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-26T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      ‘ఇరుముడి’ విజయం తర్వాత మాస్ మహారాజా రవితేజ, దర్శకుడు హసిత్ గోలి కాంబినేషన్‌లో దిల్ రాజు నిర్మిస్తున్న కొత్త చిత్రం SVC64 ప్రకటన మరియు సినిమా విశేషాలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="ravinews.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+
+
+
+     <article
+  class="news-item post"
+  data-category="entertainment movies news"
+  data-url="toxicfloop.html">
+
+  <img
+    src="t7.jpg"
+    alt="యశ్ టాక్సిక్ మూవీ రివ్యూ"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🔥 యశ్ ‘టాక్సిక్’ మూవీ రివ్యూ: గ్యాంగ్‌స్టర్ ప్రపంచంలో అదిరిపోయే యాక్షన్.. కానీ!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-26T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      కన్నడ స్టార్ యశ్ హీరోగా తెరకెక్కిన భారీ యాక్షన్ మూవీ ‘టాక్సిక్’ మూవీ రివ్యూ. యశ్ స్క్రీన్ ప్రెజెన్స్, యాక్షన్ సన్నివేశాలు మరియు టెక్నికల్ వివరాలపై ప్రత్యేక కథనం.
+    </p>
+
+    
+      <a class="read-more-btn" href="toxicfloop.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+     <article
+  class="news-item post"
+  data-category="spiritual news"
+  data-url="varanasi99.html">
+
+  <img
+    src="hero1.png.jpg"
+    alt="వారణాసి మూవీ 150 భాషల్లో"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      ఆధ్యాత్మికం & పర్యాటకం
+    </span>
+
+    <h3>
+      🛕 ఆధ్యాత్మిక నగరి వారణాసి.. గంగా ఘాట్‌ల ప్రాశస్త్యం & ప్రత్యేక విశేషాలు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-26T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+     వారణాసి’ కోసం 1,500 మంది డబ్బింగ్ ఆర్టిస్టులు.. 120 దేశాల్లో 50 భాషల్లో రిలీజ్!
+    </p>
+
+    
+      <a class="read-more-btn" href="varanasi99.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+     <article
+  class="news-item post"
+  data-category="tech news"
+  data-url="upi.html">
+
+  <img
+    src="upi.webp"
+    alt="భారత డిజిటల్ చెల్లింపులు UPI"
+    loading="lazy">
+
+  <div class="news-content">
+    <p>
+      💳 UPIకి 10 ఏళ్లు.. భారత డిజిటల్ విప్లవానికి నిదర్శనంగా UPI ప్రయాణం
+    </p>
+
+    
+      <a class="read-more-btn" href="upi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+  </div>
+
+</article>
+<article
+  class="news-item post"
+  data-category="international news"
+  data-url="india4,5.html">
+
+  <img
+    src="india4.jpg"
+    alt="భారత్ చైనా సరిహద్దు చర్చలు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      రాజకీయాలు & అంతర్జాతీయ
+    </span>
+
+    <h3>
+      🇮🇳🇨🇳 భారత్–చైనా సంబంధాల్లో కీలక చర్చలు.. సరిహద్దు శాంతిపై భారత్ స్పష్టమైన సందేశం
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-26T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      భారత్-చైనా మధ్య సంబంధాలు మెరుగుపడాలంటే సరిహద్దుల్లో శాంతి, స్థిరత్వం అత్యంత ముఖ్యమని భారత్ స్పష్టం చేసింది. ఇరు దేశాల దౌత్య మరియు సైనిక చర్చల వివరాలపై ప్రత్యేక కథనం.
+    </p>
+
+    
+      <a class="read-more-btn" href="india4,5.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="toc5.html">
+
+  <img
+    src="toc.jpeg"
+    alt="యశ్ టాక్సిక్ సినిమా"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🔥 యశ్ ‘టాక్సిక్’కు భారీ హైప్.. ఏపీ, తెలంగాణలో పెరిగిన టికెట్ ధరలు.. ₹600కు స్పెషల్ షో!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-25T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      కేజీఎఫ్ తర్వాత యశ్ నటిస్తున్న 'టాక్సిక్' సినిమాకు ఏపీ, తెలంగాణలో భారీ క్రేజ్ నెలకొంది. రెండు రాష్ట్రాల్లో టికెట్ ధరల పెంపునకు అనుమతి లభించగా, ఏపీలో ₹600కు స్పెషల్ బెనిఫిట్ షోలు ప్రదర్శించనున్నారు.
+    </p>
+
+    
+      <a class="read-more-btn" href="toc5.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="sports news"
+  data-url="dhoni4.html">
+
+  <img
+    src="dhoni3.jpg"
+    alt="ఎంఎస్ ధోనీ CSK"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      స్పోర్ట్స్ & క్రికెట్
+    </span>
+
+    <h3>
+      🏏 ఎంఎస్ ధోనీకి CSKలో 25 శాతం వాటా కావాలా? తగ్గించిన డిమాండ్‌తోనూ ముందుకు సాగని చర్చలు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-25T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      చెన్నై సూపర్ కింగ్స్ (CSK) ఫ్రాంచైజీలో వాటా కొనుగోలు చేయడానికి ఎంఎస్ ధోనీ ఆసక్తి చూపించారనే వార్తలు క్రికెట్ వర్గాల్లో సంచలనంగా మారాయి.
+    </p>
+
+    
+      <a class="read-more-btn" href="dhoni4.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+<article
+  class="news-item post"
+  data-category="news"
+  data-url="rakhi.html">
+
+  <img
+    src="rakhi.jpg"
+    alt="కృతి సనన్ రాహుల్ గాంధీ వివాదం"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      రాజకీయాలు & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎀 కృతి సనన్‌కు రాహుల్ గాంధీ మద్దతు.. దుస్తుల వివాదంపై మహిళల స్వేచ్ఛకు గట్టి వాదన!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-25T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      రక్షాబంధన్ ప్రకటనలో కృతి సనన్ ధరించిన దుస్తులపై చెలరేగిన వివాదంపై కాంగ్రెస్ నేత రాహుల్ గాంధీ స్పందిస్తూ మహిళల దుస్తుల ఎంపిక వారి వ్యక్తిగత స్వేచ్ఛ అని పేర్కొన్నారు.
+    </p>
+
+    
+      <a class="read-more-btn" href="rakhi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+
+     
+  <article
+  class="news-item post"
+  data-category="news movies ap"
+  data-url="irumudi.html">
+
+  <img
+    src="ravi1.jpg"
+    alt="ఇరుముడి సినిమా రవితేజ"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎬 ఇరుముడి సినిమాపై టీచర్ల అభ్యంతరం.. అసలు వివాదం ఏమిటంటే?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-25T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      రవితేజ నటించిన ‘ఇరుముడి’ సినిమా బాక్సాఫీస్ వద్ద మంచి వసూళ్లు సాధిస్తున్నప్పటికీ, పాఠశాలలు మరియు ఉపాధ్యాయుల పాత్రలను చూపించిన విధానంపై ఆంధ్రప్రదేశ్ టీచర్ల సంఘం అభ్యంతరం వ్యక్తం చేసింది.
+    </p>
+
+    
+      <a class="read-more-btn" href="irumudi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+
+  
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="pongal.html">
+
+  <img
+    src="pongal.jpg"
+    alt="సంక్రాంతి 2027 టాలీవుడ్ సినిమాలు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎬 సంక్రాంతి 2027లో 8 సినిమాలా? టాలీవుడ్‌లో అప్పుడే మొదలైన రిలీజ్ డేట్ పోటీ!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-25T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      2027 సంక్రాంతి రేసులో 'మహాకాళి', 'సంబరాల ఏటిగట్టు', వెంకటేష్-కళ్యాణ్ రామ్ కాంబో, శర్వానంద్ చిత్రాలతో పాటు దాదాపు 8 సినిమాలు పోటీపడుతున్నాయి. టాలీవుడ్‌లో అప్పుడే బాక్సాఫీస్ హడావుడి మొదలైంది.
+    </p>
+
+    
+      <a class="read-more-btn" href="pongal.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+  
+
+<article
+  class="news-item post"
+  data-category="sports news"
+  data-url="pant, dhoni.html">
+
+  <img
+    src="pant, dhoni.webp"
+    alt="రిషభ్ పంత్ మరియు ధోనీ"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      SPORTS & CRICKET
+    </span>
+
+    <h3>
+      🏏 రిషభ్ పంత్ చరిత్ర సృష్టించాడు.. విదేశీ టెస్టుల్లో ధోనీ రికార్డు బద్దలు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-24T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      శ్రీలంకతో జరుగుతున్న రెండో టెస్టులో రిషభ్ పంత్ విదేశీ లేదా తటస్థ వేదికల్లో అత్యధిక టెస్ట్ పరుగులు చేసిన భారత వికెట్‌కీపర్‌గా ఎంఎస్ ధోనీ 2,496 పరుగుల రికార్డును దాటి 2,501 పరుగులతో కొత్త చరిత్ర సృష్టించాడు.
+    </p>
+
+    
+      <a class="read-more-btn" href="pant, dhoni.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+
+  
+<article
+  class="news-item post"
+  data-category="news business"
+  data-url="stock.html">
+
+  <img
+    src="stock.jpg"
+    alt="దేశీయ స్టాక్ మార్కెట్లు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      బిజినెస్ & స్టాక్ మార్కెట్
+    </span>
+
+    <h3>
+      📈 లాభాలతో ప్రారంభమై.. నష్టాల్లో ముగిసిన స్టాక్ మార్కెట్లు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-24T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      అంతర్జాతీయ సంకేతాలతో ఉదయం లాభాల్లో ప్రారంభమైన స్టాక్ మార్కెట్లు, గ్లోబల్ ఆందోళనల కారణంగా చివరకు నష్టాల్లో ముగిశాయి. సెన్సెక్స్ 171 పాయింట్లు పడిపోగా, నిఫ్టీ 24,219 వద్ద స్థిరపడింది.
+    </p>
+
+    
+      <a class="read-more-btn" href="stock.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+
+  <article
+  class="news-item post"
+  data-category="news movies"
+  data-url="spirit.html">
+
+  <img
+    src="spirit.jpg"
+    alt="ప్రభాస్ స్పిరిట్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా
+    </span>
+
+    <h3>
+      🎉 ప్రభాస్ ‘స్పిరిట్’ కోసం 16–17 గంటల కష్టం.. డూప్ లేకుండా యాక్షన్‌కు రెడీ!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-24T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      సందీప్ రెడ్డి వంగా దర్శకత్వంలో వస్తున్న 'స్పిరిట్' కోసం ప్రభాస్ రోజుకు 16-17 గంటలు శ్రమిస్తున్నారు. రియలిస్టిక్ ఫీల్ కోసం డూప్ లేకుండా యాక్షన్ సీన్స్ చేయడానికి రెడీ అవుతున్నారు.
+    </p>
+
+    
+      <a class="read-more-btn" href="spirit.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+  
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="zombi2.html">
+
+  <img
+    src="zombi2.webp"
+    alt="Zombie Reddy 2 NXT LVL"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా
+    </span>
+
+    <h3>
+      🎉 Zombie Reddy 2 NXT LVL.. తేజ సజ్జ ఫ్యాన్స్‌కు బిగ్ సర్‌ప్రైజ్.. ఈసారి మరింత భారీగా!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-23T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      తేజ సజ్జ, ప్రశాంత్ వర్మ కాంబినేషన్‌లో వస్తున్న 'Zombie Reddy 2 NXT LVL' సీక్వెల్ ప్రకటన వచ్చేసింది. హైదరాబాద్‌పై జాంబీస్ దాడి నేపథ్యంలో ఉపేంద్ర, షనాయా కపూర్ లీడ్ రోల్స్‌లో అలరించనున్నారు.
+    </p>
+
+    
+      <a class="read-more-btn" href="zombi2.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="week4.html">
+
+  <img
+    src="week4.png"
+    alt="ఈ వారం OTT Releases"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా వార్తలు
+    </span>
+
+    <h3>
+      🎬 ఈ వారం OTT Releases: ఆగస్టు 23, 2026 వరకు OTTలోకి వచ్చిన కొత్త సినిమాలు ఇవే!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-23T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      విజయ్ 'జన నాయకన్', 'ప్యార్ ప్రేమ కళ్యాణం', 'చెన్నై లవ్ స్టోరీ', 'వెల్‌కమ్ టు ది జంగిల్' వంటి ప్రముఖ సినిమాలు ఈ వారం OTTలో అలరిస్తున్నాయి. పూర్తి వివరాలు ఇక్కడ చూడండి.
+    </p>
+
+    
+      <a class="read-more-btn" href="week4.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+  <article
+  class="news-item post"
+  data-category="news movies"
+  data-url="surya.html">
+
+  <img
+    src="surya1.jpg"
+    alt="సూర్య విశ్వనాథ్ అండ్ సన్స్ కలెక్షన్స్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా వార్తలు
+    </span>
+
+    <h3>
+      💥 విశ్వనాథ్ అండ్ సన్స్‌కు భారీ జంప్.. 9వ రోజు కలెక్షన్స్ చూస్తే షాక్!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-23T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      సూర్య నటించిన ‘విశ్వనాథ్ అండ్ సన్స్’ బాక్సాఫీస్ వద్ద విజృంభిస్తోంది. 9వ రోజు ఏకంగా 61 శాతం మేర కలెక్షన్స్ పుంజుకుని రూ.100 కోట్ల క్లబ్‌కు వేగంగా దూసుకెళ్తోంది.
+    </p>
+
+    
+      <a class="read-more-btn" href="surya.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+  
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="toxicpressmet.html">
+
+  <img
+    src="yash.jpg"
+    alt="టాక్సిక్ ప్రీ-రిలీజ్ ఈవెంట్ యశ్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా వార్తలు
+    </span>
+
+    <h3>
+      🔥 టాక్సిక్ ప్రీ-రిలీజ్ ఈవెంట్‌లో యశ్, దిల్ రాజు, విశాల్ మిశ్రా సందడి.. 2000 కోట్ల టార్గెట్‌పై ఆసక్తికర వ్యాఖ్యలు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-22T18:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      యశ్ నటించిన ‘టాక్సిక్’ సినిమా ప్రీ-రిలీజ్ ఈవెంట్ హైదరాబాద్ మల్లారెడ్డి యూనివర్సిటీలో ఘనంగా జరిగింది. ఈ వేడుకలో దిల్ రాజు, విశాల్ మిశ్రా, యశ్ చేసిన కామెంట్స్ ఇప్పుడు టాలీవుడ్‌లో హాట్ టాపిక్‌గా మారాయి.
+    </p>
+
+    
+      <a class="read-more-btn" href="toxicpressmet.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+  
+  
+<article
+  class="news-item post"
+  data-category="news"
+  data-url="modi.html">
+
+  <img
+    src="modi.jpg"
+    alt="మోదీ 25వ సంవత్సరం ప్రజా సేవ"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      జాతీయ వార్తలు
+    </span>
+
+    <h3>
+      🇮🇳 మోదీ 25వ సంవత్సరం ప్రజా సేవ.. BJP ప్రత్యేక కార్యక్రమాలు.. అసలు కథ ఇదే!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-21T13:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      ప్రభుత్వ అధినేతగా 25వ సంవత్సరంలోకి అడుగుపెట్టిన ప్రధాని నరేంద్ర మోదీ. గుజరాత్ సీఎం నుండి ప్రధాని వరకు ఆయన రాజకీయ ప్రస్థానం మరియు బీజేపీ సేవా కార్యక్రమాల వివరాలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="modi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news entertainment movies"
+  data-url="temper.html">
+
+
+  <img
+    src="temper.png"
+    alt="బిగ్ బాస్ తెలుగు 10 - టెంపర్ వంశీ"
+    loading="lazy">
+
+
+  <div class="news-content">
+
+
+    <span class="tag">
+      బిగ్ బాస్
+    </span>
+
+
+    <h3>
+      🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
+    </h3>
+
+
+    <div
+      class="time-stamp"
+      data-time="2026-08-22T16:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+
+    <p class="summary">
+      బిగ్ బాస్ తెలుగు సీజన్ 10లో టాలీవుడ్ నటుడు టెంపర్ వంశీ పేరు
+      కంటెస్టెంట్ లిస్ట్‌లో వినిపిస్తోంది. ‘టెంపర్’ సినిమాతో గుర్తింపు
+      తెచ్చుకున్న ఈ నటుడు బిగ్ బాస్ హౌస్‌లోకి ఎంట్రీ ఇస్తారా అనే ఆసక్తి
+      ప్రేక్షకుల్లో పెరుగుతోంది.
+    </p>
+
+
+    
+      <a class="read-more-btn" href="temper.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+
+      <button
+        type="button"
+        onclick="sharePost(this)">
+
+        🔗 Share
+
+      </button>
+
+    </div>
+
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="cbday.html">
+
+  <img
+    src="c2.webp"
+    alt="మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా & ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. తెలుగు సినీ చరిత్రలో చెరగని ముద్ర వేసిన ‘చిరు’
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-22T10:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      చిరంజీవి సినీ ప్రయాణం, అభిమానుల సంబరాలు మరియు పుట్టినరోజు సందర్భంగా వస్తున్న తాజా అప్‌డేట్స్.
+    </p>
+
+    
+      <a class="read-more-btn" href="cbday.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="ravi.html">
+
+  <img
+    src="ravi.webp"
+    alt="ఇరుముడి సినిమా రివ్యూ - రవితేజ"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా రివ్యూ
+    </span>
+
+    <h3>
+      🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-21T13:30:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      ఇరుముడి సినిమాకు సంబంధించిన కథ, నటీనటుల ప్రదర్శన, దర్శకత్వం, ప్రేక్షకుల స్పందన మరియు సినిమా బలాబలాలపై రివ్యూ.
+    </p>
+
+    
+      <a class="read-more-btn" href="ravi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news sports"
+  data-url="sl.html">
+
+  <img
+    src="sl.jpg"
+    alt="శ్రీలంకపై గెలిచినా టీమిండియా WTC పరిస్థితి"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      క్రీడలు & క్రికెట్
+    </span>
+
+    <h3>
+      🏏 శ్రీలంకపై గెలిచినా.. బంగ్లాదేశ్ కంటే కిందే టీమిండియా.. WTC ఫైనల్ బెర్త్ కోసం భారీ సవాల్
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-21T11:10:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      శ్రీలంకపై విజయం తర్వాత ప్రపంచ టెస్ట్ ఛాంపియన్‌షిప్ పాయింట్ల పట్టికలో టీమిండియా పరిస్థితి మరియు ఫైనల్ బెర్త్ అవకాశాలపై వివరాలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="sl.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="ra.html">
+
+  <img
+    src="ra.jpg"
+    alt="మాధురి రాథోడ్ ఫోక్ డ్యాన్స్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      ఎంటర్‌టైన్‌మెంట్
+    </span>
+
+    <h3>
+      💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-20T22:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      ఫోక్ డ్యాన్స్ వీడియోలతో గుర్తింపు తెచ్చుకున్న మాధురి రాథోడ్‌కు సంబంధించిన సోషల్ మీడియా మరియు ఆదాయంపై చర్చ.
+    </p>
+
+    
+      <a class="read-more-btn" href="ra.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="toc.html">
+
+  <img
+    src="toc1.jpg"
+    alt="యశ్ టాక్సిక్ సినిమా పోస్టర్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా వార్తలు
+    </span>
+
+    <h3>
+      🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-20T10:40:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      టాక్సిక్ సినిమాకు సంబంధించిన సెన్సార్ సమాచారం, కంటెంట్‌పై వచ్చిన చర్చ మరియు విడుదలకు సంబంధించిన తాజా అప్‌డేట్స్.
+    </p>
+
+    
+      <a class="read-more-btn" href="toc.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news sports"
+  data-url="i.html">
+
+  <img
+    src="j.jpg"
+    alt="రవీంద్ర జడేజా వికెట్ సంబరాలు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      క్రీడలు
+    </span>
+
+    <h3>
+      నో బాల్ పాపానికి ప్రాయశ్చిత్తం.. 131 బంతుల తర్వాత ధనంజయను అవుట్ చేసిన జడేజా!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-19T15:00:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      టెస్టు మ్యాచ్‌లో రవీంద్ర జడేజా చేసిన నో-బాల్ ఘటన తర్వాత ధనంజయ డి సిల్వాను అవుట్ చేసిన సందర్భంపై పూర్తి వివరాలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="i.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news sports"
+  data-url="mi.html">
+
+  <img
+    src="m.jpg"
+    alt="ముంబై ఇండియన్స్ హార్దిక్ పాండ్యా"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      క్రీడలు
+    </span>
+
+    <h3>
+      IPL 2027: ముంబై ఇండియన్స్‌లో భారీ మార్పులు? హార్దిక్ పాండ్యా సహా 8 మందిపై వేటు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-19T07:10:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      IPL 2027 వేలానికి ముందు ముంబై ఇండియన్స్ జట్టులో సంభవించే మార్పులు మరియు ఆటగాళ్ల రిటెన్షన్‌పై వస్తున్న అంచనాలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="mi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news sports"
+  data-url="rishab.html">
+
+  <img
+    src="rishab.jpg"
+    alt="రిషభ్ పంత్ రికార్డు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      క్రీడలు
+    </span>
+
+    <h3>
+      టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-18T21:22:15+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      టెస్టు క్రికెట్‌లో రిషభ్ పంత్ సాధించిన అరుదైన సిక్సర్ల రికార్డు మరియు భారత క్రికెట్‌లో దాని ప్రాధాన్యత.
+    </p>
+
+    
+      <a class="read-more-btn" href="rishab.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="p.html">
+
+  <img
+    src="p1.jpg"
+    alt="సలార్ 2 సినిమా అప్‌డేట్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా వార్తలు
+    </span>
+
+    <h3>
+      2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-18T11:40:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      సలార్-2 షూటింగ్ షెడ్యూల్, నిర్మాణ పనులు మరియు విడుదలపై వస్తున్న తాజా అంచనాలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="p.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news movies"
+  data-url="t.html">
+
+  <img
+    src="t1.jpeg"
+    alt="నాగచైతన్య సినిమా అప్‌డేట్"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      సినిమా వార్తలు
+    </span>
+
+    <h3>
+      ‘తండేల్’ విజయం తర్వాత నాగచైతన్య మరో క్రేజీ ప్రాజెక్ట్.. ఆ దర్శకుడితో సినిమా?
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-18T09:25:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      నాగచైతన్య తదుపరి సినిమాకు సంబంధించిన ప్రాజెక్ట్ చర్చలు మరియు దర్శకుడి వివరాలపై వస్తున్న సమాచారం.
+    </p>
+
+    
+      <a class="read-more-btn" href="t.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news ap ts"
+  data-url="r.html">
+
+  <img
+    src="r1.webp"
+    alt="ఆంధ్రప్రదేశ్ తెలంగాణ వర్షాలు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      వాతావరణ వార్తలు
+    </span>
+
+    <h3>
+      బంగాళాఖాతంలో వాయుగుండం.. ఏపీ, తెలంగాణకు భారీ వర్ష సూచన!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-18T08:40:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      వాయుగుండం ప్రభావంతో ఆంధ్రప్రదేశ్, తెలంగాణలో వర్షాలపై వచ్చిన వాతావరణ హెచ్చరికలు మరియు ప్రజలకు సూచనలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="r.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news"
+  data-url="vjy.html">
+
+  <img
+    src="v.jpg"
+    alt="కావేరీ నదీ జలాల వివాదం"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      జాతీయ వార్తలు
+    </span>
+
+    <h3>
+      కావేరీ జలాల వివాదం.. కర్ణాటకకు సుప్రీంకోర్టు కీలక ఆదేశాలు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-17T15:10:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      కావేరీ జలాల వివాదానికి సంబంధించిన న్యాయపరమైన పరిణామాలు మరియు సుప్రీంకోర్టు ఆదేశాలపై సమాచారం.
+    </p>
+
+    
+      <a class="read-more-btn" href="vjy.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news ap"
+  data-url="n.html">
+
+  <img
+    src="n1.webp"
+    alt="కొణిదెల నాగబాబు నియామకం"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      రాష్ట్ర వార్తలు
+    </span>
+
+    <h3>
+      కొణిదెల నాగబాబుకు ఏపీ సర్కార్ బంపర్ ఆఫర్.. ఏకంగా కేబినెట్ ర్యాంక్‌తో కీలక నియామకం!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-16T08:40:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      కొణిదెల నాగబాబు నియామకానికి సంబంధించిన రాజకీయ పరిణామాలు మరియు ప్రభుత్వ నిర్ణయంపై వివరాలు.
+    </p>
+
+    
+      <a class="read-more-btn" href="n.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" onclick="sharePost(this)">
+        🔗 Share
+      </button>
+    </div>
+
+  </div>
+
+</article>
+
+
+<article
+  class="news-item post"
+  data-category="news"
+  data-url="india.html">
+
+  <img
+    src="i.1.webp"
+    alt="గురేజ్ లోయలో స్వాతంత్య్ర దినోత్సవ వేడుకలు"
+    loading="lazy">
+
+  <div class="news-content">
+
+    <span class="tag">
+      జాతీయ వార్తలు
+    </span>
+
+    <h3>
+      LoC వద్ద మువ్వన్నెల పతాకం.. గురేజ్ లోయలో ఘనంగా స్వాతంత్య్ర దినోత్సవ వేడుకలు!
+    </h3>
+
+    <div class="time-stamp"
+      data-time="2026-08-14T12:40:00+05:30">
+      🕒 Loading...
+    </div>
+
+    <p class="summary">
+      గురేజ్ లోయలో స్వాతంత్య్ర దినోత్సవ వేడుకలు మరియు సరిహద్దు ప్రాంతంలో జరిగిన కార్యక్రమాలపై సమాచారం.
+    </p>
+
+    
+      <a class="read-more-btn" href="india.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
+      <button type="button" oncli
