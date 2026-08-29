@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="te">
 
 <head>
@@ -7,7 +7,6 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
   <title>BS 360 NEWS | తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్</title>
@@ -241,6 +240,7 @@
   </div>
 
 </header>
+
 
 <!-- =====================================================
      NAVIGATION
@@ -516,17 +516,22 @@
 
 
 </section>
+
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7586406136288714"
      crossorigin="anonymous"></script>
+
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-7586406136288714"
      data-ad-slot="6852376001"></ins>
+
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
 
 <!-- =====================================================
      NEWS HEADING
@@ -539,7 +544,9 @@
   </h2>
 
 </div>
-  <!-- =====================================================
+
+
+<!-- =====================================================
      ALL NEWS
 ===================================================== -->
 
@@ -2031,7 +2038,8 @@
 
   </div>
 
-  </article>
+</article>
+
 
 <!-- =====================================================
      ABOUT
@@ -2173,14 +2181,12 @@
       </h3>
 
       <p>
-        📧  newsb386@gmail.com
+        📧 newsb386@gmail.com
       </p>
 
       <p>
         Follow us for latest updates.
       </p>
-
-
 
     </div>
 
@@ -2350,7 +2356,6 @@ function searchPosts(){
     .querySelectorAll(".post")
     .forEach(post=>{
 
-
       const match =
         !query ||
         post.innerText
@@ -2408,35 +2413,33 @@ function openArticle(url){
 
 /* =====================================================
    ARTICLE CLICK
+   FIXED FOR YOUR HTML
+   TITLE IS <p>, NOT h1/h2/h3
 ===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
-  ()=>{
-
+  function(){
 
     document
       .querySelectorAll(
-        ".post[data-url]"
+        ".news-item.post[data-url]"
       )
-      .forEach(post=>{
-
+      .forEach(function(post){
 
         const url =
-          post.dataset.url;
+          post.getAttribute("data-url");
 
 
         const image =
-          post.querySelector(
-            "img"
-          );
+          post.querySelector("img");
 
 
         const title =
-          post.querySelector(
-            "h1,h2,h3"
-          );
+          post.querySelector(".news-content p");
 
+
+        /* IMAGE CLICK */
 
         if(image){
 
@@ -2446,23 +2449,73 @@ document.addEventListener(
 
           image.addEventListener(
             "click",
-            ()=>openArticle(url)
+            function(e){
+
+              e.stopPropagation();
+
+              openArticle(url);
+
+            }
           );
 
         }
 
+
+        /* TITLE <p> CLICK */
 
         if(title){
 
+          title.style.cursor =
+            "pointer";
+
+
           title.addEventListener(
             "click",
-            ()=>openArticle(url)
+            function(e){
+
+              e.stopPropagation();
+
+              openArticle(url);
+
+            }
           );
 
         }
 
+
+        /* ENTIRE CARD CLICK */
+
+        post.addEventListener(
+          "click",
+          function(e){
+
+            /*
+              Share button / share row ఉంటే
+              article open కాకూడదు
+            */
+
+            if(
+              e.target.closest(".share-row") ||
+              e.target.closest("button") ||
+              e.target.closest("a")
+            ){
+
+              return;
+
+            }
+
+
+            openArticle(url);
+
+          }
+        );
+
       });
 
+
+    /* =================================================
+       DARK MODE LOAD
+    ================================================= */
 
     const saved =
       localStorage.getItem(
@@ -2497,7 +2550,7 @@ async function sharePost(button){
 
   const title =
     post.querySelector(
-      "h1,h2,h3"
+      ".news-content p"
     )?.innerText ||
     "BS 360 NEWS";
 
@@ -2512,7 +2565,6 @@ async function sharePost(button){
 
 
   try{
-
 
     if(navigator.share){
 
@@ -2635,30 +2687,6 @@ function toggleMobileNav(){
 
 </script>
 
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".news-item.post").forEach(function (post) {
-    var url = post.getAttribute("data-url");
-    var title = post.querySelector("h3");
-    var image = post.querySelector("img");
-
-    function openArticle() {
-      if (url) window.location.href = url;
-    }
-
-    if (title) {
-      title.style.cursor = "pointer";
-      title.addEventListener("click", openArticle);
-    }
-
-    if (image) {
-      image.style.cursor = "pointer";
-      image.addEventListener("click", openArticle);
-    }
-  });
-});
-</script>
 
 </body>
 </html>
