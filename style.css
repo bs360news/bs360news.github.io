@@ -1351,3 +1351,289 @@ body.dark-mode .brand-header,
 body.dark-mode .main-nav,
 body.dark-mode .headlines-bar,
 body.dark
+
+/* =====================================================
+   NEWS LAYOUT
+   1 = BIG
+   2 + 3 = TWO COLUMN
+   4 + 5 = TWO COLUMN
+   6 = BIG
+   7 + 8 = TWO COLUMN
+===================================================== */
+
+.news-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+}
+
+
+/* =====================================================
+   BIG POSTS
+   1, 6, 11, 16...
+===================================================== */
+
+.news-list > .news-item:nth-child(1),
+.news-list > article:nth-child(1),
+.news-list > .post:nth-child(1),
+
+.news-list > .news-item:nth-child(6),
+.news-list > article:nth-child(6),
+.news-list > .post:nth-child(6),
+
+.news-list > .news-item:nth-child(11),
+.news-list > article:nth-child(11),
+.news-list > .post:nth-child(11) {
+
+    grid-column: 1 / -1 !important;
+
+    width: 100% !important;
+
+    display: block !important;
+}
+
+
+/* =====================================================
+   BIG POST IMAGE
+===================================================== */
+
+.news-list > .news-item:nth-child(1) img,
+.news-list > article:nth-child(1) img,
+.news-list > .post:nth-child(1) img,
+
+.news-list > .news-item:nth-child(6) img,
+.news-list > article:nth-child(6) img,
+.news-list > .post:nth-child(6) img,
+
+.news-list > .news-item:nth-child(11) img,
+.news-list > article:nth-child(11) img,
+.news-list > .post:nth-child(11) img {
+
+    width: 100% !important;
+
+    aspect-ratio: 16 / 9 !important;
+
+    height: auto !important;
+
+    object-fit: cover !important;
+
+    border-radius: 8px !important;
+}
+
+
+/* =====================================================
+   TWO COLUMN POSTS
+===================================================== */
+
+.news-list > .news-item:nth-child(2),
+.news-list > article:nth-child(2),
+.news-list > .post:nth-child(2),
+
+.news-list > .news-item:nth-child(3),
+.news-list > article:nth-child(3),
+.news-list > .post:nth-child(3),
+
+.news-list > .news-item:nth-child(4),
+.news-list > article:nth-child(4),
+.news-list > .post:nth-child(4),
+
+.news-list > .news-item:nth-child(5),
+.news-list > article:nth-child(5),
+.news-list > .post:nth-child(5),
+
+.news-list > .news-item:nth-child(7),
+.news-list > article:nth-child(7),
+.news-list > .post:nth-child(7),
+
+.news-list > .news-item:nth-child(8),
+.news-list > article:nth-child(8),
+.news-list > .post:nth-child(8) {
+
+    grid-column: auto !important;
+
+    width: 100% !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    min-width: 0 !important;
+}
+
+
+/* =====================================================
+   TWO COLUMN IMAGES
+===================================================== */
+
+.news-list > .news-item:nth-child(2) img,
+.news-list > article:nth-child(2) img,
+.news-list > .post:nth-child(2) img,
+
+.news-list > .news-item:nth-child(3) img,
+.news-list > article:nth-child(3) img,
+.news-list > .post:nth-child(3) img,
+
+.news-list > .news-item:nth-child(4) img,
+.news-list > article:nth-child(4) img,
+.news-list > .post:nth-child(4) img,
+
+.news-list > .news-item:nth-child(5) img,
+.news-list > article:nth-child(5) img,
+.news-list > .post:nth-child(5) img,
+
+.news-list > .news-item:nth-child(7) img,
+.news-list > article:nth-child(7) img,
+.news-list > .post:nth-child(7) img,
+
+.news-list > .news-item:nth-child(8) img,
+.news-list > article:nth-child(8) img,
+.news-list > .post:nth-child(8) img {
+
+    width: 100% !important;
+
+    aspect-ratio: 16 / 9 !important;
+
+    height: auto !important;
+
+    object-fit: cover !important;
+
+    border-radius: 7px !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .news-list {
+
+        width: 100% !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 12px !important;
+    }
+
+
+    /* BIG POSTS */
+
+    .news-list > .news-item:nth-child(1),
+    .news-list > article:nth-child(1),
+    .news-list > .post:nth-child(1),
+
+    .news-list > .news-item:nth-child(6),
+    .news-list > article:nth-child(6),
+    .news-list > .post:nth-child(6),
+
+    .news-list > .news-item:nth-child(11),
+    .news-list > article:nth-child(11),
+    .news-list > .post:nth-child(11) {
+
+        grid-column: 1 / -1 !important;
+
+        display: block !important;
+
+        width: 100% !important;
+    }
+
+
+    /* BIG IMAGE */
+
+    .news-list > .news-item:nth-child(1) img,
+    .news-list > article:nth-child(1) img,
+    .news-list > .post:nth-child(1) img,
+
+    .news-list > .news-item:nth-child(6) img,
+    .news-list > article:nth-child(6) img,
+    .news-list > .post:nth-child(6) img,
+
+    .news-list > .news-item:nth-child(11) img,
+    .news-list > article:nth-child(11) img,
+    .news-list > .post:nth-child(11) img {
+
+        width: 100% !important;
+
+        aspect-ratio: 16 / 9 !important;
+
+        height: auto !important;
+
+        object-fit: cover !important;
+    }
+
+
+    /* TWO COLUMN */
+
+    .news-list > .news-item:nth-child(2),
+    .news-list > article:nth-child(2),
+    .news-list > .post:nth-child(2),
+
+    .news-list > .news-item:nth-child(3),
+    .news-list > article:nth-child(3),
+    .news-list > .post:nth-child(3),
+
+    .news-list > .news-item:nth-child(4),
+    .news-list > article:nth-child(4),
+    .news-list > .post:nth-child(4),
+
+    .news-list > .news-item:nth-child(5),
+    .news-list > article:nth-child(5),
+    .news-list > .post:nth-child(5),
+
+    .news-list > .news-item:nth-child(7),
+    .news-list > article:nth-child(7),
+    .news-list > .post:nth-child(7),
+
+    .news-list > .news-item:nth-child(8),
+    .news-list > article:nth-child(8),
+    .news-list > .post:nth-child(8) {
+
+        grid-column: auto !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        width: 100% !important;
+    }
+
+
+    /* TWO COLUMN IMAGE */
+
+    .news-list > .news-item:nth-child(2) img,
+    .news-list > article:nth-child(2) img,
+    .news-list > .post:nth-child(2) img,
+
+    .news-list > .news-item:nth-child(3) img,
+    .news-list > article:nth-child(3) img,
+    .news-list > .post:nth-child(3) img,
+
+    .news-list > .news-item:nth-child(4) img,
+    .news-list > article:nth-child(4) img,
+    .news-list > .post:nth-child(4) img,
+
+    .news-list > .news-item:nth-child(5) img,
+    .news-list > article:nth-child(5) img,
+    .news-list > .post:nth-child(5) img,
+
+    .news-list > .news-item:nth-child(7) img,
+    .news-list > article:nth-child(7) img,
+    .news-list > .post:nth-child(7) img,
+
+    .news-list > .news-item:nth-child(8) img,
+    .news-list > article:nth-child(8) img,
+    .news-list > .post:nth-child(8) img {
+
+        width: 100% !important;
+
+        aspect-ratio: 16 / 9 !important;
+
+        height: auto !important;
+
+        object-fit: cover !important;
+
+        border-radius: 7px !important;
+    }
+}
