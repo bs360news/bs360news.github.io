@@ -627,3 +627,44 @@ body.dark-mode .bs-comment-card {
 .more-movies a:hover {
     text-decoration: underline;
 }
+
+/* SMALL LIST BOX */
+.small-news {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.small-news-text {
+  flex: 1;
+}
+
+.small-news h3 {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+}
+
+.small-news img {
+  width: 125px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .small-news h3 {
+    font-size: 18px;
+  }
+
+  .small-news img {
+    width: 115px;
+    height: 90px;
+  }
+}
