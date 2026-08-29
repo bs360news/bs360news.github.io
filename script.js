@@ -1,40 +1,84 @@
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  document.querySelectorAll(".news-item.post").forEach(function (card) {
-
-    card.addEventListener("click", function (e) {
-
-      /* Share button click అయితే article open చేయకూడదు */
-      if (
-        e.target.closest(".share-row") ||
-        e.target.closest("button")
-      ) {
-        return;
-      }
-
-      /* Read More link click అయితే browser normal href ఉపయోగించాలి */
-      if (e.target.closest("a")) {
-        return;
-      }
-
-      const url = card.getAttribute("data-url");
-
-      if (url) {
-        window.location.href = url;
-      }
-
-    });
-
-  });
-
-});
-</script>
+// =====================================================
+// BS 360 NEWS - MAIN JAVASCRIPT
+// =====================================================
 
 
 // =====================================================
-// BS 360 NEWS - MAIN JAVASCRIPT (OPTIMIZED)
+// ARTICLE CARD CLICK
+// CLICK CARD → OPEN ARTICLE HTML
 // =====================================================
+
+function initArticleCardClick() {
+
+    document
+        .querySelectorAll(".news-item.post")
+        .forEach(function (card) {
+
+            // Duplicate event avoid
+            if (card.dataset.clickReady === "true") {
+                return;
+            }
+
+            card.dataset.clickReady = "true";
+
+            card.addEventListener("click", function (e) {
+
+                // Share button click అయితే article open చేయకూడదు
+                if (
+                    e.target.closest(".share-row") ||
+                    e.target.closest("button")
+                ) {
+                    return;
+                }
+
+                // Existing link click అయితే browser normal href ఉపయోగించాలి
+                if (e.target.closest("a")) {
+                    return;
+                }
+
+                // data-url తీసుకోవడం
+                const articleUrl =
+                    card.getAttribute("data-url");
+
+                if (!articleUrl) {
+                    return;
+                }
+
+                /*
+                 * Example:
+                 *
+                 * data-url="article.html"
+                 * data-url="news/movie.html"
+                 *
+                 * రెండింటినీ correct absolute URL గా convert చేస్తుంది.
+                 */
+                try {
+
+                    const finalUrl =
+                        new URL(
+                            articleUrl,
+                            document.baseURI
+                        ).href;
+
+                    window.location.href =
+                        finalUrl;
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Article URL error:",
+                        error
+                    );
+
+                }
+
+            });
+
+        });
+
+}
 
 
 // =====================================================
@@ -71,7 +115,10 @@ let bsLikes =
     );
 
 
-if (isNaN(bsLikes) || bsLikes === 0) {
+if (
+    isNaN(bsLikes) ||
+    bsLikes === 0
+) {
 
     bsLikes = 2800;
 
@@ -122,10 +169,7 @@ function bsToggleLike() {
     }
 
 
-    // =========================
     // LIKE
-    // =========================
-
     if (!bsLiked) {
 
         bsLikes++;
@@ -139,10 +183,7 @@ function bsToggleLike() {
     }
 
 
-    // =========================
     // UNLIKE
-    // =========================
-
     else {
 
         bsLikes--;
@@ -170,8 +211,7 @@ function bsToggleLike() {
         );
 
 
-    // SAVE LIKE COUNT
-    // ONLY FOR THIS ARTICLE
+    // SAVE COUNT
 
     localStorage.setItem(
         bsLikeCountKey,
@@ -179,8 +219,7 @@ function bsToggleLike() {
     );
 
 
-    // SAVE LIKE STATE
-    // ONLY FOR THIS ARTICLE
+    // SAVE STATE
 
     localStorage.setItem(
         bsLikeStateKey,
@@ -264,7 +303,10 @@ function bsAddComment() {
         );
 
 
-    if (!input || !commentsList) {
+    if (
+        !input ||
+        !commentsList
+    ) {
 
         return;
 
@@ -314,11 +356,9 @@ function bsAddComment() {
 
         </div>
 
-
         <div class="bs-comment-text">
             ${bsEscape(text)}
         </div>
-
 
         <button
             class="bs-comment-like"
@@ -362,7 +402,7 @@ function bsAddComment() {
 
 
 // =====================================================
-// SHARE
+// SHARE ARTICLE
 // =====================================================
 
 function bsShareArticle() {
@@ -381,9 +421,7 @@ function bsShareArticle() {
     };
 
 
-    // =================================================
     // MOBILE / SUPPORTED BROWSERS
-    // =================================================
 
     if (
         navigator.share &&
@@ -419,16 +457,14 @@ function bsShareArticle() {
     }
 
 
-    // =================================================
     // DESKTOP FALLBACK
-    // =================================================
 
     if (
         navigator.clipboard &&
         typeof navigator
             .clipboard
             .writeText ===
-            "function"
+        "function"
     ) {
 
         navigator.clipboard
@@ -511,7 +547,6 @@ function bsCopyArticleFallback() {
 
     }
 
-
     catch (error) {
 
         alert(
@@ -588,7 +623,6 @@ function bsSaveArticle() {
 
     }
 
-
     else {
 
         btn.innerText =
@@ -655,14 +689,13 @@ function loadBsNewsPulse() {
         );
 
 
-    // =================================================
-    // LOAD LIKE COUNT & STATE
-    // =================================================
+    // LOAD LIKE STATE
 
     bsLiked =
         localStorage.getItem(
             bsLikeStateKey
         ) === "true";
+
 
     let savedLikes =
         Number(
@@ -671,11 +704,17 @@ function loadBsNewsPulse() {
             )
         );
 
-    if (!isNaN(savedLikes) && savedLikes > 0) {
 
-        bsLikes = savedLikes;
+    if (
+        !isNaN(savedLikes) &&
+        savedLikes > 0
+    ) {
+
+        bsLikes =
+            savedLikes;
 
     }
+
 
     if (likeCount) {
 
@@ -708,9 +747,7 @@ function loadBsNewsPulse() {
     }
 
 
-    // =================================================
     // LOAD SAVED STATE
-    // =================================================
 
     const saved =
         localStorage.getItem(
@@ -757,7 +794,6 @@ function loadBsNewsPulse() {
 
 // =====================================================
 // 1. FILTER POSTS BY CATEGORY
-// WITH NAV ACTIVE CLASS SYNC
 // =====================================================
 
 function filterPosts(
@@ -800,7 +836,7 @@ function filterPosts(
         );
 
 
-    // Active Tab Highlight
+    // ACTIVE TAB
 
     if (element) {
 
@@ -823,7 +859,7 @@ function filterPosts(
     }
 
 
-    // Clear search inputs
+    // CLEAR SEARCH
 
     const searchInput =
         document.getElementById(
@@ -855,7 +891,6 @@ function filterPosts(
 
 // =====================================================
 // 2. LIVE SEARCH SYSTEM
-// SYNC BOTH INPUTS
 // =====================================================
 
 function searchPosts(
@@ -902,7 +937,7 @@ function searchPosts(
             .toLowerCase();
 
 
-    // Sync input values
+    // Sync inputs
 
     if (
         searchInput &&
@@ -967,7 +1002,6 @@ function searchPosts(
 
 // =====================================================
 // 3. SHARE POST
-// WITH BETTER USER FEEDBACK
 // =====================================================
 
 function sharePost(button) {
@@ -1007,19 +1041,24 @@ function sharePost(button) {
 
     if (articleUrl) {
 
-        const baseUrl =
-            window.location.origin +
-            window.location.pathname.substring(
-                0,
-                window.location.pathname.lastIndexOf(
-                    "/"
-                ) + 1
+        try {
+
+            shareUrl =
+                new URL(
+                    articleUrl,
+                    document.baseURI
+                ).href;
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Share URL error:",
+                error
             );
 
-
-        shareUrl =
-            baseUrl +
-            articleUrl;
+        }
 
     }
 
@@ -1039,7 +1078,6 @@ function sharePost(button) {
         );
 
     }
-
 
     else {
 
@@ -1087,7 +1125,6 @@ function sharePost(button) {
                 );
 
         }
-
 
         else {
 
@@ -1146,7 +1183,6 @@ function toggleTheme() {
         );
 
     }
-
 
     else {
 
@@ -1272,8 +1308,7 @@ setInterval(
 
 
 // =====================================================
-// 7. REAL-TIME "TIME AGO"
-// IN TELUGU
+// 7. REAL-TIME TIME AGO
 // =====================================================
 
 function updateTimeAgo() {
@@ -1404,35 +1439,36 @@ setInterval(
 
 
 // =====================================================
-// 8. EVENT BINDINGS
+// 8. DOM CONTENT LOADED
 // =====================================================
 
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
+        // Article card click
+        initArticleCardClick();
+
 
         // BS Pulse
-
         loadBsNewsPulse();
 
 
         // Theme
-
         loadTheme();
 
 
         // Clock
-
         updateClock();
 
 
         // Time Ago
-
         updateTimeAgo();
 
 
-        // Input Listeners
+        // =================================================
+        // SEARCH INPUT
+        // =================================================
 
         const searchInput =
             document.getElementById(
@@ -1474,7 +1510,9 @@ document.addEventListener(
         }
 
 
-        // Mobile Menu Toggle
+        // =================================================
+        // MOBILE MENU
+        // =================================================
 
         const menuToggle =
             document.querySelector(
@@ -1511,7 +1549,7 @@ document.addEventListener(
 
 
 // =====================================================
-// 9. CLEAR INPUTS ON PAGE LOAD
+// 9. CLEAR SEARCH INPUTS ON PAGE LOAD
 // =====================================================
 
 window.addEventListener(
@@ -1546,6 +1584,10 @@ window.addEventListener(
                 "";
 
         }
+
+
+        // Re-check article cards
+        initArticleCardClick();
 
     }
 );
