@@ -1,3 +1,37 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".news-item.post").forEach(function (card) {
+
+    card.addEventListener("click", function (e) {
+
+      /* Share button click అయితే article open చేయకూడదు */
+      if (
+        e.target.closest(".share-row") ||
+        e.target.closest("button")
+      ) {
+        return;
+      }
+
+      /* Read More link click అయితే browser normal href ఉపయోగించాలి */
+      if (e.target.closest("a")) {
+        return;
+      }
+
+      const url = card.getAttribute("data-url");
+
+      if (url) {
+        window.location.href = url;
+      }
+
+    });
+
+  });
+
+});
+</script>
+
+
 // =====================================================
 // BS 360 NEWS - MAIN JAVASCRIPT (OPTIMIZED)
 // =====================================================
