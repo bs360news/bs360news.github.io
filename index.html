@@ -863,6 +863,130 @@
 
     }
 
+  
+
+    /* =====================================================
+       NEW ARTICLE CARD DESIGN - BS 360 NEWS
+       Existing content and layout are preserved
+    ===================================================== */
+    .news-item.post{
+      position:relative !important;
+      display:flex !important;
+      gap:16px !important;
+      align-items:flex-start !important;
+      padding:16px !important;
+      margin-bottom:16px !important;
+      border:1px solid #e5e7eb !important;
+      border-radius:14px !important;
+      background:#ffffff !important;
+      box-shadow:0 4px 18px rgba(15,23,42,.05) !important;
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+      overflow:hidden;
+    }
+
+    .news-item.post:hover{
+      transform:translateY(-2px);
+      border-color:#cbd5e1 !important;
+      box-shadow:0 10px 28px rgba(15,23,42,.09) !important;
+    }
+
+    .news-item.post img{
+      float:none !important;
+      flex:0 0 210px;
+      width:210px !important;
+      height:150px !important;
+      margin:0 !important;
+      object-fit:cover;
+      border-radius:10px;
+    }
+
+    .news-item.post .news-content{
+      min-width:0;
+      flex:1;
+    }
+
+    .news-item.post .tag{
+      margin-bottom:8px;
+    }
+
+    .news-item.post h3{
+      margin:0 0 7px !important;
+      font-size:20px;
+      line-height:1.42;
+    }
+
+    .news-item.post .summary{
+      margin:0 0 11px !important;
+      color:#5b6472;
+      font-size:15px;
+      line-height:1.65;
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:3;
+      overflow:hidden;
+    }
+
+    .read-more-btn{
+      display:inline-flex !important;
+      align-items:center;
+      gap:6px;
+      color:#ffffff !important;
+      background:#0056b3 !important;
+      padding:8px 13px;
+      border-radius:7px;
+      font-size:13px;
+      font-weight:800;
+      margin:0 0 10px;
+      transition:background .2s ease,transform .2s ease;
+    }
+
+    .read-more-btn:hover{
+      background:#003f82 !important;
+      transform:translateX(2px);
+    }
+
+    .read-more-btn span{
+      font-size:17px;
+      line-height:1;
+    }
+
+    .news-item.post .share-row{
+      margin-top:0 !important;
+    }
+
+    @media(max-width:700px){
+      .news-item.post{
+        display:block !important;
+        padding:12px !important;
+        border-radius:12px !important;
+      }
+
+      .news-item.post img{
+        width:100% !important;
+        height:210px !important;
+        margin-bottom:12px !important;
+      }
+
+      .news-item.post h3{
+        font-size:17px;
+      }
+
+      .news-item.post .summary{
+        -webkit-line-clamp:3;
+        font-size:14px;
+      }
+    }
+
+    body.dark-mode .news-item.post{
+      background:#0f1720 !important;
+      border-color:#293747 !important;
+      box-shadow:none !important;
+    }
+
+    body.dark-mode .news-item.post .summary{
+      color:#b8c2cc;
+    }
+
   </style>
 
 
@@ -1359,7 +1483,12 @@
       నేపాల్-టిబెట్ సరిహద్దులో సంభవించిన భారీ ఫ్లాష్ ఫ్లడ్‌కు హిమనదం కూలిపోవడం, మంచు-రాళ్ల అవలాంచ్, భారీ debris ప్రవాహం ప్రధాన కారణాలుగా భావిస్తున్నారు. నదీ ప్రవాహం ఒక్కసారిగా పెరగడంతో పలు ప్రాంతాల్లో తీవ్ర నష్టం జరిగింది. ఏర్పడిన నీటి నిల్వల కారణంగా మరోసారి వరద వచ్చే ప్రమాదంపై అధికారులు అప్రమత్తంగా ఉన్నారు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="nepal3.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1404,7 +1533,12 @@
       నాని హీరోగా శ్రీకాంత్ ఓదెల దర్శకత్వంలో తెరకెక్కుతున్న భారీ యాక్షన్ డ్రామా ‘ది ప్యారడైజ్’ సినిమాపై ఇప్పటికే భారీ అంచనాలు ఉన్నాయి. తాజాగా విడుదలైన ‘యెషనాగుల’ పాటతో ఈ సినిమాపై హైప్ మరింత పెరిగింది. తెలంగాణ జానపద సంగీతం, మాస్ బీట్స్, అనిరుధ్ రవిచందర్ సంగీతం ప్రేక్షకులను ఆకట్టుకుంటున్నాయి.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="paradise5.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1448,7 +1582,12 @@
       మాస్ మహారాజా రవితేజ నటించిన ‘ఇరుముడి’ సినిమా ప్రస్తుతం ప్రేక్షకుల్లో ఆసక్తిని పెంచుతోంది. ఈ సినిమా కథను రవితేజ కంటే ముందు నాగచైతన్య, గోపీచంద్, సూర్య వంటి స్టార్ హీరోలకు చెప్పారనే ప్రచారం సోషల్ మీడియాలో వైరల్ అవుతోంది. అయితే ఈ ముగ్గురు హీరోలను సంప్రదించినట్లు ఇప్పటివరకు అధికారిక ధృవీకరణ లేదు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="irumudi2.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1491,7 +1630,12 @@
       భారత యువ గ్రాండ్‌మాస్టర్ ఆర్. ప్రజ్ఞానంద 2026 Grand Chess Tour టైటిల్‌ను గెలుచుకుని చరిత్ర సృష్టించాడు. ఆరు పాయింట్ల వెనుకబాటు నుంచి అద్భుతమైన కమ్‌బ్యాక్ చేసి టైటిల్‌ను సొంతం చేసుకున్నాడు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="praja.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1536,7 +1680,12 @@
     <p class="summary">
       దేశ రాజధాని ఢిల్లీలో మళ్లీ వాయు కాలుష్యం పెరిగింది.  PM2.5, PM10 కాలుష్య కణాల ప్రభావంతో గాలి నాణ్యతపై ఆందోళన నెలకొంది.
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="air.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1579,7 +1728,12 @@
       టీమిండియా స్టార్ క్రికెటర్ సూర్యకుమార్ యాదవ్ తన ఆటపై మరింత దృష్టి పెట్టినట్లు తెలుస్తోంది. టీమిండియా కోసం హార్డ్ వర్క్ చేస్తున్నానంటూ సూర్యకుమార్ కీలక వ్యాఖ్యలు చేశారు. 
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="surya1.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1622,7 +1776,12 @@
     <p class="summary">
       తెలుగు సినీ పరిశ్రమలో విషాదం నెలకొంది. ప్రముఖ సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు (73) హైదరాబాద్‌లో గుండెపోటుతో కన్నుమూశారు. 
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="rip.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1665,7 +1824,12 @@
       ‘సహ: లైఫ్ ఆఫ్ సంజు’ సినిమాపై యంగ్ హీరోయిన్ శ్వేతా లక్ష్మన్ సంచలన వ్యాఖ్యలు చేశారు. సినిమా ప్రేక్షకులను నిరాశపరిస్తే అమీర్‌పేట సెంటర్‌లో నిలబడి గుండు గీయించుకుంటానంటూ ఛాలెంజ్ చేశారు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="am.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1710,7 +1874,12 @@
       Forbes India-2026 మోస్ట్ వాల్యూయబుల్ సెలబ్రిటీల జాబితాలో విరాట్ కోహ్లీ అగ్రస్థానంలో నిలిచారు. 
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="kohli.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1752,7 +1921,12 @@
       కృష్ణంరాజు తన అభిమాన నటుడు అక్కినేని నాగేశ్వరరావు గురించి గతంలో చేసిన ఆసక్తికర వ్యాఖ్యలు మరోసారి వైరల్ అవుతున్నాయి. 
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="prabhasfa.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1795,7 +1969,12 @@
       FIH ఉమెన్స్ హాకీ వరల్డ్ కప్‌లో భారత మహిళల జట్టు జర్మనీపై 3-1తో ఘన విజయం సాధించి ఐదో స్థానాన్ని కైవసం చేసుకుంది. 1974 తర్వాత వరల్డ్ కప్‌లో భారత మహిళల జట్టుకు ఇదే అత్యుత్తమ ప్రదర్శన కావడం విశేషం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="haki.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1838,7 +2017,12 @@
       నాని–శ్రీకాంత్ ఓదెల కాంబినేషన్‌లో తెరకెక్కుతున్న ‘ది ప్యారడైజ్’పై అంచనాలు పెరుగుతున్న వేళ.. కీర్తి సురేష్ నాని జడ లాగుతున్నట్లుగా ఉన్న పోస్ట్ సోషల్ మీడియాలో వైరల్‌గా మారింది.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="jadal.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1883,7 +2067,12 @@
       నాగార్జున 100వ సినిమాగా తెరకెక్కుతున్న King100పై భారీ అంచనాలు నెలకొన్నాయి. ఆగస్టు 29న బర్త్‌డే సందర్భంగా ఈ సినిమా నుంచి ప్రత్యేకమైన గ్లింప్స్ రాబోతోంది.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="king100.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1927,7 +2116,12 @@
       జబర్దస్త్ నరేష్ రూ.36 లక్షలతో ల్యాండ్ కొనుగోలు చేసిన తర్వాత కొద్ది రోజులకే కరోనా లాక్‌డౌన్ రావడంతో ఎదురైన ఆర్థిక ఇబ్బందులను పంచుకున్నారు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="naresh.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -1972,7 +2166,12 @@
       అరుదైన ప్రపంచ రికార్డు సృష్టించాడు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="lanka.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -2015,7 +2214,12 @@
       హీరోయిన్‌గా ఎదిగే సమయంలో ఎన్నో కష్టాలు.. ఒక దశలో “ఐరన్ లెగ్” అనే ముద్ర కూడా. సినిమాలే వద్దనుకున్న సమయంలో రమ్యకృష్ణకు అండగా నిలిచిన ఆ దర్శకుడు ఎవరు? తన స్టార్‌డమ్ వెనుక ఉన్న వ్యక్తి గురించి ఆమె చేసిన ఆసక్తికర వ్యాఖ్యలు ఇప్పుడు వైరల్‌గా మారాయి.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="ramya.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2054,7 +2258,12 @@
     <p class="summary">
       భారత్–శ్రీలంక రెండో టెస్ట్‌లో నాలుగో రోజు ఆట ముగిసే సమయానికి శ్రీలంక 72.4 ఓవర్లలో 229/6 చేసింది. శ్రీలంక 16 పరుగుల ఆధిక్యంలో ఉంది. భారత్‌కు ఇప్పుడు మిగిలిన 4 వికెట్లు పడగొట్టాల్సి ఉంది. 
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="indsl.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2093,7 +2302,12 @@
       ఆగస్టు 26న ప్రధాన నగరాల్లో పెట్రోల్, డీజిల్ తాజా ధరల వివరాలు. హైదరాబాద్‌లో లీటర్ పెట్రోల్ ధర ₹115.69 దాటగా, అంతర్జాతీయ చమురు మార్కెట్ ప్రభావం మరియు నగరాల వారీ వ్యత్యాసాలపై ప్రత్యేక కథనం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="petrol.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2134,7 +2348,12 @@
       నేపాల్‌ రసువా జిల్లాలో భోటే కోషి నదిలో ఒక్కసారిగా ఉప్పొంగిన భారీ వరద విధ్వంసం సృష్టించింది. 105 మంది భారతీయులతో సహా వందలాది మంది గల్లంతైనట్లు ప్రాథమిక నివేదికలు వెల్లడించాయి.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="nepal.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2175,7 +2394,12 @@
       ‘ఇరుముడి’ విజయం తర్వాత మాస్ మహారాజా రవితేజ, దర్శకుడు హసిత్ గోలి కాంబినేషన్‌లో దిల్ రాజు నిర్మిస్తున్న కొత్త చిత్రం SVC64 ప్రకటన మరియు సినిమా విశేషాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="ravinews.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2218,7 +2442,12 @@
       కన్నడ స్టార్ యశ్ హీరోగా తెరకెక్కిన భారీ యాక్షన్ మూవీ ‘టాక్సిక్’ మూవీ రివ్యూ. యశ్ స్క్రీన్ ప్రెజెన్స్, యాక్షన్ సన్నివేశాలు మరియు టెక్నికల్ వివరాలపై ప్రత్యేక కథనం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="toxicfloop.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2258,7 +2487,12 @@
      వారణాసి’ కోసం 1,500 మంది డబ్బింగ్ ఆర్టిస్టులు.. 120 దేశాల్లో 50 భాషల్లో రిలీజ్!
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="varanasi99.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2297,7 +2531,12 @@
       2016లో ప్రారంభమైన UPI 10 ఏళ్ల ప్రయాణంలో కోట్లాది మంది ప్రజల రోజువారీ జీవితంలో భాగమైంది. జేబులో నగదు లేకుండా స్మార్ట్‌ఫోన్ ద్వారా చెల్లింపులు సులభతరం చేసిన భారత్ డిజిటల్ విప్లవంపై ప్రత్యేక కథనం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="upi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2335,7 +2574,12 @@
       భారత్-చైనా మధ్య సంబంధాలు మెరుగుపడాలంటే సరిహద్దుల్లో శాంతి, స్థిరత్వం అత్యంత ముఖ్యమని భారత్ స్పష్టం చేసింది. ఇరు దేశాల దౌత్య మరియు సైనిక చర్చల వివరాలపై ప్రత్యేక కథనం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="india4,5.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2374,7 +2618,12 @@
       కేజీఎఫ్ తర్వాత యశ్ నటిస్తున్న 'టాక్సిక్' సినిమాకు ఏపీ, తెలంగాణలో భారీ క్రేజ్ నెలకొంది. రెండు రాష్ట్రాల్లో టికెట్ ధరల పెంపునకు అనుమతి లభించగా, ఏపీలో ₹600కు స్పెషల్ బెనిఫిట్ షోలు ప్రదర్శించనున్నారు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="toc5.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2414,7 +2663,12 @@
       చెన్నై సూపర్ కింగ్స్ (CSK) ఫ్రాంచైజీలో వాటా కొనుగోలు చేయడానికి ఎంఎస్ ధోనీ ఆసక్తి చూపించారనే వార్తలు క్రికెట్ వర్గాల్లో సంచలనంగా మారాయి.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="dhoni4.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2453,7 +2707,12 @@
       రక్షాబంధన్ ప్రకటనలో కృతి సనన్ ధరించిన దుస్తులపై చెలరేగిన వివాదంపై కాంగ్రెస్ నేత రాహుల్ గాంధీ స్పందిస్తూ మహిళల దుస్తుల ఎంపిక వారి వ్యక్తిగత స్వేచ్ఛ అని పేర్కొన్నారు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="rakhi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2495,7 +2754,12 @@
       రవితేజ నటించిన ‘ఇరుముడి’ సినిమా బాక్సాఫీస్ వద్ద మంచి వసూళ్లు సాధిస్తున్నప్పటికీ, పాఠశాలలు మరియు ఉపాధ్యాయుల పాత్రలను చూపించిన విధానంపై ఆంధ్రప్రదేశ్ టీచర్ల సంఘం అభ్యంతరం వ్యక్తం చేసింది.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="irumudi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2537,7 +2801,12 @@
       2027 సంక్రాంతి రేసులో 'మహాకాళి', 'సంబరాల ఏటిగట్టు', వెంకటేష్-కళ్యాణ్ రామ్ కాంబో, శర్వానంద్ చిత్రాలతో పాటు దాదాపు 8 సినిమాలు పోటీపడుతున్నాయి. టాలీవుడ్‌లో అప్పుడే బాక్సాఫీస్ హడావుడి మొదలైంది.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="pongal.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2578,7 +2847,12 @@
       శ్రీలంకతో జరుగుతున్న రెండో టెస్టులో రిషభ్ పంత్ విదేశీ లేదా తటస్థ వేదికల్లో అత్యధిక టెస్ట్ పరుగులు చేసిన భారత వికెట్‌కీపర్‌గా ఎంఎస్ ధోనీ 2,496 పరుగుల రికార్డును దాటి 2,501 పరుగులతో కొత్త చరిత్ర సృష్టించాడు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="pant, dhoni.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2620,7 +2894,12 @@
       అంతర్జాతీయ సంకేతాలతో ఉదయం లాభాల్లో ప్రారంభమైన స్టాక్ మార్కెట్లు, గ్లోబల్ ఆందోళనల కారణంగా చివరకు నష్టాల్లో ముగిశాయి. సెన్సెక్స్ 171 పాయింట్లు పడిపోగా, నిఫ్టీ 24,219 వద్ద స్థిరపడింది.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="stock.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2661,7 +2940,12 @@
       సందీప్ రెడ్డి వంగా దర్శకత్వంలో వస్తున్న 'స్పిరిట్' కోసం ప్రభాస్ రోజుకు 16-17 గంటలు శ్రమిస్తున్నారు. రియలిస్టిక్ ఫీల్ కోసం డూప్ లేకుండా యాక్షన్ సీన్స్ చేయడానికి రెడీ అవుతున్నారు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="spirit.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2701,7 +2985,12 @@
       తేజ సజ్జ, ప్రశాంత్ వర్మ కాంబినేషన్‌లో వస్తున్న 'Zombie Reddy 2 NXT LVL' సీక్వెల్ ప్రకటన వచ్చేసింది. హైదరాబాద్‌పై జాంబీస్ దాడి నేపథ్యంలో ఉపేంద్ర, షనాయా కపూర్ లీడ్ రోల్స్‌లో అలరించనున్నారు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="zombi2.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2741,7 +3030,12 @@
       విజయ్ 'జన నాయకన్', 'ప్యార్ ప్రేమ కళ్యాణం', 'చెన్నై లవ్ స్టోరీ', 'వెల్‌కమ్ టు ది జంగిల్' వంటి ప్రముఖ సినిమాలు ఈ వారం OTTలో అలరిస్తున్నాయి. పూర్తి వివరాలు ఇక్కడ చూడండి.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="week4.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2781,7 +3075,12 @@
       సూర్య నటించిన ‘విశ్వనాథ్ అండ్ సన్స్’ బాక్సాఫీస్ వద్ద విజృంభిస్తోంది. 9వ రోజు ఏకంగా 61 శాతం మేర కలెక్షన్స్ పుంజుకుని రూ.100 కోట్ల క్లబ్‌కు వేగంగా దూసుకెళ్తోంది.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="surya.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2823,7 +3122,12 @@
       యశ్ నటించిన ‘టాక్సిక్’ సినిమా ప్రీ-రిలీజ్ ఈవెంట్ హైదరాబాద్ మల్లారెడ్డి యూనివర్సిటీలో ఘనంగా జరిగింది. ఈ వేడుకలో దిల్ రాజు, విశాల్ మిశ్రా, యశ్ చేసిన కామెంట్స్ ఇప్పుడు టాలీవుడ్‌లో హాట్ టాపిక్‌గా మారాయి.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="toxicpressmet.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2864,7 +3168,12 @@
       ప్రభుత్వ అధినేతగా 25వ సంవత్సరంలోకి అడుగుపెట్టిన ప్రధాని నరేంద్ర మోదీ. గుజరాత్ సీఎం నుండి ప్రధాని వరకు ఆయన రాజకీయ ప్రస్థానం మరియు బీజేపీ సేవా కార్యక్రమాల వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="modi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -2915,7 +3224,12 @@
     </p>
 
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="temper.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
 
       <button
         type="button"
@@ -2962,7 +3276,12 @@
       చిరంజీవి సినీ ప్రయాణం, అభిమానుల సంబరాలు మరియు పుట్టినరోజు సందర్భంగా వస్తున్న తాజా అప్‌డేట్స్.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="cbday.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3002,7 +3321,12 @@
       ఇరుముడి సినిమాకు సంబంధించిన కథ, నటీనటుల ప్రదర్శన, దర్శకత్వం, ప్రేక్షకుల స్పందన మరియు సినిమా బలాబలాలపై రివ్యూ.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="ravi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3042,7 +3366,12 @@
       శ్రీలంకపై విజయం తర్వాత ప్రపంచ టెస్ట్ ఛాంపియన్‌షిప్ పాయింట్ల పట్టికలో టీమిండియా పరిస్థితి మరియు ఫైనల్ బెర్త్ అవకాశాలపై వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="sl.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3082,7 +3411,12 @@
       ఫోక్ డ్యాన్స్ వీడియోలతో గుర్తింపు తెచ్చుకున్న మాధురి రాథోడ్‌కు సంబంధించిన సోషల్ మీడియా మరియు ఆదాయంపై చర్చ.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="ra.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3122,7 +3456,12 @@
       టాక్సిక్ సినిమాకు సంబంధించిన సెన్సార్ సమాచారం, కంటెంట్‌పై వచ్చిన చర్చ మరియు విడుదలకు సంబంధించిన తాజా అప్‌డేట్స్.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="toc.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3162,7 +3501,12 @@
       టెస్టు మ్యాచ్‌లో రవీంద్ర జడేజా చేసిన నో-బాల్ ఘటన తర్వాత ధనంజయ డి సిల్వాను అవుట్ చేసిన సందర్భంపై పూర్తి వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="i.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3202,7 +3546,12 @@
       IPL 2027 వేలానికి ముందు ముంబై ఇండియన్స్ జట్టులో సంభవించే మార్పులు మరియు ఆటగాళ్ల రిటెన్షన్‌పై వస్తున్న అంచనాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="mi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3242,7 +3591,12 @@
       టెస్టు క్రికెట్‌లో రిషభ్ పంత్ సాధించిన అరుదైన సిక్సర్ల రికార్డు మరియు భారత క్రికెట్‌లో దాని ప్రాధాన్యత.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="rishab.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3282,7 +3636,12 @@
       సలార్-2 షూటింగ్ షెడ్యూల్, నిర్మాణ పనులు మరియు విడుదలపై వస్తున్న తాజా అంచనాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="p.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3322,7 +3681,12 @@
       నాగచైతన్య తదుపరి సినిమాకు సంబంధించిన ప్రాజెక్ట్ చర్చలు మరియు దర్శకుడి వివరాలపై వస్తున్న సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="t.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3362,7 +3726,12 @@
       వాయుగుండం ప్రభావంతో ఆంధ్రప్రదేశ్, తెలంగాణలో వర్షాలపై వచ్చిన వాతావరణ హెచ్చరికలు మరియు ప్రజలకు సూచనలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="r.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3402,7 +3771,12 @@
       కావేరీ జలాల వివాదానికి సంబంధించిన న్యాయపరమైన పరిణామాలు మరియు సుప్రీంకోర్టు ఆదేశాలపై సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="vjy.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3442,7 +3816,12 @@
       కొణిదెల నాగబాబు నియామకానికి సంబంధించిన రాజకీయ పరిణామాలు మరియు ప్రభుత్వ నిర్ణయంపై వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="n.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3482,7 +3861,12 @@
       గురేజ్ లోయలో స్వాతంత్య్ర దినోత్సవ వేడుకలు మరియు సరిహద్దు ప్రాంతంలో జరిగిన కార్యక్రమాలపై సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="india.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3522,7 +3906,12 @@
       ఫౌజీ సినిమా నుంచి కొత్త అప్‌డేట్ కోసం అభిమానులు ఎదురుచూస్తున్న నేపథ్యంలో చిత్ర బృందం నుంచి వస్తున్న సమాచారంపై వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="Fouzi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3562,7 +3951,12 @@
       భారత్-శ్రీలంక క్రికెట్ పోరులో కేఎల్ రాహుల్ ప్రదర్శనపై ధనంజయ డి సిల్వా చేసిన వ్యాఖ్యల వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="kl.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3602,7 +3996,12 @@
       విశ్వనాథ్ అండ్ సన్స్ సినిమాకు సంబంధించిన ప్రీ-రిలీజ్ బిజినెస్‌పై వచ్చిన సమాచారం మరియు మార్కెట్ అంచనాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="v.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3642,7 +4041,12 @@
       టాక్సిక్ సినిమాకు సంబంధించిన బడ్జెట్, నటీనటుల పారితోషికాలపై సోషల్ మీడియాలో చర్చకు వచ్చిన సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="toxic.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3682,7 +4086,12 @@
       సినిమా టికెట్ ధరలు, ప్రేక్షకుల స్పందన మరియు బాక్సాఫీస్ విజయానికి ధరల ప్రభావం గురించి చర్చ.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="hit.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3722,7 +4131,12 @@
       ఆకాశంలో కనిపించనున్న ఖగోళ సంఘటనలకు సంబంధించిన సమాచారం, వాటిని ఎప్పుడు మరియు ఎలా చూడాలనే వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="earth.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3762,7 +4176,12 @@
       భారత ఇంధన అవసరాలు, వ్యూహాత్మక ప్రణాళికలు మరియు అంతర్జాతీయ పరిణామాలపై విశ్లేషణాత్మక సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="oil.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3802,7 +4221,12 @@
       సినిమా కంటెంట్, ప్రేక్షకుల అభిరుచి మరియు థియేటర్లలో సినిమాల విజయంపై చిరంజీవి చేసిన వ్యాఖ్యల వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="chiranjeevi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3842,7 +4266,12 @@
       శ్రీలీల, జాన్వీ కపూర్‌కు సంబంధించిన కొత్త ప్రాజెక్ట్‌పై వస్తున్న సినీ పరిశ్రమ సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="janvi.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3882,7 +4311,12 @@
       వారణాసి సినిమా అప్‌డేట్‌పై అభిమానుల స్పందన మరియు చిత్ర బృందానికి సంబంధించిన తాజా సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="varanasiupdate1.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3922,7 +4356,12 @@
       మమితా బైజు సోషల్ మీడియా నిర్ణయానికి సంబంధించిన వార్తలు మరియు అభిమానుల స్పందనపై సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="premalu.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -3962,7 +4401,12 @@
       బంగారం ధరల్లో వారంవారీ మార్పులు, ధరల పెరుగుదల లేదా తగ్గుదలకు కారణాలు మరియు వినియోగదారులకు ఉపయోగపడే సమాచారం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="gold.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -4002,7 +4446,12 @@
       మహేష్ బాబు సేవా కార్యక్రమాలకు సంబంధించిన సమాచారం మరియు అభిమానులలో దీనిపై ఉన్న ఆసక్తి.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="mahesh.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -4042,7 +4491,12 @@
       రామ్ చరణ్ నటనపై వచ్చిన ప్రశంసలు మరియు పరుచూరి వ్యాఖ్యలకు సంబంధించిన వివరాలు.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="movie3.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -4082,7 +4536,12 @@
       వన్డే క్రికెట్ చరిత్రలో నిలిచిపోయిన ముఖ్యమైన వ్యక్తిగత మరియు జట్టు రికార్డులపై ప్రత్యేక కథనం.
     </p>
 
-    <div class="share-row">
+    
+      <a class="read-more-btn" href="rvs.html" aria-label="పూర్తి వార్త చదవండి">
+        పూర్తి వార్త చదవండి <span>→</span>
+      </a>
+
+      <div class="share-row">
       <button type="button" onclick="sharePost(this)">
         🔗 Share
       </button>
@@ -4732,6 +5191,31 @@ function toggleMobileNav(){
 
 }
 
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".news-item.post").forEach(function (post) {
+    var url = post.getAttribute("data-url");
+    var title = post.querySelector("h3");
+    var image = post.querySelector("img");
+
+    function openArticle() {
+      if (url) window.location.href = url;
+    }
+
+    if (title) {
+      title.style.cursor = "pointer";
+      title.addEventListener("click", openArticle);
+    }
+
+    if (image) {
+      image.style.cursor = "pointer";
+      image.addEventListener("click", openArticle);
+    }
+  });
+});
 </script>
 
 </body>
