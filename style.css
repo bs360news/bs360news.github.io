@@ -1,11 +1,11 @@
-/* =====================================================
-BS360 NEWS
-CLEAN + ADS FRIENDLY FINAL CSS
-ARTICLE LAYOUT
+  /* =====================================================
+   BS360 NEWS
+   CLEAN + ADS FRIENDLY
+   RESPONSIVE NEWS CSS
 ===================================================== */
 
 /* =====================================================
-ROOT / PAGE
+   ROOT
 ===================================================== */
 
 :root {
@@ -53,7 +53,7 @@ img {
 
 
 /* =====================================================
-MAIN CONTAINERS
+   MAIN CONTAINERS
 ===================================================== */
 
 .container,
@@ -68,7 +68,7 @@ MAIN CONTAINERS
 
 
 /* =====================================================
-TOP BAR
+   TOP BAR
 ===================================================== */
 
 .top-bar {
@@ -112,7 +112,7 @@ TOP BAR
 
 
 /* =====================================================
-BRAND HEADER
+   BRAND HEADER
 ===================================================== */
 
 .brand-header {
@@ -221,7 +221,7 @@ BRAND HEADER
 
 
 /* =====================================================
-NAVIGATION
+   NAVIGATION
 ===================================================== */
 
 .main-nav {
@@ -252,6 +252,11 @@ NAVIGATION
     padding: 0;
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
 }
 
 .nav-links li a {
@@ -270,7 +275,7 @@ NAVIGATION
 
 
 /* =====================================================
-LIVE TICKER
+   LIVE TICKER
 ===================================================== */
 
 .live-ticker-bar {
@@ -288,7 +293,7 @@ LIVE TICKER
 
 
 /* =====================================================
-HEADLINES
+   HEADLINES
 ===================================================== */
 
 .headlines-bar {
@@ -312,7 +317,7 @@ HEADLINES
 
 
 /* =====================================================
-SEARCH
+   SEARCH
 ===================================================== */
 
 .search-section {
@@ -345,7 +350,7 @@ SEARCH
 
 
 /* =====================================================
-FEATURED AREA
+   FEATURED AREA
 ===================================================== */
 
 .top-featured-grid,
@@ -364,16 +369,26 @@ FEATURED AREA
     overflow: hidden;
 }
 
+
+/* =====================================================
+   HERO IMAGE
+   SCREENSHOT STYLE
+   16:9
+===================================================== */
+
 .hero img {
+    display: block;
     width: 100%;
-    height: 360px;
+    aspect-ratio: 16 / 9;
+    height: auto;
     object-fit: cover;
+    object-position: center;
     border-radius: 8px;
 }
 
 
 /* =====================================================
-COMMON CARDS
+   COMMON CARDS
 ===================================================== */
 
 .card,
@@ -390,8 +405,7 @@ COMMON CARDS
 
 
 /* =====================================================
-ARTICLE IMAGE GALLERY
-ARTICLE PAGE ONLY
+   ARTICLE IMAGE GALLERY
 ===================================================== */
 
 .img-gallery {
@@ -405,10 +419,8 @@ ARTICLE PAGE ONLY
 .img-gallery img {
     display: block;
     width: 100%;
-    max-width: 100%;
+    aspect-ratio: 16 / 9;
     height: auto;
-    min-height: 350px;
-    max-height: 550px;
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
@@ -417,7 +429,7 @@ ARTICLE PAGE ONLY
 
 
 /* =====================================================
-COMMON TYPOGRAPHY
+   TYPOGRAPHY
 ===================================================== */
 
 .tag {
@@ -463,14 +475,7 @@ h3 {
 
 
 /* =====================================================
-NEWS LIST
-DESKTOP
-
-1 = BIG FULL WIDTH
-2 + 3 = TWO COLUMNS
-4+ = SMALL SINGLE ROW
-
-TEXT LEFT + IMAGE RIGHT
+   NEWS LIST
 ===================================================== */
 
 .news-list {
@@ -493,9 +498,7 @@ TEXT LEFT + IMAGE RIGHT
 
 
 /* =====================================================
-ALL ARTICLE BASE
-
-CLEAN FLAT NEWS STYLE
+   ALL ARTICLE BASE
 ===================================================== */
 
 .news-list > .news-item,
@@ -528,7 +531,9 @@ CLEAN FLAT NEWS STYLE
 }
 
 
-/* Remove old card hover */
+/* =====================================================
+   REMOVE HOVER
+===================================================== */
 
 .news-list > .news-item:hover,
 .news-list > article:hover,
@@ -540,8 +545,8 @@ CLEAN FLAT NEWS STYLE
 
 
 /* =====================================================
-ARTICLE 1
-BIG FULL WIDTH
+   ARTICLE 1
+   BIG FULL WIDTH
 ===================================================== */
 
 .news-list > .news-item:first-child,
@@ -561,8 +566,8 @@ BIG FULL WIDTH
 
 
 /* =====================================================
-ARTICLE 1 IMAGE
-BIG IMAGE
+   ARTICLE 1 IMAGE
+   EXACT 16:9
 ===================================================== */
 
 .news-list > .news-item:first-child img,
@@ -573,7 +578,9 @@ BIG IMAGE
 
     width: 100% !important;
 
-    height: 380px !important;
+    aspect-ratio: 16 / 9 !important;
+
+    height: auto !important;
 
     object-fit: cover !important;
 
@@ -590,7 +597,7 @@ BIG IMAGE
 
 
 /* =====================================================
-ARTICLE 1 CONTENT
+   ARTICLE 1 CONTENT
 ===================================================== */
 
 .news-list > .news-item:first-child .news-content,
@@ -604,8 +611,7 @@ ARTICLE 1 CONTENT
 
 
 /* =====================================================
-ARTICLE 1 TITLE
-MAX 2 LINES
+   ARTICLE 1 TITLE
 ===================================================== */
 
 .news-list > .news-item:first-child h3,
@@ -633,7 +639,7 @@ MAX 2 LINES
 
 
 /* =====================================================
-ARTICLE 1 SUMMARY
+   ARTICLE 1 SUMMARY
 ===================================================== */
 
 .news-list > .news-item:first-child .summary,
@@ -651,8 +657,7 @@ ARTICLE 1 SUMMARY
 
 
 /* =====================================================
-ARTICLE 2 + 3
-TWO COLUMNS
+   ARTICLE 2 + 3
 ===================================================== */
 
 .news-list > .news-item:nth-child(2),
@@ -673,7 +678,8 @@ TWO COLUMNS
 
 
 /* =====================================================
-ARTICLE 2 + 3 IMAGE
+   ARTICLE 2 + 3 IMAGE
+   16:9
 ===================================================== */
 
 .news-list > .news-item:nth-child(2) img,
@@ -687,7 +693,9 @@ ARTICLE 2 + 3 IMAGE
 
     width: 100% !important;
 
-    height: 205px !important;
+    aspect-ratio: 16 / 9 !important;
+
+    height: auto !important;
 
     object-fit: cover !important;
 
@@ -702,7 +710,7 @@ ARTICLE 2 + 3 IMAGE
 
 
 /* =====================================================
-ARTICLE 2 + 3 CONTENT
+   ARTICLE 2 + 3 CONTENT
 ===================================================== */
 
 .news-list > .news-item:nth-child(2) .news-content,
@@ -719,8 +727,7 @@ ARTICLE 2 + 3 CONTENT
 
 
 /* =====================================================
-ARTICLE 2 + 3 TITLE
-MAX 2 LINES
+   ARTICLE 2 + 3 TITLE
 ===================================================== */
 
 .news-list > .news-item:nth-child(2) h3,
@@ -751,8 +758,7 @@ MAX 2 LINES
 
 
 /* =====================================================
-ARTICLE 2 + 3 SUMMARY
-HIDE FOR CLEAN LAYOUT
+   ARTICLE 2 + 3 SUMMARY HIDE
 ===================================================== */
 
 .news-list > .news-item:nth-child(2) .summary,
@@ -767,11 +773,8 @@ HIDE FOR CLEAN LAYOUT
 
 
 /* =====================================================
-ARTICLE 4 ONWARDS
-SINGLE ROW
-
-TEXT LEFT
-IMAGE RIGHT
+   ARTICLE 4+
+   TEXT LEFT + IMAGE RIGHT
 ===================================================== */
 
 .news-list > .news-item:nth-child(n + 4),
@@ -803,8 +806,7 @@ IMAGE RIGHT
 
 
 /* =====================================================
-ARTICLE 4+ IMAGE
-SMALL RIGHT IMAGE
+   ARTICLE 4+ IMAGE
 ===================================================== */
 
 .news-list > .news-item:nth-child(n + 4) img,
@@ -819,6 +821,8 @@ SMALL RIGHT IMAGE
 
     height: 68px !important;
 
+    aspect-ratio: auto !important;
+
     object-fit: cover !important;
 
     object-position: center !important;
@@ -832,7 +836,7 @@ SMALL RIGHT IMAGE
 
 
 /* =====================================================
-ARTICLE 4+ CONTENT
+   ARTICLE 4+ CONTENT
 ===================================================== */
 
 .news-list > .news-item:nth-child(n + 4) .news-content,
@@ -852,8 +856,7 @@ ARTICLE 4+ CONTENT
 
 
 /* =====================================================
-ARTICLE 4+ TITLE
-SINGLE LINE
+   ARTICLE 4+ TITLE
 ===================================================== */
 
 .news-list > .news-item:nth-child(n + 4) h3,
@@ -883,7 +886,7 @@ SINGLE LINE
 
 
 /* =====================================================
-ARTICLE 4+ SUMMARY HIDE
+   ARTICLE 4+ SUMMARY
 ===================================================== */
 
 .news-list > .news-item:nth-child(n + 4) .summary,
@@ -895,7 +898,7 @@ ARTICLE 4+ SUMMARY HIDE
 
 
 /* =====================================================
-ARTICLE 4+ READ MORE HIDE
+   ARTICLE 4+ READ MORE HIDE
 ===================================================== */
 
 .news-list > .news-item:nth-child(n + 4) .read-more-btn,
@@ -907,7 +910,7 @@ ARTICLE 4+ READ MORE HIDE
 
 
 /* =====================================================
-ARTICLE 4+ SHARE HIDE
+   ARTICLE 4+ SHARE HIDE
 ===================================================== */
 
 .news-list > .news-item:nth-child(n + 4) .share-row,
@@ -919,7 +922,7 @@ ARTICLE 4+ SHARE HIDE
 
 
 /* =====================================================
-READ MORE
+   READ MORE
 ===================================================== */
 
 .news-list .read-more-btn {
@@ -958,7 +961,6 @@ READ MORE
 
 .news-list .read-more-btn:hover {
     background: #b90000 !important;
-    transform: translateX(2px);
 }
 
 .news-list .read-more-btn span {
@@ -968,7 +970,7 @@ READ MORE
 
 
 /* =====================================================
-SHARE
+   SHARE
 ===================================================== */
 
 .news-list .share-row {
@@ -1008,7 +1010,7 @@ SHARE
 
 
 /* =====================================================
-SECTION HEADING
+   SECTION HEADING
 ===================================================== */
 
 .section-heading {
@@ -1035,7 +1037,7 @@ SECTION HEADING
 
 
 /* =====================================================
-ADVERTISEMENT
+   ADVERTISEMENT
 ===================================================== */
 
 .ad {
@@ -1064,7 +1066,7 @@ ADVERTISEMENT
 
 
 /* =====================================================
-LIVE BOX
+   LIVE BOX
 ===================================================== */
 
 .live-box {
@@ -1107,7 +1109,7 @@ LIVE BOX
 
 
 /* =====================================================
-LIKE / COMMENT / SHARE
+   LIKE / COMMENT / SHARE
 ===================================================== */
 
 .bs-news-pulse {
@@ -1116,32 +1118,20 @@ LIKE / COMMENT / SHARE
 
 .pulse-actions {
     display: flex;
-
     background: #ffffff !important;
-
     border: none !important;
-
     border-radius: 0 !important;
-
     box-shadow: none !important;
-
     padding: 0 !important;
 }
 
 .pulse-action {
     flex: 1;
-
     background: #ffffff !important;
-
     border: none !important;
-
     border-right: 1px solid #e5e7eb !important;
-
     border-radius: 0 !important;
-
     box-shadow: none !important;
-
-    transform: none !important;
 }
 
 .pulse-action:last-child {
@@ -1150,15 +1140,11 @@ LIKE / COMMENT / SHARE
 
 .pulse-action:hover {
     background: #fafafa !important;
-
-    box-shadow: none !important;
-
-    transform: none !important;
 }
 
 
 /* =====================================================
-COMMENT WRITE
+   COMMENT WRITE
 ===================================================== */
 
 .bs-comment-write {
@@ -1191,7 +1177,7 @@ COMMENT WRITE
 
 
 /* =====================================================
-COMMENTS
+   COMMENTS
 ===================================================== */
 
 .bs-comments {
@@ -1220,7 +1206,7 @@ COMMENTS
 
 
 /* =====================================================
-ABOUT SECTION
+   ABOUT
 ===================================================== */
 
 main > section.card[style] {
@@ -1236,7 +1222,7 @@ main > section.card[style] {
 
 
 /* =====================================================
-MORE MOVIES / MORE ARTICLES
+   MORE MOVIES
 ===================================================== */
 
 .more-movies {
@@ -1267,13 +1253,9 @@ MORE MOVIES / MORE ARTICLES
     font-weight: bold;
 }
 
-.more-movies a:hover {
-    text-decoration: underline;
-}
-
 
 /* =====================================================
-SMALL NEWS
+   SMALL NEWS
 ===================================================== */
 
 .small-news {
@@ -1324,7 +1306,7 @@ SMALL NEWS
 
 
 /* =====================================================
-HIDDEN ARTICLES
+   HIDDEN ARTICLES
 ===================================================== */
 
 .news-list .hidden {
@@ -1333,7 +1315,7 @@ HIDDEN ARTICLES
 
 
 /* =====================================================
-DARK MODE
+   DARK MODE
 ===================================================== */
 
 body.dark-mode {
@@ -1368,193 +1350,4 @@ body.dark-mode .bs-news-pulse {
 body.dark-mode .brand-header,
 body.dark-mode .main-nav,
 body.dark-mode .headlines-bar,
-body.dark-mode .section-heading {
-
-    background: #121212 !important;
-}
-
-body.dark-mode .news-list h3 {
-    color: #f0f0f0 !important;
-}
-
-body.dark-mode .news-list .summary {
-    color: #bbbbbb !important;
-}
-
-body.dark-mode .news-list .time-stamp {
-    color: #999999 !important;
-}
-
-body.dark-mode .news-list .share-row {
-    background: #121212 !important;
-}
-
-body.dark-mode .news-list .share-row button,
-body.dark-mode .news-list .share-row a {
-    color: #cccccc !important;
-}
-
-body.dark-mode .bs-comment-card {
-
-    background: #1e1e1e !important;
-
-    border-color: #333333 !important;
-}
-
-body.dark-mode .search-box input {
-
-    background: #101820;
-
-    color: #ffffff;
-}
-
-body.dark-mode .share-row button,
-body.dark-mode .theme-button {
-
-    background: #18212b;
-
-    color: #ffffff;
-
-    border-color: #39495a;
-}
-
-body.dark-mode .summary,
-body.dark-mode .live-controls {
-    color: #b8c2cc;
-}
-
-body.dark-mode .live-ticker-bar {
-
-    background: #102a44;
-
-    color: #dceeff;
-}
-
-body.dark-mode .more-movies {
-
-    background: #1e1e1e;
-
-    color: #eeeeee;
-}
-
-body.dark-mode .small-news {
-
-    background: #121212;
-
-    border-color: #303030;
-}
-
-
-/* =====================================================
-TABLET
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .brand-inner {
-        flex-wrap: wrap;
-        padding: 12px 0;
-    }
-
-    .header-actions {
-        margin-left: auto;
-    }
-
-    .date-time-box {
-        display: none;
-    }
-
-    .nav-container {
-        display: block;
-    }
-
-    .lang-selector {
-        padding: 8px 0;
-    }
-
-    .top-featured-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-inner {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-/* =====================================================
-MOBILE
-1 = BIG
-2 + 3 = TWO COLUMNS
-4+ = HORIZONTAL ROW
-===================================================== */
-
-@media (max-width: 600px) {
-
-    /* -------------------------------------------------
-       PAGE
-    ------------------------------------------------- */
-
-    .container,
-    .main-container {
-
-        width: 100%;
-
-        max-width: 100%;
-    }
-
-
-    /* -------------------------------------------------
-       TOP BAR
-    ------------------------------------------------- */
-
-    .top-bar-inner {
-        padding: 7px 0;
-    }
-
-    .ticker-text {
-        display: none;
-    }
-
-
-    /* -------------------------------------------------
-       BRAND
-    ------------------------------------------------- */
-
-    .brand-logo {
-        gap: 8px;
-    }
-
-    .brand-logo .logo-name {
-        font-size: 20px;
-    }
-
-    .logo-mark {
-        width: 48px;
-        height: 48px;
-    }
-
-    .header-actions .live-button {
-        display: none;
-    }
-
-    .mobile-menu-toggle {
-        display: block;
-    }
-
-
-    /* -------------------------------------------------
-       NAV
-    ------------------------------------------------- */
-
-    .nav-links {
-        width: 100%;
-    }
-
-    .nav-container {
-        overflow: hidden;
-    }
-
-    .nav-links li a {
-        padding: 10px 9px;
-        font-size: 13
+body.dark
