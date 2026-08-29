@@ -1536,3 +1536,568 @@ body.dark-mode .ad-side {
 /* =========================================================
    END
 ========================================================= */
+/* =========================================================
+   BS360 NEWS CARD - FINAL FIX
+   REMOVE OLD CARD LAYOUT PROBLEMS
+========================================================= */
+
+/* NEWS AREA */
+.news-list,
+.news-grid,
+.posts,
+.posts-container {
+    width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   ALL NEWS CARDS
+========================================================= */
+
+.news-item.post {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 0 14px 0 !important;
+    padding: 0 !important;
+
+    background: var(--card) !important;
+
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+
+    float: none !important;
+
+    clear: none !important;
+}
+
+
+/* =========================================================
+   REMOVE UNWANTED CATEGORY / LABELS
+========================================================= */
+
+.news-item.post .category,
+.news-item.post .categories,
+.news-item.post .post-category,
+.news-item.post .news-category,
+.news-item.post .category-label,
+.news-item.post .badge,
+.news-item.post .tag,
+.news-item.post .post-tag {
+    display: none !important;
+}
+
+
+/* =========================================================
+   REMOVE READ MORE / META / SHARE
+========================================================= */
+
+.news-item.post .share-row,
+.news-item.post .share,
+.news-item.post .share-buttons,
+.news-item.post .read-more,
+.news-item.post .readmore,
+.news-item.post .read-more-link,
+.news-item.post .post-meta,
+.news-item.post .meta,
+.news-item.post .news-meta,
+.news-item.post .latest,
+.news-item.post .update {
+    display: none !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION REMOVE
+========================================================= */
+
+.news-item.post .news-description,
+.news-item.post .description,
+.news-item.post .excerpt,
+.news-item.post .summary {
+    display: none !important;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.news-item.post img {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: 210px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.news-item.post .news-content {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 9px 11px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.news-item.post .news-content p,
+.news-item.post .news-content h1,
+.news-item.post .news-content h2,
+.news-item.post .news-content h3,
+.news-item.post .news-content h4,
+.news-item.post .news-content h5,
+.news-item.post .news-content h6 {
+
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 14px !important;
+
+    font-weight: 400 !important;
+
+    line-height: 1.45 !important;
+
+    color: var(--text) !important;
+
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+}
+
+
+/* =========================================================
+   FIRST NEWS
+========================================================= */
+
+.news-item.post:first-of-type {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-bottom: 16px !important;
+}
+
+.news-item.post:first-of-type img {
+    width: 100% !important;
+    height: 240px !important;
+}
+
+.news-item.post:first-of-type .news-content {
+    padding: 10px 12px !important;
+}
+
+.news-item.post:first-of-type .news-content p {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+}
+
+
+/* =========================================================
+   NEWS 2 - 9
+   DESKTOP
+========================================================= */
+
+.news-item.post:nth-of-type(2),
+.news-item.post:nth-of-type(3),
+.news-item.post:nth-of-type(4),
+.news-item.post:nth-of-type(5),
+.news-item.post:nth-of-type(6),
+.news-item.post:nth-of-type(7),
+.news-item.post:nth-of-type(8),
+.news-item.post:nth-of-type(9) {
+
+    display: inline-block !important;
+
+    vertical-align: top !important;
+
+    width: calc(50% - 8px) !important;
+
+    max-width: calc(50% - 8px) !important;
+
+    margin-right: 12px !important;
+
+    margin-bottom: 14px !important;
+
+    clear: none !important;
+
+    float: none !important;
+}
+
+
+/* RIGHT SIDE */
+.news-item.post:nth-of-type(3),
+.news-item.post:nth-of-type(5),
+.news-item.post:nth-of-type(7),
+.news-item.post:nth-of-type(9) {
+    margin-right: 0 !important;
+}
+
+
+/* =========================================================
+   2 - 9 IMAGES
+========================================================= */
+
+.news-item.post:nth-of-type(2) img,
+.news-item.post:nth-of-type(3) img,
+.news-item.post:nth-of-type(4) img,
+.news-item.post:nth-of-type(5) img,
+.news-item.post:nth-of-type(6) img,
+.news-item.post:nth-of-type(7) img,
+.news-item.post:nth-of-type(8) img,
+.news-item.post:nth-of-type(9) img {
+
+    width: 100% !important;
+
+    height: 145px !important;
+
+    object-fit: cover !important;
+}
+
+
+/* =========================================================
+   2 - 9 TITLE
+========================================================= */
+
+.news-item.post:nth-of-type(2) .news-content p,
+.news-item.post:nth-of-type(3) .news-content p,
+.news-item.post:nth-of-type(4) .news-content p,
+.news-item.post:nth-of-type(5) .news-content p,
+.news-item.post:nth-of-type(6) .news-content p,
+.news-item.post:nth-of-type(7) .news-content p,
+.news-item.post:nth-of-type(8) .news-content p,
+.news-item.post:nth-of-type(9) .news-content p {
+
+    font-size: 13px !important;
+
+    font-weight: 400 !important;
+
+    line-height: 1.4 !important;
+
+    word-break: break-word !important;
+}
+
+
+/* =========================================================
+   10+ NEWS
+   NORMAL FULL WIDTH LIST
+========================================================= */
+
+.news-item.post:nth-of-type(n+10) {
+
+    display: flex !important;
+
+    flex-direction: row-reverse !important;
+
+    align-items: center !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    min-height: 90px !important;
+
+    margin: 0 0 10px 0 !important;
+
+    float: none !important;
+}
+
+
+/* 10+ IMAGE */
+
+.news-item.post:nth-of-type(n+10) img {
+
+    width: 110px !important;
+
+    min-width: 110px !important;
+
+    max-width: 110px !important;
+
+    height: 78px !important;
+
+    object-fit: cover !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+/* 10+ CONTENT */
+
+.news-item.post:nth-of-type(n+10) .news-content {
+
+    flex: 1 1 auto !important;
+
+    min-width: 0 !important;
+
+    padding: 7px 10px !important;
+}
+
+
+/* 10+ TITLE */
+
+.news-item.post:nth-of-type(n+10) .news-content p {
+
+    font-size: 13px !important;
+
+    font-weight: 400 !important;
+
+    line-height: 1.4 !important;
+}
+
+
+/* =========================================================
+   MOBILE FINAL
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .news-list,
+    .news-grid,
+    .posts,
+    .posts-container {
+        width: 100% !important;
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+
+    /* ALL CARDS */
+
+    .news-item.post {
+
+        box-sizing: border-box !important;
+
+        max-width: 100% !important;
+
+        overflow: hidden !important;
+
+        float: none !important;
+    }
+
+
+    /* FIRST */
+
+    .news-item.post:first-of-type {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        display: block !important;
+    }
+
+    .news-item.post:first-of-type img {
+
+        width: 100% !important;
+
+        height: 220px !important;
+    }
+
+    .news-item.post:first-of-type .news-content p {
+
+        font-size: 16px !important;
+
+        font-weight: 400 !important;
+
+        line-height: 1.4 !important;
+    }
+
+
+    /* =====================================================
+       2 - 9 MOBILE TWO COLUMNS
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2),
+    .news-item.post:nth-of-type(3),
+    .news-item.post:nth-of-type(4),
+    .news-item.post:nth-of-type(5),
+    .news-item.post:nth-of-type(6),
+    .news-item.post:nth-of-type(7),
+    .news-item.post:nth-of-type(8),
+    .news-item.post:nth-of-type(9) {
+
+        display: inline-block !important;
+
+        vertical-align: top !important;
+
+        width: calc(50% - 5px) !important;
+
+        max-width: calc(50% - 5px) !important;
+
+        margin-right: 8px !important;
+
+        margin-bottom: 10px !important;
+
+        float: none !important;
+    }
+
+
+    /* RIGHT */
+
+    .news-item.post:nth-of-type(3),
+    .news-item.post:nth-of-type(5),
+    .news-item.post:nth-of-type(7),
+    .news-item.post:nth-of-type(9) {
+
+        margin-right: 0 !important;
+    }
+
+
+    /* IMAGE */
+
+    .news-item.post:nth-of-type(2) img,
+    .news-item.post:nth-of-type(3) img,
+    .news-item.post:nth-of-type(4) img,
+    .news-item.post:nth-of-type(5) img,
+    .news-item.post:nth-of-type(6) img,
+    .news-item.post:nth-of-type(7) img,
+    .news-item.post:nth-of-type(8) img,
+    .news-item.post:nth-of-type(9) img {
+
+        width: 100% !important;
+
+        height: 115px !important;
+
+        object-fit: cover !important;
+    }
+
+
+    /* TITLE */
+
+    .news-item.post:nth-of-type(2) .news-content p,
+    .news-item.post:nth-of-type(3) .news-content p,
+    .news-item.post:nth-of-type(4) .news-content p,
+    .news-item.post:nth-of-type(5) .news-content p,
+    .news-item.post:nth-of-type(6) .news-content p,
+    .news-item.post:nth-of-type(7) .news-content p,
+    .news-item.post:nth-of-type(8) .news-content p,
+    .news-item.post:nth-of-type(9) .news-content p {
+
+        font-size: 12px !important;
+
+        font-weight: 400 !important;
+
+        line-height: 1.4 !important;
+
+        word-break: break-word !important;
+
+        overflow-wrap: anywhere !important;
+    }
+
+
+    /* =====================================================
+       10+
+    ===================================================== */
+
+    .news-item.post:nth-of-type(n+10) {
+
+        display: flex !important;
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-height: 80px !important;
+
+        margin-bottom: 9px !important;
+    }
+
+
+    .news-item.post:nth-of-type(n+10) img {
+
+        width: 90px !important;
+
+        min-width: 90px !important;
+
+        max-width: 90px !important;
+
+        height: 65px !important;
+    }
+
+
+    .news-item.post:nth-of-type(n+10) .news-content {
+
+        padding: 6px 9px !important;
+    }
+
+
+    .news-item.post:nth-of-type(n+10) .news-content p {
+
+        font-size: 12px !important;
+
+        font-weight: 400 !important;
+
+        line-height: 1.4 !important;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .news-item.post:first-of-type img {
+        height: 200px !important;
+    }
+
+    .news-item.post:nth-of-type(2) img,
+    .news-item.post:nth-of-type(3) img,
+    .news-item.post:nth-of-type(4) img,
+    .news-item.post:nth-of-type(5) img,
+    .news-item.post:nth-of-type(6) img,
+    .news-item.post:nth-of-type(7) img,
+    .news-item.post:nth-of-type(8) img,
+    .news-item.post:nth-of-type(9) img {
+        height: 105px !important;
+    }
+
+    .news-item.post:nth-of-type(2) .news-content p,
+    .news-item.post:nth-of-type(3) .news-content p,
+    .news-item.post:nth-of-type(4) .news-content p,
+    .news-item.post:nth-of-type(5) .news-content p,
+    .news-item.post:nth-of-type(6) .news-content p,
+    .news-item.post:nth-of-type(7) .news-content p,
+    .news-item.post:nth-of-type(8) .news-content p,
+    .news-item.post:nth-of-type(9) .news-content p {
+        font-size: 11.5px !important;
+    }
+}
