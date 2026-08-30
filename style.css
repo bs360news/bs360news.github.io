@@ -1,1005 +1,2315 @@
 /* =========================================================
-   BS 360 NEWS
-   NEWS CARD LAYOUT
-   1st = BIG
-   2nd-9th = 2 COLUMNS
-   10th+ = SINGLE LINE
+BS 360 NEWS
+COMPLETE WEBSITE CSS
+CLEAN NEWS CARD LAYOUT
+MOBILE + DESKTOP
+DARK MODE
 ========================================================= */
 
-
 /* =========================================================
-   ROOT
+ROOT
 ========================================================= */
 
 :root {
-    --bg: #ffffff;
-    --card: #ffffff;
-    --text: #171717;
-    --muted: #777777;
-    --border: #e5e5e5;
-    --primary: #0056b3;
-    --red: #e60000;
-    --tag: #f00000;
+--bg: #ffffff;
+--card: #ffffff;
+--text: #171717;
+--muted: #667085;
+--border: #e5e7eb;
+--primary: #0056b3;
+--red: #e11d48;
+--soft: #f6f7f9;
+--shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-
 /* =========================================================
-   RESET
+RESET
 ========================================================= */
 
-* {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+margin: 0;
+padding: 0;
+scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family:
-        "Noto Sans Telugu",
-        "Noto Sans",
-        Arial,
-        sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+margin: 0 !important;
+padding: 0 !important;
+
+background: var(--bg) !important;  
+color: var(--text) !important;  
+
+font-family:  
+    system-ui,  
+    -apple-system,  
+    BlinkMacSystemFont,  
+    "Noto Sans Telugu",  
+    "Noto Sans",  
+    Arial,  
+    sans-serif !important;  
+
+font-size: 16px;  
+line-height: 1.5;
+
 }
 
 img {
-    max-width: 100%;
-    display: block;
+max-width: 100%;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+color: inherit;
+text-decoration: none;
 }
 
 button,
-input {
-    font: inherit;
+input,
+textarea,
+select {
+font: inherit;
 }
 
-
 /* =========================================================
-   CONTAINER
+CONTAINER
 ========================================================= */
 
 .container {
-    width: min(1200px, calc(100% - 30px));
-    margin: 0 auto;
+width: min(1180px, calc(100% - 30px));
+margin-left: auto;
+margin-right: auto;
 }
 
-
 /* =========================================================
-   TOP BREAKING BAR
+TOP BREAKING BAR
 ========================================================= */
 
 .top-bar {
-    background: #111827;
-    color: #ffffff;
-    padding: 8px 0;
-    font-size: 13px;
+width: 100%;
+background: #111827;
+color: #ffffff;
+border-bottom: 1px solid #1f2937;
+font-size: 13px;
 }
 
 .top-bar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+min-height: 38px;
+
+display: flex;  
+align-items: center;  
+justify-content: space-between;  
+
+gap: 12px;
+
 }
 
 .breaking-tag {
-    background: var(--red);
-    color: #ffffff;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 700;
-    margin-right: 8px;
+display: inline-flex;
+align-items: center;
+
+font-weight: 700;  
+white-space: nowrap;
+
 }
 
 .ticker-text {
-    font-size: 13px;
+color: #e5e7eb;
 }
 
 .top-controls {
-    display: flex;
-    gap: 5px;
+display: flex;
+gap: 5px;
+flex-shrink: 0;
 }
 
 .nav-arrow {
-    border: 1px solid #555;
-    background: transparent;
-    color: #ffffff;
-    width: 28px;
-    height: 26px;
-    border-radius: 4px;
+width: 30px;
+height: 28px;
+
+border: 1px solid #374151;  
+border-radius: 4px;  
+
+background: #1f2937;  
+color: #ffffff;  
+
+cursor: pointer;
+
 }
 
-
 /* =========================================================
-   BRAND HEADER
+BRAND HEADER
 ========================================================= */
 
 .brand-header {
-    background: #ffffff;
-    border-bottom: 1px solid var(--border);
+width: 100%;
+background: var(--card);
+border-bottom: 1px solid var(--border);
 }
 
 .brand-inner {
-    min-height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+min-height: 92px;
+
+display: flex;  
+align-items: center;  
+justify-content: space-between;  
+
+gap: 20px;
+
 }
 
 .brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+display: flex;
+align-items: center;
+gap: 12px;
 }
 
 .logo-mark {
-    width: 48px;
-    height: 48px;
-    background: #111827;
-    color: #ffffff;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 800;
-    line-height: 1.1;
+width: 55px;
+height: 55px;
+
+border-radius: 8px;  
+
+background: #111827;  
+color: #ffffff;  
+
+display: flex;  
+flex-direction: column;  
+align-items: center;  
+justify-content: center;  
+
+font-size: 13px;  
+font-weight: 800;  
+line-height: 1.05;
+
 }
 
 .logo-name {
-    font-size: 23px;
-    font-weight: 700;
+display: flex;
+flex-direction: column;
+line-height: 1.15;
+}
+
+.logo-name > div {
+font-size: 25px;
+font-weight: 800;
+letter-spacing: -0.5px;
 }
 
 .logo-red {
-    color: var(--red);
+color: var(--red);
 }
 
 .logo-tagline {
-    display: block;
-    color: #777777;
-    font-size: 10px;
-    font-weight: 400;
-    margin-top: -2px;
+margin-top: 4px;
+color: var(--muted);
+font-size: 11px;
+letter-spacing: 1px;
 }
 
 .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+display: flex;
+align-items: center;
+gap: 10px;
 }
 
 .date-time-box {
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    color: #555555;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+
+color: var(--muted);  
+font-size: 12px;
+
 }
 
 .theme-button {
-    border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 7px 10px;
-    border-radius: 6px;
-    cursor: pointer;
+border: 1px solid var(--border);
+background: var(--card);
+color: var(--text);
+
+padding: 7px 11px;  
+border-radius: 6px;  
+
+cursor: pointer;
+
 }
 
 .live-button {
-    background: #e60000;
-    color: #ffffff;
-    padding: 6px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 700;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+
+background: #dc2626;  
+color: #ffffff;  
+
+padding: 7px 12px;  
+border-radius: 6px;  
+
+font-size: 12px;  
+font-weight: 700;
+
 }
 
 .live-dot {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    background: #ffffff;
-    border-radius: 50%;
-    margin-right: 4px;
+width: 7px;
+height: 7px;
+
+background: #ffffff;  
+border-radius: 50%;  
+
+animation: livePulse 1.3s infinite;
+
+}
+
+@keyframes livePulse {
+
+0%,  
+100% {  
+    opacity: 1;  
+}  
+
+50% {  
+    opacity: .35;  
+}
+
 }
 
 .mobile-menu-toggle {
-    display: none;
-    border: 0;
-    background: transparent;
-    font-size: 25px;
-    cursor: pointer;
+display: none;
+
+border: 1px solid var(--border);  
+background: var(--card);  
+color: var(--text);  
+
+border-radius: 6px;  
+padding: 7px 10px;  
+
+cursor: pointer;
+
 }
 
-
 /* =========================================================
-   NAVIGATION
+NAVIGATION
 ========================================================= */
 
 .main-nav {
-    background: #ffffff;
-    border-bottom: 1px solid var(--border);
+width: 100%;
+background: var(--card);
+border-bottom: 1px solid var(--border);
 }
 
 .nav-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+min-height: 48px;
+
+display: flex;  
+align-items: center;  
+
+gap: 20px;
+
 }
 
 .lang-selector {
-    white-space: nowrap;
-    font-size: 13px;
+color: var(--muted);
+font-size: 13px;
+white-space: nowrap;
 }
 
 .lang-selector .active {
-    color: var(--red);
-    font-weight: 700;
+color: var(--primary);
+font-weight: 700;
 }
 
 .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+list-style: none !important;
+
+display: flex;  
+align-items: center;  
+
+gap: 3px;  
+
+padding: 0 !important;  
+margin: 0 !important;  
+
+flex-wrap: wrap;
+
 }
 
 .nav-links li {
-    padding: 12px 0;
+list-style: none !important;
+margin: 0 !important;
+padding: 0 !important;
 }
 
 .nav-links a {
-    font-size: 14px;
+display: block;
+
+padding: 8px 10px;  
+
+border-radius: 5px;  
+
+color: var(--text);  
+
+font-size: 13px;  
+white-space: nowrap;
+
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--red);
+background: var(--soft);
+color: var(--primary);
 }
 
-
 /* =========================================================
-   LIVE TICKER
+LIVE TICKER
 ========================================================= */
 
 .live-ticker-bar {
-    background: #f7f7f7;
-    border-bottom: 1px solid var(--border);
-    padding: 7px 0;
-    font-size: 13px;
+width: 100%;
+
+background: #fff5f5;  
+border-bottom: 1px solid #fee2e2;  
+
+color: #991b1b;  
+
+font-size: 13px;
+
+}
+
+.live-ticker-bar .container {
+min-height: 34px;
+
+display: flex;  
+align-items: center;  
+
+gap: 8px;
+
 }
 
 .live-tag {
-    color: var(--red);
-    font-weight: 700;
-    margin-right: 8px;
+font-weight: 800;
+white-space: nowrap;
 }
 
-
 /* =========================================================
-   HEADLINES
+HEADLINES
 ========================================================= */
 
 .headlines-bar {
-    border-bottom: 1px solid var(--border);
-    padding: 8px 0;
-    font-size: 13px;
+width: 100%;
+
+background: var(--soft);  
+border-bottom: 1px solid var(--border);  
+
+font-size: 13px;
+
+}
+
+.headlines-bar .container {
+min-height: 38px;
+overflow: hidden;
 }
 
 .headlines-label {
-    background: var(--red);
-    color: #ffffff;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 700;
-    white-space: nowrap;
-    margin-right: 10px;
+display: inline-flex;
+align-items: center;
+
+min-height: 38px;  
+
+padding-right: 14px;  
+
+font-weight: 700;  
+white-space: nowrap;
+
 }
 
+/* =========================================================
+MAIN
+========================================================= */
+
+main.container {
+padding-top: 18px;
+padding-bottom: 30px;
+}
 
 /* =========================================================
-   SEARCH
+SEARCH
 ========================================================= */
 
 .search-section {
-    margin: 20px 0;
+margin-bottom: 20px;
 }
 
 .search-box {
-    display: flex;
-    gap: 8px;
+width: 100%;
+
+display: flex;  
+
+gap: 8px;
+
 }
 
 .search-box input {
-    flex: 1;
-    min-width: 0;
-    padding: 11px 13px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    outline: none;
+flex: 1;
+
+min-width: 0;  
+height: 42px;  
+
+border: 1px solid var(--border);  
+border-radius: 7px;  
+
+background: var(--card);  
+color: var(--text);  
+
+padding: 0 13px;  
+
+outline: none;
+
 }
 
 .search-box input:focus {
-    border-color: var(--primary);
+border-color: var(--primary);
 }
 
 .search-box button {
-    border: 0;
-    background: var(--primary);
-    color: #ffffff;
-    padding: 0 18px;
-    border-radius: 7px;
-    cursor: pointer;
+height: 42px;
+
+padding: 0 18px;  
+
+border: 0;  
+border-radius: 7px;  
+
+background: var(--primary);  
+color: #ffffff;  
+
+cursor: pointer;  
+font-weight: 600;
+
 }
 
-
 /* =========================================================
-   FEATURE / LIVE AREA
+LIVE AREA
 ========================================================= */
 
 .top-featured-grid {
-    display: block;
+width: 100%;
+margin-bottom: 20px;
 }
 
 .live-col {
-    display: none;
+width: 100%;
+}
+
+.live-box {
+border: 1px solid var(--border);
+
+background: var(--card);  
+
+border-radius: 8px;  
+
+overflow: hidden;  
+
+box-shadow: var(--shadow);
+
+}
+
+.live-title {
+padding: 10px 13px;
+
+font-size: 14px;  
+font-weight: 700;  
+
+border-bottom: 1px solid var(--border);
+
+}
+
+.live-screen {
+min-height: 150px;
+
+display: flex;  
+align-items: center;  
+justify-content: center;  
+
+background: #111827;  
+color: #ffffff;  
+
+text-align: center;
+
+}
+
+.live-logo {
+font-size: 16px;
+font-weight: 800;
+}
+
+.live-controls {
+padding: 10px 13px;
+
+color: var(--muted);  
+font-size: 12px;
+
 }
 
 .ad-side {
-    display: none;
+min-height: 70px;
+
+margin-top: 12px;  
+
+border: 1px dashed var(--border);  
+
+background: var(--soft);  
+color: var(--muted);  
+
+display: flex;  
+align-items: center;  
+justify-content: center;  
+
+font-size: 11px;
+
 }
 
+/* =========================================================
+ADS
+========================================================= */
+
+.adsbygoogle {
+margin-top: 18px;
+margin-bottom: 18px;
+}
 
 /* =========================================================
-   NEWS HEADING
+SECTION HEADING
 ========================================================= */
 
 .section-heading {
-    margin: 20px 0 15px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
+margin: 22px 0 14px;
+
+padding-bottom: 9px;  
+
+border-bottom: 1px solid var(--border);
+
 }
 
 .section-heading h2 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 600;
+margin: 0;
+
+font-size: 19px;  
+font-weight: 600;  
+
+line-height: 1.3;
+
 }
 
-
 /* =========================================================
-   NEWS AREA
+NEWS AREA
 ========================================================= */
 
-/*
-   IMPORTANT
-
-   All .post articles are direct children of main.
-   nth-of-type is NOT reliable because main also contains
-   sections/divs.
-
-   So we use classes assigned with CSS based on order
-   using .news-item.
-*/
-
-.news-item {
-    position: relative;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
+.news-list,
+.news-grid,
+.posts,
+.posts-container {
+width: 100%;
 }
 
-
 /* =========================================================
-   FIRST NEWS = BIG FEATURE
+NEWS CARD - COMMON
 ========================================================= */
 
-.news-item:nth-of-type(1) {
-    display: block;
+.news-item.post {
+position: relative;
+
+background: var(--card) !important;  
+
+border: 1px solid var(--border) !important;  
+
+border-radius: 10px !important;  
+
+overflow: hidden !important;  
+
+padding: 0 !important;  
+
+margin: 0 0 14px 0 !important;  
+
+color: var(--text) !important;  
+
+box-shadow: none !important;  
+
+cursor: pointer;  
+
+box-sizing: border-box !important;
+
 }
-
-
-/* First news image */
-
-.news-item:nth-of-type(1) img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-/* First news content */
-
-.news-item:nth-of-type(1) .news-content {
-    padding: 10px 0 18px;
-}
-
-.news-item:nth-of-type(1) .news-content p {
-    margin: 0;
-    font-size: 25px;
-    line-height: 1.45;
-    font-weight: 600;
-}
-
 
 /* =========================================================
-   2 - 9 NEWS = TWO COLUMNS
+REMOVE DEFAULT ELEMENT SPACING
 ========================================================= */
 
-/*
-   Because other elements exist before articles,
-   JavaScript will add layout classes.
-*/
-
-.news-grid-mode {
-    display: grid;
+.news-item.post h1,
+.news-item.post h2,
+.news-item.post h3,
+.news-item.post h4,
+.news-item.post h5,
+.news-item.post h6,
+.news-item.post p {
+margin-top: 0 !important;
+margin-bottom: 0 !important;
 }
 
-
 /* =========================================================
-   NORMAL NEWS DEFAULT
+NEWS IMAGE COMMON
 ========================================================= */
 
-.news-item img {
-    object-fit: cover;
-}
+.news-item.post img {
+display: block !important;
 
-.news-content {
-    min-width: 0;
-}
+width: 100% !important;  
 
-.news-content p {
-    margin: 0;
-}
+margin: 0 !important;  
+padding: 0 !important;  
 
+object-fit: cover !important;  
+
+border: 0 !important;
+
+}
 
 /* =========================================================
-   ARTICLE CATEGORY TAG
+NEWS CONTENT COMMON
 ========================================================= */
 
-.news-item::before {
-    content: "";
-    display: none;
+.news-item.post .news-content {
+display: block !important;
+
+min-width: 0 !important;  
+
+margin: 0 !important;  
+
+box-sizing: border-box !important;
+
 }
 
-
 /* =========================================================
-   HIDE
+NEWS TITLE COMMON
 ========================================================= */
 
-.hidden {
-    display: none !important;
+.news-item.post .news-content p {
+color: var(--text) !important;
+
+font-size: 14px !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.45 !important;  
+
+padding: 0 !important;
+
 }
 
+/* =========================================================
+DESCRIPTION HIDE
+========================================================= */
+
+.news-item.post .news-description,
+.news-item.post .description,
+.news-item.post .excerpt {
+display: none !important;
+}
 
 /* =========================================================
-   ABOUT
+
+FIRST 3 NEWS
+IMAGE TOP + TEXT BELOW
+SMALL CARD
+
+========================================================= */
+
+.news-item.post:nth-child(1),
+.news-item.post:nth-child(2),
+.news-item.post:nth-child(3) {
+
+display: block !important;  
+
+width: 100% !important;  
+
+max-width: 650px !important;  
+
+margin-left: 0 !important;  
+margin-right: auto !important;  
+
+margin-bottom: 16px !important;
+
+}
+
+/* IMAGE */
+
+.news-item.post:nth-child(1) img,
+.news-item.post:nth-child(2) img,
+.news-item.post:nth-child(3) img {
+
+width: 100% !important;  
+
+height: 205px !important;  
+
+object-fit: cover !important;
+
+}
+
+/* CONTENT */
+
+.news-item.post:nth-child(1) .news-content,
+.news-item.post:nth-child(2) .news-content,
+.news-item.post:nth-child(3) .news-content {
+
+padding: 11px 13px !important;
+
+}
+
+/* TITLE */
+
+.news-item.post:nth-child(1) .news-content p,
+.news-item.post:nth-child(2) .news-content p,
+.news-item.post:nth-child(3) .news-content p {
+
+font-size: 16px !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.45 !important;
+
+}
+
+/* =========================================================
+NEWS 4 ONWARDS
+IMAGE RIGHT
+TEXT LEFT
+FULL WIDTH
+========================================================= */
+
+.news-item.post:nth-child(n+4) {
+
+display: flex !important;  
+
+flex-direction: row-reverse !important;  
+
+align-items: center !important;  
+
+width: 100% !important;  
+
+max-width: 100% !important;  
+
+min-height: 105px !important;  
+
+margin-left: 0 !important;  
+margin-right: 0 !important;  
+
+margin-bottom: 10px !important;
+
+}
+
+/* =========================================================
+NEWS 4+ IMAGE
+========================================================= */
+
+.news-item.post:nth-child(n+4) img {
+
+width: 145px !important;  
+
+min-width: 145px !important;  
+
+height: 95px !important;  
+
+object-fit: cover !important;  
+
+flex-shrink: 0 !important;
+
+}
+
+/* =========================================================
+NEWS 4+ CONTENT
+========================================================= */
+
+.news-item.post:nth-child(n+4) .news-content {
+
+flex: 1 !important;  
+
+width: auto !important;  
+
+min-width: 0 !important;  
+
+padding: 9px 12px !important;
+
+}
+
+/* =========================================================
+NEWS 4+ TITLE
+========================================================= */
+
+.news-item.post:nth-child(n+4) .news-content p {
+
+font-size: 14px !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.45 !important;  
+
+margin: 0 !important;
+
+}
+
+/* =========================================================
+SHARE ROW
+========================================================= */
+
+.news-item.post .share-row {
+
+display: flex !important;  
+
+align-items: center !important;  
+
+gap: 5px !important;  
+
+margin-top: 7px !important;  
+
+font-size: 11px !important;
+
+}
+
+.news-item.post .share-row button {
+
+border: 1px solid var(--border) !important;  
+
+background: var(--soft) !important;  
+
+color: var(--text) !important;  
+
+border-radius: 5px !important;  
+
+padding: 3px 7px !important;  
+
+font-size: 11px !important;  
+
+cursor: pointer;
+
+}
+
+/* =========================================================
+HIDDEN POSTS
+========================================================= */
+
+.news-item.post.hidden {
+display: none !important;
+}
+
+/* =========================================================
+ABOUT CARD
 ========================================================= */
 
 .card {
-    background: var(--card);
+background: var(--card);
+
+color: var(--text);  
+
+border: 1px solid var(--border);  
+
+border-radius: 8px;  
+
+box-sizing: border-box;
+
 }
 
 .card h2 {
-    margin-top: 0;
-    font-size: 20px;
+margin-top: 0;
+
+font-size: 18px;  
+
+font-weight: 600;
+
 }
 
 .card p {
-    font-size: 14px;
-    color: var(--muted);
+font-size: 14px;
+
+line-height: 1.7;  
+
+color: var(--muted);
+
 }
 
-
 /* =========================================================
-   FOOTER
+FOOTER
 ========================================================= */
 
 .site-footer {
-    margin-top: 40px;
-    background: #111827;
-    color: #ffffff;
-    padding-top: 35px;
+margin-top: 25px;
+
+background: #111827;  
+
+color: #ffffff;
+
 }
 
 .footer-inner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+display: grid;
+
+grid-template-columns:  
+    1.5fr  
+    1fr  
+    1.2fr  
+    1fr;  
+
+gap: 30px;  
+
+padding-top: 35px;  
+padding-bottom: 30px;
+
 }
 
 .footer-column h3 {
-    margin-top: 0;
-    font-size: 16px;
+margin: 0 0 12px;
+
+font-size: 16px;  
+
+font-weight: 700;
+
 }
 
-.footer-column p,
-.footer-column li {
-    color: #d1d5db;
-    font-size: 13px;
-    line-height: 1.7;
+.footer-column p {
+margin: 7px 0;
+
+color: #d1d5db;  
+
+font-size: 13px;  
+
+line-height: 1.7;
+
 }
 
 .footer-column ul {
-    padding-left: 18px;
+list-style: none !important;
+
+margin: 0 !important;  
+
+padding: 0 !important;
+
 }
 
-.footer-links {
-    list-style: none;
-    padding-left: 0 !important;
+.footer-column li {
+list-style: none !important;
+
+margin-bottom: 8px;  
+
+color: #d1d5db;  
+
+font-size: 13px;
+
 }
 
-.footer-links li {
-    margin-bottom: 6px;
+.footer-links a {
+color: #d1d5db;
 }
 
 .footer-links a:hover {
-    color: #ffffff;
+color: #ffffff;
 }
 
 .copyright {
-    margin-top: 25px;
-    padding: 15px;
-    text-align: center;
-    border-top: 1px solid #374151;
-    color: #9ca3af;
-    font-size: 12px;
+padding: 13px 15px;
+
+border-top: 1px solid #374151;  
+
+text-align: center;  
+
+color: #9ca3af;  
+
+font-size: 12px;
+
 }
 
-
 /* =========================================================
-   DARK MODE
+DARK MODE
 ========================================================= */
 
 body.dark-mode {
-    --bg: #111111;
-    --card: #181818;
-    --text: #eeeeee;
-    --muted: #aaaaaa;
-    --border: #333333;
+
+--bg: #0b0f14;  
+
+--card: #111827;  
+
+--text: #f3f4f6;  
+
+--muted: #9ca3af;  
+
+--border: #263241;  
+
+--soft: #18212d;  
+
+--primary: #60a5fa;
+
+}
+
+body.dark-mode .top-bar {
+background: #05080c;
 }
 
 body.dark-mode .brand-header,
 body.dark-mode .main-nav {
-    background: #181818;
+background: var(--card);
 }
 
-body.dark-mode .live-ticker-bar,
+body.dark-mode .live-ticker-bar {
+background: #211316;
+
+border-color: #3b2024;  
+
+color: #fca5a5;
+
+}
+
 body.dark-mode .headlines-bar {
-    background: #181818;
-}
-
-body.dark-mode .theme-button {
-    background: #222222;
-    color: #ffffff;
-    border-color: #444444;
+background: var(--soft);
 }
 
 body.dark-mode .search-box input {
-    background: #222222;
-    color: #ffffff;
-    border-color: #444444;
+background: var(--card);
+
+color: var(--text);
+
 }
 
-body.dark-mode .section-heading,
-body.dark-mode .news-item {
-    border-color: #333333;
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links a.active {
+background: var(--soft);
 }
 
+body.dark-mode .ad-side {
+background: var(--soft);
+}
 
 /* =========================================================
-   DESKTOP NEWS LAYOUT
-========================================================= */
-
-/*
-   JavaScript adds:
-   feature-news
-   small-news
-   line-news
-*/
-
-.feature-news {
-    display: block !important;
-    width: 100%;
-}
-
-.feature-news img {
-    width: 100% !important;
-    height: 420px !important;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.feature-news .news-content {
-    padding: 10px 0 20px;
-}
-
-.feature-news .news-content p {
-    font-size: 25px;
-    line-height: 1.45;
-    font-weight: 600;
-}
-
-
-/* 2nd - 9th */
-
-.small-news {
-    display: flex !important;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.small-news img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.small-news .news-content {
-    padding: 8px 0 15px;
-}
-
-.small-news .news-content p {
-    font-size: 17px;
-    line-height: 1.45;
-    font-weight: 500;
-}
-
-
-/* 10th onwards */
-
-.line-news {
-    display: grid !important;
-    grid-template-columns: 1fr 145px;
-    align-items: center;
-    gap: 15px;
-    min-height: 105px;
-    padding: 12px 0;
-}
-
-.line-news img {
-    grid-column: 2;
-    grid-row: 1;
-    width: 145px;
-    height: 85px;
-    object-fit: cover;
-    border-radius: 7px;
-}
-
-.line-news .news-content {
-    grid-column: 1;
-    grid-row: 1;
-    padding: 0;
-}
-
-.line-news .news-content p {
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-
-/* =========================================================
-   NEWS 2-9 GRID WRAPPER
-========================================================= */
-
-.news-small-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 25px;
-}
-
-.news-small-grid .small-news {
-    border-bottom: 1px solid var(--border);
-    padding: 15px 0;
-}
-
-
-/* =========================================================
-   DESKTOP
-========================================================= */
-
-@media (min-width: 769px) {
-
-    main.container {
-        max-width: 1000px;
-    }
-
-    .news-small-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-}
-
-
-/* =========================================================
-   TABLET
+MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
 
-    .container {
-        width: min(100% - 24px, 700px);
-    }
+.container {  
+    width: calc(100% - 20px);  
 
-    .top-bar {
-        display: none;
-    }
+    max-width: 700px;  
+}  
 
-    .brand-inner {
-        min-height: 65px;
-    }
 
-    .logo-name {
-        font-size: 19px;
-    }
+/* =====================================================  
+   TOP BAR  
+===================================================== */  
 
-    .header-actions {
-        display: none;
-    }
+.top-bar-inner {  
+    min-height: 36px;  
+}  
 
-    .mobile-menu-toggle {
-        display: block;
-    }
+.ticker-text {  
+    display: none;  
+}  
 
-    .nav-container {
-        display: block;
-    }
 
-    .lang-selector {
-        padding: 8px 0;
-    }
+/* =====================================================  
+   HEADER  
+===================================================== */  
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding-bottom: 10px;
-    }
+.brand-inner {  
+    min-height: 76px;  
 
-    .nav-links li {
-        padding: 5px 0;
-    }
+    gap: 10px;  
+}  
 
-    .headlines-bar {
-        display: none;
-    }
+.logo-mark {  
+    width: 47px;  
 
-    .search-section {
-        margin: 15px 0;
-    }
+    height: 47px;  
 
-    .section-heading h2 {
-        font-size: 18px;
-    }
+    font-size: 11px;  
+}  
 
-    .feature-news img {
-        height: 300px !important;
-    }
+.logo-name > div {  
+    font-size: 20px;  
+}  
 
-    .feature-news .news-content p {
-        font-size: 22px;
-    }
+.logo-tagline {  
+    font-size: 9px;  
+}  
 
-    .small-news img {
-        height: 170px;
-    }
+.header-actions {  
+    margin-left: auto;  
 
-    .small-news .news-content p {
-        font-size: 16px;
-    }
+    gap: 6px;  
+}  
 
-    .line-news {
-        grid-template-columns: 1fr 120px;
-    }
+.date-time-box {  
+    display: none;  
+}  
 
-    .line-news img {
-        width: 120px;
-        height: 75px;
-    }
+.theme-button {  
+    padding: 6px 8px;  
 
-    .line-news .news-content p {
-        font-size: 15px;
-    }
+    font-size: 12px;  
+}  
 
-    .footer-inner {
-        grid-template-columns: 1fr 1fr;
-    }
+.live-button {  
+    padding: 6px 8px;  
+
+    font-size: 11px;  
+}  
+
+.mobile-menu-toggle {  
+    display: block;  
+}  
+
+
+/* =====================================================  
+   NAV  
+===================================================== */  
+
+.nav-container {  
+    position: relative;  
+
+    display: block;  
+
+    padding-top: 8px;  
+    padding-bottom: 8px;  
+}  
+
+.lang-selector {  
+    margin-bottom: 7px;  
+
+    font-size: 12px;  
+}  
+
+.nav-links {  
+    display: none;  
+
+    flex-direction: column;  
+
+    align-items: stretch;  
+
+    width: 100%;  
+}  
+
+.nav-links li,  
+.nav-links a {  
+    width: 100%;  
+}  
+
+.nav-links a {  
+    padding: 9px 10px;  
+}  
+
+
+/* =====================================================  
+   TICKERS  
+===================================================== */  
+
+.live-ticker-bar {  
+    font-size: 12px;  
+}  
+
+.headlines-bar {  
+    font-size: 12px;  
+}  
+
+
+/* =====================================================  
+   MAIN  
+===================================================== */  
+
+main.container {  
+    padding-top: 12px;  
+
+    padding-bottom: 25px;  
+}  
+
+
+/* =====================================================  
+   SEARCH  
+===================================================== */  
+
+.search-box {  
+    gap: 6px;  
+}  
+
+.search-box input {  
+    height: 40px;  
+
+    font-size: 13px;  
+}  
+
+.search-box button {  
+    height: 40px;  
+
+    padding: 0 13px;  
+
+    font-size: 13px;  
+}  
+
+
+/* =====================================================  
+   SECTION  
+===================================================== */  
+
+.section-heading {  
+    margin: 18px 0 11px;  
+}  
+
+.section-heading h2 {  
+    font-size: 17px;  
+}  
+
+
+/* =====================================================  
+   FIRST 3 NEWS  
+===================================================== */  
+
+.news-item.post:nth-child(1),  
+.news-item.post:nth-child(2),  
+.news-item.post:nth-child(3) {  
+
+    display: block !important;  
+
+    width: 100% !important;  
+
+    max-width: 320px !important;  
+
+    margin-left: 0 !important;  
+    margin-right: auto !important;  
+
+    margin-bottom: 16px !important;  
+}  
+
+
+/* IMAGE */  
+
+.news-item.post:nth-child(1) img,  
+.news-item.post:nth-child(2) img,  
+.news-item.post:nth-child(3) img {  
+
+    width: 100% !important;  
+
+    height: 205px !important;  
+
+    object-fit: cover !important;  
+}  
+
+
+/* CONTENT */  
+
+.news-item.post:nth-child(1) .news-content,  
+.news-item.post:nth-child(2) .news-content,  
+.news-item.post:nth-child(3) .news-content {  
+
+    padding: 10px 12px !important;  
+}  
+
+
+/* TITLE */  
+
+.news-item.post:nth-child(1) .news-content p,  
+.news-item.post:nth-child(2) .news-content p,  
+.news-item.post:nth-child(3) .news-content p {  
+
+    font-size: 15px !important;  
+
+    font-weight: 400 !important;  
+
+    line-height: 1.45 !important;  
+}  
+
+
+/* =====================================================  
+   4+ NEWS  
+===================================================== */  
+
+.news-item.post:nth-child(n+4) {  
+
+    display: flex !important;  
+
+    flex-direction: row-reverse !important;  
+
+    align-items: center !important;  
+
+    width: 100% !important;  
+
+    max-width: 100% !important;  
+
+    min-height: 86px !important;  
+
+    margin-bottom: 10px !important;  
+}  
+
+
+/* IMAGE */  
+
+.news-item.post:nth-child(n+4) img {  
+
+    width: 95px !important;  
+
+    min-width: 95px !important;  
+
+    height: 70px !important;  
+
+    object-fit: cover !important;  
+
+    flex-shrink: 0 !important;  
+}  
+
+
+/* CONTENT */  
+
+.news-item.post:nth-child(n+4) .news-content {  
+
+    flex: 1 !important;  
+
+    min-width: 0 !important;  
+
+    padding: 6px 9px !important;  
+}  
+
+
+/* TITLE */  
+
+.news-item.post:nth-child(n+4) .news-content p {  
+
+    font-size: 13px !important;  
+
+    font-weight: 400 !important;  
+
+    line-height: 1.4 !important;  
+}  
+
+
+/* =====================================================  
+   LIVE  
+===================================================== */  
+
+.live-screen {  
+    min-height: 120px;  
+}  
+
+
+/* =====================================================  
+   FOOTER  
+===================================================== */  
+
+.footer-inner {  
+
+    grid-template-columns: 1fr 1fr;  
+
+    gap: 22px;  
+
+    padding-top: 28px;  
+
+    padding-bottom: 25px;  
+}
 
 }
 
-
 /* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    body {
-        font-size: 15px;
-    }
-
-    .container {
-        width: calc(100% - 30px);
-    }
-
-    .brand-logo {
-        gap: 8px;
-    }
-
-    .logo-mark {
-        width: 42px;
-        height: 42px;
-    }
-
-    .logo-name {
-        font-size: 18px;
-    }
-
-    .logo-tagline {
-        font-size: 8px;
-    }
-
-    .live-ticker-bar {
-        font-size: 12px;
-    }
-
-    .search-box input {
-        font-size: 13px;
-    }
-
-    .search-box button {
-        padding: 0 13px;
-        font-size: 13px;
-    }
-
-
-    /* =============================================
-       FIRST NEWS BIG
-    ============================================= */
-
-    .feature-news img {
-        height: 300px !important;
-        border-radius: 9px;
-    }
-
-    .feature-news .news-content {
-        padding: 10px 0 18px;
-    }
-
-    .feature-news .news-content p {
-        font-size: 21px;
-        line-height: 1.45;
-        font-weight: 600;
-    }
-
-
-    /* =============================================
-       2-9 = TWO COLUMNS
-    ============================================= */
-
-    .news-small-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0 16px;
-    }
-
-    .news-small-grid .small-news {
-        padding: 13px 0;
-    }
-
-    .small-news img {
-        width: 100%;
-        height: 120px;
-        border-radius: 7px;
-    }
-
-    .small-news .news-content {
-        padding-top: 7px;
-    }
-
-    .small-news .news-content p {
-        font-size: 15px;
-        line-height: 1.45;
-        font-weight: 500;
-    }
-
-
-    /* =============================================
-       10+ = SINGLE LINE
-    ============================================= */
-
-    .line-news {
-        grid-template-columns: minmax(0, 1fr) 105px;
-        gap: 10px;
-        min-height: 90px;
-        padding: 12px 0;
-    }
-
-    .line-news img {
-        width: 105px;
-        height: 70px;
-        border-radius: 6px;
-    }
-
-    .line-news .news-content p {
-        font-size: 14px;
-        line-height: 1.45;
-        font-weight: 500;
-    }
-
-
-    /* =============================================
-       FOOTER
-    ============================================= */
-
-    .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
+VERY SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 380px) {
 
-    .container {
-        width: calc(100% - 22px);
-    }
+.container {  
+    width: calc(100% - 14px);  
+}  
 
-    .feature-news img {
-        height: 250px !important;
-    }
 
-    .feature-news .news-content p {
-        font-size: 19px;
-    }
+.logo-mark {  
+    width: 43px;  
 
-    .news-small-grid {
-        gap: 0 12px;
-    }
+    height: 43px;  
 
-    .small-news img {
-        height: 105px;
-    }
+    font-size: 10px;  
+}  
 
-    .small-news .news-content p {
-        font-size: 14px;
-    }
+.logo-name > div {  
+    font-size: 18px;  
+}  
 
-    .line-news {
-        grid-template-columns: minmax(0, 1fr) 95px;
-    }
+.theme-button {  
+    font-size: 11px;  
 
-    .line-news img {
-        width: 95px;
-        height: 65px;
-    }
+    padding: 5px 6px;  
+}  
 
-    .line-news .news-content p {
-        font-size: 13px;
-    }
+.live-button {  
+    display: none;  
+}  
+
+
+/* =====================================================  
+   FIRST 3  
+===================================================== */  
+
+.news-item.post:nth-child(1),  
+.news-item.post:nth-child(2),  
+.news-item.post:nth-child(3) {  
+
+    max-width: 310px !important;  
+}  
+
+
+.news-item.post:nth-child(1) img,  
+.news-item.post:nth-child(2) img,  
+.news-item.post:nth-child(3) img {  
+
+    height: 195px !important;  
+}  
+
+
+.news-item.post:nth-child(1) .news-content p,  
+.news-item.post:nth-child(2) .news-content p,  
+.news-item.post:nth-child(3) .news-content p {  
+
+    font-size: 14px !important;  
+}  
+
+
+/* =====================================================  
+   4+  
+===================================================== */  
+
+.news-item.post:nth-child(n+4) img {  
+
+    width: 90px !important;  
+
+    min-width: 90px !important;  
+
+    height: 65px !important;  
+}  
+
+.news-item.post:nth-child(n+4) .news-content p {  
+
+    font-size: 12px !important;  
+}  
+
+
+/* =====================================================  
+   FOOTER  
+===================================================== */  
+
+.footer-inner {  
+    grid-template-columns: 1fr;  
+}
 
 }
+
+/* =========================================================
+FORCE NEWS CONTENT CLEAN
+========================================================= */
+
+.news-item.post .news-content > * {
+margin-top: 0 !important;
+}
+
+.news-item.post .news-content p + p {
+margin-top: 0 !important;
+}
+
+/* =========================================================
+REMOVE UNWANTED HEADING STYLES INSIDE NEWS
+========================================================= */
+
+.news-item.post h1,
+.news-item.post h2,
+.news-item.post h3,
+.news-item.post h4,
+.news-item.post h5,
+.news-item.post h6 {
+
+font-size: inherit !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.45 !important;
+
+}
+
+/* =========================================================
+NEWS CARD HOVER
+========================================================= */
+
+.news-item.post {
+transition:
+border-color 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.news-item.post:hover {
+border-color: #d1d5db !important;
+}
+
+/* =========================================================
+END
+========================================================= /
+/ =========================================================
+BS360 NEWS CARD - FINAL FIX
+REMOVE OLD CARD LAYOUT PROBLEMS
+========================================================= */
+
+/* NEWS AREA */
+.news-list,
+.news-grid,
+.posts,
+.posts-container {
+width: 100% !important;
+display: block !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+
+/* =========================================================
+ALL NEWS CARDS
+========================================================= */
+
+.news-item.post {
+position: relative !important;
+
+display: block !important;  
+
+width: 100% !important;  
+max-width: 100% !important;  
+
+margin: 0 0 14px 0 !important;  
+padding: 0 !important;  
+
+background: var(--card) !important;  
+
+border: 1px solid var(--border) !important;  
+border-radius: 8px !important;  
+
+overflow: hidden !important;  
+
+box-sizing: border-box !important;  
+
+float: none !important;  
+
+clear: none !important;
+
+}
+
+/* =========================================================
+REMOVE UNWANTED CATEGORY / LABELS
+========================================================= */
+
+.news-item.post .category,
+.news-item.post .categories,
+.news-item.post .post-category,
+.news-item.post .news-category,
+.news-item.post .category-label,
+.news-item.post .badge,
+.news-item.post .tag,
+.news-item.post .post-tag {
+display: none !important;
+}
+
+/* =========================================================
+REMOVE READ MORE / META / SHARE
+========================================================= */
+
+.news-item.post .share-row,
+.news-item.post .share,
+.news-item.post .share-buttons,
+.news-item.post .read-more,
+.news-item.post .readmore,
+.news-item.post .read-more-link,
+.news-item.post .post-meta,
+.news-item.post .meta,
+.news-item.post .news-meta,
+.news-item.post .latest,
+.news-item.post .update {
+display: none !important;
+}
+
+/* =========================================================
+DESCRIPTION REMOVE
+========================================================= */
+
+.news-item.post .news-description,
+.news-item.post .description,
+.news-item.post .excerpt,
+.news-item.post .summary {
+display: none !important;
+}
+
+/* =========================================================
+IMAGE
+========================================================= */
+
+.news-item.post img {
+display: block !important;
+
+width: 100% !important;  
+max-width: 100% !important;  
+
+height: 210px !important;  
+
+margin: 0 !important;  
+padding: 0 !important;  
+
+object-fit: cover !important;  
+
+box-sizing: border-box !important;
+
+}
+
+/* =========================================================
+CONTENT
+========================================================= */
+
+.news-item.post .news-content {
+display: block !important;
+
+width: 100% !important;  
+max-width: 100% !important;  
+
+margin: 0 !important;  
+
+padding: 9px 11px !important;  
+
+box-sizing: border-box !important;  
+
+overflow: hidden !important;
+
+}
+
+/* =========================================================
+TITLE
+========================================================= */
+
+.news-item.post .news-content p,
+.news-item.post .news-content h1,
+.news-item.post .news-content h2,
+.news-item.post .news-content h3,
+.news-item.post .news-content h4,
+.news-item.post .news-content h5,
+.news-item.post .news-content h6 {
+
+display: block !important;  
+
+margin: 0 !important;  
+padding: 0 !important;  
+
+font-size: 14px !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.45 !important;  
+
+color: var(--text) !important;  
+
+word-break: break-word !important;  
+overflow-wrap: anywhere !important;
+
+}
+
+/* =========================================================
+FIRST NEWS
+========================================================= */
+
+.news-item.post:first-of-type {
+display: block !important;
+
+width: 100% !important;  
+max-width: 100% !important;  
+
+margin-bottom: 16px !important;
+
+}
+
+.news-item.post:first-of-type img {
+width: 100% !important;
+height: 240px !important;
+}
+
+.news-item.post:first-of-type .news-content {
+padding: 10px 12px !important;
+}
+
+.news-item.post:first-of-type .news-content p {
+font-size: 16px !important;
+font-weight: 400 !important;
+line-height: 1.4 !important;
+}
+
+/* =========================================================
+NEWS 2 - 9
+DESKTOP
+========================================================= */
+
+.news-item.post:nth-of-type(2),
+.news-item.post:nth-of-type(3),
+.news-item.post:nth-of-type(4),
+.news-item.post:nth-of-type(5),
+.news-item.post:nth-of-type(6),
+.news-item.post:nth-of-type(7),
+.news-item.post:nth-of-type(8),
+.news-item.post:nth-of-type(9) {
+
+display: inline-block !important;  
+
+vertical-align: top !important;  
+
+width: calc(50% - 8px) !important;  
+
+max-width: calc(50% - 8px) !important;  
+
+margin-right: 12px !important;  
+
+margin-bottom: 14px !important;  
+
+clear: none !important;  
+
+float: none !important;
+
+}
+
+/* RIGHT SIDE */
+.news-item.post:nth-of-type(3),
+.news-item.post:nth-of-type(5),
+.news-item.post:nth-of-type(7),
+.news-item.post:nth-of-type(9) {
+margin-right: 0 !important;
+}
+
+/* =========================================================
+2 - 9 IMAGES
+========================================================= */
+
+.news-item.post:nth-of-type(2) img,
+.news-item.post:nth-of-type(3) img,
+.news-item.post:nth-of-type(4) img,
+.news-item.post:nth-of-type(5) img,
+.news-item.post:nth-of-type(6) img,
+.news-item.post:nth-of-type(7) img,
+.news-item.post:nth-of-type(8) img,
+.news-item.post:nth-of-type(9) img {
+
+width: 100% !important;  
+
+height: 145px !important;  
+
+object-fit: cover !important;
+
+}
+
+/* =========================================================
+2 - 9 TITLE
+========================================================= */
+
+.news-item.post:nth-of-type(2) .news-content p,
+.news-item.post:nth-of-type(3) .news-content p,
+.news-item.post:nth-of-type(4) .news-content p,
+.news-item.post:nth-of-type(5) .news-content p,
+.news-item.post:nth-of-type(6) .news-content p,
+.news-item.post:nth-of-type(7) .news-content p,
+.news-item.post:nth-of-type(8) .news-content p,
+.news-item.post:nth-of-type(9) .news-content p {
+
+font-size: 13px !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.4 !important;  
+
+word-break: break-word !important;
+
+}
+
+/* =========================================================
+10+ NEWS
+NORMAL FULL WIDTH LIST
+========================================================= */
+
+.news-item.post:nth-of-type(n+10) {
+
+display: flex !important;  
+
+flex-direction: row-reverse !important;  
+
+align-items: center !important;  
+
+width: 100% !important;  
+max-width: 100% !important;  
+
+min-height: 90px !important;  
+
+margin: 0 0 10px 0 !important;  
+
+float: none !important;
+
+}
+
+/* 10+ IMAGE */
+
+.news-item.post:nth-of-type(n+10) img {
+
+width: 110px !important;  
+
+min-width: 110px !important;  
+
+max-width: 110px !important;  
+
+height: 78px !important;  
+
+object-fit: cover !important;  
+
+flex-shrink: 0 !important;
+
+}
+
+/* 10+ CONTENT */
+
+.news-item.post:nth-of-type(n+10) .news-content {
+
+flex: 1 1 auto !important;  
+
+min-width: 0 !important;  
+
+padding: 7px 10px !important;
+
+}
+
+/* 10+ TITLE */
+
+.news-item.post:nth-of-type(n+10) .news-content p {
+
+font-size: 13px !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.4 !important;
+
+}
+
+/* =========================================================
+MOBILE FINAL
+========================================================= */
+
+@media (max-width: 768px) {
+
+.news-list,  
+.news-grid,  
+.posts,  
+.posts-container {  
+    width: 100% !important;  
+    display: block !important;  
+    padding: 0 !important;  
+    margin: 0 !important;  
+}  
+
+
+/* ALL CARDS */  
+
+.news-item.post {  
+
+    box-sizing: border-box !important;  
+
+    max-width: 100% !important;  
+
+    overflow: hidden !important;  
+
+    float: none !important;  
+}  
+
+
+/* FIRST */  
+
+.news-item.post:first-of-type {  
+
+    width: 100% !important;  
+
+    max-width: 100% !important;  
+
+    display: block !important;  
+}  
+
+.news-item.post:first-of-type img {  
+
+    width: 100% !important;  
+
+    height: 220px !important;  
+}  
+
+.news-item.post:first-of-type .news-content p {  
+
+    font-size: 16px !important;  
+
+    font-weight: 400 !important;  
+
+    line-height: 1.4 !important;  
+}  
+
+
+/* =====================================================  
+   2 - 9 MOBILE TWO COLUMNS  
+===================================================== */  
+
+.news-item.post:nth-of-type(2),  
+.news-item.post:nth-of-type(3),  
+.news-item.post:nth-of-type(4),  
+.news-item.post:nth-of-type(5),  
+.news-item.post:nth-of-type(6),  
+.news-item.post:nth-of-type(7),  
+.news-item.post:nth-of-type(8),  
+.news-item.post:nth-of-type(9) {  
+
+    display: inline-block !important;  
+
+    vertical-align: top !important;  
+
+    width: calc(50% - 5px) !important;  
+
+    max-width: calc(50% - 5px) !important;  
+
+    margin-right: 8px !important;  
+
+    margin-bottom: 10px !important;  
+
+    float: none !important;  
+}  
+
+
+/* RIGHT */  
+
+.news-item.post:nth-of-type(3),  
+.news-item.post:nth-of-type(5),  
+.news-item.post:nth-of-type(7),  
+.news-item.post:nth-of-type(9) {  
+
+    margin-right: 0 !important;  
+}  
+
+
+/* IMAGE */  
+
+.news-item.post:nth-of-type(2) img,  
+.news-item.post:nth-of-type(3) img,  
+.news-item.post:nth-of-type(4) img,  
+.news-item.post:nth-of-type(5) img,  
+.news-item.post:nth-of-type(6) img,  
+.news-item.post:nth-of-type(7) img,  
+.news-item.post:nth-of-type(8) img,  
+.news-item.post:nth-of-type(9) img {  
+
+    width: 100% !important;  
+
+    height: 115px !important;  
+
+    object-fit: cover !important;  
+}  
+
+
+/* TITLE */  
+
+.news-item.post:nth-of-type(2) .news-content p,  
+.news-item.post:nth-of-type(3) .news-content p,  
+.news-item.post:nth-of-type(4) .news-content p,  
+.news-item.post:nth-of-type(5) .news-content p,  
+.news-item.post:nth-of-type(6) .news-content p,  
+.news-item.post:nth-of-type(7) .news-content p,  
+.news-item.post:nth-of-type(8) .news-content p,  
+.news-item.post:nth-of-type(9) .news-content p {  
+
+    font-size: 12px !important;  
+
+    font-weight: 400 !important;  
+
+    line-height: 1.4 !important;  
+
+    word-break: break-word !important;  
+
+    overflow-wrap: anywhere !important;  
+}  
+
+
+/* =====================================================  
+   10+  
+===================================================== */  
+
+.news-item.post:nth-of-type(n+10) {  
+
+    display: flex !important;  
+
+    width: 100% !important;  
+
+    max-width: 100% !important;  
+
+    min-height: 80px !important;  
+
+    margin-bottom: 9px !important;  
+}  
+
+
+.news-item.post:nth-of-type(n+10) img {  
+
+    width: 90px !important;  
+
+    min-width: 90px !important;  
+
+    max-width: 90px !important;  
+
+    height: 65px !important;  
+}  
+
+
+.news-item.post:nth-of-type(n+10) .news-content {  
+
+    padding: 6px 9px !important;  
+}  
+
+
+.news-item.post:nth-of-type(n+10) .news-content p {  
+
+    font-size: 12px !important;  
+
+    font-weight: 400 !important;  
+
+    line-height: 1.4 !important;  
+}
+
+}
+
+/* =========================================================
+VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+.news-item.post:first-of-type img {  
+    height: 200px !important;  
+}  
+
+.news-item.post:nth-of-type(2) img,  
+.news-item.post:nth-of-type(3) img,  
+.news-item.post:nth-of-type(4) img,  
+.news-item.post:nth-of-type(5) img,  
+.news-item.post:nth-of-type(6) img,  
+.news-item.post:nth-of-type(7) img,  
+.news-item.post:nth-of-type(8) img,  
+.news-item.post:nth-of-type(9) img {  
+    height: 105px !important;  
+}  
+
+.news-item.post:nth-of-type(2) .news-content p,  
+.news-item.post:nth-of-type(3) .news-content p,  
+.news-item.post:nth-of-type(4) .news-content p,  
+.news-item.post:nth-of-type(5) .news-content p,  
+.news-item.post:nth-of-type(6) .news-content p,  
+.news-item.post:nth-of-type(7) .news-content p,  
+.news-item.post:nth-of-type(8) .news-content p,  
+.news-item.post:nth-of-type(9) .news-content p {  
+    font-size: 11.5px !important;  
+}
+
+}
+/* =========================================================
+BS 360 NEWS
+FINAL 2 COLUMN FIX
+========================================================= */
+
+/* NEWS CONTAINER */
+.news-list,
+.news-grid,
+.posts,
+.posts-container {
+width: 100% !important;
+}
+
+/* =========================================================
+FIRST NEWS - FULL WIDTH
+========================================================= */
+
+.news-item.post:first-of-type {
+display: block !important;
+width: 100% !important;
+max-width: 100% !important;
+margin: 0 0 16px 0 !important;
+}
+
+/* =========================================================
+NEWS 2 - 9
+FORCE TWO COLUMNS
+========================================================= */
+
+.news-item.post:nth-of-type(2),
+.news-item.post:nth-of-type(3),
+.news-item.post:nth-of-type(4),
+.news-item.post:nth-of-type(5),
+.news-item.post:nth-of-type(6),
+.news-item.post:nth-of-type(7),
+.news-item.post:nth-of-type(8),
+.news-item.post:nth-of-type(9) {
+
+display: inline-block !important;  
+
+vertical-align: top !important;  
+
+width: calc(50% - 6px) !important;  
+
+max-width: calc(50% - 6px) !important;  
+
+margin-right: 8px !important;  
+
+margin-bottom: 12px !important;  
+
+float: none !important;  
+
+clear: none !important;  
+
+overflow: hidden !important;
+
+}
+
+/* EVERY EVEN CARD - RIGHT SIDE */
+.news-item.post:nth-of-type(3),
+.news-item.post:nth-of-type(5),
+.news-item.post:nth-of-type(7),
+.news-item.post:nth-of-type(9) {
+
+margin-right: 0 !important;
+
+}
+
+/* =========================================================
+2 - 9 IMAGES
+========================================================= */
+
+.news-item.post:nth-of-type(2) img,
+.news-item.post:nth-of-type(3) img,
+.news-item.post:nth-of-type(4) img,
+.news-item.post:nth-of-type(5) img,
+.news-item.post:nth-of-type(6) img,
+.news-item.post:nth-of-type(7) img,
+.news-item.post:nth-of-type(8) img,
+.news-item.post:nth-of-type(9) img {
+
+width: 100% !important;  
+
+height: 135px !important;  
+
+max-width: 100% !important;  
+
+object-fit: cover !important;  
+
+display: block !important;
+
+}
+
+/* =========================================================
+2 - 9 TITLE
+========================================================= */
+
+.news-item.post:nth-of-type(2) .news-content p,
+.news-item.post:nth-of-type(3) .news-content p,
+.news-item.post:nth-of-type(4) .news-content p,
+.news-item.post:nth-of-type(5) .news-content p,
+.news-item.post:nth-of-type(6) .news-content p,
+.news-item.post:nth-of-type(7) .news-content p,
+.news-item.post:nth-of-type(8) .news-content p,
+.news-item.post:nth-of-type(9) .news-content p {
+
+font-size: 13px !important;  
+
+font-weight: 400 !important;  
+
+line-height: 1.4 !important;  
+
+margin: 0 !important;
+
+}
+
+/* =========================================================
+10+ CLEAR TWO COLUMN
+========================================================= */
+
+.news-item.post:nth-of-type(n+10) {
+
+display: flex !important;  
+
+flex-direction: row-reverse !important;  
+
+width: 100% !important;  
+
+max-width: 100% !important;  
+
+margin-right: 0 !important;  
+
+clear: both !important;  
+
+float: none !important;
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+.news-item.post:nth-of-type(2),  
+.news-item.post:nth-of-type(3),  
+.news-item.post:nth-of-type(4),  
+.news-item.post:nth-of-type(5),  
+.news-item.post:nth-of-type(6),  
+.news-item.post:nth-of-type(7),  
+.news-item.post:nth-of-type(8),  
+.news-item.post:nth-of-type(9) {  
+
+    display: inline-block !important;  
+
+    vertical-align: top !important;  
+
+    width: calc(50% - 4px) !important;  
+
+    max-width: calc(50% - 4px) !important;  
+
+    margin-right: 5px !important;  
+
+    margin-bottom: 10px !important;  
+
+    float: none !important;  
+
+    clear: none !important;  
+}  
+
+
+.news-item.post:nth-of-type(3),  
+.news-item.post:nth-of-type(5),  
+.news-item.post:nth-of-type(7),  
+.news-item.post:nth-of-type(9) {  
+
+    margin-right: 0 !important;  
+}  
+
+
+.news-item.post:nth-of-type(2) img,  
+.news-item.post:nth-of-type(3) img,  
+.news-item.post:nth-of-type(4) img,  
+.news-item.post:nth-of-type(5) img,  
+.news-item.post:nth-of-type(6) img,  
+.news-item.post:nth-of-type(7) img,  
+.news-item.post:nth-of-type(8) img,  
+.news-item.post:nth-of-type(9) img {  
+
+    width: 100% !important;  
+
+    height: 115px !important;  
+
+    object-fit: cover !important;  
+}
+
+}
+Nuvu tisesi migilina code evu full
