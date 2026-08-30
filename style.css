@@ -1,14 +1,16 @@
 /* =========================================================
-BS 360 NEWS
-COMPLETE WEBSITE CSS
-CLEAN NEWS CARD LAYOUT
-MOBILE + DESKTOP
-DARK MODE
+   BS 360 NEWS
+   FINAL CLEAN CSS
+   1 BIG POST
+   2-6 TWO COLUMN
+   7+ IMAGE LEFT + TEXT RIGHT
+   MOBILE + DESKTOP
+   DARK MODE
 ========================================================= */
 
 
 /* =========================================================
-ROOT
+   ROOT
 ========================================================= */
 
 :root {
@@ -25,7 +27,7 @@ ROOT
 
 
 /* =========================================================
-RESET
+   RESET
 ========================================================= */
 
 *,
@@ -78,7 +80,7 @@ select {
 
 
 /* =========================================================
-CONTAINER
+   CONTAINER
 ========================================================= */
 
 .container {
@@ -89,17 +91,14 @@ CONTAINER
 
 
 /* =========================================================
-TOP BREAKING BAR
+   TOP BREAKING BAR
 ========================================================= */
 
 .top-bar {
     width: 100%;
-
     background: #111827;
     color: #ffffff;
-
     border-bottom: 1px solid #1f2937;
-
     font-size: 13px;
 }
 
@@ -128,7 +127,6 @@ TOP BREAKING BAR
 .top-controls {
     display: flex;
     gap: 5px;
-
     flex-shrink: 0;
 }
 
@@ -147,14 +145,12 @@ TOP BREAKING BAR
 
 
 /* =========================================================
-BRAND HEADER
+   BRAND HEADER
 ========================================================= */
 
 .brand-header {
     width: 100%;
-
     background: var(--card);
-
     border-bottom: 1px solid var(--border);
 }
 
@@ -171,7 +167,6 @@ BRAND HEADER
 .brand-logo {
     display: flex;
     align-items: center;
-
     gap: 12px;
 }
 
@@ -191,21 +186,18 @@ BRAND HEADER
 
     font-size: 13px;
     font-weight: 800;
-
     line-height: 1.05;
 }
 
 .logo-name {
     display: flex;
     flex-direction: column;
-
     line-height: 1.15;
 }
 
 .logo-name > div {
     font-size: 25px;
     font-weight: 800;
-
     letter-spacing: -0.5px;
 }
 
@@ -215,9 +207,7 @@ BRAND HEADER
 
 .logo-tagline {
     margin-top: 4px;
-
     color: var(--muted);
-
     font-size: 11px;
     letter-spacing: 1px;
 }
@@ -225,7 +215,6 @@ BRAND HEADER
 .header-actions {
     display: flex;
     align-items: center;
-
     gap: 10px;
 }
 
@@ -235,18 +224,15 @@ BRAND HEADER
     align-items: flex-end;
 
     color: var(--muted);
-
     font-size: 12px;
 }
 
 .theme-button {
     border: 1px solid var(--border);
-
     background: var(--card);
     color: var(--text);
 
     padding: 7px 11px;
-
     border-radius: 6px;
 
     cursor: pointer;
@@ -255,14 +241,12 @@ BRAND HEADER
 .live-button {
     display: inline-flex;
     align-items: center;
-
     gap: 6px;
 
     background: #dc2626;
     color: #ffffff;
 
     padding: 7px 12px;
-
     border-radius: 6px;
 
     font-size: 12px;
@@ -274,7 +258,6 @@ BRAND HEADER
     height: 7px;
 
     background: #ffffff;
-
     border-radius: 50%;
 
     animation: livePulse 1.3s infinite;
@@ -296,12 +279,10 @@ BRAND HEADER
     display: none;
 
     border: 1px solid var(--border);
-
     background: var(--card);
     color: var(--text);
 
     border-radius: 6px;
-
     padding: 7px 10px;
 
     cursor: pointer;
@@ -309,14 +290,12 @@ BRAND HEADER
 
 
 /* =========================================================
-NAVIGATION
+   NAVIGATION
 ========================================================= */
 
 .main-nav {
     width: 100%;
-
     background: var(--card);
-
     border-bottom: 1px solid var(--border);
 }
 
@@ -331,15 +310,12 @@ NAVIGATION
 
 .lang-selector {
     color: var(--muted);
-
     font-size: 13px;
-
     white-space: nowrap;
 }
 
 .lang-selector .active {
     color: var(--primary);
-
     font-weight: 700;
 }
 
@@ -359,7 +335,6 @@ NAVIGATION
 
 .nav-links li {
     list-style: none !important;
-
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -374,27 +349,24 @@ NAVIGATION
     color: var(--text);
 
     font-size: 13px;
-
     white-space: nowrap;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     background: var(--soft);
-
     color: var(--primary);
 }
 
 
 /* =========================================================
-LIVE TICKER
+   LIVE TICKER
 ========================================================= */
 
 .live-ticker-bar {
     width: 100%;
 
     background: #fff5f5;
-
     border-bottom: 1px solid #fee2e2;
 
     color: #991b1b;
@@ -413,20 +385,18 @@ LIVE TICKER
 
 .live-tag {
     font-weight: 800;
-
     white-space: nowrap;
 }
 
 
 /* =========================================================
-HEADLINES
+   HEADLINES
 ========================================================= */
 
 .headlines-bar {
     width: 100%;
 
     background: var(--soft);
-
     border-bottom: 1px solid var(--border);
 
     font-size: 13px;
@@ -434,7 +404,6 @@ HEADLINES
 
 .headlines-bar .container {
     min-height: 38px;
-
     overflow: hidden;
 }
 
@@ -447,13 +416,12 @@ HEADLINES
     padding-right: 14px;
 
     font-weight: 700;
-
     white-space: nowrap;
 }
 
 
 /* =========================================================
-MAIN
+   MAIN
 ========================================================= */
 
 main.container {
@@ -463,7 +431,7 @@ main.container {
 
 
 /* =========================================================
-SEARCH
+   SEARCH
 ========================================================= */
 
 .search-section {
@@ -482,11 +450,9 @@ SEARCH
     flex: 1;
 
     min-width: 0;
-
     height: 42px;
 
     border: 1px solid var(--border);
-
     border-radius: 7px;
 
     background: var(--card);
@@ -507,25 +473,22 @@ SEARCH
     padding: 0 18px;
 
     border: 0;
-
     border-radius: 7px;
 
     background: var(--primary);
     color: #ffffff;
 
     cursor: pointer;
-
     font-weight: 600;
 }
 
 
 /* =========================================================
-LIVE AREA
+   LIVE AREA
 ========================================================= */
 
 .top-featured-grid {
     width: 100%;
-
     margin-bottom: 20px;
 }
 
@@ -569,7 +532,6 @@ LIVE AREA
 
 .live-logo {
     font-size: 16px;
-
     font-weight: 800;
 }
 
@@ -577,7 +539,6 @@ LIVE AREA
     padding: 10px 13px;
 
     color: var(--muted);
-
     font-size: 12px;
 }
 
@@ -600,7 +561,7 @@ LIVE AREA
 
 
 /* =========================================================
-ADS
+   ADS
 ========================================================= */
 
 .adsbygoogle {
@@ -610,7 +571,7 @@ ADS
 
 
 /* =========================================================
-SECTION HEADING
+   SECTION HEADING
 ========================================================= */
 
 .section-heading {
@@ -632,7 +593,7 @@ SECTION HEADING
 
 
 /* =========================================================
-NEWS AREA
+   NEWS AREA
 ========================================================= */
 
 .news-list,
@@ -641,43 +602,40 @@ NEWS AREA
 .posts-container {
     width: 100% !important;
 
-    display: block !important;
-
     margin: 0 !important;
     padding: 0 !important;
 }
 
 
 /* =========================================================
-ALL NEWS CARDS
+   ALL NEWS CARDS
 ========================================================= */
 
 .news-item.post {
-    position: relative !important;
-
-    box-sizing: border-box !important;
+    position: relative;
 
     background: var(--card) !important;
 
     border: 1px solid var(--border) !important;
 
-    border-radius: 8px !important;
+    border-radius: 9px !important;
 
     overflow: hidden !important;
 
-    padding: 0 !important;
-
     margin: 0 0 12px 0 !important;
+    padding: 0 !important;
 
     color: var(--text) !important;
 
+    box-sizing: border-box !important;
+
     box-shadow: none !important;
+
+    cursor: pointer;
 
     float: none !important;
 
     clear: none !important;
-
-    cursor: pointer;
 
     transition:
         border-color 0.2s ease,
@@ -690,23 +648,7 @@ ALL NEWS CARDS
 
 
 /* =========================================================
-REMOVE DEFAULT SPACING
-========================================================= */
-
-.news-item.post h1,
-.news-item.post h2,
-.news-item.post h3,
-.news-item.post h4,
-.news-item.post h5,
-.news-item.post h6,
-.news-item.post p {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-
-/* =========================================================
-REMOVE CATEGORY / LABELS
+   REMOVE UNWANTED ELEMENTS
 ========================================================= */
 
 .news-item.post .category,
@@ -716,15 +658,11 @@ REMOVE CATEGORY / LABELS
 .news-item.post .category-label,
 .news-item.post .badge,
 .news-item.post .tag,
-.news-item.post .post-tag {
-    display: none !important;
-}
-
-
-/* =========================================================
-REMOVE META / SHARE / READ MORE
-========================================================= */
-
+.news-item.post .post-tag,
+.news-item.post .news-description,
+.news-item.post .description,
+.news-item.post .excerpt,
+.news-item.post .summary,
 .news-item.post .share-row,
 .news-item.post .share,
 .news-item.post .share-buttons,
@@ -741,26 +679,28 @@ REMOVE META / SHARE / READ MORE
 
 
 /* =========================================================
-REMOVE DESCRIPTION
+   REMOVE DEFAULT SPACING
 ========================================================= */
 
-.news-item.post .news-description,
-.news-item.post .description,
-.news-item.post .excerpt,
-.news-item.post .summary {
-    display: none !important;
+.news-item.post h1,
+.news-item.post h2,
+.news-item.post h3,
+.news-item.post h4,
+.news-item.post h5,
+.news-item.post h6,
+.news-item.post p {
+    margin: 0 !important;
 }
 
 
 /* =========================================================
-NEWS IMAGE COMMON
+   COMMON IMAGE
 ========================================================= */
 
 .news-item.post img {
     display: block !important;
 
     width: 100% !important;
-
     max-width: 100% !important;
 
     margin: 0 !important;
@@ -775,31 +715,18 @@ NEWS IMAGE COMMON
 
 
 /* =========================================================
-NEWS CONTENT COMMON
+   COMMON CONTENT
 ========================================================= */
 
 .news-item.post .news-content {
-    display: block !important;
-
-    width: 100% !important;
-
-    max-width: 100% !important;
-
     min-width: 0 !important;
 
     margin: 0 !important;
-
-    padding: 9px 11px !important;
 
     box-sizing: border-box !important;
 
     overflow: hidden !important;
 }
-
-
-/* =========================================================
-NEWS TITLE COMMON
-========================================================= */
 
 .news-item.post .news-content p,
 .news-item.post .news-content h1,
@@ -810,7 +737,6 @@ NEWS TITLE COMMON
 .news-item.post .news-content h6 {
     display: block !important;
 
-    margin: 0 !important;
     padding: 0 !important;
 
     color: var(--text) !important;
@@ -828,37 +754,39 @@ NEWS TITLE COMMON
 
 
 /* =========================================================
-POST 1
-FULL WIDTH
-IMAGE TOP + TITLE BELOW
+   1ST POST
+   BIG FEATURED NEWS
 ========================================================= */
 
 .news-item.post:nth-of-type(1) {
+
     display: block !important;
 
     width: 100% !important;
-
     max-width: 100% !important;
 
     margin-left: 0 !important;
     margin-right: 0 !important;
 
-    margin-bottom: 16px !important;
+    margin-bottom: 18px !important;
 }
 
 .news-item.post:nth-of-type(1) img {
+
     width: 100% !important;
 
-    height: 370px !important;
+    height: 300px !important;
 
     object-fit: cover !important;
 }
 
 .news-item.post:nth-of-type(1) .news-content {
-    padding: 10px 12px !important;
+
+    padding: 12px 14px !important;
 }
 
 .news-item.post:nth-of-type(1) .news-content p {
+
     font-size: 18px !important;
 
     font-weight: 400 !important;
@@ -868,129 +796,114 @@ IMAGE TOP + TITLE BELOW
 
 
 /* =========================================================
-POST 2 - 9
-TWO COLUMN GRID
+   NEWS 2 - 6
+   TWO COLUMN
 ========================================================= */
 
 .news-item.post:nth-of-type(2),
 .news-item.post:nth-of-type(3),
 .news-item.post:nth-of-type(4),
 .news-item.post:nth-of-type(5),
-.news-item.post:nth-of-type(6),
-.news-item.post:nth-of-type(7),
-.news-item.post:nth-of-type(8),
-.news-item.post:nth-of-type(9) {
+.news-item.post:nth-of-type(6) {
+
     display: inline-block !important;
 
     vertical-align: top !important;
 
-    width: calc(50% - 6px) !important;
+    width: calc(50% - 7px) !important;
 
-    max-width: calc(50% - 6px) !important;
+    max-width: calc(50% - 7px) !important;
 
-    margin-left: 0 !important;
-
-    margin-bottom: 12px !important;
-
-    float: none !important;
+    margin-bottom: 14px !important;
 
     clear: none !important;
 
-    overflow: hidden !important;
+    float: none !important;
 }
 
 
-/* LEFT COLUMN */
-
+/* LEFT */
 .news-item.post:nth-of-type(2),
 .news-item.post:nth-of-type(4),
-.news-item.post:nth-of-type(6),
-.news-item.post:nth-of-type(8) {
+.news-item.post:nth-of-type(6) {
+
+    margin-left: 0 !important;
+
     margin-right: 10px !important;
 }
 
 
-/* RIGHT COLUMN */
-
+/* RIGHT */
 .news-item.post:nth-of-type(3),
-.news-item.post:nth-of-type(5),
-.news-item.post:nth-of-type(7),
-.news-item.post:nth-of-type(9) {
+.news-item.post:nth-of-type(5) {
+
+    margin-left: 0 !important;
+
     margin-right: 0 !important;
 }
 
 
 /* =========================================================
-POST 2 - 9 IMAGES
+   2 - 6 IMAGE
 ========================================================= */
 
 .news-item.post:nth-of-type(2) img,
 .news-item.post:nth-of-type(3) img,
 .news-item.post:nth-of-type(4) img,
 .news-item.post:nth-of-type(5) img,
-.news-item.post:nth-of-type(6) img,
-.news-item.post:nth-of-type(7) img,
-.news-item.post:nth-of-type(8) img,
-.news-item.post:nth-of-type(9) img {
+.news-item.post:nth-of-type(6) img {
+
     width: 100% !important;
 
-    height: 135px !important;
-
-    max-width: 100% !important;
+    height: 170px !important;
 
     object-fit: cover !important;
-
-    display: block !important;
 }
 
 
 /* =========================================================
-POST 2 - 9 CONTENT
+   2 - 6 CONTENT
 ========================================================= */
 
 .news-item.post:nth-of-type(2) .news-content,
 .news-item.post:nth-of-type(3) .news-content,
 .news-item.post:nth-of-type(4) .news-content,
 .news-item.post:nth-of-type(5) .news-content,
-.news-item.post:nth-of-type(6) .news-content,
-.news-item.post:nth-of-type(7) .news-content,
-.news-item.post:nth-of-type(8) .news-content,
-.news-item.post:nth-of-type(9) .news-content {
-    padding: 9px 10px !important;
+.news-item.post:nth-of-type(6) .news-content {
+
+    padding: 9px 11px !important;
 }
 
 
 /* =========================================================
-POST 2 - 9 TITLES
+   2 - 6 TITLE
 ========================================================= */
 
 .news-item.post:nth-of-type(2) .news-content p,
 .news-item.post:nth-of-type(3) .news-content p,
 .news-item.post:nth-of-type(4) .news-content p,
 .news-item.post:nth-of-type(5) .news-content p,
-.news-item.post:nth-of-type(6) .news-content p,
-.news-item.post:nth-of-type(7) .news-content p,
-.news-item.post:nth-of-type(8) .news-content p,
-.news-item.post:nth-of-type(9) .news-content p {
-    font-size: 16px !important;
+.news-item.post:nth-of-type(6) .news-content p {
+
+    font-size: 14px !important;
 
     font-weight: 400 !important;
 
-    line-height: 1.45 !important;
-
-    margin: 0 !important;
+    line-height: 1.4 !important;
 }
 
 
 /* =========================================================
-POST 10+
-TEXT LEFT + IMAGE RIGHT
+   7+ NEWS
+   IMAGE LEFT + TEXT RIGHT
+   SINGLE ROW
 ========================================================= */
 
-.news-item.post:nth-of-type(n+10) {
+.news-item.post:nth-of-type(n+7) {
+
     display: flex !important;
 
-    flex-direction: row-reverse !important;
+    flex-direction: row !important;
 
     align-items: center !important;
 
@@ -998,10 +911,9 @@ TEXT LEFT + IMAGE RIGHT
 
     max-width: 100% !important;
 
-    min-height: 90px !important;
+    min-height: 100px !important;
 
     margin-left: 0 !important;
-
     margin-right: 0 !important;
 
     margin-bottom: 10px !important;
@@ -1013,17 +925,18 @@ TEXT LEFT + IMAGE RIGHT
 
 
 /* =========================================================
-POST 10+ IMAGE
+   7+ IMAGE LEFT
 ========================================================= */
 
-.news-item.post:nth-of-type(n+10) img {
-    width: 110px !important;
+.news-item.post:nth-of-type(n+7) img {
 
-    min-width: 110px !important;
+    width: 145px !important;
 
-    max-width: 110px !important;
+    min-width: 145px !important;
 
-    height: 78px !important;
+    max-width: 145px !important;
+
+    height: 95px !important;
 
     object-fit: cover !important;
 
@@ -1032,37 +945,37 @@ POST 10+ IMAGE
 
 
 /* =========================================================
-POST 10+ CONTENT
+   7+ CONTENT RIGHT
 ========================================================= */
 
-.news-item.post:nth-of-type(n+10) .news-content {
+.news-item.post:nth-of-type(n+7) .news-content {
+
     flex: 1 1 auto !important;
 
     width: auto !important;
 
     min-width: 0 !important;
 
-    padding: 7px 10px !important;
+    padding: 9px 12px !important;
 }
 
 
 /* =========================================================
-POST 10+ TITLE
+   7+ TITLE
 ========================================================= */
 
-.news-item.post:nth-of-type(n+10) .news-content p {
-    font-size: 16px !important;
+.news-item.post:nth-of-type(n+7) .news-content p {
+
+    font-size: 14px !important;
 
     font-weight: 400 !important;
 
     line-height: 1.45 !important;
-
-    margin: 0 !important;
 }
 
 
 /* =========================================================
-HIDDEN POSTS
+   HIDDEN POSTS
 ========================================================= */
 
 .news-item.post.hidden {
@@ -1071,7 +984,7 @@ HIDDEN POSTS
 
 
 /* =========================================================
-ABOUT CARD
+   ABOUT CARD
 ========================================================= */
 
 .card {
@@ -1104,7 +1017,7 @@ ABOUT CARD
 
 
 /* =========================================================
-FOOTER
+   FOOTER
 ========================================================= */
 
 .site-footer {
@@ -1187,23 +1100,17 @@ FOOTER
 
 
 /* =========================================================
-DARK MODE
+   DARK MODE
 ========================================================= */
 
 body.dark-mode {
 
     --bg: #0b0f14;
-
     --card: #111827;
-
     --text: #f3f4f6;
-
     --muted: #9ca3af;
-
     --border: #263241;
-
     --soft: #18212d;
-
     --primary: #60a5fa;
 }
 
@@ -1245,12 +1152,10 @@ body.dark-mode .ad-side {
 
 
 /* =========================================================
-MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
-
-    /* CONTAINER */
 
     .container {
         width: calc(100% - 20px);
@@ -1259,9 +1164,7 @@ MOBILE
     }
 
 
-    /* =====================================================
-       TOP BAR
-    ===================================================== */
+    /* TOP BAR */
 
     .top-bar-inner {
         min-height: 36px;
@@ -1272,9 +1175,7 @@ MOBILE
     }
 
 
-    /* =====================================================
-       HEADER
-    ===================================================== */
+    /* HEADER */
 
     .brand-inner {
         min-height: 76px;
@@ -1284,7 +1185,6 @@ MOBILE
 
     .logo-mark {
         width: 47px;
-
         height: 47px;
 
         font-size: 11px;
@@ -1325,9 +1225,7 @@ MOBILE
     }
 
 
-    /* =====================================================
-       NAVIGATION
-    ===================================================== */
+    /* NAV */
 
     .nav-container {
         position: relative;
@@ -1364,22 +1262,15 @@ MOBILE
     }
 
 
-    /* =====================================================
-       TICKERS
-    ===================================================== */
+    /* TICKERS */
 
-    .live-ticker-bar {
-        font-size: 12px;
-    }
-
+    .live-ticker-bar,
     .headlines-bar {
         font-size: 12px;
     }
 
 
-    /* =====================================================
-       MAIN
-    ===================================================== */
+    /* MAIN */
 
     main.container {
         padding-top: 12px;
@@ -1388,9 +1279,7 @@ MOBILE
     }
 
 
-    /* =====================================================
-       SEARCH
-    ===================================================== */
+    /* SEARCH */
 
     .search-box {
         gap: 6px;
@@ -1411,9 +1300,7 @@ MOBILE
     }
 
 
-    /* =====================================================
-       SECTION
-    ===================================================== */
+    /* SECTION */
 
     .section-heading {
         margin: 18px 0 11px;
@@ -1425,7 +1312,7 @@ MOBILE
 
 
     /* =====================================================
-       POST 1 MOBILE
+       1ST POST MOBILE
     ===================================================== */
 
     .news-item.post:nth-of-type(1) {
@@ -1436,46 +1323,40 @@ MOBILE
 
         max-width: 100% !important;
 
-        margin-left: 0 !important;
-
-        margin-right: 0 !important;
+        margin-bottom: 16px !important;
     }
 
     .news-item.post:nth-of-type(1) img {
 
         width: 100% !important;
 
-        height: 370px !important;
+        height: 220px !important;
     }
 
     .news-item.post:nth-of-type(1) .news-content {
 
-        padding: 10px 11px !important;
+        padding: 10px 12px !important;
     }
 
     .news-item.post:nth-of-type(1) .news-content p {
 
-        font-size: 17px !important;
+        font-size: 16px !important;
 
         font-weight: 400 !important;
 
-        line-height: 1.45 !important;
+        line-height: 1.4 !important;
     }
 
 
     /* =====================================================
-       POST 2 - 9 MOBILE
-       TWO COLUMNS
+       2 - 6 MOBILE TWO COLUMNS
     ===================================================== */
 
     .news-item.post:nth-of-type(2),
     .news-item.post:nth-of-type(3),
     .news-item.post:nth-of-type(4),
     .news-item.post:nth-of-type(5),
-    .news-item.post:nth-of-type(6),
-    .news-item.post:nth-of-type(7),
-    .news-item.post:nth-of-type(8),
-    .news-item.post:nth-of-type(9) {
+    .news-item.post:nth-of-type(6) {
 
         display: inline-block !important;
 
@@ -1493,25 +1374,22 @@ MOBILE
     }
 
 
-    /* LEFT SIDE */
+    /* LEFT */
 
     .news-item.post:nth-of-type(2),
     .news-item.post:nth-of-type(4),
-    .news-item.post:nth-of-type(6),
-    .news-item.post:nth-of-type(8) {
+    .news-item.post:nth-of-type(6) {
 
         margin-left: 0 !important;
 
-        margin-right: 10px !important;
+        margin-right: 8px !important;
     }
 
 
-    /* RIGHT SIDE */
+    /* RIGHT */
 
     .news-item.post:nth-of-type(3),
-    .news-item.post:nth-of-type(5),
-    .news-item.post:nth-of-type(7),
-    .news-item.post:nth-of-type(9) {
+    .news-item.post:nth-of-type(5) {
 
         margin-left: 0 !important;
 
@@ -1519,16 +1397,13 @@ MOBILE
     }
 
 
-    /* IMAGE */
+    /* 2-6 IMAGE */
 
     .news-item.post:nth-of-type(2) img,
     .news-item.post:nth-of-type(3) img,
     .news-item.post:nth-of-type(4) img,
     .news-item.post:nth-of-type(5) img,
-    .news-item.post:nth-of-type(6) img,
-    .news-item.post:nth-of-type(7) img,
-    .news-item.post:nth-of-type(8) img,
-    .news-item.post:nth-of-type(9) img {
+    .news-item.post:nth-of-type(6) img {
 
         width: 100% !important;
 
@@ -1538,54 +1413,44 @@ MOBILE
     }
 
 
-    /* CONTENT */
+    /* 2-6 CONTENT */
 
     .news-item.post:nth-of-type(2) .news-content,
     .news-item.post:nth-of-type(3) .news-content,
     .news-item.post:nth-of-type(4) .news-content,
     .news-item.post:nth-of-type(5) .news-content,
-    .news-item.post:nth-of-type(6) .news-content,
-    .news-item.post:nth-of-type(7) .news-content,
-    .news-item.post:nth-of-type(8) .news-content,
-    .news-item.post:nth-of-type(9) .news-content {
+    .news-item.post:nth-of-type(6) .news-content {
 
-        padding: 8px 9px !important;
+        padding: 7px 9px !important;
     }
 
 
-    /* TITLE */
+    /* 2-6 TITLE */
 
     .news-item.post:nth-of-type(2) .news-content p,
     .news-item.post:nth-of-type(3) .news-content p,
     .news-item.post:nth-of-type(4) .news-content p,
     .news-item.post:nth-of-type(5) .news-content p,
-    .news-item.post:nth-of-type(6) .news-content p,
-    .news-item.post:nth-of-type(7) .news-content p,
-    .news-item.post:nth-of-type(8) .news-content p,
-    .news-item.post:nth-of-type(9) .news-content p {
+    .news-item.post:nth-of-type(6) .news-content p {
 
-        font-size: 16px !important;
+        font-size: 12px !important;
 
         font-weight: 400 !important;
 
-        line-height: 1.45 !important;
-
-        word-break: break-word !important;
-
-        overflow-wrap: anywhere !important;
+        line-height: 1.4 !important;
     }
 
 
     /* =====================================================
-       POST 10+ MOBILE
-       TEXT LEFT + IMAGE RIGHT
+       7+ MOBILE
+       IMAGE LEFT + TEXT RIGHT
     ===================================================== */
 
-    .news-item.post:nth-of-type(n+10) {
+    .news-item.post:nth-of-type(n+7) {
 
         display: flex !important;
 
-        flex-direction: row-reverse !important;
+        flex-direction: row !important;
 
         align-items: center !important;
 
@@ -1595,17 +1460,13 @@ MOBILE
 
         min-height: 80px !important;
 
-        margin-left: 0 !important;
-
-        margin-right: 0 !important;
-
         margin-bottom: 9px !important;
     }
 
 
-    /* IMAGE */
+    /* 7+ IMAGE */
 
-    .news-item.post:nth-of-type(n+10) img {
+    .news-item.post:nth-of-type(n+7) img {
 
         width: 90px !important;
 
@@ -1621,11 +1482,11 @@ MOBILE
     }
 
 
-    /* CONTENT */
+    /* 7+ CONTENT */
 
-    .news-item.post:nth-of-type(n+10) .news-content {
+    .news-item.post:nth-of-type(n+7) .news-content {
 
-        flex: 1 !important;
+        flex: 1 1 auto !important;
 
         min-width: 0 !important;
 
@@ -1633,30 +1494,26 @@ MOBILE
     }
 
 
-    /* TITLE */
+    /* 7+ TITLE */
 
-    .news-item.post:nth-of-type(n+10) .news-content p {
+    .news-item.post:nth-of-type(n+7) .news-content p {
 
-        font-size: 15px !important;
+        font-size: 12px !important;
 
         font-weight: 400 !important;
 
-        line-height: 1.45 !important;
+        line-height: 1.4 !important;
     }
 
 
-    /* =====================================================
-       LIVE
-    ===================================================== */
+    /* LIVE */
 
     .live-screen {
         min-height: 120px;
     }
 
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
+    /* FOOTER */
 
     .footer-inner {
 
@@ -1668,12 +1525,11 @@ MOBILE
 
         padding-bottom: 25px;
     }
-
 }
 
 
 /* =========================================================
-VERY SMALL MOBILE
+   VERY SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 380px) {
@@ -1681,9 +1537,6 @@ VERY SMALL MOBILE
     .container {
         width: calc(100% - 14px);
     }
-
-
-    /* HEADER */
 
     .logo-mark {
         width: 43px;
@@ -1708,56 +1561,41 @@ VERY SMALL MOBILE
     }
 
 
-    /* =====================================================
-       FIRST POST
-    ===================================================== */
+    /* FIRST */
 
     .news-item.post:nth-of-type(1) img {
-
-        height: 300px !important;
+        height: 200px !important;
     }
 
     .news-item.post:nth-of-type(1) .news-content p {
-
-        font-size: 16px !important;
+        font-size: 15px !important;
     }
 
 
-    /* =====================================================
-       2 - 9
-    ===================================================== */
+    /* 2-6 */
 
     .news-item.post:nth-of-type(2) img,
     .news-item.post:nth-of-type(3) img,
     .news-item.post:nth-of-type(4) img,
     .news-item.post:nth-of-type(5) img,
-    .news-item.post:nth-of-type(6) img,
-    .news-item.post:nth-of-type(7) img,
-    .news-item.post:nth-of-type(8) img,
-    .news-item.post:nth-of-type(9) img {
+    .news-item.post:nth-of-type(6) img {
 
         height: 105px !important;
     }
-
 
     .news-item.post:nth-of-type(2) .news-content p,
     .news-item.post:nth-of-type(3) .news-content p,
     .news-item.post:nth-of-type(4) .news-content p,
     .news-item.post:nth-of-type(5) .news-content p,
-    .news-item.post:nth-of-type(6) .news-content p,
-    .news-item.post:nth-of-type(7) .news-content p,
-    .news-item.post:nth-of-type(8) .news-content p,
-    .news-item.post:nth-of-type(9) .news-content p {
+    .news-item.post:nth-of-type(6) .news-content p {
 
-        font-size: 14px !important;
+        font-size: 11.5px !important;
     }
 
 
-    /* =====================================================
-       10+
-    ===================================================== */
+    /* 7+ */
 
-    .news-item.post:nth-of-type(n+10) img {
+    .news-item.post:nth-of-type(n+7) img {
 
         width: 85px !important;
 
@@ -1768,24 +1606,20 @@ VERY SMALL MOBILE
         height: 62px !important;
     }
 
-    .news-item.post:nth-of-type(n+10) .news-content p {
+    .news-item.post:nth-of-type(n+7) .news-content p {
 
-        font-size: 14px !important;
+        font-size: 11.5px !important;
     }
 
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
+    /* FOOTER */
 
     .footer-inner {
-
         grid-template-columns: 1fr;
     }
-
 }
 
 
 /* =========================================================
-END
+   END
 ========================================================= */
