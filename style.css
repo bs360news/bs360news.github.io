@@ -1,4 +1,616 @@
 /* =========================================================
+   BS 360 NEWS - WEBSITE COMMON CSS
+   HEADER + LOGO + NAV + HEADLINES + SEARCH + FOOTER
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #171717;
+    font-family: Arial, "Noto Sans Telugu", sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TOP BREAKING BAR
+========================================================= */
+
+.top-bar {
+    width: 100%;
+    background: #111827;
+    color: #ffffff;
+    border-bottom: 3px solid #e00000;
+}
+
+.top-bar-inner {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.breaking-tag {
+    font-weight: 800;
+    color: #ff3333;
+    margin-right: 8px;
+}
+
+.ticker-text {
+    font-weight: 600;
+}
+
+.top-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.nav-arrow {
+    width: 38px;
+    height: 34px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #111111;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   BRAND HEADER
+========================================================= */
+
+.brand-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.brand-inner {
+    min-height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+}
+
+.logo-mark {
+    width: 68px;
+    height: 68px;
+    background: #0056b3;
+    color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.logo-mark span:first-child {
+    font-size: 17px;
+}
+
+.logo-mark span:last-child {
+    font-size: 14px;
+}
+
+.logo-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name > div {
+    font-size: 31px;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.logo-red {
+    color: #e00000;
+}
+
+.logo-tagline {
+    margin-top: 4px;
+    color: #667085;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.date-time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.theme-button {
+    border: 1px solid #d0d5dd;
+    background: #ffffff;
+    color: #171717;
+    border-radius: 8px;
+    padding: 8px 13px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.live-button {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 900;
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+    animation: livePulse 1.2s infinite;
+}
+
+@keyframes livePulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .35;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.mobile-menu-toggle {
+    display: none;
+    border: 1px solid #d0d5dd;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
+.main-nav {
+    background: #0056b3;
+    color: #ffffff;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+}
+
+.lang-selector {
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.lang-selector a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.lang-selector .active {
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    display: block;
+    padding: 12px 14px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255,255,255,.16);
+}
+
+
+/* =========================================================
+   HEADLINES BAR
+========================================================= */
+
+.headlines-bar {
+    background: #f5f7fa;
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.headlines-bar .container {
+    min-height: 48px;
+    gap: 12px;
+}
+
+.headlines-label {
+    flex-shrink: 0;
+    font-weight: 900;
+    color: #111111;
+    font-size: 18px;
+}
+
+.headlines-bar marquee {
+    flex: 1;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-section {
+    margin: 22px 0;
+}
+
+.search-box {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-box input:focus {
+    border-color: #0056b3;
+}
+
+.search-box button {
+    height: 46px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 8px;
+    background: #0056b3;
+    color: #ffffff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    margin: 25px 0 18px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   CARD COMMON
+========================================================= */
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    margin-top: 45px;
+    background: #111827;
+    color: #ffffff;
+}
+
+.footer-inner {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-column h3 {
+    margin: 0 0 12px;
+    font-size: 19px;
+}
+
+.footer-column p {
+    margin: 7px 0;
+    color: #d1d5db;
+}
+
+.footer-column ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.footer-column li {
+    margin: 7px 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,.15);
+    padding: 15px;
+    text-align: center;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode {
+    background: #0b1120;
+    color: #f8fafc;
+}
+
+body.dark-mode .brand-header,
+body.dark-mode .card {
+    background: #111827;
+    color: #f8fafc;
+    border-color: #263244;
+}
+
+body.dark-mode .main-nav {
+    background: #0f3d73;
+}
+
+body.dark-mode .headlines-bar {
+    background: #111827;
+    border-color: #263244;
+}
+
+body.dark-mode .headlines-label {
+    color: #ffffff;
+}
+
+body.dark-mode .theme-button {
+    background: #1f2937;
+    color: #ffffff;
+    border-color: #374151;
+}
+
+body.dark-mode .search-box input {
+    background: #111827;
+    color: #ffffff;
+    border-color: #374151;
+}
+
+body.dark-mode .search-box button {
+    background: #2563eb;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .top-bar-inner {
+        min-height: 45px;
+        padding: 7px 0;
+    }
+
+    .breaking-tag {
+        display: block;
+        font-size: 14px;
+    }
+
+    .ticker-text {
+        font-size: 13px;
+    }
+
+    .top-controls {
+        display: none;
+    }
+
+    .brand-inner {
+        min-height: 78px;
+    }
+
+    .logo-mark {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+    }
+
+    .logo-mark span:first-child {
+        font-size: 13px;
+    }
+
+    .logo-mark span:last-child {
+        font-size: 11px;
+    }
+
+    .logo-name > div {
+        font-size: 22px;
+    }
+
+    .logo-tagline {
+        font-size: 11px;
+    }
+
+    .header-actions {
+        gap: 6px;
+    }
+
+    .date-time-box {
+        display: none;
+    }
+
+    .live-button {
+        font-size: 13px;
+    }
+
+    .theme-button {
+        padding: 6px 9px;
+        font-size: 12px;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-container {
+        position: relative;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 0;
+    }
+
+    .lang-selector {
+        text-align: center;
+        padding: 5px 0;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 10px 12px;
+        text-align: center;
+    }
+
+    .headlines-bar .container {
+        display: flex !important;
+    }
+
+    .headlines-label {
+        font-size: 14px;
+    }
+
+    .search-box {
+        gap: 6px;
+    }
+
+    .search-box input {
+        font-size: 14px;
+    }
+
+    .search-box button {
+        padding: 0 14px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 30px 0;
+    }
+
+}
+
+/* =========================================================
    FINAL RESPONSIVE NEWS LAYOUT
 ========================================================= */
 
