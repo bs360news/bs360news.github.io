@@ -2046,8 +2046,10 @@ main > section.card[style] {
         gap: 10px !important;
     }
 
-
-/* FIRST */
+/* =========================================================
+   FIRST ARTICLE
+   IMAGE 16:9 + SMALLER TITLE mobile 
+========================================================= */
 
 .news-item.post:nth-of-type(1) {
 
@@ -2066,34 +2068,52 @@ main > section.card[style] {
     border: 1px solid var(--border) !important;
 
     box-shadow: none !important;
+
+    overflow: hidden !important;
 }
+
+
+/* FIRST ARTICLE IMAGE — 16:9 */
 
 .news-item.post:nth-of-type(1) img {
 
     width: 100% !important;
 
-    height: 360px !important;
+    aspect-ratio: 16 / 9 !important;
+
+    height: auto !important;
 
     object-fit: cover !important;
+
+    display: block !important;
 
     border-radius: 0 !important;
 }
 
+
+/* CONTENT */
+
 .news-item.post:nth-of-type(1) .news-content {
 
-    padding: 18px 20px !important;
+    padding: 16px 20px !important;
 }
+
+
+/* TITLE — కొంచెం చిన్నగా */
 
 .news-item.post:nth-of-type(1) .news-content p {
 
-    font-size: 25px !important;
+    font-size: 22px !important;
 
     line-height: 1.45 !important;
 
     margin: 5px 0 8px !important;
 
-    font-weight: 800 !important;
+    font-weight: 700 !important;
 }
+
+
+/* SUMMARY */
 
 .news-item.post:nth-of-type(1) .summary {
 
