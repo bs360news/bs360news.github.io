@@ -2651,3 +2651,569 @@ body.dark-mode .news-item.post:nth-of-type(n+10) .read-more-btn {
         border-bottom: 1px solid #303030 !important;
     }
 }
+/* =========================================================
+   BS 360 NEWS
+   LAPTOP / DESKTOP ONLY
+   2nd ARTICLE ONWARDS = TV9 STYLE
+   TEXT LEFT + IMAGE RIGHT
+   MOBILE WILL NOT CHANGE
+========================================================= */
+
+@media (min-width: 769px) {
+
+    /* =====================================================
+       NEWS LIST
+       2 COLUMNS
+    ===================================================== */
+
+    .news-list {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        column-gap: 22px !important;
+        row-gap: 0 !important;
+
+        background: #ffffff !important;
+
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       1st ARTICLE
+       FULL WIDTH BIG
+    ===================================================== */
+
+    .news-item.post:nth-of-type(1) {
+
+        grid-column: 1 / -1 !important;
+
+        width: 100% !important;
+
+        display: block !important;
+
+        margin: 0 0 20px 0 !important;
+
+        padding: 0 !important;
+
+        background: #ffffff !important;
+
+        border: none !important;
+
+        border-bottom: 1px solid #dddddd !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+    }
+
+
+    .news-item.post:nth-of-type(1) img {
+
+        width: 100% !important;
+
+        height: 360px !important;
+
+        object-fit: cover !important;
+
+        border-radius: 8px !important;
+
+        margin: 0 !important;
+    }
+
+
+    .news-item.post:nth-of-type(1) .news-content {
+
+        padding: 12px 0 18px !important;
+
+        background: #ffffff !important;
+    }
+
+
+    .news-item.post:nth-of-type(1) .news-content p {
+
+        font-size: 27px !important;
+
+        line-height: 1.4 !important;
+
+        font-weight: 800 !important;
+
+        color: #111111 !important;
+
+        margin: 5px 0 8px !important;
+    }
+
+
+    /* =====================================================
+       ARTICLES 2 - 9
+       TWO COLUMNS
+       TEXT LEFT + IMAGE RIGHT
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2),
+    .news-item.post:nth-of-type(3),
+    .news-item.post:nth-of-type(4),
+    .news-item.post:nth-of-type(5),
+    .news-item.post:nth-of-type(6),
+    .news-item.post:nth-of-type(7),
+    .news-item.post:nth-of-type(8),
+    .news-item.post:nth-of-type(9) {
+
+        width: 100% !important;
+
+        min-width: 0 !important;
+
+        height: auto !important;
+
+        min-height: 125px !important;
+
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        align-items: center !important;
+
+        justify-content: space-between !important;
+
+        gap: 12px !important;
+
+        padding: 10px 0 !important;
+
+        margin: 0 !important;
+
+        background: #ffffff !important;
+
+        border: none !important;
+
+        border-bottom: 1px solid #dddddd !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* =====================================================
+       2 - 9 IMAGE
+       IMAGE RIGHT
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2) img,
+    .news-item.post:nth-of-type(3) img,
+    .news-item.post:nth-of-type(4) img,
+    .news-item.post:nth-of-type(5) img,
+    .news-item.post:nth-of-type(6) img,
+    .news-item.post:nth-of-type(7) img,
+    .news-item.post:nth-of-type(8) img,
+    .news-item.post:nth-of-type(9) img {
+
+        order: 2 !important;
+
+        flex: 0 0 145px !important;
+
+        width: 145px !important;
+
+        height: 95px !important;
+
+        object-fit: cover !important;
+
+        object-position: center !important;
+
+        border-radius: 6px !important;
+
+        margin: 0 !important;
+
+        display: block !important;
+    }
+
+
+    /* =====================================================
+       2 - 9 TEXT
+       TEXT LEFT
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2) .news-content,
+    .news-item.post:nth-of-type(3) .news-content,
+    .news-item.post:nth-of-type(4) .news-content,
+    .news-item.post:nth-of-type(5) .news-content,
+    .news-item.post:nth-of-type(6) .news-content,
+    .news-item.post:nth-of-type(7) .news-content,
+    .news-item.post:nth-of-type(8) .news-content,
+    .news-item.post:nth-of-type(9) .news-content {
+
+        order: 1 !important;
+
+        flex: 1 !important;
+
+        min-width: 0 !important;
+
+        padding: 0 !important;
+
+        margin: 0 !important;
+
+        background: transparent !important;
+    }
+
+
+    /* =====================================================
+       2 - 9 TITLE
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2) .news-content p,
+    .news-item.post:nth-of-type(3) .news-content p,
+    .news-item.post:nth-of-type(4) .news-content p,
+    .news-item.post:nth-of-type(5) .news-content p,
+    .news-item.post:nth-of-type(6) .news-content p,
+    .news-item.post:nth-of-type(7) .news-content p,
+    .news-item.post:nth-of-type(8) .news-content p,
+    .news-item.post:nth-of-type(9) .news-content p {
+
+        margin: 3px 0 6px !important;
+
+        padding: 0 !important;
+
+        font-size: 17px !important;
+
+        line-height: 1.45 !important;
+
+        font-weight: 600 !important;
+
+        color: #222222 !important;
+
+        display: -webkit-box !important;
+
+        -webkit-box-orient: vertical !important;
+
+        -webkit-line-clamp: 3 !important;
+
+        overflow: hidden !important;
+
+        word-break: break-word !important;
+
+        overflow-wrap: anywhere !important;
+    }
+
+
+    /* =====================================================
+       2 - 9 SUMMARY
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2) .summary,
+    .news-item.post:nth-of-type(3) .summary,
+    .news-item.post:nth-of-type(4) .summary,
+    .news-item.post:nth-of-type(5) .summary,
+    .news-item.post:nth-of-type(6) .summary,
+    .news-item.post:nth-of-type(7) .summary,
+    .news-item.post:nth-of-type(8) .summary,
+    .news-item.post:nth-of-type(9) .summary {
+
+        margin: 0 0 5px !important;
+
+        font-size: 13px !important;
+
+        line-height: 1.45 !important;
+
+        color: #777777 !important;
+
+        display: -webkit-box !important;
+
+        -webkit-box-orient: vertical !important;
+
+        -webkit-line-clamp: 2 !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* =====================================================
+       TAG
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2) .tag,
+    .news-item.post:nth-of-type(3) .tag,
+    .news-item.post:nth-of-type(4) .tag,
+    .news-item.post:nth-of-type(5) .tag,
+    .news-item.post:nth-of-type(6) .tag,
+    .news-item.post:nth-of-type(7) .tag,
+    .news-item.post:nth-of-type(8) .tag,
+    .news-item.post:nth-of-type(9) .tag {
+
+        font-size: 9px !important;
+
+        padding: 3px 6px !important;
+
+        margin: 0 0 2px 0 !important;
+    }
+
+
+    /* =====================================================
+       TIME
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2) .time-stamp,
+    .news-item.post:nth-of-type(3) .time-stamp,
+    .news-item.post:nth-of-type(4) .time-stamp,
+    .news-item.post:nth-of-type(5) .time-stamp,
+    .news-item.post:nth-of-type(6) .time-stamp,
+    .news-item.post:nth-of-type(7) .time-stamp,
+    .news-item.post:nth-of-type(8) .time-stamp,
+    .news-item.post:nth-of-type(9) .time-stamp {
+
+        font-size: 10px !important;
+
+        color: #999999 !important;
+
+        margin: 2px 0 !important;
+    }
+
+
+    /* =====================================================
+       READ MORE
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2) .read-more-btn,
+    .news-item.post:nth-of-type(3) .read-more-btn,
+    .news-item.post:nth-of-type(4) .read-more-btn,
+    .news-item.post:nth-of-type(5) .read-more-btn,
+    .news-item.post:nth-of-type(6) .read-more-btn,
+    .news-item.post:nth-of-type(7) .read-more-btn,
+    .news-item.post:nth-of-type(8) .read-more-btn,
+    .news-item.post:nth-of-type(9) .read-more-btn {
+
+        font-size: 11px !important;
+
+        padding: 2px 0 !important;
+
+        margin: 0 !important;
+
+        background: transparent !important;
+
+        color: #777777 !important;
+
+        border: none !important;
+
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       HOVER
+    ===================================================== */
+
+    .news-item.post:nth-of-type(2):hover,
+    .news-item.post:nth-of-type(3):hover,
+    .news-item.post:nth-of-type(4):hover,
+    .news-item.post:nth-of-type(5):hover,
+    .news-item.post:nth-of-type(6):hover,
+    .news-item.post:nth-of-type(7):hover,
+    .news-item.post:nth-of-type(8):hover,
+    .news-item.post:nth-of-type(9):hover {
+
+        transform: none !important;
+
+        background: #fafafa !important;
+
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       10+ ARTICLES
+       SAME HORIZONTAL STYLE
+       IMAGE RIGHT + TEXT LEFT
+    ===================================================== */
+
+    .news-item.post:nth-of-type(n+10) {
+
+        grid-column: auto !important;
+
+        width: 100% !important;
+
+        min-height: 110px !important;
+
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        align-items: center !important;
+
+        gap: 12px !important;
+
+        padding: 10px 0 !important;
+
+        margin: 0 !important;
+
+        background: #ffffff !important;
+
+        border: none !important;
+
+        border-bottom: 1px solid #dddddd !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       10+ IMAGE RIGHT
+    ===================================================== */
+
+    .news-item.post:nth-of-type(n+10) img {
+
+        order: 2 !important;
+
+        flex: 0 0 145px !important;
+
+        width: 145px !important;
+
+        height: 90px !important;
+
+        object-fit: cover !important;
+
+        border-radius: 6px !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* =====================================================
+       10+ TEXT LEFT
+    ===================================================== */
+
+    .news-item.post:nth-of-type(n+10) .news-content {
+
+        order: 1 !important;
+
+        flex: 1 !important;
+
+        min-width: 0 !important;
+
+        padding: 0 !important;
+
+        background: transparent !important;
+    }
+
+
+    .news-item.post:nth-of-type(n+10) .news-content p {
+
+        font-size: 17px !important;
+
+        line-height: 1.45 !important;
+
+        font-weight: 600 !important;
+
+        color: #555555 !important;
+
+        margin: 2px 0 5px !important;
+
+        display: -webkit-box !important;
+
+        -webkit-box-orient: vertical !important;
+
+        -webkit-line-clamp: 3 !important;
+
+        overflow: hidden !important;
+    }
+
+
+    .news-item.post:nth-of-type(n+10) .summary {
+
+        font-size: 13px !important;
+
+        line-height: 1.45 !important;
+
+        color: #888888 !important;
+
+        margin: 0 0 5px !important;
+
+        display: -webkit-box !important;
+
+        -webkit-box-orient: vertical !important;
+
+        -webkit-line-clamp: 2 !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* =====================================================
+       REMOVE CARD LOOK FROM ALL DESKTOP ARTICLES
+    ===================================================== */
+
+    .news-item.post:nth-of-type(n+2) {
+
+        border-left: none !important;
+
+        border-right: none !important;
+
+        border-top: none !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+    }
+
+
+    /* =====================================================
+       DESKTOP CONTAINER
+    ===================================================== */
+
+    .container,
+    .main-container {
+
+        width: min(1180px, 94%) !important;
+
+        margin-left: auto !important;
+
+        margin-right: auto !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY LARGE LAPTOP / DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .news-list {
+
+        column-gap: 28px !important;
+    }
+
+    .news-item.post:nth-of-type(2) img,
+    .news-item.post:nth-of-type(3) img,
+    .news-item.post:nth-of-type(4) img,
+    .news-item.post:nth-of-type(5) img,
+    .news-item.post:nth-of-type(6) img,
+    .news-item.post:nth-of-type(7) img,
+    .news-item.post:nth-of-type(8) img,
+    .news-item.post:nth-of-type(9) img {
+
+        flex-basis: 160px !important;
+
+        width: 160px !important;
+
+        height: 100px !important;
+    }
+
+    .news-item.post:nth-of-type(n+10) img {
+
+        flex-basis: 160px !important;
+
+        width: 160px !important;
+
+        height: 100px !important;
+    }
+
+}
