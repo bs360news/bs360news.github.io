@@ -5,8 +5,13 @@
 
    1st Article       = FULL WIDTH BIG
    2nd - 9th         = TWO COLUMNS
-   10th onwards      = FULL WIDTH
+   10th onwards      = FULL WIDTH HORIZONTAL
    Mobile            = SAME STRUCTURE
+
+   UPDATED:
+   - Article boxes/cards removed for 10+ articles
+   - 10+ articles = IMAGE LEFT + TEXT RIGHT
+   - 10+ article text = LIGHT/MUTED COLOR
 ========================================================= */
 
 
@@ -596,7 +601,6 @@ a {
 
 /* =========================================================
    FIRST ARTICLE TITLE
-   YOUR HTML USES <p>
 ========================================================= */
 
 .news-item.post:nth-of-type(1) .news-content p {
@@ -707,7 +711,6 @@ a {
 
 /* =========================================================
    ARTICLES 2 - 9 TITLE
-   YOUR HTML USES <p>
 ========================================================= */
 
 .news-item.post:nth-of-type(2) .news-content p,
@@ -778,7 +781,9 @@ a {
 
 /* =========================================================
    ARTICLES 10+
-   FULL WIDTH HORIZONTAL
+   FULL WIDTH
+   IMAGE LEFT + TEXT RIGHT
+   NO CARD / NO BOX
 ========================================================= */
 
 .news-item.post:nth-of-type(n+10) {
@@ -793,66 +798,98 @@ a {
 
     align-items: center;
 
-    min-height: 120px;
+    min-height: 105px;
 
-    padding: 10px;
+    padding: 8px 0;
 
     margin: 0;
 
-    background: #ffffff;
+    background: #ffffff !important;
 
-    border-radius: 10px;
+    border: none !important;
+
+    border-bottom: 1px solid #eeeeee !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    overflow: visible;
+
+    transition: none;
 }
 
 
 /* =========================================================
-   ARTICLES 10+ IMAGE
+   ARTICLES 10+
+   HOVER - SIMPLE
+========================================================= */
+
+.news-item.post:nth-of-type(n+10):hover {
+
+    transform: none;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    background: #fafafa !important;
+}
+
+
+/* =========================================================
+   ARTICLES 10+
+   IMAGE LEFT
 ========================================================= */
 
 .news-item.post:nth-of-type(n+10) img {
 
-    order: 2;
+    order: 1;
 
-    flex: 0 0 125px;
+    flex: 0 0 150px;
 
-    width: 125px;
+    width: 150px;
 
-    height: 90px;
+    height: 95px;
 
     object-fit: cover;
 
-    border-radius: 8px;
+    object-position: center;
 
-    margin: 0;
+    border-radius: 7px;
+
+    margin: 0 14px 0 0;
 }
 
 
 /* =========================================================
-   ARTICLES 10+ CONTENT
+   ARTICLES 10+
+   CONTENT RIGHT
 ========================================================= */
 
 .news-item.post:nth-of-type(n+10) .news-content {
 
-    order: 1;
+    order: 2;
 
     flex: 1;
 
     min-width: 0;
 
-    padding: 4px 12px 4px 4px;
+    padding: 3px 5px;
 
-    background: #ffffff;
+    background: transparent !important;
 }
 
 
 /* =========================================================
-   ARTICLES 10+ TITLE
-   YOUR HTML USES <p>
+   ARTICLES 10+
+   TITLE
+   LIGHT COLOR
 ========================================================= */
 
 .news-item.post:nth-of-type(n+10) .news-content p {
 
-    margin: 4px 0 5px;
+    margin: 2px 0 5px;
 
     font-size: 17px;
 
@@ -860,7 +897,7 @@ a {
 
     font-weight: 600;
 
-    color: #111111;
+    color: #666666 !important;
 
     cursor: pointer;
 
@@ -879,14 +916,16 @@ a {
 
 
 /* =========================================================
-   ARTICLES 10+ SUMMARY
+   ARTICLES 10+
+   SUMMARY
+   LIGHT COLOR
 ========================================================= */
 
 .news-item.post:nth-of-type(n+10) .summary {
 
-    margin: 0 0 7px;
+    margin: 0 0 6px;
 
-    color: #666666;
+    color: #888888 !important;
 
     font-size: 13px;
 
@@ -903,7 +942,75 @@ a {
 
 
 /* =========================================================
+   ARTICLES 10+
+   TIME
+========================================================= */
+
+.news-item.post:nth-of-type(n+10) .time-stamp {
+
+    color: #999999 !important;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ARTICLES 10+
    TAG
+========================================================= */
+
+.news-item.post:nth-of-type(n+10) .tag {
+
+    background: var(--red);
+
+    color: #ffffff;
+
+    font-size: 9px;
+
+    padding: 3px 6px;
+
+    margin-bottom: 3px;
+
+    border-radius: 3px;
+}
+
+
+/* =========================================================
+   ARTICLES 10+
+   READ MORE
+========================================================= */
+
+.news-item.post:nth-of-type(n+10) .read-more-btn {
+
+    background: transparent !important;
+
+    color: #777777 !important;
+
+    border: none !important;
+
+    padding: 2px 0;
+
+    margin: 2px 0 0;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    box-shadow: none !important;
+}
+
+.news-item.post:nth-of-type(n+10) .read-more-btn:hover {
+
+    background: transparent !important;
+
+    color: var(--red) !important;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   TAG - NORMAL ARTICLES
 ========================================================= */
 
 .news-list .tag {
@@ -989,13 +1096,16 @@ a {
 }
 
 .news-list .read-more-btn:hover {
+
     background: #b90000;
 
     transform: translateX(2px);
 }
 
 .news-list .read-more-btn span {
+
     font-size: 15px;
+
     line-height: 1;
 }
 
@@ -1057,7 +1167,9 @@ a {
 }
 
 .small-news-text {
+
     flex: 1;
+
     min-width: 0;
 }
 
@@ -1215,6 +1327,7 @@ a {
 }
 
 .live-logo {
+
     color: #ff4d5a;
 }
 
@@ -1304,6 +1417,7 @@ a {
 }
 
 .more-movies a:hover {
+
     text-decoration: underline;
 }
 
@@ -1346,10 +1460,12 @@ a {
 }
 
 .pulse-action:last-child {
+
     border-right: none;
 }
 
 .pulse-action:hover {
+
     background: #fafafa;
 }
 
@@ -1475,14 +1591,17 @@ main > section.card[style] {
 }
 
 .footer-column li {
+
     margin: 7px 0;
 }
 
 .footer-links a:hover {
+
     color: #60a5fa;
 }
 
 .footer-social a {
+
     color: #60a5fa;
 }
 
@@ -1505,6 +1624,7 @@ main > section.card[style] {
 ========================================================= */
 
 .hidden {
+
     display: none !important;
 }
 
@@ -1621,6 +1741,51 @@ body.dark-mode .bs-comment-card {
 
 
 /* =========================================================
+   10+ DARK MODE
+========================================================= */
+
+body.dark-mode .news-item.post:nth-of-type(n+10) {
+
+    background: #121212 !important;
+
+    border: none !important;
+
+    border-bottom: 1px solid #303030 !important;
+
+    box-shadow: none !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10):hover {
+
+    background: #181818 !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .news-content {
+
+    background: transparent !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .news-content p {
+
+    color: #bdbdbd !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .summary {
+
+    color: #999999 !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .time-stamp {
+
+    color: #888888 !important;
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -1639,14 +1804,17 @@ body.dark-mode .bs-comment-card {
     }
 
     .date-time-box {
+
         display: none;
     }
 
     .nav-container {
+
         display: block;
     }
 
     .lang-selector {
+
         padding: 8px 0;
     }
 
@@ -1668,16 +1836,19 @@ body.dark-mode .bs-comment-card {
    MOBILE
    1 = FULL
    2-9 = TWO COLUMNS
-   10+ = FULL
+   10+ = FULL HORIZONTAL
+   IMAGE LEFT + TEXT RIGHT
 ========================================================= */
 
 @media (max-width: 768px) {
 
     .top-bar-inner {
+
         padding: 7px 0;
     }
 
     .ticker-text {
+
         display: none;
     }
 
@@ -1687,24 +1858,29 @@ body.dark-mode .bs-comment-card {
     ----------------------------------------- */
 
     .brand-logo {
+
         gap: 8px;
     }
 
     .brand-logo .logo-name {
+
         font-size: 20px;
     }
 
     .logo-mark {
 
         width: 48px;
+
         height: 48px;
     }
 
     .header-actions .live-button {
+
         display: none;
     }
 
     .mobile-menu-toggle {
+
         display: block;
     }
 
@@ -1714,6 +1890,7 @@ body.dark-mode .bs-comment-card {
     ----------------------------------------- */
 
     .nav-container {
+
         overflow: hidden;
     }
 
@@ -1768,7 +1945,6 @@ body.dark-mode .bs-comment-card {
         border-radius: 12px;
     }
 
-
     .news-item.post:nth-of-type(1) img {
 
         width: 100%;
@@ -1778,12 +1954,10 @@ body.dark-mode .bs-comment-card {
         object-fit: cover;
     }
 
-
     .news-item.post:nth-of-type(1) .news-content {
 
         padding: 12px;
     }
-
 
     .news-item.post:nth-of-type(1) .news-content p {
 
@@ -1793,7 +1967,6 @@ body.dark-mode .bs-comment-card {
 
         margin: 5px 0 8px;
     }
-
 
     .news-item.post:nth-of-type(1) .summary {
 
@@ -1917,7 +2090,8 @@ body.dark-mode .bs-comment-card {
 
     /* -----------------------------------------
        ARTICLES 10+
-       FULL WIDTH
+       IMAGE LEFT + TEXT RIGHT
+       NO BOX
     ----------------------------------------- */
 
     .news-item.post:nth-of-type(n+10) {
@@ -1932,63 +2106,93 @@ body.dark-mode .bs-comment-card {
 
         align-items: center;
 
-        min-height: 85px;
+        min-height: 82px;
 
-        padding: 8px;
+        padding: 8px 0;
 
         margin: 0;
+
+        background: #ffffff !important;
+
+        border: none !important;
+
+        border-bottom: 1px solid #eeeeee !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+
+        overflow: visible;
     }
 
 
     /* -----------------------------------------
-       ARTICLES 10+ IMAGE
+       ARTICLES 10+
+       IMAGE LEFT
     ----------------------------------------- */
 
     .news-item.post:nth-of-type(n+10) img {
 
-        order: 2;
+        order: 1;
 
-        flex: 0 0 90px;
+        flex: 0 0 95px;
 
-        width: 90px;
+        width: 95px;
 
-        height: 65px;
+        height: 68px;
 
         object-fit: cover;
 
         border-radius: 6px;
+
+        margin: 0 10px 0 0;
     }
 
 
     /* -----------------------------------------
-       ARTICLES 10+ CONTENT
+       ARTICLES 10+
+       TEXT RIGHT
     ----------------------------------------- */
 
     .news-item.post:nth-of-type(n+10) .news-content {
 
-        order: 1;
+        order: 2;
 
         flex: 1;
 
         min-width: 0;
 
-        padding: 5px 8px 5px 3px;
+        padding: 2px 3px;
+
+        background: transparent !important;
     }
 
 
+    /* -----------------------------------------
+       ARTICLES 10+
+       TITLE LIGHT COLOR
+    ----------------------------------------- */
+
     .news-item.post:nth-of-type(n+10) .news-content p {
 
-        font-size: 12px;
+        font-size: 13px;
 
         line-height: 1.4;
 
-        margin: 0;
+        margin: 0 0 3px;
 
         font-weight: 500;
+
+        color: #707070 !important;
 
         -webkit-line-clamp: 3;
     }
 
+
+    /* -----------------------------------------
+       ARTICLES 10+
+       SUMMARY LIGHT COLOR
+    ----------------------------------------- */
 
     .news-item.post:nth-of-type(n+10) .summary {
 
@@ -1996,33 +2200,59 @@ body.dark-mode .bs-comment-card {
 
         line-height: 1.4;
 
+        color: #999999 !important;
+
         -webkit-line-clamp: 2;
     }
 
 
     /* -----------------------------------------
-       TAG
+       ARTICLES 10+
+       TIME
     ----------------------------------------- */
 
-    .news-list .tag {
+    .news-item.post:nth-of-type(n+10) .time-stamp {
 
-        font-size: 9px;
+        font-size: 10px;
 
-        padding: 3px 6px;
+        color: #aaaaaa !important;
     }
 
 
     /* -----------------------------------------
+       ARTICLES 10+
+       TAG
+    ----------------------------------------- */
+
+    .news-item.post:nth-of-type(n+10) .tag {
+
+        font-size: 8px;
+
+        padding: 2px 5px;
+
+        margin-bottom: 2px;
+    }
+
+
+    /* -----------------------------------------
+       ARTICLES 10+
        READ MORE
     ----------------------------------------- */
 
-    .news-list .read-more-btn {
+    .news-item.post:nth-of-type(n+10) .read-more-btn {
 
         font-size: 10px;
 
-        padding: 6px 8px;
+        padding: 1px 0;
 
-        margin-top: 3px;
+        margin: 1px 0 0;
+
+        background: transparent !important;
+
+        color: #888888 !important;
+
+        border: none !important;
+
     }
 
 
@@ -2139,6 +2369,10 @@ body.dark-mode .bs-comment-card {
     }
 
 
+    /* -----------------------------------------
+       ARTICLES 2 - 9
+    ----------------------------------------- */
+
     .news-item.post:nth-of-type(2) img,
     .news-item.post:nth-of-type(3) img,
     .news-item.post:nth-of-type(4) img,
@@ -2165,6 +2399,17 @@ body.dark-mode .bs-comment-card {
     }
 
 
+    /* -----------------------------------------
+       ARTICLES 10+
+    ----------------------------------------- */
+
+    .news-item.post:nth-of-type(n+10) {
+
+        min-height: 76px;
+
+        padding: 7px 0;
+    }
+
     .news-item.post:nth-of-type(n+10) img {
 
         flex: 0 0 85px;
@@ -2172,11 +2417,31 @@ body.dark-mode .bs-comment-card {
         width: 85px;
 
         height: 62px;
+
+        margin-right: 8px;
     }
 
     .news-item.post:nth-of-type(n+10) .news-content p {
 
         font-size: 11.5px;
+
+        line-height: 1.35;
+
+        color: #737373 !important;
+    }
+
+    .news-item.post:nth-of-type(n+10) .summary {
+
+        font-size: 10px;
+
+        color: #999999 !important;
+    }
+
+    .news-item.post:nth-of-type(n+10) .time-stamp {
+
+        font-size: 9px;
+
+        color: #aaaaaa !important;
     }
 }
 
@@ -2186,6 +2451,7 @@ body.dark-mode .bs-comment-card {
 ========================================================= */
 
 .news-item.post.hidden {
+
     display: none !important;
 }
 
@@ -2230,4 +2496,47 @@ body.dark-mode .news-item.post .read-more-btn {
     background: #e60000 !important;
 
     color: #ffffff !important;
+}
+
+
+/* =========================================================
+   FINAL 10+ DARK MODE OVERRIDE
+========================================================= */
+
+body.dark-mode .news-item.post:nth-of-type(n+10) {
+
+    background: #121212 !important;
+
+    border: none !important;
+
+    border-bottom: 1px solid #303030 !important;
+
+    box-shadow: none !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .news-content {
+
+    background: transparent !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .news-content p {
+
+    color: #bdbdbd !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .summary {
+
+    color: #999999 !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .time-stamp {
+
+    color: #888888 !important;
+}
+
+body.dark-mode .news-item.post:nth-of-type(n+10) .read-more-btn {
+
+    background: transparent !important;
+
+    color: #999999 !important;
 }
