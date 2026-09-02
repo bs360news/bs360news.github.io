@@ -2,7 +2,39 @@
 // BS 360 NEWS - MAIN JAVASCRIPT
 // =====================================================
 
+<script>
+function toggleSearch() {
+    const box = document.getElementById("searchBox");
+    box.classList.toggle("active");
 
+    if (box.classList.contains("active")) {
+        document.getElementById("searchInput").focus();
+    }
+}
+
+function searchNews() {
+    const input = document.getElementById("searchInput");
+    const query = input.value.trim().toLowerCase();
+
+    const articles = document.querySelectorAll(".news-item");
+
+    articles.forEach(article => {
+        const text = article.innerText.toLowerCase();
+
+        if (query === "" || text.includes(query)) {
+            article.style.display = "";
+        } else {
+            article.style.display = "none";
+        }
+    });
+}
+
+document.getElementById("searchInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchNews();
+    }
+});
+</script>
 // =====================================================
 // ARTICLE CARD CLICK
 // CLICK CARD → OPEN ARTICLE HTML
