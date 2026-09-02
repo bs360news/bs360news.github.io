@@ -404,9 +404,16 @@
 
 <main class="container">
 
-    <!-----search 🔎!--->
-    
-<button class="search-icon" aria-label="Search">🔎</button>
+   <div class="search-container">
+    <button class="search-icon" onclick="toggleSearch()" aria-label="Search">
+        🔎
+    </button>
+
+    <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="వార్తలు వెతకండి...">
+        <button onclick="searchNews()">Search</button>
+    </div>
+   </div>
 <!-- =====================================================
      NEWS HEADING
 ===================================================== -->
