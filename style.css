@@ -1467,3 +1467,473 @@ body.dark-mode .search-box button {
         line-height: 1.35 !important;
     }
 }
+/* =========================================================
+   BS 360 NEWS
+   ADVERTISE WITH US PAGE
+========================================================= */
+
+
+/* CONTAINER */
+
+.ad-container {
+    width: min(1100px, 94%);
+    margin: auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.ad-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 0;
+}
+
+.ad-header .ad-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ad-logo {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.back-home {
+    color: #333333;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.back-home:hover {
+    color: #0056b3;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.advertise-page {
+    background: #f7f8fa;
+    padding: 35px 0 60px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.ad-hero {
+    background: #ffffff;
+    text-align: center;
+    padding: 55px 25px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 22px;
+}
+
+.ad-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #e60000;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.ad-hero h1 {
+    margin: 0 0 12px;
+    color: #171717;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.ad-hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #666666;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   COMMON CARD
+========================= */
+
+.ad-card {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.ad-card h2,
+.ad-section h2 {
+    margin: 0 0 15px;
+    color: #171717;
+    font-size: 25px;
+}
+
+.ad-card p {
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.ad-section {
+    margin: 35px 0;
+}
+
+
+/* =========================
+   AD OPTIONS
+========================= */
+
+.ad-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.ad-option {
+    background: #ffffff;
+    padding: 25px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ad-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.ad-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.ad-option h3 {
+    margin: 0 0 8px;
+    color: #171717;
+    font-size: 20px;
+}
+
+.ad-option p {
+    color: #666666;
+    line-height: 1.7;
+    margin: 0 0 15px;
+}
+
+.ad-option strong {
+    color: #0056b3;
+    font-size: 15px;
+}
+
+
+/* =========================
+   ADVERTISER LIST
+========================= */
+
+.ad-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.ad-list li {
+    background: #f7f8fa;
+    padding: 13px 15px;
+    border-radius: 8px;
+    color: #333333;
+    font-size: 15px;
+}
+
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.benefit {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.benefit span {
+    font-size: 30px;
+}
+
+.benefit h3 {
+    margin: 12px 0 7px;
+    font-size: 19px;
+    color: #171717;
+}
+
+.benefit p {
+    color: #666666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-ad {
+    background: #0056b3;
+    color: #ffffff;
+    text-align: center;
+    padding: 45px 25px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+.contact-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact-ad h2 {
+    margin: 12px 0;
+    font-size: 28px;
+}
+
+.contact-ad p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CONTACT BUTTONS
+========================= */
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 13px 23px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.email-btn {
+    background: #ffffff;
+    color: #0056b3;
+}
+
+.whatsapp-btn {
+    background: #ffffff;
+    color: #0056b3;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   CONTACT DETAILS
+========================= */
+
+.contact-details p {
+    margin: 12px 0;
+}
+
+.contact-details a {
+    color: #0056b3;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   AD POLICY
+========================= */
+
+.ad-note {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.ad-note h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    color: #171717;
+}
+
+.ad-note p {
+    color: #666666;
+    line-height: 1.7;
+    margin: 7px 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.ad-footer {
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    padding: 25px 0;
+}
+
+.ad-footer p {
+    color: #666666;
+    font-size: 14px;
+    margin: 0 0 12px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #555555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #0056b3;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .ad-header {
+        padding: 14px 0;
+    }
+
+
+    .ad-logo {
+        font-size: 21px;
+    }
+
+
+    .back-home {
+        font-size: 14px;
+    }
+
+
+    .advertise-page {
+        padding: 20px 0 45px;
+    }
+
+
+    .ad-hero {
+        padding: 40px 18px;
+    }
+
+
+    .ad-hero h1 {
+        font-size: 29px;
+    }
+
+
+    .ad-hero p {
+        font-size: 16px;
+    }
+
+
+    .ad-card {
+        padding: 22px;
+    }
+
+
+    .ad-card h2,
+    .ad-section h2 {
+        font-size: 22px;
+    }
+
+
+    .ad-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .ad-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-ad {
+        padding: 35px 18px;
+    }
+
+
+    .contact-ad h2 {
+        font-size: 24px;
+    }
+
+
+    .contact-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+
+    .footer-links {
+        gap: 12px;
+    }
+
+}
