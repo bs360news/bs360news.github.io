@@ -296,31 +296,73 @@ a {
     font-weight: 600;
 }
 
-
 /* =========================================================
-   SEARCH ICON
+   SEARCH ICON + SEARCH BOX
 ========================================================= */
+
+.search-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+   width: 100%;
+    margin: 15px 0;
+}
 
 .search-icon {
     width: 42px;
     height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: none;
+    border-radius: 50%;
     background: #0056b3;
     color: #ffffff;
-    border-radius: 50%;
     font-size: 21px;
     cursor: pointer;
-    border: none;
-    transition: 0.2s ease;
 }
 
 .search-icon:hover {
-    transform: scale(1.08);
     background: #003f82;
 }
 
+.search-box {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 320px;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+.search-box.active {
+    display: flex;
+    gap: 8px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-box button {
+    height: 42px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 6px;
+    background: #0056b3;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
 
 /* =========================================================
    SECTION HEADING
