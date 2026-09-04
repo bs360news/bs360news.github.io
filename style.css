@@ -2010,3 +2010,240 @@ p{
     }
 
 }
+/* =========================================================
+   BS 360 NEWS - MOST READ
+   MODERN COMPACT NEWS DESIGN
+========================================================= */
+
+.most-read-section{
+    background:#fff;
+    border:1px solid #e2e6eb;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:30px;
+    box-shadow:0 3px 12px rgba(15,23,42,.04);
+}
+
+
+/* TITLE */
+
+.most-read-section .section-title-row{
+    margin:0 0 12px;
+    padding:0 0 11px;
+    border-bottom:2px solid #e5e7eb;
+}
+
+.most-read-section .section-title-row h2{
+    font-size:22px;
+    font-weight:900;
+    line-height:1.35;
+}
+
+
+/* RED LINE UNDER TITLE */
+
+.most-read-section .section-title-row h2:after{
+    width:55px;
+    height:3px;
+    margin-top:7px;
+    background:#e00000;
+}
+
+
+/* =========================================================
+   MOST READ LIST
+========================================================= */
+
+.most-read-list{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+}
+
+
+/* =========================================================
+   INDIVIDUAL NEWS
+========================================================= */
+
+.most-read-item{
+    position:relative;
+    display:grid;
+    grid-template-columns:42px minmax(0,1fr);
+    align-items:start;
+    gap:10px;
+
+    min-height:82px;
+
+    padding:13px 12px;
+
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease,
+        background .18s ease;
+}
+
+
+/* HOVER */
+
+.most-read-item:hover{
+    transform:translateY(-2px);
+    background:#fff;
+    border-color:#cbd5e1;
+    box-shadow:0 5px 16px rgba(15,23,42,.08);
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.most-read-item strong{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:#e00000;
+    color:#fff;
+
+    font-size:14px;
+    font-weight:900;
+
+    line-height:1;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.most-read-item span{
+    display:block;
+
+    margin:0;
+
+    color:#111827;
+
+    font-size:14px;
+    font-weight:800;
+
+    line-height:1.55;
+
+    overflow-wrap:anywhere;
+    word-break:normal;
+    white-space:normal;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .most-read-section{
+        padding:12px;
+        border-radius:9px;
+    }
+
+    .most-read-section .section-title-row h2{
+        font-size:19px;
+    }
+
+    .most-read-list{
+        grid-template-columns:1fr;
+        gap:9px;
+    }
+
+    .most-read-item{
+        min-height:auto;
+        grid-template-columns:38px minmax(0,1fr);
+        gap:10px;
+        padding:11px 10px;
+    }
+
+    .most-read-item strong{
+        width:31px;
+        height:31px;
+        font-size:13px;
+    }
+
+    .most-read-item span{
+        font-size:13px;
+        line-height:1.55;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:430px){
+
+    .most-read-section{
+        padding:10px;
+    }
+
+    .most-read-list{
+        gap:8px;
+    }
+
+    .most-read-item{
+        grid-template-columns:34px minmax(0,1fr);
+        gap:8px;
+        padding:10px 8px;
+    }
+
+    .most-read-item strong{
+        width:28px;
+        height:28px;
+        font-size:12px;
+    }
+
+    .most-read-item span{
+        font-size:12.5px;
+        line-height:1.55;
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .most-read-section{
+    background:#111827;
+    border-color:#263244;
+}
+
+.dark-mode .most-read-section .section-title-row{
+    border-color:#263244;
+}
+
+.dark-mode .most-read-item{
+    background:#0f172a;
+    border-color:#263244;
+}
+
+.dark-mode .most-read-item:hover{
+    background:#172033;
+    border-color:#374151;
+}
+
+.dark-mode .most-read-item span{
+    color:#f8fafc;
+}
