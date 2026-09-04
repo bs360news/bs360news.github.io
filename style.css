@@ -2329,6 +2329,195 @@ body.dark-mode {
     border-radius: 10px;
 }
 
+/* =====================================================
+   ARTICLE PAGE TOP STORY
+===================================================== */
+
+.article-top-story {
+    width: min(1400px, 96%);
+    margin: 40px auto;
+}
+
+.article-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 10px;
+}
+
+.article-section-title h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.article-section-title span {
+    color: #777;
+    font-size: 14px;
+}
+
+.article-top-grid {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: 20px;
+}
+
+.article-latest-side {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.article-side-title {
+    font-size: 18px;
+    font-weight: 800;
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#articleLatestList {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.article-latest-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.article-latest-image {
+    flex: 0 0 90px;
+    width: 90px;
+    height: 65px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.article-latest-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-latest-content {
+    min-width: 0;
+}
+
+.article-latest-content span {
+    font-size: 10px;
+    color: #e60000;
+    font-weight: 700;
+}
+
+.article-latest-content h3 {
+    margin: 3px 0 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.article-hero-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #eee;
+}
+
+.article-hero-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.article-hero-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 70px 25px 25px;
+    color: #fff;
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.88)
+    );
+}
+
+.article-hero-overlay span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.article-hero-overlay h2 {
+    margin: 7px 0;
+    font-size: 28px;
+    line-height: 1.35;
+}
+
+.article-hero-overlay b {
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .article-top-story {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .article-section-title h2 {
+        font-size: 20px;
+    }
+
+    .article-top-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .article-hero-card {
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+    }
+
+    .article-hero-overlay {
+        padding: 55px 15px 15px;
+    }
+
+    .article-hero-overlay h2 {
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+    .article-latest-side {
+        order: 2;
+    }
+
+    #articleHero {
+        order: 1;
+    }
+
+    #articleLatestList {
+        max-height: 360px;
+    }
+
+}
+
+
 /* =========================================================
    END OF BS 360 NEWS CSS
 ========================================================= */
