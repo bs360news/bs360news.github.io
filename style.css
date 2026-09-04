@@ -1313,3 +1313,453 @@ body.dark-mode{
 p{
     overflow-wrap:anywhere;
 }
+/* =========================================================
+   BS 360 NEWS - FINAL PORTAL LAYOUT
+   TOP STORY RIGHT + LATEST NEWS LEFT
+   ALL LOWER SECTIONS HORIZONTAL SCROLL
+========================================================= */
+
+
+/* =========================================================
+   1. TOP STORY
+   LATEST NEWS = LEFT
+   TOP STORY = RIGHT
+========================================================= */
+
+.top-story-grid{
+    display:grid;
+    grid-template-columns:
+        minmax(310px,1fr)
+        minmax(0,2fr);
+    gap:18px;
+    align-items:start;
+}
+
+
+/* LEFT SIDE - LATEST NEWS */
+
+.latest-sidebar{
+    grid-column:1;
+    grid-row:1;
+    height:100%;
+    max-height:570px;
+    overflow:hidden;
+}
+
+.sidebar-heading{
+    position:relative;
+    z-index:3;
+}
+
+
+/* RIGHT SIDE - TOP STORY */
+
+.top-story-main{
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+}
+
+
+/* =========================================================
+   2. LEFT LATEST NEWS - VERTICAL SCROLL AREA
+========================================================= */
+
+.sidebar-list{
+    height:calc(100% - 52px);
+    max-height:515px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+    scrollbar-width:thin;
+    padding:0 14px;
+}
+
+
+/* scrollbar */
+
+.sidebar-list::-webkit-scrollbar{
+    width:5px;
+}
+
+.sidebar-list::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
+}
+
+
+/* latest cards */
+
+.sidebar-card{
+    display:grid;
+    grid-template-columns:100px minmax(0,1fr);
+    gap:11px;
+    padding:13px 0;
+    border-bottom:1px solid #e5e7eb;
+    min-width:0;
+}
+
+.sidebar-card:last-child{
+    border-bottom:0;
+}
+
+.sidebar-card img{
+    width:100px;
+    height:72px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+.sidebar-card .portal-card-body{
+    min-width:0;
+    padding:0;
+}
+
+.sidebar-card h3{
+    margin:5px 0 0;
+    font-size:14px;
+    line-height:1.55;
+    font-weight:800;
+    overflow-wrap:anywhere;
+    word-break:normal;
+}
+
+
+/* =========================================================
+   3. TOP STORY HERO
+========================================================= */
+
+.hero-card{
+    width:100%;
+}
+
+.hero-card img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+.hero-card .portal-card-body{
+    padding:15px 17px 18px;
+}
+
+.hero-card h3{
+    margin:7px 0 0;
+    font-size:25px;
+    line-height:1.5;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+
+/* =========================================================
+   4. COMMON HORIZONTAL NEWS SCROLL
+========================================================= */
+
+.latest-grid,
+.category-grid,
+.sports-list{
+    display:flex !important;
+    width:100%;
+    gap:16px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:3px 3px 14px;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:thin;
+}
+
+
+/* scrollbar */
+
+.latest-grid::-webkit-scrollbar,
+.category-grid::-webkit-scrollbar,
+.sports-list::-webkit-scrollbar{
+    height:6px;
+}
+
+.latest-grid::-webkit-scrollbar-track,
+.category-grid::-webkit-scrollbar-track,
+.sports-list::-webkit-scrollbar-track{
+    background:#e5e7eb;
+    border-radius:10px;
+}
+
+.latest-grid::-webkit-scrollbar-thumb,
+.category-grid::-webkit-scrollbar-thumb,
+.sports-list::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
+}
+
+
+/* =========================================================
+   5. LATEST NEWS CARDS - HORIZONTAL
+========================================================= */
+
+.latest-grid .latest-card{
+    flex:0 0 31.8%;
+    min-width:280px;
+    scroll-snap-align:start;
+}
+
+
+/* =========================================================
+   6. MOVIES / CATEGORY - HORIZONTAL
+========================================================= */
+
+.category-grid .category-card{
+    flex:0 0 24%;
+    min-width:245px;
+    scroll-snap-align:start;
+}
+
+
+/* =========================================================
+   7. SPORTS - HORIZONTAL
+========================================================= */
+
+.sports-list .sports-row{
+    flex:0 0 48%;
+    min-width:430px;
+    scroll-snap-align:start;
+}
+
+
+/* =========================================================
+   8. CARD TEXT FIX
+========================================================= */
+
+.latest-card h3,
+.category-card h3,
+.sports-row h3,
+.slider-card h3{
+    overflow-wrap:anywhere;
+    word-break:normal;
+    white-space:normal;
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   9. FEATURED NEWS SLIDER
+========================================================= */
+
+.news-slider{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+    padding:3px 3px 14px;
+}
+
+.slider-track{
+    display:flex;
+    gap:14px;
+    width:max-content;
+}
+
+.slider-card{
+    flex:0 0 245px;
+    scroll-snap-align:start;
+}
+
+
+/* =========================================================
+   10. SECTION TITLE
+========================================================= */
+
+.section-title-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:14px;
+}
+
+.section-title-row h2{
+    margin:0;
+    font-size:23px;
+    line-height:1.4;
+    font-weight:900;
+}
+
+
+/* =========================================================
+   11. MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    /* TOP STORY */
+
+    .top-story-grid{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    /* latest first */
+
+    .latest-sidebar{
+        order:1;
+        width:100%;
+        max-height:430px;
+    }
+
+    /* hero second */
+
+    .top-story-main{
+        order:2;
+        width:100%;
+    }
+
+
+    /* LEFT LATEST SCROLL */
+
+    .sidebar-list{
+        max-height:375px;
+    }
+
+    .sidebar-card{
+        grid-template-columns:86px minmax(0,1fr);
+        gap:10px;
+        padding:11px 0;
+    }
+
+    .sidebar-card img{
+        width:86px;
+        height:65px;
+    }
+
+    .sidebar-card h3{
+        font-size:13px;
+        line-height:1.55;
+    }
+
+
+    /* LATEST HORIZONTAL */
+
+    .latest-grid{
+        gap:10px;
+    }
+
+    .latest-grid .latest-card{
+        flex:0 0 78%;
+        min-width:245px;
+    }
+
+
+    /* MOVIES / CATEGORY */
+
+    .category-grid{
+        gap:10px;
+    }
+
+    .category-grid .category-card{
+        flex:0 0 78%;
+        min-width:230px;
+    }
+
+
+    /* SPORTS */
+
+    .sports-list{
+        gap:10px;
+    }
+
+    .sports-list .sports-row{
+        flex:0 0 88%;
+        min-width:290px;
+    }
+
+
+    /* FEATURED */
+
+    .slider-card{
+        flex:0 0 205px;
+    }
+
+}
+
+
+/* =========================================================
+   12. SMALL MOBILE
+========================================================= */
+
+@media(max-width:430px){
+
+    .latest-grid .latest-card{
+        flex:0 0 82%;
+        min-width:220px;
+    }
+
+    .category-grid .category-card{
+        flex:0 0 82%;
+        min-width:215px;
+    }
+
+    .sports-list .sports-row{
+        flex:0 0 92%;
+        min-width:270px;
+    }
+
+    .slider-card{
+        flex:0 0 190px;
+    }
+
+    .sidebar-card h3{
+        font-size:12.5px;
+        line-height:1.55;
+    }
+
+    .hero-card h3{
+        font-size:19px;
+        line-height:1.55;
+    }
+
+}
+
+
+/* =========================================================
+   13. TOUCH / MOBILE SCROLL
+========================================================= */
+
+.latest-grid,
+.category-grid,
+.sports-list,
+.news-slider,
+.sidebar-list{
+    -webkit-overflow-scrolling:touch;
+}
+
+
+/* =========================================================
+   14. DARK MODE
+========================================================= */
+
+.dark-mode .latest-grid::-webkit-scrollbar-track,
+.dark-mode .category-grid::-webkit-scrollbar-track,
+.dark-mode .sports-list::-webkit-scrollbar-track{
+    background:#1e293b;
+}
+
+.dark-mode .latest-grid::-webkit-scrollbar-thumb,
+.dark-mode .category-grid::-webkit-scrollbar-thumb,
+.dark-mode .sports-list::-webkit-scrollbar-thumb{
+    background:#64748b;
+}
+
+.dark-mode .sidebar-list::-webkit-scrollbar-track{
+    background:#0f172a;
+}
+
+.dark-mode .sidebar-list::-webkit-scrollbar-thumb{
+    background:#475569;
+}
