@@ -2283,7 +2283,51 @@ body.dark-mode {
     outline: 2px solid #075aaa;
     outline-offset: 2px;
 }
+/* =====================================================
+   HORIZONTAL AUTO SCROLL FIX
+   FEATURED + LATEST + MOVIES + SPORTS
+===================================================== */
 
+.horizontal-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-carousel > * {
+    flex: 0 0 auto;
+}
+
+.slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    width: max-content;
+}
+
+.news-slider {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Scrollbar */
+.horizontal-carousel::-webkit-scrollbar,
+.news-slider::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-carousel::-webkit-scrollbar-thumb,
+.news-slider::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
 
 /* =========================================================
    END OF BS 360 NEWS CSS
