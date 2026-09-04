@@ -402,30 +402,64 @@
 
 </div>
 
-<main class="container">
+<main class="container portal-main">
 
-   <div class="search-container">
-    <button class="search-icon" onclick="toggleSearch()" aria-label="Search">
-        🔎
-    </button>
-
+  <div class="search-container">
+    <button class="search-icon" onclick="toggleSearch()" aria-label="Search">🔎</button>
     <div class="search-box" id="searchBox">
-        <input type="text" id="searchInput" placeholder="వార్తలు వెతకండి...">
-        <button onclick="searchNews()">Search</button>
+      <input type="text" id="searchInput" placeholder="వార్తలు వెతకండి..." onkeydown="if(event.key==='Enter')searchNews()">
+      <button onclick="searchNews()">Search</button>
     </div>
-   </div>
-<!-- =====================================================
-     NEWS HEADING
-===================================================== -->
+  </div>
 
-<div class="section-heading">
+  <!-- TOP STORY + LATEST SIDEBAR -->
+  <section class="top-story-section" aria-label="Top Story">
+    <div class="section-title-row"><h2>🔥 TOP STORY</h2><span>ముఖ్య వార్త</span></div>
+    <div class="top-story-grid">
+      <div id="topStory" class="top-story-main"></div>
+      <aside class="latest-sidebar">
+        <div class="sidebar-heading">📰 తాజా వార్తలు</div>
+        <div id="latestSidebar" class="sidebar-list"></div>
+      </aside>
+    </div>
+  </section>
 
-    <h2>
-        📰 తాజా వార్తలు & ముఖ్యాంశాలు
-    </h2>
+  <!-- HORIZONTAL IMAGE SCROLLER -->
+  <section class="slider-section" aria-label="Featured News Slider">
+    <div class="section-title-row"><h2>⭐ Featured News</h2><div class="slider-controls"><button id="sliderPrev" aria-label="Previous">‹</button><button id="sliderNext" aria-label="Next">›</button></div></div>
+    <div class="news-slider" id="newsSlider"><div class="slider-track" id="sliderTrack"></div></div>
+  </section>
 
-</div>
-<div class="news-list">
+  <!-- LATEST NEWS -->
+  <section class="latest-section" id="latestSection">
+    <div class="section-title-row"><h2>📰 తాజా వార్తలు</h2><a href="#latestSection" class="view-all">అన్నీ చూడండి →</a></div>
+    <div class="latest-grid" id="latestGrid"></div>
+  </section>
+
+  <div class="ad-box" aria-label="Advertisement"><span>ADVERTISEMENT</span></div>
+
+  <!-- CINEMA -->
+  <section class="category-section" id="cinemaSection">
+    <div class="section-title-row"><h2>🎬 సినిమా</h2><a href="#cinemaSection" class="view-all">మరిన్ని →</a></div>
+    <div class="category-grid" id="cinemaGrid"></div>
+  </section>
+
+  <!-- SPORTS -->
+  <section class="sports-section" id="sportsSection">
+    <div class="section-title-row"><h2>🏏 స్పోర్ట్స్</h2><a href="#sportsSection" class="view-all">మరిన్ని →</a></div>
+    <div class="sports-list" id="sportsGrid"></div>
+  </section>
+
+  <!-- MOST READ -->
+  <section class="most-read-section" id="mostReadSection">
+    <div class="section-title-row"><h2>🔥 MOST READ</h2></div>
+    <div class="most-read-list" id="mostReadList"></div>
+  </section>
+
+  <!-- Original articles are kept here for SEO, existing links, filters and future compatibility. -->
+  <div class="legacy-news-source" id="legacyNewsSource">
+    <div class="section-heading"><h2>📰 BS 360 NEWS Articles</h2></div>
+    <div class="news-list">
 <!-- =====================================================
      ALL NEWS
 ===================================================== -->
@@ -2733,58 +2767,40 @@
 </div>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
+  </div>
+
+  <div id="noResults" class="no-results">వార్తలు కనుగొనబడలేదు.</div>
+</main>
+<!-- =====================================================
+     PROFESSIONAL FOOTER
+===================================================== -->
 <footer class="site-footer">
-
-    <div class="container footer-inner">
-
-      
-
-        <div class="footer-column">
-
-            <h3>
-                ముఖ్యమైన లింకులు
-            </h3>
-
- <footer class="site-footer">
-
-    <div class="footer-container">
-
-        <h2>ముఖ్యమైన లింకులు</h2>
-
-        <div class="footer-links">
-
-            <a href="advertise.html">📢 Advertise With Us</a>
-            <a href="about.html">ℹ️ About Us</a>
-            <a href="contact.html">✉️ Contact Us</a>
-
-            <a href="Privacy Policy.html">🔒 Privacy Policy</a>
-            <a href="disclaimer.html">⚠️ Disclaimer</a>
-            <a href="terms.html">📄 Terms & Conditions</a>
-
-        </div>
-
-        <div class="footer-contact">
-            <h2>Contact</h2>
-
-            <p>✉️ newsb386@gmail.com</p>
-            <p>Follow us for latest updates.</p>
-        </div>
-
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">BS 360 <span>NEWS</span></div>
+      <p>తెలుగు వార్తలు మీ ముందుకు — Fast | Fair | Fearless</p>
     </div>
-
-    <div class="copyright">
-        © 2026 BS 360 NEWS. All rights reserved.
+    <div>
+      <h3>ముఖ్యమైన లింకులు</h3>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="Privacy Policy.html">Privacy Policy</a>
     </div>
-
- </footer>
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
+    <div>
+      <h3>ఇతర లింకులు</h3>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="advertise.html">Advertise With Us</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>✉️ newsb386@gmail.com</p>
+      <p>తాజా వార్తల కోసం BS 360 NEWSను ఫాలో అవ్వండి.</p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 BS 360 NEWS. All rights reserved.</div>
+</footer>
 <script>
 
 /* =====================================================
@@ -3240,7 +3256,95 @@ function toggleMobileNav() {
 }
 
 </script>
+<script>
+/* =====================================================
+   BS 360 NEWS - PROFESSIONAL HOME LAYOUT
+   Existing articles are used as the single source of truth.
+===================================================== */
+(function(){
+  let sourcePosts=[];
+  let sliderTimer=null;
 
+  function textOf(post){ return (post.querySelector('.news-content p')?.innerText || post.getAttribute('data-url') || '').trim(); }
+  function catsOf(post){ return (post.dataset.category || '').toLowerCase().split(/\s+/).filter(Boolean); }
+  function hasCat(post, names){ const cats=catsOf(post); return names.some(n=>cats.includes(n)); }
+  function cloneCard(post, type){
+    const url=post.dataset.url || '#';
+    const img=post.querySelector('img');
+    const title=textOf(post);
+    const cat=(post.dataset.category || '').split(/\s+/)[0] || 'news';
+    const wrap=document.createElement('article');
+    wrap.className='portal-card '+type;
+    wrap.dataset.category=post.dataset.category || '';
+    wrap.dataset.searchText=title.toLowerCase();
+    wrap.tabIndex=0;
+    wrap.setAttribute('role','link');
+    wrap.onclick=()=>openArticle(url);
+    wrap.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openArticle(url)}};
+    if(img){ const im=img.cloneNode(true); im.loading='lazy'; im.alt=img.alt||title; wrap.appendChild(im); }
+    const body=document.createElement('div'); body.className='portal-card-body';
+    const tag=document.createElement('span'); tag.className='portal-tag'; tag.textContent=cat.toUpperCase();
+    const h=document.createElement('h3'); h.textContent=title;
+    body.append(tag,h); wrap.appendChild(body);
+    return wrap;
+  }
+  function build(){
+    const source=document.querySelectorAll('#legacyNewsSource .post[data-url]');
+    sourcePosts=[...source];
+    if(!sourcePosts.length) return;
+    const top=document.getElementById('topStory');
+    top.innerHTML=''; top.appendChild(cloneCard(sourcePosts[0],'hero-card'));
+    const side=document.getElementById('latestSidebar'); side.innerHTML='';
+    sourcePosts.slice(1,5).forEach(p=>side.appendChild(cloneCard(p,'sidebar-card')));
+
+    const track=document.getElementById('sliderTrack'); track.innerHTML='';
+    sourcePosts.slice(0,10).forEach(p=>track.appendChild(cloneCard(p,'slider-card')));
+
+    const latest=document.getElementById('latestGrid'); latest.innerHTML='';
+    sourcePosts.slice(0,12).forEach(p=>latest.appendChild(cloneCard(p,'latest-card')));
+
+    const movies=sourcePosts.filter(p=>hasCat(p,['movies']));
+    const sports=sourcePosts.filter(p=>hasCat(p,['sports']));
+    const cg=document.getElementById('cinemaGrid'); cg.innerHTML='';
+    (movies.length?movies:sourcePosts).slice(0,4).forEach(p=>cg.appendChild(cloneCard(p,'category-card')));
+    const sg=document.getElementById('sportsGrid'); sg.innerHTML='';
+    (sports.length? sports:sourcePosts).slice(0,5).forEach(p=>{
+      const c=cloneCard(p,'sports-row');
+      sg.appendChild(c);
+    });
+
+    const mr=document.getElementById('mostReadList'); mr.innerHTML='';
+    sourcePosts.slice(0,7).forEach((p,i)=>{
+      const a=document.createElement('div'); a.className='most-read-item'; a.onclick=()=>openArticle(p.dataset.url);
+      const n=document.createElement('strong'); n.textContent=String(i+1).padStart(2,'0');
+      const t=document.createElement('span'); t.textContent=textOf(p);
+      a.append(n,t); mr.appendChild(a);
+    });
+
+    const trackEl=document.getElementById('newsSlider');
+    const prev=document.getElementById('sliderPrev'), next=document.getElementById('sliderNext');
+    prev.onclick=()=>trackEl.scrollBy({left:-trackEl.clientWidth*.75,behavior:'smooth'});
+    next.onclick=()=>trackEl.scrollBy({left:trackEl.clientWidth*.75,behavior:'smooth'});
+    clearInterval(sliderTimer);
+    sliderTimer=setInterval(()=>{
+      if(trackEl.scrollWidth<=trackEl.clientWidth+5) return;
+      const atEnd=trackEl.scrollLeft+trackEl.clientWidth>=trackEl.scrollWidth-10;
+      trackEl.scrollBy({left:atEnd?-trackEl.clientWidth*.75:trackEl.clientWidth*.75,behavior:'smooth'});
+    },4000);
+  }
+
+  window.toggleSearch=function(){ const b=document.getElementById('searchBox'); if(b){b.classList.toggle('active'); if(b.classList.contains('active')) document.getElementById('searchInput')?.focus();} };
+  window.searchNews=function(){ const q=(document.getElementById('searchInput')?.value||'').trim().toLowerCase(); let count=0; document.querySelectorAll('.portal-card').forEach(c=>{const ok=!q||c.dataset.searchText.includes(q); c.classList.toggle('search-hidden',!ok); if(ok) count++;}); document.querySelectorAll('#legacyNewsSource .post').forEach(p=>p.classList.toggle('hidden',!!q&&!p.innerText.toLowerCase().includes(q))); document.getElementById('noResults').style.display=(q&&count===0)?'block':'none'; };
+  window.filterPosts=function(category){
+    const map={ts:['ts','telangana'],ap:['ap','andhrapradesh'],movies:['movies'],sports:['sports'],gold:['gold'],news:['news']};
+    const wanted=map[category]||[category];
+    document.querySelectorAll('#legacyNewsSource .post').forEach(p=>{const ok=category==='all'||hasCat(p,wanted); p.classList.toggle('hidden',!ok);});
+    document.querySelectorAll('.portal-card').forEach(c=>{const cats=(c.dataset.category||'').split(/\s+/); const ok=category==='all'||wanted.some(x=>cats.includes(x)); c.classList.toggle('search-hidden',!ok);});
+    document.getElementById('noResults').style.display='none';
+    document.getElementById('latestSection')?.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+  document.addEventListener('DOMContentLoaded',build);
+})();
+</script>
 </body>
-
 </html>
