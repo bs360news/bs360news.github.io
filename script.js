@@ -1,5 +1,5 @@
 /* =========================================================
-   BS 360 NEWS — FINAL NEWS PORTAL JAVASCRIPT
+   BS 360 NEWS — CLEAN NEWS PORTAL JAVASCRIPT
    ========================================================= */
 
 (function () {
@@ -12,7 +12,7 @@
     let sidebarTimer = null;
     const horizontalTimers = [];
 
-    const $ = (id) => document.getElementById(id);
+    const $ = id => document.getElementById(id);
 
     /* =====================================================
        SOURCE ARTICLES
@@ -35,12 +35,12 @@
     function titleOf(post) {
 
         const selectors = [
+            ".news-content p",
             ".post-title",
             ".article-title",
-            ".news-title",
             ".title",
-            ".news-content h2",
-            ".news-content h3"
+            "h2",
+            "h3"
         ];
 
         for (const selector of selectors) {
@@ -50,21 +50,6 @@
             if (el && el.textContent.trim()) {
                 return el.textContent.trim();
             }
-
-        }
-
-        const firstParagraph =
-            post.querySelector(".news-content p");
-
-        if (
-            firstParagraph &&
-            firstParagraph.textContent.trim()
-        ) {
-
-            return firstParagraph.textContent
-                .trim()
-                .replace(/\s+/g, " ")
-                .slice(0, 150);
 
         }
 
@@ -112,7 +97,7 @@
     }
 
     /* =====================================================
-       CATEGORIES
+       CATEGORY
        ===================================================== */
 
     function catsOf(post) {
@@ -124,72 +109,29 @@
 
         return value
             .toLowerCase()
-            .replace(/,/g, " ")
-            .replace(/\//g, " ")
+            .replace(/[,_|/]+/g, " ")
             .split(/\s+/)
-            .map(x => x.trim())
             .filter(Boolean);
 
     }
-
-    /* =====================================================
-       CATEGORY CHECK
-       ===================================================== */
 
     function hasCat(post, categories) {
 
         const cats = catsOf(post);
 
-        return categories.some(function (category) {
+        return categories.some(category => {
 
-            return cats.includes(
-                String(category).toLowerCase()
-            );
+            const wanted =
+                category.toLowerCase().trim();
+
+            return cats.includes(wanted);
 
         });
 
     }
 
     /* =====================================================
-       SPORTS CHECK
-       ===================================================== */
-
-    function isSports(post) {
-
-        const cats = catsOf(post);
-
-        return (
-            cats.includes("sports") ||
-            cats.includes("sport") ||
-            cats.includes("sportsnews") ||
-            cats.includes("sports-news") ||
-            cats.includes("sports_news") ||
-            cats.includes("newssports") ||
-            cats.includes("news-sports") ||
-            cats.includes("news_sports")
-        );
-
-    }
-
-    /* =====================================================
-       MOVIES CHECK
-       ===================================================== */
-
-    function isMovies(post) {
-
-        const cats = catsOf(post);
-
-        return (
-            cats.includes("movies") ||
-            cats.includes("movie") ||
-            cats.includes("cinema") ||
-            cats.includes("film")
-        );
-
-    }
-
-    /* =====================================================
-       ARTICLE URL
+       URL
        ===================================================== */
 
     function articleUrl(post) {
@@ -203,43 +145,62 @@
 
     }
 
-    /* =====================================================
-       OPEN ARTICLE
-       ===================================================== */
-
     function openPost(post) {
 
         const url = articleUrl(post);
 
         if (url && url !== "#") {
-
             window.location.href = url;
-
         }
 
     }
 
     /* =====================================================
-       IMAGE ERROR
+       CATEGORY LABEL
        ===================================================== */
 
-    function protectImage(img) {
+    function categoryLabel(post) {
 
-        img.addEventListener(
-            "error",
-            function () {
+        if (
+            hasCat(post, [
+                "movies",
+                "movie",
+                "cinema"
+            ])
+        ) {
+            return "🎬 సినిమా";
+        }
 
-                if (img.src.includes("dp.png.png")) {
-                    return;
-                }
+        if (
+            hasCat(post, [
+                "sports",
+                "sports news",
+                "news sports"
+            ])
+        ) {
+            return "🏏 స్పోర్ట్స్";
+        }
 
-                img.src = "dp.png.png";
+        if (
+            hasCat(post, [
+                "andhra",
+                "andhra pradesh",
+                "ap"
+            ])
+        ) {
+            return "🏛️ ఆంధ్రప్రదేశ్";
+        }
 
-            },
-            {
-                once: true
-            }
-        );
+        if (
+            hasCat(post, [
+                "telangana",
+                "ts"
+            ])
+        ) {
+            return "🏛️ తెలంగాణ";
+        }
+
+        return "📰 తాజా వార్తలు";
 
     }
 
@@ -253,8 +214,7 @@
             document.createElement("article");
 
         card.className =
-            "portal-card " +
-            (type || "");
+            "portal-card " + (type || "");
 
         const img =
             document.createElement("img");
@@ -263,7 +223,9 @@
         img.alt = altOf(post);
         img.loading = "lazy";
 
-        protectImage(img);
+        img.onerror = function () {
+            this.src = "dp.png.png";
+        };
 
         const body =
             document.createElement("div");
@@ -277,22 +239,8 @@
         tag.className =
             "portal-card-tag";
 
-        if (isMovies(post)) {
-
-            tag.textContent =
-                "🎬 సినిమా";
-
-        } else if (isSports(post)) {
-
-            tag.textContent =
-                "🏏 స్పోర్ట్స్";
-
-        } else {
-
-            tag.textContent =
-                "📰 తాజా వార్తలు";
-
-        }
+        tag.textContent =
+            categoryLabel(post);
 
         const title =
             document.createElement("h3");
@@ -318,15 +266,8 @@
 
         card.addEventListener(
             "click",
-            function () {
-
-                openPost(post);
-
-            }
+            () => openPost(post)
         );
-
-        card.style.cursor =
-            "pointer";
 
         return card;
 
@@ -347,16 +288,13 @@
         const img =
             document.createElement("img");
 
-        img.src =
-            imageOf(post);
+        img.src = imageOf(post);
+        img.alt = altOf(post);
+        img.loading = "lazy";
 
-        img.alt =
-            altOf(post);
-
-        img.loading =
-            "lazy";
-
-        protectImage(img);
+        img.onerror = function () {
+            this.src = "dp.png.png";
+        };
 
         const title =
             document.createElement("h3");
@@ -369,15 +307,8 @@
 
         card.addEventListener(
             "click",
-            function () {
-
-                openPost(post);
-
-            }
+            () => openPost(post)
         );
-
-        card.style.cursor =
-            "pointer";
 
         return card;
 
@@ -398,13 +329,12 @@
         const img =
             document.createElement("img");
 
-        img.src =
-            imageOf(post);
+        img.src = imageOf(post);
+        img.alt = altOf(post);
 
-        img.alt =
-            altOf(post);
-
-        protectImage(img);
+        img.onerror = function () {
+            this.src = "dp.png.png";
+        };
 
         const overlay =
             document.createElement("div");
@@ -445,22 +375,15 @@
 
         wrapper.addEventListener(
             "click",
-            function () {
-
-                openPost(post);
-
-            }
+            () => openPost(post)
         );
-
-        wrapper.style.cursor =
-            "pointer";
 
         return wrapper;
 
     }
 
     /* =====================================================
-       FILL CAROUSEL
+       CAROUSEL
        ===================================================== */
 
     function fill(container, list, type) {
@@ -472,23 +395,7 @@
         container.innerHTML = "";
 
         if (!list.length) {
-
-            const empty =
-                document.createElement("div");
-
-            empty.textContent =
-                "వార్తలు త్వరలో అందుబాటులో ఉంటాయి.";
-
-            empty.style.padding =
-                "20px";
-
-            empty.style.color =
-                "#777";
-
-            container.appendChild(empty);
-
             return null;
-
         }
 
         const track =
@@ -497,7 +404,7 @@
         track.className =
             "horizontal-track";
 
-        list.forEach(function (post) {
+        list.forEach(post => {
 
             track.appendChild(
                 createCard(post, type)
@@ -512,7 +419,7 @@
     }
 
     /* =====================================================
-       HORIZONTAL AUTO SCROLL
+       AUTO HORIZONTAL SCROLL
        ===================================================== */
 
     function setupHorizontalScroller(
@@ -525,25 +432,21 @@
             return;
         }
 
-        if (element.children.length < 2) {
+        if (
+            element.scrollWidth <=
+            element.clientWidth
+        ) {
             return;
         }
 
         const timer =
             setInterval(function () {
 
-                const maxScroll =
+                const max =
                     element.scrollWidth -
                     element.clientWidth;
 
-                if (maxScroll <= 5) {
-                    return;
-                }
-
-                if (
-                    element.scrollLeft >=
-                    maxScroll - 10
-                ) {
+                if (element.scrollLeft >= max - 10) {
 
                     element.scrollTo({
                         left: 0,
@@ -575,10 +478,6 @@
             return;
         }
 
-        if (element.children.length < 2) {
-            return;
-        }
-
         if (sidebarTimer) {
             clearInterval(sidebarTimer);
         }
@@ -586,17 +485,17 @@
         sidebarTimer =
             setInterval(function () {
 
-                const maxScroll =
+                const max =
                     element.scrollHeight -
                     element.clientHeight;
 
-                if (maxScroll <= 5) {
+                if (max <= 0) {
                     return;
                 }
 
                 if (
                     element.scrollTop >=
-                    maxScroll - 8
+                    max - 5
                 ) {
 
                     element.scrollTo({
@@ -607,18 +506,18 @@
                 } else {
 
                     element.scrollBy({
-                        top: 80,
+                        top: 82,
                         behavior: "smooth"
                     });
 
                 }
 
-            }, 2200);
+            }, 2300);
 
     }
 
     /* =====================================================
-       HERO RENDER
+       HERO
        ===================================================== */
 
     function renderHero() {
@@ -626,10 +525,7 @@
         const hero =
             $("topStory");
 
-        if (
-            !hero ||
-            !posts.length
-        ) {
+        if (!hero || !posts.length) {
             return;
         }
 
@@ -643,32 +539,26 @@
 
     }
 
-    /* =====================================================
-       HERO AUTO CHANGE
-       ===================================================== */
-
     function startHero() {
 
         if (heroTimer) {
             clearInterval(heroTimer);
         }
 
-        if (posts.length < 2) {
-            return;
-        }
-
         heroTimer =
             setInterval(function () {
+
+                if (!posts.length) {
+                    return;
+                }
 
                 heroIndex++;
 
                 if (
                     heroIndex >=
-                    posts.length
+                    Math.min(posts.length, 10)
                 ) {
-
                     heroIndex = 0;
-
                 }
 
                 renderHero();
@@ -692,9 +582,8 @@
 
         container.innerHTML = "";
 
-        list
-            .slice(0, 6)
-            .forEach(function (post, index) {
+        list.slice(0, 6).forEach(
+            (post, index) => {
 
                 const card =
                     document.createElement("article");
@@ -723,7 +612,9 @@
                 img.loading =
                     "lazy";
 
-                protectImage(img);
+                img.onerror = function () {
+                    this.src = "dp.png.png";
+                };
 
                 const title =
                     document.createElement("h3");
@@ -737,111 +628,33 @@
 
                 card.addEventListener(
                     "click",
-                    function () {
-
-                        openPost(post);
-
-                    }
+                    () => openPost(post)
                 );
-
-                card.style.cursor =
-                    "pointer";
 
                 container.appendChild(card);
 
-            });
+            }
+        );
 
     }
 
     /* =====================================================
-       DATE + TIME
-       ===================================================== */
-
-    function updateDateTime() {
-
-        const now =
-            new Date();
-
-        const date =
-            now.toLocaleDateString(
-                "te-IN",
-                {
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "numeric"
-                }
-            );
-
-        const time =
-            now.toLocaleTimeString(
-                "en-IN",
-                {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit",
-                    hour12: true
-                }
-            );
-
-        const dateElements =
-            document.querySelectorAll(
-                "[data-current-date]"
-            );
-
-        dateElements.forEach(function (el) {
-
-            el.textContent =
-                "📅 " + date;
-
-        });
-
-        const timeElements =
-            document.querySelectorAll(
-                "[data-current-time]"
-            );
-
-        timeElements.forEach(function (el) {
-
-            el.textContent =
-                "⏰ " + time;
-
-        });
-
-        /* Existing text fallback */
-
-        document.querySelectorAll(
-            ".date-display"
-        ).forEach(function (el) {
-
-            el.textContent =
-                "📅 " + date;
-
-        });
-
-        document.querySelectorAll(
-            ".time-display"
-        ).forEach(function (el) {
-
-            el.textContent =
-                "⏰ " + time;
-
-        });
-
-    }
-
-    /* =====================================================
-       BUILD ALL SECTIONS
+       BUILD PORTAL
        ===================================================== */
 
     function build() {
 
-        posts =
-            sourcePosts();
+        posts = sourcePosts();
+
+        console.log(
+            "BS 360 NEWS articles:",
+            posts.length
+        );
 
         if (!posts.length) {
 
             console.warn(
-                "BS 360 NEWS: Articles not found."
+                "BS 360 NEWS: legacy articles not found."
             );
 
             return;
@@ -864,7 +677,7 @@
 
         setupHorizontalScroller(
             latestTrack,
-            264,
+            270,
             3200
         );
 
@@ -879,7 +692,7 @@
 
             sidebar.innerHTML = "";
 
-            latest.forEach(function (post) {
+            latest.forEach(post => {
 
                 sidebar.appendChild(
                     createSidebarCard(post)
@@ -887,9 +700,10 @@
 
             });
 
-            setupSidebarScroller(
-                sidebar
-            );
+            const list =
+                sidebar;
+
+            setupSidebarScroller(list);
 
         }
 
@@ -910,12 +724,12 @@
         const featured =
             posts.slice(0, 12);
 
-        const featuredContainer =
+        const slider =
             $("newsSlider");
 
-        if (featuredContainer) {
+        if (slider) {
 
-            featuredContainer.innerHTML = "";
+            slider.innerHTML = "";
 
             const track =
                 document.createElement("div");
@@ -923,7 +737,7 @@
             track.className =
                 "slider-track";
 
-            featured.forEach(function (post) {
+            featured.forEach(post => {
 
                 track.appendChild(
                     createCard(
@@ -934,13 +748,11 @@
 
             });
 
-            featuredContainer.appendChild(
-                track
-            );
+            slider.appendChild(track);
 
             setupHorizontalScroller(
                 track,
-                264,
+                270,
                 3000
             );
 
@@ -951,11 +763,16 @@
            ================================================= */
 
         const movies =
-            posts.filter(function (post) {
-
-                return isMovies(post);
-
-            });
+            posts.filter(post =>
+                hasCat(
+                    post,
+                    [
+                        "movies",
+                        "movie",
+                        "cinema"
+                    ]
+                )
+            );
 
         const movieTrack =
             fill(
@@ -966,7 +783,7 @@
 
         setupHorizontalScroller(
             movieTrack,
-            264,
+            270,
             3300
         );
 
@@ -975,11 +792,21 @@
            ================================================= */
 
         const sports =
-            posts.filter(function (post) {
+            posts.filter(post =>
+                hasCat(
+                    post,
+                    [
+                        "sports",
+                        "sports news",
+                        "news sports"
+                    ]
+                )
+            );
 
-                return isSports(post);
-
-            });
+        console.log(
+            "BS 360 NEWS sports articles:",
+            sports.length
+        );
 
         const sportsTrack =
             fill(
@@ -990,7 +817,7 @@
 
         setupHorizontalScroller(
             sportsTrack,
-            264,
+            270,
             3300
         );
 
@@ -1012,43 +839,106 @@
         const next =
             $("sliderNext");
 
-        const slider =
+        const featuredTrack =
             document.querySelector(
                 "#newsSlider .slider-track"
             );
 
-        if (prev && slider) {
+        if (prev && featuredTrack) {
 
-            prev.onclick =
-                function () {
+            prev.onclick = function () {
 
-                    slider.scrollBy({
-                        left: -280,
-                        behavior: "smooth"
-                    });
+                featuredTrack.scrollBy({
+                    left: -285,
+                    behavior: "smooth"
+                });
 
-                };
+            };
+
+        }
+
+        if (next && featuredTrack) {
+
+            next.onclick = function () {
+
+                featuredTrack.scrollBy({
+                    left: 285,
+                    behavior: "smooth"
+                });
+
+            };
 
         }
 
-        if (next && slider) {
+        /* =================================================
+           CLOCK
+           ================================================= */
 
-            next.onclick =
-                function () {
+        updateDateTime();
 
-                    slider.scrollBy({
-                        left: 280,
-                        behavior: "smooth"
-                    });
-
-                };
-
-        }
+        setInterval(
+            updateDateTime,
+            1000
+        );
 
     }
 
     /* =====================================================
-       SEARCH
+       DATE + TIME
+       ===================================================== */
+
+    function updateDateTime() {
+
+        const now =
+            new Date();
+
+        const dateText =
+            now.toLocaleDateString(
+                "en-IN",
+                {
+                    weekday: "short",
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+        const timeText =
+            now.toLocaleTimeString(
+                "en-IN",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: true
+                }
+            );
+
+        document.querySelectorAll(
+            "body *"
+        ).forEach(function (el) {
+
+            if (
+                el.children.length === 0 &&
+                el.textContent.includes(
+                    "📅 Loading..."
+                )
+            ) {
+
+                el.textContent =
+                    "📅 " +
+                    dateText +
+                    "  ⏰ " +
+                    timeText;
+
+            }
+
+        });
+
+    }
+
+    /* =====================================================
+       SEARCH OPEN
        ===================================================== */
 
     window.toggleSearch =
@@ -1069,26 +959,25 @@
                 "active"
             );
 
+            const input =
+                $("searchInput");
+
             if (
-                box.classList.contains("open") ||
-                box.classList.contains("active")
+                input &&
+                (
+                    box.classList.contains("open") ||
+                    box.classList.contains("active")
+                )
             ) {
 
-                const input =
-                    $("searchInput");
-
-                if (input) {
-
-                    input.focus();
-
-                }
+                input.focus();
 
             }
 
         };
 
     /* =====================================================
-       SEARCH GENERATED NEWS
+       SEARCH
        ===================================================== */
 
     window.searchNews =
@@ -1106,73 +995,33 @@
                     .trim()
                     .toLowerCase();
 
-            const generatedCards =
+            const cards =
                 document.querySelectorAll(
-                    ".portal-card"
+                    ".portal-card, .sidebar-card, .most-read-card"
                 );
 
-            generatedCards.forEach(
-                function (card) {
+            if (!query) {
 
-                    const text =
-                        card.textContent
-                            .toLowerCase();
-
-                    if (!query) {
-
-                        card.style.display =
-                            "";
-
-                    } else {
-
-                        card.style.display =
-                            text.includes(query)
-                                ? ""
-                                : "none";
-
-                    }
-
-                }
-            );
-
-            const source =
-                $("legacyNewsSource");
-
-            if (source) {
-
-                source.querySelectorAll(
-                    ".post"
-                ).forEach(function (post) {
-
-                    post.style.display =
-                        "none";
-
+                cards.forEach(card => {
+                    card.style.display = "";
                 });
 
+                return;
             }
+
+            cards.forEach(card => {
+
+                const text =
+                    card.textContent.toLowerCase();
+
+                card.style.display =
+                    text.includes(query)
+                        ? ""
+                        : "none";
+
+            });
 
         };
-
-    /* =====================================================
-       SEARCH ENTER KEY
-       ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Enter" &&
-                document.activeElement?.id ===
-                "searchInput"
-            ) {
-
-                window.searchNews();
-
-            }
-
-        }
-    );
 
     /* =====================================================
        MOBILE NAV
@@ -1214,36 +1063,23 @@
     window.filterPosts =
         function (category) {
 
-            const normalized =
+            const value =
                 String(category || "")
                     .toLowerCase()
                     .trim();
 
-            let target =
-                null;
+            let target = null;
 
-            if (
-                normalized === "movies" ||
-                normalized === "movie" ||
-                normalized === "cinema"
-            ) {
+            if (value === "movies") {
+                target = $("cinemaSection");
+            }
 
-                target =
-                    $("cinemaSection");
+            else if (value === "sports") {
+                target = $("sportsSection");
+            }
 
-            } else if (
-                normalized === "sports" ||
-                normalized === "sport"
-            ) {
-
-                target =
-                    $("sportsSection");
-
-            } else {
-
-                target =
-                    $("latestSection");
-
+            else {
+                target = $("latestSection");
             }
 
             if (target) {
@@ -1258,18 +1094,7 @@
         };
 
     /* =====================================================
-       START DATE / TIME
-       ===================================================== */
-
-    updateDateTime();
-
-    setInterval(
-        updateDateTime,
-        1000
-    );
-
-    /* =====================================================
-       START PORTAL
+       START
        ===================================================== */
 
     if (
