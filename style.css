@@ -1,1373 +1,2808 @@
-/* =========================================================
-   BS 360 NEWS
-   CLEAN PROFESSIONAL NEWS PORTAL CSS
-========================================================= */
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>
+        BS 360 NEWS | తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్
+    </title>
+
+    
 
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    padding:0;
-    background:#f4f6f8;
-    color:#111827;
-    font-family:Arial,"Noto Sans Telugu",sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
-}
-
-img{
-    display:block;
-    max-width:100%;
-}
-
-a{
-    color:inherit;
-}
-
-button,
-input{
-    font:inherit;
-}
-
-.container{
-    width:min(1240px,94%);
-    margin:0 auto;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.brand-header{
-    background:#fff;
-    border-bottom:1px solid #e5e7eb;
-}
-
-.brand-inner{
-    min-height:92px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.brand-logo{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    min-width:0;
-    text-decoration:none;
-}
-
-.logo-mark{
-    width:62px;
-    height:62px;
-    flex:0 0 62px;
-    background:#075aaa;
-    color:#fff;
-    border-radius:10px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    font-weight:900;
-    line-height:1.05;
-}
-
-.logo-mark span:first-child{
-    font-size:16px;
-}
-
-.logo-mark span:last-child{
-    font-size:13px;
-}
-
-.logo-name{
-    min-width:0;
-}
-
-.logo-name>div{
-    font-size:30px;
-    font-weight:900;
-    line-height:1.2;
-    white-space:nowrap;
-}
-
-.logo-red{
-    color:#e00000;
-}
-
-.logo-tagline{
-    display:block;
-    margin-top:4px;
-    color:#6b7280;
-    font-size:13px;
-    font-weight:700;
-    line-height:1.3;
-}
-
-.header-actions{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    flex-shrink:0;
-}
-
-.date-time-box{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    font-size:13px;
-    font-weight:700;
-    color:#4b5563;
-    line-height:1.4;
-    white-space:nowrap;
-}
-
-.theme-button{
-    border:1px solid #d1d5db;
-    background:#fff;
-    border-radius:7px;
-    padding:8px 12px;
-    cursor:pointer;
-    font-weight:700;
-}
-
-.live-button{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    font-weight:900;
-    white-space:nowrap;
-}
-
-.live-dot{
-    width:9px;
-    height:9px;
-    flex:0 0 9px;
-    background:#e00000;
-    border-radius:50%;
-    animation:livePulse 1.2s infinite;
-}
-
-@keyframes livePulse{
-    50%{
-        opacity:.35;
-    }
-}
-
-.mobile-menu-toggle{
-    display:none;
-    border:1px solid #d1d5db;
-    background:#fff;
-    border-radius:7px;
-    padding:7px 11px;
-    font-size:22px;
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.main-nav{
-    background:#075aaa;
-    color:#fff;
-    box-shadow:0 2px 7px rgba(0,0,0,.08);
-}
-
-.nav-container{
-    min-height:48px;
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.lang-selector{
-    font-size:13px;
-    font-weight:800;
-    white-space:nowrap;
-}
-
-.lang-selector a{
-    color:#fff;
-    text-decoration:none;
-}
-
-.lang-selector .active{
-    text-decoration:underline;
-}
-
-.nav-links{
-    list-style:none;
-    margin:0;
-    padding:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex:1;
-    gap:2px;
-    min-width:0;
-}
-
-.nav-links li{
-    margin:0;
-    padding:0;
-}
-
-.nav-links a{
-    display:block;
-    padding:11px 13px;
-    color:#fff;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:800;
-    line-height:1.4;
-    border-radius:5px;
-    white-space:nowrap;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-    background:rgba(255,255,255,.15);
-}
-
-
-/* =========================================================
-   BREAKING NEWS
-========================================================= */
-
-.headlines-bar{
-    background:#111827;
-    color:#fff;
-    border-bottom:3px solid #e00000;
-    overflow:hidden;
-}
-
-.headlines-bar .container{
-    min-height:43px;
-    display:flex !important;
-    align-items:center;
-    gap:12px;
-    min-width:0;
-}
-
-.headlines-label{
-    flex-shrink:0;
-    color:#ff3b30;
-    font-size:14px;
-    font-weight:900;
-    white-space:nowrap;
-}
-
-.headlines-bar marquee{
-    min-width:0;
-    font-size:14px;
-    font-weight:700;
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.portal-main{
-    padding:18px 0 45px;
-}
-
-.search-container{
-    position:relative;
-    display:flex;
-    justify-content:flex-end;
-    margin-bottom:16px;
-}
-
-.search-icon{
-    width:42px;
-    height:42px;
-    border:0;
-    border-radius:50%;
-    background:#075aaa;
-    color:#fff;
-    font-size:20px;
-    cursor:pointer;
-}
-
-.search-icon:hover{
-    background:#064985;
-}
-
-.search-box{
-    display:none;
-    position:absolute;
-    top:50px;
-    right:0;
-    width:330px;
-    padding:9px;
-    background:#fff;
-    border:1px solid #d1d5db;
-    border-radius:8px;
-    box-shadow:0 8px 24px rgba(0,0,0,.15);
-    z-index:100;
-}
-
-.search-box.active{
-    display:flex;
-    gap:7px;
-}
-
-.search-box input{
-    flex:1;
-    min-width:0;
-    height:40px;
-    border:1px solid #cbd5e1;
-    border-radius:6px;
-    padding:0 11px;
-    outline:none;
-}
-
-.search-box button{
-    height:40px;
-    border:0;
-    border-radius:6px;
-    padding:0 13px;
-    background:#075aaa;
-    color:#fff;
-    font-weight:800;
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   SECTION TITLES
-========================================================= */
-
-.section-title-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin:0 0 14px;
-    padding-bottom:9px;
-    border-bottom:2px solid #e5e7eb;
-}
-
-.section-title-row h2{
-    margin:0;
-    font-size:23px;
-    font-weight:900;
-    line-height:1.4;
-}
-
-.section-title-row h2:after{
-    content:"";
-    display:block;
-    width:52px;
-    height:3px;
-    margin-top:7px;
-    background:#e00000;
-}
-
-.section-title-row>span{
-    color:#6b7280;
-    font-size:13px;
-    font-weight:700;
-    white-space:nowrap;
-}
-
-.view-all{
-    color:#075aaa;
-    font-size:13px;
-    font-weight:800;
-    text-decoration:none;
-    white-space:nowrap;
-}
-
-
-/* =========================================================
-   SECTION SPACING
-========================================================= */
-
-.top-story-section,
-.slider-section,
-.latest-section,
-.category-section,
-.sports-section,
-.most-read-section{
-    margin-bottom:30px;
-}
-
-
-/* =========================================================
-   TOP STORY
-   LEFT = LATEST NEWS
-   RIGHT = BIG STORY
-========================================================= */
-
-.top-story-grid{
-    display:grid;
-    grid-template-columns:minmax(310px,1fr) minmax(0,2fr);
-    gap:18px;
-    align-items:start;
-}
-
-
-/* LEFT */
-
-.latest-sidebar{
-    grid-column:1;
-    grid-row:1;
-    height:560px;
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-
-/* RIGHT */
-
-.top-story-main{
-    grid-column:2;
-    grid-row:1;
-    min-width:0;
-}
-
-
-/* =========================================================
-   LATEST NEWS VERTICAL SCROLLER
-========================================================= */
-
-.sidebar-heading{
-    height:52px;
-    padding:12px 14px;
-    background:#f8fafc;
-    border-bottom:1px solid #e5e7eb;
-    font-size:18px;
-    font-weight:900;
-    line-height:1.5;
-}
-
-.sidebar-list{
-    height:508px;
-    padding:0 14px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
-}
-
-.sidebar-list::-webkit-scrollbar{
-    width:5px;
-}
-
-.sidebar-list::-webkit-scrollbar-track{
-    background:#f1f5f9;
-}
-
-.sidebar-list::-webkit-scrollbar-thumb{
-    background:#94a3b8;
-    border-radius:10px;
-}
-
-.sidebar-card{
-    display:grid;
-    grid-template-columns:100px minmax(0,1fr);
-    gap:11px;
-    padding:13px 0;
-    border-bottom:1px solid #e5e7eb;
-    min-width:0;
-    cursor:pointer;
-}
-
-.sidebar-card:last-child{
-    border-bottom:0;
-}
-
-.sidebar-card img{
-    width:100px;
-    height:72px;
-    object-fit:cover;
-    border-radius:6px;
-}
-
-.sidebar-card .portal-card-body{
-    min-width:0;
-    padding:0;
-}
-
-.sidebar-card h3{
-    margin:5px 0 0;
-    font-size:14px;
-    line-height:1.55;
-    font-weight:800;
-    overflow-wrap:anywhere;
-}
-
-.sidebar-card.auto-active{
-    background:#f1f7ff;
-    border-left:3px solid #075aaa;
-    padding-left:7px;
-}
-
-
-/* =========================================================
-   HERO IMAGE + CONTENT OVER IMAGE
-========================================================= */
-
-.hero-card{
-    position:relative;
-    width:100%;
-    overflow:hidden;
-    border-radius:12px;
-    background:#000;
-    cursor:pointer;
-}
-
-.hero-card img{
-    width:100%;
-    height:560px;
-    object-fit:cover;
-}
-
-.hero-card .portal-card-body{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    z-index:3;
-    padding:100px 25px 24px;
-    color:#fff;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.94) 0%,
-        rgba(0,0,0,.72) 40%,
-        rgba(0,0,0,.20) 75%,
-        transparent 100%
-    );
-}
-
-.hero-card .portal-tag{
-    display:block;
-    margin-bottom:6px;
-    color:#ff3b30;
-    font-size:12px;
-    font-weight:900;
-    line-height:1.4;
-}
-
-.hero-card h3{
-    max-width:95%;
-    margin:0;
-    color:#fff;
-    font-size:27px;
-    font-weight:900;
-    line-height:1.5;
-    overflow-wrap:anywhere;
-}
-
-.hero-card.hero-changing{
-    animation:heroFade .6s ease;
-}
-
-@keyframes heroFade{
-    from{
-        opacity:.4;
-        transform:translateX(12px);
+    <meta
+        name="author"
+        content="BS 360 NEWS"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
+
+    <link
+        rel="canonical"
+        href="https://bs360news.com/"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="dp.png.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="dp.png.png"
+    >
+
+    <!-- Open Graph -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="BS 360 NEWS | తెలుగు తాజా వార్తలు"
+    >
+
+    <meta
+        property="og:description"
+        content="తెలుగు తాజా వార్తలు, సినిమా, క్రికెట్, స్పోర్ట్స్, గోల్డ్ రేట్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్."
+    >
+
+    <meta
+        property="og:url"
+        content="https://bs360news.com/"
+    >
+
+    <meta
+        property="og:site_name"
+        content="BS 360 NEWS"
+    >
+
+    <meta
+        property="og:locale"
+        content="te_IN"
+    >
+
+    <meta
+        property="og:image"
+        content="https://bs360news.com/dp.png.png"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="BS 360 NEWS"
+    >
+
+    <!-- Twitter -->
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="BS 360 NEWS | తెలుగు తాజా వార్తలు"
+    >
+
+    <meta
+        name="twitter:description"
+        content="తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్ మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://bs360news.com/dp.png.png"
+    >
+
+    <!-- Schema -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "BS 360 NEWS",
+        "url": "https://bs360news.com/",
+        "description": "తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్, రాష్ట్ర వార్తలు మరియు ఎంటర్‌టైన్‌మెంట్ అప్‌డేట్స్.",
+        "inLanguage": "te-IN"
     }
 
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-}
-
-
-/* =========================================================
-   FEATURED NEWS
-========================================================= */
-
-.slider-controls{
-    display:flex;
-    gap:6px;
-    flex-shrink:0;
-}
-
-.slider-controls button{
-    width:34px;
-    height:34px;
-    border:1px solid #cbd5e1;
-    background:#fff;
-    border-radius:6px;
-    font-size:22px;
-    cursor:pointer;
-}
-
-.slider-controls button:hover{
-    background:#075aaa;
-    color:#fff;
-}
-
-.news-slider{
-    width:100%;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:3px 3px 14px;
-    scroll-behavior:smooth;
-    scrollbar-width:thin;
-}
-
-.news-slider::-webkit-scrollbar{
-    height:6px;
-}
-
-.news-slider::-webkit-scrollbar-thumb{
-    background:#94a3b8;
-    border-radius:10px;
-}
-
-.slider-track{
-    display:flex;
-    gap:14px;
-    width:max-content;
-}
-
-.slider-card{
-    width:245px;
-    flex:0 0 245px;
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:10px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.slider-card img{
-    width:100%;
-    height:145px;
-    object-fit:cover;
-}
-
-.slider-card .portal-card-body{
-    padding:9px 11px 12px;
-}
-
-.slider-card h3{
-    margin:5px 0 0;
-    font-size:14px;
-    line-height:1.5;
-    overflow-wrap:anywhere;
-}
-
-
-/* =========================================================
-   HORIZONTAL LATEST NEWS
-========================================================= */
-
-.latest-grid{
-    display:flex;
-    gap:16px;
-    width:100%;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:3px 3px 14px;
-    scroll-behavior:smooth;
-    scrollbar-width:thin;
-}
-
-.latest-grid::-webkit-scrollbar{
-    height:6px;
-}
-
-.latest-grid::-webkit-scrollbar-thumb{
-    background:#94a3b8;
-    border-radius:10px;
-}
-
-.latest-card{
-    flex:0 0 31.8%;
-    min-width:280px;
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:10px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.latest-card img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-}
-
-.latest-card .portal-card-body{
-    padding:11px 13px 14px;
-}
-
-.latest-card h3{
-    margin:5px 0 0;
-    font-size:17px;
-    line-height:1.5;
-    overflow-wrap:anywhere;
-}
-
-
-/* =========================================================
-   AD
-========================================================= */
-
-.ad-box{
-    min-height:110px;
-    margin:8px 0 30px;
-    background:#fafafa;
-    border:1px dashed #cbd5e1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#9ca3af;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1px;
-    text-align:center;
-}
-
-
-/* =========================================================
-   MOVIES / CATEGORY HORIZONTAL
-========================================================= */
-
-.category-grid{
-    display:flex;
-    gap:16px;
-    width:100%;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:3px 3px 14px;
-    scroll-behavior:smooth;
-    scrollbar-width:thin;
-}
-
-.category-grid::-webkit-scrollbar{
-    height:6px;
-}
-
-.category-grid::-webkit-scrollbar-thumb{
-    background:#94a3b8;
-    border-radius:10px;
-}
-
-.category-card{
-    flex:0 0 24%;
-    min-width:245px;
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:10px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.category-card img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-}
-
-.category-card .portal-card-body{
-    padding:11px 13px 14px;
-}
-
-.category-card h3{
-    margin:5px 0 0;
-    font-size:16px;
-    line-height:1.5;
-    overflow-wrap:anywhere;
-}
-
-
-/* =========================================================
-   SPORTS HORIZONTAL
-========================================================= */
-
-.sports-list{
-    display:flex;
-    gap:12px;
-    width:100%;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:3px 3px 14px;
-    scroll-behavior:smooth;
-    scrollbar-width:thin;
-}
-
-.sports-list::-webkit-scrollbar{
-    height:6px;
-}
-
-.sports-list::-webkit-scrollbar-thumb{
-    background:#94a3b8;
-    border-radius:10px;
-}
-
-.sports-row{
-    flex:0 0 48%;
-    min-width:430px;
-    display:grid;
-    grid-template-columns:150px minmax(0,1fr);
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:10px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.sports-row img{
-    width:150px;
-    height:105px;
-    object-fit:cover;
-}
-
-.sports-row .portal-card-body{
-    padding:11px 13px;
-    min-width:0;
-}
-
-.sports-row h3{
-    margin:4px 0 0;
-    font-size:15px;
-    line-height:1.5;
-    overflow-wrap:anywhere;
-}
-
-
-/* =========================================================
-   MOST READ
-========================================================= */
-
-.most-read-section{
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:12px;
-    padding:18px;
-}
-
-.most-read-list{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:12px;
-}
-
-.most-read-item{
-    display:grid;
-    grid-template-columns:42px minmax(0,1fr);
-    gap:10px;
-    align-items:start;
-    min-height:82px;
-    padding:13px 12px;
-    background:#f8fafc;
-    border:1px solid #e5e7eb;
-    border-radius:8px;
-    cursor:pointer;
-    transition:.18s ease;
-}
-
-.most-read-item:hover{
-    transform:translateY(-2px);
-    background:#fff;
-    box-shadow:0 5px 16px rgba(15,23,42,.08);
-}
-
-.most-read-item strong{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:34px;
-    height:34px;
-    border-radius:50%;
-    background:#e00000;
-    color:#fff;
-    font-size:14px;
-    line-height:1;
-}
-
-.most-read-item span{
-    font-size:14px;
-    font-weight:800;
-    line-height:1.55;
-    overflow-wrap:anywhere;
-}
-
-
-/* =========================================================
-   HIDDEN ORIGINAL NEWS
-========================================================= */
-
-.legacy-news-source{
-    display:none;
-}
-
-.no-results{
-    display:none;
-    text-align:center;
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:8px;
-    padding:25px;
-    font-weight:800;
-}
-
-.search-hidden,
-.hidden{
-    display:none !important;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.site-footer{
-    background:#101827;
-    color:#fff;
-}
-
-.footer-grid{
-    padding:38px 0;
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr 1.2fr;
-    gap:28px;
-}
-
-.footer-brand{
-    font-size:25px;
-    font-weight:900;
-}
-
-.footer-brand span{
-    color:#ff3b30;
-}
-
-.footer-grid p{
-    margin:8px 0;
-    color:#cbd5e1;
-    font-size:14px;
-    line-height:1.6;
-}
-
-.footer-grid h3{
-    margin:0 0 10px;
-    font-size:16px;
-}
-
-.footer-grid a{
-    display:block;
-    margin:7px 0;
-    color:#e5e7eb;
-    text-decoration:none;
-    font-size:14px;
-    line-height:1.5;
-}
-
-.footer-grid a:hover{
-    text-decoration:underline;
-}
-
-.copyright{
-    padding:13px;
-    border-top:1px solid rgba(255,255,255,.14);
-    color:#aeb8c7;
-    text-align:center;
-    font-size:13px;
-}
-
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
-body.dark-mode{
-    background:#0b1120;
-    color:#f8fafc;
-}
-
-.dark-mode .brand-header,
-.dark-mode .portal-card,
-.dark-mode .latest-sidebar,
-.dark-mode .latest-card,
-.dark-mode .category-card,
-.dark-mode .sports-row,
-.dark-mode .most-read-section,
-.dark-mode .most-read-item,
-.dark-mode .search-box{
-    background:#111827;
-    color:#f8fafc;
-    border-color:#263244;
-}
-
-.dark-mode .main-nav{
-    background:#0b477f;
-}
-
-.dark-mode .headlines-bar{
-    background:#020617;
-}
-
-.dark-mode .section-title-row{
-    border-color:#263244;
-}
-
-.dark-mode .sidebar-heading{
-    background:#0f172a;
-    border-color:#263244;
-}
-
-.dark-mode .theme-button,
-.dark-mode .slider-controls button{
-    background:#1f2937;
-    color:#fff;
-    border-color:#374151;
-}
-
-.dark-mode .search-box input{
-    background:#0f172a;
-    color:#fff;
-    border-color:#374151;
-}
-
-.dark-mode .ad-box{
-    background:#0f172a;
-    border-color:#374151;
-}
-
-.dark-mode .most-read-item:hover{
-    background:#172033;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:1000px){
-
-    .nav-links a{
-        padding:10px 8px;
-        font-size:12px;
-    }
-
-    .lang-selector{
-        font-size:12px;
-    }
-
-    .top-story-grid{
-        grid-template-columns:minmax(270px,1fr) minmax(0,1.55fr);
-    }
-
-    .hero-card img{
-        height:500px;
-    }
-
-    .latest-card{
-        flex-basis:45%;
-    }
-
-    .category-card{
-        flex-basis:32%;
-    }
-
-    .most-read-list{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:768px){
-
-    .container{
-        width:94%;
-    }
-
-    /* HEADER */
-
-    .brand-inner{
-        min-height:74px;
-        gap:8px;
-    }
-
-    .logo-mark{
-        width:48px;
-        height:48px;
-        flex:0 0 48px;
-    }
-
-    .logo-mark span:first-child{
-        font-size:12px;
-    }
-
-    .logo-mark span:last-child{
-        font-size:10px;
-    }
-
-    .logo-name>div{
-        font-size:21px;
-    }
-
-    .logo-tagline{
-        font-size:10px;
-    }
-
-    .date-time-box,
-    .live-button{
-        display:none;
-    }
-
-    .header-actions{
-        margin-left:auto;
-    }
-
-    .theme-button{
-        padding:6px 8px;
-        font-size:11px;
-    }
-
-    .mobile-menu-toggle{
-        display:block;
-    }
-
-
-    /* NAV */
-
-    .nav-container{
-        padding:7px 0;
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .lang-selector{
-        text-align:center;
-    }
-
-    .nav-links{
-        display:none;
-        flex-direction:column;
-        width:100%;
-    }
-
-    .nav-links a{
-        padding:9px;
-        text-align:center;
-        font-size:13px;
-        white-space:normal;
-    }
-
-
-    /* BREAKING */
-
-    .headlines-bar .container{
-        min-height:40px;
-    }
-
-    .headlines-label{
-        font-size:12px;
-    }
-
-    .headlines-bar marquee{
-        font-size:12px;
-    }
-
-
-    /* TOP STORY */
-
-    .top-story-grid{
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-    }
-
-    .latest-sidebar{
-        order:1;
-        width:100%;
-        height:430px;
-    }
-
-    .top-story-main{
-        order:2;
-        width:100%;
-    }
-
-    .sidebar-list{
-        height:378px;
-    }
-
-    .sidebar-card{
-        grid-template-columns:86px minmax(0,1fr);
-    }
-
-    .sidebar-card img{
-        width:86px;
-        height:65px;
-    }
-
-    .sidebar-card h3{
-        font-size:13px;
-    }
-
-
-    /* HERO */
-
-    .hero-card{
-        border-radius:9px;
-    }
-
-    .hero-card img{
-        height:420px;
-    }
-
-    .hero-card .portal-card-body{
-        padding:90px 15px 17px;
-    }
-
-    .hero-card h3{
-        font-size:19px;
-        line-height:1.55;
-    }
-
-
-    /* FEATURED */
-
-    .slider-card{
-        flex-basis:205px;
-        width:205px;
-    }
-
-    .slider-card img{
-        height:122px;
-    }
-
-
-    /* LATEST */
-
-    .latest-card{
-        flex-basis:78%;
-        min-width:245px;
-    }
-
-
-    /* MOVIES */
-
-    .category-card{
-        flex-basis:78%;
-        min-width:230px;
-    }
-
-
-    /* SPORTS */
-
-    .sports-row{
-        flex-basis:88%;
-        min-width:290px;
-    }
-
-
-    /* MOST READ */
-
-    .most-read-list{
-        grid-template-columns:1fr;
-        gap:9px;
-    }
-
-    .most-read-item{
-        min-height:auto;
-        grid-template-columns:38px minmax(0,1fr);
-        padding:11px 10px;
-    }
-
-    .most-read-item strong{
-        width:31px;
-        height:31px;
-        font-size:13px;
-    }
-
-    .most-read-item span{
-        font-size:13px;
-    }
-
-
-    /* FOOTER */
-
-    .footer-grid{
-        grid-template-columns:1fr;
-        gap:20px;
-        padding:28px 0;
-    }
-
-    .footer-brand{
-        font-size:22px;
-    }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media(max-width:430px){
-
-    .logo-name>div{
-        font-size:19px;
-    }
-
-    .logo-tagline{
-        font-size:9px;
-    }
-
-    .hero-card img{
-        height:370px;
-    }
-
-    .hero-card .portal-card-body{
-        padding:70px 12px 14px;
-    }
-
-    .hero-card h3{
-        font-size:17px;
-    }
-
-    .slider-card{
-        flex-basis:190px;
-        width:190px;
-    }
-
-    .latest-card{
-        flex-basis:82%;
-        min-width:220px;
-    }
-
-    .category-card{
-        flex-basis:82%;
-        min-width:215px;
-    }
-
-    .sports-row{
-        flex-basis:92%;
-        min-width:270px;
-    }
-
-    .most-read-item span{
-        font-size:12.5px;
-    }
-}
+    </script>
+
+    <!-- Google Analytics -->
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-EWXPS1N2TL"
+    ></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag(
+            'js',
+            new Date()
+        );
+
+        gtag(
+            'config',
+            'G-EWXPS1N2TL'
+        );
+
+    </script>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     BRAND HEADER
+===================================================== -->
+
+<header class="brand-header">
+
+    <div class="container brand-inner">
+
+        <a
+            href="./"
+            class="brand-logo"
+            aria-label="BS 360 NEWS Home"
+        >
+
+            <div class="logo-mark">
+
+                <span>
+                    BS360
+                </span>
+
+                <span>
+                    NEWS
+                </span>
+
+            </div>
+
+            <div class="logo-name">
+
+                <div>
+
+                    <span>
+                        BS 360
+                    </span>
+
+                    <span class="logo-red">
+                        NEWS
+                    </span>
+
+                </div>
+
+                <span class="logo-tagline">
+                    Fast | Fair | Fearless
+                </span>
+
+            </div>
+
+        </a>
+
+        <div class="header-actions">
+
+            <!-- LIVE INDIA DATE + TIME -->
+
+            <div class="date-time-box">
+
+                <span id="live-date">
+                    📅 Loading...
+                </span>
+
+                <span id="live-clock">
+                    ⏰ Loading...
+                </span>
+
+            </div>
+
+            <button
+                type="button"
+                class="theme-button"
+                id="themeButton"
+                onclick="toggleTheme()"
+            >
+                🌙 Dark
+            </button>
+
+            <div class="live-button">
+
+                <span class="live-dot"></span>
+
+                LIVE
+
+            </div>
+
+        </div>
+
+        <button
+            class="mobile-menu-toggle"
+            type="button"
+            aria-label="Navigation menu"
+            onclick="toggleMobileNav()"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav
+    class="main-nav"
+    aria-label="Main Navigation"
+>
+
+    <div class="container nav-container">
+
+        <div class="lang-selector">
+
+            <a
+                href="./"
+                class="active"
+            >
+                తెలుగు
+            </a>
+
+            |
+
+            <span>
+                English
+            </span>
+
+            |
+
+            <span>
+                हिन्दी
+            </span>
+
+        </div>
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+
+                <a
+                    href="./"
+                    class="active"
+                    onclick="filterPosts('all');return false;"
+                >
+                    🏠 హోమ్
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="filterPosts('news');return false;"
+                >
+                    📰 తాజా వార్తలు
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="filterPosts('movies');return false;"
+                >
+                    🎬 సినిమా
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="filterPosts('sports');return false;"
+                >
+                    🏏 స్పోర్ట్స్
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="filterPosts('gold');return false;"
+                >
+                    💰 గోల్డ్ రేట్
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="filterPosts('ap');return false;"
+                >
+                    ఆంధ్రప్రదేశ్
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="filterPosts('ts');return false;"
+                >
+                    తెలంగాణ
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- =====================================================
+     HEADLINES
+===================================================== -->
+
+<div class="headlines-bar">
+
+    <div
+        class="container"
+        style="display:flex;align-items:center"
+    >
+
+        <span class="headlines-label">
+            ❗ TOP HEADLINES
+        </span>
+
+        <marquee
+            behavior="scroll"
+            direction="left"
+            scrollamount="5"
+        >
+            తెలుగు రాష్ట్రాలు, సినిమా, క్రికెట్, స్పోర్ట్స్ మరియు జాతీయ వార్తల తాజా అప్‌డేట్స్
+        </marquee>
+
+    </div>
+
+</div>
+
+<main class="container">
+
+   <div class="search-container">
+    <button class="search-icon" onclick="toggleSearch()" aria-label="Search">
+        🔎
+    </button>
+
+    <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="వార్తలు వెతకండి...">
+        <button onclick="searchNews()">Search</button>
+    </div>
+   </div>
+<!-- =====================================================
+     PORTAL CONTENT
+===================================================== -->
+
+<section class="portal-wrap">
+
+  <section class="top-story-section" aria-label="Top Story">
+    <div class="section-title-row"><h2>🔥 TOP STORY</h2><span>ముఖ్య వార్త</span></div>
+    <div class="top-story-grid">
+      <aside class="latest-sidebar">
+        <div class="sidebar-heading">📰 తాజా వార్తలు</div>
+        <div id="latestSidebar" class="sidebar-list"></div>
+      </aside>
+      <div id="topStory" class="top-story-main"></div>
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <div class="section-title-row"><h2>⭐ Featured News</h2><span>ముఖ్యమైన వార్తలు</span></div>
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" id="sliderPrev" type="button" aria-label="Previous">‹</button>
+      <div class="news-slider" id="newsSlider"><div class="slider-track" id="sliderTrack"></div></div>
+      <button class="carousel-btn next" id="sliderNext" type="button" aria-label="Next">›</button>
+    </div>
+  </section>
+
+  <section class="latest-section">
+    <div class="section-title-row"><h2>📰 Latest News</h2><span>తాజా అప్‌డేట్స్</span></div>
+    <div class="horizontal-carousel" id="latestGrid"></div>
+  </section>
+
+  <div class="ad-space"><span>Advertisement</span></div>
+
+  <section class="category-section">
+    <div class="section-title-row"><h2>🎬 Movies</h2><a href="#cinemaSection" class="view-all">మరిన్ని →</a></div>
+    <div class="horizontal-carousel" id="cinemaGrid"></div>
+  </section>
+
+  <section class="sports-section">
+    <div class="section-title-row"><h2>🏏 Sports</h2><a href="#sportsSection" class="view-all">మరిన్ని →</a></div>
+    <div class="horizontal-carousel" id="sportsGrid"></div>
+  </section>
+
+  <section class="most-read-section">
+    <div class="section-title-row"><h2>🔥 MOST READ</h2><span>ఎక్కువగా చదివిన వార్తలు</span></div>
+    <div class="most-read-grid" id="mostReadList"></div>
+  </section>
+
+</section>
+
+<!-- Original articles are kept as the single source for all portal cards. -->
+<div id="legacyNewsSource" class="legacy-news-source">
+
+<!-- =====================================================
+     ALL NEWS
+===================================================== -->
+
+    <article
+    class="news-item post"
+    data-category="automobiles"
+    data-url="ev1.html"
+>
+
+    <img
+        src="ev1.png"
+        alt="ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి
+        </p>
+
+    </div>
+
+    </article>
+
+    
+
+<article
+    class="news-item post"
+    data-category="human-interest"
+    data-url="watch.html"
+>
+
+    <img
+        src="watch.png"
+        alt="వాచ్‌మెన్‌ రూంలో వింత శబ్దాలు.. వెళ్లి చూస్తే గుండె జారిపోయింది.. ఐదు అడుగుల నాగుపాము"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🐍 వాచ్‌మెన్‌ రూంలో వింత శబ్దాలు.. వెళ్లి చూస్తే గుండె జారిపోయింది.. ఐదు అడుగుల నాగుపాము
+        </p>
+
+    </div>
+
+</article>
+
+    
+
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="indg99.html"
+>
+
+    <img
+        src="indg99.webp"
+        alt="మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+<article
+    class="news-item post"
+    data-category="telangana"
+    data-url="kang.html"
+>
+
+    <img
+        src="kang.png"
+        alt="కొండా సురేఖపై రేవంత్ రెడ్డి కీలక నిర్ణయం.. తెలంగాణ కాంగ్రెస్‌లో మరోసారి కలకలం"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏛️ కొండా సురేఖపై రేవంత్ రెడ్డి కీలక నిర్ణయం.. తెలంగాణ కాంగ్రెస్‌లో మరోసారి కలకలం
+        </p>
+
+    </div>
+
+</article>
+    
+    
+
+    <article
+    class="news-item post"
+    data-category="telangana"
+    data-url="boggu.html"
+>
+
+    <img
+        src="boggu.png"
+        alt="సింగరేణి బొగ్గుపై కేంద్రం ఫోకస్.. 40 లక్షల టన్నుల నిల్వలపై విచారణకు కిషన్ రెడ్డి లేఖ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏛️ సింగరేణి బొగ్గుపై కేంద్రం ఫోకస్.. 40 లక్షల టన్నుల నిల్వలపై విచారణకు కిషన్ రెడ్డి లేఖ
+        </p>
+
+    </div>
+
+    </article>
+
+
+
+
+    <article
+    class="news-item post"
+    data-category="science"
+    data-url="kota.html"
+>
+
+    <img
+        src="kota.png"
+        alt="ISROకు కీలక మిషన్.. EOS-05 ఉపగ్రహ ప్రయోగానికి ఏర్పాట్లు పూర్తి — సెప్టెంబర్ 4 ప్రయోగంపై ఆసక్తి"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🛰️ ISROకు కీలక మిషన్.. EOS-05 ఉపగ్రహ ప్రయోగానికి ఏర్పాట్లు పూర్తి — సెప్టెంబర్ 4 ప్రయోగంపై ఆసక్తి
+        </p>
+
+    </div>
+
+    </article>
+
+
+
+    
+    <article
+    class="news-item post"
+    data-category="business"
+    data-url="ind98.html"
+>
+
+    <img
+        src="ind98.png"
+        alt="భారత్ ఆర్థిక వ్యవస్థకు భారీ బూస్ట్.. జపాన్ JCRA రేటింగ్‌ను A-కి పెంచింది — 35 ఏళ్ల తర్వాత A-rated క్లబ్‌లోకి భారత్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇮🇳 భారత్ ఆర్థిక వ్యవస్థకు భారీ బూస్ట్.. జపాన్ JCRA రేటింగ్‌ను A-కి పెంచింది — 35 ఏళ్ల తర్వాత A-rated క్లబ్‌లోకి భారత్
+        </p>
+
+    </div>
+
+    </article>
+
+    
+
+
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="dhoni7.html"
+>
+
+    <img
+        src="dhoni7.jpg"
+        alt="ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
+        </p>
+
+    </div>
+
+    </article>
+
+    
+
+
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="rohith45.html"
+>
+
+    <img
+        src="rohith.png"
+        alt="రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+
+
+    <article
+    class="news-item post"
+    data-category="business"
+    data-url="ac.html"
+>
+
+    <img
+        src="ac.png"
+        alt="భారత్‌కు మరో గుడ్ న్యూస్.. దేశ రేటింగ్‌ను A-కి పెంచిన జపాన్ ఏజెన్సీ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇮🇳 భారత్‌కు మరో గుడ్ న్యూస్.. దేశ రేటింగ్‌ను A-కి పెంచిన జపాన్ ఏజెన్సీ
+        </p>
+
+    </div>
+
+    </article>
+
+    
+
+    <article
+    class="news-item post"
+    data-category="politics"
+    data-url="janasena.html"
+>
+
+    <img
+        src="janasena.jpg"
+        alt="పవన్ కల్యాణ్.. హీరోగా మొదలై రాజకీయ నాయకుడిగా ఎదిగిన ప్రయాణం ఇదీ!"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏛️ పవన్ కల్యాణ్.. హీరోగా మొదలై రాజకీయ నాయకుడిగా ఎదిగిన ప్రయాణం ఇదీ!
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+    <article
+    class="news-item post"
+    data-category="movie"
+    data-url="kalki2.html"
+>
+
+    <img
+        src="kalki2.jpg"
+        alt="కల్కి-2 షూటింగ్‌పై నాగ్ అశ్విన్ బిగ్ అప్‌డేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 ‘కల్కి-2’ షూటింగ్‌పై నాగ్ అశ్విన్ బిగ్ అప్‌డేట్.. ఇప్పటివరకు జరిగిందెంతో తెలుసా?
+        </p>
+
+    </div>
+
+    </article>
+
+
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="hardik.html"
+>
+
+    <img
+        src="hardik.jpg"
+        alt="హార్దిక్ పాండ్యా"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            😮 హార్దిక్ పాండ్యాకు మరో షాక్.. అఫ్గాన్ సిరీస్‌కు దూరం అవుతాడా..?
+        </p>
+
+    </div>
+
+    </article>
+
+    
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="rohithtv.html"
+>
+
+    <img
+        src="rohithtv.jpg"
+        alt="రోహిత్ శర్మ కొత్త అవతారం ఫ్యామిలీ ఫుల్ హౌస్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
+        </p>
+
+    </div>
+
+    </article>
+
+
+
+    <article
+    class="news-item post"
+    data-category="business"
+    data-url="sen.html"
+>
+
+    <img
+        src="sen.png"
+        alt="స్టాక్ మార్కెట్లలో స్వల్ప నష్టాలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            📈 స్టాక్ మార్కెట్లలో స్వల్ప నష్టాలు.. క్రూడ్ ఆయిల్ ధరల ప్రభావం
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+    <article
+    class="news-item post"
+    data-category="technology"
+    data-url="job.html"
+>
+
+    <img
+        src="job.png"
+        alt="Oracleలో ఉద్యోగాల కోత"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            💻 Oracleలో మరోసారి ఉద్యోగాల కోత.. భారత్‌లో 3,000 మంది వరకు ప్రభావం?
+        </p>
+
+    </div>
+
+    </article>
+
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="tilak.html"
+>
+
+    <img
+        src="tilak.webp"
+        alt="తిలక్ వర్మ అద్భుత సెంచరీ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
+        </p>
+
+    </div>
+
+    </article>
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="shami.html"
+>
+
+    <img
+        src="shami.jpg"
+        alt="మహ్మద్ షమీ 900 వికెట్ల మైలురాయి"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 మహ్మద్ షమీ అరుదైన ఘనత.. ప్రొఫెషనల్ క్రికెట్‌లో 900 వికెట్ల మైలురాయి
+        </p>
+
+    </div>
+
+</article>
+
+
+
+    
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="vaibhav.html"
+>
+
+    <img
+        src="vaibhav.webp"
+        alt="దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం.. 57 ఏళ్ల రికార్డు బద్దలు
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+<article
+    class="news-item post"
+    data-category="business"
+    data-url="lpg.html"
+>
+
+    <img
+        src="lpg5.png"
+        alt="కమర్షియల్ LPG ధర పెంపు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            💰 కమర్షియల్ LPG ధర పెంపు.. ATF రేటు కూడా పెరిగింది.. సెప్టెంబర్ 1 నుంచి కొత్త ధరలు అమలు
+        </p>
+
+    </div>
+
+</article>
+
+    
+
+    <article
+    class="news-item post"
+    data-category="business"
+    data-url="ag.html"
+>
+
+    <img
+        src="ag.png"
+        alt="భారత్ GDP 7.8 శాతం వృద్ధి"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇮🇳 భారత్ ఆర్థిక వ్యవస్థకు బిగ్ బూస్ట్.. ఏప్రిల్–జూన్ త్రైమాసికంలో GDP 7.8% వృద్ధి
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+
+
+
+    <article
+    class="news-item post"
+    data-category="sports"
+    data-url="ipl.html"
+>
+
+    <img
+        src="ipl.png"
+        alt="IPL 2027 ఇంపాక్ట్ ప్లేయర్ రూల్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం.. ఫ్రాంచైజీల అభిప్రాయాలు కోరిన బోర్డు
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+
+    
+
+    <article
+    class="news-item post"
+    data-category="business"
+    data-url="note.html"
+>
+
+    <img
+        src="note.png"
+        alt="రూపాయి విలువలో కీలక మార్పు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            💰 రూపాయి విలువలో కీలక మార్పు.. నాలుగు వారాల గరిష్ఠానికి చేరిన భారత కరెన్సీ
+        </p>
+
+    </div>
+
+    </article>
+    
+    
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="indiag.html"
+>
+
+    <img
+        src="indiag.jpg"
+        alt="భారత్ మహిళల క్రికెట్ జట్టు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 Cricket: భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. 94 పరుగుల తేడాతో థాయ్‌లాండ్ చిత్తు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="toxic78.html"
+>
+
+    <img
+        src="toc2.jpg"
+        alt="యష్ టాక్సిక్ సినిమా"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 Movies: యష్ ‘టాక్సిక్’ దూకుడు.. ఐదో రోజుకే రూ.300 కోట్ల మార్క్‌కు చేరువలో!
+        </p>
+
+    </div>
+
+</article>
+    
+<article
+    class="news-item post"
+    data-category="telangana"
+    data-url="tmps.html"
+>
+
+    <img
+        src="tmps.png"
+        alt="తెలంగాణ ఎంపీలు మరియు MPLADS నిధులు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏛️ Telangana: తెలంగాణ ఎంపీలపై కీలక నివేదిక.. కేంద్రం కేటాయించిన నిధుల వినియోగంపై ప్రశ్నలు
+        </p>
+
+    </div>
+
+</article>
+
+    
+    
+    <article
+    class="news-item post"
+    data-category="telangana"
+    data-url="revanth1.html"
+>
+
+    <img
+        src="revanth1.jpg"
+        alt="తెలంగాణ రైజింగ్ 2047 - ఇండస్ట్రియల్ పాలసీ 2.0"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏭 Telangana: తెలంగాణ రైజింగ్-2047 విజన్‌తో సరికొత్త పారిశ్రామిక విప్లవం.. 10 రంగాలపై ప్రత్యేక ఫోకస్!
+        </p>
+
+    </div>
+
+    </article>
+
+
+    
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="sachin.html"
+>
+
+    <img
+        src="sachin.jpg"
+        alt="సచిన్ టెండూల్కర్ మరియు కపిల్ దేవ్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 Cricket: సచిన్‌ vs కపిల్‌.. ‘ఆల్‌టైమ్‌ గ్రేట్‌’ ప్లేయర్ ఎవరు.. అశ్విన్ ఎవరిని ఎంచుకున్నాడంటే?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="bigboss99.html"
+>
+
+    <img
+        src="bigboss99.jpg"
+        alt="బిగ్ బాస్ తెలుగు సీజన్ 10 రూమర్డ్ కంటెస్టెంట్స్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            📺 Bigg Boss 10: బిగ్ బాస్ హౌస్‌లోకి వెళ్లే ఫైనల్ సెలబ్రిటీలు వీరేనా? లిస్ట్ చూస్తే మతిపోవడం పక్కా!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="surya20.html"
+>
+
+    <img
+        src="surya20.jpg"
+        alt="సూర్యకుమార్ యాదవ్ షాకింగ్ కామెంట్స్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 Team India: జట్టు నుంచే కాదు, కెప్టెన్సీ పోస్ట్ కూడా పీకేస్తారనుకోలే..: సూర్య షాకింగ్ కామెంట్స్..!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="rakha99.html"
+>
+
+    <img
+        src="rakha99.jpg"
+        alt="అల్లు అర్జున్ రాకా సినిమాలో రష్మిక"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 Allu Arjun: అల్లు అర్జున్‌తో మరోసారి హీరోయిన్... ‘రాకా’లో కీలక పాత్ర.. సెప్టెంబర్‌లో భారీ యాక్షన్ షెడ్యూల్!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="paradise6.html"
+>
+
+    <img
+        src="paradise6.jpg"
+        alt="ది ప్యారడైజ్ యెష నాగుల సాంగ్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 The Paradise: దుమ్మురేపుతున్న యెష నాగుల సాంగ్.. షేక్ అవుతున్న యూట్యూబ్
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="national"
+    data-url="nepal5.html"
+>
+
+    <img
+        src="nepal5.png"
+        alt="నేపాల్ వరదల్లో చిక్కుకున్న భారతీయులు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇳🇵 నేపాల్ వరదల్లో చిక్కుకున్న భారతీయులకు భారీ ఊరట.. 106 మంది సురక్షితంగా భారత్‌కు చేరిక
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="national"
+    data-url="america.html"
+>
+
+    <img
+        src="america.png"
+        alt="అమెరికా ఆంక్షలతో ఇరాన్ ఆర్థిక సంక్షోభం"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇺🇸 అమెరికా ఆంక్షలతో ఇరాన్‌కు భారీ దెబ్బ.. 66% ద్రవ్యోల్బణం, 35% పడిపోయిన వాణిజ్యం!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="national"
+    data-url="nepal3.html"
+>
+
+    <img
+        src="nepal4.jpg"
+        alt="నేపాల్‌లో భారీ ఫ్లాష్ ఫ్లడ్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🌊 నేపాల్‌లో భయానక వరదలు.. అసలు కారణం ఇదేనా? హిమనదం కూలిపోవడంతో పెను విపత్తు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="paradise5.html"
+>
+
+    <img
+        src="Paradise.png"
+        alt="ది ప్యారడైజ్ నాని"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 యెషనాగుల పాటతో ‘ది ప్యారడైజ్’పై మరింత పెరిగిన అంచనాలు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="irumudi2.html"
+>
+
+    <img
+        src="ravi2.jpg"
+        alt="మాస్ మహారాజా రవితేజ ఇరుముడి సినిమా"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 Irumudi: ఒకరు కాదు ముగ్గురు.. రవితేజ ‘ఇరుముడి’ సినిమాను మిస్ చేసుకున్న స్టార్ హీరోలు ఎవరో తెలుసా?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="praja.html"
+>
+
+    <img
+        src="IMG_20260828_181250.jpg"
+        alt="ప్రజ్ఞానంద"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇮🇳 చెస్‌లో ప్రజ్ఞానంద చరిత్ర.. Grand Chess Tour టైటిల్ గెలిచిన తొలి భారతీయుడిగా రికార్డు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="national"
+    data-url="air.html"
+>
+
+    <img
+        src="air.webp"
+        alt="ఢిల్లీలో వాయు కాలుష్యం"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🌫️ ఢిల్లీలో మళ్లీ పెరిగిన వాయు కాలుష్యం.. AQI 170 దాటడంతో ఆందోళన
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="surya1.html"
+>
+
+    <img
+        src="surya.jpg"
+        alt="సూర్యకుమార్ యాదవ్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇮🇳 టీమిండియా కోసం హార్డ్ వర్క్ చేస్తున్నా.. సూర్యకుమార్ యాదవ్ కీలక వ్యాఖ్యలు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="rip.html"
+>
+
+    <img
+        src="rip.jpg"
+        alt="సీనియర్ నటుడు జీవీ నారాయణరావు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="am.html"
+>
+
+    <img
+        src="am.jpg"
+        alt="శ్వేతా లక్ష్మన్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="kohli.html"
+>
+
+    <img
+        src="kohli.jpg"
+        alt="విరాట్ కోహ్లీ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘కింగ్’ కోహ్లీ ఈజ్ నంబర్ వన్.. Forbes India-2026లో టాప్-5లో విరాట్ కోహ్లీ
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="prabhasfa.html"
+>
+
+    <img
+        src="prabhasfa.jpg"
+        alt="కృష్ణంరాజు మరియు అక్కినేని నాగేశ్వరరావు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            Krishnam Raju: ఆ హీరోకు నేను పెద్ద ఫ్యాన్.. ఆయన షర్ట్ మడతపెట్టే స్టైల్, మ్యానరిజం అంటే చాలా ఇష్టం
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="haki.html"
+>
+
+    <img
+        src="haki.jpg"
+        alt="భారత మహిళల హాకీ జట్టు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="jadal.html"
+>
+
+    <img
+        src="jadal.webp"
+        alt="ది ప్యారడైజ్ సినిమాలో నాని, కీర్తి సురేష్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘ది ప్యారడైజ్’లో కీర్తి సురేష్.. నాని జడ లాగుతున్న పోస్ట్ వైరల్.. అసలు విషయం ఏంటంటే?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="king100.html"
+>
+
+    <img
+        src="king100.webp"
+        alt="నాగార్జున 100వ సినిమా King100"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            “100 సినిమాలు పూర్తయ్యాయి.. కానీ కింగ్ కథ ఇంకా ముగియలేదు!”.. నాగార్జున 100వ సినిమా King100
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="naresh.html"
+>
+
+    <img
+        src="naresh.jpg"
+        alt="జబర్దస్త్ నరేష్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            అప్పట్లో రూ.36 లక్షలు పెట్టి ల్యాండ్ కొన్న.. ఆ తర్వాత వారం రోజులకే ఏమైందంటే..?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports"
+    data-url="lanka.html"
+>
+
+    <img
+        src="lanka.webp"
+        alt="శ్రీలంక యువ బ్యాటర్ సోనల్ దినుష"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies"
+    data-url="ramya.html"
+>
+
+    <img
+        src="ramya.jpg"
+        alt="రమ్యకృష్ణ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            “ఆయన లేకపోతే నేను స్టార్ హీరోయిన్‌ను అయ్యేదాన్ని కాదు!”.. రమ్యకృష్ణ ఎమోషనల్ కామెంట్స్
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports news"
+    data-url="indsl.html"
+>
+
+    <img
+        src="sl1.jpg"
+        alt="భారత్ vs శ్రీలంక 2వ టెస్ట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 భారత్ vs శ్రీలంక 2వ టెస్ట్: శ్రీలంక 229/6.. భారత్‌కు కావాల్సింది 4 వికెట్లు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="business news"
+    data-url="petrol.html"
+>
+
+    <img
+        src="petrol.jpeg"
+        alt="పెట్రోల్–డీజిల్ ధరల వివరాలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ⛽ పెట్రోల్–డీజిల్ ధరలు: ఆగస్టు 26న ఏ నగరంలో ఎంత? హైదరాబాద్‌లో పెట్రోల్ ధర ఎంతంటే..
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="international news"
+    data-url="nepal.html"
+>
+
+    <img
+        src="nepal.jpg"
+        alt="నేపాల్ భారీ ఫ్లాష్ ఫ్లడ్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🌊 నేపాల్‌లో భారీ ఫ్లాష్‌ ఫ్లడ్.. 105 మంది భారతీయులు సహా 384 మంది గల్లంతు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="entertainment movies news"
+    data-url="ravinews.html"
+>
+
+    <img
+        src="IMG_20260826_151445.jpg"
+        alt="ఇరుముడి తర్వాత రవితేజ కొత్త సినిమా"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 ఇరుముడి తర్వాత రవితేజ కొత్త సినిమా.. హసిత్ గోలితో మాస్ మహారాజా మరో ఎంటర్‌టైనర్
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="entertainment movies news"
+    data-url="toxicfloop.html"
+>
+
+    <img
+        src="t7.jpg"
+        alt="యశ్ టాక్సిక్ మూవీ రివ్యూ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 యశ్ ‘టాక్సిక్’ మూవీ రివ్యూ: గ్యాంగ్‌స్టర్ ప్రపంచంలో అదిరిపోయే యాక్షన్.. కానీ!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="spiritual news"
+    data-url="varanasi99.html"
+>
+
+    <img
+        src="hero1.png.jpg"
+        alt="వారణాసి మూవీ 150 భాషల్లో"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🛕 ఆధ్యాత్మిక నగరి వారణాసి.. గంగా ఘాట్‌ల ప్రాశస్త్యం & ప్రత్యేక విశేషాలు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="tech news"
+    data-url="upi.html"
+>
+
+    <img
+        src="upi.webp"
+        alt="భారత డిజిటల్ చెల్లింపులు UPI"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            💳 UPIకి 10 ఏళ్లు.. భారత డిజిటల్ విప్లవానికి నిదర్శనంగా UPI ప్రయాణం
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="international news"
+    data-url="india4,5.html"
+>
+
+    <img
+        src="india4.jpg"
+        alt="భారత్ చైనా సరిహద్దు చర్చలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇮🇳🇨🇳 భారత్–చైనా సంబంధాల్లో కీలక చర్చలు.. సరిహద్దు శాంతిపై భారత్ స్పష్టమైన సందేశం
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="toc5.html"
+>
+
+    <img
+        src="toc.jpeg"
+        alt="యశ్ టాక్సిక్ సినిమా"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 యశ్ ‘టాక్సిక్’కు భారీ హైప్.. ఏపీ, తెలంగాణలో పెరిగిన టికెట్ ధరలు.. ₹600కు స్పెషల్ షో!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports news"
+    data-url="dhoni4.html"
+>
+
+    <img
+        src="dhoni3.jpg"
+        alt="ఎంఎస్ ధోనీ CSK"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 ఎంఎస్ ధోనీకి CSKలో 25 శాతం వాటా కావాలా? తగ్గించిన డిమాండ్‌తోనూ ముందుకు సాగని చర్చలు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news"
+    data-url="rakhi.html"
+>
+
+    <img
+        src="rakhi.jpg"
+        alt="కృతి సనన్ రాహుల్ గాంధీ వివాదం"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎀 కృతి సనన్‌కు రాహుల్ గాంధీ మద్దతు.. దుస్తుల వివాదంపై మహిళల స్వేచ్ఛకు గట్టి వాదన!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies ap"
+    data-url="irumudi.html"
+>
+
+    <img
+        src="ravi1.jpg"
+        alt="ఇరుముడి సినిమా రవితేజ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 ఇరుముడి సినిమాపై టీచర్ల అభ్యంతరం.. అసలు వివాదం ఏమిటంటే?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="pongal.html"
+>
+
+    <img
+        src="pongal.jpg"
+        alt="సంక్రాంతి 2027 టాలీవుడ్ సినిమాలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 సంక్రాంతి 2027లో 8 సినిమాలా? టాలీవుడ్‌లో అప్పుడే మొదలైన రిలీజ్ డేట్ పోటీ!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports news"
+    data-url="pant, dhoni.html"
+>
+
+    <img
+        src="pant, dhoni.webp"
+        alt="రిషభ్ పంత్ మరియు ధోనీ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 రిషభ్ పంత్ చరిత్ర సృష్టించాడు.. విదేశీ టెస్టుల్లో ధోనీ రికార్డు బద్దలు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news business"
+    data-url="stock.html"
+>
+
+    <img
+        src="stock.jpg"
+        alt="దేశీయ స్టాక్ మార్కెట్లు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            📈 లాభాలతో ప్రారంభమై.. నష్టాల్లో ముగిసిన స్టాక్ మార్కెట్లు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="spirit.html"
+>
+
+    <img
+        src="spirit.jpg"
+        alt="ప్రభాస్ స్పిరిట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎉 ప్రభాస్ ‘స్పిరిట్’ కోసం 16–17 గంటల కష్టం.. డూప్ లేకుండా యాక్షన్‌కు రెడీ!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="zombi2.html"
+>
+
+    <img
+        src="zombi2.webp"
+        alt="Zombie Reddy 2 NXT LVL"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎉 Zombie Reddy 2 NXT LVL.. తేజ సజ్జ ఫ్యాన్స్‌కు బిగ్ సర్‌ప్రైజ్.. ఈసారి మరింత భారీగా!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="week4.html"
+>
+
+    <img
+        src="week4.png"
+        alt="ఈ వారం OTT Releases"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 ఈ వారం OTT Releases: ఆగస్టు 23, 2026 వరకు OTTలోకి వచ్చిన కొత్త సినిమాలు ఇవే!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="surya.html"
+>
+
+    <img
+        src="surya1.jpg"
+        alt="సూర్య విశ్వనాథ్ అండ్ సన్స్ కలెక్షన్స్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            💥 విశ్వనాథ్ అండ్ సన్స్‌కు భారీ జంప్.. 9వ రోజు కలెక్షన్స్ చూస్తే షాక్!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="toxicpressmet.html"
+>
+
+    <img
+        src="yash.jpg"
+        alt="టాక్సిక్ ప్రీ-రిలీజ్ ఈవెంట్ యశ్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 టాక్సిక్ ప్రీ-రిలీజ్ ఈవెంట్‌లో యశ్, దిల్ రాజు, విశాల్ మిశ్రా సందడి.. 2000 కోట్ల టార్గెట్‌పై ఆసక్తికర వ్యాఖ్యలు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news"
+    data-url="modi.html"
+>
+
+    <img
+        src="modi.jpg"
+        alt="మోదీ 25వ సంవత్సరం ప్రజా సేవ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🇮🇳 మోదీ 25వ సంవత్సరం ప్రజా సేవ.. BJP ప్రత్యేక కార్యక్రమాలు.. అసలు కథ ఇదే!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news entertainment movies"
+    data-url="temper.html"
+>
+
+    <img
+        src="temper.png"
+        alt="బిగ్ బాస్ తెలుగు 10 - టెంపర్ వంశీ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="cbday.html"
+>
+
+    <img
+        src="c2.webp"
+        alt="మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. తెలుగు సినీ చరిత్రలో చెరగని ముద్ర వేసిన ‘చిరు’
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="ravi.html"
+>
+
+    <img
+        src="ravi.webp"
+        alt="ఇరుముడి సినిమా రివ్యూ - రవితేజ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news sports"
+    data-url="sl.html"
+>
+
+    <img
+        src="sl.jpg"
+        alt="శ్రీలంకపై గెలిచినా టీమిండియా WTC పరిస్థితి"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 శ్రీలంకపై గెలిచినా.. బంగ్లాదేశ్ కంటే కిందే టీమిండియా.. WTC ఫైనల్ బెర్త్ కోసం భారీ సవాల్
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="ra.html"
+>
+
+    <img
+        src="ra.jpg"
+        alt="మాధురి రాథోడ్ ఫోక్ డ్యాన్స్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="toc.html"
+>
+
+    <img
+        src="toc1.jpg"
+        alt="యశ్ టాక్సిక్ సినిమా పోస్టర్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news sports"
+    data-url="i.html"
+>
+
+    <img
+        src="j.jpg"
+        alt="రవీంద్ర జడేజా వికెట్ సంబరాలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            నో బాల్ పాపానికి ప్రాయశ్చిత్తం.. 131 బంతుల తర్వాత ధనంజయను అవుట్ చేసిన జడేజా!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news sports"
+    data-url="mi.html"
+>
+
+    <img
+        src="m.jpg"
+        alt="ముంబై ఇండియన్స్ హార్దిక్ పాండ్యా"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            IPL 2027: ముంబై ఇండియన్స్‌లో భారీ మార్పులు? హార్దిక్ పాండ్యా సహా 8 మందిపై వేటు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news sports"
+    data-url="rishab.html"
+>
+
+    <img
+        src="rishab.jpg"
+        alt="రిషభ్ పంత్ రికార్డు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="p.html"
+>
+
+    <img
+        src="p1.jpg"
+        alt="సలార్ 2 సినిమా అప్‌డేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news movies"
+    data-url="t.html"
+>
+
+    <img
+        src="t1.jpeg"
+        alt="నాగచైతన్య సినిమా అప్‌డేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘తండేల్’ విజయం తర్వాత నాగచైతన్య మరో క్రేజీ ప్రాజెక్ట్.. ఆ దర్శకుడితో సినిమా?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news ap ts"
+    data-url="r.html"
+>
+
+    <img
+        src="r1.webp"
+        alt="ఆంధ్రప్రదేశ్ తెలంగాణ వర్షాలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            బంగాళాఖాతంలో వాయుగుండం.. ఏపీ, తెలంగాణకు భారీ వర్ష సూచన!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news"
+    data-url="vjy.html"
+>
+
+    <img
+        src="v.jpg"
+        alt="కావేరీ నదీ జలాల వివాదం"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            కావేరీ జలాల వివాదం.. కర్ణాటకకు సుప్రీంకోర్టు కీలక ఆదేశాలు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news ap"
+    data-url="n.html"
+>
+
+    <img
+        src="n1.webp"
+        alt="కొణిదెల నాగబాబు నియామకం"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            కొణిదెల నాగబాబుకు ఏపీ సర్కార్ బంపర్ ఆఫర్.. ఏకంగా కేబినెట్ ర్యాంక్‌తో కీలక నియామకం!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news"
+    data-url="india.html"
+>
+
+    <img
+        src="i.1.webp"
+        alt="గురేజ్ లోయలో స్వాతంత్య్ర దినోత్సవ వేడుకలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            LoC వద్ద మువ్వన్నెల పతాకం.. గురేజ్ లోయలో ఘనంగా స్వాతంత్య్ర దినోత్సవ వేడుకలు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="Fouzi.html"
+>
+
+    <img
+        src="f.jpg"
+        alt="ఫౌజీ సినిమా అప్‌డేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports news"
+    data-url="kl.html"
+>
+
+    <img
+        src="c1.jpeg"
+        alt="శ్రీలంక క్రికెట్ అప్‌డేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            రాహుల్‌తోనే శ్రీలంకకు ప్రమాదం - ధనంజయ డి సిల్వా కీలక వ్యాఖ్యలు
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="v.html"
+>
+
+    <img
+        src="v.jpg"
+        alt="విశ్వనాథ్ అండ్ సన్స్ ప్రీ రిలీజ్ బిజినెస్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            విశ్వనాథ్ అండ్ సన్స్ ప్రీ-రిలీజ్ బిజినెస్ రూ.215 కోట్లు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="toxic.html"
+>
+
+    <img
+        src="t6.jpg"
+        alt="టాక్సిక్ మూవీ అప్‌డేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            భారీ బడ్జెట్‌తో ‘టాక్సిక్’.. హీరోయిన్స్ రెమ్యునరేషన్స్ ఇవేనా?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="hit.html"
+>
+
+    <img
+        src="i1.jpg"
+        alt="సినిమా టికెట్ ధరలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            టికెట్ రేట్లు పెంచకపోవడమే ఈ సినిమాల సక్సెస్‌కు కారణమా?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news"
+    data-url="earth.html"
+>
+
+    <img
+        src="image51.jpg"
+        alt="ఆకాశంలో అరుదైన ఖగోళ అద్భుతాలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🌌 రేపు ఆకాశంలో 3 అరుదైన అద్భుతాలు! 6 గ్రహాల వరుస, తోకచుక్క, సూర్యగ్రహణం!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="news"
+    data-url="oil.html"
+>
+
+    <img
+        src="images (20).jpeg"
+        alt="భారత ఇంధన వ్యూహం"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            భారత్ మాస్టర్ ప్లాన్: ప్రపంచాన్ని తిప్పికొట్టిన భారత ఇంధన వ్యూహం!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="chiranjeevi.html"
+>
+
+    <img
+        src="hq720.jpg"
+        alt="చిరంజీవి కీలక వ్యాఖ్యలు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 “కంటెంట్ ఉంటే ఆడియన్స్ థియేటర్లకు వస్తారు”.. చిరంజీవి కీలక వ్యాఖ్యలు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="janvi.html"
+>
+
+    <img
+        src="janvi.jpg"
+        alt="జాన్వీ కపూర్ మరియు శ్రీలీల"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 శ్రీలీల, జాన్వీ కపూర్ క్రేజీ కాంబో! ఆస్కార్ విన్నర్‌తో ఏక్తా కపూర్ బిగ్ ప్లాన్!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="varanasiupdate1.html"
+>
+
+    <img
+        src="hero3.png.png"
+        alt="వారణాసి మూవీ అప్‌డేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🔥 వారణాసి అప్‌డేట్‌పై మహేష్ ఫ్యాన్స్ ఫైర్.. అసలు ఏం జరిగింది?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="premalu.html"
+>
+
+    <img
+        src="premalu.webp"
+        alt="మమితా బైజు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘ప్రేమలు’ బ్యూటీ మమితా బైజు షాకింగ్ నిర్ణయం.. సోషల్ మీడియాకు గుడ్ బై!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="gold news"
+    data-url="gold.html"
+>
+
+    <img
+        src="gold.jpg"
+        alt="గోల్డ్ రేట్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            వారం రోజుల్లో గోల్డ్ రేట్ ఎంత పెరిగిందంటే?
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="mahesh.html"
+>
+
+    <img
+        src="birthday1.png.jpg"
+        alt="మహేష్ బాబు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            సూపర్ స్టార్ మహేష్ బాబు బర్త్‌డే.. 5000+ పిల్లలకి ఉచిత గుండె ఆపరేషన్లు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="movies news"
+    data-url="movie3.html"
+>
+
+    <img
+        src="ramcharan.jpg.webp"
+        alt="రామ్ చరణ్"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘చరణ్ కాకపోతే ఆ సినిమా ఆడేది కాదు’.. పరుచూరి రివ్యూ!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports news"
+    data-url="rvs.html"
+>
+
+    <img
+        src="cricket.png"
+        alt="క్రికెట్ రికార్డులు"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            💥 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు!
+        </p>
+
+    </div>
+
+</article>
+
+<article
+    class="news-item post"
+    data-category="sports news"
+    data-url="rd.html"
+>
+
+    <img
+        src="dhoni,rohith.png"
+        alt="ధోనీ మరియు రోహిత్ శర్మ"
+        loading="lazy"
+    >
+
+    <div class="news-content">
+
+        <p>
+            🏏 ధోనీ Vs రోహిత్ శర్మ.. ఇద్దరిలో గ్రేటెస్ట్ కెప్టెన్ ఎవరు?
+        </p>
+
+    </div>
+</article>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-column">
+      <h3>ముఖ్యమైన లింకులు</h3>
+      <div class="footer-links">
+        <a href="advertise.html">📢 Advertise With Us</a>
+        <a href="about.html">ℹ️ About Us</a>
+        <a href="contact.html">✉️ Contact Us</a>
+        <a href="Privacy Policy.html">🔒 Privacy Policy</a>
+        <a href="disclaimer.html">⚠️ Disclaimer</a>
+        <a href="terms.html">📄 Terms &amp; Conditions</a>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p>✉️ newsb386@gmail.com</p>
+      <p>Follow us for latest updates.</p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 BS 360 NEWS. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
