@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="te">
+
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
@@ -11,406 +11,274 @@
 </title>
 
 <meta name="description"
-content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ వారంటీ, ఛార్జింగ్ సౌకర్యం, సర్వీస్ సెంటర్, భద్రత, మొత్తం ఖర్చు వంటి ముఖ్యమైన విషయాలను తప్పక తెలుసుకోవాలి.">
+content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ, ఛార్జింగ్, సర్వీస్, వారంటీ వంటి ముఖ్యమైన విషయాలను తప్పక తెలుసుకోండి.">
 
-<link rel="canonical"
-href="https://bs360news.github.io/ev1.html">
+<meta name="robots" content="index,follow">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<meta name="twitter:card" content="summary_large_image">
-
-<meta name="twitter:title"
-content="ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి">
-
-<meta name="twitter:description"
-content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ వారంటీ, ఛార్జింగ్, సర్వీస్ సెంటర్, భద్రత వంటి విషయాలను పరిశీలించాలి.">
-
-<meta name="twitter:image"
-content="https://bs360news.github.io/ev1.png">
+<link rel="canonical" href="https://bs360news.com/ev1.html">
 
 <meta property="og:type" content="article">
+<meta property="og:title" content="🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి">
+<meta property="og:description" content="EV కొనుగోలు చేసే ముందు తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు.">
+<meta property="og:image" content="https://bs360news.com/ev1.png">
+<meta property="og:url" content="https://bs360news.com/ev1.html">
 
-<meta property="og:title"
-content="ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి">
-
-<meta property="og:description"
-content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ వారంటీ, ఛార్జింగ్ సౌకర్యం, సర్వీస్, భద్రత వంటి ముఖ్యమైన అంశాలను పరిశీలించాలి.">
-
-<meta property="og:image"
-content="https://bs360news.github.io/ev1.png">
-
-<meta property="og:url"
-content="https://bs360news.github.io/ev1.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? ఈ విషయాలు తెలుసుకోండి">
+<meta name="twitter:image" content="https://bs360news.com/ev1.png">
 
 
 <style>
 
-/* =====================================================
-   BS 360 NEWS — PROFESSIONAL ARTICLE DESIGN
-   ===================================================== */
-
-:root{
-    --primary:#e60000;
-    --dark:#111827;
-    --text:#292929;
-    --muted:#6b7280;
-    --border:#e5e7eb;
-    --soft:#f6f7f9;
-    --white:#ffffff;
-}
+/* =========================
+   RESET
+========================= */
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-    width:100%;
     scroll-behavior:smooth;
-    overflow-x:hidden;
 }
 
 body{
-    margin:0;
-    padding:0;
-    width:100%;
-    background:#f5f6f8;
-    color:var(--text);
-    font-family:
-        Arial,
-        "Noto Sans Telugu",
-        sans-serif;
-    overflow-x:hidden;
+    font-family:Arial,"Noto Sans Telugu",sans-serif;
+    background:#f4f5f7;
+    color:#171717;
+    line-height:1.8;
 }
 
 
-/* =====================================================
-   TOP BRAND BAR
-   ===================================================== */
+/* =========================
+   PROGRESS BAR
+========================= */
 
-.article-topbar{
-    width:100%;
-    background:#ffffff;
-    border-bottom:1px solid var(--border);
+#reading-progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:4px;
+    background:#e60000;
+    z-index:99999;
 }
 
-.article-topbar-inner{
-    max-width:1180px;
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header{
+    background:#fff;
+    border-bottom:1px solid #ddd;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header-inner{
+    width:min(1400px,96%);
     margin:auto;
-    min-height:58px;
-    padding:0 18px;
+    min-height:62px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
-.brand{
-    font-size:22px;
+.logo{
+    text-decoration:none;
+    color:#111;
+    font-size:25px;
     font-weight:800;
-    color:#111827;
-    text-decoration:none;
 }
 
-.brand span{
-    color:var(--primary);
+.logo span{
+    color:#e60000;
 }
 
-.back-home{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-
+.home-btn{
     text-decoration:none;
-    color:#555;
+    color:#222;
+    border:1px solid #ddd;
+    padding:7px 12px;
+    border-radius:6px;
     font-size:14px;
     font-weight:600;
 }
 
-.back-home:hover{
-    color:var(--primary);
-}
 
-
-/* =====================================================
-   ARTICLE WRAPPER
-   ===================================================== */
+/* =========================
+   ARTICLE CONTAINER
+========================= */
 
 .article-container{
-    width:100%;
-    max-width:930px;
-    margin:28px auto 50px;
-    padding:0 18px;
+    width:min(920px,94%);
+    margin:30px auto 50px;
 }
 
 
-/* =====================================================
+/* =========================
    ARTICLE CARD
-   ===================================================== */
+========================= */
 
 .article-card{
-    background:#ffffff;
-    border:1px solid var(--border);
-    border-radius:14px;
+    background:#fff;
+    border:1px solid #e2e2e2;
+    border-radius:12px;
     overflow:hidden;
-    box-shadow:0 4px 18px rgba(0,0,0,.04);
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
 }
 
 
-/* =====================================================
+/* =========================
    ARTICLE HEADER
-   ===================================================== */
+========================= */
 
-.article-header{
-    padding:30px 34px 18px;
+.article-top{
+    padding:25px 28px 18px;
 }
 
-.tag{
-    display:inline-flex;
-    align-items:center;
+.category{
+    display:inline-block;
+    background:#e60000;
+    color:#fff;
 
-    background:#fff0f0;
-    color:#c40000;
+    font-size:13px;
+    font-weight:700;
 
-    font-size:12px;
+    padding:4px 11px;
+    border-radius:4px;
+
+    margin-bottom:13px;
+}
+
+.article-title{
+    font-size:34px;
+    line-height:1.4;
     font-weight:800;
-
-    padding:6px 11px;
-
-    border-radius:5px;
-
-    margin-bottom:14px;
-
-    line-height:1.3;
+    color:#111;
 }
-
-h1{
-    margin:0;
-
-    color:#111827;
-
-    font-size:36px;
-    line-height:1.38;
-
-    font-weight:800;
-
-    letter-spacing:-.4px;
-}
-
-
-/* =====================================================
-   LEAD / INTRO
-   ===================================================== */
 
 .article-lead{
-    margin:0 34px 24px;
+    margin-top:17px;
+    padding-left:14px;
 
-    padding:18px 20px;
-
-    background:#f8fafc;
-
-    border-left:4px solid var(--primary);
-
-    border-radius:0 8px 8px 0;
-
-    color:#444;
+    border-left:4px solid #e60000;
 
     font-size:18px;
     line-height:1.8;
+    color:#444;
 }
 
 
-/* =====================================================
+/* =========================
    HERO IMAGE
-   ===================================================== */
+========================= */
 
-.img-gallery{
+.hero-image{
     width:100%;
-    margin:0;
-    padding:0 34px;
-}
-
-.img-gallery img{
-    display:block;
-
-    width:100%;
-    aspect-ratio:16 / 9;
-
-    height:auto;
-
+    aspect-ratio:16/9;
     object-fit:cover;
-
-    border-radius:12px;
-
-    border:1px solid #e5e7eb;
-}
-
-.image-credit{
-    color:#888;
-
-    font-size:11px;
-
-    text-align:right;
-
-    padding-top:6px;
+    display:block;
+    background:#eee;
 }
 
 
-/* =====================================================
+/* =========================
    ARTICLE BODY
-   ===================================================== */
+========================= */
 
 .article-body{
-    padding:8px 34px 35px;
+    padding:25px 30px 35px;
 }
 
 .article-body p{
-    color:#333;
-
-    font-size:18px;
-
-    line-height:2;
-
-    margin:0 0 23px;
+    font-size:17px;
+    line-height:1.95;
+    color:#292929;
+    margin-bottom:20px;
 }
-
-
-/* =====================================================
-   FIRST PARAGRAPH
-   ===================================================== */
-
-.article-body p:first-child{
-    font-weight:500;
-    color:#252525;
-}
-
-
-/* =====================================================
-   ARTICLE HEADINGS
-   ===================================================== */
 
 .article-body h2{
-    position:relative;
-
-    margin:38px 0 17px;
-
-    padding:0 0 8px;
-
-    color:#111827;
-
     font-size:24px;
+    line-height:1.45;
 
-    line-height:1.5;
+    margin:32px 0 15px;
 
-    border-bottom:1px solid var(--border);
-}
+    padding-left:12px;
 
-.article-body h2::after{
-    content:"";
+    border-left:5px solid #e60000;
 
-    position:absolute;
-
-    left:0;
-    bottom:-1px;
-
-    width:55px;
-    height:3px;
-
-    background:var(--primary);
+    color:#111;
 }
 
 
-/* =====================================================
-   IMPORTANT INFORMATION BOX
-   ===================================================== */
+/* =========================
+   INFO BOX
+========================= */
 
 .info-box{
-    margin:30px 0;
+    margin:25px 0;
+    padding:18px 20px;
 
-    padding:20px 22px;
+    background:#f8f9fa;
 
-    background:#fafafa;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
+    border:1px solid #e0e0e0;
+    border-radius:8px;
 }
 
 .info-box-title{
-    display:flex;
-    align-items:center;
-    gap:9px;
-
-    color:#111827;
-
-    font-size:18px;
-
+    font-size:19px;
     font-weight:800;
-
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
-.info-box-title i{
-    color:var(--primary);
+.info-box ul{
+    padding-left:20px;
 }
 
-.info-box p{
-    margin:0;
-
+.info-box li{
+    margin:6px 0;
     font-size:16px;
-    line-height:1.8;
 }
 
 
-/* =====================================================
-   KEY POINTS
-   ===================================================== */
+/* =========================
+   NUMBER LIST
+========================= */
 
 .key-points{
-    margin:32px 0;
-
-    padding:22px;
-
-    background:#f8fafc;
-
-    border:1px solid var(--border);
-
-    border-radius:12px;
+    list-style:none;
+    counter-reset:points;
+    margin:25px 0;
 }
 
-.key-title{
-    margin-bottom:16px;
+.key-points li{
+    counter-increment:points;
 
-    font-size:19px;
+    position:relative;
 
-    font-weight:800;
+    margin-bottom:10px;
+    padding:14px 15px 14px 52px;
 
-    color:#111827;
-}
+    background:#fafafa;
 
-.key-point{
-    display:flex;
-    align-items:flex-start;
-
-    gap:12px;
-
-    padding:11px 0;
-
-    border-bottom:1px solid #e9eaec;
+    border:1px solid #e4e4e4;
+    border-radius:7px;
 
     font-size:16px;
-
-    line-height:1.65;
 }
 
-.key-point:last-child{
-    border-bottom:none;
-    padding-bottom:0;
-}
+.key-points li::before{
+    content:counter(points);
 
-.key-number{
-    flex:0 0 27px;
+    position:absolute;
+    left:14px;
+    top:13px;
 
     width:27px;
     height:27px;
@@ -419,491 +287,376 @@ h1{
     align-items:center;
     justify-content:center;
 
-    background:#111827;
-
-    color:white;
+    background:#e60000;
+    color:#fff;
 
     border-radius:50%;
 
-    font-size:12px;
-    font-weight:800;
+    font-size:13px;
+    font-weight:bold;
 }
 
 
-/* =====================================================
-   QUOTE STYLE
-   ===================================================== */
+/* =========================
+   QUOTE
+========================= */
 
 .news-quote{
-    margin:30px 0;
+    margin:25px 0;
+    padding:18px 20px;
 
-    padding:22px 24px;
+    background:#fff7f7;
 
-    border-left:4px solid var(--primary);
+    border-left:4px solid #e60000;
 
-    background:#f8f8f8;
-
-    color:#333;
-
-    font-size:19px;
-
-    line-height:1.8;
-
+    font-size:17px;
     font-weight:600;
 }
 
 
-/* =====================================================
+/* =========================
    CONCLUSION
-   ===================================================== */
+========================= */
 
 .conclusion-box{
-    margin-top:32px;
+    margin-top:28px;
+    padding:20px;
 
-    padding:22px;
+    background:#f7f7f7;
 
-    background:#111827;
-
-    color:#ffffff;
-
-    border-radius:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
 }
 
-.conclusion-box h3{
-    margin:0 0 10px;
-
+.conclusion-box strong{
+    display:block;
     font-size:19px;
-}
-
-.conclusion-box p{
-    margin:0;
-
-    color:#eeeeee;
-
-    font-size:16px;
-
-    line-height:1.8;
+    margin-bottom:8px;
 }
 
 
-/* =====================================================
-   SHARE AREA
-   ===================================================== */
+/* =========================
+   SHARE
+========================= */
 
-.share-box{
-    margin:0 34px 35px;
-
-    padding:20px 0;
-
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
+.share-area{
+    padding:20px 30px 28px;
+    border-top:1px solid #eee;
 }
 
 .share-title{
-    color:#222;
-
     font-size:16px;
-
-    font-weight:800;
-
-    margin-bottom:13px;
+    font-weight:700;
+    margin-bottom:12px;
 }
 
-.share-buttons{
+.share-row{
     display:flex;
     flex-wrap:wrap;
     gap:9px;
 }
 
-.share-buttons a,
-.share-buttons button{
-    width:43px;
-    height:43px;
-
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border:none;
-    border-radius:50%;
-
-    color:#ffffff;
-
-    text-decoration:none;
-
-    font-size:18px;
-
+.share-btn{
+    border:0;
     cursor:pointer;
 
-    transition:.2s;
-}
+    padding:9px 14px;
 
-.share-buttons a:hover,
-.share-buttons button:hover{
-    transform:translateY(-3px);
-}
+    border-radius:6px;
 
-.facebook{
-    background:#1877f2;
-}
+    font-size:14px;
+    font-weight:600;
 
-.twitter{
-    background:#000000;
+    text-decoration:none;
 }
 
 .whatsapp{
     background:#25d366;
+    color:#fff;
 }
 
-.copy-link{
-    background:#555;
+.facebook{
+    background:#1877f2;
+    color:#fff;
 }
 
-
-/* =====================================================
-   LATEST NEWS
-   ===================================================== */
-
-.latest-section{
-    margin-top:30px;
-}
-
-.latest-title{
-    margin:0 0 16px;
-
-    padding-bottom:10px;
-
-    border-bottom:2px solid #111827;
-
-    color:#111827;
-
-    font-size:22px;
-
-    font-weight:800;
-}
-
-#home-posts{
-    width:100%;
+.copy{
+    background:#222;
+    color:#fff;
 }
 
 
-/* =====================================================
-   RELATED NEWS GRID
-   ===================================================== */
+/* =========================
+   TOP STORIES
+========================= */
 
-#home-posts .news-list{
+.top-stories-section{
+    margin-top:32px;
+}
+
+.top-stories-heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+    padding-bottom:9px;
+
+    border-bottom:2px solid #111;
+}
+
+.top-stories-heading h2{
+    font-size:23px;
+    line-height:1.4;
+}
+
+.top-stories-heading span{
+    font-size:12px;
+    color:#777;
+}
+
+
+/* =========================
+   TOP STORY GRID
+========================= */
+
+.top-stories-grid{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
 
-    gap:14px;
-
-    width:100%;
+    gap:15px;
 }
 
-#home-posts .news-item{
-    display:flex;
 
-    flex-direction:column;
+/* =========================
+   TOP STORY CARD
+========================= */
 
-    background:#ffffff;
+.top-story-card{
+    display:block;
 
-    border:1px solid var(--border);
+    text-decoration:none;
 
-    border-radius:10px;
+    color:#111;
+
+    background:#fff;
+
+    border:1px solid #e1e1e1;
+
+    border-radius:9px;
 
     overflow:hidden;
 
     transition:.2s;
 }
 
-#home-posts .news-item:hover{
-    transform:translateY(-3px);
-
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+.top-story-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-#home-posts .news-item img{
+.top-story-card img{
     width:100%;
-
-    height:145px;
+    aspect-ratio:16/9;
 
     object-fit:cover;
 
     display:block;
+
+    background:#eee;
 }
 
-#home-posts .news-item h3{
-    margin:0;
+.top-story-content{
+    padding:11px 13px 14px;
+}
 
-    padding:12px;
+.top-story-label{
+    display:block;
 
-    color:#222;
+    color:#e60000;
 
-    font-size:15px;
+    font-size:11px;
+    font-weight:700;
 
+    margin-bottom:4px;
+}
+
+.top-story-title{
+    font-size:16px;
     line-height:1.5;
+
+    font-weight:700;
 }
 
 
-/* =====================================================
-   READING PROGRESS
-   ===================================================== */
+/* =========================
+   FOOTER
+========================= */
 
-.reading-progress{
-    position:fixed;
+.site-footer{
+    margin-top:45px;
 
-    top:0;
-    left:0;
+    padding:25px 15px;
 
-    width:0%;
-    height:3px;
+    background:#111;
+    color:#ccc;
 
-    background:var(--primary);
+    text-align:center;
 
-    z-index:9999;
+    font-size:13px;
 }
 
 
-/* =====================================================
-   DARK MODE
-   ===================================================== */
-
-body.dark-mode{
-    background:#101114;
-    color:#eeeeee;
-}
-
-body.dark-mode .article-topbar,
-body.dark-mode .article-card,
-body.dark-mode #home-posts .news-item{
-    background:#18191c;
-    border-color:#2b2d31;
-}
-
-body.dark-mode h1,
-body.dark-mode .brand,
-body.dark-mode .article-body h2,
-body.dark-mode .latest-title,
-body.dark-mode .share-title,
-body.dark-mode .key-title,
-body.dark-mode .key-point{
-    color:#f5f5f5;
-}
-
-body.dark-mode .article-body p{
-    color:#dddddd;
-}
-
-body.dark-mode .article-lead,
-body.dark-mode .info-box,
-body.dark-mode .key-points,
-body.dark-mode .news-quote{
-    background:#202125;
-    border-color:#303238;
-}
-
-body.dark-mode .conclusion-box{
-    background:#0d0e10;
-}
-
-body.dark-mode #home-posts .news-item h3{
-    color:#eeeeee;
-}
-
-
-/* =====================================================
+/* =========================
    MOBILE
-   ===================================================== */
+========================= */
 
-@media(max-width:700px){
+@media(max-width:600px){
 
-    .article-topbar-inner{
-        min-height:52px;
-        padding:0 14px;
+    .header-inner{
+        min-height:55px;
     }
 
-    .brand{
-        font-size:19px;
+    .logo{
+        font-size:21px;
     }
 
-    .back-home{
+    .home-btn{
         font-size:12px;
+        padding:6px 10px;
     }
 
     .article-container{
-        margin:12px auto 30px;
-        padding:0 8px;
+        width:100%;
+        margin-top:0;
     }
 
     .article-card{
-        border-radius:10px;
+        border-radius:0;
+        border-left:0;
+        border-right:0;
     }
 
-    .article-header{
-        padding:21px 16px 12px;
+    .article-top{
+        padding:20px 16px 16px;
     }
 
-    .tag{
+    .category{
         font-size:11px;
-        margin-bottom:10px;
+        padding:4px 9px;
     }
 
-    h1{
+    .article-title{
         font-size:25px;
-        line-height:1.45;
-        letter-spacing:0;
+        line-height:1.4;
     }
 
     .article-lead{
-        margin:0 16px 18px;
-
-        padding:14px 15px;
-
         font-size:16px;
-
-        line-height:1.8;
-    }
-
-    .img-gallery{
-        padding:0 12px;
-    }
-
-    .img-gallery img{
-        aspect-ratio:16 / 9;
-        border-radius:8px;
-    }
-
-    .image-credit{
-        font-size:10px;
-        padding-right:3px;
+        line-height:1.75;
     }
 
     .article-body{
-        padding:8px 16px 25px;
+        padding:20px 16px 25px;
     }
 
     .article-body p{
         font-size:16px;
         line-height:1.9;
-        margin-bottom:19px;
     }
 
     .article-body h2{
+        font-size:21px;
+    }
+
+    .share-area{
+        padding:18px 16px 22px;
+    }
+
+    .top-stories-section{
+        margin:25px 10px 0;
+    }
+
+    .top-stories-heading h2{
         font-size:20px;
-        margin-top:30px;
     }
 
-    .info-box{
-        padding:16px;
-        margin:24px 0;
+    .top-stories-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
     }
 
-    .info-box-title{
-        font-size:16px;
+    .top-story-content{
+        padding:9px 9px 11px;
     }
 
-    .info-box p{
-        font-size:15px;
-    }
-
-    .key-points{
-        padding:16px;
-        margin:25px 0;
-    }
-
-    .key-title{
-        font-size:17px;
-    }
-
-    .key-point{
+    .top-story-title{
         font-size:14px;
-        gap:9px;
-    }
-
-    .news-quote{
-        font-size:16px;
-        padding:17px;
-    }
-
-    .conclusion-box{
-        padding:17px;
-    }
-
-    .conclusion-box h3{
-        font-size:17px;
-    }
-
-    .conclusion-box p{
-        font-size:15px;
-    }
-
-    .share-box{
-        margin:0 16px 25px;
-    }
-
-    #home-posts .news-list{
-        grid-template-columns:repeat(2,1fr);
-        gap:8px;
-    }
-
-    #home-posts .news-item img{
-        height:105px;
-    }
-
-    #home-posts .news-item h3{
-        padding:9px;
-
-        font-size:12px;
-
         line-height:1.45;
     }
 
 }
 
 
-/* =====================================================
-   VERY SMALL MOBILE
-   ===================================================== */
+/* =========================
+   DARK MODE
+========================= */
 
-@media(max-width:380px){
-
-    h1{
-        font-size:23px;
-    }
-
-    .article-body p{
-        font-size:15.5px;
-    }
-
-    #home-posts .news-item img{
-        height:90px;
-    }
-
-}
-
-
-/* =====================================================
-   PRINT
-   ===================================================== */
-
-@media print{
-
-    .article-topbar,
-    .share-box,
-    .latest-section,
-    .reading-progress{
-        display:none;
-    }
+@media(prefers-color-scheme:dark){
 
     body{
-        background:white;
+        background:#111;
+        color:#eee;
     }
 
-    .article-card{
-        border:none;
-        box-shadow:none;
+    .site-header{
+        background:#181818;
+        border-color:#333;
+    }
+
+    .logo{
+        color:#fff;
+    }
+
+    .home-btn{
+        background:#222;
+        color:#eee;
+        border-color:#444;
+    }
+
+    .article-card,
+    .top-story-card{
+        background:#181818;
+        border-color:#333;
+    }
+
+    .article-title,
+    .article-body h2,
+    .top-stories-heading h2{
+        color:#fff;
+    }
+
+    .article-lead,
+    .article-body p{
+        color:#ddd;
+    }
+
+    .info-box,
+    .key-points li,
+    .conclusion-box{
+        background:#202020;
+        border-color:#383838;
+    }
+
+    .news-quote{
+        background:#251919;
+        color:#eee;
+    }
+
+    .top-story-title{
+        color:#eee;
     }
 
 }
@@ -916,452 +669,812 @@ body.dark-mode #home-posts .news-item h3{
 <body>
 
 
-<!-- READING PROGRESS -->
-
-<div class="reading-progress"
-id="readingProgress">
-</div>
+<div id="reading-progress"></div>
 
 
-<!-- TOP BAR -->
+<!-- =========================
+     HEADER
+========================= -->
 
-<header class="article-topbar">
+<header class="site-header">
 
-<div class="article-topbar-inner">
+    <div class="header-inner">
 
-<a href="index.html"
-class="brand">
-BS 360 <span>NEWS</span>
-</a>
+        <a href="index.html" class="logo">
+            BS <span>360</span> NEWS
+        </a>
 
-<a href="index.html"
-class="back-home">
+        <a href="index.html" class="home-btn">
+            🏠 హోమ్
+        </a>
 
-<i class="fa-solid fa-arrow-left"></i>
-
-వార్తలకు తిరిగి వెళ్లండి
-
-</a>
-
-</div>
+    </div>
 
 </header>
 
 
-<!-- ARTICLE -->
+
+<!-- =========================
+     ARTICLE
+========================= -->
 
 <main class="article-container">
 
 <article class="article-card">
 
 
-<!-- ARTICLE HEADER -->
+    <div class="article-top">
 
-<header class="article-header">
+        <span class="category">
+            🚗 ఆటోమొబైల్స్
+        </span>
 
-<span class="tag">
-🚗 ఆటోమొబైల్స్
-</span>
+        <h1 class="article-title">
+            🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి
+        </h1>
 
-<h1>
-🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి
-</h1>
+        <p class="article-lead">
+            పెట్రోల్, డీజిల్ ధరలు పెరుగుతున్న నేపథ్యంలో చాలామంది
+            ఎలక్ట్రిక్ వెహికల్స్ వైపు ఆసక్తి చూపిస్తున్నారు. అయితే EV
+            కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ, ఛార్జింగ్, సర్వీస్,
+            వారంటీ వంటి అంశాలను తప్పక పరిశీలించాలి.
+        </p>
 
-</header>
+    </div>
 
 
-<!-- LEAD -->
+    <!-- HERO -->
 
-<div class="article-lead">
+    <img
+        src="ev1.png"
+        alt="ఎలక్ట్రిక్ వెహికల్"
+        class="hero-image"
+    >
 
-ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేయాలని ఆలోచిస్తున్నారా? కేవలం వాహనం ధర, రేంజ్ చూసి నిర్ణయం తీసుకోవడం కంటే బ్యాటరీ, ఛార్జింగ్, సర్వీస్, భద్రత, మొత్తం ఖర్చు వంటి అంశాలను ముందుగానే పరిశీలించడం చాలా ముఖ్యం.
 
-</div>
+    <!-- ARTICLE CONTENT -->
 
+    <div class="article-body">
 
-<!-- HERO -->
 
-<div class="img-gallery">
+        <p>
+            ఎలక్ట్రిక్ వెహికల్స్‌కు దేశంలో రోజురోజుకూ ఆదరణ పెరుగుతోంది.
+            తక్కువ నిర్వహణ ఖర్చు, పెట్రోల్ లేదా డీజిల్ అవసరం లేకపోవడం,
+            పర్యావరణానికి తక్కువ కాలుష్యం వంటి కారణాలతో చాలామంది
+            EVలను పరిశీలిస్తున్నారు.
+        </p>
 
-<img
-src="ev1.png"
-alt="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు"
-loading="eager">
 
-<div class="image-credit">
-ఎలక్ట్రిక్ వెహికల్
-</div>
+        <p>
+            అయితే కొత్తగా EV కొనుగోలు చేయాలనుకునే వారు కొన్ని విషయాల్లో
+            ముందుగానే స్పష్టత తెచ్చుకోవాలి. కేవలం షోరూమ్‌లో కనిపించే
+            ఫీచర్లు చూసి వాహనం కొనుగోలు చేస్తే తర్వాత ఇబ్బందులు
+            ఎదురయ్యే అవకాశం ఉంటుంది.
+        </p>
 
-</div>
 
+        <h2>
+            రేంజ్ ఎంత వస్తుందో ముందుగా తెలుసుకోండి
+        </h2>
 
-<!-- ARTICLE CONTENT -->
+        <p>
+            EV కొనుగోలు చేసేటప్పుడు రేంజ్ చాలా ముఖ్యమైన అంశం.
+            కంపెనీ ప్రకటించే రేంజ్, రోజువారీ వినియోగంలో వచ్చే రేంజ్
+            ఒకేలా ఉండకపోవచ్చు. ట్రాఫిక్, వేగం, ఎయిర్ కండిషనింగ్,
+            రోడ్డు పరిస్థితులు వంటి అంశాలపై రేంజ్ మారుతుంది.
+        </p>
 
-<div class="article-body">
 
+        <div class="info-box">
 
-<div class="info-box">
+            <div class="info-box-title">
+                🔋 EV కొనేముందు పరిశీలించాల్సినవి
+            </div>
 
-<div class="info-box-title">
+            <ul>
+                <li>వాస్తవ పరిస్థితుల్లో వచ్చే రేంజ్</li>
+                <li>బ్యాటరీ వారంటీ</li>
+                <li>ఛార్జింగ్ సమయం</li>
+                <li>సర్వీస్ సెంటర్ల లభ్యత</li>
+                <li>బ్యాటరీ రీప్లేస్‌మెంట్ ఖర్చు</li>
+            </ul>
 
-<i class="fa-solid fa-bolt"></i>
+        </div>
 
-ముందుగా తెలుసుకోవాల్సింది
 
-</div>
+        <h2>
+            బ్యాటరీ వారంటీని తప్పక చెక్ చేయండి
+        </h2>
 
-<p>
-ఎలక్ట్రిక్ వాహనం కొనుగోలు చేసే ముందు మీ రోజువారీ ప్రయాణ దూరం, ఇంట్లో ఛార్జింగ్ సౌకర్యం, బడ్జెట్, సర్వీస్ సెంటర్ లభ్యత వంటి విషయాలను అంచనా వేసుకోవడం మంచిది.
-</p>
+        <p>
+            ఎలక్ట్రిక్ వెహికల్‌లో అత్యంత ఖరీదైన భాగాల్లో బ్యాటరీ
+            ఒకటి. అందుకే కొనుగోలు చేసే ముందు బ్యాటరీపై కంపెనీ
+            అందిస్తున్న వారంటీ ఎంతకాలం, ఎన్ని కిలోమీటర్ల వరకు
+            వర్తిస్తుంది అనే వివరాలను తెలుసుకోవాలి.
+        </p>
 
-</div>
 
+        <p>
+            బ్యాటరీ పనితీరు తగ్గినప్పుడు కంపెనీ పాలసీ ఎలా ఉంటుంది,
+            వారంటీలో ఏ సమస్యలు కవర్ అవుతాయి, ఏవి కవర్ కావు వంటి
+            విషయాలను కూడా డీలర్‌ను అడిగి తెలుసుకోవడం మంచిది.
+        </p>
 
-<p>
-దేశంలో ఎలక్ట్రిక్ వాహనాలకు డిమాండ్ రోజురోజుకూ పెరుగుతోంది. పెట్రోల్, డీజిల్ ధరలు పెరుగుతున్న నేపథ్యంలో చాలామంది కొత్త వాహనం కొనుగోలు చేసే సమయంలో ఎలక్ట్రిక్ వాహనాల వైపు చూస్తున్నారు. ముఖ్యంగా పట్టణ ప్రాంతాల్లో స్కూటర్లు, బైక్‌లు, కార్లలో ఎలక్ట్రిక్ మోడళ్ల వినియోగం పెరుగుతోంది. అయితే ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు కొన్ని ముఖ్యమైన విషయాలను తెలుసుకోవడం చాలా అవసరం.
-</p>
 
-<p>
-సాధారణ పెట్రోల్ వాహనంతో పోలిస్తే ఎలక్ట్రిక్ వాహనంలో ఇంధన ఖర్చు ఉండదు. బ్యాటరీకి విద్యుత్‌తో ఛార్జింగ్ చేయాల్సి ఉంటుంది. రోజువారీ ప్రయాణం తక్కువగా ఉండేవారికి, ఇంటి వద్ద ఛార్జింగ్ సౌకర్యం ఉన్నవారికి ఎలక్ట్రిక్ వాహనం ఉపయోగకరంగా ఉండొచ్చు. అయితే వాహనం ధర, బ్యాటరీ సామర్థ్యం, ఛార్జింగ్ సమయం, రేంజ్ వంటి అంశాలను ముందుగానే పరిశీలించాలి.
-</p>
+        <h2>
+            ఛార్జింగ్ సౌకర్యం ఉందా?
+        </h2>
 
+        <p>
+            EV కొనుగోలు చేసే ముందు మీ ఇంటి వద్ద ఛార్జింగ్ సదుపాయం
+            ఏర్పాటు చేసుకునే అవకాశం ఉందో లేదో పరిశీలించాలి.
+            అలాగే మీరు తరచుగా ప్రయాణించే మార్గాల్లో ఛార్జింగ్
+            స్టేషన్లు అందుబాటులో ఉన్నాయా అనే విషయం కూడా ముఖ్యం.
+        </p>
 
-<div class="key-points">
 
-<div class="key-title">
-🔎 కొనుగోలు ముందు ఈ 5 విషయాలు చూడండి
-</div>
+        <h2>
+            సర్వీస్ సెంటర్లు దగ్గరలో ఉన్నాయా?
+        </h2>
 
-<div class="key-point">
-<span class="key-number">1</span>
-<span>వాహనం వాస్తవ రేంజ్‌ను పరిశీలించండి.</span>
-</div>
+        <p>
+            వాహనం కొనుగోలు చేసిన తర్వాత సర్వీస్ అవసరం తప్పకుండా
+            వస్తుంది. మీ ప్రాంతంలో కంపెనీకి సర్వీస్ సెంటర్ ఉందా,
+            స్పేర్ పార్ట్స్ లభ్యత ఎలా ఉంది, సర్వీస్ ఖర్చు ఎంత
+            ఉండొచ్చు అనే విషయాలను ముందుగానే తెలుసుకోవాలి.
+        </p>
 
-<div class="key-point">
-<span class="key-number">2</span>
-<span>బ్యాటరీ వారంటీ, నిబంధనలు తెలుసుకోండి.</span>
-</div>
 
-<div class="key-point">
-<span class="key-number">3</span>
-<span>మీ ప్రాంతంలో ఛార్జింగ్ సౌకర్యం ఉందో చూడండి.</span>
-</div>
+        <h2>
+            EV కొనేముందు ఈ 5 విషయాలు గుర్తుంచుకోండి
+        </h2>
 
-<div class="key-point">
-<span class="key-number">4</span>
-<span>సర్వీస్ సెంటర్ మరియు స్పేర్ పార్ట్స్ లభ్యత తెలుసుకోండి.</span>
-</div>
 
-<div class="key-point">
-<span class="key-number">5</span>
-<span>ఆన్-రోడ్ ధరతో పాటు మొత్తం ఖర్చును లెక్కించండి.</span>
-</div>
+        <ol class="key-points">
 
-</div>
+            <li>
+                కంపెనీ క్లెయిమ్ చేసిన రేంజ్‌తో పాటు వాస్తవ వినియోగ
+                రేంజ్‌ను తెలుసుకోండి.
+            </li>
 
+            <li>
+                బ్యాటరీ వారంటీ నిబంధనలను పూర్తిగా చదవండి.
+            </li>
 
-<p>
-ముఖ్యంగా వాహనం కొనుగోలు చేసే ముందు కంపెనీ చెబుతున్న రేంజ్‌ను మాత్రమే చూసి నిర్ణయం తీసుకోవద్దు. వాహనం నడిపే విధానం, రోడ్డు పరిస్థితులు, ట్రాఫిక్, వాతావరణం, ప్రయాణించే వేగం వంటి అంశాలపై వాస్తవ రేంజ్ మారవచ్చు. రోజూ ఎంత దూరం ప్రయాణిస్తారో లెక్క వేసుకుని దానికి సరిపోయే బ్యాటరీ సామర్థ్యం ఉన్న మోడల్‌ను ఎంచుకోవడం మంచిది.
-</p>
+            <li>
+                మీ ఇంటి వద్ద ఛార్జింగ్ ఏర్పాటు సాధ్యమో లేదో చూడండి.
+            </li>
 
-<p>
-ఇక ఛార్జింగ్ వ్యవస్థ కూడా కీలకమైన అంశమే. ఇంట్లో ఛార్జింగ్ చేసుకునే అవకాశం ఉంటే రోజువారీ వినియోగంలో ఇబ్బంది తక్కువగా ఉంటుంది. కానీ బయట ఎక్కువగా ప్రయాణించే వారు పబ్లిక్ ఛార్జింగ్ స్టేషన్లు అందుబాటులో ఉన్నాయా లేదా అనేది ముందుగానే చూసుకోవాలి. ఒక నగరం నుంచి మరో నగరానికి తరచూ ప్రయాణించే వారికి ఛార్జింగ్ నెట్‌వర్క్ ఎంతవరకు అందుబాటులో ఉందో తెలుసుకోవడం అవసరం.
-</p>
+            <li>
+                మీ ప్రాంతంలో సర్వీస్ సెంటర్, స్పేర్ పార్ట్స్
+                అందుబాటులో ఉన్నాయా తెలుసుకోండి.
+            </li>
 
+            <li>
+                వాహనం మొత్తం ఖర్చును లెక్కించి తర్వాత నిర్ణయం తీసుకోండి.
+            </li>
 
-<div class="news-quote">
+        </ol>
 
-“ఎక్కువ రేంజ్ ఉందని మాత్రమే వాహనాన్ని ఎంచుకోకుండా.. మీ రోజువారీ అవసరాలకు సరిపోయే మోడల్‌ను ఎంచుకోవడం ముఖ్యం.”
 
-</div>
+        <div class="news-quote">
 
+            🚘 EV కొనుగోలు చేసేటప్పుడు కేవలం వాహనం ధరను మాత్రమే
+            చూడకుండా, బ్యాటరీ, ఛార్జింగ్, మెయింటెనెన్స్,
+            వారంటీ, సర్వీస్ వంటి మొత్తం ఖర్చులను పరిగణనలోకి
+            తీసుకోవడం మంచిది.
 
-<p>
-ఎలక్ట్రిక్ వాహనం కొనుగోలు చేసే సమయంలో బ్యాటరీ వారంటీపై ప్రత్యేకంగా దృష్టి పెట్టాలి. వాహనం మొత్తం మీద లభించే వారంటీకి, బ్యాటరీపై లభించే వారంటీకి తేడా ఉండొచ్చు. బ్యాటరీ రీప్లేస్‌మెంట్ ఖర్చు కూడా మోడల్‌ను బట్టి గణనీయంగా మారే అవకాశం ఉంటుంది. అందుకే కొనుగోలు చేసే ముందు బ్యాటరీ వారంటీ వ్యవధి, దాని నిబంధనలు, సర్వీస్ విధానం గురించి డీలర్‌ను స్పష్టంగా అడగాలి.
-</p>
+        </div>
 
-<p>
-సర్వీసింగ్ విషయంలో కూడా ఎలక్ట్రిక్ వాహనాలకు కొన్ని ప్రత్యేకతలు ఉన్నాయి. పెట్రోల్ వాహనాల్లో ఇంజిన్‌కు సంబంధించిన అనేక భాగాలు ఉంటాయి. ఎలక్ట్రిక్ వాహనాల్లో ఆ భాగాలు చాలా వరకు ఉండవు. దీంతో సాధారణ నిర్వహణ ఖర్చు కొన్ని సందర్భాల్లో తక్కువగా ఉండొచ్చు. అయితే బ్యాటరీ, మోటార్, కంట్రోలర్, ఛార్జర్ వంటి ముఖ్యమైన భాగాల్లో సమస్య వస్తే ఖర్చు ఎక్కువ కావచ్చు.
-</p>
 
-<p>
-అందుకే వాహనం కొనుగోలు చేసే ముందు మీ ప్రాంతంలో కంపెనీ సర్వీస్ సెంటర్ ఉందా లేదా తెలుసుకోవడం మంచిది. ముఖ్యంగా చిన్న పట్టణాలు, గ్రామీణ ప్రాంతాల్లో నివసించే వారు ఈ అంశాన్ని నిర్లక్ష్యం చేయకూడదు. వాహనం కొనుగోలు చేసిన తర్వాత చిన్న సమస్య వచ్చినా సర్వీస్ సెంటర్ కోసం ఎక్కువ దూరం వెళ్లాల్సిన పరిస్థితి రాకుండా ముందుగానే సమాచారం తెలుసుకోవాలి.
-</p>
+        <h2>
+            టెస్ట్ రైడ్ తప్పక చేయండి
+        </h2>
 
+        <p>
+            ఏ EV అయినా కొనుగోలు చేసే ముందు టెస్ట్ రైడ్ చేయడం మంచిది.
+            డ్రైవింగ్ కంఫర్ట్, బ్రేకింగ్, యాక్సిలరేషన్, సీటింగ్,
+            విజిబిలిటీ వంటి అంశాలను స్వయంగా పరిశీలించవచ్చు.
+        </p>
 
-<p>
-ఇక భద్రత విషయంలో కూడా జాగ్రత్త అవసరం. బ్యాటరీతో పనిచేసే వాహనాలను తయారీదారు సూచించిన విధంగానే ఛార్జ్ చేయాలి. కంపెనీ సూచించని ఛార్జర్‌లు లేదా నాణ్యత లేని పరికరాలను ఉపయోగించడం మంచిది కాదు. ఛార్జింగ్ సమయంలో వాహనం, ఛార్జర్ పరిస్థితిని గమనించడం అవసరం. దెబ్బతిన్న కేబుల్ లేదా ఛార్జింగ్ పరికరాన్ని ఉపయోగించకుండా వెంటనే సర్వీస్ సెంటర్‌ను సంప్రదించాలి.
-</p>
 
-<p>
-వర్షాకాలంలో కూడా వాహనం వినియోగంపై అనవసరమైన భయం అవసరం లేదు. ఆధునిక ఎలక్ట్రిక్ వాహనాల్లో నీటి నుంచి రక్షణకు సంబంధించిన ప్రమాణాలు ఉంటాయి. అయితే వాహనం తయారీదారు ఇచ్చిన సూచనలను పాటించడం తప్పనిసరి. నీటిలో ఎక్కువ లోతుకు వాహనం తీసుకెళ్లడం, బ్యాటరీ లేదా ఎలక్ట్రికల్ భాగాలను స్వయంగా తెరవడం వంటి పనులు చేయకూడదు.
-</p>
+        <h2>
+            మొత్తం ఖర్చును లెక్కించండి
+        </h2>
 
+        <p>
+            EV కొనుగోలు సమయంలో వాహనం ధరతో పాటు ఇన్సూరెన్స్,
+            ఛార్జింగ్ పరికరాలు, ఇన్‌స్టాలేషన్, సర్వీస్ వంటి
+            ఖర్చులను కూడా లెక్కలోకి తీసుకోవాలి.
+        </p>
 
-<div class="info-box">
 
-<div class="info-box-title">
+        <div class="conclusion-box">
 
-<i class="fa-solid fa-indian-rupee-sign"></i>
+            <strong>
+                చివరిగా
+            </strong>
 
-ధర మాత్రమే కాదు.. మొత్తం ఖర్చు చూడండి
+            <p>
+                ఎలక్ట్రిక్ వెహికల్ కొనుగోలు మంచి నిర్ణయమే కావచ్చు.
+                కానీ మీ రోజువారీ ప్రయాణ అవసరాలు, ఛార్జింగ్
+                సౌకర్యం, రేంజ్, బ్యాటరీ వారంటీ, సర్వీస్ నెట్‌వర్క్
+                వంటి అంశాలను పూర్తిగా పరిశీలించిన తర్వాతే
+                వాహనాన్ని ఎంచుకోవడం మంచిది.
+            </p>
 
-</div>
+        </div>
 
-<p>
-ఎక్స్-షోరూమ్ ధరతో పాటు రిజిస్ట్రేషన్, ఇన్సూరెన్స్, ఛార్జింగ్ పరికరాలు, యాక్సెసరీస్, మెయింటెనెన్స్ వంటి ఖర్చులను కూడా కలిపి నిర్ణయం తీసుకోవాలి.
-</p>
 
-</div>
+    </div>
 
 
-<p>
-ధర విషయానికి వస్తే ఎలక్ట్రిక్ వాహనం కొనుగోలు సమయంలో కేవలం ఎక్స్-షోరూమ్ ధరను మాత్రమే చూడటం సరైన నిర్ణయం కాదు. రిజిస్ట్రేషన్, ఇన్సూరెన్స్, ఛార్జింగ్ పరికరాలు, యాక్సెసరీస్, మెయింటెనెన్స్ వంటి ఇతర ఖర్చులను కూడా కలిపి మొత్తం వ్యయాన్ని లెక్కించాలి. కొన్ని సందర్భాల్లో ప్రారంభ ధర ఎక్కువగా ఉన్నప్పటికీ, రోజువారీ వినియోగ ఖర్చు తక్కువగా ఉండటం వల్ల దీర్ఘకాలంలో ప్రయోజనం ఉండొచ్చు.
-</p>
+    <!-- SHARE -->
 
-<p>
-అలాగే ప్రభుత్వం అందించే ప్రోత్సాహకాలు, రాష్ట్రానికి సంబంధించిన విధానాలు, రిజిస్ట్రేషన్ లేదా ఇతర ప్రయోజనాలు అందుబాటులో ఉన్నాయా అనే విషయాన్ని కొనుగోలు చేసే సమయంలో అధికారిక వనరుల ద్వారా చెక్ చేసుకోవాలి. ఈ నిబంధనలు కాలానుగుణంగా మారే అవకాశం ఉండటంతో పాత సమాచారాన్ని నమ్మి నిర్ణయం తీసుకోవడం మంచిది కాదు.
-</p>
+    <div class="share-area">
 
-<p>
-మరో ముఖ్యమైన విషయం రీసేల్ విలువ. ఎలక్ట్రిక్ వాహనాల మార్కెట్ ఇంకా అభివృద్ధి దశలో ఉండటంతో కొన్ని మోడళ్లకు భవిష్యత్తులో రీసేల్ విలువ ఎలా ఉంటుందో ముందే చెప్పడం కష్టం. అందుకే కేవలం తక్కువ ధర లేదా ఎక్కువ రేంజ్ ఉందనే కారణంతో వాహనాన్ని ఎంచుకోకుండా కంపెనీ విశ్వసనీయత, బ్యాటరీ టెక్నాలజీ, సర్వీస్ నెట్‌వర్క్, స్పేర్ పార్ట్స్ లభ్యత వంటి అంశాలను కూడా పరిశీలించాలి.
-</p>
+        <div class="share-title">
+            ఈ వార్తను షేర్ చేయండి
+        </div>
 
-<p>
-టెస్ట్ రైడ్ తీసుకోవడం కూడా చాలా ముఖ్యం. వాహనం కూర్చునే విధానం, బరువు, బ్రేకింగ్, పికప్, సస్పెన్షన్, డ్రైవింగ్ కంఫర్ట్ వంటి విషయాలు పేపర్‌పై చూసి అర్థం కావు. కనీసం ఒకసారి టెస్ట్ రైడ్ తీసుకున్న తర్వాతే నిర్ణయం తీసుకోవడం మంచిది.
-</p>
+        <div class="share-row">
 
-<p>
-మొత్తంగా చూస్తే ఎలక్ట్రిక్ వెహికల్ అనేది ప్రతి ఒక్కరికీ ఒకే విధంగా సరిపోయే వాహనం కాదు. రోజువారీ ప్రయాణ దూరం, ఇంట్లో ఛార్జింగ్ సౌకర్యం, బడ్జెట్, ప్రయాణించే ప్రాంతం, సర్వీస్ సెంటర్ లభ్యత వంటి అంశాల ఆధారంగా నిర్ణయం తీసుకోవాలి. ముఖ్యంగా కంపెనీ ప్రకటనల్లో కనిపించే రేంజ్, ఆఫర్లు చూసి తొందరగా బుక్ చేసుకోవడం కంటే పూర్తి వివరాలు తెలుసుకున్న తర్వాత కొనుగోలు చేయడం మంచిది.
-</p>
+            <a
+                class="share-btn whatsapp"
+                target="_blank"
+                rel="noopener"
+                href="https://wa.me/?text=%F0%9F%9A%97%20%E0%B0%8E%E0%B0%B2%E0%B0%95%E0%B1%8D%E0%B0%9F%E0%B1%8D%E0%B0%B0%E0%B0%BF%E0%B0%95%E0%B1%8D%20%E0%B0%B5%E0%B1%86%E0%B0%B9%E0%B0%BF%E0%B0%95%E0%B0%B2%E0%B1%8D%20https%3A%2F%2Fbs360news.com%2Fev1.html"
+            >
+                WhatsApp
+            </a>
 
-<p>
-కొత్త వాహనం కొనాలని చూస్తున్నవారు ముందుగా తమ అవసరాలను అంచనా వేసుకుని, రెండు మూడు మోడళ్లను పోల్చి చూడాలి. బ్యాటరీ వారంటీ, ఛార్జింగ్ సమయం, వాస్తవ రేంజ్, సర్వీస్ ఖర్చు, భద్రతా ఫీచర్లు, మొత్తం ఆన్-రోడ్ ధర వంటి అంశాలను ఒకసారి పరిశీలించిన తర్వాతే తుది నిర్ణయం తీసుకుంటే భవిష్యత్తులో ఇబ్బందులు తగ్గే అవకాశం ఉంటుంది.
-</p>
 
+            <a
+                class="share-btn facebook"
+                target="_blank"
+                rel="noopener"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbs360news.com%2Fev1.html"
+            >
+                Facebook
+            </a>
 
-<div class="conclusion-box">
 
-<h3>
-📌 చివరిగా
-</h3>
+            <button
+                class="share-btn copy"
+                onclick="copyLink()"
+            >
+                Link Copy
+            </button>
 
-<p>
-ఎలక్ట్రిక్ వాహనం కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ, ఛార్జింగ్, సర్వీస్, భద్రత, మొత్తం ఖర్చు వంటి అంశాలను పోల్చి చూసి నిర్ణయం తీసుకోవడం మంచిది. మీ అవసరాలకు సరిపోయే మోడల్‌ను ఎంచుకోవడం కేవలం తక్కువ ధర కంటే ముఖ్యమైన విషయం.
-</p>
+        </div>
 
-</div>
-
-</div>
-
-
-<!-- SHARE -->
-
-<div class="share-box">
-
-<div class="share-title">
-📲 ఈ వార్తను షేర్ చేయండి
-</div>
-
-<div class="share-buttons">
-
-<a
-class="facebook"
-href="https://www.facebook.com/sharer/sharer.php?u=https://bs360news.github.io/ev1.html"
-target="_blank"
-rel="noopener"
-aria-label="Facebook">
-
-<i class="fab fa-facebook-f"></i>
-
-</a>
-
-<a
-class="twitter"
-href="https://twitter.com/intent/tweet?url=https://bs360news.github.io/ev1.html&text=ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి"
-target="_blank"
-rel="noopener"
-aria-label="X">
-
-<i class="fab fa-x-twitter"></i>
-
-</a>
-
-<a
-class="whatsapp"
-href="https://api.whatsapp.com/send?text=ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి https://bs360news.github.io/ev1.html"
-target="_blank"
-rel="noopener"
-aria-label="WhatsApp">
-
-<i class="fab fa-whatsapp"></i>
-
-</a>
-
-<button
-class="copy-link"
-type="button"
-onclick="copyLink()"
-aria-label="Copy Link">
-
-<i class="fa-solid fa-link"></i>
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- LATEST NEWS -->
-
-<section class="latest-section">
-
-<h2 class="latest-title">
-తాజా వార్తలు
-</h2>
-
-<div id="home-posts">
-
-<p style="text-align:center;">
-తాజా వార్తలు లోడ్ అవుతున్నాయి...
-</p>
-
-</div>
-
-</section>
+    </div>
 
 
 </article>
 
+
+
+<!-- =========================
+     TOP STORIES
+========================= -->
+
+<section
+    class="top-stories-section"
+    id="topStoriesSection"
+>
+
+    <div class="top-stories-heading">
+
+        <h2>
+            🔥 TOP STORIES
+        </h2>
+
+        <span>
+            BS 360 NEWS
+        </span>
+
+    </div>
+
+
+    <div
+        class="top-stories-grid"
+        id="topStoriesGrid"
+    ></div>
+
+</section>
+
+
 </main>
+
+
+
+<footer class="site-footer">
+
+    © BS 360 NEWS — తెలుగు తాజా వార్తలు
+
+</footer>
+
 
 
 <script>
 
-/* =====================================================
+/* =================================
+   CURRENT ARTICLE
+================================= */
+
+const currentPage =
+    "ev1.html";
+
+
+/* =================================
    COPY LINK
-   ===================================================== */
+================================= */
 
 function copyLink(){
 
-    if(navigator.clipboard){
+    navigator.clipboard
+    .writeText(window.location.href)
+    .then(function(){
 
-        navigator.clipboard.writeText(
-            window.location.href
-        )
-        .then(function(){
+        alert("Link copied!");
 
-            alert("వార్త లింక్ కాపీ చేయబడింది!");
+    })
+    .catch(function(){
 
-        })
-        .catch(function(){
+        alert("Link copy కాలేదు");
 
-            alert("లింక్ కాపీ చేయడం సాధ్యం కాలేదు.");
+    });
 
-        });
+}
 
-    }else{
 
-        alert("మీ బ్రౌజర్‌లో Copy Link సపోర్ట్ లేదు.");
+/* =================================
+   READING PROGRESS
+================================= */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const article =
+            document.querySelector(".article-card");
+
+        const progress =
+            document.getElementById(
+                "reading-progress"
+            );
+
+        if(!article || !progress){
+            return;
+        }
+
+        const articleTop =
+            article.offsetTop;
+
+        const articleHeight =
+            article.offsetHeight;
+
+        const total =
+            articleHeight - window.innerHeight;
+
+        if(total <= 0){
+            progress.style.width = "100%";
+            return;
+        }
+
+        const value =
+            ((window.scrollY - articleTop) / total) * 100;
+
+        const safe =
+            Math.max(
+                0,
+                Math.min(100,value)
+            );
+
+        progress.style.width =
+            safe + "%";
+
+    }
+);
+
+
+/* =================================
+   FIND HOMEPAGE TOP STORIES
+================================= */
+
+async function loadTopStories(){
+
+    const grid =
+        document.getElementById(
+            "topStoriesGrid"
+        );
+
+    const section =
+        document.getElementById(
+            "topStoriesSection"
+        );
+
+
+    if(!grid || !section){
+        return;
+    }
+
+
+    try{
+
+        /*
+         * Homepage load
+         */
+
+        const response =
+            await fetch(
+                "index.html",
+                {
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "index.html loading failed"
+            );
+
+        }
+
+
+        const html =
+            await response.text();
+
+
+        const parser =
+            new DOMParser();
+
+
+        const doc =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
+
+
+        /*
+         * First try:
+         * Common TOP STORIES selectors
+         */
+
+        let sourceCards =
+            doc.querySelectorAll(
+                "#top-stories article, " +
+                "#top-stories .post, " +
+                ".top-stories article, " +
+                ".top-stories .post, " +
+                ".top-stories .news-item, " +
+                ".top-story, " +
+                ".top-story-card"
+            );
+
+
+        /*
+         * If homepage doesn't have
+         * those exact classes,
+         * search for elements containing
+         * TOP STORIES heading.
+         */
+
+        if(!sourceCards.length){
+
+            const headings =
+                Array.from(
+                    doc.querySelectorAll(
+                        "h1,h2,h3,h4"
+                    )
+                );
+
+
+            const topHeading =
+                headings.find(function(el){
+
+                    return el.textContent
+                    .trim()
+                    .toUpperCase()
+                    .includes(
+                        "TOP STORIES"
+                    );
+
+                });
+
+
+            if(topHeading){
+
+                let parent =
+                    topHeading.parentElement;
+
+
+                for(let i=0;i<4;i++){
+
+                    if(!parent){
+                        break;
+                    }
+
+
+                    const found =
+                        parent.querySelectorAll(
+                            "article, .post, .news-item"
+                        );
+
+
+                    if(found.length){
+
+                        sourceCards =
+                            found;
+
+                        break;
+
+                    }
+
+
+                    parent =
+                        parent.parentElement;
+
+                }
+
+            }
+
+        }
+
+
+        /*
+         * Convert NodeList to Array
+         */
+
+        let cards =
+            Array.from(
+                sourceCards
+            );
+
+
+        /*
+         * Remove current article
+         */
+
+        cards =
+            cards.filter(
+                function(card){
+
+                    const url =
+                        card.getAttribute(
+                            "data-url"
+                        ) ||
+                        card.querySelector(
+                            "a[href]"
+                        )?.getAttribute(
+                            "href"
+                        ) ||
+                        "";
+
+
+                    return !url.includes(
+                        currentPage
+                    );
+
+                }
+            );
+
+
+        /*
+         * Maximum 8
+         */
+
+        cards =
+            cards.slice(0,8);
+
+
+        /*
+         * Create cards
+         */
+
+        cards.forEach(
+            function(card){
+
+                let link =
+                    card.getAttribute(
+                        "data-url"
+                    );
+
+
+                if(!link){
+
+                    const anchor =
+                        card.querySelector(
+                            "a[href]"
+                        );
+
+                    if(anchor){
+                        link =
+                            anchor.getAttribute(
+                                "href"
+                            );
+                    }
+
+                }
+
+
+                if(!link){
+                    return;
+                }
+
+
+                let image =
+                    card.querySelector(
+                        "img"
+                    );
+
+
+                let imageSrc =
+                    image
+                    ? image.getAttribute("src")
+                    : "note.png";
+
+
+                /*
+                 * Fix relative image paths
+                 */
+
+                if(imageSrc){
+
+                    if(
+                        !imageSrc.startsWith(
+                            "http"
+                        ) &&
+                        !imageSrc.startsWith(
+                            "/"
+                        )
+                    ){
+
+                        imageSrc =
+                            new URL(
+                                imageSrc,
+                                window.location.origin +
+                                "/"
+                            ).href;
+
+                    }
+
+                }
+
+
+                /*
+                 * Find title
+                 */
+
+                const titleElement =
+                    card.querySelector(
+                        "h1,h2,h3,h4,.title,.post-title"
+                    );
+
+
+                let title =
+                    titleElement
+                    ? titleElement.textContent.trim()
+                    : "";
+
+
+                /*
+                 * Fallback title
+                 */
+
+                if(!title){
+
+                    const anchor =
+                        card.querySelector(
+                            "a"
+                        );
+
+                    if(anchor){
+
+                        title =
+                            anchor.textContent.trim();
+
+                    }
+
+                }
+
+
+                if(!title){
+                    return;
+                }
+
+
+                /*
+                 * Create card
+                 */
+
+                const newCard =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                newCard.className =
+                    "top-story-card";
+
+
+                newCard.href =
+                    link;
+
+
+                newCard.innerHTML = `
+
+                    <img
+                        src="${imageSrc || "note.png"}"
+                        alt="${title}"
+                        loading="lazy"
+                        onerror="this.src='note.png'"
+                    >
+
+                    <div class="top-story-content">
+
+                        <span class="top-story-label">
+                            🔥 TOP STORY
+                        </span>
+
+                        <div class="top-story-title">
+                            ${title}
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                grid.appendChild(
+                    newCard
+                );
+
+            }
+        );
+
+
+        /*
+         * If nothing found
+         */
+
+        if(!grid.children.length){
+
+            section.style.display =
+                "none";
+
+        }
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Top Stories error:",
+            error
+        );
+
+        section.style.display =
+            "none";
 
     }
 
 }
 
 
-/* =====================================================
-   READING PROGRESS
-   ===================================================== */
+/* =================================
+   START
+================================= */
 
-window.addEventListener("scroll", function(){
-
-    const progress =
-        document.getElementById("readingProgress");
-
-    const scrollTop =
-        window.scrollY;
-
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    if(documentHeight <= 0){
-
-        progress.style.width = "0%";
-
-        return;
-
-    }
-
-    const percentage =
-        (scrollTop / documentHeight) * 100;
-
-    progress.style.width =
-        Math.min(percentage,100) + "%";
-
-});
-
-
-/* =====================================================
-   LOAD LATEST NEWS
-   ===================================================== */
-
-fetch("home-posts.html")
-
-.then(function(response){
-
-    if(!response.ok){
-
-        throw new Error(
-            "Latest posts failed"
-        );
-
-    }
-
-    return response.text();
-
-})
-
-.then(function(data){
-
-    const container =
-        document.getElementById("home-posts");
-
-    container.innerHTML = data;
-
-})
-
-.catch(function(){
-
-    document.getElementById("home-posts").innerHTML =
-
-        "<p style='text-align:center;color:#888;padding:20px;'>తాజా వార్తలు ప్రస్తుతం అందుబాటులో లేవు.</p>";
-
-});
-
-
-/* =====================================================
-   IMAGE ERROR HANDLING
-   ===================================================== */
-
-document.addEventListener(
-    "error",
-    function(event){
-
-        if(event.target.tagName === "IMG"){
-
-            event.target.style.background =
-                "#eeeeee";
-
-        }
-
-    },
-    true
-);
+loadTopStories();
 
 </script>
 
 
 </body>
+
 </html>
