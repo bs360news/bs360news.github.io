@@ -4,29 +4,69 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
 🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి - BS 360 NEWS
 </title>
 
-<meta name="description"
-content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ, ఛార్జింగ్, సర్వీస్, వారంటీ వంటి ముఖ్యమైన విషయాలను తప్పక తెలుసుకోండి.">
+<meta
+name="description"
+content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేయాలని అనుకుంటున్నారా? EV కొనేముందు బ్యాటరీ, రేంజ్, ఛార్జింగ్, సర్వీస్, వారంటీ, మొత్తం ఖర్చు వంటి ముఖ్యమైన విషయాలు తప్పక తెలుసుకోండి."
+>
 
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://bs360news.com/ev1.html">
+<link
+rel="canonical"
+href="https://bs360news.com/ev1.html"
+>
 
-<meta property="og:type" content="article">
-<meta property="og:title" content="🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి">
-<meta property="og:description" content="EV కొనుగోలు చేసే ముందు తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు.">
-<meta property="og:image" content="https://bs360news.com/ev1.png">
-<meta property="og:url" content="https://bs360news.com/ev1.html">
+<meta
+property="og:title"
+content="🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి"
+>
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? ఈ విషయాలు తెలుసుకోండి">
-<meta name="twitter:image" content="https://bs360news.com/ev1.png">
+<meta
+property="og:description"
+content="EV కొనేముందు తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు ఇవే."
+>
 
+<meta
+property="og:type"
+content="article"
+>
+
+<meta
+property="og:url"
+content="https://bs360news.com/ev1.html"
+>
+
+<meta
+property="og:image"
+content="https://bs360news.com/ev1.png"
+>
+
+<meta
+name="twitter:card"
+content="summary_large_image"
+>
+
+<meta
+name="twitter:title"
+content="🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి"
+>
+
+<meta
+name="twitter:description"
+content="EV కొనుగోలు చేసే ముందు తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు."
+>
+
+<meta
+name="twitter:image"
+content="https://bs360news.com/ev1.png"
+>
 
 <style>
 
@@ -35,9 +75,9 @@ content="ఎలక్ట్రిక్ వెహికల్ కొనుగో
 ========================= */
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -45,55 +85,64 @@ html{
 }
 
 body{
-    font-family:Arial,"Noto Sans Telugu",sans-serif;
-    background:#f4f5f7;
+    font-family:
+        Arial,
+        "Noto Sans Telugu",
+        sans-serif;
+
+    background:#f5f6f8;
     color:#171717;
     line-height:1.8;
 }
 
-
 /* =========================
-   PROGRESS BAR
+   READING PROGRESS
 ========================= */
 
-#reading-progress{
+#readingProgress{
     position:fixed;
     top:0;
     left:0;
-    width:0;
+    width:0%;
     height:4px;
     background:#e60000;
     z-index:99999;
 }
-
 
 /* =========================
    HEADER
 ========================= */
 
 .site-header{
-    background:#fff;
-    border-bottom:1px solid #ddd;
     position:sticky;
     top:0;
     z-index:1000;
+
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
 }
 
 .header-inner{
-    width:min(1400px,96%);
+    width:min(1200px,94%);
     margin:auto;
-    min-height:62px;
+
+    min-height:58px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+
+    gap:15px;
 }
 
 .logo{
     text-decoration:none;
-    color:#111;
-    font-size:25px;
+    font-size:22px;
     font-weight:800;
+    color:#0056b3;
 }
 
 .logo span{
@@ -102,14 +151,21 @@ body{
 
 .home-btn{
     text-decoration:none;
-    color:#222;
-    border:1px solid #ddd;
-    padding:7px 12px;
-    border-radius:6px;
-    font-size:14px;
-    font-weight:600;
-}
 
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:7px 13px;
+
+    border-radius:6px;
+
+    background:#0056b3;
+    color:#ffffff;
+
+    font-size:14px;
+    font-weight:700;
+}
 
 /* =========================
    ARTICLE CONTAINER
@@ -117,410 +173,556 @@ body{
 
 .article-container{
     width:min(920px,94%);
-    margin:30px auto 50px;
+    margin:25px auto 40px;
 }
-
 
 /* =========================
    ARTICLE CARD
 ========================= */
 
 .article-card{
-    background:#fff;
-    border:1px solid #e2e2e2;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 3px 15px rgba(0,0,0,.05);
-}
+    background:#ffffff;
 
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.06);
+}
 
 /* =========================
    ARTICLE HEADER
 ========================= */
 
-.article-top{
-    padding:25px 28px 18px;
+.article-header{
+    padding:25px 25px 18px;
 }
 
-.category{
+.article-category{
     display:inline-block;
+
     background:#e60000;
-    color:#fff;
+    color:#ffffff;
+
+    padding:4px 10px;
+
+    border-radius:5px;
 
     font-size:13px;
     font-weight:700;
 
-    padding:4px 11px;
-    border-radius:4px;
-
-    margin-bottom:13px;
+    margin-bottom:12px;
 }
 
 .article-title{
     font-size:34px;
-    line-height:1.4;
+    line-height:1.35;
+
     font-weight:800;
-    color:#111;
+
+    color:#111111;
+
+    margin-bottom:15px;
 }
 
 .article-lead{
-    margin-top:17px;
-    padding-left:14px;
-
-    border-left:4px solid #e60000;
-
     font-size:18px;
-    line-height:1.8;
-    color:#444;
-}
+    line-height:1.75;
 
+    color:#555555;
+}
 
 /* =========================
    HERO IMAGE
 ========================= */
 
-.hero-image{
+.article-hero{
     width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    display:block;
-    background:#eee;
-}
 
+    aspect-ratio:16 / 9;
+
+    object-fit:cover;
+
+    display:block;
+}
 
 /* =========================
    ARTICLE BODY
 ========================= */
 
 .article-body{
-    padding:25px 30px 35px;
+    padding:25px;
 }
 
 .article-body p{
     font-size:17px;
-    line-height:1.95;
+    line-height:1.9;
+
+    margin-bottom:18px;
+
     color:#292929;
-    margin-bottom:20px;
 }
 
 .article-body h2{
-    font-size:24px;
-    line-height:1.45;
+    font-size:25px;
 
-    margin:32px 0 15px;
+    line-height:1.4;
 
-    padding-left:12px;
+    margin:30px 0 14px;
+
+    color:#111111;
 
     border-left:5px solid #e60000;
 
-    color:#111;
+    padding-left:12px;
 }
 
+.article-body strong{
+    color:#111111;
+}
 
 /* =========================
    INFO BOX
 ========================= */
 
 .info-box{
-    margin:25px 0;
-    padding:18px 20px;
+    background:#f1f7ff;
 
-    background:#f8f9fa;
+    border-left:5px solid #0056b3;
 
-    border:1px solid #e0e0e0;
-    border-radius:8px;
+    padding:16px 18px;
+
+    margin:22px 0;
+
+    border-radius:6px;
 }
 
-.info-box-title{
-    font-size:19px;
-    font-weight:800;
-    margin-bottom:10px;
-}
+.info-box p{
+    margin:0;
 
-.info-box ul{
-    padding-left:20px;
-}
-
-.info-box li{
-    margin:6px 0;
     font-size:16px;
 }
-
 
 /* =========================
    NUMBER LIST
 ========================= */
 
-.key-points{
-    list-style:none;
-    counter-reset:points;
-    margin:25px 0;
+.article-body ol{
+    padding-left:28px;
+
+    margin:15px 0 22px;
 }
 
-.key-points li{
-    counter-increment:points;
-
-    position:relative;
-
+.article-body li{
     margin-bottom:10px;
-    padding:14px 15px 14px 52px;
 
-    background:#fafafa;
-
-    border:1px solid #e4e4e4;
-    border-radius:7px;
-
-    font-size:16px;
+    font-size:17px;
 }
-
-.key-points li::before{
-    content:counter(points);
-
-    position:absolute;
-    left:14px;
-    top:13px;
-
-    width:27px;
-    height:27px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#e60000;
-    color:#fff;
-
-    border-radius:50%;
-
-    font-size:13px;
-    font-weight:bold;
-}
-
 
 /* =========================
    QUOTE
 ========================= */
 
-.news-quote{
+.article-quote{
     margin:25px 0;
+
     padding:18px 20px;
 
-    background:#fff7f7;
+    background:#fafafa;
 
-    border-left:4px solid #e60000;
+    border-left:5px solid #e60000;
 
-    font-size:17px;
+    font-size:18px;
+
     font-weight:600;
-}
 
+    color:#333333;
+}
 
 /* =========================
    CONCLUSION
 ========================= */
 
-.conclusion-box{
-    margin-top:28px;
-    padding:20px;
+.conclusion{
+    background:#fff8f8;
 
-    background:#f7f7f7;
+    border:1px solid #ffd2d2;
 
-    border:1px solid #ddd;
+    padding:18px;
+
     border-radius:8px;
-}
 
-.conclusion-box strong{
-    display:block;
-    font-size:19px;
-    margin-bottom:8px;
+    margin-top:25px;
 }
-
 
 /* =========================
    SHARE
 ========================= */
 
-.share-area{
-    padding:20px 30px 28px;
-    border-top:1px solid #eee;
+.share-section{
+    border-top:1px solid #eeeeee;
+
+    margin-top:25px;
+
+    padding-top:20px;
 }
 
 .share-title{
-    font-size:16px;
+    font-size:18px;
+
     font-weight:700;
+
     margin-bottom:12px;
 }
 
 .share-row{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:9px;
 }
 
 .share-btn{
-    border:0;
+    border:none;
+
     cursor:pointer;
 
-    padding:9px 14px;
+    text-decoration:none;
+
+    padding:8px 14px;
 
     border-radius:6px;
 
     font-size:14px;
-    font-weight:600;
 
-    text-decoration:none;
+    font-weight:700;
+
+    color:#ffffff;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
 }
 
 .whatsapp{
-    background:#25d366;
-    color:#fff;
+    background:#25D366;
 }
 
 .facebook{
-    background:#1877f2;
-    color:#fff;
+    background:#1877F2;
 }
 
 .copy{
-    background:#222;
-    color:#fff;
+    background:#555555;
 }
-
 
 /* =========================
-   TOP STORIES
+   ARTICLE TOP STORY
 ========================= */
 
-.top-stories-section{
-    margin-top:32px;
+.article-top-story{
+    width:min(1200px,94%);
+
+    margin:40px auto 60px;
+
+    background:#ffffff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.06);
 }
 
-.top-stories-heading{
+.article-top-heading{
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    margin-bottom:15px;
+    gap:15px;
 
-    padding-bottom:9px;
+    margin-bottom:18px;
 
-    border-bottom:2px solid #111;
+    border-bottom:2px solid #111111;
+
+    padding-bottom:10px;
 }
 
-.top-stories-heading h2{
-    font-size:23px;
-    line-height:1.4;
+.article-top-heading h2{
+    font-size:24px;
+
+    font-weight:800;
+
+    margin:0;
 }
 
-.top-stories-heading span{
-    font-size:12px;
-    color:#777;
-}
+.article-top-heading span{
+    font-size:13px;
 
+    color:#777777;
+
+    font-weight:700;
+}
 
 /* =========================
    TOP STORY GRID
 ========================= */
 
-.top-stories-grid{
+.article-top-grid{
     display:grid;
 
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:
+        minmax(0,2fr)
+        minmax(280px,1fr);
 
-    gap:15px;
+    gap:20px;
 }
 
-
 /* =========================
-   TOP STORY CARD
+   HERO
 ========================= */
 
-.top-story-card{
-    display:block;
-
-    text-decoration:none;
-
-    color:#111;
-
-    background:#fff;
-
-    border:1px solid #e1e1e1;
-
-    border-radius:9px;
+.article-hero-card{
+    position:relative;
 
     overflow:hidden;
 
-    transition:.2s;
+    border-radius:10px;
+
+    background:#111111;
+
+    min-height:360px;
+
+    cursor:pointer;
 }
 
-.top-story-card:hover{
-    transform:translateY(-2px);
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.top-story-card img{
+.article-hero-card img{
     width:100%;
-    aspect-ratio:16/9;
+    height:100%;
+
+    min-height:360px;
 
     object-fit:cover;
 
     display:block;
 
-    background:#eee;
+    transition:transform .4s ease;
 }
 
-.top-story-content{
-    padding:11px 13px 14px;
+.article-hero-card:hover img{
+    transform:scale(1.04);
 }
 
-.top-story-label{
-    display:block;
+.article-hero-overlay{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:70px 22px 20px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.88)
+        );
+
+    color:#ffffff;
+}
+
+.article-hero-category{
+    display:inline-block;
+
+    background:#e60000;
+
+    padding:4px 9px;
+
+    border-radius:4px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+}
+
+.article-hero-title{
+    font-size:25px;
+
+    line-height:1.4;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+}
+
+.article-hero-read{
+    font-size:13px;
+
+    font-weight:700;
+
+    opacity:.9;
+}
+
+/* =========================
+   LATEST SIDEBAR
+========================= */
+
+.article-latest{
+    border:1px solid #e5e7eb;
+
+    border-radius:9px;
+
+    overflow:hidden;
+
+    background:#ffffff;
+}
+
+.article-latest-title{
+    background:#111111;
+
+    color:#ffffff;
+
+    padding:10px 13px;
+
+    font-size:18px;
+
+    font-weight:800;
+}
+
+.article-latest-list{
+    max-height:360px;
+
+    overflow-y:auto;
+}
+
+.article-latest-item{
+    display:flex;
+
+    gap:10px;
+
+    padding:10px;
+
+    border-bottom:1px solid #eeeeee;
+
+    text-decoration:none;
+
+    color:#111111;
+
+    background:#ffffff;
+}
+
+.article-latest-item:last-child{
+    border-bottom:none;
+}
+
+.article-latest-item:hover{
+    background:#f7f7f7;
+}
+
+.article-latest-image{
+    flex:0 0 95px;
+
+    width:95px;
+    height:65px;
+
+    object-fit:cover;
+
+    border-radius:6px;
+}
+
+.article-latest-content{
+    min-width:0;
+}
+
+.article-latest-category{
+    font-size:11px;
 
     color:#e60000;
 
-    font-size:11px;
     font-weight:700;
 
-    margin-bottom:4px;
+    margin-bottom:2px;
 }
 
-.top-story-title{
-    font-size:16px;
-    line-height:1.5;
+.article-latest-item-title{
+    font-size:14px;
+
+    line-height:1.45;
 
     font-weight:700;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:3;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
 }
 
+/* =========================
+   LOADING
+========================= */
+
+.article-loading{
+    padding:30px;
+
+    text-align:center;
+
+    color:#777777;
+
+    font-size:15px;
+}
 
 /* =========================
    FOOTER
 ========================= */
 
 .site-footer{
-    margin-top:45px;
+    background:#111111;
 
-    padding:25px 15px;
-
-    background:#111;
-    color:#ccc;
+    color:#ffffff;
 
     text-align:center;
 
-    font-size:13px;
+    padding:25px 15px;
+
+    margin-top:30px;
+
+    font-size:14px;
 }
 
+.site-footer a{
+    color:#ffffff;
+
+    text-decoration:none;
+}
 
 /* =========================
    MOBILE
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:768px){
 
     .header-inner{
-        min-height:55px;
+        min-height:52px;
     }
 
     .logo{
-        font-size:21px;
+        font-size:19px;
     }
 
     .home-btn{
@@ -529,76 +731,100 @@ body{
     }
 
     .article-container{
-        width:100%;
-        margin-top:0;
+        width:96%;
+
+        margin-top:12px;
     }
 
-    .article-card{
-        border-radius:0;
-        border-left:0;
-        border-right:0;
-    }
-
-    .article-top{
-        padding:20px 16px 16px;
-    }
-
-    .category{
-        font-size:11px;
-        padding:4px 9px;
+    .article-header{
+        padding:18px 15px 14px;
     }
 
     .article-title{
-        font-size:25px;
-        line-height:1.4;
+        font-size:26px;
     }
 
     .article-lead{
         font-size:16px;
-        line-height:1.75;
     }
 
     .article-body{
-        padding:20px 16px 25px;
+        padding:18px 15px;
     }
 
     .article-body p{
         font-size:16px;
-        line-height:1.9;
+        line-height:1.85;
     }
 
     .article-body h2{
         font-size:21px;
     }
 
-    .share-area{
-        padding:18px 16px 22px;
+    .article-body li{
+        font-size:16px;
     }
 
-    .top-stories-section{
-        margin:25px 10px 0;
+    .article-top-story{
+        width:96%;
+
+        padding:12px;
+
+        margin-top:25px;
     }
 
-    .top-stories-heading h2{
+    .article-top-heading{
+        margin-bottom:12px;
+    }
+
+    .article-top-heading h2{
         font-size:20px;
     }
 
-    .top-stories-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:10px;
+    .article-top-grid{
+        grid-template-columns:1fr;
+        gap:12px;
     }
 
-    .top-story-content{
-        padding:9px 9px 11px;
+    .article-hero-card{
+        min-height:auto;
+
+        aspect-ratio:16 / 9;
     }
 
-    .top-story-title{
-        font-size:14px;
-        line-height:1.45;
+    .article-hero-card img{
+        min-height:0;
+
+        height:100%;
     }
 
+    .article-hero-overlay{
+        padding:55px 14px 14px;
+    }
+
+    .article-hero-title{
+        font-size:19px;
+    }
+
+    .article-latest-list{
+        max-height:none;
+    }
+
+    .article-latest-item{
+        padding:9px;
+    }
+
+    .article-latest-image{
+        flex-basis:85px;
+
+        width:85px;
+        height:60px;
+    }
+
+    .article-latest-item-title{
+        font-size:13px;
+    }
 }
-
 
 /* =========================
    DARK MODE
@@ -607,58 +833,73 @@ body{
 @media(prefers-color-scheme:dark){
 
     body{
-        background:#111;
-        color:#eee;
+        background:#111111;
+        color:#eeeeee;
     }
 
     .site-header{
         background:#181818;
-        border-color:#333;
+        border-color:#333333;
     }
 
     .logo{
-        color:#fff;
-    }
-
-    .home-btn{
-        background:#222;
-        color:#eee;
-        border-color:#444;
+        color:#4da3ff;
     }
 
     .article-card,
-    .top-story-card{
+    .article-top-story{
         background:#181818;
-        border-color:#333;
+        border-color:#333333;
     }
 
     .article-title,
     .article-body h2,
-    .top-stories-heading h2{
-        color:#fff;
+    .article-body strong{
+        color:#ffffff;
     }
 
     .article-lead,
     .article-body p{
-        color:#ddd;
+        color:#d0d0d0;
     }
 
-    .info-box,
-    .key-points li,
-    .conclusion-box{
-        background:#202020;
-        border-color:#383838;
+    .info-box{
+        background:#172333;
+        border-color:#2779bd;
     }
 
-    .news-quote{
-        background:#251919;
-        color:#eee;
+    .article-quote{
+        background:#222222;
+        color:#eeeeee;
     }
 
-    .top-story-title{
-        color:#eee;
+    .conclusion{
+        background:#281919;
+        border-color:#5c2c2c;
     }
 
+    .article-top-heading{
+        border-color:#444444;
+    }
+
+    .article-latest{
+        background:#181818;
+        border-color:#333333;
+    }
+
+    .article-latest-item{
+        background:#181818;
+        color:#eeeeee;
+        border-color:#333333;
+    }
+
+    .article-latest-item:hover{
+        background:#222222;
+    }
+
+    .article-latest-title{
+        background:#000000;
+    }
 }
 
 </style>
@@ -668,24 +909,29 @@ body{
 
 <body>
 
+<!-- READING PROGRESS -->
 
-<div id="reading-progress"></div>
+<div id="readingProgress"></div>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <header class="site-header">
 
     <div class="header-inner">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
             BS <span>360</span> NEWS
         </a>
 
-        <a href="index.html" class="home-btn">
-            🏠 హోమ్
+        <a
+            href="index.html"
+            class="home-btn"
+        >
+            🏠 HOME
         </a>
 
     </div>
@@ -693,19 +939,18 @@ body{
 </header>
 
 
-
-<!-- =========================
-     ARTICLE
-========================= -->
+<!-- ARTICLE -->
 
 <main class="article-container">
 
-<article class="article-card">
+<section class="article-card">
 
 
-    <div class="article-top">
+    <!-- ARTICLE HEADER -->
 
-        <span class="category">
+    <header class="article-header">
+
+        <span class="article-category">
             🚗 ఆటోమొబైల్స్
         </span>
 
@@ -714,257 +959,283 @@ body{
         </h1>
 
         <p class="article-lead">
-            పెట్రోల్, డీజిల్ ధరలు పెరుగుతున్న నేపథ్యంలో చాలామంది
-            ఎలక్ట్రిక్ వెహికల్స్ వైపు ఆసక్తి చూపిస్తున్నారు. అయితే EV
-            కొనుగోలు చేసే ముందు రేంజ్, బ్యాటరీ, ఛార్జింగ్, సర్వీస్,
-            వారంటీ వంటి అంశాలను తప్పక పరిశీలించాలి.
+            పెట్రోల్, డీజిల్ వాహనాల ఖర్చులు పెరుగుతున్న నేపథ్యంలో
+            చాలామంది ఎలక్ట్రిక్ వెహికల్స్ వైపు చూస్తున్నారు.
+            అయితే EV కొనుగోలు చేసే ముందు కొన్ని ముఖ్యమైన విషయాలను
+            తప్పకుండా పరిశీలించాలి.
         </p>
 
-    </div>
+    </header>
 
 
-    <!-- HERO -->
+    <!-- HERO IMAGE -->
 
     <img
+        class="article-hero"
         src="ev1.png"
         alt="ఎలక్ట్రిక్ వెహికల్"
-        class="hero-image"
+        loading="eager"
     >
 
 
-    <!-- ARTICLE CONTENT -->
+    <!-- ARTICLE BODY -->
 
-    <div class="article-body">
-
+    <article class="article-body">
 
         <p>
-            ఎలక్ట్రిక్ వెహికల్స్‌కు దేశంలో రోజురోజుకూ ఆదరణ పెరుగుతోంది.
-            తక్కువ నిర్వహణ ఖర్చు, పెట్రోల్ లేదా డీజిల్ అవసరం లేకపోవడం,
-            పర్యావరణానికి తక్కువ కాలుష్యం వంటి కారణాలతో చాలామంది
-            EVలను పరిశీలిస్తున్నారు.
+            ప్రస్తుతం దేశవ్యాప్తంగా ఎలక్ట్రిక్ వెహికల్స్ వినియోగం
+            క్రమంగా పెరుగుతోంది. పెట్రోల్, డీజిల్ ధరలతో పోలిస్తే
+            రోజువారీ ప్రయాణ ఖర్చును తగ్గించుకోవచ్చనే ఉద్దేశంతో
+            చాలామంది EVలను కొనుగోలు చేస్తున్నారు.
         </p>
 
-
         <p>
-            అయితే కొత్తగా EV కొనుగోలు చేయాలనుకునే వారు కొన్ని విషయాల్లో
-            ముందుగానే స్పష్టత తెచ్చుకోవాలి. కేవలం షోరూమ్‌లో కనిపించే
-            ఫీచర్లు చూసి వాహనం కొనుగోలు చేస్తే తర్వాత ఇబ్బందులు
-            ఎదురయ్యే అవకాశం ఉంటుంది.
+            మార్కెట్లో ప్రస్తుతం వివిధ కంపెనీలకు చెందిన ఎలక్ట్రిక్
+            కార్లు, స్కూటర్లు, బైకులు అందుబాటులో ఉన్నాయి.
+            ధర, రేంజ్, బ్యాటరీ సామర్థ్యం, ఛార్జింగ్ సదుపాయాలు,
+            సర్వీస్ నెట్‌వర్క్ వంటి అంశాల్లో ఒక్కో మోడల్‌కు
+            ఒక్కో విధమైన తేడా ఉంటుంది.
         </p>
 
 
         <h2>
-            రేంజ్ ఎంత వస్తుందో ముందుగా తెలుసుకోండి
+            EV కొనేముందు రేంజ్‌ను తప్పకుండా చూడాలి
         </h2>
 
         <p>
-            EV కొనుగోలు చేసేటప్పుడు రేంజ్ చాలా ముఖ్యమైన అంశం.
-            కంపెనీ ప్రకటించే రేంజ్, రోజువారీ వినియోగంలో వచ్చే రేంజ్
-            ఒకేలా ఉండకపోవచ్చు. ట్రాఫిక్, వేగం, ఎయిర్ కండిషనింగ్,
-            రోడ్డు పరిస్థితులు వంటి అంశాలపై రేంజ్ మారుతుంది.
+            ఎలక్ట్రిక్ వాహనం కొనుగోలు చేసే సమయంలో ముందుగా
+            పరిశీలించాల్సిన అంశాల్లో రేంజ్ ఒకటి. కంపెనీలు ప్రకటించే
+            రేంజ్ సాధారణంగా నిర్దిష్ట పరీక్షా పరిస్థితుల్లో లభించే
+            గరిష్ట లేదా ప్రమాణిత రేంజ్ కావచ్చు.
+        </p>
+
+        <p>
+            వాస్తవ వినియోగంలో ట్రాఫిక్, రోడ్డు పరిస్థితులు,
+            డ్రైవింగ్ స్టైల్, వాతావరణం, AC వినియోగం వంటి కారణాల వల్ల
+            రేంజ్ మారే అవకాశం ఉంటుంది. అందుకే మీ రోజువారీ ప్రయాణానికి
+            సరిపడే రేంజ్ ఉన్న వాహనాన్ని ఎంచుకోవడం మంచిది.
         </p>
 
 
         <div class="info-box">
 
-            <div class="info-box-title">
-                🔋 EV కొనేముందు పరిశీలించాల్సినవి
-            </div>
-
-            <ul>
-                <li>వాస్తవ పరిస్థితుల్లో వచ్చే రేంజ్</li>
-                <li>బ్యాటరీ వారంటీ</li>
-                <li>ఛార్జింగ్ సమయం</li>
-                <li>సర్వీస్ సెంటర్ల లభ్యత</li>
-                <li>బ్యాటరీ రీప్లేస్‌మెంట్ ఖర్చు</li>
-            </ul>
-
-        </div>
-
-
-        <h2>
-            బ్యాటరీ వారంటీని తప్పక చెక్ చేయండి
-        </h2>
-
-        <p>
-            ఎలక్ట్రిక్ వెహికల్‌లో అత్యంత ఖరీదైన భాగాల్లో బ్యాటరీ
-            ఒకటి. అందుకే కొనుగోలు చేసే ముందు బ్యాటరీపై కంపెనీ
-            అందిస్తున్న వారంటీ ఎంతకాలం, ఎన్ని కిలోమీటర్ల వరకు
-            వర్తిస్తుంది అనే వివరాలను తెలుసుకోవాలి.
-        </p>
-
-
-        <p>
-            బ్యాటరీ పనితీరు తగ్గినప్పుడు కంపెనీ పాలసీ ఎలా ఉంటుంది,
-            వారంటీలో ఏ సమస్యలు కవర్ అవుతాయి, ఏవి కవర్ కావు వంటి
-            విషయాలను కూడా డీలర్‌ను అడిగి తెలుసుకోవడం మంచిది.
-        </p>
-
-
-        <h2>
-            ఛార్జింగ్ సౌకర్యం ఉందా?
-        </h2>
-
-        <p>
-            EV కొనుగోలు చేసే ముందు మీ ఇంటి వద్ద ఛార్జింగ్ సదుపాయం
-            ఏర్పాటు చేసుకునే అవకాశం ఉందో లేదో పరిశీలించాలి.
-            అలాగే మీరు తరచుగా ప్రయాణించే మార్గాల్లో ఛార్జింగ్
-            స్టేషన్లు అందుబాటులో ఉన్నాయా అనే విషయం కూడా ముఖ్యం.
-        </p>
-
-
-        <h2>
-            సర్వీస్ సెంటర్లు దగ్గరలో ఉన్నాయా?
-        </h2>
-
-        <p>
-            వాహనం కొనుగోలు చేసిన తర్వాత సర్వీస్ అవసరం తప్పకుండా
-            వస్తుంది. మీ ప్రాంతంలో కంపెనీకి సర్వీస్ సెంటర్ ఉందా,
-            స్పేర్ పార్ట్స్ లభ్యత ఎలా ఉంది, సర్వీస్ ఖర్చు ఎంత
-            ఉండొచ్చు అనే విషయాలను ముందుగానే తెలుసుకోవాలి.
-        </p>
-
-
-        <h2>
-            EV కొనేముందు ఈ 5 విషయాలు గుర్తుంచుకోండి
-        </h2>
-
-
-        <ol class="key-points">
-
-            <li>
-                కంపెనీ క్లెయిమ్ చేసిన రేంజ్‌తో పాటు వాస్తవ వినియోగ
-                రేంజ్‌ను తెలుసుకోండి.
-            </li>
-
-            <li>
-                బ్యాటరీ వారంటీ నిబంధనలను పూర్తిగా చదవండి.
-            </li>
-
-            <li>
-                మీ ఇంటి వద్ద ఛార్జింగ్ ఏర్పాటు సాధ్యమో లేదో చూడండి.
-            </li>
-
-            <li>
-                మీ ప్రాంతంలో సర్వీస్ సెంటర్, స్పేర్ పార్ట్స్
-                అందుబాటులో ఉన్నాయా తెలుసుకోండి.
-            </li>
-
-            <li>
-                వాహనం మొత్తం ఖర్చును లెక్కించి తర్వాత నిర్ణయం తీసుకోండి.
-            </li>
-
-        </ol>
-
-
-        <div class="news-quote">
-
-            🚘 EV కొనుగోలు చేసేటప్పుడు కేవలం వాహనం ధరను మాత్రమే
-            చూడకుండా, బ్యాటరీ, ఛార్జింగ్, మెయింటెనెన్స్,
-            వారంటీ, సర్వీస్ వంటి మొత్తం ఖర్చులను పరిగణనలోకి
-            తీసుకోవడం మంచిది.
-
-        </div>
-
-
-        <h2>
-            టెస్ట్ రైడ్ తప్పక చేయండి
-        </h2>
-
-        <p>
-            ఏ EV అయినా కొనుగోలు చేసే ముందు టెస్ట్ రైడ్ చేయడం మంచిది.
-            డ్రైవింగ్ కంఫర్ట్, బ్రేకింగ్, యాక్సిలరేషన్, సీటింగ్,
-            విజిబిలిటీ వంటి అంశాలను స్వయంగా పరిశీలించవచ్చు.
-        </p>
-
-
-        <h2>
-            మొత్తం ఖర్చును లెక్కించండి
-        </h2>
-
-        <p>
-            EV కొనుగోలు సమయంలో వాహనం ధరతో పాటు ఇన్సూరెన్స్,
-            ఛార్జింగ్ పరికరాలు, ఇన్‌స్టాలేషన్, సర్వీస్ వంటి
-            ఖర్చులను కూడా లెక్కలోకి తీసుకోవాలి.
-        </p>
-
-
-        <div class="conclusion-box">
-
-            <strong>
-                చివరిగా
-            </strong>
-
             <p>
-                ఎలక్ట్రిక్ వెహికల్ కొనుగోలు మంచి నిర్ణయమే కావచ్చు.
-                కానీ మీ రోజువారీ ప్రయాణ అవసరాలు, ఛార్జింగ్
-                సౌకర్యం, రేంజ్, బ్యాటరీ వారంటీ, సర్వీస్ నెట్‌వర్క్
-                వంటి అంశాలను పూర్తిగా పరిశీలించిన తర్వాతే
-                వాహనాన్ని ఎంచుకోవడం మంచిది.
+                <strong>ముఖ్యంగా గుర్తుంచుకోవాలి:</strong>
+                కంపెనీ పేర్కొన్న రేంజ్ మాత్రమే కాకుండా,
+                వాస్తవ వినియోగంలో ఎంత రేంజ్ వస్తుందో కూడా
+                యూజర్ రివ్యూలు, టెస్ట్ డ్రైవ్ ద్వారా తెలుసుకోవాలి.
             </p>
 
         </div>
 
 
-    </div>
+        <h2>
+            బ్యాటరీనే EVలో కీలక భాగం
+        </h2>
+
+        <p>
+            ఎలక్ట్రిక్ వెహికల్‌లో అత్యంత ముఖ్యమైన భాగం బ్యాటరీ.
+            వాహనం ధరలో కూడా బ్యాటరీకి గణనీయమైన వాటా ఉంటుంది.
+            అందుకే బ్యాటరీ సామర్థ్యం, వారంటీ, బ్యాటరీ మేనేజ్‌మెంట్
+            సిస్టమ్ వంటి అంశాలను ముందుగానే తెలుసుకోవాలి.
+        </p>
+
+        <p>
+            బ్యాటరీ వారంటీ ఎన్ని సంవత్సరాలు లేదా ఎన్ని కిలోమీటర్ల
+            వరకు ఉందో కంపెనీ నిబంధనల్లో పరిశీలించాలి. కొన్ని సందర్భాల్లో
+            బ్యాటరీ సామర్థ్యం నిర్దిష్ట స్థాయికి పడిపోయినప్పుడు
+            వారంటీ నిబంధనలు ఎలా వర్తిస్తాయో కూడా తెలుసుకోవడం అవసరం.
+        </p>
 
 
-    <!-- SHARE -->
+        <h2>
+            ఛార్జింగ్ సదుపాయం ఎలా ఉంది?
+        </h2>
 
-    <div class="share-area">
+        <p>
+            EV కొనుగోలు చేసే ముందు మీ ఇంట్లో ఛార్జింగ్ సదుపాయం
+            ఏర్పాటు చేసుకునే అవకాశం ఉందా లేదా అనేది చూడాలి.
+            అపార్ట్‌మెంట్‌లో ఉంటే పార్కింగ్ స్థలం దగ్గర ఛార్జింగ్
+            పాయింట్ ఏర్పాటు చేసుకోవచ్చా అనే విషయాన్ని కూడా
+            ముందుగానే తెలుసుకోవాలి.
+        </p>
 
-        <div class="share-title">
-            ఈ వార్తను షేర్ చేయండి
+        <p>
+            సాధారణ ఛార్జింగ్‌కు ఎంత సమయం పడుతుంది,
+            ఫాస్ట్ ఛార్జింగ్ అందుబాటులో ఉందా,
+            ఫాస్ట్ ఛార్జింగ్‌కు అదనపు ఖర్చు ఎంత,
+            మీ ప్రాంతంలో పబ్లిక్ ఛార్జింగ్ స్టేషన్లు ఎక్కడ ఉన్నాయి
+            వంటి వివరాలను పరిశీలించాలి.
+        </p>
+
+
+        <h2>
+            సర్వీస్ సెంటర్ నెట్‌వర్క్‌ను కూడా చూడాలి
+        </h2>
+
+        <p>
+            వాహనం కొనుగోలు చేసే ముందు కంపెనీకి మీ నగరం లేదా
+            సమీప ప్రాంతంలో సర్వీస్ సెంటర్ ఉందా అనే విషయాన్ని
+            తప్పకుండా పరిశీలించాలి.
+        </p>
+
+        <p>
+            EVలో సాధారణ ఇంజిన్ మెయింటెనెన్స్ తక్కువగా ఉండవచ్చు.
+            కానీ బ్యాటరీ, మోటార్, ఎలక్ట్రానిక్ కంట్రోల్ సిస్టమ్స్,
+            సాఫ్ట్‌వేర్ తదితర అంశాల్లో సమస్యలు వచ్చినప్పుడు
+            సరైన సర్వీస్ సదుపాయం ఉండటం చాలా ముఖ్యం.
+        </p>
+
+
+        <h2>
+            ఈ 5 విషయాలు తప్పకుండా చెక్ చేయండి
+        </h2>
+
+        <ol>
+
+            <li>
+                బ్యాటరీ సామర్థ్యం మరియు వారంటీ
+            </li>
+
+            <li>
+                వాస్తవ వినియోగంలో లభించే రేంజ్
+            </li>
+
+            <li>
+                ఛార్జింగ్ సమయం మరియు ఛార్జింగ్ ఖర్చు
+            </li>
+
+            <li>
+                మీ ప్రాంతానికి సమీపంలోని సర్వీస్ సెంటర్లు
+            </li>
+
+            <li>
+                వాహనం మొత్తం కొనుగోలు మరియు మెయింటెనెన్స్ ఖర్చు
+            </li>
+
+        </ol>
+
+
+        <div class="article-quote">
+
+            EV కొనుగోలు చేసేటప్పుడు కేవలం వాహనం ధరను మాత్రమే
+            చూడకుండా, రోజువారీ వినియోగం నుంచి దీర్ఘకాలిక ఖర్చు
+            వరకు మొత్తం లెక్కను పరిశీలించడం మంచిది.
+
         </div>
 
-        <div class="share-row">
 
-            <a
-                class="share-btn whatsapp"
-                target="_blank"
-                rel="noopener"
-                href="https://wa.me/?text=%F0%9F%9A%97%20%E0%B0%8E%E0%B0%B2%E0%B0%95%E0%B1%8D%E0%B0%9F%E0%B1%8D%E0%B0%B0%E0%B0%BF%E0%B0%95%E0%B1%8D%20%E0%B0%B5%E0%B1%86%E0%B0%B9%E0%B0%BF%E0%B0%95%E0%B0%B2%E0%B1%8D%20https%3A%2F%2Fbs360news.com%2Fev1.html"
-            >
-                WhatsApp
-            </a>
+        <h2>
+            టెస్ట్ రైడ్ తప్పనిసరి
+        </h2>
 
+        <p>
+            ఆన్‌లైన్‌లో స్పెసిఫికేషన్లు చూసి మాత్రమే వాహనం కొనుగోలు
+            చేయకుండా ముందుగా టెస్ట్ రైడ్ తీసుకోవడం మంచిది.
+            డ్రైవింగ్ పొజిషన్, బ్రేకింగ్, యాక్సిలరేషన్, సస్పెన్షన్,
+            వాహనం బరువు వంటి అంశాలు ప్రత్యక్షంగా తెలుసుకోవచ్చు.
+        </p>
 
-            <a
-                class="share-btn facebook"
-                target="_blank"
-                rel="noopener"
-                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbs360news.com%2Fev1.html"
-            >
-                Facebook
-            </a>
+        <p>
+            కుటుంబ అవసరాలకు వాహనం ఉపయోగించాలనుకుంటే వెనుక సీటు
+            స్పేస్, బూట్ స్పేస్, భద్రతా ఫీచర్లు వంటి అంశాలను కూడా
+            పరిశీలించాలి.
+        </p>
 
 
-            <button
-                class="share-btn copy"
-                onclick="copyLink()"
-            >
-                Link Copy
-            </button>
+        <h2>
+            మొత్తం ఖర్చును లెక్కించాలి
+        </h2>
+
+        <p>
+            EV కొనుగోలు సమయంలో ఎక్స్-షోరూమ్ ధర మాత్రమే కాకుండా
+            ఇన్సూరెన్స్, రిజిస్ట్రేషన్, ఛార్జర్, యాక్సెసరీస్,
+            సర్వీస్ ఖర్చులు వంటి అంశాలను కూడా లెక్కలోకి తీసుకోవాలి.
+        </p>
+
+        <p>
+            ప్రారంభంలో కొంత ఎక్కువ ధర ఉన్నప్పటికీ రోజువారీ
+            ప్రయాణ ఖర్చు తక్కువగా ఉండటం వల్ల దీర్ఘకాలంలో
+            మొత్తం ఖర్చు తగ్గే అవకాశం ఉంటుంది. అయితే అది
+            వాహనం ధర, రోజువారీ ప్రయాణ దూరం, ఛార్జింగ్ ఖర్చు
+            తదితర అంశాలపై ఆధారపడి ఉంటుంది.
+        </p>
+
+
+        <div class="conclusion">
+
+            <p>
+                <strong>
+                    చివరిగా:
+                </strong>
+                ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేయాలని నిర్ణయించుకున్న
+                వారు ముందుగా తమ అవసరాలను స్పష్టంగా తెలుసుకోవాలి.
+                రేంజ్, బ్యాటరీ వారంటీ, ఛార్జింగ్, సర్వీస్ నెట్‌వర్క్,
+                భద్రత, మొత్తం ఖర్చు వంటి అంశాలను పోల్చి చూసిన తర్వాతే
+                సరైన మోడల్‌ను ఎంచుకోవడం మంచిది.
+            </p>
 
         </div>
 
-    </div>
+
+        <!-- SHARE -->
+
+        <div class="share-section">
+
+            <div class="share-title">
+                📲 ఈ వార్తను షేర్ చేయండి
+            </div>
+
+            <div class="share-row">
+
+                <a
+                    class="share-btn whatsapp"
+                    id="whatsappShare"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp
+                </a>
+
+                <a
+                    class="share-btn facebook"
+                    id="facebookShare"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Facebook
+                </a>
+
+                <button
+                    class="share-btn copy"
+                    onclick="copyLink()"
+                >
+                    🔗 Link Copy
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+</main>
 
 
-</article>
-
-
-
-<!-- =========================
-     TOP STORIES
-========================= -->
+<!-- =========================================
+     ARTICLE PAGE TOP STORY
+========================================= -->
 
 <section
-    class="top-stories-section"
-    id="topStoriesSection"
+    class="article-top-story"
+    id="articleTopStory"
 >
 
-    <div class="top-stories-heading">
+    <div class="article-top-heading">
 
         <h2>
             🔥 TOP STORIES
@@ -978,162 +1249,304 @@ body{
 
 
     <div
-        class="top-stories-grid"
-        id="topStoriesGrid"
-    ></div>
+        class="article-top-grid"
+        id="articleTopGrid"
+    >
+
+        <div class="article-loading">
+            తాజా వార్తలు లోడ్ అవుతున్నాయి...
+        </div>
+
+    </div>
 
 </section>
 
 
-</main>
-
-
+<!-- FOOTER -->
 
 <footer class="site-footer">
 
-    © BS 360 NEWS — తెలుగు తాజా వార్తలు
+    <p>
+        © 2026 BS 360 NEWS. All Rights Reserved.
+    </p>
+
+    <p>
+        తెలుగు తాజా వార్తలు, సినిమా, స్పోర్ట్స్ మరియు మరిన్ని వార్తల కోసం
+        <a href="index.html">
+            BS 360 NEWS
+        </a>
+    </p>
 
 </footer>
 
 
-
 <script>
 
-/* =================================
+/* =========================================
    CURRENT ARTICLE
-================================= */
+========================================= */
 
-const currentPage =
-    "ev1.html";
+const CURRENT_ARTICLE = "ev1.html";
 
 
-/* =================================
-   COPY LINK
-================================= */
+/* =========================================
+   BASIC HELPERS
+========================================= */
 
-function copyLink(){
+function $(selector, root = document){
+    return root.querySelector(selector);
+}
 
-    navigator.clipboard
-    .writeText(window.location.href)
-    .then(function(){
-
-        alert("Link copied!");
-
-    })
-    .catch(function(){
-
-        alert("Link copy కాలేదు");
-
-    });
-
+function $$(selector, root = document){
+    return Array.from(root.querySelectorAll(selector));
 }
 
 
-/* =================================
-   READING PROGRESS
-================================= */
+/* =========================================
+   HTML ESCAPE
+========================================= */
 
-window.addEventListener(
-    "scroll",
-    function(){
+function escapeHTML(value){
 
-        const article =
-            document.querySelector(".article-card");
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
-        const progress =
-            document.getElementById(
-                "reading-progress"
-            );
 
-        if(!article || !progress){
-            return;
+/* =========================================
+   GET TITLE
+========================================= */
+
+function titleOf(post){
+
+    const selectors = [
+        ".post-title",
+        ".article-title",
+        "h1",
+        "h2",
+        "h3",
+        "p",
+        "a"
+    ];
+
+    for(const selector of selectors){
+
+        const element = post.querySelector(selector);
+
+        if(element){
+
+            const text = element.textContent.trim();
+
+            if(text){
+                return text;
+            }
+
         }
 
-        const articleTop =
-            article.offsetTop;
-
-        const articleHeight =
-            article.offsetHeight;
-
-        const total =
-            articleHeight - window.innerHeight;
-
-        if(total <= 0){
-            progress.style.width = "100%";
-            return;
-        }
-
-        const value =
-            ((window.scrollY - articleTop) / total) * 100;
-
-        const safe =
-            Math.max(
-                0,
-                Math.min(100,value)
-            );
-
-        progress.style.width =
-            safe + "%";
-
-    }
-);
-
-
-/* =================================
-   FIND HOMEPAGE TOP STORIES
-================================= */
-
-async function loadTopStories(){
-
-    const grid =
-        document.getElementById(
-            "topStoriesGrid"
-        );
-
-    const section =
-        document.getElementById(
-            "topStoriesSection"
-        );
-
-
-    if(!grid || !section){
-        return;
     }
 
+    return "తాజా వార్త";
+}
+
+
+/* =========================================
+   GET IMAGE
+========================================= */
+
+function imageOf(post){
+
+    const img = post.querySelector("img");
+
+    if(!img){
+        return "";
+    }
+
+    return (
+        img.getAttribute("src") ||
+        img.getAttribute("data-src") ||
+        img.getAttribute("data-lazy-src") ||
+        ""
+    ).trim();
+}
+
+
+/* =========================================
+   GET ARTICLE URL
+========================================= */
+
+function articleUrl(post){
+
+    const dataUrl =
+        post.getAttribute("data-url");
+
+    if(dataUrl){
+        return dataUrl.trim();
+    }
+
+    const anchor =
+        post.querySelector("a[href]");
+
+    if(anchor){
+
+        return (
+            anchor.getAttribute("href") || ""
+        ).trim();
+
+    }
+
+    return "";
+}
+
+
+/* =========================================
+   GET CATEGORY
+========================================= */
+
+function categoryOf(post){
+
+    const category =
+        (
+            post.getAttribute("data-category") ||
+            ""
+        )
+        .toLowerCase()
+        .trim();
+
+    if(
+        category.includes("movie") ||
+        category.includes("cinema") ||
+        category.includes("entertainment") ||
+        category.includes("tollywood")
+    ){
+        return "సినిమా";
+    }
+
+    if(
+        category.includes("sport") ||
+        category.includes("cricket") ||
+        category.includes("ipl")
+    ){
+        return "స్పోర్ట్స్";
+    }
+
+    if(
+        category.includes("business") ||
+        category.includes("finance") ||
+        category.includes("market") ||
+        category.includes("stock")
+    ){
+        return "బిజినెస్";
+    }
+
+    if(
+        category.includes("automobile") ||
+        category.includes("auto") ||
+        category.includes("ev")
+    ){
+        return "ఆటోమొబైల్స్";
+    }
+
+    if(
+        category.includes("politic") ||
+        category.includes("politics")
+    ){
+        return "రాజకీయాలు";
+    }
+
+    if(
+        category.includes("jobs") ||
+        category.includes("job")
+    ){
+        return "జాబ్స్";
+    }
+
+    if(
+        category.includes("world")
+    ){
+        return "వరల్డ్";
+    }
+
+    if(
+        category.includes("india") ||
+        category.includes("national")
+    ){
+        return "ఇండియా";
+    }
+
+    if(
+        category.includes("telangana") ||
+        category.includes("ts")
+    ){
+        return "తెలంగాణ";
+    }
+
+    return "తాజా వార్తలు";
+}
+
+
+/* =========================================
+   NORMALIZE URL
+========================================= */
+
+function normalizeUrl(url){
+
+    if(!url){
+        return "";
+    }
 
     try{
 
-        /*
-         * Homepage load
-         */
+        return new URL(
+            url,
+            new URL(
+                "index.html",
+                window.location.href
+            )
+        ).href;
+
+    }catch(error){
+
+        return url;
+
+    }
+}
+
+
+/* =========================================
+   GET SOURCE POSTS FROM HOMEPAGE
+========================================= */
+
+async function getHomepagePosts(){
+
+    try{
 
         const response =
             await fetch(
-                "index.html",
+                "index.html?v=" + Date.now(),
                 {
                     cache:"no-store"
                 }
             );
 
-
         if(!response.ok){
 
             throw new Error(
-                "index.html loading failed"
+                "Homepage could not be loaded"
             );
 
         }
 
-
         const html =
             await response.text();
-
 
         const parser =
             new DOMParser();
 
-
-        const doc =
+        const homepage =
             parser.parseFromString(
                 html,
                 "text/html"
@@ -1141,847 +1554,580 @@ async function loadTopStories(){
 
 
         /*
-         * First try:
-         * Common TOP STORIES selectors
+         * IMPORTANT:
+         * Homepage's original articles
+         * are stored here.
          */
 
-        let sourceCards =
-            doc.querySelectorAll(
-                "#top-stories article, " +
-                "#top-stories .post, " +
-                ".top-stories article, " +
-                ".top-stories .post, " +
-                ".top-stories .news-item, " +
-                ".top-story, " +
-                ".top-story-card"
-            );
+        let posts =
+            $$("#legacyNewsSource .post[data-url]", homepage);
 
 
         /*
-         * If homepage doesn't have
-         * those exact classes,
-         * search for elements containing
-         * TOP STORIES heading.
+         * Fallbacks
          */
 
-        if(!sourceCards.length){
+        if(!posts.length){
 
-            const headings =
-                Array.from(
-                    doc.querySelectorAll(
-                        "h1,h2,h3,h4"
-                    )
-                );
+            posts =
+                $$(".news-list .post[data-url]", homepage);
 
+        }
 
-            const topHeading =
-                headings.find(function(el){
+        if(!posts.length){
 
-                    return el.textContent
-                    .trim()
-                    .toUpperCase()
-                    .includes(
-                        "TOP STORIES"
-                    );
+            posts =
+                $$(".news-item.post[data-url]", homepage);
 
-                });
+        }
 
+        if(!posts.length){
 
-            if(topHeading){
-
-                let parent =
-                    topHeading.parentElement;
-
-
-                for(let i=0;i<4;i++){
-
-                    if(!parent){
-                        break;
-                    }
-
-
-                    const found =
-                        parent.querySelectorAll(
-                            "article, .post, .news-item"
-                        );
-
-
-                    if(found.length){
-
-                        sourceCards =
-                            found;
-
-                        break;
-
-                    }
-
-
-                    parent =
-                        parent.parentElement;
-
-                }
-
-            }
+            posts =
+                $$(".post[data-url]", homepage);
 
         }
 
 
-        /*
-         * Convert NodeList to Array
-         */
+        return posts;
 
-        let cards =
-            Array.from(
-                sourceCards
-            );
-
-
-        /*
-         * Remove current article
-         */
-
-        cards =
-            cards.filter(
-                function(card){
-
-                    const url =
-                        card.getAttribute(
-                            "data-url"
-                        ) ||
-                        card.querySelector(
-                            "a[href]"
-                        )?.getAttribute(
-                            "href"
-                        ) ||
-                        "";
-
-
-                    return !url.includes(
-                        currentPage
-                    );
-
-                }
-            );
-
-
-        /*
-         * Maximum 8
-         */
-
-        cards =
-            cards.slice(0,8);
-
-
-        /*
-         * Create cards
-         */
-
-        cards.forEach(
-            function(card){
-
-                let link =
-                    card.getAttribute(
-                        "data-url"
-                    );
-
-
-                if(!link){
-
-                    const anchor =
-                        card.querySelector(
-                            "a[href]"
-                        );
-
-                    if(anchor){
-                        link =
-                            anchor.getAttribute(
-                                "href"
-                            );
-                    }
-
-                }
-
-
-                if(!link){
-                    return;
-                }
-
-
-                let image =
-                    card.querySelector(
-                        "img"
-                    );
-
-
-                let imageSrc =
-                    image
-                    ? image.getAttribute("src")
-                    : "note.png";
-
-
-                /*
-                 * Fix relative image paths
-                 */
-
-                if(imageSrc){
-
-                    if(
-                        !imageSrc.startsWith(
-                            "http"
-                        ) &&
-                        !imageSrc.startsWith(
-                            "/"
-                        )
-                    ){
-
-                        imageSrc =
-                            new URL(
-                                imageSrc,
-                                window.location.origin +
-                                "/"
-                            ).href;
-
-                    }
-
-                }
-
-
-                /*
-                 * Find title
-                 */
-
-                const titleElement =
-                    card.querySelector(
-                        "h1,h2,h3,h4,.title,.post-title"
-                    );
-
-
-                let title =
-                    titleElement
-                    ? titleElement.textContent.trim()
-                    : "";
-
-
-                /*
-                 * Fallback title
-                 */
-
-                if(!title){
-
-                    const anchor =
-                        card.querySelector(
-                            "a"
-                        );
-
-                    if(anchor){
-
-                        title =
-                            anchor.textContent.trim();
-
-                    }
-
-                }
-
-
-                if(!title){
-                    return;
-                }
-
-
-                /*
-                 * Create card
-                 */
-
-                const newCard =
-                    document.createElement(
-                        "a"
-                    );
-
-
-                newCard.className =
-                    "top-story-card";
-
-
-                newCard.href =
-                    link;
-
-
-                newCard.innerHTML = `
-
-                    <img
-                        src="${imageSrc || "note.png"}"
-                        alt="${title}"
-                        loading="lazy"
-                        onerror="this.src='note.png'"
-                    >
-
-                    <div class="top-story-content">
-
-                        <span class="top-story-label">
-                            🔥 TOP STORY
-                        </span>
-
-                        <div class="top-story-title">
-                            ${title}
-                        </div>
-
-                    </div>
-
-                `;
-
-
-                grid.appendChild(
-                    newCard
-                );
-
-            }
-        );
-
-
-        /*
-         * If nothing found
-         */
-
-        if(!grid.children.length){
-
-            section.style.display =
-                "none";
-
-        }
-
-
-    }
-    catch(error){
+    }catch(error){
 
         console.error(
-            "Top Stories error:",
+            "TOP STORY ERROR:",
             error
         );
 
-        section.style.display =
-            "none";
+        return [];
 
     }
 
 }
-<!-- =====================================================
-     BS 360 NEWS - TOP STORY / LATEST NEWS
-===================================================== -->
 
-<section class="article-top-story" id="articleTopStory">
 
-    <div class="article-section-title">
-        <h2>🔥 TOP STORY</h2>
-        <span>ముఖ్య వార్తలు</span>
-    </div>
+/* =========================================
+   DEDUPLICATE POSTS
+========================================= */
 
-    <div class="article-top-grid">
+function uniquePosts(posts){
 
-        <div class="article-latest-side">
-            <div class="article-side-title">
-                📰 తాజా వార్తలు
+    const result = [];
+
+    const seen = new Set();
+
+    posts.forEach(post => {
+
+        const url =
+            articleUrl(post);
+
+        const title =
+            titleOf(post);
+
+        const key =
+            url + "|" + title;
+
+        if(
+            !url ||
+            !title ||
+            seen.has(key)
+        ){
+            return;
+        }
+
+        seen.add(key);
+
+        result.push(post);
+
+    });
+
+    return result;
+}
+
+
+/* =========================================
+   CREATE HERO
+========================================= */
+
+function createHero(post){
+
+    const title =
+        titleOf(post);
+
+    const image =
+        imageOf(post);
+
+    const url =
+        articleUrl(post);
+
+    const category =
+        categoryOf(post);
+
+    if(!url){
+        return "";
+    }
+
+
+    const absoluteUrl =
+        normalizeUrl(url);
+
+    const absoluteImage =
+        normalizeUrl(image);
+
+
+    return `
+
+        <a
+            class="article-hero-card"
+            href="${escapeHTML(absoluteUrl)}"
+        >
+
+            <img
+                src="${escapeHTML(absoluteImage)}"
+                alt="${escapeHTML(title)}"
+                loading="lazy"
+            >
+
+            <div class="article-hero-overlay">
+
+                <span class="article-hero-category">
+                    ${escapeHTML(category)}
+                </span>
+
+                <div class="article-hero-title">
+                    ${escapeHTML(title)}
+                </div>
+
+                <div class="article-hero-read">
+                    పూర్తి వార్త చదవండి →
+                </div>
+
             </div>
 
-            <div id="articleLatestList"></div>
-        </div>
+        </a>
 
-        <div id="articleHero"></div>
+    `;
 
-    </div>
-
-</section>
+}
 
 
-<script>
+/* =========================================
+   CREATE LATEST ITEM
+========================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+function createLatestItem(post){
 
-    "use strict";
+    const title =
+        titleOf(post);
 
-    const hero =
-        document.getElementById("articleHero");
+    const image =
+        imageOf(post);
 
-    const latest =
-        document.getElementById("articleLatestList");
+    const url =
+        articleUrl(post);
 
-    if (!hero || !latest) {
+    const category =
+        categoryOf(post);
+
+    if(!url){
+        return "";
+    }
+
+
+    const absoluteUrl =
+        normalizeUrl(url);
+
+    const absoluteImage =
+        normalizeUrl(image);
+
+
+    return `
+
+        <a
+            class="article-latest-item"
+            href="${escapeHTML(absoluteUrl)}"
+        >
+
+            ${
+                absoluteImage
+                ?
+                `
+                <img
+                    class="article-latest-image"
+                    src="${escapeHTML(absoluteImage)}"
+                    alt="${escapeHTML(title)}"
+                    loading="lazy"
+                >
+                `
+                :
+                ""
+            }
+
+            <div class="article-latest-content">
+
+                <div class="article-latest-category">
+                    ${escapeHTML(category)}
+                </div>
+
+                <div class="article-latest-item-title">
+                    ${escapeHTML(title)}
+                </div>
+
+            </div>
+
+        </a>
+
+    `;
+
+}
+
+
+/* =========================================
+   RENDER ARTICLE TOP STORIES
+========================================= */
+
+async function loadArticleTopStories(){
+
+    const container =
+        $("#articleTopGrid");
+
+    if(!container){
         return;
     }
 
 
-    /* =====================================================
-       CURRENT ARTICLE
-    ===================================================== */
-
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .split("?")[0]
-            .split("#")[0];
+    const sourcePosts =
+        await getHomepagePosts();
 
 
-    /* =====================================================
-       GET ARTICLE DATA FROM HOMEPAGE
-    ===================================================== */
+    let posts =
+        uniquePosts(sourcePosts);
 
-    fetch("index.html?v=" + Date.now())
 
-        .then(function (response) {
+    /*
+     * Remove current article.
+     *
+     * Example:
+     * ev1.html is removed.
+     * watch.html becomes first TOP STORY.
+     */
 
-            if (!response.ok) {
-                throw new Error(
-                    "Homepage loading failed"
-                );
+    posts =
+        posts.filter(post => {
+
+            const url =
+                articleUrl(post);
+
+            if(!url){
+                return false;
             }
 
-            return response.text();
-
-        })
-
-        .then(function (html) {
-
-            const parser =
-                new DOMParser();
-
-            const doc =
-                parser.parseFromString(
-                    html,
-                    "text/html"
-                );
-
-
-            /* =============================================
-               SAME SOURCE USED BY YOUR script.js
-            ============================================= */
-
-            let posts =
-                Array.from(
-                    doc.querySelectorAll(
-                        "#legacyNewsSource .post[data-url]"
-                    )
-                );
-
-
-            /* =============================================
-               FALLBACK
-            ============================================= */
-
-            if (!posts.length) {
-
-                posts =
-                    Array.from(
-                        doc.querySelectorAll(
-                            ".news-list .post[data-url]"
-                        )
-                    );
-
-            }
-
-
-            if (!posts.length) {
-
-                latest.innerHTML =
-                    "<p>తాజా వార్తలు అందుబాటులో లేవు.</p>";
-
-                return;
-
-            }
-
-
-            /* =============================================
-               REMOVE DUPLICATES
-            ============================================= */
-
-            const seen =
-                new Set();
-
-            posts =
-                posts.filter(function (post) {
-
-                    const url =
-                        (
-                            post.getAttribute(
-                                "data-url"
-                            ) || ""
-                        ).trim();
-
-                    const titleElement =
-                        post.querySelector(
-                            ".post-title, .article-title, h1, h2, h3, p"
-                        );
-
-                    const title =
-                        titleElement
-                            ? titleElement.textContent
-                                .replace(/\s+/g, " ")
-                                .trim()
-                            : "";
-
-                    const key =
-                        url + "|" + title;
-
-                    if (seen.has(key)) {
-                        return false;
-                    }
-
-                    seen.add(key);
-
-                    return true;
-
-                });
-
-
-            /* =============================================
-               EXCLUDE CURRENT ARTICLE
-            ============================================= */
-
-            posts =
-                posts.filter(function (post) {
-
-                    const url =
-                        (
-                            post.getAttribute(
-                                "data-url"
-                            ) || ""
-                        )
-                        .trim()
-                        .split("/")
-                        .pop()
-                        .split("?")[0]
-                        .split("#")[0];
-
-                    return (
-                        url.toLowerCase() !==
-                        currentPage.toLowerCase()
-                    );
-
-                });
-
-
-            if (!posts.length) {
-                return;
-            }
-
-
-            /* =================================================
-               HELPERS
-            ================================================= */
-
-            function getTitle(post) {
-
-                const element =
-                    post.querySelector(
-                        ".post-title, .article-title, h1, h2, h3, p, a"
-                    );
-
-                return element
-                    ? element.textContent
-                        .replace(/\s+/g, " ")
-                        .trim()
-                    : "BS 360 NEWS";
-
-            }
-
-
-            function getImage(post) {
-
-                const image =
-                    post.querySelector("img");
-
-                if (!image) {
-                    return "dp.png.png";
-                }
-
-                return (
-                    image.getAttribute("src") ||
-                    image.getAttribute("data-src") ||
-                    image.getAttribute("data-lazy-src") ||
-                    "dp.png.png"
-                );
-
-            }
-
-
-            function getAlt(post) {
-
-                const image =
-                    post.querySelector("img");
-
-                return image
-                    ? (
-                        image.getAttribute("alt") ||
-                        getTitle(post)
-                    )
-                    : getTitle(post);
-
-            }
-
-
-            function getUrl(post) {
-
-                return (
-                    post.getAttribute(
-                        "data-url"
-                    ) ||
-                    post.querySelector("a")
-                        ?.getAttribute("href") ||
-                    "#"
-                );
-
-            }
-
-
-            function getCategory(post) {
-
-                const value =
-                    (
-                        post.getAttribute(
-                            "data-category"
-                        ) || ""
-                    ).toLowerCase();
-
-                if (
-                    value.includes("sports") ||
-                    value.includes("sport") ||
-                    value.includes("క్రీడ")
-                ) {
-                    return "SPORTS";
-                }
-
-                if (
-                    value.includes("movies") ||
-                    value.includes("movie") ||
-                    value.includes("cinema") ||
-                    value.includes("సినిమా")
-                ) {
-                    return "CINEMA";
-                }
-
-                if (
-                    value.includes("business") ||
-                    value.includes("gold") ||
-                    value.includes("finance") ||
-                    value.includes("బిజినెస్")
-                ) {
-                    return "BUSINESS";
-                }
-
-                if (
-                    value.includes("technology") ||
-                    value.includes("tech") ||
-                    value.includes("టెక్")
-                ) {
-                    return "TECHNOLOGY";
-                }
-
-                if (
-                    value.includes("telangana") ||
-                    value.includes("ts")
-                ) {
-                    return "TELANGANA";
-                }
-
-                if (
-                    value.includes("andhra") ||
-                    value.includes("ap")
-                ) {
-                    return "ANDHRA PRADESH";
-                }
-
-                if (
-                    value.includes("india") ||
-                    value.includes("భారత్")
-                ) {
-                    return "INDIA";
-                }
-
-                if (
-                    value.includes("world") ||
-                    value.includes("ప్రపంచ")
-                ) {
-                    return "WORLD";
-                }
-
-                return "LATEST";
-
-            }
-
-
-            /* =================================================
-               HERO
-            ================================================= */
-
-            let heroIndex = 0;
-
-
-            function showHero(index) {
-
-                const post =
-                    posts[index];
-
-                if (!post) {
-                    return;
-                }
-
-                hero.innerHTML = `
-
-                    <article
-                        class="article-hero-card"
-                        onclick="window.location.href='${getUrl(post)}'"
-                    >
-
-                        <img
-                            src="${getImage(post)}"
-                            alt="${getAlt(post)}"
-                            onerror="this.onerror=null;this.src='dp.png.png';"
-                        >
-
-                        <div class="article-hero-overlay">
-
-                            <span>
-                                ${getCategory(post)}
-                            </span>
-
-                            <h2>
-                                ${getTitle(post)}
-                            </h2>
-
-                            <b>
-                                పూర్తి వార్త చదవండి →
-                            </b>
-
-                        </div>
-
-                    </article>
-
-                `;
-
-            }
-
-
-            showHero(heroIndex);
-
-
-            /* =============================================
-               HERO CHANGE EVERY 5 SECONDS
-            ============================================= */
-
-            setInterval(function () {
-
-                heroIndex++;
-
-                if (
-                    heroIndex >= posts.length
-                ) {
-                    heroIndex = 0;
-                }
-
-                showHero(heroIndex);
-
-            }, 5000);
-
-
-            /* =================================================
-               LATEST SIDEBAR
-            ================================================= */
-
-            latest.innerHTML = "";
-
-
-            posts
-                .slice(0, 12)
-                .forEach(function (post) {
-
-                    const item =
-                        document.createElement(
-                            "article"
-                        );
-
-                    item.className =
-                        "article-latest-item";
-
-
-                    item.innerHTML = `
-
-                        <div class="article-latest-image">
-
-                            <img
-                                src="${getImage(post)}"
-                                alt="${getAlt(post)}"
-                                loading="lazy"
-                                onerror="this.onerror=null;this.src='dp.png.png';"
-                            >
-
-                        </div>
-
-                        <div class="article-latest-content">
-
-                            <span>
-                                ${getCategory(post)}
-                            </span>
-
-                            <h3>
-                                ${getTitle(post)}
-                            </h3>
-
-                        </div>
-
-                    `;
-
-
-                    item.addEventListener(
-                        "click",
-                        function () {
-
-                            const url =
-                                getUrl(post);
-
-                            if (
-                                url &&
-                                url !== "#"
-                            ) {
-
-                                window.location.href =
-                                    url;
-
-                            }
-
-                        }
-                    );
-
-
-                    latest.appendChild(item);
-
-                });
-
-        })
-
-
-        .catch(function (error) {
-
-            console.error(
-                "BS 360 NEWS TOP STORY:",
-                error
-            );
-
-            latest.innerHTML = `
-                <p>
-                    తాజా వార్తలు లోడ్ కాలేదు.
-                </p>
-            `;
+            const clean =
+                url
+                    .split("?")[0]
+                    .split("#")[0]
+                    .split("/")
+                    .pop()
+                    .toLowerCase();
+
+            return clean !== CURRENT_ARTICLE.toLowerCase();
 
         });
 
-});
 
-</script>
+    if(!posts.length){
 
-/* =================================
-   START
-================================= */
+        container.innerHTML = `
 
-loadTopStories();
+            <div class="article-loading">
+                ప్రస్తుతం మరిన్ని వార్తలు అందుబాటులో లేవు.
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /*
+     * First article = HERO
+     */
+
+    let heroIndex = 0;
+
+
+    /*
+     * Sidebar = next 12 articles
+     */
+
+    function render(){
+
+        const heroPost =
+            posts[heroIndex];
+
+
+        let latestPosts =
+            posts.filter(
+                (_, index) =>
+                    index !== heroIndex
+            );
+
+
+        latestPosts =
+            latestPosts.slice(0,12);
+
+
+        container.innerHTML = `
+
+            ${createHero(heroPost)}
+
+            <div class="article-latest">
+
+                <div class="article-latest-title">
+                    📰 తాజా వార్తలు
+                </div>
+
+                <div class="article-latest-list">
+
+                    ${
+                        latestPosts
+                            .map(createLatestItem)
+                            .join("")
+                    }
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    render();
+
+
+    /*
+     * Hero automatically changes
+     * every 5 seconds.
+     */
+
+    if(posts.length > 1){
+
+        setInterval(() => {
+
+            heroIndex++;
+
+            if(
+                heroIndex >= posts.length
+            ){
+                heroIndex = 0;
+            }
+
+            render();
+
+        },5000);
+
+    }
+
+}
+
+
+/* =========================================
+   COPY LINK
+========================================= */
+
+function copyLink(){
+
+    const url =
+        window.location.href;
+
+
+    if(
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ){
+
+        navigator.clipboard
+            .writeText(url)
+            .then(() => {
+
+                alert(
+                    "వార్త లింక్ కాపీ అయింది."
+                );
+
+            })
+            .catch(() => {
+
+                fallbackCopy(url);
+
+            });
+
+    }else{
+
+        fallbackCopy(url);
+
+    }
+
+}
+
+
+/* =========================================
+   FALLBACK COPY
+========================================= */
+
+function fallbackCopy(text){
+
+    const textarea =
+        document.createElement("textarea");
+
+    textarea.value = text;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    try{
+
+        document.execCommand("copy");
+
+        alert(
+            "వార్త లింక్ కాపీ అయింది."
+        );
+
+    }catch(error){
+
+        alert(
+            "లింక్ కాపీ చేయలేకపోయాం."
+        );
+
+    }
+
+    textarea.remove();
+
+}
+
+
+/* =========================================
+   SHARE BUTTONS
+========================================= */
+
+function setupShareButtons(){
+
+    const pageUrl =
+        encodeURIComponent(
+            window.location.href
+        );
+
+    const pageTitle =
+        encodeURIComponent(
+            document.title
+        );
+
+
+    const whatsapp =
+        $("#whatsappShare");
+
+    const facebook =
+        $("#facebookShare");
+
+
+    if(whatsapp){
+
+        whatsapp.href =
+            "https://api.whatsapp.com/send?text=" +
+            pageTitle +
+            "%20" +
+            pageUrl;
+
+    }
+
+
+    if(facebook){
+
+        facebook.href =
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+            pageUrl;
+
+    }
+
+}
+
+
+/* =========================================
+   READING PROGRESS
+========================================= */
+
+function updateReadingProgress(){
+
+    const progress =
+        $("#readingProgress");
+
+    if(!progress){
+        return;
+    }
+
+
+    const scrollTop =
+        window.scrollY ||
+        document.documentElement.scrollTop;
+
+
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+
+    if(documentHeight <= 0){
+
+        progress.style.width =
+            "0%";
+
+        return;
+
+    }
+
+
+    const percentage =
+        (
+            scrollTop /
+            documentHeight
+        ) * 100;
+
+
+    progress.style.width =
+        Math.min(
+            100,
+            Math.max(0,percentage)
+        ) + "%";
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateReadingProgress,
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================
+   PAGE LOAD
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        setupShareButtons();
+
+        updateReadingProgress();
+
+        loadArticleTopStories();
+
+    }
+);
 
 </script>
 
