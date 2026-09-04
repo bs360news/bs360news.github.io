@@ -1,1625 +1,992 @@
-// =====================================================
-// BS 360 NEWS - MAIN JAVASCRIPT
-// =====================================================
+/* =========================================================
+   BS 360 NEWS - COMPLETE PORTAL JAVASCRIPT
+   Hero + Latest + Featured + Movies + Sports + Most Read
+   Auto Scroll + Search + Theme + Mobile Menu
+========================================================= */
 
-<script>
-function toggleSearch() {
-    const box = document.getElementById("searchBox");
-    box.classList.toggle("active");
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (box.classList.contains("active")) {
-        document.getElementById("searchInput").focus();
+    const source = document.querySelector("#legacyNewsSource");
+
+    /*
+      If legacyNewsSource is not present,
+      use the original .news-list directly.
+    */
+    const sourcePosts = source
+        ? [...source.querySelectorAll(".post[data-url]")]
+        : [...document.querySelectorAll(".news-list .post[data-url]")];
+
+    if (!sourcePosts.length) {
+        console.warn("BS 360 NEWS: Articles not found.");
+        return;
     }
-}
 
-function searchNews() {
-    const input = document.getElementById("searchInput");
-    const query = input.value.trim().toLowerCase();
+    /* =====================================================
+       BASIC ARTICLE DATA
+    ===================================================== */
 
-    const articles = document.querySelectorAll(".news-item");
+    function titleOf(post) {
+        const p = post.querySelector(".news-content p");
+        return p ? p.textContent.trim() : "BS 360 NEWS";
+    }
 
-    articles.forEach(article => {
-        const text = article.innerText.toLowerCase();
+    function imageOf(post) {
+        const img = post.querySelector("img");
+        return img ? img.getAttribute("src") : "dp.png.png";
+    }
 
-        if (query === "" || text.includes(query)) {
-            article.style.display = "";
-        } else {
-            article.style.display = "none";
+    function altOf(post) {
+        const img = post.querySelector("img");
+        return img
+            ? (img.getAttribute("alt") || titleOf(post))
+            : titleOf(post);
+    }
+
+    function urlOf(post) {
+        return post.getAttribute("data-url") || "#";
+    }
+
+    function catsOf(post) {
+        return (post.getAttribute("data-category") || "")
+            .toLowerCase()
+            .split(/[\s,]+/)
+            .filter(Boolean);
+    }
+
+    function hasCategory(post, category) {
+
+        const cats = catsOf(post);
+
+        category = category.toLowerCase();
+
+        if (category === "movies") {
+            return cats.includes("movie") || cats.includes("movies");
         }
-    });
-}
 
-document.getElementById("searchInput").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        searchNews();
+        if (category === "sports") {
+            return cats.includes("sports");
+        }
+
+        if (category === "news") {
+            return (
+                cats.includes("news") ||
+                cats.includes("national") ||
+                cats.includes("india") ||
+                cats.includes("politics") ||
+                cats.includes("business") ||
+                cats.includes("science") ||
+                cats.includes("technology") ||
+                cats.includes("human-interest") ||
+                cats.includes("automobiles") ||
+                cats.includes("telangana") ||
+                cats.includes("andhra") ||
+                cats.includes("ap") ||
+                cats.includes("ts")
+            );
+        }
+
+        return cats.includes(category);
     }
-});
-</script>
-// =====================================================
-// ARTICLE CARD CLICK
-// CLICK CARD → OPEN ARTICLE HTML
-// =====================================================
 
-function initArticleCardClick() {
 
-    document
-        .querySelectorAll(".news-item.post")
-        .forEach(function (card) {
+    /* =====================================================
+       CARD CREATOR
+    ===================================================== */
 
-            // Duplicate event avoid
-            if (card.dataset.clickReady === "true") {
-                return;
+    function createCard(post, type = "normal") {
+
+        const card = document.createElement("article");
+
+        card.className = "portal-card";
+
+        const image = document.createElement("img");
+
+        image.src = imageOf(post);
+        image.alt = altOf(post);
+        image.loading = "lazy";
+
+        const body = document.createElement("div");
+
+        body.className = "portal-card-body";
+
+        const tag = document.createElement("span");
+
+        tag.className = "portal-card-tag";
+
+        if (hasCategory(post, "sports")) {
+            tag.textContent = "🏏 SPORTS";
+        } else if (hasCategory(post, "movies")) {
+            tag.textContent = "🎬 MOVIES";
+        } else {
+            tag.textContent = "📰 NEWS";
+        }
+
+        const title = document.createElement("h3");
+
+        title.textContent = titleOf(post);
+
+        const read = document.createElement("a");
+
+        read.className = "read-more";
+
+        read.href = urlOf(post);
+
+        read.textContent = "చదవండి →";
+
+        body.appendChild(tag);
+        body.appendChild(title);
+        body.appendChild(read);
+
+        card.appendChild(image);
+        card.appendChild(body);
+
+        if (type === "slider") {
+            card.classList.add("slider-card");
+        }
+
+        if (type === "sports") {
+            card.classList.add("sports-card");
+        }
+
+        return card;
+    }
+
+
+    /* =====================================================
+       HERO CREATOR
+    ===================================================== */
+
+    function createHero(post) {
+
+        const card = document.createElement("article");
+
+        card.className = "hero-card";
+
+        const link = document.createElement("a");
+
+        link.href = urlOf(post);
+
+        link.className = "hero-link";
+
+        const image = document.createElement("img");
+
+        image.src = imageOf(post);
+
+        image.alt = altOf(post);
+
+        image.loading = "eager";
+
+        const overlay = document.createElement("div");
+
+        overlay.className = "hero-overlay";
+
+        const tag = document.createElement("span");
+
+        tag.className = "hero-tag";
+
+        tag.textContent = "🔥 TOP STORY";
+
+        const title = document.createElement("h1");
+
+        title.textContent = titleOf(post);
+
+        const read = document.createElement("span");
+
+        read.className = "hero-read";
+
+        read.textContent = "పూర్తి వార్త చదవండి →";
+
+        overlay.appendChild(tag);
+        overlay.appendChild(title);
+        overlay.appendChild(read);
+
+        link.appendChild(image);
+        link.appendChild(overlay);
+
+        card.appendChild(link);
+
+        return card;
+    }
+
+
+    /* =====================================================
+       HERO AUTO CHANGE
+    ===================================================== */
+
+    let heroTimer = null;
+    let heroIndex = 0;
+    let heroStories = [];
+
+    function startHero(list) {
+
+        const heroBox = document.querySelector("#topStory");
+
+        if (!heroBox || !list.length) {
+            return;
+        }
+
+        heroStories = list.slice(0, 8);
+
+        heroIndex = 0;
+
+        function showHero() {
+
+            heroBox.innerHTML = "";
+
+            heroBox.appendChild(
+                createHero(heroStories[heroIndex])
+            );
+
+            heroIndex++;
+
+            if (heroIndex >= heroStories.length) {
+                heroIndex = 0;
+            }
+        }
+
+        showHero();
+
+        if (heroTimer) {
+            clearInterval(heroTimer);
+        }
+
+        if (heroStories.length > 1) {
+
+            heroTimer = setInterval(
+                showHero,
+                5000
+            );
+
+        }
+    }
+
+
+    /* =====================================================
+       LATEST SIDEBAR
+    ===================================================== */
+
+    function buildLatestSidebar(list) {
+
+        const sidebar = document.querySelector("#latestSidebar");
+
+        if (!sidebar) {
+            return;
+        }
+
+        sidebar.innerHTML = "";
+
+        const heading = document.createElement("div");
+
+        heading.className = "sidebar-heading";
+
+        heading.innerHTML = "📰 తాజా వార్తలు";
+
+        sidebar.appendChild(heading);
+
+        const listBox = document.createElement("div");
+
+        listBox.className = "sidebar-list";
+
+        list.slice(0, 12).forEach(function (post, index) {
+
+            const item = document.createElement("a");
+
+            item.className = "sidebar-item";
+
+            item.href = urlOf(post);
+
+            const img = document.createElement("img");
+
+            img.src = imageOf(post);
+
+            img.alt = altOf(post);
+
+            img.loading = "lazy";
+
+            const content = document.createElement("div");
+
+            content.className = "sidebar-content";
+
+            const number = document.createElement("span");
+
+            number.className = "sidebar-number";
+
+            number.textContent = String(index + 1).padStart(2, "0");
+
+            const title = document.createElement("h3");
+
+            title.textContent = titleOf(post);
+
+            content.appendChild(number);
+            content.appendChild(title);
+
+            item.appendChild(img);
+            item.appendChild(content);
+
+            listBox.appendChild(item);
+
+        });
+
+        sidebar.appendChild(listBox);
+
+        setupSidebarScroller(listBox);
+    }
+
+
+    /* =====================================================
+       VERTICAL SIDEBAR AUTO SCROLL
+    ===================================================== */
+
+    function setupSidebarScroller(box) {
+
+        if (!box) {
+            return;
+        }
+
+        let timer = null;
+
+        function start() {
+
+            if (timer) {
+                clearInterval(timer);
             }
 
-            card.dataset.clickReady = "true";
+            timer = setInterval(function () {
 
-            card.addEventListener("click", function (e) {
-
-                // Share button click అయితే article open చేయకూడదు
                 if (
-                    e.target.closest(".share-row") ||
-                    e.target.closest("button")
+                    box.scrollHeight <=
+                    box.clientHeight
                 ) {
                     return;
                 }
 
-                // Existing link click అయితే browser normal href ఉపయోగించాలి
-                if (e.target.closest("a")) {
-                    return;
-                }
+                if (
+                    box.scrollTop +
+                    box.clientHeight >=
+                    box.scrollHeight - 5
+                ) {
 
-                // data-url తీసుకోవడం
-                const articleUrl =
-                    card.getAttribute("data-url");
+                    box.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
 
-                if (!articleUrl) {
-                    return;
-                }
+                } else {
 
-                /*
-                 * Example:
-                 *
-                 * data-url="article.html"
-                 * data-url="news/movie.html"
-                 *
-                 * రెండింటినీ correct absolute URL గా convert చేస్తుంది.
-                 */
-                try {
-
-                    const finalUrl =
-                        new URL(
-                            articleUrl,
-                            document.baseURI
-                        ).href;
-
-                    window.location.href =
-                        finalUrl;
+                    box.scrollBy({
+                        top: 105,
+                        behavior: "smooth"
+                    });
 
                 }
 
-                catch (error) {
+            }, 2500);
+        }
 
-                    console.error(
-                        "Article URL error:",
-                        error
-                    );
+        function stop() {
 
-                }
-
-            });
-
-        });
-
-}
-
-
-// =====================================================
-// BS 360 NEWS PULSE
-// LIKE / COMMENT / SHARE / SAVE
-// =====================================================
-
-
-// =====================================================
-// PER ARTICLE LIKE SYSTEM
-// =====================================================
-
-const bsArticleKey =
-    window.location.pathname;
-
-const bsLikeStateKey =
-    "bs360_liked_" + bsArticleKey;
-
-const bsLikeCountKey =
-    "bs360_likes_" + bsArticleKey;
-
-
-let bsLiked =
-    localStorage.getItem(
-        bsLikeStateKey
-    ) === "true";
-
-
-let bsLikes =
-    Number(
-        localStorage.getItem(
-            bsLikeCountKey
-        )
-    );
-
-
-if (
-    isNaN(bsLikes) ||
-    bsLikes === 0
-) {
-
-    bsLikes = 2800;
-
-}
-
-
-// =====================================================
-// NUMBER FORMAT
-// =====================================================
-
-function bsFormatNumber(number) {
-
-    if (number >= 1000) {
-
-        return (
-            number / 1000
-        ).toFixed(1) + "K";
-
-    }
-
-    return number;
-
-}
-
-
-// =====================================================
-// LIKE
-// =====================================================
-
-function bsToggleLike() {
-
-    const btn =
-        document.getElementById(
-            "bsLikeBtn"
-        );
-
-
-    const count =
-        document.getElementById(
-            "bsLikeCount"
-        );
-
-
-    if (!btn || !count) {
-
-        return;
-
-    }
-
-
-    // LIKE
-    if (!bsLiked) {
-
-        bsLikes++;
-
-        bsLiked = true;
-
-        btn.classList.add(
-            "bs-liked"
-        );
-
-    }
-
-
-    // UNLIKE
-    else {
-
-        bsLikes--;
-
-        if (bsLikes < 0) {
-
-            bsLikes = 0;
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
 
         }
 
-        bsLiked = false;
+        box.addEventListener("mouseenter", stop);
 
-        btn.classList.remove(
-            "bs-liked"
-        );
+        box.addEventListener("mouseleave", start);
 
+        box.addEventListener("touchstart", stop, {
+            passive: true
+        });
+
+        box.addEventListener("touchend", start, {
+            passive: true
+        });
+
+        start();
     }
 
 
-    // UPDATE SCREEN
+    /* =====================================================
+       HORIZONTAL AUTO SCROLLER
+    ===================================================== */
 
-    count.innerText =
-        bsFormatNumber(
-            bsLikes
-        );
+    function setupHorizontalScroller(box) {
 
+        if (!box) {
+            return;
+        }
 
-    // SAVE COUNT
+        let timer = null;
 
-    localStorage.setItem(
-        bsLikeCountKey,
-        bsLikes
-    );
+        function start() {
 
+            if (timer) {
+                clearInterval(timer);
+            }
 
-    // SAVE STATE
+            timer = setInterval(function () {
 
-    localStorage.setItem(
-        bsLikeStateKey,
-        bsLiked
-    );
+                if (
+                    box.scrollWidth <=
+                    box.clientWidth + 5
+                ) {
+                    return;
+                }
 
+                const maxScroll =
+                    box.scrollWidth -
+                    box.clientWidth;
 
-    // LIKE ANIMATION
+                if (
+                    box.scrollLeft >=
+                    maxScroll - 10
+                ) {
 
-    btn.style.transform =
-        "scale(1.08)";
+                    box.scrollTo({
+                        left: 0,
+                        behavior: "smooth"
+                    });
 
+                } else {
 
-    setTimeout(
-        function () {
+                    box.scrollBy({
+                        left: 320,
+                        behavior: "smooth"
+                    });
 
-            btn.style.transform =
-                "scale(1)";
+                }
 
-        },
-        180
-    );
+            }, 3000);
+        }
 
-}
+        function stop() {
 
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
 
-// =====================================================
-// COMMENT FOCUS
-// =====================================================
+        }
 
-function bsFocusComment() {
+        box.addEventListener("mouseenter", stop);
 
-    const input =
-        document.getElementById(
-            "bsCommentInput"
-        );
+        box.addEventListener("mouseleave", start);
 
+        box.addEventListener("touchstart", stop, {
+            passive: true
+        });
 
-    if (!input) {
+        box.addEventListener("touchend", start, {
+            passive: true
+        });
 
-        return;
-
+        start();
     }
 
 
-    input.focus();
+    /* =====================================================
+       BUILD HORIZONTAL SECTION
+    ===================================================== */
 
-
-    input.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "center"
-
-    });
-
-}
-
-
-// =====================================================
-// ADD COMMENT
-// =====================================================
-
-function bsAddComment() {
-
-    const input =
-        document.getElementById(
-            "bsCommentInput"
-        );
-
-
-    const commentsList =
-        document.getElementById(
-            "bsCommentsList"
-        );
-
-
-    const commentCount =
-        document.getElementById(
-            "bsCommentCount"
-        );
-
-
-    if (
-        !input ||
-        !commentsList
+    function buildHorizontal(
+        selector,
+        list,
+        type = "normal",
+        limit = 20
     ) {
 
-        return;
+        const box = document.querySelector(selector);
 
+        if (!box) {
+            return;
+        }
+
+        box.innerHTML = "";
+
+        list
+            .slice(0, limit)
+            .forEach(function (post) {
+
+                box.appendChild(
+                    createCard(post, type)
+                );
+
+            });
+
+        setupHorizontalScroller(box);
     }
 
 
-    const text =
-        input.value.trim();
+    /* =====================================================
+       MOST READ
+    ===================================================== */
 
+    function buildMostRead(list) {
 
-    if (!text) {
+        const box =
+            document.querySelector("#mostReadList");
 
-        return;
+        if (!box) {
+            return;
+        }
 
+        box.innerHTML = "";
+
+        list.slice(0, 9).forEach(function (post, index) {
+
+            const item =
+                document.createElement("a");
+
+            item.className = "most-read-item";
+
+            item.href = urlOf(post);
+
+            const number =
+                document.createElement("span");
+
+            number.className = "most-read-number";
+
+            number.textContent =
+                String(index + 1).padStart(2, "0");
+
+            const img =
+                document.createElement("img");
+
+            img.src = imageOf(post);
+
+            img.alt = altOf(post);
+
+            img.loading = "lazy";
+
+            const title =
+                document.createElement("h3");
+
+            title.textContent = titleOf(post);
+
+            item.appendChild(number);
+            item.appendChild(img);
+            item.appendChild(title);
+
+            box.appendChild(item);
+
+        });
     }
 
 
-    const card =
-        document.createElement(
-            "div"
+    /* =====================================================
+       MAIN BUILD
+    ===================================================== */
+
+    function build(list) {
+
+        if (!list.length) {
+            return;
+        }
+
+        /* TOP STORY */
+
+        startHero(list);
+
+        /* LATEST LEFT SIDEBAR */
+
+        buildLatestSidebar(
+            list.slice(1)
         );
 
 
-    card.className =
-        "bs-comment-card";
+        /* FEATURED NEWS */
+
+        buildHorizontal(
+            "#sliderTrack",
+            list,
+            "slider",
+            16
+        );
 
 
-    card.innerHTML = `
+        /* LATEST NEWS */
 
-        <div class="bs-comment-head">
-
-            <div class="bs-avatar">
-                R
-            </div>
-
-            <div>
-
-                <div class="bs-comment-name">
-                    Reader
-                </div>
-
-                <div class="bs-comment-time">
-                    ఇప్పుడే
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="bs-comment-text">
-            ${bsEscape(text)}
-        </div>
-
-        <button
-            class="bs-comment-like"
-            type="button"
-            onclick="
-                this.innerHTML='❤️ Liked';
-                this.style.color='#e60000';
-            "
-        >
-            ❤️ Like
-        </button>
-
-    `;
+        buildHorizontal(
+            "#latestGrid",
+            list,
+            "normal",
+            20
+        );
 
 
-    commentsList.prepend(
-        card
-    );
+        /* MOVIES */
+
+        const movies =
+            list.filter(function (post) {
+
+                return hasCategory(
+                    post,
+                    "movies"
+                );
+
+            });
+
+        buildHorizontal(
+            "#cinemaGrid",
+            movies,
+            "normal",
+            20
+        );
 
 
-    input.value = "";
+        /* SPORTS */
+
+        const sports =
+            list.filter(function (post) {
+
+                return hasCategory(
+                    post,
+                    "sports"
+                );
+
+            });
+
+        buildHorizontal(
+            "#sportsGrid",
+            sports,
+            "sports",
+            sports.length
+        );
 
 
-    if (commentCount) {
+        /* MOST READ */
 
-        let count =
-            Number(
-                commentCount.innerText
-            ) || 0;
-
-
-        count++;
-
-
-        commentCount.innerText =
-            count;
+        buildMostRead(list);
 
     }
 
-}
 
+    /* =====================================================
+       NAV CATEGORY FILTER
+    ===================================================== */
 
-// =====================================================
-// SHARE ARTICLE
-// =====================================================
+    window.filterPosts = function (category) {
 
-function bsShareArticle() {
+        category =
+            String(category || "all")
+            .toLowerCase();
 
-    const shareData = {
+        let filtered;
 
-        title:
-            document.title,
+        if (category === "all") {
 
-        text:
-            "BS 360 NEWS - తాజా వార్త",
+            filtered = sourcePosts;
 
-        url:
-            window.location.href
+        } else {
+
+            filtered =
+                sourcePosts.filter(function (post) {
+
+                    return hasCategory(
+                        post,
+                        category
+                    );
+
+                });
+
+        }
+
+        if (!filtered.length) {
+
+            console.warn(
+                "No articles found for:",
+                category
+            );
+
+            return;
+        }
+
+        build(filtered);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        closeMobileNav();
 
     };
 
 
-    // MOBILE / SUPPORTED BROWSERS
+    /* =====================================================
+       SEARCH
+    ===================================================== */
 
-    if (
-        navigator.share &&
-        typeof navigator.share ===
-        "function"
-    ) {
+    window.toggleSearch = function () {
 
-        navigator
-            .share(shareData)
+        const box =
+            document.querySelector("#searchBox");
 
-            .then(
-                function () {
+        if (!box) {
+            return;
+        }
 
-                    console.log(
-                        "Article shared successfully"
-                    );
+        box.classList.toggle("open");
 
-                }
-            )
+        const input =
+            document.querySelector("#searchInput");
 
-            .catch(
-                function () {
+        if (
+            box.classList.contains("open") &&
+            input
+        ) {
 
-                    console.log(
-                        "Share cancelled"
-                    );
-
-                }
-            );
-
-        return;
-
-    }
-
-
-    // DESKTOP FALLBACK
-
-    if (
-        navigator.clipboard &&
-        typeof navigator
-            .clipboard
-            .writeText ===
-        "function"
-    ) {
-
-        navigator.clipboard
-            .writeText(
-                window.location.href
-            )
-
-            .then(
-                function () {
-
-                    alert(
-                        "🔗 Article link copied!"
-                    );
-
-                }
-            )
-
-            .catch(
-                function () {
-
-                    bsCopyArticleFallback();
-
-                }
-            );
-
-        return;
-
-    }
-
-
-    bsCopyArticleFallback();
-
-}
-
-
-// =====================================================
-// SHARE FALLBACK
-// =====================================================
-
-function bsCopyArticleFallback() {
-
-    const textarea =
-        document.createElement(
-            "textarea"
-        );
-
-
-    textarea.value =
-        window.location.href;
-
-
-    textarea.style.position =
-        "fixed";
-
-
-    textarea.style.left =
-        "-9999px";
-
-
-    document.body.appendChild(
-        textarea
-    );
-
-
-    textarea.focus();
-
-    textarea.select();
-
-
-    try {
-
-        document.execCommand(
-            "copy"
-        );
-
-
-        alert(
-            "🔗 Article link copied!"
-        );
-
-    }
-
-    catch (error) {
-
-        alert(
-            "🔗 " +
-            window.location.href
-        );
-
-    }
-
-
-    document.body.removeChild(
-        textarea
-    );
-
-}
-
-
-// =====================================================
-// SAVE
-// =====================================================
-
-function bsSaveArticle() {
-
-    const btn =
-        document.getElementById(
-            "bsSaveText"
-        );
-
-
-    const saveButton =
-        document.querySelector(
-            ".save-action"
-        );
-
-
-    if (!btn) {
-
-        return;
-
-    }
-
-
-    if (
-        btn.innerText ===
-        "Save"
-    ) {
-
-        btn.innerText =
-            "Saved";
-
-
-        if (saveButton) {
-
-            saveButton.classList.add(
-                "bs-saved"
-            );
+            setTimeout(function () {
+                input.focus();
+            }, 100);
 
         }
 
-
-        localStorage.setItem(
-
-            "bs360_saved_" +
-            window.location.pathname,
-
-            "yes"
-
-        );
+    };
 
 
-        alert(
-            "🔖 Article saved!"
-        );
+    window.searchNews = function () {
 
-    }
+        const input =
+            document.querySelector("#searchInput");
 
-    else {
-
-        btn.innerText =
-            "Save";
-
-
-        if (saveButton) {
-
-            saveButton.classList.remove(
-                "bs-saved"
-            );
-
+        if (!input) {
+            return;
         }
 
+        const query =
+            input.value.trim().toLowerCase();
 
-        localStorage.removeItem(
+        if (!query) {
 
-            "bs360_saved_" +
-            window.location.pathname
+            build(sourcePosts);
 
-        );
-
-    }
-
-}
-
-
-// =====================================================
-// SECURITY
-// =====================================================
-
-function bsEscape(text) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-
-    div.textContent =
-        text;
-
-
-    return div.innerHTML;
-
-}
-
-
-// =====================================================
-// LOAD BS NEWS PULSE DATA
-// =====================================================
-
-function loadBsNewsPulse() {
-
-    const likeCount =
-        document.getElementById(
-            "bsLikeCount"
-        );
-
-
-    const likeButton =
-        document.getElementById(
-            "bsLikeBtn"
-        );
-
-
-    // LOAD LIKE STATE
-
-    bsLiked =
-        localStorage.getItem(
-            bsLikeStateKey
-        ) === "true";
-
-
-    let savedLikes =
-        Number(
-            localStorage.getItem(
-                bsLikeCountKey
-            )
-        );
-
-
-    if (
-        !isNaN(savedLikes) &&
-        savedLikes > 0
-    ) {
-
-        bsLikes =
-            savedLikes;
-
-    }
-
-
-    if (likeCount) {
-
-        likeCount.innerText =
-            bsFormatNumber(
-                bsLikes
-            );
-
-    }
-
-
-    if (likeButton) {
-
-        if (bsLiked) {
-
-            likeButton.classList.add(
-                "bs-liked"
-            );
-
+            return;
         }
 
-        else {
+        const results =
+            sourcePosts.filter(function (post) {
 
-            likeButton.classList.remove(
-                "bs-liked"
-            );
+                return titleOf(post)
+                    .toLowerCase()
+                    .includes(query);
 
-        }
+            });
 
-    }
+        build(results);
 
-
-    // LOAD SAVED STATE
-
-    const saved =
-        localStorage.getItem(
-
-            "bs360_saved_" +
-            window.location.pathname
-
-        );
+    };
 
 
-    const saveText =
-        document.getElementById(
-            "bsSaveText"
-        );
-
-
-    const saveButton =
-        document.querySelector(
-            ".save-action"
-        );
-
-
-    if (
-        saved === "yes" &&
-        saveText
-    ) {
-
-        saveText.innerText =
-            "Saved";
-
-
-        if (saveButton) {
-
-            saveButton.classList.add(
-                "bs-saved"
-            );
-
-        }
-
-    }
-
-}
-
-
-// =====================================================
-// 1. FILTER POSTS BY CATEGORY
-// =====================================================
-
-function filterPosts(
-    category,
-    element = null
-) {
-
-    document
-        .querySelectorAll(
-            ".post"
-        )
-        .forEach(
-            post => {
-
-                const postCategory =
-                    post.dataset.category;
-
-
-                if (
-                    category === "all" ||
-                    postCategory ===
-                    category
-                ) {
-
-                    post.classList.remove(
-                        "hidden"
-                    );
-
-                }
-
-                else {
-
-                    post.classList.add(
-                        "hidden"
-                    );
-
-                }
-
-            }
-        );
-
-
-    // ACTIVE TAB
-
-    if (element) {
-
-        document
-            .querySelectorAll(
-                ".nav-links a"
-            )
-            .forEach(
-                link =>
-                    link.classList.remove(
-                        "active"
-                    )
-            );
-
-
-        element.classList.add(
-            "active"
-        );
-
-    }
-
-
-    // CLEAR SEARCH
+    /* =====================================================
+       SEARCH ENTER KEY
+    ===================================================== */
 
     const searchInput =
-        document.getElementById(
-            "search-input"
-        );
-
-
-    const headerSearchInput =
-        document.getElementById(
-            "header-search-input"
-        );
-
+        document.querySelector("#searchInput");
 
     if (searchInput) {
 
-        searchInput.value = "";
+        searchInput.addEventListener(
+            "keydown",
+            function (event) {
 
-    }
+                if (event.key === "Enter") {
 
+                    event.preventDefault();
 
-    if (headerSearchInput) {
-
-        headerSearchInput.value = "";
-
-    }
-
-}
-
-
-// =====================================================
-// 2. LIVE SEARCH SYSTEM
-// =====================================================
-
-function searchPosts(
-    customQuery = null
-) {
-
-    const searchInput =
-        document.getElementById(
-            "search-input"
-        );
-
-
-    const headerSearchInput =
-        document.getElementById(
-            "header-search-input"
-        );
-
-
-    let query =
-        customQuery;
-
-
-    if (query === null) {
-
-        query =
-            (
-                searchInput
-                ? searchInput.value
-                : ""
-            )
-            ||
-            (
-                headerSearchInput
-                ? headerSearchInput.value
-                : ""
-            );
-
-    }
-
-
-    query =
-        query
-            .trim()
-            .toLowerCase();
-
-
-    // Sync inputs
-
-    if (
-        searchInput &&
-        searchInput.value !==
-        query
-    ) {
-
-        searchInput.value =
-            query;
-
-    }
-
-
-    if (
-        headerSearchInput &&
-        headerSearchInput.value !==
-        query
-    ) {
-
-        headerSearchInput.value =
-            query;
-
-    }
-
-
-    document
-        .querySelectorAll(
-            ".post"
-        )
-        .forEach(
-            post => {
-
-                const text =
-                    post.innerText
-                        .toLowerCase();
-
-
-                if (
-                    !query ||
-                    text.includes(query)
-                ) {
-
-                    post.classList.remove(
-                        "hidden"
-                    );
-
-                }
-
-                else {
-
-                    post.classList.add(
-                        "hidden"
-                    );
+                    searchNews();
 
                 }
 
             }
         );
 
-}
-
-
-// =====================================================
-// 3. SHARE POST
-// =====================================================
-
-function sharePost(button) {
-
-    const post =
-        button.closest(
-            ".post"
-        );
-
-
-    if (!post) {
-
-        return;
-
     }
 
 
-    const titleElement =
-        post.querySelector(
-            "h1, h2, h3"
+    /* =====================================================
+       DARK MODE
+    ===================================================== */
+
+    function setDarkMode(enabled) {
+
+        document.body.classList.toggle(
+            "dark-mode",
+            enabled
         );
-
-
-    const title =
-        titleElement
-        ? titleElement.innerText.trim()
-        : "BS 360 NEWS";
-
-
-    const articleUrl =
-        post.dataset.url;
-
-
-    let shareUrl =
-        window.location.href;
-
-
-    if (articleUrl) {
-
-        try {
-
-            shareUrl =
-                new URL(
-                    articleUrl,
-                    document.baseURI
-                ).href;
-
-        }
-
-        catch (error) {
-
-            console.error(
-                "Share URL error:",
-                error
-            );
-
-        }
-
-    }
-
-
-    if (navigator.share) {
-
-        navigator.share({
-
-            title: title,
-
-            text: title,
-
-            url: shareUrl
-
-        }).catch(
-            () => {}
-        );
-
-    }
-
-    else {
-
-        if (
-            navigator.clipboard
-        ) {
-
-            navigator.clipboard
-                .writeText(
-                    shareUrl
-                )
-
-                .then(
-                    () => {
-
-                        const originalText =
-                            button.innerHTML;
-
-
-                        button.innerText =
-                            "✓ లింక్ కాపీ అయింది!";
-
-
-                        setTimeout(
-                            () => {
-
-                                button.innerHTML =
-                                    originalText;
-
-                            },
-                            2000
-                        );
-
-                    }
-                )
-
-                .catch(
-                    () => {
-
-                        alert(
-                            "లింక్ కాపీ చేయలేకపోయాం."
-                        );
-
-                    }
-                );
-
-        }
-
-        else {
-
-            alert(
-                shareUrl
-            );
-
-        }
-
-    }
-
-}
-
-
-// =====================================================
-// 4. DARK / LIGHT MODE
-// =====================================================
-
-function toggleTheme() {
-
-    document.body.classList.toggle(
-        "dark-mode"
-    );
-
-
-    const button =
-        document.querySelector(
-            ".theme-button"
-        )
-        ||
-        document.querySelector(
-            ".theme-btn"
-        );
-
-
-    if (!button) {
-
-        return;
-
-    }
-
-
-    if (
-        document.body.classList.contains(
-            "dark-mode"
-        )
-    ) {
-
-        button.innerHTML =
-            "☀️ <span>Light</span>";
-
-
-        localStorage.setItem(
-            "bs360-theme",
-            "dark"
-        );
-
-    }
-
-    else {
-
-        button.innerHTML =
-            "🌙 <span>Dark</span>";
-
-
-        localStorage.setItem(
-            "bs360-theme",
-            "light"
-        );
-
-    }
-
-}
-
-
-// =====================================================
-// 5. LOAD SAVED THEME
-// =====================================================
-
-function loadTheme() {
-
-    const savedTheme =
-        localStorage.getItem(
-            "bs360-theme"
-        );
-
-
-    if (
-        savedTheme === "dark"
-    ) {
-
-        document.body.classList.add(
-            "dark-mode"
-        );
-
 
         const button =
-            document.querySelector(
-                ".theme-button"
-            )
-            ||
-            document.querySelector(
-                ".theme-btn"
-            );
-
+            document.querySelector("#themeButton");
 
         if (button) {
 
-            button.innerHTML =
-                "☀️ <span>Light</span>";
+            button.textContent =
+                enabled
+                    ? "☀️ Light"
+                    : "🌙 Dark";
+
+        }
+
+        try {
+
+            localStorage.setItem(
+                "bs360-dark-mode",
+                enabled ? "1" : "0"
+            );
+
+        } catch (e) {}
+
+    }
+
+
+    window.toggleTheme = function () {
+
+        const enabled =
+            !document.body.classList.contains(
+                "dark-mode"
+            );
+
+        setDarkMode(enabled);
+
+    };
+
+
+    /* =====================================================
+       LOAD SAVED THEME
+    ===================================================== */
+
+    try {
+
+        const saved =
+            localStorage.getItem(
+                "bs360-dark-mode"
+            );
+
+        if (saved === "1") {
+            setDarkMode(true);
+        }
+
+    } catch (e) {}
+
+
+    /* =====================================================
+       MOBILE NAV
+    ===================================================== */
+
+    window.toggleMobileNav = function () {
+
+        const nav =
+            document.querySelector("#navLinks");
+
+        if (!nav) {
+            return;
+        }
+
+        nav.classList.toggle(
+            "mobile-open"
+        );
+
+    };
+
+
+    function closeMobileNav() {
+
+        const nav =
+            document.querySelector("#navLinks");
+
+        if (nav) {
+
+            nav.classList.remove(
+                "mobile-open"
+            );
 
         }
 
     }
 
-}
 
+    /* =====================================================
+       LIVE DATE + TIME
+    ===================================================== */
 
-// =====================================================
-// 6. LIVE DATE & CLOCK
-// =====================================================
+    function updateDateTime() {
 
-function updateClock() {
+        const now = new Date();
 
-    const now =
-        new Date();
+        const dateElement =
+            document.querySelector("#live-date");
 
+        const clockElement =
+            document.querySelector("#live-clock");
 
-    const clockElement =
-        document.getElementById(
-            "live-clock"
-        );
+        if (dateElement) {
 
-
-    const dateElement =
-        document.getElementById(
-            "live-date"
-        );
-
-
-    if (clockElement) {
-
-        clockElement.innerText =
-            "🕒 " +
-            now.toLocaleTimeString(
-                "en-IN",
-                {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit",
-                    hour12: true
-                }
-            );
-
-    }
-
-
-    if (dateElement) {
-
-        dateElement.innerText =
-            "📅 " +
-            now.toLocaleDateString(
-                "te-IN",
-                {
-                    weekday: "short",
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric"
-                }
-            );
-
-    }
-
-}
-
-
-setInterval(
-    updateClock,
-    1000
-);
-
-
-// =====================================================
-// 7. REAL-TIME TIME AGO
-// =====================================================
-
-function updateTimeAgo() {
-
-    const timeElements =
-        document.querySelectorAll(
-            ".time-stamp[data-time]"
-        );
-
-
-    timeElements.forEach(
-        element => {
-
-            const timeAttribute =
-                element.getAttribute(
-                    "data-time"
+            dateElement.textContent =
+                "📅 " +
+                now.toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        timeZone: "Asia/Kolkata"
+                    }
                 );
-
-
-            if (!timeAttribute) {
-
-                return;
-
-            }
-
-
-            const postTime =
-                new Date(
-                    timeAttribute
-                ).getTime();
-
-
-            const currentTime =
-                Date.now();
-
-
-            if (
-                isNaN(postTime)
-            ) {
-
-                return;
-
-            }
-
-
-            const difference =
-                Math.floor(
-                    (
-                        currentTime -
-                        postTime
-                    ) / 1000
-                );
-
-
-            let text =
-                "";
-
-
-            if (
-                difference < 60
-            ) {
-
-                text =
-                    "ఇప్పుడే";
-
-            }
-
-
-            else if (
-                difference < 3600
-            ) {
-
-                const minutes =
-                    Math.floor(
-                        difference / 60
-                    );
-
-
-                text =
-                    `${minutes} నిమిషాల క్రితం`;
-
-            }
-
-
-            else if (
-                difference < 86400
-            ) {
-
-                const hours =
-                    Math.floor(
-                        difference / 3600
-                    );
-
-
-                text =
-                    `${hours} గంటల క్రితం`;
-
-            }
-
-
-            else {
-
-                const days =
-                    Math.floor(
-                        difference / 86400
-                    );
-
-
-                text =
-                    `${days} రోజుల క్రితం`;
-
-            }
-
-
-            element.innerText =
-                `🕒 ${text}`;
 
         }
+
+        if (clockElement) {
+
+            clockElement.textContent =
+                "⏰ " +
+                now.toLocaleTimeString(
+                    "en-IN",
+                    {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                        hour12: true,
+                        timeZone: "Asia/Kolkata"
+                    }
+                );
+
+        }
+
+    }
+
+    updateDateTime();
+
+    setInterval(
+        updateDateTime,
+        1000
     );
 
-}
+
+    /* =====================================================
+       INITIAL LOAD
+    ===================================================== */
+
+    build(sourcePosts);
 
 
-setInterval(
-    updateTimeAgo,
-    60000
-);
+    /* =====================================================
+       CLEAN OLD SOURCE LIST
+       Keep articles available for JS but hidden visually.
+    ===================================================== */
 
+    const originalList =
+        document.querySelector(".news-list");
 
-// =====================================================
-// 8. DOM CONTENT LOADED
-// =====================================================
+    if (
+        originalList &&
+        !originalList.closest("#legacyNewsSource")
+    ) {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        // Article card click
-        initArticleCardClick();
-
-
-        // BS Pulse
-        loadBsNewsPulse();
-
-
-        // Theme
-        loadTheme();
-
-
-        // Clock
-        updateClock();
-
-
-        // Time Ago
-        updateTimeAgo();
-
-
-        // =================================================
-        // SEARCH INPUT
-        // =================================================
-
-        const searchInput =
-            document.getElementById(
-                "search-input"
-            );
-
-
-        const headerSearchInput =
-            document.getElementById(
-                "header-search-input"
-            );
-
-
-        if (searchInput) {
-
-            searchInput.addEventListener(
-                "input",
-                (e) =>
-                    searchPosts(
-                        e.target.value
-                    )
-            );
-
-        }
-
-
-        if (
-            headerSearchInput
-        ) {
-
-            headerSearchInput.addEventListener(
-                "input",
-                (e) =>
-                    searchPosts(
-                        e.target.value
-                    )
-            );
-
-        }
-
-
-        // =================================================
-        // MOBILE MENU
-        // =================================================
-
-        const menuToggle =
-            document.querySelector(
-                ".mobile-menu-toggle"
-            );
-
-
-        const mainNav =
-            document.querySelector(
-                ".main-nav"
-            );
-
-
-        if (
-            menuToggle &&
-            mainNav
-        ) {
-
-            menuToggle.addEventListener(
-                "click",
-                () => {
-
-                    mainNav.classList.toggle(
-                        "active"
-                    );
-
-                }
-            );
-
-        }
+        originalList.style.display = "none";
 
     }
-);
 
-
-// =====================================================
-// 9. CLEAR SEARCH INPUTS ON PAGE LOAD
-// =====================================================
-
-window.addEventListener(
-    "load",
-    () => {
-
-        const searchInput =
-            document.getElementById(
-                "search-input"
-            );
-
-
-        const headerSearchInput =
-            document.getElementById(
-                "header-search-input"
-            );
-
-
-        if (searchInput) {
-
-            searchInput.value =
-                "";
-
-        }
-
-
-        if (
-            headerSearchInput
-        ) {
-
-            headerSearchInput.value =
-                "";
-
-        }
-
-
-        // Re-check article cards
-        initArticleCardClick();
-
-    }
-);
+});
