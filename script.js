@@ -1,5 +1,5 @@
 /* =========================================================
-   BS 360 NEWS — NEWS PORTAL JAVASCRIPT
+   BS 360 NEWS — FINAL NEWS PORTAL JAVASCRIPT
    ========================================================= */
 
 (function () {
@@ -15,48 +15,105 @@
     const $ = (id) => document.getElementById(id);
 
     /* =====================================================
-       GET ORIGINAL ARTICLES
+       SOURCE ARTICLES
        ===================================================== */
 
     function sourcePosts() {
+
         return Array.from(
             document.querySelectorAll(
                 "#legacyNewsSource .post[data-url]"
             )
         );
+
     }
+
+    /* =====================================================
+       TITLE
+       ===================================================== */
 
     function titleOf(post) {
-        const el = post.querySelector(
-            ".post-title, h2, h3, .title, .article-title"
-        );
+
+        const selectors = [
+            ".post-title",
+            ".article-title",
+            ".news-title",
+            ".title",
+            ".news-content h2",
+            ".news-content h3"
+        ];
+
+        for (const selector of selectors) {
+
+            const el = post.querySelector(selector);
+
+            if (el && el.textContent.trim()) {
+                return el.textContent.trim();
+            }
+
+        }
+
+        const firstParagraph =
+            post.querySelector(".news-content p");
+
+        if (
+            firstParagraph &&
+            firstParagraph.textContent.trim()
+        ) {
+
+            return firstParagraph.textContent
+                .trim()
+                .replace(/\s+/g, " ")
+                .slice(0, 150);
+
+        }
 
         return (
-            el?.textContent ||
             post.dataset.title ||
-            post.textContent ||
             "BS 360 NEWS"
         ).trim();
+
     }
+
+    /* =====================================================
+       IMAGE
+       ===================================================== */
 
     function imageOf(post) {
+
         const img = post.querySelector("img");
 
+        if (!img) {
+            return "dp.png.png";
+        }
+
         return (
-            img?.getAttribute("src") ||
-            img?.dataset.src ||
+            img.getAttribute("src") ||
+            img.dataset.src ||
+            img.getAttribute("data-src") ||
             "dp.png.png"
         );
+
     }
 
+    /* =====================================================
+       ALT
+       ===================================================== */
+
     function altOf(post) {
+
         const img = post.querySelector("img");
 
         return (
             img?.getAttribute("alt") ||
             titleOf(post)
         );
+
     }
+
+    /* =====================================================
+       CATEGORIES
+       ===================================================== */
 
     function catsOf(post) {
 
@@ -68,19 +125,72 @@
         return value
             .toLowerCase()
             .replace(/,/g, " ")
+            .replace(/\//g, " ")
             .split(/\s+/)
+            .map(x => x.trim())
             .filter(Boolean);
+
     }
+
+    /* =====================================================
+       CATEGORY CHECK
+       ===================================================== */
 
     function hasCat(post, categories) {
 
         const cats = catsOf(post);
 
-        return categories.some(
-            category =>
-                cats.includes(category.toLowerCase())
-        );
+        return categories.some(function (category) {
+
+            return cats.includes(
+                String(category).toLowerCase()
+            );
+
+        });
+
     }
+
+    /* =====================================================
+       SPORTS CHECK
+       ===================================================== */
+
+    function isSports(post) {
+
+        const cats = catsOf(post);
+
+        return (
+            cats.includes("sports") ||
+            cats.includes("sport") ||
+            cats.includes("sportsnews") ||
+            cats.includes("sports-news") ||
+            cats.includes("sports_news") ||
+            cats.includes("newssports") ||
+            cats.includes("news-sports") ||
+            cats.includes("news_sports")
+        );
+
+    }
+
+    /* =====================================================
+       MOVIES CHECK
+       ===================================================== */
+
+    function isMovies(post) {
+
+        const cats = catsOf(post);
+
+        return (
+            cats.includes("movies") ||
+            cats.includes("movie") ||
+            cats.includes("cinema") ||
+            cats.includes("film")
+        );
+
+    }
+
+    /* =====================================================
+       ARTICLE URL
+       ===================================================== */
 
     function articleUrl(post) {
 
@@ -90,6 +200,7 @@
             post.querySelector("a")?.getAttribute("href") ||
             "#"
         );
+
     }
 
     /* =====================================================
@@ -101,52 +212,102 @@
         const url = articleUrl(post);
 
         if (url && url !== "#") {
+
             window.location.href = url;
+
         }
+
     }
 
     /* =====================================================
-       CREATE NORMAL CARD
+       IMAGE ERROR
+       ===================================================== */
+
+    function protectImage(img) {
+
+        img.addEventListener(
+            "error",
+            function () {
+
+                if (img.src.includes("dp.png.png")) {
+                    return;
+                }
+
+                img.src = "dp.png.png";
+
+            },
+            {
+                once: true
+            }
+        );
+
+    }
+
+    /* =====================================================
+       NORMAL CARD
        ===================================================== */
 
     function createCard(post, type) {
 
-        const card = document.createElement("article");
+        const card =
+            document.createElement("article");
 
         card.className =
             "portal-card " +
             (type || "");
 
-        const img = document.createElement("img");
+        const img =
+            document.createElement("img");
 
         img.src = imageOf(post);
         img.alt = altOf(post);
         img.loading = "lazy";
 
-        const body = document.createElement("div");
+        protectImage(img);
 
-        body.className = "portal-card-body";
+        const body =
+            document.createElement("div");
 
-        const tag = document.createElement("div");
+        body.className =
+            "portal-card-body";
 
-        tag.className = "portal-card-tag";
+        const tag =
+            document.createElement("div");
 
-        if (hasCat(post, ["movies", "movie"])) {
-            tag.textContent = "🎬 సినిమా";
-        } else if (hasCat(post, ["sports"])) {
-            tag.textContent = "🏏 స్పోర్ట్స్";
+        tag.className =
+            "portal-card-tag";
+
+        if (isMovies(post)) {
+
+            tag.textContent =
+                "🎬 సినిమా";
+
+        } else if (isSports(post)) {
+
+            tag.textContent =
+                "🏏 స్పోర్ట్స్";
+
         } else {
-            tag.textContent = "📰 తాజా వార్తలు";
+
+            tag.textContent =
+                "📰 తాజా వార్తలు";
+
         }
 
-        const title = document.createElement("h3");
+        const title =
+            document.createElement("h3");
 
-        title.textContent = titleOf(post);
+        title.textContent =
+            titleOf(post);
 
-        const meta = document.createElement("div");
+        const meta =
+            document.createElement("div");
 
-        meta.className = "portal-card-meta";
-        meta.textContent = "BS 360 NEWS";
+        meta.className =
+            "portal-card-meta";
+
+        meta.textContent =
+            "BS 360 NEWS";
 
         body.appendChild(tag);
         body.appendChild(title);
@@ -155,13 +316,20 @@
         card.appendChild(img);
         card.appendChild(body);
 
-        card.addEventListener("click", function () {
-            openPost(post);
-        });
+        card.addEventListener(
+            "click",
+            function () {
 
-        card.style.cursor = "pointer";
+                openPost(post);
+
+            }
+        );
+
+        card.style.cursor =
+            "pointer";
 
         return card;
+
     }
 
     /* =====================================================
@@ -170,30 +338,49 @@
 
     function createSidebarCard(post) {
 
-        const card = document.createElement("article");
+        const card =
+            document.createElement("article");
 
-        card.className = "sidebar-card";
+        card.className =
+            "sidebar-card";
 
-        const img = document.createElement("img");
+        const img =
+            document.createElement("img");
 
-        img.src = imageOf(post);
-        img.alt = altOf(post);
-        img.loading = "lazy";
+        img.src =
+            imageOf(post);
 
-        const title = document.createElement("h3");
+        img.alt =
+            altOf(post);
 
-        title.textContent = titleOf(post);
+        img.loading =
+            "lazy";
+
+        protectImage(img);
+
+        const title =
+            document.createElement("h3");
+
+        title.textContent =
+            titleOf(post);
 
         card.appendChild(img);
         card.appendChild(title);
 
-        card.addEventListener("click", function () {
-            openPost(post);
-        });
+        card.addEventListener(
+            "click",
+            function () {
 
-        card.style.cursor = "pointer";
+                openPost(post);
+
+            }
+        );
+
+        card.style.cursor =
+            "pointer";
 
         return card;
+
     }
 
     /* =====================================================
@@ -202,32 +389,52 @@
 
     function createHero(post) {
 
-        const wrapper = document.createElement("article");
+        const wrapper =
+            document.createElement("article");
 
-        wrapper.className = "hero-card";
+        wrapper.className =
+            "hero-card";
 
-        const img = document.createElement("img");
+        const img =
+            document.createElement("img");
 
-        img.src = imageOf(post);
-        img.alt = altOf(post);
+        img.src =
+            imageOf(post);
 
-        const overlay = document.createElement("div");
+        img.alt =
+            altOf(post);
 
-        overlay.className = "hero-overlay";
+        protectImage(img);
 
-        const label = document.createElement("div");
+        const overlay =
+            document.createElement("div");
 
-        label.className = "hero-label";
-        label.textContent = "🔥 TOP STORY";
+        overlay.className =
+            "hero-overlay";
 
-        const title = document.createElement("h1");
+        const label =
+            document.createElement("div");
 
-        title.textContent = titleOf(post);
+        label.className =
+            "hero-label";
 
-        const read = document.createElement("span");
+        label.textContent =
+            "🔥 TOP STORY";
 
-        read.className = "hero-read";
-        read.textContent = "చదవండి →";
+        const title =
+            document.createElement("h1");
+
+        title.textContent =
+            titleOf(post);
+
+        const read =
+            document.createElement("span");
+
+        read.className =
+            "hero-read";
+
+        read.textContent =
+            "చదవండి →";
 
         overlay.appendChild(label);
         overlay.appendChild(title);
@@ -236,13 +443,20 @@
         wrapper.appendChild(img);
         wrapper.appendChild(overlay);
 
-        wrapper.addEventListener("click", function () {
-            openPost(post);
-        });
+        wrapper.addEventListener(
+            "click",
+            function () {
 
-        wrapper.style.cursor = "pointer";
+                openPost(post);
+
+            }
+        );
+
+        wrapper.style.cursor =
+            "pointer";
 
         return wrapper;
+
     }
 
     /* =====================================================
@@ -252,14 +466,36 @@
     function fill(container, list, type) {
 
         if (!container) {
-            return;
+            return null;
         }
 
         container.innerHTML = "";
 
-        const track = document.createElement("div");
+        if (!list.length) {
 
-        track.className = "horizontal-track";
+            const empty =
+                document.createElement("div");
+
+            empty.textContent =
+                "వార్తలు త్వరలో అందుబాటులో ఉంటాయి.";
+
+            empty.style.padding =
+                "20px";
+
+            empty.style.color =
+                "#777";
+
+            container.appendChild(empty);
+
+            return null;
+
+        }
+
+        const track =
+            document.createElement("div");
+
+        track.className =
+            "horizontal-track";
 
         list.forEach(function (post) {
 
@@ -272,6 +508,7 @@
         container.appendChild(track);
 
         return track;
+
     }
 
     /* =====================================================
@@ -288,35 +525,44 @@
             return;
         }
 
-        if (element.children.length === 0) {
+        if (element.children.length < 2) {
             return;
         }
 
-        const timer = setInterval(function () {
+        const timer =
+            setInterval(function () {
 
-            if (
-                element.scrollLeft +
-                element.clientWidth >=
-                element.scrollWidth - 10
-            ) {
+                const maxScroll =
+                    element.scrollWidth -
+                    element.clientWidth;
 
-                element.scrollTo({
-                    left: 0,
-                    behavior: "smooth"
-                });
+                if (maxScroll <= 5) {
+                    return;
+                }
 
-            } else {
+                if (
+                    element.scrollLeft >=
+                    maxScroll - 10
+                ) {
 
-                element.scrollBy({
-                    left: step,
-                    behavior: "smooth"
-                });
+                    element.scrollTo({
+                        left: 0,
+                        behavior: "smooth"
+                    });
 
-            }
+                } else {
 
-        }, interval);
+                    element.scrollBy({
+                        left: step,
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }, interval);
 
         horizontalTimers.push(timer);
+
     }
 
     /* =====================================================
@@ -329,33 +575,46 @@
             return;
         }
 
-        sidebarTimer = setInterval(function () {
+        if (element.children.length < 2) {
+            return;
+        }
 
-            const maxScroll =
-                element.scrollHeight -
-                element.clientHeight;
+        if (sidebarTimer) {
+            clearInterval(sidebarTimer);
+        }
 
-            if (maxScroll <= 0) {
-                return;
-            }
+        sidebarTimer =
+            setInterval(function () {
 
-            if (element.scrollTop >= maxScroll - 5) {
+                const maxScroll =
+                    element.scrollHeight -
+                    element.clientHeight;
 
-                element.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+                if (maxScroll <= 5) {
+                    return;
+                }
 
-            } else {
+                if (
+                    element.scrollTop >=
+                    maxScroll - 8
+                ) {
 
-                element.scrollBy({
-                    top: 82,
-                    behavior: "smooth"
-                });
+                    element.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
 
-            }
+                } else {
 
-        }, 2500);
+                    element.scrollBy({
+                        top: 80,
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }, 2200);
+
     }
 
     /* =====================================================
@@ -364,9 +623,13 @@
 
     function renderHero() {
 
-        const hero = $("topStory");
+        const hero =
+            $("topStory");
 
-        if (!hero || !posts.length) {
+        if (
+            !hero ||
+            !posts.length
+        ) {
             return;
         }
 
@@ -377,6 +640,7 @@
                 posts[heroIndex]
             )
         );
+
     }
 
     /* =====================================================
@@ -389,21 +653,28 @@
             clearInterval(heroTimer);
         }
 
-        heroTimer = setInterval(function () {
+        if (posts.length < 2) {
+            return;
+        }
 
-            if (!posts.length) {
-                return;
-            }
+        heroTimer =
+            setInterval(function () {
 
-            heroIndex++;
+                heroIndex++;
 
-            if (heroIndex >= posts.length) {
-                heroIndex = 0;
-            }
+                if (
+                    heroIndex >=
+                    posts.length
+                ) {
 
-            renderHero();
+                    heroIndex = 0;
 
-        }, 5000);
+                }
+
+                renderHero();
+
+            }, 5000);
+
     }
 
     /* =====================================================
@@ -421,8 +692,9 @@
 
         container.innerHTML = "";
 
-        list.slice(0, 6).forEach(
-            function (post, index) {
+        list
+            .slice(0, 6)
+            .forEach(function (post, index) {
 
                 const card =
                     document.createElement("article");
@@ -442,9 +714,16 @@
                 const img =
                     document.createElement("img");
 
-                img.src = imageOf(post);
-                img.alt = altOf(post);
-                img.loading = "lazy";
+                img.src =
+                    imageOf(post);
+
+                img.alt =
+                    altOf(post);
+
+                img.loading =
+                    "lazy";
+
+                protectImage(img);
 
                 const title =
                     document.createElement("h3");
@@ -459,15 +738,95 @@
                 card.addEventListener(
                     "click",
                     function () {
+
                         openPost(post);
+
                     }
                 );
 
-                card.style.cursor = "pointer";
+                card.style.cursor =
+                    "pointer";
 
                 container.appendChild(card);
-            }
-        );
+
+            });
+
+    }
+
+    /* =====================================================
+       DATE + TIME
+       ===================================================== */
+
+    function updateDateTime() {
+
+        const now =
+            new Date();
+
+        const date =
+            now.toLocaleDateString(
+                "te-IN",
+                {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric"
+                }
+            );
+
+        const time =
+            now.toLocaleTimeString(
+                "en-IN",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: true
+                }
+            );
+
+        const dateElements =
+            document.querySelectorAll(
+                "[data-current-date]"
+            );
+
+        dateElements.forEach(function (el) {
+
+            el.textContent =
+                "📅 " + date;
+
+        });
+
+        const timeElements =
+            document.querySelectorAll(
+                "[data-current-time]"
+            );
+
+        timeElements.forEach(function (el) {
+
+            el.textContent =
+                "⏰ " + time;
+
+        });
+
+        /* Existing text fallback */
+
+        document.querySelectorAll(
+            ".date-display"
+        ).forEach(function (el) {
+
+            el.textContent =
+                "📅 " + date;
+
+        });
+
+        document.querySelectorAll(
+            ".time-display"
+        ).forEach(function (el) {
+
+            el.textContent =
+                "⏰ " + time;
+
+        });
+
     }
 
     /* =====================================================
@@ -476,26 +835,29 @@
 
     function build() {
 
-        posts = sourcePosts();
+        posts =
+            sourcePosts();
 
         if (!posts.length) {
+
             console.warn(
                 "BS 360 NEWS: Articles not found."
             );
+
             return;
+
         }
 
-        /* Latest */
+        /* =================================================
+           LATEST
+           ================================================= */
 
         const latest =
             posts.slice(0, 20);
 
-        const latestGrid =
-            $("latestGrid");
-
         const latestTrack =
             fill(
-                latestGrid,
+                $("latestGrid"),
                 latest,
                 "latest-card"
             );
@@ -506,7 +868,9 @@
             3200
         );
 
-        /* Sidebar */
+        /* =================================================
+           SIDEBAR
+           ================================================= */
 
         const sidebar =
             $("latestSidebar");
@@ -515,20 +879,23 @@
 
             sidebar.innerHTML = "";
 
-            latest.forEach(
-                function (post) {
+            latest.forEach(function (post) {
 
-                    sidebar.appendChild(
-                        createSidebarCard(post)
-                    );
+                sidebar.appendChild(
+                    createSidebarCard(post)
+                );
 
-                }
+            });
+
+            setupSidebarScroller(
+                sidebar
             );
 
-            setupSidebarScroller(sidebar);
         }
 
-        /* Hero */
+        /* =================================================
+           HERO
+           ================================================= */
 
         heroIndex = 0;
 
@@ -536,7 +903,9 @@
 
         startHero();
 
-        /* Featured */
+        /* =================================================
+           FEATURED
+           ================================================= */
 
         const featured =
             posts.slice(0, 12);
@@ -554,37 +923,37 @@
             track.className =
                 "slider-track";
 
-            featured.forEach(
-                function (post) {
+            featured.forEach(function (post) {
 
-                    track.appendChild(
-                        createCard(
-                            post,
-                            "featured-card"
-                        )
-                    );
+                track.appendChild(
+                    createCard(
+                        post,
+                        "featured-card"
+                    )
+                );
 
-                }
+            });
+
+            featuredContainer.appendChild(
+                track
             );
-
-            featuredContainer.appendChild(track);
 
             setupHorizontalScroller(
                 track,
                 264,
                 3000
             );
+
         }
 
-        /* Movies */
+        /* =================================================
+           MOVIES
+           ================================================= */
 
         const movies =
             posts.filter(function (post) {
 
-                return hasCat(
-                    post,
-                    ["movies", "movie"]
-                );
+                return isMovies(post);
 
             });
 
@@ -601,15 +970,14 @@
             3300
         );
 
-        /* Sports */
+        /* =================================================
+           SPORTS
+           ================================================= */
 
         const sports =
             posts.filter(function (post) {
 
-                return hasCat(
-                    post,
-                    ["sports"]
-                );
+                return isSports(post);
 
             });
 
@@ -626,13 +994,17 @@
             3300
         );
 
-        /* Most Read */
+        /* =================================================
+           MOST READ
+           ================================================= */
 
         buildMostRead(
             posts.slice().reverse()
         );
 
-        /* Arrow buttons */
+        /* =================================================
+           FEATURED ARROWS
+           ================================================= */
 
         const prev =
             $("sliderPrev");
@@ -641,30 +1013,36 @@
             $("sliderNext");
 
         const slider =
-            $("newsSlider .slider-track");
+            document.querySelector(
+                "#newsSlider .slider-track"
+            );
 
         if (prev && slider) {
 
-            prev.onclick = function () {
+            prev.onclick =
+                function () {
 
-                slider.scrollBy({
-                    left: -280,
-                    behavior: "smooth"
-                });
+                    slider.scrollBy({
+                        left: -280,
+                        behavior: "smooth"
+                    });
 
-            };
+                };
+
         }
 
         if (next && slider) {
 
-            next.onclick = function () {
+            next.onclick =
+                function () {
 
-                slider.scrollBy({
-                    left: 280,
-                    behavior: "smooth"
-                });
+                    slider.scrollBy({
+                        left: 280,
+                        behavior: "smooth"
+                    });
 
-            };
+                };
+
         }
 
     }
@@ -673,140 +1051,225 @@
        SEARCH
        ===================================================== */
 
-    window.toggleSearch = function () {
+    window.toggleSearch =
+        function () {
 
-        const box =
-            $("searchBox");
+            const box =
+                $("searchBox");
 
-        if (!box) {
-            return;
-        }
+            if (!box) {
+                return;
+            }
 
-        box.classList.toggle("open");
-        box.classList.toggle("active");
+            box.classList.toggle(
+                "open"
+            );
 
-        if (
-            box.classList.contains("open") ||
-            box.classList.contains("active")
-        ) {
+            box.classList.toggle(
+                "active"
+            );
+
+            if (
+                box.classList.contains("open") ||
+                box.classList.contains("active")
+            ) {
+
+                const input =
+                    $("searchInput");
+
+                if (input) {
+
+                    input.focus();
+
+                }
+
+            }
+
+        };
+
+    /* =====================================================
+       SEARCH GENERATED NEWS
+       ===================================================== */
+
+    window.searchNews =
+        function () {
 
             const input =
                 $("searchInput");
 
-            if (input) {
-                input.focus();
-            }
-        }
-    };
-
-    window.searchNews = function () {
-
-        const input =
-            $("searchInput");
-
-        if (!input) {
-            return;
-        }
-
-        const query =
-            input.value
-                .trim()
-                .toLowerCase();
-
-        document.querySelectorAll(
-            "#legacyNewsSource .post"
-        ).forEach(function (post) {
-
-            if (!query) {
-                post.style.display = "";
+            if (!input) {
                 return;
             }
 
-            const text =
-                post.textContent
+            const query =
+                input.value
+                    .trim()
                     .toLowerCase();
 
-            post.style.display =
-                text.includes(query)
-                    ? ""
-                    : "none";
+            const generatedCards =
+                document.querySelectorAll(
+                    ".portal-card"
+                );
 
-        });
+            generatedCards.forEach(
+                function (card) {
 
-    };
+                    const text =
+                        card.textContent
+                            .toLowerCase();
+
+                    if (!query) {
+
+                        card.style.display =
+                            "";
+
+                    } else {
+
+                        card.style.display =
+                            text.includes(query)
+                                ? ""
+                                : "none";
+
+                    }
+
+                }
+            );
+
+            const source =
+                $("legacyNewsSource");
+
+            if (source) {
+
+                source.querySelectorAll(
+                    ".post"
+                ).forEach(function (post) {
+
+                    post.style.display =
+                        "none";
+
+                });
+
+            }
+
+        };
+
+    /* =====================================================
+       SEARCH ENTER KEY
+       ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter" &&
+                document.activeElement?.id ===
+                "searchInput"
+            ) {
+
+                window.searchNews();
+
+            }
+
+        }
+    );
 
     /* =====================================================
        MOBILE NAV
        ===================================================== */
 
-    window.toggleMobileNav = function () {
+    window.toggleMobileNav =
+        function () {
 
-        const nav =
-            $("navLinks");
+            const nav =
+                $("navLinks");
 
-        if (!nav) {
-            return;
-        }
+            if (!nav) {
+                return;
+            }
 
-        nav.classList.toggle(
-            "mobile-open"
-        );
+            nav.classList.toggle(
+                "mobile-open"
+            );
 
-    };
+        };
 
     /* =====================================================
        THEME
        ===================================================== */
 
-    window.toggleTheme = function () {
+    window.toggleTheme =
+        function () {
 
-        document.body.classList.toggle(
-            "dark-mode"
-        );
+            document.body.classList.toggle(
+                "dark-mode"
+            );
 
-    };
+        };
 
     /* =====================================================
-       CATEGORY FILTER
+       CATEGORY NAVIGATION
        ===================================================== */
 
-    window.filterPosts = function (category) {
+    window.filterPosts =
+        function (category) {
 
-        const normalized =
-            String(category || "")
-                .toLowerCase()
-                .trim();
+            const normalized =
+                String(category || "")
+                    .toLowerCase()
+                    .trim();
 
-        let target = null;
+            let target =
+                null;
 
-        if (normalized === "movies") {
-            target = $("cinemaSection");
-        }
+            if (
+                normalized === "movies" ||
+                normalized === "movie" ||
+                normalized === "cinema"
+            ) {
 
-        if (normalized === "sports") {
-            target = $("sportsSection");
-        }
+                target =
+                    $("cinemaSection");
 
-        if (normalized === "all" ||
-            normalized === "news") {
+            } else if (
+                normalized === "sports" ||
+                normalized === "sport"
+            ) {
 
-            target = $("latestSection");
+                target =
+                    $("sportsSection");
 
-        }
+            } else {
 
-        if (target) {
+                target =
+                    $("latestSection");
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            }
 
-        }
+            if (target) {
 
-    };
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        };
 
     /* =====================================================
-       START
+       START DATE / TIME
+       ===================================================== */
+
+    updateDateTime();
+
+    setInterval(
+        updateDateTime,
+        1000
+    );
+
+    /* =====================================================
+       START PORTAL
        ===================================================== */
 
     if (
