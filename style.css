@@ -1,7 +1,6 @@
 /* =========================================================
-   BS 360 NEWS - PROFESSIONAL NEWS PORTAL CSS
-   TEXT OVERLAP + LINE MIX FIXED
-   Responsive: Desktop + Laptop + Tablet + Mobile
+   BS 360 NEWS
+   CLEAN PROFESSIONAL NEWS PORTAL CSS
 ========================================================= */
 
 *{
@@ -36,10 +35,6 @@ input{
     font:inherit;
 }
 
-button{
-    white-space:nowrap;
-}
-
 .container{
     width:min(1240px,94%);
     margin:0 auto;
@@ -67,8 +62,8 @@ button{
     display:flex;
     align-items:center;
     gap:13px;
-    text-decoration:none;
     min-width:0;
+    text-decoration:none;
 }
 
 .logo-mark{
@@ -84,7 +79,6 @@ button{
     justify-content:center;
     font-weight:900;
     line-height:1.05;
-    box-shadow:0 4px 12px rgba(7,90,170,.18);
 }
 
 .logo-mark span:first-child{
@@ -102,7 +96,7 @@ button{
 .logo-name>div{
     font-size:30px;
     font-weight:900;
-    line-height:1.15;
+    line-height:1.2;
     white-space:nowrap;
 }
 
@@ -133,7 +127,7 @@ button{
     font-size:13px;
     font-weight:700;
     color:#4b5563;
-    line-height:1.35;
+    line-height:1.4;
     white-space:nowrap;
 }
 
@@ -201,7 +195,6 @@ button{
     font-size:13px;
     font-weight:800;
     white-space:nowrap;
-    line-height:1.4;
 }
 
 .lang-selector a{
@@ -219,8 +212,8 @@ button{
     padding:0;
     display:flex;
     align-items:center;
-    flex:1;
     justify-content:center;
+    flex:1;
     gap:2px;
     min-width:0;
 }
@@ -235,9 +228,9 @@ button{
     padding:11px 13px;
     color:#fff;
     text-decoration:none;
-    font-weight:800;
     font-size:14px;
-    line-height:1.3;
+    font-weight:800;
+    line-height:1.4;
     border-radius:5px;
     white-space:nowrap;
 }
@@ -268,19 +261,17 @@ button{
 }
 
 .headlines-label{
+    flex-shrink:0;
+    color:#ff3b30;
     font-size:14px;
     font-weight:900;
-    color:#ff3b30;
     white-space:nowrap;
-    flex-shrink:0;
-    line-height:1.3;
 }
 
 .headlines-bar marquee{
+    min-width:0;
     font-size:14px;
     font-weight:700;
-    line-height:1.4;
-    min-width:0;
 }
 
 
@@ -317,8 +308,8 @@ button{
 .search-box{
     display:none;
     position:absolute;
-    right:0;
     top:50px;
+    right:0;
     width:330px;
     padding:9px;
     background:#fff;
@@ -363,19 +354,17 @@ button{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:15px;
-    margin:0 0 13px;
+    gap:12px;
+    margin:0 0 14px;
     padding-bottom:9px;
     border-bottom:2px solid #e5e7eb;
-    min-width:0;
 }
 
 .section-title-row h2{
     margin:0;
     font-size:23px;
     font-weight:900;
-    line-height:1.35;
-    min-width:0;
+    line-height:1.4;
 }
 
 .section-title-row h2:after{
@@ -383,28 +372,23 @@ button{
     display:block;
     width:52px;
     height:3px;
-    background:#e00000;
     margin-top:7px;
+    background:#e00000;
 }
 
 .section-title-row>span{
-    font-size:13px;
     color:#6b7280;
+    font-size:13px;
     font-weight:700;
-    line-height:1.4;
     white-space:nowrap;
 }
 
 .view-all{
+    color:#075aaa;
     font-size:13px;
     font-weight:800;
-    color:#075aaa;
     text-decoration:none;
     white-space:nowrap;
-}
-
-.view-all:hover{
-    text-decoration:underline;
 }
 
 
@@ -424,103 +408,83 @@ button{
 
 /* =========================================================
    TOP STORY
+   LEFT = LATEST NEWS
+   RIGHT = BIG STORY
 ========================================================= */
 
 .top-story-grid{
     display:grid;
-    grid-template-columns:minmax(0,2fr) minmax(310px,1fr);
+    grid-template-columns:minmax(310px,1fr) minmax(0,2fr);
     gap:18px;
+    align-items:start;
 }
 
-.top-story-main{
-    min-width:0;
-}
 
-.portal-card{
+/* LEFT */
+
+.latest-sidebar{
+    grid-column:1;
+    grid-row:1;
+    height:560px;
     background:#fff;
     border:1px solid #e2e6eb;
     border-radius:10px;
     overflow:hidden;
-    cursor:pointer;
-    transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        border-color .18s ease;
 }
 
-.portal-card:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 22px rgba(15,23,42,.09);
-    border-color:#cbd5e1;
-}
 
-.portal-card:focus{
-    outline:2px solid #075aaa;
-    outline-offset:2px;
-}
+/* RIGHT */
 
-.hero-card img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-}
-
-.hero-card .portal-card-body{
-    padding:15px 17px 18px;
-}
-
-.hero-card h3{
-    font-size:25px;
-    line-height:1.45;
-    margin:7px 0 0;
-    overflow-wrap:anywhere;
-    word-break:normal;
-}
-
-.portal-tag{
-    display:inline-block;
-    font-size:10px;
-    letter-spacing:.4px;
-    font-weight:900;
-    color:#e00000;
-    line-height:1.3;
+.top-story-main{
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
 }
 
 
 /* =========================================================
-   LATEST SIDEBAR
+   LATEST NEWS VERTICAL SCROLLER
 ========================================================= */
 
-.latest-sidebar{
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:10px;
-    overflow:hidden;
-    min-width:0;
-}
-
 .sidebar-heading{
+    height:52px;
     padding:12px 14px;
     background:#f8fafc;
     border-bottom:1px solid #e5e7eb;
     font-size:18px;
     font-weight:900;
-    line-height:1.35;
+    line-height:1.5;
 }
 
 .sidebar-list{
+    height:508px;
     padding:0 14px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+.sidebar-list::-webkit-scrollbar{
+    width:5px;
+}
+
+.sidebar-list::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
 }
 
 .sidebar-card{
     display:grid;
     grid-template-columns:100px minmax(0,1fr);
     gap:11px;
-    padding:12px 0;
-    border:0;
+    padding:13px 0;
     border-bottom:1px solid #e5e7eb;
-    border-radius:0;
     min-width:0;
+    cursor:pointer;
 }
 
 .sidebar-card:last-child{
@@ -535,24 +499,99 @@ button{
 }
 
 .sidebar-card .portal-card-body{
-    padding:0;
     min-width:0;
+    padding:0;
 }
 
 .sidebar-card h3{
+    margin:5px 0 0;
     font-size:14px;
-    line-height:1.5;
-    margin:4px 0 0;
+    line-height:1.55;
+    font-weight:800;
     overflow-wrap:anywhere;
 }
 
-.sidebar-card .portal-tag{
-    font-size:9px;
+.sidebar-card.auto-active{
+    background:#f1f7ff;
+    border-left:3px solid #075aaa;
+    padding-left:7px;
 }
 
 
 /* =========================================================
-   IMAGE SCROLLER
+   HERO IMAGE + CONTENT OVER IMAGE
+========================================================= */
+
+.hero-card{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    border-radius:12px;
+    background:#000;
+    cursor:pointer;
+}
+
+.hero-card img{
+    width:100%;
+    height:560px;
+    object-fit:cover;
+}
+
+.hero-card .portal-card-body{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:3;
+    padding:100px 25px 24px;
+    color:#fff;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.94) 0%,
+        rgba(0,0,0,.72) 40%,
+        rgba(0,0,0,.20) 75%,
+        transparent 100%
+    );
+}
+
+.hero-card .portal-tag{
+    display:block;
+    margin-bottom:6px;
+    color:#ff3b30;
+    font-size:12px;
+    font-weight:900;
+    line-height:1.4;
+}
+
+.hero-card h3{
+    max-width:95%;
+    margin:0;
+    color:#fff;
+    font-size:27px;
+    font-weight:900;
+    line-height:1.5;
+    overflow-wrap:anywhere;
+}
+
+.hero-card.hero-changing{
+    animation:heroFade .6s ease;
+}
+
+@keyframes heroFade{
+    from{
+        opacity:.4;
+        transform:translateX(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+/* =========================================================
+   FEATURED NEWS
 ========================================================= */
 
 .slider-controls{
@@ -567,8 +606,7 @@ button{
     border:1px solid #cbd5e1;
     background:#fff;
     border-radius:6px;
-    font-size:24px;
-    line-height:1;
+    font-size:22px;
     cursor:pointer;
 }
 
@@ -581,9 +619,18 @@ button{
     width:100%;
     overflow-x:auto;
     overflow-y:hidden;
+    padding:3px 3px 14px;
     scroll-behavior:smooth;
     scrollbar-width:thin;
-    padding:2px 2px 12px;
+}
+
+.news-slider::-webkit-scrollbar{
+    height:6px;
+}
+
+.news-slider::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
 }
 
 .slider-track{
@@ -595,6 +642,11 @@ button{
 .slider-card{
     width:245px;
     flex:0 0 245px;
+    background:#fff;
+    border:1px solid #e2e6eb;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
 }
 
 .slider-card img{
@@ -608,56 +660,67 @@ button{
 }
 
 .slider-card h3{
+    margin:5px 0 0;
     font-size:14px;
     line-height:1.5;
-    margin:5px 0 0;
     overflow-wrap:anywhere;
 }
 
 
 /* =========================================================
-   LATEST GRID
+   HORIZONTAL LATEST NEWS
 ========================================================= */
 
 .latest-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:18px;
+    display:flex;
+    gap:16px;
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:3px 3px 14px;
+    scroll-behavior:smooth;
+    scrollbar-width:thin;
 }
 
-.latest-card,
-.category-card{
-    min-width:0;
+.latest-grid::-webkit-scrollbar{
+    height:6px;
 }
 
-.latest-card img,
-.category-card img{
+.latest-grid::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
+}
+
+.latest-card{
+    flex:0 0 31.8%;
+    min-width:280px;
+    background:#fff;
+    border:1px solid #e2e6eb;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.latest-card img{
     width:100%;
     aspect-ratio:16/9;
     object-fit:cover;
 }
 
-.latest-card .portal-card-body,
-.category-card .portal-card-body{
+.latest-card .portal-card-body{
     padding:11px 13px 14px;
 }
 
-.latest-card h3,
-.category-card h3{
+.latest-card h3{
+    margin:5px 0 0;
     font-size:17px;
     line-height:1.5;
-    margin:5px 0 0;
     overflow-wrap:anywhere;
-}
-
-.latest-card .portal-tag,
-.category-card .portal-tag{
-    font-size:9px;
 }
 
 
 /* =========================================================
-   ADVERTISEMENT
+   AD
 ========================================================= */
 
 .ad-box{
@@ -677,30 +740,91 @@ button{
 
 
 /* =========================================================
-   CATEGORY
+   MOVIES / CATEGORY HORIZONTAL
 ========================================================= */
 
 .category-grid{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
+    display:flex;
     gap:16px;
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:3px 3px 14px;
+    scroll-behavior:smooth;
+    scrollbar-width:thin;
+}
+
+.category-grid::-webkit-scrollbar{
+    height:6px;
+}
+
+.category-grid::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
+}
+
+.category-card{
+    flex:0 0 24%;
+    min-width:245px;
+    background:#fff;
+    border:1px solid #e2e6eb;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.category-card img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+.category-card .portal-card-body{
+    padding:11px 13px 14px;
+}
+
+.category-card h3{
+    margin:5px 0 0;
+    font-size:16px;
+    line-height:1.5;
+    overflow-wrap:anywhere;
 }
 
 
 /* =========================================================
-   SPORTS
+   SPORTS HORIZONTAL
 ========================================================= */
 
 .sports-list{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    display:flex;
     gap:12px;
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:3px 3px 14px;
+    scroll-behavior:smooth;
+    scrollbar-width:thin;
+}
+
+.sports-list::-webkit-scrollbar{
+    height:6px;
+}
+
+.sports-list::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:10px;
 }
 
 .sports-row{
+    flex:0 0 48%;
+    min-width:430px;
     display:grid;
     grid-template-columns:150px minmax(0,1fr);
-    min-height:100px;
+    background:#fff;
+    border:1px solid #e2e6eb;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
 }
 
 .sports-row img{
@@ -715,9 +839,9 @@ button{
 }
 
 .sports-row h3{
+    margin:4px 0 0;
     font-size:15px;
     line-height:1.5;
-    margin:4px 0 0;
     overflow-wrap:anywhere;
 }
 
@@ -729,51 +853,59 @@ button{
 .most-read-section{
     background:#fff;
     border:1px solid #e2e6eb;
-    border-radius:10px;
-    padding:16px;
-}
-
-.most-read-section .section-title-row{
-    margin-bottom:0;
+    border-radius:12px;
+    padding:18px;
 }
 
 .most-read-list{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    column-gap:30px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
 }
 
 .most-read-item{
     display:grid;
     grid-template-columns:42px minmax(0,1fr);
     gap:10px;
-    align-items:center;
-    padding:12px 0;
-    border-bottom:1px solid #edf0f3;
+    align-items:start;
+    min-height:82px;
+    padding:13px 12px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
     cursor:pointer;
-    min-width:0;
+    transition:.18s ease;
+}
+
+.most-read-item:hover{
+    transform:translateY(-2px);
+    background:#fff;
+    box-shadow:0 5px 16px rgba(15,23,42,.08);
 }
 
 .most-read-item strong{
-    font-size:21px;
-    color:#e00000;
-    line-height:1.2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:#e00000;
+    color:#fff;
+    font-size:14px;
+    line-height:1;
 }
 
 .most-read-item span{
-    font-size:15px;
-    font-weight:700;
-    line-height:1.5;
+    font-size:14px;
+    font-weight:800;
+    line-height:1.55;
     overflow-wrap:anywhere;
-}
-
-.most-read-item:hover span{
-    text-decoration:underline;
 }
 
 
 /* =========================================================
-   ORIGINAL SOURCE
+   HIDDEN ORIGINAL NEWS
 ========================================================= */
 
 .legacy-news-source{
@@ -788,13 +920,9 @@ button{
     border-radius:8px;
     padding:25px;
     font-weight:800;
-    margin:20px 0;
 }
 
-.search-hidden{
-    display:none !important;
-}
-
+.search-hidden,
 .hidden{
     display:none !important;
 }
@@ -807,7 +935,6 @@ button{
 .site-footer{
     background:#101827;
     color:#fff;
-    margin-top:0;
 }
 
 .footer-grid{
@@ -820,7 +947,6 @@ button{
 .footer-brand{
     font-size:25px;
     font-weight:900;
-    line-height:1.3;
 }
 
 .footer-brand span{
@@ -837,30 +963,27 @@ button{
 .footer-grid h3{
     margin:0 0 10px;
     font-size:16px;
-    line-height:1.4;
 }
 
 .footer-grid a{
     display:block;
+    margin:7px 0;
     color:#e5e7eb;
     text-decoration:none;
     font-size:14px;
-    margin:7px 0;
     line-height:1.5;
 }
 
 .footer-grid a:hover{
     text-decoration:underline;
-    color:#fff;
 }
 
 .copyright{
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,.14);
     padding:13px;
+    border-top:1px solid rgba(255,255,255,.14);
     color:#aeb8c7;
+    text-align:center;
     font-size:13px;
-    line-height:1.5;
 }
 
 
@@ -876,7 +999,11 @@ body.dark-mode{
 .dark-mode .brand-header,
 .dark-mode .portal-card,
 .dark-mode .latest-sidebar,
+.dark-mode .latest-card,
+.dark-mode .category-card,
+.dark-mode .sports-row,
 .dark-mode .most-read-section,
+.dark-mode .most-read-item,
 .dark-mode .search-box{
     background:#111827;
     color:#f8fafc;
@@ -900,9 +1027,15 @@ body.dark-mode{
     border-color:#263244;
 }
 
-.dark-mode .slider-controls button,
-.dark-mode .theme-button{
+.dark-mode .theme-button,
+.dark-mode .slider-controls button{
     background:#1f2937;
+    color:#fff;
+    border-color:#374151;
+}
+
+.dark-mode .search-box input{
+    background:#0f172a;
     color:#fff;
     border-color:#374151;
 }
@@ -912,24 +1045,13 @@ body.dark-mode{
     border-color:#374151;
 }
 
-.dark-mode .most-read-item{
-    border-color:#263244;
-}
-
-.dark-mode .search-box input{
-    background:#0f172a;
-    color:#fff;
-    border-color:#374151;
-}
-
-.dark-mode .logo-tagline,
-.dark-mode .date-time-box{
-    color:#94a3b8;
+.dark-mode .most-read-item:hover{
+    background:#172033;
 }
 
 
 /* =========================================================
-   TABLET / SMALL LAPTOP
+   TABLET
 ========================================================= */
 
 @media(max-width:1000px){
@@ -944,21 +1066,28 @@ body.dark-mode{
     }
 
     .top-story-grid{
-        grid-template-columns:1.55fr 1fr;
+        grid-template-columns:minmax(270px,1fr) minmax(0,1.55fr);
     }
 
-    .latest-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+    .hero-card img{
+        height:500px;
     }
 
-    .category-grid{
+    .latest-card{
+        flex-basis:45%;
+    }
+
+    .category-card{
+        flex-basis:32%;
+    }
+
+    .most-read-list{
         grid-template-columns:repeat(2,minmax(0,1fr));
     }
 
     .footer-grid{
         grid-template-columns:1fr 1fr;
     }
-
 }
 
 
@@ -968,12 +1097,8 @@ body.dark-mode{
 
 @media(max-width:768px){
 
-    body{
-        background:#f6f7f9;
-    }
-
     .container{
-        width:min(94%,600px);
+        width:94%;
     }
 
     /* HEADER */
@@ -983,16 +1108,10 @@ body.dark-mode{
         gap:8px;
     }
 
-    .brand-logo{
-        gap:9px;
-        min-width:0;
-    }
-
     .logo-mark{
         width:48px;
         height:48px;
         flex:0 0 48px;
-        border-radius:8px;
     }
 
     .logo-mark span:first-child{
@@ -1005,13 +1124,10 @@ body.dark-mode{
 
     .logo-name>div{
         font-size:21px;
-        line-height:1.2;
-        white-space:nowrap;
     }
 
     .logo-tagline{
         font-size:10px;
-        line-height:1.3;
     }
 
     .date-time-box,
@@ -1037,7 +1153,6 @@ body.dark-mode{
 
     .nav-container{
         padding:7px 0;
-        display:flex;
         flex-direction:column;
         align-items:stretch;
     }
@@ -1049,25 +1164,21 @@ body.dark-mode{
     .nav-links{
         display:none;
         flex-direction:column;
-        align-items:stretch;
         width:100%;
-        gap:1px;
     }
 
     .nav-links a{
+        padding:9px;
         text-align:center;
-        padding:9px 8px;
         font-size:13px;
-        line-height:1.4;
         white-space:normal;
     }
 
 
-    /* BREAKING NEWS */
+    /* BREAKING */
 
     .headlines-bar .container{
         min-height:40px;
-        gap:8px;
     }
 
     .headlines-label{
@@ -1079,60 +1190,28 @@ body.dark-mode{
     }
 
 
-    /* MAIN */
-
-    .portal-main{
-        padding-top:12px;
-    }
-
-    .search-container{
-        margin-bottom:12px;
-    }
-
-    .search-box{
-        width:min(330px,calc(100vw - 30px));
-        right:0;
-    }
-
-
-    /* TITLES */
-
-    .section-title-row{
-        margin-bottom:10px;
-        gap:8px;
-        align-items:flex-start;
-    }
-
-    .section-title-row h2{
-        font-size:19px;
-        line-height:1.4;
-    }
-
-    .section-title-row>span,
-    .view-all{
-        font-size:11px;
-        line-height:1.4;
-    }
-
-
     /* TOP STORY */
 
     .top-story-grid{
-        grid-template-columns:1fr;
+        display:flex;
+        flex-direction:column;
         gap:12px;
     }
 
-    .hero-card h3{
-        font-size:20px;
-        line-height:1.5;
+    .latest-sidebar{
+        order:1;
+        width:100%;
+        height:430px;
     }
 
-    .hero-card .portal-card-body{
-        padding:12px 13px 15px;
+    .top-story-main{
+        order:2;
+        width:100%;
     }
 
-
-    /* SIDEBAR */
+    .sidebar-list{
+        height:378px;
+    }
 
     .sidebar-card{
         grid-template-columns:86px minmax(0,1fr);
@@ -1145,72 +1224,62 @@ body.dark-mode{
 
     .sidebar-card h3{
         font-size:13px;
-        line-height:1.5;
     }
 
 
-    /* SLIDER */
+    /* HERO */
+
+    .hero-card{
+        border-radius:9px;
+    }
+
+    .hero-card img{
+        height:420px;
+    }
+
+    .hero-card .portal-card-body{
+        padding:90px 15px 17px;
+    }
+
+    .hero-card h3{
+        font-size:19px;
+        line-height:1.55;
+    }
+
+
+    /* FEATURED */
 
     .slider-card{
-        width:205px;
         flex-basis:205px;
+        width:205px;
     }
 
     .slider-card img{
         height:122px;
     }
 
-    .slider-card h3{
-        font-size:13px;
-        line-height:1.5;
-    }
-
 
     /* LATEST */
 
-    .latest-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:10px;
-    }
-
-    .latest-card .portal-card-body,
-    .category-card .portal-card-body{
-        padding:8px 9px 10px;
-    }
-
-    .latest-card h3,
-    .category-card h3{
-        font-size:14px;
-        line-height:1.5;
+    .latest-card{
+        flex-basis:78%;
+        min-width:245px;
     }
 
 
-    /* CATEGORY */
+    /* MOVIES */
 
-    .category-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:10px;
+    .category-card{
+        flex-basis:78%;
+        min-width:230px;
     }
 
 
     /* SPORTS */
 
-    .sports-list{
-        grid-template-columns:1fr;
-    }
-
     .sports-row{
-        grid-template-columns:105px minmax(0,1fr);
-    }
-
-    .sports-row img{
-        width:105px;
-        height:86px;
-    }
-
-    .sports-row h3{
-        font-size:14px;
-        line-height:1.5;
+        flex-basis:88%;
+        min-width:290px;
     }
 
 
@@ -1218,20 +1287,23 @@ body.dark-mode{
 
     .most-read-list{
         grid-template-columns:1fr;
+        gap:9px;
     }
 
     .most-read-item{
+        min-height:auto;
         grid-template-columns:38px minmax(0,1fr);
-        padding:10px 0;
+        padding:11px 10px;
     }
 
     .most-read-item strong{
-        font-size:18px;
+        width:31px;
+        height:31px;
+        font-size:13px;
     }
 
     .most-read-item span{
-        font-size:14px;
-        line-height:1.5;
+        font-size:13px;
     }
 
 
@@ -1246,12 +1318,11 @@ body.dark-mode{
     .footer-brand{
         font-size:22px;
     }
-
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE
+   SMALL MOBILE
 ========================================================= */
 
 @media(max-width:430px){
@@ -1264,986 +1335,39 @@ body.dark-mode{
         font-size:9px;
     }
 
-    .latest-grid{
-        gap:8px;
-    }
-
-    .latest-card h3,
-    .category-card h3{
-        font-size:13px;
-        line-height:1.5;
-    }
-
-    .category-grid{
-        gap:8px;
-    }
-
-    .slider-card{
-        width:190px;
-        flex-basis:190px;
-    }
-
-    .hero-card h3{
-        font-size:18px;
-        line-height:1.5;
-    }
-
-    .ad-box{
-        min-height:90px;
-    }
-
-}
-
-
-/* =========================================================
-   EXTRA TEXT SAFETY
-========================================================= */
-
-.news-item h1,
-.news-item h2,
-.news-item h3,
-.news-item h4,
-.portal-card h1,
-.portal-card h2,
-.portal-card h3,
-.portal-card h4{
-    overflow-wrap:anywhere;
-}
-
-p{
-    overflow-wrap:anywhere;
-}
-/* =========================================================
-   BS 360 NEWS - FINAL PORTAL LAYOUT
-   TOP STORY RIGHT + LATEST NEWS LEFT
-   ALL LOWER SECTIONS HORIZONTAL SCROLL
-========================================================= */
-
-
-/* =========================================================
-   1. TOP STORY
-   LATEST NEWS = LEFT
-   TOP STORY = RIGHT
-========================================================= */
-
-.top-story-grid{
-    display:grid;
-    grid-template-columns:
-        minmax(310px,1fr)
-        minmax(0,2fr);
-    gap:18px;
-    align-items:start;
-}
-
-
-/* LEFT SIDE - LATEST NEWS */
-
-.latest-sidebar{
-    grid-column:1;
-    grid-row:1;
-    height:100%;
-    max-height:570px;
-    overflow:hidden;
-}
-
-.sidebar-heading{
-    position:relative;
-    z-index:3;
-}
-
-
-/* RIGHT SIDE - TOP STORY */
-
-.top-story-main{
-    grid-column:2;
-    grid-row:1;
-    min-width:0;
-}
-
-
-/* =========================================================
-   2. LEFT LATEST NEWS - VERTICAL SCROLL AREA
-========================================================= */
-
-.sidebar-list{
-    height:calc(100% - 52px);
-    max-height:515px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
-    scrollbar-width:thin;
-    padding:0 14px;
-}
-
-
-/* scrollbar */
-
-.sidebar-list::-webkit-scrollbar{
-    width:5px;
-}
-
-.sidebar-list::-webkit-scrollbar-track{
-    background:#f1f5f9;
-}
-
-.sidebar-list::-webkit-scrollbar-thumb{
-    background:#94a3b8;
-    border-radius:10px;
-}
-
-
-/* latest cards */
-
-.sidebar-card{
-    display:grid;
-    grid-template-columns:100px minmax(0,1fr);
-    gap:11px;
-    padding:13px 0;
-    border-bottom:1px solid #e5e7eb;
-    min-width:0;
-}
-
-.sidebar-card:last-child{
-    border-bottom:0;
-}
-
-.sidebar-card img{
-    width:100px;
-    height:72px;
-    object-fit:cover;
-    border-radius:6px;
-}
-
-.sidebar-card .portal-card-body{
-    min-width:0;
-    padding:0;
-}
-
-.sidebar-card h3{
-    margin:5px 0 0;
-    font-size:14px;
-    line-height:1.55;
-    font-weight:800;
-    overflow-wrap:anywhere;
-    word-break:normal;
-}
-
-
-/* =========================================================
-   3. TOP STORY HERO
-========================================================= */
-
-.hero-card{
-    width:100%;
-}
-
-.hero-card img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-}
-
-.hero-card .portal-card-body{
-    padding:15px 17px 18px;
-}
-
-.hero-card h3{
-    margin:7px 0 0;
-    font-size:25px;
-    line-height:1.5;
-    font-weight:900;
-    overflow-wrap:anywhere;
-}
-
-
-/* =========================================================
-   4. COMMON HORIZONTAL NEWS SCROLL
-========================================================= */
-
-.latest-grid,
-.category-grid,
-.sports-list{
-    display:flex !important;
-    width:100%;
-    gap:16px;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:3px 3px 14px;
-    scroll-behavior:smooth;
-    scroll-snap-type:x mandatory;
-    scrollbar-width:thin;
-}
-
-
-/* scrollbar */
-
-.latest-grid::-webkit-scrollbar,
-.category-grid::-webkit-scrollbar,
-.sports-list::-webkit-scrollbar{
-    height:6px;
-}
-
-.latest-grid::-webkit-scrollbar-track,
-.category-grid::-webkit-scrollbar-track,
-.sports-list::-webkit-scrollbar-track{
-    background:#e5e7eb;
-    border-radius:10px;
-}
-
-.latest-grid::-webkit-scrollbar-thumb,
-.category-grid::-webkit-scrollbar-thumb,
-.sports-list::-webkit-scrollbar-thumb{
-    background:#94a3b8;
-    border-radius:10px;
-}
-
-
-/* =========================================================
-   5. LATEST NEWS CARDS - HORIZONTAL
-========================================================= */
-
-.latest-grid .latest-card{
-    flex:0 0 31.8%;
-    min-width:280px;
-    scroll-snap-align:start;
-}
-
-
-/* =========================================================
-   6. MOVIES / CATEGORY - HORIZONTAL
-========================================================= */
-
-.category-grid .category-card{
-    flex:0 0 24%;
-    min-width:245px;
-    scroll-snap-align:start;
-}
-
-
-/* =========================================================
-   7. SPORTS - HORIZONTAL
-========================================================= */
-
-.sports-list .sports-row{
-    flex:0 0 48%;
-    min-width:430px;
-    scroll-snap-align:start;
-}
-
-
-/* =========================================================
-   8. CARD TEXT FIX
-========================================================= */
-
-.latest-card h3,
-.category-card h3,
-.sports-row h3,
-.slider-card h3{
-    overflow-wrap:anywhere;
-    word-break:normal;
-    white-space:normal;
-    line-height:1.5;
-}
-
-
-/* =========================================================
-   9. FEATURED NEWS SLIDER
-========================================================= */
-
-.news-slider{
-    width:100%;
-    overflow-x:auto;
-    overflow-y:hidden;
-    scroll-behavior:smooth;
-    scroll-snap-type:x mandatory;
-    padding:3px 3px 14px;
-}
-
-.slider-track{
-    display:flex;
-    gap:14px;
-    width:max-content;
-}
-
-.slider-card{
-    flex:0 0 245px;
-    scroll-snap-align:start;
-}
-
-
-/* =========================================================
-   10. SECTION TITLE
-========================================================= */
-
-.section-title-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:14px;
-}
-
-.section-title-row h2{
-    margin:0;
-    font-size:23px;
-    line-height:1.4;
-    font-weight:900;
-}
-
-
-/* =========================================================
-   11. MOBILE
-========================================================= */
-
-@media(max-width:768px){
-
-    /* TOP STORY */
-
-    .top-story-grid{
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-    }
-
-    /* latest first */
-
-    .latest-sidebar{
-        order:1;
-        width:100%;
-        max-height:430px;
-    }
-
-    /* hero second */
-
-    .top-story-main{
-        order:2;
-        width:100%;
-    }
-
-
-    /* LEFT LATEST SCROLL */
-
-    .sidebar-list{
-        max-height:375px;
-    }
-
-    .sidebar-card{
-        grid-template-columns:86px minmax(0,1fr);
-        gap:10px;
-        padding:11px 0;
-    }
-
-    .sidebar-card img{
-        width:86px;
-        height:65px;
-    }
-
-    .sidebar-card h3{
-        font-size:13px;
-        line-height:1.55;
-    }
-
-
-    /* LATEST HORIZONTAL */
-
-    .latest-grid{
-        gap:10px;
-    }
-
-    .latest-grid .latest-card{
-        flex:0 0 78%;
-        min-width:245px;
-    }
-
-
-    /* MOVIES / CATEGORY */
-
-    .category-grid{
-        gap:10px;
-    }
-
-    .category-grid .category-card{
-        flex:0 0 78%;
-        min-width:230px;
-    }
-
-
-    /* SPORTS */
-
-    .sports-list{
-        gap:10px;
-    }
-
-    .sports-list .sports-row{
-        flex:0 0 88%;
-        min-width:290px;
-    }
-
-
-    /* FEATURED */
-
-    .slider-card{
-        flex:0 0 205px;
-    }
-
-}
-
-
-/* =========================================================
-   12. SMALL MOBILE
-========================================================= */
-
-@media(max-width:430px){
-
-    .latest-grid .latest-card{
-        flex:0 0 82%;
-        min-width:220px;
-    }
-
-    .category-grid .category-card{
-        flex:0 0 82%;
-        min-width:215px;
-    }
-
-    .sports-list .sports-row{
-        flex:0 0 92%;
-        min-width:270px;
-    }
-
-    .slider-card{
-        flex:0 0 190px;
-    }
-
-    .sidebar-card h3{
-        font-size:12.5px;
-        line-height:1.55;
-    }
-
-    .hero-card h3{
-        font-size:19px;
-        line-height:1.55;
-    }
-
-}
-
-
-/* =========================================================
-   13. TOUCH / MOBILE SCROLL
-========================================================= */
-
-.latest-grid,
-.category-grid,
-.sports-list,
-.news-slider,
-.sidebar-list{
-    -webkit-overflow-scrolling:touch;
-}
-
-
-/* =========================================================
-   14. DARK MODE
-========================================================= */
-
-.dark-mode .latest-grid::-webkit-scrollbar-track,
-.dark-mode .category-grid::-webkit-scrollbar-track,
-.dark-mode .sports-list::-webkit-scrollbar-track{
-    background:#1e293b;
-}
-
-.dark-mode .latest-grid::-webkit-scrollbar-thumb,
-.dark-mode .category-grid::-webkit-scrollbar-thumb,
-.dark-mode .sports-list::-webkit-scrollbar-thumb{
-    background:#64748b;
-}
-
-.dark-mode .sidebar-list::-webkit-scrollbar-track{
-    background:#0f172a;
-}
-
-.dark-mode .sidebar-list::-webkit-scrollbar-thumb{
-    background:#475569;
-}
-/* =========================================================
-   BS 360 NEWS - TOP STORY IMAGE OVERLAY SLIDER
-========================================================= */
-
-/* TOP STORY MAIN */
-
-.top-story-main{
-    position:relative;
-    min-width:0;
-}
-
-.hero-card{
-    position:relative;
-    width:100%;
-    height:auto;
-    min-height:500px;
-    overflow:hidden;
-    border-radius:12px;
-}
-
-/* BIG IMAGE */
-
-.hero-card img{
-    width:100%;
-    height:560px;
-    aspect-ratio:auto;
-    object-fit:cover;
-    display:block;
-}
-
-
-/* =========================================================
-   CONTENT ON IMAGE
-========================================================= */
-
-.hero-card .portal-card-body{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-
-    padding:70px 25px 22px;
-
-    color:#fff;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.92) 0%,
-            rgba(0,0,0,.72) 38%,
-            rgba(0,0,0,.25) 72%,
-            transparent 100%
-        );
-
-    z-index:2;
-}
-
-
-/* CATEGORY */
-
-.hero-card .portal-tag{
-    color:#ff3b30;
-    font-size:12px;
-    font-weight:900;
-    text-transform:uppercase;
-    display:block;
-    margin-bottom:6px;
-}
-
-
-/* HEADLINE */
-
-.hero-card h3{
-    color:#fff;
-    font-size:27px;
-    line-height:1.5;
-    font-weight:900;
-
-    margin:0;
-
-    max-width:95%;
-
-    overflow-wrap:anywhere;
-    word-break:normal;
-}
-
-
-/* =========================================================
-   IMAGE DARK OVERLAY
-========================================================= */
-
-.hero-card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.55),
-            transparent 55%
-        );
-
-    pointer-events:none;
-    z-index:1;
-}
-
-
-/* =========================================================
-   TOP STORY SLIDER ANIMATION
-========================================================= */
-
-.hero-card.hero-changing{
-    animation:heroFade .7s ease;
-}
-
-@keyframes heroFade{
-
-    0%{
-        opacity:.35;
-        transform:translateX(12px);
-    }
-
-    100%{
-        opacity:1;
-        transform:translateX(0);
-    }
-
-}
-
-
-/* =========================================================
-   LATEST NEWS - AUTO VERTICAL SCROLL
-========================================================= */
-
-.latest-sidebar{
-    overflow:hidden !important;
-}
-
-.sidebar-list{
-    overflow:hidden !important;
-    max-height:515px;
-
-    scroll-behavior:smooth;
-}
-
-
-/* =========================================================
-   LATEST NEWS CARD
-========================================================= */
-
-.sidebar-card{
-    transition:
-        background .3s ease,
-        transform .3s ease;
-}
-
-.sidebar-card:hover{
-    background:#f8fafc;
-}
-
-
-/* =========================================================
-   AUTO SCROLL HIGHLIGHT
-========================================================= */
-
-.sidebar-card.auto-active{
-    background:#f1f7ff;
-    border-left:3px solid #075aaa;
-    padding-left:8px;
-}
-
-
-/* =========================================================
-   FEATURED / MOVIES / SPORTS / TELANGANA
-   HORIZONTAL AUTO SCROLL
-========================================================= */
-
-.news-slider,
-.latest-grid,
-.category-grid,
-.sports-list{
-    scroll-behavior:smooth;
-}
-
-
-/* =========================================================
-   MOBILE HERO
-========================================================= */
-
-@media(max-width:768px){
-
-    .hero-card{
-        min-height:400px;
-        border-radius:9px;
-    }
-
-    .hero-card img{
-        height:420px;
-    }
-
-    .hero-card .portal-card-body{
-        padding:
-            75px
-            15px
-            17px;
-    }
-
-    .hero-card h3{
-        font-size:19px;
-        line-height:1.55;
-    }
-
-    .hero-card .portal-tag{
-        font-size:10px;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media(max-width:430px){
-
-    .hero-card{
-        min-height:360px;
-    }
-
     .hero-card img{
         height:370px;
     }
 
     .hero-card .portal-card-body{
-        padding:
-            65px
-            12px
-            14px;
+        padding:70px 12px 14px;
     }
 
     .hero-card h3{
         font-size:17px;
-        line-height:1.55;
     }
 
-}
-/* =========================================================
-   BS 360 NEWS - MOST READ
-   MODERN COMPACT NEWS DESIGN
-========================================================= */
-
-.most-read-section{
-    background:#fff;
-    border:1px solid #e2e6eb;
-    border-radius:12px;
-    padding:18px;
-    margin-bottom:30px;
-    box-shadow:0 3px 12px rgba(15,23,42,.04);
-}
-
-
-/* TITLE */
-
-.most-read-section .section-title-row{
-    margin:0 0 12px;
-    padding:0 0 11px;
-    border-bottom:2px solid #e5e7eb;
-}
-
-.most-read-section .section-title-row h2{
-    font-size:22px;
-    font-weight:900;
-    line-height:1.35;
-}
-
-
-/* RED LINE UNDER TITLE */
-
-.most-read-section .section-title-row h2:after{
-    width:55px;
-    height:3px;
-    margin-top:7px;
-    background:#e00000;
-}
-
-
-/* =========================================================
-   MOST READ LIST
-========================================================= */
-
-.most-read-list{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:12px;
-}
-
-
-/* =========================================================
-   INDIVIDUAL NEWS
-========================================================= */
-
-.most-read-item{
-    position:relative;
-    display:grid;
-    grid-template-columns:42px minmax(0,1fr);
-    align-items:start;
-    gap:10px;
-
-    min-height:82px;
-
-    padding:13px 12px;
-
-    background:#f8fafc;
-    border:1px solid #e5e7eb;
-    border-radius:8px;
-
-    cursor:pointer;
-
-    transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        border-color .18s ease,
-        background .18s ease;
-}
-
-
-/* HOVER */
-
-.most-read-item:hover{
-    transform:translateY(-2px);
-    background:#fff;
-    border-color:#cbd5e1;
-    box-shadow:0 5px 16px rgba(15,23,42,.08);
-}
-
-
-/* =========================================================
-   NUMBER
-========================================================= */
-
-.most-read-item strong{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    width:34px;
-    height:34px;
-
-    border-radius:50%;
-
-    background:#e00000;
-    color:#fff;
-
-    font-size:14px;
-    font-weight:900;
-
-    line-height:1;
-}
-
-
-/* =========================================================
-   TEXT
-========================================================= */
-
-.most-read-item span{
-    display:block;
-
-    margin:0;
-
-    color:#111827;
-
-    font-size:14px;
-    font-weight:800;
-
-    line-height:1.55;
-
-    overflow-wrap:anywhere;
-    word-break:normal;
-    white-space:normal;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:768px){
-
-    .most-read-section{
-        padding:12px;
-        border-radius:9px;
+    .slider-card{
+        flex-basis:190px;
+        width:190px;
     }
 
-    .most-read-section .section-title-row h2{
-        font-size:19px;
+    .latest-card{
+        flex-basis:82%;
+        min-width:220px;
     }
 
-    .most-read-list{
-        grid-template-columns:1fr;
-        gap:9px;
+    .category-card{
+        flex-basis:82%;
+        min-width:215px;
     }
 
-    .most-read-item{
-        min-height:auto;
-        grid-template-columns:38px minmax(0,1fr);
-        gap:10px;
-        padding:11px 10px;
-    }
-
-    .most-read-item strong{
-        width:31px;
-        height:31px;
-        font-size:13px;
-    }
-
-    .most-read-item span{
-        font-size:13px;
-        line-height:1.55;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media(max-width:430px){
-
-    .most-read-section{
-        padding:10px;
-    }
-
-    .most-read-list{
-        gap:8px;
-    }
-
-    .most-read-item{
-        grid-template-columns:34px minmax(0,1fr);
-        gap:8px;
-        padding:10px 8px;
-    }
-
-    .most-read-item strong{
-        width:28px;
-        height:28px;
-        font-size:12px;
+    .sports-row{
+        flex-basis:92%;
+        min-width:270px;
     }
 
     .most-read-item span{
         font-size:12.5px;
-        line-height:1.55;
     }
-
-}
-
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
-.dark-mode .most-read-section{
-    background:#111827;
-    border-color:#263244;
-}
-
-.dark-mode .most-read-section .section-title-row{
-    border-color:#263244;
-}
-
-.dark-mode .most-read-item{
-    background:#0f172a;
-    border-color:#263244;
-}
-
-.dark-mode .most-read-item:hover{
-    background:#172033;
-    border-color:#374151;
-}
-
-.dark-mode .most-read-item span{
-    color:#f8fafc;
 }
