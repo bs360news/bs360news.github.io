@@ -1763,3 +1763,250 @@ p{
 .dark-mode .sidebar-list::-webkit-scrollbar-thumb{
     background:#475569;
 }
+/* =========================================================
+   BS 360 NEWS - TOP STORY IMAGE OVERLAY SLIDER
+========================================================= */
+
+/* TOP STORY MAIN */
+
+.top-story-main{
+    position:relative;
+    min-width:0;
+}
+
+.hero-card{
+    position:relative;
+    width:100%;
+    height:auto;
+    min-height:500px;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+/* BIG IMAGE */
+
+.hero-card img{
+    width:100%;
+    height:560px;
+    aspect-ratio:auto;
+    object-fit:cover;
+    display:block;
+}
+
+
+/* =========================================================
+   CONTENT ON IMAGE
+========================================================= */
+
+.hero-card .portal-card-body{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:70px 25px 22px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.92) 0%,
+            rgba(0,0,0,.72) 38%,
+            rgba(0,0,0,.25) 72%,
+            transparent 100%
+        );
+
+    z-index:2;
+}
+
+
+/* CATEGORY */
+
+.hero-card .portal-tag{
+    color:#ff3b30;
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:6px;
+}
+
+
+/* HEADLINE */
+
+.hero-card h3{
+    color:#fff;
+    font-size:27px;
+    line-height:1.5;
+    font-weight:900;
+
+    margin:0;
+
+    max-width:95%;
+
+    overflow-wrap:anywhere;
+    word-break:normal;
+}
+
+
+/* =========================================================
+   IMAGE DARK OVERLAY
+========================================================= */
+
+.hero-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.55),
+            transparent 55%
+        );
+
+    pointer-events:none;
+    z-index:1;
+}
+
+
+/* =========================================================
+   TOP STORY SLIDER ANIMATION
+========================================================= */
+
+.hero-card.hero-changing{
+    animation:heroFade .7s ease;
+}
+
+@keyframes heroFade{
+
+    0%{
+        opacity:.35;
+        transform:translateX(12px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   LATEST NEWS - AUTO VERTICAL SCROLL
+========================================================= */
+
+.latest-sidebar{
+    overflow:hidden !important;
+}
+
+.sidebar-list{
+    overflow:hidden !important;
+    max-height:515px;
+
+    scroll-behavior:smooth;
+}
+
+
+/* =========================================================
+   LATEST NEWS CARD
+========================================================= */
+
+.sidebar-card{
+    transition:
+        background .3s ease,
+        transform .3s ease;
+}
+
+.sidebar-card:hover{
+    background:#f8fafc;
+}
+
+
+/* =========================================================
+   AUTO SCROLL HIGHLIGHT
+========================================================= */
+
+.sidebar-card.auto-active{
+    background:#f1f7ff;
+    border-left:3px solid #075aaa;
+    padding-left:8px;
+}
+
+
+/* =========================================================
+   FEATURED / MOVIES / SPORTS / TELANGANA
+   HORIZONTAL AUTO SCROLL
+========================================================= */
+
+.news-slider,
+.latest-grid,
+.category-grid,
+.sports-list{
+    scroll-behavior:smooth;
+}
+
+
+/* =========================================================
+   MOBILE HERO
+========================================================= */
+
+@media(max-width:768px){
+
+    .hero-card{
+        min-height:400px;
+        border-radius:9px;
+    }
+
+    .hero-card img{
+        height:420px;
+    }
+
+    .hero-card .portal-card-body{
+        padding:
+            75px
+            15px
+            17px;
+    }
+
+    .hero-card h3{
+        font-size:19px;
+        line-height:1.55;
+    }
+
+    .hero-card .portal-tag{
+        font-size:10px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:430px){
+
+    .hero-card{
+        min-height:360px;
+    }
+
+    .hero-card img{
+        height:370px;
+    }
+
+    .hero-card .portal-card-body{
+        padding:
+            65px
+            12px
+            14px;
+    }
+
+    .hero-card h3{
+        font-size:17px;
+        line-height:1.55;
+    }
+
+}
