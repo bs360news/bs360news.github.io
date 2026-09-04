@@ -1464,7 +1464,518 @@ async function loadTopStories(){
     }
 
 }
+<!-- =====================================================
+     BS 360 NEWS - TOP STORY / LATEST NEWS
+===================================================== -->
 
+<section class="article-top-story" id="articleTopStory">
+
+    <div class="article-section-title">
+        <h2>🔥 TOP STORY</h2>
+        <span>ముఖ్య వార్తలు</span>
+    </div>
+
+    <div class="article-top-grid">
+
+        <div class="article-latest-side">
+            <div class="article-side-title">
+                📰 తాజా వార్తలు
+            </div>
+
+            <div id="articleLatestList"></div>
+        </div>
+
+        <div id="articleHero"></div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
+    const hero =
+        document.getElementById("articleHero");
+
+    const latest =
+        document.getElementById("articleLatestList");
+
+    if (!hero || !latest) {
+        return;
+    }
+
+
+    /* =====================================================
+       CURRENT ARTICLE
+    ===================================================== */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .split("?")[0]
+            .split("#")[0];
+
+
+    /* =====================================================
+       GET ARTICLE DATA FROM HOMEPAGE
+    ===================================================== */
+
+    fetch("index.html?v=" + Date.now())
+
+        .then(function (response) {
+
+            if (!response.ok) {
+                throw new Error(
+                    "Homepage loading failed"
+                );
+            }
+
+            return response.text();
+
+        })
+
+        .then(function (html) {
+
+            const parser =
+                new DOMParser();
+
+            const doc =
+                parser.parseFromString(
+                    html,
+                    "text/html"
+                );
+
+
+            /* =============================================
+               SAME SOURCE USED BY YOUR script.js
+            ============================================= */
+
+            let posts =
+                Array.from(
+                    doc.querySelectorAll(
+                        "#legacyNewsSource .post[data-url]"
+                    )
+                );
+
+
+            /* =============================================
+               FALLBACK
+            ============================================= */
+
+            if (!posts.length) {
+
+                posts =
+                    Array.from(
+                        doc.querySelectorAll(
+                            ".news-list .post[data-url]"
+                        )
+                    );
+
+            }
+
+
+            if (!posts.length) {
+
+                latest.innerHTML =
+                    "<p>తాజా వార్తలు అందుబాటులో లేవు.</p>";
+
+                return;
+
+            }
+
+
+            /* =============================================
+               REMOVE DUPLICATES
+            ============================================= */
+
+            const seen =
+                new Set();
+
+            posts =
+                posts.filter(function (post) {
+
+                    const url =
+                        (
+                            post.getAttribute(
+                                "data-url"
+                            ) || ""
+                        ).trim();
+
+                    const titleElement =
+                        post.querySelector(
+                            ".post-title, .article-title, h1, h2, h3, p"
+                        );
+
+                    const title =
+                        titleElement
+                            ? titleElement.textContent
+                                .replace(/\s+/g, " ")
+                                .trim()
+                            : "";
+
+                    const key =
+                        url + "|" + title;
+
+                    if (seen.has(key)) {
+                        return false;
+                    }
+
+                    seen.add(key);
+
+                    return true;
+
+                });
+
+
+            /* =============================================
+               EXCLUDE CURRENT ARTICLE
+            ============================================= */
+
+            posts =
+                posts.filter(function (post) {
+
+                    const url =
+                        (
+                            post.getAttribute(
+                                "data-url"
+                            ) || ""
+                        )
+                        .trim()
+                        .split("/")
+                        .pop()
+                        .split("?")[0]
+                        .split("#")[0];
+
+                    return (
+                        url.toLowerCase() !==
+                        currentPage.toLowerCase()
+                    );
+
+                });
+
+
+            if (!posts.length) {
+                return;
+            }
+
+
+            /* =================================================
+               HELPERS
+            ================================================= */
+
+            function getTitle(post) {
+
+                const element =
+                    post.querySelector(
+                        ".post-title, .article-title, h1, h2, h3, p, a"
+                    );
+
+                return element
+                    ? element.textContent
+                        .replace(/\s+/g, " ")
+                        .trim()
+                    : "BS 360 NEWS";
+
+            }
+
+
+            function getImage(post) {
+
+                const image =
+                    post.querySelector("img");
+
+                if (!image) {
+                    return "dp.png.png";
+                }
+
+                return (
+                    image.getAttribute("src") ||
+                    image.getAttribute("data-src") ||
+                    image.getAttribute("data-lazy-src") ||
+                    "dp.png.png"
+                );
+
+            }
+
+
+            function getAlt(post) {
+
+                const image =
+                    post.querySelector("img");
+
+                return image
+                    ? (
+                        image.getAttribute("alt") ||
+                        getTitle(post)
+                    )
+                    : getTitle(post);
+
+            }
+
+
+            function getUrl(post) {
+
+                return (
+                    post.getAttribute(
+                        "data-url"
+                    ) ||
+                    post.querySelector("a")
+                        ?.getAttribute("href") ||
+                    "#"
+                );
+
+            }
+
+
+            function getCategory(post) {
+
+                const value =
+                    (
+                        post.getAttribute(
+                            "data-category"
+                        ) || ""
+                    ).toLowerCase();
+
+                if (
+                    value.includes("sports") ||
+                    value.includes("sport") ||
+                    value.includes("క్రీడ")
+                ) {
+                    return "SPORTS";
+                }
+
+                if (
+                    value.includes("movies") ||
+                    value.includes("movie") ||
+                    value.includes("cinema") ||
+                    value.includes("సినిమా")
+                ) {
+                    return "CINEMA";
+                }
+
+                if (
+                    value.includes("business") ||
+                    value.includes("gold") ||
+                    value.includes("finance") ||
+                    value.includes("బిజినెస్")
+                ) {
+                    return "BUSINESS";
+                }
+
+                if (
+                    value.includes("technology") ||
+                    value.includes("tech") ||
+                    value.includes("టెక్")
+                ) {
+                    return "TECHNOLOGY";
+                }
+
+                if (
+                    value.includes("telangana") ||
+                    value.includes("ts")
+                ) {
+                    return "TELANGANA";
+                }
+
+                if (
+                    value.includes("andhra") ||
+                    value.includes("ap")
+                ) {
+                    return "ANDHRA PRADESH";
+                }
+
+                if (
+                    value.includes("india") ||
+                    value.includes("భారత్")
+                ) {
+                    return "INDIA";
+                }
+
+                if (
+                    value.includes("world") ||
+                    value.includes("ప్రపంచ")
+                ) {
+                    return "WORLD";
+                }
+
+                return "LATEST";
+
+            }
+
+
+            /* =================================================
+               HERO
+            ================================================= */
+
+            let heroIndex = 0;
+
+
+            function showHero(index) {
+
+                const post =
+                    posts[index];
+
+                if (!post) {
+                    return;
+                }
+
+                hero.innerHTML = `
+
+                    <article
+                        class="article-hero-card"
+                        onclick="window.location.href='${getUrl(post)}'"
+                    >
+
+                        <img
+                            src="${getImage(post)}"
+                            alt="${getAlt(post)}"
+                            onerror="this.onerror=null;this.src='dp.png.png';"
+                        >
+
+                        <div class="article-hero-overlay">
+
+                            <span>
+                                ${getCategory(post)}
+                            </span>
+
+                            <h2>
+                                ${getTitle(post)}
+                            </h2>
+
+                            <b>
+                                పూర్తి వార్త చదవండి →
+                            </b>
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            }
+
+
+            showHero(heroIndex);
+
+
+            /* =============================================
+               HERO CHANGE EVERY 5 SECONDS
+            ============================================= */
+
+            setInterval(function () {
+
+                heroIndex++;
+
+                if (
+                    heroIndex >= posts.length
+                ) {
+                    heroIndex = 0;
+                }
+
+                showHero(heroIndex);
+
+            }, 5000);
+
+
+            /* =================================================
+               LATEST SIDEBAR
+            ================================================= */
+
+            latest.innerHTML = "";
+
+
+            posts
+                .slice(0, 12)
+                .forEach(function (post) {
+
+                    const item =
+                        document.createElement(
+                            "article"
+                        );
+
+                    item.className =
+                        "article-latest-item";
+
+
+                    item.innerHTML = `
+
+                        <div class="article-latest-image">
+
+                            <img
+                                src="${getImage(post)}"
+                                alt="${getAlt(post)}"
+                                loading="lazy"
+                                onerror="this.onerror=null;this.src='dp.png.png';"
+                            >
+
+                        </div>
+
+                        <div class="article-latest-content">
+
+                            <span>
+                                ${getCategory(post)}
+                            </span>
+
+                            <h3>
+                                ${getTitle(post)}
+                            </h3>
+
+                        </div>
+
+                    `;
+
+
+                    item.addEventListener(
+                        "click",
+                        function () {
+
+                            const url =
+                                getUrl(post);
+
+                            if (
+                                url &&
+                                url !== "#"
+                            ) {
+
+                                window.location.href =
+                                    url;
+
+                            }
+
+                        }
+                    );
+
+
+                    latest.appendChild(item);
+
+                });
+
+        })
+
+
+        .catch(function (error) {
+
+            console.error(
+                "BS 360 NEWS TOP STORY:",
+                error
+            );
+
+            latest.innerHTML = `
+                <p>
+                    తాజా వార్తలు లోడ్ కాలేదు.
+                </p>
+            `;
+
+        });
+
+});
+
+</script>
 
 /* =================================
    START
