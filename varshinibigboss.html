@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="te">
 
@@ -69,6 +68,11 @@ content="Bigg Boss Telugu 10: వర్షిణి సౌందరాజన్ 
 >
 
 <meta
+name="twitter:description"
+content="Bigg Boss Telugu 10లో వర్షిణి సౌందరాజన్ ఎంట్రీపై ప్రచారం."
+>
+
+<meta
 name="twitter:image"
 content="https://bs360news.com/image.png"
 >
@@ -101,216 +105,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 >
 
 
-<!-- =====================================================
-CSS
-===================================================== -->
-
 <style>
-/* ================================
-   ARTICLE PAGE WIDTH
-================================ */
 
-.article-page {
-    width: min(1200px, 94%);
-    margin: 25px auto 50px;
-}
+/* =====================================================
+   RESET
+===================================================== */
 
-/* ARTICLE CARD */
-
-.article-container {
-    width: 100%;
-    background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-/* CATEGORY */
-
-.article-category {
-    display: inline-block;
-    background: #e60000;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 6px 12px;
-    border-radius: 4px;
-    margin-bottom: 12px;
-}
-
-/* TITLE */
-
-.article-title {
-    font-size: 38px;
-    line-height: 1.3;
-    font-weight: 900;
-    color: #171717;
-    margin: 0 0 12px;
-}
-
-/* DATE */
-
-.article-meta {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-/* HERO IMAGE */
-
-.article-hero {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 22px;
-}
-
-.article-hero img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-
-/* ARTICLE CONTENT */
-
-.article-content {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.article-content p {
-    font-size: 20px;
-    line-height: 1.9;
-    color: #222;
-    margin: 0 0 18px;
-}
-
-/* NOTE */
-
-.article-note {
-    background: #f5f5f5;
-    border-left: 4px solid #e60000;
-    padding: 14px 16px;
-    margin: 20px 0;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-/* TAGS */
-
-.article-tags {
-    margin-top: 25px;
-}
-
-.article-tags span {
-    display: inline-block;
-    background: #f1f1f1;
-    padding: 6px 10px;
-    margin: 4px;
-    border-radius: 4px;
-    font-size: 13px;
-}
-
-/* BACK BUTTON */
-
-.article-back {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 10px 18px;
-    background: #071a33;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 700;
-}
-
-
-/* ================================
-   TABLET
-================================ */
-
-@media (max-width: 768px) {
-
-    .article-page {
-        width: 96%;
-        margin: 15px auto 35px;
-    }
-
-    .article-title {
-        font-size: 28px;
-        line-height: 1.35;
-    }
-
-    .article-content {
-        max-width: 100%;
-    }
-
-    .article-content p {
-        font-size: 18px;
-        line-height: 1.8;
-    }
-}
-
-
-/* ================================
-   MOBILE
-================================ */
-
-@media (max-width: 480px) {
-
-    .article-page {
-        width: 100%;
-        margin: 0 auto 30px;
-    }
-
-    .article-container {
-        border-radius: 0;
-    }
-
-    .article-title {
-        font-size: 24px;
-        padding: 0 10px;
-    }
-
-    .article-category {
-        margin-left: 10px;
-        margin-top: 12px;
-    }
-
-    .article-meta {
-        padding: 0 10px;
-    }
-
-    .article-hero {
-        border-radius: 0;
-        margin-bottom: 18px;
-    }
-
-    .article-content {
-        padding: 0 12px;
-        box-sizing: border-box;
-    }
-
-    .article-content p {
-        font-size: 17px;
-        line-height: 1.8;
-    }
-
-    .article-note {
-        font-size: 15px;
-    }
-
-    .article-tags {
-        padding: 0 8px;
-    }
-
-    .article-back {
-        margin-left: 10px;
-    }
-}
 *{
     box-sizing:border-box;
 }
@@ -321,8 +121,11 @@ html{
 
 body{
     margin:0;
+    padding:0;
+
     background:#f5f7fa;
     color:#171717;
+
     font-family:
         "Noto Sans Telugu",
         Arial,
@@ -331,31 +134,47 @@ body{
 
 
 /* =====================================================
-HEADER
+   HEADER
 ===================================================== */
 
 .site-header{
+
+    width:100%;
+
     background:#ffffff;
+
     border-bottom:1px solid #e5e7eb;
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 }
 
 .header-inner{
+
     width:min(1200px,94%);
-    margin:auto;
+
     min-height:68px;
 
+    margin:0 auto;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .logo{
-    text-decoration:none;
+
     color:#111827;
+
+    text-decoration:none;
+
     font-size:25px;
+
     font-weight:900;
 }
 
@@ -364,154 +183,241 @@ HEADER
 }
 
 .theme-btn{
+
     border:1px solid #d8dde5;
-    background:#fff;
+
+    background:#ffffff;
+
+    color:#111827;
+
     border-radius:8px;
+
     padding:8px 13px;
+
     cursor:pointer;
+
     font-size:15px;
 }
 
 
 /* =====================================================
-NAVIGATION
+   NAVIGATION
 ===================================================== */
 
 .main-nav{
+
+    width:100%;
+
     background:#075aaa;
 }
 
 .nav-inner{
+
     width:min(1200px,94%);
-    margin:auto;
+
+    margin:0 auto;
 
     display:flex;
+
     align-items:center;
+
     gap:22px;
 
     overflow-x:auto;
+
     white-space:nowrap;
+
+    scrollbar-width:none;
+}
+
+.nav-inner::-webkit-scrollbar{
+    display:none;
 }
 
 .nav-inner a{
-    color:#fff;
+
+    flex:0 0 auto;
+
+    color:#ffffff;
+
     text-decoration:none;
+
     font-size:14px;
+
     font-weight:700;
+
     padding:12px 0;
 }
 
 
 /* =====================================================
-BREAKING
+   BREAKING
 ===================================================== */
 
 .breaking-bar{
+
+    width:100%;
+
+    min-height:40px;
+
     background:#111827;
-    color:#fff;
+
+    color:#ffffff;
 
     display:flex;
+
     align-items:center;
+
     gap:15px;
 
-    padding:8px calc((100% - 1200px)/2);
-    min-height:40px;
+    padding:8px max(3%, calc((100% - 1200px)/2));
 }
 
 .breaking-bar strong{
+
     color:#ff3333;
+
     white-space:nowrap;
+
+    font-size:14px;
 }
 
 .breaking-text{
+
     font-size:14px;
+
     overflow:hidden;
+
     white-space:nowrap;
+
+    text-overflow:ellipsis;
 }
 
 
 /* =====================================================
-MAIN
+   MAIN WRAPPER
 ===================================================== */
 
-.container{
-    width:min(1200px,94%);
-    margin:auto;
-}
+.main-wrapper{
 
-.article-container{
-    width:min(900px,94%);
+    width:min(1200px,94%);
+
     margin:25px auto 50px;
 }
 
 
 /* =====================================================
-BREADCRUMB
+   BREADCRUMB
 ===================================================== */
 
 .breadcrumb{
+
     display:flex;
+
     flex-wrap:wrap;
+
+    align-items:center;
+
     gap:8px;
 
     margin-bottom:15px;
 
     font-size:13px;
-    color:#666;
+
+    color:#666666;
 }
 
 .breadcrumb a{
+
     color:#075aaa;
+
     text-decoration:none;
+
     font-weight:700;
 }
 
 
 /* =====================================================
-ARTICLE
+   ARTICLE CARD
 ===================================================== */
 
 .article-page{
-    background:#fff;
+
+    width:100%;
+
+    background:#ffffff;
 
     border:1px solid #e4e8ed;
+
     border-radius:12px;
 
-    padding:22px;
+    padding:24px;
 
     box-shadow:
         0 3px 15px rgba(0,0,0,.05);
 }
 
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
 .article-category{
+
     display:inline-block;
 
     background:#e00000;
-    color:#fff;
 
-    padding:5px 9px;
+    color:#ffffff;
+
+    padding:6px 11px;
+
     border-radius:5px;
 
     font-size:12px;
+
     font-weight:800;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
-.article-title{
-    margin:0 0 12px;
 
-    font-size:32px;
-    line-height:1.35;
+/* =====================================================
+   TITLE
+===================================================== */
+
+.article-title{
+
+    width:100%;
+
+    margin:0 0 13px;
+
+    color:#171717;
+
+    font-size:36px;
+
+    line-height:1.4;
 
     font-weight:900;
 }
 
+
+/* =====================================================
+   META
+===================================================== */
+
 .article-meta{
+
     display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
     gap:10px;
 
-    color:#777;
+    color:#777777;
+
     font-size:13px;
 
     border-bottom:1px solid #e5e7eb;
@@ -521,11 +427,12 @@ ARTICLE
 
 
 /* =====================================================
-SHARE
+   SHARE
 ===================================================== */
 
 .share-row{
-    margin:14px 0;
+
+    margin:15px 0;
 }
 
 .share-row button,
@@ -534,25 +441,40 @@ SHARE
     border:0;
 
     background:#075aaa;
-    color:#fff;
 
-    padding:8px 14px;
+    color:#ffffff;
+
+    padding:9px 15px;
 
     border-radius:6px;
 
     cursor:pointer;
 
+    font-family:inherit;
+
+    font-size:14px;
+
     font-weight:700;
+
+    transition:.2s;
+}
+
+.share-row button:hover,
+.article-share-bottom button:hover{
+
+    background:#064989;
 }
 
 
 /* =====================================================
-MAIN IMAGE
+   MAIN IMAGE
 ===================================================== */
 
 .article-image{
-    margin:18px auto 20px;
-    max-width:760px;
+
+    width:100%;
+
+    margin:18px 0 25px;
 }
 
 .article-image img{
@@ -561,20 +483,22 @@ MAIN IMAGE
 
     width:100%;
 
+    height:auto;
+
     aspect-ratio:16 / 9;
 
     object-fit:cover;
 
     border-radius:9px;
 
-    background:#eee;
+    background:#eeeeee;
 }
 
 .article-image figcaption{
 
     margin-top:7px;
 
-    color:#777;
+    color:#777777;
 
     font-size:12px;
 
@@ -583,36 +507,52 @@ MAIN IMAGE
 
 
 /* =====================================================
-ARTICLE TEXT
+   ARTICLE CONTENT
 ===================================================== */
 
 .article-content{
-    font-size:17px;
-    line-height:1.9;
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    font-size:18px;
+
+    line-height:1.95;
+
+    color:#222222;
 }
 
 .article-content p{
-    margin:0 0 18px;
+
+    margin:0 0 20px;
 }
 
 .article-content strong{
+
     font-weight:800;
 }
 
 
 /* =====================================================
-TAGS
+   TAGS
 ===================================================== */
 
 .article-tags{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:7px;
 
     border-top:1px solid #e5e7eb;
 
     padding-top:15px;
-    margin-top:20px;
+
+    margin-top:25px;
 }
 
 .article-tags span{
@@ -623,7 +563,7 @@ TAGS
 
     border-radius:20px;
 
-    padding:5px 10px;
+    padding:6px 11px;
 
     font-size:12px;
 
@@ -632,24 +572,43 @@ TAGS
 
 
 /* =====================================================
-BIGG BOSS RELATED SECTION
+   BOTTOM SHARE
+===================================================== */
+
+.article-share-bottom{
+
+    margin-top:20px;
+
+    text-align:left;
+}
+
+
+/* =====================================================
+   RELATED SECTION
 ===================================================== */
 
 .related-section{
 
+    width:100%;
+
     margin-top:30px;
 
-    background:#fff;
+    background:#ffffff;
 
     border:1px solid #e4e8ed;
 
     border-radius:12px;
 
-    padding:18px;
+    padding:20px;
 
     box-shadow:
         0 3px 15px rgba(0,0,0,.05);
 }
+
+
+/* =====================================================
+   RELATED TITLE
+===================================================== */
 
 .related-title-row{
 
@@ -661,14 +620,16 @@ BIGG BOSS RELATED SECTION
 
     gap:10px;
 
-    margin-bottom:14px;
+    margin-bottom:16px;
 }
 
 .related-title-row h2{
 
     margin:0;
 
-    font-size:22px;
+    font-size:23px;
+
+    line-height:1.3;
 
     font-weight:900;
 }
@@ -682,11 +643,13 @@ BIGG BOSS RELATED SECTION
     font-size:13px;
 
     font-weight:800;
+
+    white-space:nowrap;
 }
 
 
 /* =====================================================
-CAROUSEL
+   RELATED CAROUSEL
 ===================================================== */
 
 .related-carousel{
@@ -702,22 +665,27 @@ CAROUSEL
 
     display:flex;
 
-    gap:12px;
+    flex-wrap:nowrap;
+
+    gap:14px;
 
     width:max-content;
 
-    overflow:visible;
-
-    transition:transform .4s ease;
+    transition:transform .45s ease;
 }
+
+
+/* =====================================================
+   RELATED CARD
+===================================================== */
 
 .related-card{
 
-    flex:0 0 170px;
+    flex:0 0 190px;
 
-    width:170px;
+    width:190px;
 
-    background:#fff;
+    background:#ffffff;
 
     border:1px solid #e1e5ea;
 
@@ -726,6 +694,10 @@ CAROUSEL
     overflow:hidden;
 
     cursor:pointer;
+
+    text-decoration:none;
+
+    color:#171717;
 
     transition:
         transform .2s ease,
@@ -746,16 +718,16 @@ CAROUSEL
 
     width:100%;
 
-    height:105px;
+    height:115px;
 
     object-fit:cover;
 
-    background:#ddd;
+    background:#dddddd;
 }
 
 .related-card-content{
 
-    padding:8px;
+    padding:9px;
 }
 
 .related-card-tag{
@@ -768,16 +740,16 @@ CAROUSEL
 
     font-weight:900;
 
-    margin-bottom:3px;
+    margin-bottom:4px;
 }
 
 .related-card h3{
 
     margin:0;
 
-    font-size:12px;
+    font-size:13px;
 
-    line-height:1.4;
+    line-height:1.45;
 
     font-weight:800;
 
@@ -792,7 +764,7 @@ CAROUSEL
 
 
 /* =====================================================
-ARROWS
+   RELATED ARROWS
 ===================================================== */
 
 .related-btn{
@@ -803,26 +775,28 @@ ARROWS
 
     transform:translateY(-50%);
 
-    z-index:5;
+    z-index:10;
 
-    width:34px;
-    height:34px;
+    width:38px;
+
+    height:38px;
 
     border-radius:50%;
 
     border:1px solid #d1d5db;
 
-    background:#fff;
+    background:#ffffff;
 
     color:#111827;
 
-    font-size:22px;
+    font-size:24px;
 
     cursor:pointer;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     box-shadow:
@@ -832,27 +806,30 @@ ARROWS
 .related-btn:hover{
 
     background:#075aaa;
-    color:#fff;
+
+    color:#ffffff;
 }
 
 .related-prev{
-    left:4px;
+    left:5px;
 }
 
 .related-next{
-    right:4px;
+    right:5px;
 }
 
 
 /* =====================================================
-BACK BUTTON
+   BACK LINK
 ===================================================== */
 
 .back-link{
 
     display:block;
 
-    margin:18px 0;
+    width:100%;
+
+    margin:20px 0;
 
     text-align:center;
 
@@ -861,18 +838,22 @@ BACK BUTTON
     color:#075aaa;
 
     font-weight:800;
+
+    font-size:14px;
 }
 
 
 /* =====================================================
-FOOTER
+   FOOTER
 ===================================================== */
 
 .site-footer{
 
+    width:100%;
+
     background:#111827;
 
-    color:#fff;
+    color:#ffffff;
 
     text-align:center;
 
@@ -882,18 +863,21 @@ FOOTER
 }
 
 .site-footer p{
+
     margin:0;
+
     font-size:13px;
 }
 
 
 /* =====================================================
-DARK MODE
+   DARK MODE
 ===================================================== */
 
 body.dark-mode{
 
     background:#0b1220;
+
     color:#f3f4f6;
 }
 
@@ -907,18 +891,31 @@ body.dark-mode{
 }
 
 .dark-mode .logo{
-    color:#fff;
+    color:#ffffff;
 }
 
 .dark-mode .theme-btn{
 
     background:#1f2937;
-    color:#fff;
+
+    color:#ffffff;
+
     border-color:#374151;
 }
 
+.dark-mode .article-title{
+    color:#ffffff;
+}
+
 .dark-mode .article-meta{
+
+    color:#aaaaaa;
+
     border-color:#374151;
+}
+
+.dark-mode .article-content{
+    color:#eeeeee;
 }
 
 .dark-mode .article-tags{
@@ -928,19 +925,25 @@ body.dark-mode{
 .dark-mode .article-tags span{
 
     background:#1f2937;
+
     color:#60a5fa;
 }
 
 .dark-mode .related-card{
 
     background:#111827;
+
+    color:#ffffff;
+
     border-color:#374151;
 }
 
 .dark-mode .related-btn{
 
     background:#1f2937;
-    color:#fff;
+
+    color:#ffffff;
+
     border-color:#374151;
 }
 
@@ -949,7 +952,7 @@ body.dark-mode{
 }
 
 .dark-mode .breadcrumb{
-    color:#aaa;
+    color:#aaaaaa;
 }
 
 .dark-mode .breadcrumb a{
@@ -958,12 +961,36 @@ body.dark-mode{
 
 
 /* =====================================================
-MOBILE
+   TABLET
+===================================================== */
+
+@media(max-width:900px){
+
+    .main-wrapper{
+        width:96%;
+    }
+
+    .article-title{
+        font-size:30px;
+    }
+
+    .article-content{
+        font-size:17px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
 ===================================================== */
 
 @media(max-width:700px){
 
     .header-inner{
+
+        width:94%;
+
         min-height:58px;
     }
 
@@ -972,43 +999,115 @@ MOBILE
     }
 
     .nav-inner{
+
+        width:94%;
+
         gap:17px;
     }
 
-    .breaking-bar{
-        padding:8px 3%;
+    .nav-inner a{
+        font-size:13px;
     }
 
-    .article-container{
-        width:94%;
-        margin-top:15px;
+    .breaking-bar{
+
+        padding:8px 3%;
+
+        gap:10px;
+    }
+
+    .breaking-bar strong{
+        font-size:12px;
+    }
+
+    .breaking-text{
+        font-size:12px;
+    }
+
+    .main-wrapper{
+
+        width:100%;
+
+        margin:0 auto 30px;
+    }
+
+    .breadcrumb{
+
+        padding:12px 12px 0;
+
+        margin-bottom:8px;
     }
 
     .article-page{
-        padding:14px;
-        border-radius:8px;
+
+        width:100%;
+
+        padding:15px;
+
+        border-radius:0;
+
+        border-left:0;
+
+        border-right:0;
+
+        box-shadow:none;
+    }
+
+    .article-category{
+        font-size:11px;
     }
 
     .article-title{
-        font-size:23px;
-        line-height:1.4;
+
+        font-size:24px;
+
+        line-height:1.45;
     }
 
-    .article-content{
-        font-size:16px;
-        line-height:1.85;
+    .article-meta{
+        font-size:12px;
     }
 
     .article-image{
-        margin-top:14px;
+
+        margin:15px 0 20px;
     }
 
     .article-image img{
-        border-radius:7px;
+
+        border-radius:6px;
+
+        aspect-ratio:16 / 9;
+    }
+
+    .article-content{
+
+        width:100%;
+
+        max-width:none;
+
+        font-size:16px;
+
+        line-height:1.9;
+    }
+
+    .article-content p{
+        margin-bottom:18px;
     }
 
     .related-section{
-        padding:12px;
+
+        width:100%;
+
+        margin-top:20px;
+
+        padding:14px;
+
+        border-radius:0;
+
+        border-left:0;
+
+        border-right:0;
     }
 
     .related-title-row h2{
@@ -1016,16 +1115,88 @@ MOBILE
     }
 
     .related-card{
-        flex-basis:145px;
-        width:145px;
+
+        flex:0 0 155px;
+
+        width:155px;
     }
 
     .related-card img{
-        height:95px;
+        height:100px;
     }
 
     .related-card h3{
         font-size:11px;
+    }
+
+    .related-btn{
+
+        width:32px;
+
+        height:32px;
+
+        font-size:21px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:430px){
+
+    .article-page{
+        padding:12px;
+    }
+
+    .article-title{
+        font-size:22px;
+    }
+
+    .article-content{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    .article-image img{
+        border-radius:4px;
+    }
+
+    .related-card{
+
+        flex-basis:145px;
+
+        width:145px;
+    }
+
+    .related-card img{
+        height:92px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:360px){
+
+    .article-title{
+        font-size:20px;
+    }
+
+    .article-content{
+        font-size:15px;
+    }
+
+    .related-card{
+
+        flex-basis:135px;
+
+        width:135px;
     }
 
 }
@@ -1039,678 +1210,691 @@ MOBILE
 
 
 <!-- =====================================================
-HEADER
+     HEADER
 ===================================================== -->
 
 <header class="site-header">
 
-<div class="header-inner">
+    <div class="header-inner">
 
-<a
-href="index.html"
-class="logo"
->
-BS 360 <span>NEWS</span>
-</a>
+        <a
+            href="index.html"
+            class="logo"
+        >
+            BS 360 <span>NEWS</span>
+        </a>
 
+        <button
+            class="theme-btn"
+            id="themeButton"
+            type="button"
+            aria-label="Toggle dark mode"
+        >
+            🌙
+        </button>
 
-<button
-class="theme-btn"
-id="themeButton"
-type="button"
->
-🌙
-</button>
-
-</div>
+    </div>
 
 </header>
 
 
 <!-- =====================================================
-NAV
+     NAVIGATION
 ===================================================== -->
 
 <nav class="main-nav">
 
-<div class="nav-inner">
+    <div class="nav-inner">
 
-<a href="index.html">
-🏠 హోమ్
-</a>
+        <a href="index.html">
+            🏠 హోమ్
+        </a>
 
-<a href="index.html">
-📰 తాజా వార్తలు
-</a>
+        <a href="index.html">
+            📰 తాజా వార్తలు
+        </a>
 
-<a href="index.html">
-🎬 సినిమా
-</a>
+        <a href="index.html">
+            🎬 సినిమా
+        </a>
 
-<a href="index.html">
-🏏 స్పోర్ట్స్
-</a>
+        <a href="index.html">
+            🏏 స్పోర్ట్స్
+        </a>
 
-<a href="bigboss10.html">
-📺 Bigg Boss 10
-</a>
+        <a href="bigboss10.html">
+            📺 Bigg Boss 10
+        </a>
 
-</div>
+    </div>
 
 </nav>
 
 
 <!-- =====================================================
-BREAKING
+     BREAKING
 ===================================================== -->
 
 <div class="breaking-bar">
 
-<strong>
-🔴 BREAKING
-</strong>
+    <strong>
+        🔴 BREAKING
+    </strong>
 
-<div class="breaking-text">
-
-Bigg Boss Telugu 10పై ఆసక్తికరమైన ప్రచారం.. వర్షిణి సౌందరాజన్ పేరు వైరల్
-
-</div>
+    <div class="breaking-text">
+        Bigg Boss Telugu 10పై ఆసక్తికరమైన ప్రచారం.. వర్షిణి సౌందరాజన్ పేరు వైరల్
+    </div>
 
 </div>
 
 
 <!-- =====================================================
-MAIN
+     MAIN
 ===================================================== -->
 
-<main class="article-container">
+<main class="main-wrapper">
 
 
-<!-- BREADCRUMB -->
+    <!-- BREADCRUMB -->
 
-<div class="breadcrumb">
+    <div class="breadcrumb">
 
-<a href="index.html">
-హోమ్
-</a>
+        <a href="index.html">
+            హోమ్
+        </a>
 
-<span>›</span>
+        <span>›</span>
 
-<a href="bigboss10.html">
-Bigg Boss 10
-</a>
+        <a href="bigboss10.html">
+            Bigg Boss 10
+        </a>
 
-<span>›</span>
+        <span>›</span>
 
-<span>
-వర్షిణి సౌందరాజన్
-</span>
+        <span>
+            వర్షిణి సౌందరాజన్
+        </span>
 
-</div>
+    </div>
 
 
-<!-- =====================================================
-ARTICLE
-===================================================== -->
+    <!-- =================================================
+         ARTICLE
+    ================================================= -->
 
-<article class="article-page">
+    <article class="article-page">
 
 
-<div class="article-category">
+        <div class="article-category">
+            📺 BIGG BOSS 10
+        </div>
 
-📺 BIGG BOSS 10
 
-</div>
+        <h1 class="article-title">
+            Bigg Boss Telugu 10: వర్షిణి సౌందరాజన్ ఎంట్రీ? వైరల్ అవుతున్న వార్త ఇదే
+        </h1>
 
 
-<h1 class="article-title">
+        <div class="article-meta">
 
-Bigg Boss Telugu 10: వర్షిణి సౌందరాజన్ ఎంట్రీ? వైరల్ అవుతున్న వార్త ఇదే
+            <span>
+                📅 సెప్టెంబర్ 5, 2026
+            </span>
 
-</h1>
+            <span>•</span>
 
+            <span>
+                BS 360 NEWS
+            </span>
 
-<div class="article-meta">
+        </div>
 
-<span>
-📅 సెప్టెంబర్ 5, 2026
-</span>
 
-<span>
-•
-</span>
+        <!-- SHARE -->
 
-<span>
-BS 360 NEWS
-</span>
+        <div class="share-row">
 
-</div>
+            <button
+                type="button"
+                onclick="shareArticle()"
+            >
 
+                <i class="fa-solid fa-share-nodes"></i>
 
-<div class="share-row">
+                Share
 
-<button
-type="button"
-onclick="shareArticle()"
->
+            </button>
 
-<i class="fa-solid fa-share-nodes"></i>
+        </div>
 
-Share
 
-</button>
+        <!-- =================================================
+             MAIN IMAGE
+        ================================================= -->
 
-</div>
+        <figure class="article-image">
 
+            <img
+                src="image.png"
+                alt="Bigg Boss Telugu 10 వర్షిణి సౌందరాజన్"
+                loading="eager"
+            >
 
-<!-- IMAGE -->
+            <figcaption>
+                Bigg Boss Telugu 10లో వర్షిణి సౌందరాజన్ ఎంట్రీపై ప్రచారం
+            </figcaption>
 
-<figure class="article-image">
+        </figure>
 
-<img
-src="image.png"
-alt="Bigg Boss Telugu 10 వర్షిణి సౌందరాజన్"
-loading="eager"
->
 
-<figcaption>
+        <!-- =================================================
+             ARTICLE CONTENT
+        ================================================= -->
 
-Bigg Boss Telugu 10లో వర్షిణి సౌందరాజన్ ఎంట్రీపై ప్రచారం
+        <div class="article-content">
 
-</figcaption>
 
-</figure>
+            <p>
 
+                📺 <strong>Bigg Boss Telugu 10:</strong>
+                బిగ్ బాస్ తెలుగు కొత్త సీజన్‌పై ప్రేక్షకుల్లో ఆసక్తి
+                రోజురోజుకూ పెరుగుతోంది. ఈ సీజన్‌లో ఎవరు కంటెస్టెంట్లుగా
+                హౌస్‌లోకి అడుగుపెట్టబోతున్నారనే చర్చ సోషల్ మీడియాలో
+                జోరుగా సాగుతోంది. ఈ క్రమంలో నటి, యాంకర్‌గా గుర్తింపు
+                తెచ్చుకున్న <strong>వర్షిణి సౌందరాజన్</strong> పేరు కూడా
+                వినిపిస్తోంది.
 
-<!-- =====================================================
-ARTICLE CONTENT
-===================================================== -->
+            </p>
 
-<div class="article-content">
 
+            <p>
 
-<p>
+                వర్షిణి సౌందరాజన్ తెలుగు ప్రేక్షకులకు పరిచయం ఉన్న ముఖం.
+                యాంకరింగ్‌తో పాటు టెలివిజన్ కార్యక్రమాలు, నటన ద్వారా
+                ఆమె గుర్తింపు సంపాదించుకున్నారు. తన ప్రత్యేకమైన
+                యాంకరింగ్ స్టైల్, మాట్లాడే విధానం, స్క్రీన్ ప్రెజెన్స్‌తో
+                ఆమెకు అభిమానులు ఉన్నారు.
 
-📺 <strong>Bigg Boss Telugu 10:</strong>
-బిగ్ బాస్ తెలుగు కొత్త సీజన్‌పై ప్రేక్షకుల్లో ఆసక్తి రోజురోజుకూ పెరుగుతోంది.
-ఈ సీజన్‌లో ఎవరు కంటెస్టెంట్లుగా హౌస్‌లోకి అడుగుపెట్టబోతున్నారనే చర్చ
-సోషల్ మీడియాలో జోరుగా సాగుతోంది. ఈ క్రమంలో నటి, యాంకర్‌గా గుర్తింపు
-తెచ్చుకున్న <strong>వర్షిణి సౌందరాజన్</strong> పేరు కూడా వినిపిస్తోంది.
+            </p>
 
-</p>
 
+            <p>
 
-<p>
+                ఇప్పుడు Bigg Boss Telugu 10లో వర్షిణి కనిపించబోతున్నారంటూ
+                సోషల్ మీడియాలో ప్రచారం జరుగుతోంది. ఆమె పేరు
+                కంటెస్టెంట్ల లిస్ట్‌లో ఉందంటూ కొన్ని వార్తలు, పోస్టులు
+                వైరల్ అవుతున్నాయి. దీంతో బిగ్ బాస్ అభిమానుల్లో ఆసక్తి
+                మరింత పెరిగింది.
 
-వర్షిణి సౌందరాజన్ తెలుగు ప్రేక్షకులకు పరిచయం ఉన్న ముఖం.
-యాంకరింగ్‌తో పాటు టెలివిజన్ కార్యక్రమాలు, నటన ద్వారా ఆమె గుర్తింపు
-సంపాదించుకున్నారు. తన ప్రత్యేకమైన యాంకరింగ్ స్టైల్, మాట్లాడే విధానం,
-స్క్రీన్ ప్రెజెన్స్‌తో ఆమెకు అభిమానులు ఉన్నారు.
+            </p>
 
-</p>
 
+            <p>
 
-<p>
+                అయితే వర్షిణి సౌందరాజన్ Bigg Boss Telugu 10లోకి
+                కంటెస్టెంట్‌గా ఎంట్రీ ఇస్తున్నారనే విషయంపై అధికారికంగా
+                స్పష్టత వచ్చే వరకు దీనిని ప్రచారం లేదా అంచనాగా మాత్రమే
+                చూడాలి.
 
-ఇప్పుడు Bigg Boss Telugu 10లో వర్షిణి కనిపించబోతున్నారంటూ సోషల్ మీడియాలో
-ప్రచారం జరుగుతోంది. ఆమె పేరు కంటెస్టెంట్ల లిస్ట్‌లో ఉందంటూ కొన్ని
-వార్తలు, పోస్టులు వైరల్ అవుతున్నాయి. దీంతో బిగ్ బాస్ అభిమానుల్లో
-ఆసక్తి మరింత పెరిగింది.
+            </p>
 
-</p>
 
+            <p>
 
-<p>
+                ఒకవేళ వర్షిణి నిజంగానే బిగ్ బాస్ హౌస్‌లోకి అడుగుపెడితే,
+                ఆమెకు ఇది కొత్త తరహా ఛాలెంజ్‌గా మారే అవకాశం ఉంది.
+                బిగ్ బాస్ హౌస్‌లో టాస్కులు, నామినేషన్స్, ఇతర
+                కంటెస్టెంట్లతో సంబంధాలు వంటి అంశాలు గేమ్‌ను ప్రభావితం
+                చేస్తాయి.
 
-అయితే వర్షిణి సౌందరాజన్ Bigg Boss Telugu 10లోకి కంటెస్టెంట్‌గా
-ఎంట్రీ ఇస్తున్నారనే విషయంపై అధికారికంగా స్పష్టత వచ్చే వరకు దీనిని
-ప్రచారం లేదా అంచనాగా మాత్రమే చూడాలి.
+            </p>
 
-</p>
 
+            <p>
 
-<p>
+                వర్షిణికి ఇప్పటికే టెలివిజన్ రంగంలో అనుభవం ఉండటంతో,
+                బిగ్ బాస్ హౌస్‌లో ఆమె ఎలా వ్యవహరిస్తారనే దానిపై
+                ప్రేక్షకుల్లో ఆసక్తి నెలకొంది. ఆమె ఎనర్జీ, సరదా మాటలు
+                హౌస్‌లో కూడా కనిపిస్తాయా అనే చర్చ జరుగుతోంది.
 
-ఒకవేళ వర్షిణి నిజంగానే బిగ్ బాస్ హౌస్‌లోకి అడుగుపెడితే,
-ఆమెకు ఇది కొత్త తరహా ఛాలెంజ్‌గా మారే అవకాశం ఉంది. బిగ్ బాస్ హౌస్‌లో
-టాస్కులు, నామినేషన్స్, ఇతర కంటెస్టెంట్లతో సంబంధాలు వంటి అంశాలు
-గేమ్‌ను ప్రభావితం చేస్తాయి.
+            </p>
 
-</p>
 
+            <p>
 
-<p>
+                బిగ్ బాస్ షోలో వ్యక్తిత్వం, టాస్క్ పెర్ఫార్మెన్స్,
+                ప్రేక్షకుల ఓటింగ్ చాలా కీలకంగా ఉంటాయి. అందుకే
+                కంటెస్టెంట్‌గా ఎంట్రీ ఇచ్చిన తర్వాత వారి అసలు గేమ్
+                ఎలా ఉంటుందనేదే చివరికి ముఖ్యమవుతుంది.
 
-వర్షిణికి ఇప్పటికే టెలివిజన్ రంగంలో అనుభవం ఉండటంతో,
-బిగ్ బాస్ హౌస్‌లో ఆమె ఎలా వ్యవహరిస్తారనే దానిపై ప్రేక్షకుల్లో
-ఆసక్తి నెలకొంది. ఆమె ఎనర్జీ, సరదా మాటలు హౌస్‌లో కూడా కనిపిస్తాయా
-అనే చర్చ జరుగుతోంది.
+            </p>
 
-</p>
 
+            <p>
 
-<p>
+                ప్రస్తుతం వర్షిణి పేరు Bigg Boss Telugu 10 కంటెస్టెంట్‌గా
+                ప్రచారంలో ఉండటంతో ఆమె అభిమానులు కూడా ఆసక్తిగా
+                ఎదురుచూస్తున్నారు. అధికారిక ప్రకటన వచ్చిన తర్వాతే
+                పూర్తి క్లారిటీ వచ్చే అవకాశం ఉంది.
 
-బిగ్ బాస్ షోలో వ్యక్తిత్వం, టాస్క్ పెర్ఫార్మెన్స్, ప్రేక్షకుల ఓటింగ్
-చాలా కీలకంగా ఉంటాయి. అందుకే కంటెస్టెంట్‌గా ఎంట్రీ ఇచ్చిన తర్వాత
-వారి అసలు గేమ్ ఎలా ఉంటుందనేదే చివరికి ముఖ్యమవుతుంది.
+            </p>
 
-</p>
 
+            <p>
 
-<p>
+                <strong>గమనిక:</strong>
+                ఈ కథనంలో పేర్కొన్న Bigg Boss 10 ఎంట్రీ సమాచారం ప్రస్తుతం
+                జరుగుతున్న ప్రచారం మరియు అందుబాటులో ఉన్న సమాచారంపై
+                ఆధారపడి ఉంది. అధికారిక ప్రకటన వచ్చిన తర్వాత వివరాలు
+                మారవచ్చు.
 
-ప్రస్తుతం వర్షిణి పేరు Bigg Boss Telugu 10 కంటెస్టెంట్‌గా ప్రచారంలో
-ఉండటంతో ఆమె అభిమానులు కూడా ఆసక్తిగా ఎదురుచూస్తున్నారు. అధికారిక
-ప్రకటన వచ్చిన తర్వాతే పూర్తి క్లారిటీ వచ్చే అవకాశం ఉంది.
+            </p>
 
-</p>
 
+        </div>
 
-<p>
 
-<strong>గమనిక:</strong>
-ఈ కథనంలో పేర్కొన్న Bigg Boss 10 ఎంట్రీ సమాచారం ప్రస్తుతం జరుగుతున్న
-ప్రచారం మరియు అందుబాటులో ఉన్న సమాచారంపై ఆధారపడి ఉంది.
-అధికారిక ప్రకటన వచ్చిన తర్వాత వివరాలు మారవచ్చు.
+        <!-- TAGS -->
 
-</p>
+        <div class="article-tags">
 
+            <span>#BiggBoss10</span>
 
-</div>
+            <span>#BiggBossTelugu10</span>
 
+            <span>#VarshiniSounderajan</span>
 
-<!-- TAGS -->
+            <span>#Varshini</span>
 
-<div class="article-tags">
+            <span>#BiggBossTelugu</span>
 
-<span>#BiggBoss10</span>
-<span>#BiggBossTelugu10</span>
-<span>#VarshiniSounderajan</span>
-<span>#Varshini</span>
-<span>#BiggBossTelugu</span>
+        </div>
 
-</div>
 
+        <!-- BOTTOM SHARE -->
 
-<div class="article-share-bottom">
+        <div class="article-share-bottom">
 
-<button
-type="button"
-onclick="shareArticle()"
->
+            <button
+                type="button"
+                onclick="shareArticle()"
+            >
 
-📤 వార్తను షేర్ చేయండి
+                📤 వార్తను షేర్ చేయండి
 
-</button>
+            </button>
 
-</div>
+        </div>
 
 
-</article>
+    </article>
 
 
-<!-- =====================================================
-RELATED BIGG BOSS ARTICLES
-===================================================== -->
+    <!-- =================================================
+         RELATED BIGG BOSS
+    ================================================= -->
 
-<section class="related-section">
+    <section class="related-section">
 
 
-<div class="related-title-row">
+        <div class="related-title-row">
 
-<h2>
-📺 Bigg Boss 10 తాజా కథనాలు
-</h2>
+            <h2>
+                📺 Bigg Boss 10 తాజా కథనాలు
+            </h2>
 
-<a href="bigboss10.html">
-మరిన్ని →
-</a>
+            <a href="bigboss10.html">
+                మరిన్ని →
+            </a>
 
-</div>
+        </div>
 
 
-<div class="related-carousel">
+        <div class="related-carousel">
 
 
-<button
-class="related-btn related-prev"
-id="relatedPrev"
-type="button"
->
-‹
-</button>
+            <button
+                class="related-btn related-prev"
+                id="relatedPrev"
+                type="button"
+                aria-label="Previous"
+            >
+                ‹
+            </button>
 
 
-<div
-class="related-track"
-id="relatedTrack"
->
+            <div
+                class="related-track"
+                id="relatedTrack"
+            >
 
 
-<!-- 1 -->
+                <!-- 1 -->
 
-<a
-href="varshinibigboss.html"
-class="related-card"
->
+                <a
+                    href="varshinibigboss.html"
+                    class="related-card"
+                >
 
-<img
-src="image.png"
-alt="వర్షిణి సౌందరాజన్"
-loading="lazy"
->
+                    <img
+                        src="image.png"
+                        alt="వర్షిణి సౌందరాజన్"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-వర్షిణి సౌందరాజన్ ఎంట్రీ? వైరల్ అవుతున్న వార్త ఇదే
-</h3>
+                        <h3>
+                            వర్షిణి సౌందరాజన్ ఎంట్రీ? వైరల్ అవుతున్న వార్త ఇదే
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 2 -->
+                <!-- 2 -->
 
-<a
-href="naresh-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="naresh-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="naresh-bigg-boss10.jpg"
-alt="జబర్దస్త్ నరేష్"
-loading="lazy"
->
+                    <img
+                        src="naresh-bigg-boss10.jpg"
+                        alt="జబర్దస్త్ నరేష్"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-బిగ్ బాస్ 10లో జబర్దస్త్ నరేష్ ఎంట్రీ? పూర్తి కథ ఇదే
-</h3>
+                        <h3>
+                            బిగ్ బాస్ 10లో జబర్దస్త్ నరేష్ ఎంట్రీ? పూర్తి కథ ఇదే
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 3 -->
+                <!-- 3 -->
 
-<a
-href="adith-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="adith-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="adith-bigg-boss10.jpg"
-alt="ఆదిత్ అరుణ్"
-loading="lazy"
->
+                    <img
+                        src="adith-bigg-boss10.jpg"
+                        alt="ఆదిత్ అరుణ్"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-ఆదిత్ అరుణ్ బిగ్ బాస్ హౌస్‌లోకి వస్తున్నారా?
-</h3>
+                        <h3>
+                            ఆదిత్ అరుణ్ బిగ్ బాస్ హౌస్‌లోకి వస్తున్నారా?
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 4 -->
+                <!-- 4 -->
 
-<a
-href="debjani-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="debjani-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="debjani-bigg-boss10.jpg"
-alt="దేబ్జానీ మోడక్"
-loading="lazy"
->
+                    <img
+                        src="debjani-bigg-boss10.jpg"
+                        alt="దేబ్జానీ మోడక్"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-దేబ్జానీ మోడక్ ఎంట్రీపై సోషల్ మీడియాలో వైరల్ చర్చ
-</h3>
+                        <h3>
+                            దేబ్జానీ మోడక్ ఎంట్రీపై సోషల్ మీడియాలో వైరల్ చర్చ
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 5 -->
+                <!-- 5 -->
 
-<a
-href="ramprasad-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="ramprasad-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="ramprasad-bigg-boss10.jpg"
-alt="ఆటో రామ్ ప్రసాద్"
-loading="lazy"
->
+                    <img
+                        src="ramprasad-bigg-boss10.jpg"
+                        alt="ఆటో రామ్ ప్రసాద్"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-ఆటో రామ్ ప్రసాద్ బిగ్ బాస్‌లోకి వస్తున్నారా?
-</h3>
+                        <h3>
+                            ఆటో రామ్ ప్రసాద్ బిగ్ బాస్‌లోకి వస్తున్నారా?
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 6 -->
+                <!-- 6 -->
 
-<a
-href="temper-vamsi-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="temper-vamsi-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="temper-vamsi-bigg-boss10.jpg"
-alt="టెంపర్ వంశీ"
-loading="lazy"
->
+                    <img
+                        src="temper-vamsi-bigg-boss10.jpg"
+                        alt="టెంపర్ వంశీ"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-టెంపర్ వంశీ బిగ్ బాస్ 10లోకి ఎంట్రీ?
-</h3>
+                        <h3>
+                            టెంపర్ వంశీ బిగ్ బాస్ 10లోకి ఎంట్రీ?
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 7 -->
+                <!-- 7 -->
 
-<a
-href="sudheer-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="sudheer-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="sudheer-bigg-boss10.jpg"
-alt="సుధీర్ రెడ్డి"
-loading="lazy"
->
+                    <img
+                        src="sudheer-bigg-boss10.jpg"
+                        alt="సుధీర్ రెడ్డి"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-సుధీర్ రెడ్డి గురించి Bigg Boss 10లో ఆసక్తికరమైన చర్చ
-</h3>
+                        <h3>
+                            సుధీర్ రెడ్డి గురించి Bigg Boss 10లో ఆసక్తికరమైన చర్చ
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 8 -->
+                <!-- 8 -->
 
-<a
-href="krishnudu-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="krishnudu-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="krishnudu-bigg-boss10.jpg"
-alt="కృష్ణుడు"
-loading="lazy"
->
+                    <img
+                        src="krishnudu-bigg-boss10.jpg"
+                        alt="కృష్ణుడు"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-కృష్ణుడు బిగ్ బాస్ 10లో కనిపించబోతున్నారా?
-</h3>
+                        <h3>
+                            కృష్ణుడు బిగ్ బాస్ 10లో కనిపించబోతున్నారా?
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 9 -->
+                <!-- 9 -->
 
-<a
-href="mukesh-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="mukesh-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="mukesh-bigg-boss10.jpg"
-alt="ముఖేష్ గౌడ"
-loading="lazy"
->
+                    <img
+                        src="mukesh-bigg-boss10.jpg"
+                        alt="ముఖేష్ గౌడ"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-ముఖేష్ గౌడ బిగ్ బాస్ ఎంట్రీపై వైరల్ అవుతున్న వార్తలు
-</h3>
+                        <h3>
+                            ముఖేష్ గౌడ బిగ్ బాస్ ఎంట్రీపై వైరల్ అవుతున్న వార్తలు
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<!-- 10 -->
+                <!-- 10 -->
 
-<a
-href="chaitra-rai-bigg-boss10.html"
-class="related-card"
->
+                <a
+                    href="chaitra-rai-bigg-boss10.html"
+                    class="related-card"
+                >
 
-<img
-src="chaitra-rai-bigg-boss10.jpg"
-alt="చైత్ర రాయ్"
-loading="lazy"
->
+                    <img
+                        src="chaitra-rai-bigg-boss10.jpg"
+                        alt="చైత్ర రాయ్"
+                        loading="lazy"
+                    >
 
-<div class="related-card-content">
+                    <div class="related-card-content">
 
-<span class="related-card-tag">
-📺 BIGG BOSS 10
-</span>
+                        <span class="related-card-tag">
+                            📺 BIGG BOSS 10
+                        </span>
 
-<h3>
-చైత్ర రాయ్ Bigg Boss 10లోకి వస్తున్నారా?
-</h3>
+                        <h3>
+                            చైత్ర రాయ్ Bigg Boss 10లోకి వస్తున్నారా?
+                        </h3>
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-</div>
+            </div>
 
 
-<button
-class="related-btn related-next"
-id="relatedNext"
-type="button"
->
-›
-</button>
+            <button
+                class="related-btn related-next"
+                id="relatedNext"
+                type="button"
+                aria-label="Next"
+            >
+                ›
+            </button>
 
 
-</div>
+        </div>
 
-</section>
+    </section>
 
 
-<a
-href="bigboss10.html"
-class="back-link"
->
-← Bigg Boss 10 అన్ని వార్తలకు తిరిగి వెళ్లండి
-</a>
+    <!-- BACK -->
+
+    <a
+        href="bigboss10.html"
+        class="back-link"
+    >
+        ← Bigg Boss 10 అన్ని వార్తలకు తిరిగి వెళ్లండి
+    </a>
 
 
 </main>
 
 
 <!-- =====================================================
-FOOTER
+     FOOTER
 ===================================================== -->
 
 <footer class="site-footer">
 
-<p>
-© 2026 BS 360 NEWS. All Rights Reserved.
-</p>
+    <p>
+        © 2026 BS 360 NEWS. All Rights Reserved.
+    </p>
 
 </footer>
 
 
 <!-- =====================================================
-JAVASCRIPT
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
@@ -1719,68 +1903,58 @@ JAVASCRIPT
 
 
 /* =====================================================
-THEME
+   THEME
 ===================================================== */
 
 const themeButton =
-document.getElementById("themeButton");
+    document.getElementById("themeButton");
 
 
 const savedTheme =
-localStorage.getItem(
-    "bs360-dark-mode"
-);
+    localStorage.getItem("bs360-dark-mode");
 
 
 if(savedTheme === "true"){
 
-    document.body.classList.add(
-        "dark-mode"
-    );
+    document.body.classList.add("dark-mode");
 
-    themeButton.textContent =
-        "☀️";
+    themeButton.textContent = "☀️";
 
 }
 
 
 themeButton.addEventListener(
-"click",
-function(){
+    "click",
+    function(){
 
-    document.body.classList.toggle(
-        "dark-mode"
-    );
+        document.body.classList.toggle("dark-mode");
 
-    const active =
-    document.body.classList.contains(
-        "dark-mode"
-    );
+        const active =
+            document.body.classList.contains("dark-mode");
 
-    localStorage.setItem(
-        "bs360-dark-mode",
-        active
-    );
+        localStorage.setItem(
+            "bs360-dark-mode",
+            active
+        );
 
-    themeButton.textContent =
-    active
-    ? "☀️"
-    : "🌙";
+        themeButton.textContent =
+            active ? "☀️" : "🌙";
 
-});
+    }
+);
 
 
 /* =====================================================
-SHARE
+   SHARE ARTICLE
 ===================================================== */
 
 function shareArticle(){
 
     const title =
-    document.title;
+        document.title;
 
     const url =
-    window.location.href;
+        window.location.href;
 
 
     if(navigator.share){
@@ -1793,9 +1967,7 @@ function shareArticle(){
 
             url:url
 
-        }).catch(
-            function(){}
-        );
+        }).catch(function(){});
 
         return;
     }
@@ -1804,23 +1976,19 @@ function shareArticle(){
     if(navigator.clipboard){
 
         navigator.clipboard
-        .writeText(url)
-        .then(
-            function(){
+            .writeText(url)
+            .then(function(){
 
                 alert(
                     "Article link copied!"
                 );
 
-            }
-        )
-        .catch(
-            function(){
+            })
+            .catch(function(){
 
                 alert(url);
 
-            }
-        );
+            });
 
         return;
     }
@@ -1832,56 +2000,66 @@ function shareArticle(){
 
 
 /* =====================================================
-RELATED ARTICLES AUTO SCROLL
+   RELATED ARTICLES
 ===================================================== */
 
 const relatedTrack =
-document.getElementById(
-    "relatedTrack"
-);
+    document.getElementById("relatedTrack");
 
 const relatedPrev =
-document.getElementById(
-    "relatedPrev"
-);
+    document.getElementById("relatedPrev");
 
 const relatedNext =
-document.getElementById(
-    "relatedNext"
-);
+    document.getElementById("relatedNext");
+
+const relatedCarousel =
+    document.querySelector(".related-carousel");
 
 
 let relatedPosition = 0;
 
-let relatedTimer;
+let relatedTimer = null;
+
+let touchPauseTimer = null;
 
 
-function cardWidth(){
+/* =====================================================
+   CARD WIDTH
+===================================================== */
+
+function getCardWidth(){
 
     const card =
-    relatedTrack.querySelector(
-        ".related-card"
-    );
+        relatedTrack.querySelector(".related-card");
 
     if(!card){
-        return 182;
+        return 204;
     }
 
-    return (
-        card.offsetWidth + 12
-    );
+    const style =
+        window.getComputedStyle(
+            relatedTrack
+        );
+
+    const gap =
+        parseFloat(style.columnGap || style.gap) || 14;
+
+    return card.offsetWidth + gap;
 
 }
 
 
-function moveRelated(
-    direction
-){
+/* =====================================================
+   MOVE RELATED
+===================================================== */
+
+function moveRelated(direction){
 
     const cards =
-    relatedTrack.querySelectorAll(
-        ".related-card"
-    );
+        relatedTrack.querySelectorAll(
+            ".related-card"
+        );
+
 
     if(!cards.length){
         return;
@@ -1889,74 +2067,81 @@ function moveRelated(
 
 
     const visibleWidth =
-    relatedTrack.parentElement
-    .clientWidth;
+        relatedCarousel.clientWidth;
 
 
     const totalWidth =
-    relatedTrack.scrollWidth;
+        relatedTrack.scrollWidth;
 
 
     const maxPosition =
-    Math.max(
-        0,
-        totalWidth - visibleWidth
-    );
+        Math.max(
+            0,
+            totalWidth - visibleWidth
+        );
 
 
     relatedPosition +=
-    direction * cardWidth();
+        direction * getCardWidth();
 
 
-    if(
-        relatedPosition >
-        maxPosition
-    ){
+    if(relatedPosition > maxPosition){
 
         relatedPosition = 0;
 
     }
 
 
-    if(
-        relatedPosition < 0
-    ){
+    if(relatedPosition < 0){
 
-        relatedPosition =
-        maxPosition;
+        relatedPosition = maxPosition;
 
     }
 
 
     relatedTrack.style.transform =
-    "translateX(-" +
-    relatedPosition +
-    "px)";
+        "translate3d(-" +
+        relatedPosition +
+        "px,0,0)";
 
 }
 
 
+/* =====================================================
+   NEXT
+===================================================== */
+
 relatedNext.addEventListener(
-"click",
-function(){
+    "click",
+    function(){
 
-    moveRelated(1);
+        moveRelated(1);
 
-    restartRelatedAuto();
+        restartRelatedAuto();
 
-});
+    }
+);
 
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
 
 relatedPrev.addEventListener(
-"click",
-function(){
+    "click",
+    function(){
 
-    moveRelated(-1);
+        moveRelated(-1);
 
-    restartRelatedAuto();
+        restartRelatedAuto();
 
-});
+    }
+);
 
+
+/* =====================================================
+   START AUTO SCROLL
+===================================================== */
 
 function startRelatedAuto(){
 
@@ -1966,17 +2151,21 @@ function startRelatedAuto(){
 
 
     relatedTimer =
-    setInterval(
-        function(){
+        setInterval(
+            function(){
 
-            moveRelated(1);
+                moveRelated(1);
 
-        },
-        5000
-    );
+            },
+            5000
+        );
 
 }
 
+
+/* =====================================================
+   RESTART AUTO
+===================================================== */
 
 function restartRelatedAuto(){
 
@@ -1985,74 +2174,113 @@ function restartRelatedAuto(){
 }
 
 
-startRelatedAuto();
-
-
 /* =====================================================
-PAUSE WHEN MOUSE IS OVER
+   MOUSE PAUSE
 ===================================================== */
 
-const relatedCarousel =
-document.querySelector(
-    ".related-carousel"
+relatedCarousel.addEventListener(
+    "mouseenter",
+    function(){
+
+        clearInterval(
+            relatedTimer
+        );
+
+    }
 );
 
 
 relatedCarousel.addEventListener(
-"mouseenter",
-function(){
+    "mouseleave",
+    function(){
 
-    clearInterval(
-        relatedTimer
-    );
+        startRelatedAuto();
 
-});
-
-
-relatedCarousel.addEventListener(
-"mouseleave",
-function(){
-
-    startRelatedAuto();
-
-});
+    }
+);
 
 
 /* =====================================================
-MOBILE TOUCH PAUSE
+   TOUCH PAUSE
 ===================================================== */
 
 relatedCarousel.addEventListener(
-"touchstart",
-function(){
+    "touchstart",
+    function(){
 
-    clearInterval(
-        relatedTimer
-    );
+        clearInterval(
+            relatedTimer
+        );
 
-},
-{
-    passive:true
-});
+        clearTimeout(
+            touchPauseTimer
+        );
+
+    },
+    {
+        passive:true
+    }
+);
 
 
 relatedCarousel.addEventListener(
-"touchend",
-function(){
+    "touchend",
+    function(){
 
-    setTimeout(
-        function(){
+        touchPauseTimer =
+            setTimeout(
+                function(){
 
-            startRelatedAuto();
+                    startRelatedAuto();
 
-        },
-        1500
-    );
+                },
+                1500
+            );
 
-},
-{
-    passive:true
-});
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =====================================================
+   WINDOW RESIZE
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        const maxPosition =
+            Math.max(
+                0,
+                relatedTrack.scrollWidth -
+                relatedCarousel.clientWidth
+            );
+
+
+        if(relatedPosition > maxPosition){
+
+            relatedPosition =
+                maxPosition;
+
+            relatedTrack.style.transform =
+                "translate3d(-" +
+                relatedPosition +
+                "px,0,0)";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+startRelatedAuto();
 
 </script>
 
@@ -2060,5 +2288,3 @@ function(){
 </body>
 
 </html>
-```
-
