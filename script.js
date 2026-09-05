@@ -2,6 +2,8 @@
    BS 360 NEWS
    PROFESSIONAL NEWS PORTAL
    FINAL RENDERING + AUTO SCROLL JAVASCRIPT
+
+   BIGG BOSS 10 SPECIAL SECTION
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -22,36 +24,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        FIND ALL ORIGINAL ARTICLES
-       IMPORTANT:
-       Existing 102 articles are NEVER deleted.
+       ORIGINAL ARTICLES ARE NEVER DELETED
     ===================================================== */
 
     function sourcePosts() {
 
-        let posts = $$("#legacyNewsSource .post[data-url]");
+        let posts =
+            $$("#legacyNewsSource .post[data-url]");
 
         if (!posts.length) {
-            posts = $$(".news-list .post[data-url]");
+            posts =
+                $$(".news-list .post[data-url]");
         }
 
         if (!posts.length) {
-            posts = $$(".news-item.post[data-url]");
+            posts =
+                $$(".news-item.post[data-url]");
         }
 
         if (!posts.length) {
-            posts = $$(".post[data-url]");
+            posts =
+                $$(".post[data-url]");
         }
 
         return posts;
     }
 
 
-    let allPosts = sourcePosts();
+    let allPosts =
+        sourcePosts();
 
 
     /* =====================================================
-       REMOVE ONLY TRUE DUPLICATES
-       ORIGINAL ARTICLES ARE NOT DELETED
+       REMOVE TRUE DUPLICATES ONLY
     ===================================================== */
 
     function uniquePosts(posts) {
@@ -61,7 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return posts.filter(function (post) {
 
             const url =
-                (post.getAttribute("data-url") || "").trim();
+                (post.getAttribute("data-url") || "")
+                    .trim();
 
             const titleElement =
                 $(".post-title", post) ||
@@ -92,7 +98,46 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    allPosts = uniquePosts(allPosts);
+    allPosts =
+        uniquePosts(allPosts);
+
+
+    /* =====================================================
+       BIGG BOSS 10 CHECK
+    ===================================================== */
+
+    function isBigBoss(post) {
+
+        const value =
+            catsOf(post);
+
+        return (
+            /\bbiggboss10\b/i.test(value) ||
+            /\bbigboss10\b/i.test(value) ||
+            /\bbigg-boss-10\b/i.test(value) ||
+            /\bbigg_boss_10\b/i.test(value) ||
+            value.includes("బిగ్ బాస్ 10") ||
+            value.includes("బిగ్‌బాస్ 10") ||
+            value.includes("bigg boss 10")
+        );
+
+    }
+
+
+    /* =====================================================
+       NON BIGG BOSS POSTS
+       Used for all normal sections
+    ===================================================== */
+
+    function normalPosts() {
+
+        return allPosts.filter(function (post) {
+
+            return !isBigBoss(post);
+
+        });
+
+    }
 
 
     /* =====================================================
@@ -127,7 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function imageOf(post) {
 
-        const image = $("img", post);
+        const image =
+            $("img", post);
 
         if (!image) {
             return "dp.png.png";
@@ -149,7 +195,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function altOf(post) {
 
-        const image = $("img", post);
+        const image =
+            $("img", post);
 
         if (!image) {
             return titleOf(post);
@@ -195,7 +242,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function hasCat(post, category) {
 
-        const value = catsOf(post);
+        const value =
+            catsOf(post);
 
         return value
             .split(/[\s,|]+/)
@@ -208,17 +256,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        SPORTS MATCH
-       Supports:
-       sports
-       sports news
-       news sports
-       sport
-       క్రీడ
     ===================================================== */
 
     function isSports(post) {
 
-        const value = catsOf(post);
+        const value =
+            catsOf(post);
 
         return (
             /\bsports\b/i.test(value) ||
@@ -235,7 +278,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function isMovies(post) {
 
-        const value = catsOf(post);
+        const value =
+            catsOf(post);
 
         return (
             /\bmovies\b/i.test(value) ||
@@ -253,7 +297,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function isBusiness(post) {
 
-        const value = catsOf(post);
+        const value =
+            catsOf(post);
 
         return (
             /\bbusiness\b/i.test(value) ||
@@ -271,15 +316,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function labelOf(post) {
 
-        const value = catsOf(post);
+        const value =
+            catsOf(post);
+
+
+        if (isBigBoss(post)) {
+            return "BIGG BOSS 10";
+        }
+
 
         if (isSports(post)) {
             return "SPORTS";
         }
 
+
         if (isMovies(post)) {
             return "CINEMA";
         }
+
 
         if (
             /\btechnology\b/i.test(value) ||
@@ -289,9 +343,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return "TECHNOLOGY";
         }
 
+
         if (isBusiness(post)) {
             return "BUSINESS";
         }
+
 
         if (
             /\bjobs\b/i.test(value) ||
@@ -302,12 +358,14 @@ document.addEventListener("DOMContentLoaded", function () {
             return "JOBS";
         }
 
+
         if (
             /\bworld\b/i.test(value) ||
             value.includes("ప్రపంచ")
         ) {
             return "WORLD";
         }
+
 
         if (
             /\bindia\b/i.test(value) ||
@@ -317,6 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return "INDIA";
         }
 
+
         if (
             /\bandhra\b/i.test(value) ||
             /\bap\b/i.test(value)
@@ -324,12 +383,14 @@ document.addEventListener("DOMContentLoaded", function () {
             return "ANDHRA PRADESH";
         }
 
+
         if (
             /\btelangana\b/i.test(value) ||
             /\bts\b/i.test(value)
         ) {
             return "TELANGANA";
         }
+
 
         return "LATEST";
 
@@ -357,7 +418,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function openPost(post) {
 
-        const url = articleUrl(post);
+        const url =
+            articleUrl(post);
 
         if (
             url &&
@@ -365,7 +427,8 @@ document.addEventListener("DOMContentLoaded", function () {
             url !== "javascript:void(0)"
         ) {
 
-            window.location.href = url;
+            window.location.href =
+                url;
 
         }
 
@@ -392,7 +455,10 @@ document.addEventListener("DOMContentLoaded", function () {
        CREATE NORMAL PORTAL CARD
     ===================================================== */
 
-    function createCard(post, type = "latest") {
+    function createCard(
+        post,
+        type = "latest"
+    ) {
 
         const card =
             document.createElement("article");
@@ -402,17 +468,30 @@ document.addEventListener("DOMContentLoaded", function () {
             type +
             "-card";
 
+
         const image =
-            escapeHTML(imageOf(post));
+            escapeHTML(
+                imageOf(post)
+            );
+
 
         const title =
-            escapeHTML(titleOf(post));
+            escapeHTML(
+                titleOf(post)
+            );
+
 
         const category =
-            escapeHTML(labelOf(post));
+            escapeHTML(
+                labelOf(post)
+            );
+
 
         const alt =
-            escapeHTML(altOf(post));
+            escapeHTML(
+                altOf(post)
+            );
+
 
         card.innerHTML = `
 
@@ -426,6 +505,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 >
 
             </div>
+
 
             <div class="portal-card-body">
 
@@ -445,12 +525,113 @@ document.addEventListener("DOMContentLoaded", function () {
 
         `;
 
+
         card.addEventListener(
             "click",
             function () {
+
                 openPost(post);
+
             }
         );
+
+
+        return card;
+
+    }
+
+
+    /* =====================================================
+       BIGG BOSS CARD
+       IMAGE + TITLE OVERLAY
+    ===================================================== */
+
+    function createBigBossCard(post) {
+
+        const card =
+            document.createElement("article");
+
+
+        card.className =
+            "bigboss-card";
+
+
+        card.setAttribute(
+            "tabindex",
+            "0"
+        );
+
+
+        const image =
+            escapeHTML(
+                imageOf(post)
+            );
+
+
+        const title =
+            escapeHTML(
+                titleOf(post)
+            );
+
+
+        const alt =
+            escapeHTML(
+                altOf(post)
+            );
+
+
+        card.innerHTML = `
+
+            <img
+                src="${image}"
+                alt="${alt}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='dp.png.png';"
+            >
+
+            <div class="bigboss-overlay">
+
+                <span class="bigboss-tag">
+                    📺 BIGG BOSS 10
+                </span>
+
+                <h3>
+                    ${title}
+                </h3>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            function () {
+
+                openPost(post);
+
+            }
+        );
+
+
+        card.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    openPost(post);
+
+                }
+
+            }
+        );
+
 
         return card;
 
@@ -467,8 +648,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const wrapper =
             document.createElement("article");
 
+
         wrapper.className =
             "portal-card hero-card hero-overlay-card";
+
 
         wrapper.innerHTML = `
 
@@ -503,12 +686,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         `;
 
+
         wrapper.addEventListener(
             "click",
             function () {
+
                 openPost(post);
+
             }
         );
+
 
         return wrapper;
 
@@ -517,9 +704,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        TOP STORY
-       LEFT = LATEST SIDEBAR
-       RIGHT = BIG HERO
-       HERO CHANGES EVERY 5 SECONDS
+       BIGG BOSS EXCLUDED
     ===================================================== */
 
     function renderTopStory() {
@@ -527,57 +712,88 @@ document.addEventListener("DOMContentLoaded", function () {
         const target =
             $("#topStory");
 
-        if (!target || !allPosts.length) {
+
+        if (!target) {
             return;
         }
 
+
+        const posts =
+            normalPosts();
+
+
+        if (!posts.length) {
+            return;
+        }
+
+
         let heroIndex = 0;
+
 
         function showHero(index) {
 
             const post =
-                allPosts[index];
+                posts[index];
+
 
             if (!post) {
                 return;
             }
 
+
             const hero =
                 createHeroOverlay(post);
+
 
             hero.classList.add(
                 "hero-enter"
             );
 
-            target.innerHTML = "";
 
-            target.appendChild(hero);
+            target.innerHTML =
+                "";
+
+
+            target.appendChild(
+                hero
+            );
 
         }
 
+
         showHero(heroIndex);
 
-        setInterval(function () {
 
-            heroIndex++;
+        setInterval(
+            function () {
 
-            if (
-                heroIndex >=
-                allPosts.length
-            ) {
-                heroIndex = 0;
-            }
+                heroIndex++;
 
-            showHero(heroIndex);
 
-        }, 5000);
+                if (
+                    heroIndex >=
+                    posts.length
+                ) {
+
+                    heroIndex = 0;
+
+                }
+
+
+                showHero(
+                    heroIndex
+                );
+
+            },
+            5000
+        );
 
     }
 
 
     /* =====================================================
        LATEST SIDEBAR
-       LEFT SIDE OF TOP STORY
+       BIGG BOSS EXCLUDED
     ===================================================== */
 
     function renderLatestSidebar() {
@@ -585,62 +801,81 @@ document.addEventListener("DOMContentLoaded", function () {
         const target =
             $("#latestSidebar");
 
+
         if (!target) {
             return;
         }
 
-        target.innerHTML = "";
+
+        target.innerHTML =
+            "";
+
 
         const posts =
-            allPosts.slice(0, 12);
+            normalPosts()
+                .slice(0, 12);
 
-        posts.forEach(function (post) {
 
-            const item =
-                document.createElement("article");
+        posts.forEach(
+            function (post) {
 
-            item.className =
-                "sidebar-card";
+                const item =
+                    document.createElement("article");
 
-            item.innerHTML = `
 
-                <div class="sidebar-thumb">
+                item.className =
+                    "sidebar-card";
 
-                    <img
-                        src="${escapeHTML(imageOf(post))}"
-                        alt="${escapeHTML(altOf(post))}"
-                        loading="lazy"
-                        onerror="this.onerror=null;this.src='dp.png.png';"
-                    >
 
-                </div>
+                item.innerHTML = `
 
-                <div class="sidebar-content">
+                    <div class="sidebar-thumb">
 
-                    <span class="portal-tag">
-                        ${escapeHTML(labelOf(post))}
-                    </span>
+                        <img
+                            src="${escapeHTML(imageOf(post))}"
+                            alt="${escapeHTML(altOf(post))}"
+                            loading="lazy"
+                            onerror="this.onerror=null;this.src='dp.png.png';"
+                        >
 
-                    <h3>
-                        ${escapeHTML(titleOf(post))}
-                    </h3>
+                    </div>
 
-                </div>
+                    <div class="sidebar-content">
 
-            `;
+                        <span class="portal-tag">
+                            ${escapeHTML(labelOf(post))}
+                        </span>
 
-            item.addEventListener(
-                "click",
-                function () {
-                    openPost(post);
-                }
-            );
+                        <h3>
+                            ${escapeHTML(titleOf(post))}
+                        </h3>
 
-            target.appendChild(item);
+                    </div>
 
-        });
+                `;
 
-        startSidebarAutoScroll(target);
+
+                item.addEventListener(
+                    "click",
+                    function () {
+
+                        openPost(post);
+
+                    }
+                );
+
+
+                target.appendChild(
+                    item
+                );
+
+            }
+        );
+
+
+        startSidebarAutoScroll(
+            target
+        );
 
     }
 
@@ -649,45 +884,65 @@ document.addEventListener("DOMContentLoaded", function () {
        SIDEBAR AUTO SCROLL
     ===================================================== */
 
-    function startSidebarAutoScroll(element) {
+    function startSidebarAutoScroll(
+        element
+    ) {
 
         if (!element) {
             return;
         }
 
+
         if (
-            element.dataset.sidebarScrollStarted === "true"
+            element.dataset
+                .sidebarScrollStarted ===
+            "true"
         ) {
             return;
         }
 
-        element.dataset.sidebarScrollStarted = "true";
 
-        let paused = false;
+        element.dataset
+            .sidebarScrollStarted =
+            "true";
+
+
+        let paused =
+            false;
+
 
         element.addEventListener(
             "mouseenter",
             function () {
+
                 paused = true;
+
             }
         );
+
 
         element.addEventListener(
             "mouseleave",
             function () {
+
                 paused = false;
+
             }
         );
+
 
         element.addEventListener(
             "touchstart",
             function () {
+
                 paused = true;
+
             },
             {
                 passive: true
             }
         );
+
 
         element.addEventListener(
             "touchend",
@@ -695,7 +950,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 setTimeout(
                     function () {
+
                         paused = false;
+
                     },
                     1500
                 );
@@ -706,254 +963,164 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
 
-        setInterval(function () {
 
-            if (paused) {
-                return;
-            }
+        setInterval(
+            function () {
 
-            const maxScroll =
-                element.scrollHeight -
-                element.clientHeight;
+                if (paused) {
+                    return;
+                }
 
-            if (maxScroll <= 10) {
-                return;
-            }
 
-            const nextPosition =
-                element.scrollTop + 90;
+                const maxScroll =
+                    element.scrollHeight -
+                    element.clientHeight;
 
-            if (
-                nextPosition >=
-                maxScroll
-            ) {
 
-                element.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+                if (maxScroll <= 10) {
+                    return;
+                }
 
-            } else {
 
-                element.scrollTo({
-                    top: nextPosition,
-                    behavior: "smooth"
-                });
+                const nextPosition =
+                    element.scrollTop +
+                    90;
 
-            }
 
-        }, 2600);
+                if (
+                    nextPosition >=
+                    maxScroll
+                ) {
+
+                    element.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                } else {
+
+                    element.scrollTo({
+                        top: nextPosition,
+                        behavior: "smooth"
+                    });
+
+                }
+
+            },
+            2600
+        );
 
     }
 
 
     /* =====================================================
-       FEATURED NEWS
+       BIGG BOSS 10
+       10 CARDS
+       AUTO SCROLL EVERY 5 SECONDS
     ===================================================== */
 
-    function renderSlider() {
+    function renderBigBoss() {
 
         const track =
-            $("#sliderTrack");
+            $("#bigbossTrack");
 
-        const container =
-            $("#newsSlider");
 
-        if (!track) {
+        const slider =
+            $("#bigbossSlider");
+
+
+        if (
+            !track ||
+            !slider
+        ) {
+
             return;
+
         }
 
-        track.innerHTML = "";
 
-        allPosts
-            .slice(0, 15)
-            .forEach(function (post) {
+        track.innerHTML =
+            "";
+
+
+        const posts =
+            allPosts
+                .filter(isBigBoss)
+                .slice(0, 10);
+
+
+        if (!posts.length) {
+
+            console.warn(
+                "BS 360 NEWS: Bigg Boss 10 articles not found."
+            );
+
+            return;
+
+        }
+
+
+        posts.forEach(
+            function (post) {
 
                 track.appendChild(
-                    createCard(
-                        post,
-                        "slider"
+                    createBigBossCard(
+                        post
                     )
                 );
 
-            });
+            }
+        );
 
-        setupHorizontalAutoScroll(
-            container,
-            280,
-            3000
+
+        setupBigBossAutoScroll(
+            slider,
+            132,
+            5000
+        );
+
+
+        setupBigBossButtons(
+            slider
         );
 
     }
 
 
     /* =====================================================
-       LATEST NEWS
+       BIGG BOSS AUTO SCROLL
+       EVERY 5 SECONDS
     ===================================================== */
 
-    function renderLatest(posts = allPosts) {
-
-        const target =
-            $("#latestGrid");
-
-        if (!target) {
-            return;
-        }
-
-        target.innerHTML = "";
-
-        posts
-            .slice(0, 18)
-            .forEach(function (post) {
-
-                target.appendChild(
-                    createCard(
-                        post,
-                        "latest"
-                    )
-                );
-
-            });
-
-        setupHorizontalAutoScroll(
-            target,
-            300,
-            3200
-        );
-
-    }
-
-
-    /* =====================================================
-       MOVIES
-    ===================================================== */
-
-    function renderMovies() {
-
-        const target =
-            $("#cinemaGrid");
-
-        if (!target) {
-            return;
-        }
-
-        target.innerHTML = "";
-
-        const movies =
-            allPosts.filter(isMovies);
-
-        const posts =
-            movies.length
-                ? movies.slice(0, 12)
-                : [];
-
-        posts.forEach(function (post) {
-
-            target.appendChild(
-                createCard(
-                    post,
-                    "category"
-                )
-            );
-
-        });
-
-        setupHorizontalAutoScroll(
-            target,
-            300,
-            3400
-        );
-
-    }
-
-
-    /* =====================================================
-       SPORTS
-       SUPPORTS:
-       sports
-       sports news
-       news sports
-       sport
-       క్రీడ
-    ===================================================== */
-
-    function renderSports() {
-
-        const target =
-            $("#sportsGrid");
-
-        if (!target) {
-            return;
-        }
-
-        target.innerHTML = "";
-
-        const sports =
-            allPosts.filter(isSports);
-
-        const posts =
-            sports.length
-                ? sports.slice(0, 12)
-                : [];
-
-        posts.forEach(function (post) {
-
-            target.appendChild(
-                createCard(
-                    post,
-                    "sports"
-                )
-            );
-
-        });
-
-        setupHorizontalAutoScroll(
-            target,
-            300,
-            3500
-        );
-
-    }
-
-
-    /* =====================================================
-       UNIVERSAL HORIZONTAL AUTO SCROLL
-       FEATURED + LATEST + MOVIES + SPORTS
-    ===================================================== */
-
-    function setupHorizontalAutoScroll(
+    function setupBigBossAutoScroll(
         container,
-        distance = 280,
-        interval = 3000
+        distance = 132,
+        interval = 5000
     ) {
 
         if (!container) {
             return;
         }
 
-        /* Prevent duplicate timers */
+
         if (
-            container.dataset.autoScrollStarted === "true"
+            container.dataset
+                .bigbossAutoScrollStarted ===
+            "true"
         ) {
+
             return;
+
         }
 
-        container.dataset.autoScrollStarted = "true";
+
+        container.dataset
+            .bigbossAutoScrollStarted =
+            "true";
 
 
-        /* =================================================
-           FORCE HORIZONTAL SCROLL
-        ================================================= */
-
-        container.style.display = "flex";
-        container.style.flexWrap = "nowrap";
-        container.style.overflowX = "auto";
-        container.style.overflowY = "hidden";
-        container.style.scrollBehavior = "smooth";
-        container.style.webkitOverflowScrolling = "touch";
-
-
-        let paused = false;
+        let paused =
+            false;
 
 
         /* =================================================
@@ -963,14 +1130,19 @@ document.addEventListener("DOMContentLoaded", function () {
         container.addEventListener(
             "mouseenter",
             function () {
+
                 paused = true;
+
             }
         );
+
 
         container.addEventListener(
             "mouseleave",
             function () {
+
                 paused = false;
+
             }
         );
 
@@ -982,12 +1154,15 @@ document.addEventListener("DOMContentLoaded", function () {
         container.addEventListener(
             "touchstart",
             function () {
+
                 paused = true;
+
             },
             {
                 passive: true
             }
         );
+
 
         container.addEventListener(
             "touchend",
@@ -995,7 +1170,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 setTimeout(
                     function () {
+
                         paused = false;
+
                     },
                     1500
                 );
@@ -1008,7 +1185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* =================================================
-           AUTO SCROLL TIMER
+           AUTO SCROLL
         ================================================= */
 
         setInterval(
@@ -1024,17 +1201,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     container.clientWidth;
 
 
-                /* No horizontal overflow */
-
                 if (maxScroll <= 5) {
                     return;
                 }
 
-
-                /* =================================================
-                   REACHED END
-                   RETURN TO START
-                ================================================= */
 
                 if (
                     container.scrollLeft >=
@@ -1047,12 +1217,443 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     return;
+
                 }
 
 
-                /* =================================================
-                   MOVE FORWARD
-                ================================================= */
+                container.scrollBy({
+                    left: distance,
+                    behavior: "smooth"
+                });
+
+            },
+            interval
+        );
+
+    }
+
+
+    /* =====================================================
+       BIGG BOSS PREVIOUS / NEXT BUTTONS
+    ===================================================== */
+
+    function setupBigBossButtons(
+        slider
+    ) {
+
+        const previous =
+            $(".bigboss-prev");
+
+
+        const next =
+            $(".bigboss-next");
+
+
+        if (previous) {
+
+            previous.addEventListener(
+                "click",
+                function () {
+
+                    slider.scrollBy({
+                        left: -264,
+                        behavior: "smooth"
+                    });
+
+                }
+            );
+
+        }
+
+
+        if (next) {
+
+            next.addEventListener(
+                "click",
+                function () {
+
+                    const maxScroll =
+                        slider.scrollWidth -
+                        slider.clientWidth;
+
+
+                    if (
+                        slider.scrollLeft >=
+                        maxScroll - 10
+                    ) {
+
+                        slider.scrollTo({
+                            left: 0,
+                            behavior: "smooth"
+                        });
+
+                    } else {
+
+                        slider.scrollBy({
+                            left: 264,
+                            behavior: "smooth"
+                        });
+
+                    }
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       FEATURED NEWS
+       BIGG BOSS EXCLUDED
+    ===================================================== */
+
+    function renderSlider() {
+
+        const track =
+            $("#sliderTrack");
+
+
+        const container =
+            $("#newsSlider");
+
+
+        if (!track) {
+            return;
+        }
+
+
+        track.innerHTML =
+            "";
+
+
+        normalPosts()
+            .slice(0, 15)
+            .forEach(
+                function (post) {
+
+                    track.appendChild(
+                        createCard(
+                            post,
+                            "slider"
+                        )
+                    );
+
+                }
+            );
+
+
+        setupHorizontalAutoScroll(
+            container,
+            280,
+            3000
+        );
+
+    }
+
+
+    /* =====================================================
+       LATEST NEWS
+       BIGG BOSS EXCLUDED
+    ===================================================== */
+
+    function renderLatest(
+        posts
+    ) {
+
+        const target =
+            $("#latestGrid");
+
+
+        if (!target) {
+            return;
+        }
+
+
+        target.innerHTML =
+            "";
+
+
+        const normal =
+            posts ||
+            normalPosts();
+
+
+        normal
+            .filter(function (post) {
+
+                return !isBigBoss(post);
+
+            })
+            .slice(0, 18)
+            .forEach(
+                function (post) {
+
+                    target.appendChild(
+                        createCard(
+                            post,
+                            "latest"
+                        )
+                    );
+
+                }
+            );
+
+
+        setupHorizontalAutoScroll(
+            target,
+            300,
+            3200
+        );
+
+    }
+
+
+    /* =====================================================
+       MOVIES
+       BIGG BOSS EXCLUDED
+    ===================================================== */
+
+    function renderMovies() {
+
+        const target =
+            $("#cinemaGrid");
+
+
+        if (!target) {
+            return;
+        }
+
+
+        target.innerHTML =
+            "";
+
+
+        const movies =
+            normalPosts()
+                .filter(isMovies);
+
+
+        movies
+            .slice(0, 12)
+            .forEach(
+                function (post) {
+
+                    target.appendChild(
+                        createCard(
+                            post,
+                            "category"
+                        )
+                    );
+
+                }
+            );
+
+
+        setupHorizontalAutoScroll(
+            target,
+            300,
+            3400
+        );
+
+    }
+
+
+    /* =====================================================
+       SPORTS
+       BIGG BOSS EXCLUDED
+    ===================================================== */
+
+    function renderSports() {
+
+        const target =
+            $("#sportsGrid");
+
+
+        if (!target) {
+            return;
+        }
+
+
+        target.innerHTML =
+            "";
+
+
+        const sports =
+            normalPosts()
+                .filter(isSports);
+
+
+        sports
+            .slice(0, 12)
+            .forEach(
+                function (post) {
+
+                    target.appendChild(
+                        createCard(
+                            post,
+                            "sports"
+                        )
+                    );
+
+                }
+            );
+
+
+        setupHorizontalAutoScroll(
+            target,
+            300,
+            3500
+        );
+
+    }
+
+
+    /* =====================================================
+       UNIVERSAL HORIZONTAL AUTO SCROLL
+    ===================================================== */
+
+    function setupHorizontalAutoScroll(
+        container,
+        distance = 280,
+        interval = 3000
+    ) {
+
+        if (!container) {
+            return;
+        }
+
+
+        if (
+            container.dataset
+                .autoScrollStarted ===
+            "true"
+        ) {
+
+            return;
+
+        }
+
+
+        container.dataset
+            .autoScrollStarted =
+            "true";
+
+
+        container.style.display =
+            "flex";
+
+
+        container.style.flexWrap =
+            "nowrap";
+
+
+        container.style.overflowX =
+            "auto";
+
+
+        container.style.overflowY =
+            "hidden";
+
+
+        container.style.scrollBehavior =
+            "smooth";
+
+
+        container.style.webkitOverflowScrolling =
+            "touch";
+
+
+        let paused =
+            false;
+
+
+        container.addEventListener(
+            "mouseenter",
+            function () {
+
+                paused = true;
+
+            }
+        );
+
+
+        container.addEventListener(
+            "mouseleave",
+            function () {
+
+                paused = false;
+
+            }
+        );
+
+
+        container.addEventListener(
+            "touchstart",
+            function () {
+
+                paused = true;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        container.addEventListener(
+            "touchend",
+            function () {
+
+                setTimeout(
+                    function () {
+
+                        paused = false;
+
+                    },
+                    1500
+                );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        setInterval(
+            function () {
+
+                if (paused) {
+                    return;
+                }
+
+
+                const maxScroll =
+                    container.scrollWidth -
+                    container.clientWidth;
+
+
+                if (maxScroll <= 5) {
+                    return;
+                }
+
+
+                if (
+                    container.scrollLeft >=
+                    maxScroll - 10
+                ) {
+
+                    container.scrollTo({
+                        left: 0,
+                        behavior: "smooth"
+                    });
+
+                    return;
+
+                }
+
 
                 container.scrollBy({
                     left: distance,
@@ -1068,6 +1669,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        MOST READ
+       BIGG BOSS EXCLUDED
     ===================================================== */
 
     function renderMostRead() {
@@ -1075,69 +1677,89 @@ document.addEventListener("DOMContentLoaded", function () {
         const target =
             $("#mostReadList");
 
+
         if (!target) {
             return;
         }
 
-        target.innerHTML = "";
 
-        allPosts
+        target.innerHTML =
+            "";
+
+
+        normalPosts()
             .slice(0, 10)
-            .forEach(function (post, index) {
+            .forEach(
+                function (
+                    post,
+                    index
+                ) {
 
-                const item =
-                    document.createElement("article");
+                    const item =
+                        document.createElement(
+                            "article"
+                        );
 
-                item.className =
-                    "most-read-item";
 
-                item.innerHTML = `
+                    item.className =
+                        "most-read-item";
 
-                    <div class="most-number">
-                        ${String(index + 1).padStart(2, "0")}
-                    </div>
 
-                    <div class="most-read-image">
+                    item.innerHTML = `
 
-                        <img
-                            src="${escapeHTML(imageOf(post))}"
-                            alt="${escapeHTML(altOf(post))}"
-                            loading="lazy"
-                            onerror="this.onerror=null;this.src='dp.png.png';"
-                        >
+                        <div class="most-number">
+                            ${String(index + 1).padStart(2, "0")}
+                        </div>
 
-                    </div>
+                        <div class="most-read-image">
 
-                    <div class="most-read-text">
+                            <img
+                                src="${escapeHTML(imageOf(post))}"
+                                alt="${escapeHTML(altOf(post))}"
+                                loading="lazy"
+                                onerror="this.onerror=null;this.src='dp.png.png';"
+                            >
 
-                        <span class="portal-tag">
-                            ${escapeHTML(labelOf(post))}
-                        </span>
+                        </div>
 
-                        <h3>
-                            ${escapeHTML(titleOf(post))}
-                        </h3>
+                        <div class="most-read-text">
 
-                    </div>
+                            <span class="portal-tag">
+                                ${escapeHTML(labelOf(post))}
+                            </span>
 
-                `;
+                            <h3>
+                                ${escapeHTML(titleOf(post))}
+                            </h3>
 
-                item.addEventListener(
-                    "click",
-                    function () {
-                        openPost(post);
-                    }
-                );
+                        </div>
 
-                target.appendChild(item);
+                    `;
 
-            });
+
+                    item.addEventListener(
+                        "click",
+                        function () {
+
+                            openPost(post);
+
+                        }
+                    );
+
+
+                    target.appendChild(
+                        item
+                    );
+
+                }
+            );
 
     }
 
 
     /* =====================================================
        SEARCH
+       BIGG BOSS EXCLUDED
     ===================================================== */
 
     function performSearch() {
@@ -1145,14 +1767,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const input =
             $("#searchInput");
 
+
         if (!input) {
             return;
         }
+
 
         const query =
             input.value
                 .trim()
                 .toLowerCase();
+
 
         if (!query) {
 
@@ -1162,24 +1787,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+
         const matched =
-            allPosts.filter(function (post) {
+            normalPosts()
+                .filter(
+                    function (post) {
 
-                const title =
-                    titleOf(post)
-                        .toLowerCase();
+                        const title =
+                            titleOf(post)
+                                .toLowerCase();
 
-                const category =
-                    catsOf(post);
 
-                return (
-                    title.includes(query) ||
-                    category.includes(query)
+                        const category =
+                            catsOf(post);
+
+
+                        return (
+                            title.includes(query) ||
+                            category.includes(query)
+                        );
+
+                    }
                 );
 
-            });
 
-        renderSearchResults(matched);
+        renderSearchResults(
+            matched
+        );
 
     }
 
@@ -1188,18 +1822,34 @@ document.addEventListener("DOMContentLoaded", function () {
        SEARCH RESULTS
     ===================================================== */
 
-    function renderSearchResults(posts) {
+    function renderSearchResults(
+        posts
+    ) {
 
         const target =
             $("#latestGrid");
+
 
         if (!target) {
             return;
         }
 
-        target.innerHTML = "";
 
-        if (!posts.length) {
+        target.innerHTML =
+            "";
+
+
+        const filtered =
+            posts.filter(
+                function (post) {
+
+                    return !isBigBoss(post);
+
+                }
+            );
+
+
+        if (!filtered.length) {
 
             target.innerHTML = `
 
@@ -1219,25 +1869,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
 
-            posts
+            filtered
                 .slice(0, 30)
-                .forEach(function (post) {
+                .forEach(
+                    function (post) {
 
-                    target.appendChild(
-                        createCard(
-                            post,
-                            "latest"
-                        )
-                    );
+                        target.appendChild(
+                            createCard(
+                                post,
+                                "latest"
+                            )
+                        );
 
-                });
+                    }
+                );
 
         }
 
-        /*
-           Search results are newly rendered.
-           Make sure horizontal scroll remains active.
-        */
 
         setupHorizontalAutoScroll(
             target,
@@ -1248,6 +1896,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const section =
             $("#latestSection");
+
 
         if (section) {
 
@@ -1270,21 +1919,28 @@ document.addEventListener("DOMContentLoaded", function () {
         const searchButton =
             $("#searchButton");
 
+
         const searchBox =
             $("#searchBox");
+
 
         const searchInput =
             $("#searchInput");
 
+
         const searchSubmit =
             $("#searchSubmit");
+
 
         if (
             !searchButton ||
             !searchBox
         ) {
+
             return;
+
         }
+
 
         searchButton.addEventListener(
             "click",
@@ -1294,9 +1950,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     "active"
                 );
 
+
                 searchBox.classList.toggle(
                     "open"
                 );
+
 
                 if (
                     searchBox.classList.contains(
@@ -1307,7 +1965,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     setTimeout(
                         function () {
+
                             searchInput.focus();
+
                         },
                         100
                     );
@@ -1317,6 +1977,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
 
+
         if (searchSubmit) {
 
             searchSubmit.addEventListener(
@@ -1325,6 +1986,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
         }
+
 
         if (searchInput) {
 
@@ -1353,26 +2015,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        GLOBAL SEARCH FUNCTION
-       For inline HTML onclick
     ===================================================== */
 
     window.searchNews =
         function () {
+
             performSearch();
+
         };
 
 
     /* =====================================================
        CATEGORY FILTER
+       BIGG BOSS EXCLUDED FROM NORMAL FILTERS
     ===================================================== */
 
     window.filterPosts =
         function (category) {
 
             category =
-                String(category || "")
+                String(
+                    category || ""
+                )
                     .toLowerCase()
                     .trim();
+
 
             let filtered = [];
 
@@ -1384,7 +2051,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 filtered =
-                    allPosts;
+                    normalPosts();
 
             }
 
@@ -1397,9 +2064,10 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 filtered =
-                    allPosts.filter(
-                        isSports
-                    );
+                    normalPosts()
+                        .filter(
+                            isSports
+                        );
 
             }
 
@@ -1411,9 +2079,10 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 filtered =
-                    allPosts.filter(
-                        isMovies
-                    );
+                    normalPosts()
+                        .filter(
+                            isMovies
+                        );
 
             }
 
@@ -1424,9 +2093,28 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 filtered =
-                    allPosts.filter(
-                        isBusiness
-                    );
+                    normalPosts()
+                        .filter(
+                            isBusiness
+                        );
+
+            }
+
+
+            else if (
+                category === "bigboss10" ||
+                category === "bigg boss 10"
+            ) {
+
+                /*
+                   Bigg Boss is NOT rendered
+                   inside Latest News.
+
+                   It belongs only to
+                   Bigg Boss 10 section.
+                */
+
+                filtered = [];
 
             }
 
@@ -1434,14 +2122,17 @@ document.addEventListener("DOMContentLoaded", function () {
             else {
 
                 filtered =
-                    allPosts.filter(
-                        function (post) {
+                    normalPosts()
+                        .filter(
+                            function (post) {
 
-                            return catsOf(post)
-                                .includes(category);
+                                return catsOf(post)
+                                    .includes(
+                                        category
+                                    );
 
-                        }
-                    );
+                            }
+                        );
 
             }
 
@@ -1449,11 +2140,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const target =
                 $("#latestGrid");
 
+
             if (!target) {
                 return;
             }
 
-            target.innerHTML = "";
+
+            target.innerHTML =
+                "";
 
 
             if (!filtered.length) {
@@ -1470,31 +2164,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 `;
 
-            }
-
-
-            else {
+            } else {
 
                 filtered
                     .slice(0, 30)
-                    .forEach(function (post) {
+                    .forEach(
+                        function (post) {
 
-                        target.appendChild(
-                            createCard(
-                                post,
-                                "latest"
-                            )
-                        );
+                            target.appendChild(
+                                createCard(
+                                    post,
+                                    "latest"
+                                )
+                            );
 
-                    });
+                        }
+                    );
 
             }
 
-
-            /*
-               Re-enable horizontal scrolling
-               after category filtering.
-            */
 
             setupHorizontalAutoScroll(
                 target,
@@ -1505,6 +2193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const section =
                 $("#latestSection");
+
 
             if (section) {
 
@@ -1532,27 +2221,31 @@ document.addEventListener("DOMContentLoaded", function () {
     function setupCategoryFilter() {
 
         $$("[data-filter]")
-            .forEach(function (button) {
+            .forEach(
+                function (button) {
 
-                button.addEventListener(
-                    "click",
-                    function (event) {
+                    button.addEventListener(
+                        "click",
+                        function (event) {
 
-                        event.preventDefault();
+                            event.preventDefault();
 
-                        const category =
-                            button.getAttribute(
-                                "data-filter"
+
+                            const category =
+                                button.getAttribute(
+                                    "data-filter"
+                                );
+
+
+                            window.filterPosts(
+                                category
                             );
 
-                        window.filterPosts(
-                            category
-                        );
+                        }
+                    );
 
-                    }
-                );
-
-            });
+                }
+            );
 
     }
 
@@ -1566,12 +2259,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const toggle =
             $("#mobileMenuToggle");
 
+
         const nav =
             $(".nav-links");
 
-        if (!toggle || !nav) {
+
+        if (
+            !toggle ||
+            !nav
+        ) {
+
             return;
+
         }
+
 
         toggle.addEventListener(
             "click",
@@ -1597,9 +2298,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const nav =
                 $(".nav-links");
 
+
             if (!nav) {
                 return;
             }
+
 
             nav.classList.toggle(
                 "mobile-open"
@@ -1618,20 +2321,25 @@ document.addEventListener("DOMContentLoaded", function () {
             const searchBox =
                 $("#searchBox");
 
+
             if (!searchBox) {
                 return;
             }
+
 
             searchBox.classList.toggle(
                 "active"
             );
 
+
             searchBox.classList.toggle(
                 "open"
             );
 
+
             const input =
                 $("#searchInput");
+
 
             if (
                 input &&
@@ -1642,7 +2350,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 setTimeout(
                     function () {
+
                         input.focus();
+
                     },
                     100
                 );
@@ -1661,12 +2371,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const button =
             $("#themeButton");
 
+
         const saved =
             localStorage.getItem(
                 "bs360-dark-mode"
             );
 
-        if (saved === "true") {
+
+        if (
+            saved === "true"
+        ) {
 
             document.body.classList.add(
                 "dark-mode"
@@ -1674,11 +2388,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+
         updateThemeButton();
+
 
         if (!button) {
             return;
         }
+
 
         button.addEventListener(
             "click",
@@ -1699,15 +2416,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 "dark-mode"
             );
 
+
             const active =
                 document.body.classList.contains(
                     "dark-mode"
                 );
 
+
             localStorage.setItem(
                 "bs360-dark-mode",
                 active
             );
+
 
             updateThemeButton();
 
@@ -1719,14 +2439,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const button =
             $("#themeButton");
 
+
         if (!button) {
             return;
         }
+
 
         const active =
             document.body.classList.contains(
                 "dark-mode"
             );
+
 
         button.textContent =
             active
@@ -1738,7 +2461,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        DATE + TIME
-       Supports BOTH ID formats
     ===================================================== */
 
     function setupDateTime() {
@@ -1747,21 +2469,27 @@ document.addEventListener("DOMContentLoaded", function () {
             $("#currentDate") ||
             $("#live-date");
 
+
         const timeElement =
             $("#currentTime") ||
             $("#live-clock");
+
 
         if (
             !dateElement &&
             !timeElement
         ) {
+
             return;
+
         }
+
 
         function updateTime() {
 
             const now =
                 new Date();
+
 
             const date =
                 now.toLocaleDateString(
@@ -1774,6 +2502,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 );
 
+
             const time =
                 now.toLocaleTimeString(
                     "en-IN",
@@ -1785,12 +2514,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 );
 
+
             if (dateElement) {
 
                 dateElement.textContent =
                     date;
 
             }
+
 
             if (timeElement) {
 
@@ -1801,7 +2532,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+
         updateTime();
+
 
         setInterval(
             updateTime,
@@ -1816,13 +2549,17 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
 
     window.shareArticle =
-        function (title, url) {
+        function (
+            title,
+            url
+        ) {
 
             const shareData = {
                 title: title,
                 text: title,
                 url: url
             };
+
 
             if (
                 navigator.share
@@ -1838,28 +2575,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
+
             if (
                 navigator.clipboard
             ) {
 
                 navigator.clipboard
                     .writeText(url)
-                    .then(function () {
+                    .then(
+                        function () {
 
-                        alert(
-                            "Article link copied!"
-                        );
+                            alert(
+                                "Article link copied!"
+                            );
 
-                    })
-                    .catch(function () {
+                        }
+                    )
+                    .catch(
+                        function () {
 
-                        alert(url);
+                            alert(url);
 
-                    });
+                        }
+                    );
 
                 return;
 
             }
+
 
             alert(url);
 
@@ -1867,7 +2610,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       SLIDER ARROWS
+       FEATURED SLIDER ARROWS
     ===================================================== */
 
     function setupSliderButtons() {
@@ -1875,12 +2618,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const slider =
             $("#newsSlider");
 
+
         if (!slider) {
             return;
         }
 
+
         const previous =
             $("#sliderPrev");
+
 
         const next =
             $("#sliderNext");
@@ -1924,7 +2670,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        ORIGINAL ARTICLES
-       NEVER DELETE THEM
+       NEVER DELETE
     ===================================================== */
 
     function prepareOriginalArticles() {
@@ -1945,8 +2691,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        SAFETY FALLBACK
-       If portal containers are missing,
-       do not destroy original articles.
     ===================================================== */
 
     function checkPortal() {
@@ -1957,8 +2701,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 "BS 360 NEWS: No original articles found."
             );
 
+
             const source =
                 $("#legacyNewsSource");
+
 
             if (source) {
 
@@ -1967,9 +2713,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
+
             return false;
 
         }
+
 
         return true;
 
@@ -1986,7 +2734,14 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+
         prepareOriginalArticles();
+
+
+        /* =================================================
+           NORMAL WEBSITE SECTIONS
+           BIGG BOSS AUTOMATICALLY EXCLUDED
+        ================================================= */
 
         renderTopStory();
 
@@ -2001,6 +2756,18 @@ document.addEventListener("DOMContentLoaded", function () {
         renderSports();
 
         renderMostRead();
+
+
+        /* =================================================
+           BIGG BOSS 10 SPECIAL SECTION
+        ================================================= */
+
+        renderBigBoss();
+
+
+        /* =================================================
+           OTHER FUNCTIONS
+        ================================================= */
 
         setupSearch();
 
@@ -2018,7 +2785,21 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(
             "BS 360 NEWS: " +
             allPosts.length +
-            " articles loaded successfully."
+            " total articles loaded."
+        );
+
+
+        console.log(
+            "BS 360 NEWS: " +
+            allPosts.filter(isBigBoss).length +
+            " Bigg Boss 10 articles found."
+        );
+
+
+        console.log(
+            "BS 360 NEWS: " +
+            normalPosts().length +
+            " normal articles loaded."
         );
 
     }
