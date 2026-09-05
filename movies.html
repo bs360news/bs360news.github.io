@@ -1,1010 +1,1492 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Movies - BS 360 NEWS</title>
-
-<style>
-/* =========================================================
-   BS 360 NEWS - MOVIES PAGE
-   HTML + CSS + JS ALL IN ONE
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#f1f1f1;
-    color:#111;
-    font-family:Arial, "Noto Sans Telugu", sans-serif;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-    background:#111;
-    color:white;
-    height:62px;
-    display:flex;
-    align-items:center;
-    padding:0 25px;
-    justify-content:space-between;
-    border-bottom:4px solid #f5c400;
-}
-
-.logo{
-    font-size:27px;
-    font-weight:900;
-    letter-spacing:.5px;
-}
-
-.logo span{
-    color:#f5c400;
-}
-
-.home-btn{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:14px;
-}
-
-.home-btn:hover{
-    color:#f5c400;
-}
-
-/* ================= PAGE TITLE ================= */
-
-.page-title{
-    max-width:1250px;
-    margin:18px auto 12px;
-    padding:0 10px;
-}
-
-.page-title h1{
-    font-size:25px;
-    font-weight:900;
-    border-left:6px solid #f5c400;
-    padding-left:10px;
-}
-
-.page-title p{
-    color:#777;
-    margin-top:4px;
-    font-size:13px;
-}
-
-/* ================= MAIN GRID ================= */
-
-.main-layout{
-    max-width:1250px;
-    margin:auto;
-    padding:0 10px;
-
-    display:grid;
-    grid-template-columns:260px 1fr 260px;
-    gap:12px;
-}
-
-/* ================= COMMON BOX ================= */
-
-.column-box{
-    background:#fff;
-    border:1px solid #ddd;
-}
-
-.box-title{
-    height:30px;
-    display:flex;
-    align-items:center;
-    padding:0 10px;
-    font-size:13px;
-    font-weight:900;
-    font-style:italic;
-    letter-spacing:1px;
-    border-bottom:4px solid #f5c400;
-}
-
-/* ================= LEFT MOST RECENT ================= */
-
-.recent-list{
-    height:600px;
-    overflow:hidden;
-    position:relative;
-}
-
-.recent-track{
-    position:absolute;
-    width:100%;
-    top:0;
-    left:0;
-}
-
-.recent-item{
-    display:flex;
-    gap:9px;
-    padding:9px;
-    border-bottom:1px solid #ddd;
-    background:#fff;
-    min-height:91px;
-    transition:.3s;
-}
-
-.recent-item:hover{
-    background:#fafafa;
-}
-
-.recent-image{
-    width:78px;
-    height:68px;
-    object-fit:cover;
-    flex-shrink:0;
-}
-
-.recent-content{
-    min-width:0;
-}
-
-.category{
-    color:#999;
-    font-size:8px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    font-weight:bold;
-    margin-bottom:3px;
-}
-
-.recent-title{
-    font-size:12px;
-    line-height:1.25;
-    font-weight:800;
-}
-
-.meta{
-    color:#999;
-    font-size:8px;
-    margin-top:5px;
-}
-
-/* ================= CENTER HERO ================= */
-
-.hero-box{
-    background:white;
-    border:1px solid #ddd;
-    overflow:hidden;
-}
-
-.hero-slider{
-    position:relative;
-    height:600px;
-}
-
-.hero-slide{
-    position:absolute;
-    inset:0;
-    opacity:0;
-    transform:translateX(35px);
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-    pointer-events:none;
-}
-
-.hero-slide.active{
-    opacity:1;
-    transform:translateX(0);
-    pointer-events:auto;
-}
-
-.hero-image{
-    width:100%;
-    height:390px;
-    object-fit:cover;
-    display:block;
-}
-
-.hero-info{
-    padding:10px 14px 15px;
-}
-
-.hero-category{
-    color:#777;
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    font-weight:bold;
-}
-
-.hero-title{
-    font-size:26px;
-    line-height:1.1;
-    margin-top:5px;
-    font-weight:900;
-}
-
-.hero-description{
-    font-size:12px;
-    color:#666;
-    line-height:1.5;
-    margin-top:7px;
-}
-
-.hero-meta{
-    font-size:9px;
-    color:#999;
-    margin-top:9px;
-}
-
-.hero-dots{
-    position:absolute;
-    bottom:9px;
-    right:12px;
-    display:flex;
-    gap:5px;
-}
-
-.hero-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#bbb;
-    cursor:pointer;
-}
-
-.hero-dot.active{
-    background:#f5c400;
-    width:22px;
-    border-radius:5px;
-}
-
-/* ================= RIGHT TRENDING ================= */
-
-.trending-list{
-    padding-bottom:5px;
-}
-
-.trending-main{
-    padding:8px;
-    border-bottom:1px solid #ddd;
-}
-
-.trending-main img{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-}
-
-.trending-main h3{
-    font-size:15px;
-    line-height:1.2;
-    margin-top:5px;
-}
-
-.trending-item{
-    display:flex;
-    gap:8px;
-    padding:8px;
-    border-bottom:1px solid #ddd;
-}
-
-.rank{
-    width:20px;
-    height:20px;
-    background:#111;
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:11px;
-    font-weight:bold;
-    flex-shrink:0;
-}
-
-.trending-item img{
-    width:58px;
-    height:48px;
-    object-fit:cover;
-    flex-shrink:0;
-}
-
-.trending-title{
-    font-size:11px;
-    font-weight:800;
-    line-height:1.25;
-}
-
-/* ================= BOTTOM ARTICLES ================= */
-
-.bottom-section{
-    max-width:1250px;
-    margin:14px auto 30px;
-    padding:0 10px;
-}
-
-.bottom-header{
-    background:#fff;
-    border-left:6px solid #f5c400;
-    padding:7px 10px;
-    font-size:15px;
-    font-weight:900;
-    margin-bottom:8px;
-}
-
-.bottom-scroll{
-    display:flex;
-    gap:10px;
-    overflow:hidden;
-    position:relative;
-}
-
-.bottom-track{
-    display:flex;
-    gap:10px;
-    width:max-content;
-}
-
-.bottom-card{
-    width:220px;
-    flex-shrink:0;
-    background:white;
-    border:1px solid #ddd;
-    transition:.3s;
-}
-
-.bottom-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
-}
-
-.bottom-card img{
-    width:100%;
-    height:125px;
-    object-fit:cover;
-}
-
-.bottom-card-content{
-    padding:8px;
-}
-
-.bottom-card h3{
-    font-size:13px;
-    line-height:1.25;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:950px){
-
-    .main-layout{
-        grid-template-columns:220px 1fr;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Movies News | BS 360 NEWS</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .right-column{
-        display:none;
+    body {
+      font-family: Arial, "Noto Sans Telugu", sans-serif;
+      background: #f5f5f5;
+      color: #111;
     }
 
-}
-
-@media(max-width:700px){
-
-    .header{
-        padding:0 12px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .logo{
-        font-size:21px;
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
     }
 
-    .main-layout{
-        grid-template-columns:1fr;
+    /* =========================
+       HEADER
+    ========================= */
+
+    .top-header {
+      background: #111;
+      color: #fff;
+      padding: 15px 20px;
     }
 
-    .left-column,
-    .right-column{
-        display:none;
+    .header-inner {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .hero-slider{
-        height:500px;
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1px;
     }
 
-    .hero-image{
-        height:310px;
+    .logo span {
+      color: #e50914;
     }
 
-    .hero-title{
-        font-size:21px;
+    .home-btn {
+      background: #e50914;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 5px;
+      font-weight: bold;
     }
 
-    .bottom-card{
-        width:190px;
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .nav-bar {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-}
-</style>
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav-inner a {
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .nav-inner a:hover {
+      background: #e50914;
+      color: #fff;
+    }
+
+    /* =========================
+       BREAKING NEWS
+    ========================= */
+
+    .breaking {
+      max-width: 1400px;
+      margin: 15px auto 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .breaking-title {
+      background: #e50914;
+      color: #fff;
+      padding: 11px 16px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .breaking-text {
+      padding: 10px 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page {
+      max-width: 1400px;
+      margin: 20px auto 50px;
+      padding: 0 15px;
+    }
+
+    .page-title {
+      background: #fff;
+      border-left: 6px solid #e50914;
+      padding: 15px 18px;
+      margin-bottom: 18px;
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    /* =========================
+       MAIN 3 COLUMN
+    ========================= */
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.65fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .column {
+      background: #fff;
+      border: 1px solid #ddd;
+      overflow: hidden;
+    }
+
+    .column-title {
+      background: #111;
+      color: #fff;
+      padding: 12px 15px;
+      font-size: 17px;
+      font-weight: 900;
+      border-left: 5px solid #e50914;
+    }
+
+    /* =========================
+       LEFT MOST RECENT
+    ========================= */
+
+    .recent-list {
+      height: 620px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .recent-track {
+      display: flex;
+      flex-direction: column;
+      animation: recentScroll 28s linear infinite;
+    }
+
+    .recent-list:hover .recent-track {
+      animation-play-state: paused;
+    }
+
+    .recent-item {
+      display: flex;
+      gap: 10px;
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      min-height: 115px;
+    }
+
+    .recent-item img {
+      width: 100px;
+      height: 78px;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+
+    .recent-item h3 {
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+
+    .recent-item:hover h3 {
+      color: #e50914;
+    }
+
+    @keyframes recentScroll {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+
+    /* =========================
+       CENTER HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      height: 620px;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+      pointer-events: none;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hero-slide img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 80px 25px 25px;
+      background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.95)
+      );
+      color: #fff;
+    }
+
+    .hero-category {
+      display: inline-block;
+      background: #e50914;
+      padding: 5px 10px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+
+    .hero-read {
+      display: inline-block;
+      margin-top: 15px;
+      background: #fff;
+      color: #111;
+      padding: 9px 15px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .hero-read:hover {
+      background: #e50914;
+      color: #fff;
+    }
+
+    /* =========================
+       HERO DOTS
+    ========================= */
+
+    .hero-dots {
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+      display: flex;
+      gap: 5px;
+      z-index: 5;
+    }
+
+    .hero-dot {
+      width: 9px;
+      height: 9px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    .hero-dot.active {
+      opacity: 1;
+      background: #e50914;
+    }
+
+    /* =========================
+       TRENDING
+    ========================= */
+
+    .trending-list {
+      padding: 5px 12px 12px;
+    }
+
+    .trend-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      padding: 13px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .trend-number {
+      width: 38px;
+      height: 38px;
+      background: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      border-radius: 3px;
+    }
+
+    .trend-item:first-child .trend-number {
+      background: #e50914;
+    }
+
+    .trend-item h3 {
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .trend-item:hover h3 {
+      color: #e50914;
+    }
+
+    /* =========================
+       LATEST ARTICLES
+    ========================= */
+
+    .latest-section {
+      margin-top: 20px;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+
+    .latest-title {
+      background: #111;
+      color: #fff;
+      padding: 13px 16px;
+      font-size: 19px;
+      font-weight: 900;
+      border-left: 5px solid #e50914;
+    }
+
+    .latest-wrapper {
+      overflow: hidden;
+      padding: 15px;
+    }
+
+    .latest-track {
+      display: flex;
+      gap: 15px;
+      width: max-content;
+      animation: latestMove 40s linear infinite;
+    }
+
+    .latest-wrapper:hover .latest-track {
+      animation-play-state: paused;
+    }
+
+    .latest-card {
+      width: 280px;
+      background: #fff;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .latest-card img {
+      height: 170px;
+    }
+
+    .latest-content {
+      padding: 12px;
+    }
+
+    .latest-content h3 {
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .latest-card:hover h3 {
+      color: #e50914;
+    }
+
+    @keyframes latestMove {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 25px 15px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 1100px) {
+      .main-grid {
+        grid-template-columns: 1fr 1.4fr;
+      }
+
+      .right-column {
+        grid-column: 1 / -1;
+      }
+
+      .trending-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 20px;
+      }
+
+      .hero {
+        height: 560px;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+      .top-header {
+        padding: 12px 15px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .home-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+
+      .nav-inner a {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      .breaking {
+        margin-top: 10px;
+      }
+
+      .breaking-title {
+        padding: 9px 10px;
+        font-size: 12px;
+      }
+
+      .breaking-text {
+        font-size: 13px;
+      }
+
+      .page {
+        margin-top: 12px;
+        padding: 0 10px;
+      }
+
+      .page-title {
+        font-size: 22px;
+        padding: 12px;
+        margin-bottom: 12px;
+      }
+
+      /*
+        Mobileలో కూడా మూడు sections కనిపించేలా
+        single-columnగా stack అవుతాయి.
+      */
+
+      .main-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .left-column {
+        order: 2;
+      }
+
+      .center-column {
+        order: 1;
+      }
+
+      .right-column {
+        order: 3;
+      }
+
+      .hero {
+        height: 430px;
+      }
+
+      .hero-overlay {
+        padding: 100px 15px 20px;
+      }
+
+      .hero-title {
+        font-size: 21px;
+      }
+
+      .hero-category {
+        font-size: 11px;
+      }
+
+      .recent-list {
+        height: 420px;
+      }
+
+      .recent-track {
+        animation-duration: 22s;
+      }
+
+      .recent-item {
+        min-height: 105px;
+        padding: 10px;
+      }
+
+      .recent-item img {
+        width: 105px;
+        height: 78px;
+      }
+
+      .recent-item h3 {
+        font-size: 14px;
+      }
+
+      .trending-list {
+        display: block;
+      }
+
+      .trend-item {
+        padding: 11px 0;
+      }
+
+      .trend-item h3 {
+        font-size: 14px;
+      }
+
+      .latest-card {
+        width: 245px;
+      }
+
+      .latest-card img {
+        height: 150px;
+      }
+
+      .latest-content h3 {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .header-inner {
+        gap: 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .hero {
+        height: 380px;
+      }
+
+      .hero-title {
+        font-size: 19px;
+      }
+
+      .recent-list {
+        height: 400px;
+      }
+
+      .recent-item img {
+        width: 90px;
+        height: 70px;
+      }
+
+      .recent-item h3 {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-<header class="header">
-
-    <div class="logo">
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="logo">
         BS <span>360</span> NEWS
+      </div>
+
+      <a href="index.html" class="home-btn">
+        🏠 Home
+      </a>
+    </div>
+  </header>
+
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="index.html#latest">Latest News</a>
+      <a href="movies.html">🎬 Cinema</a>
+      <a href="sports.html">🏏 Sports</a>
+      <a href="index.html#goldSection">💰 Gold Rate</a>
+      <a href="index.html#apSection">Andhra Pradesh</a>
+      <a href="index.html#tsSection">Telangana</a>
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       BREAKING NEWS
+  ========================= -->
+
+  <div class="breaking">
+    <div class="breaking-title">
+      BREAKING NEWS
     </div>
 
-    <a href="./" class="home-btn">
-        🏠 హోమ్
-    </a>
-
-</header>
-
-
-<!-- ================= TITLE ================= -->
-
-<div class="page-title">
-
-    <h1>🎬 Movies</h1>
-
-    <p>
-        Latest Telugu Cinema News, Movie Updates, OTT, Reviews & Celebrity News
-    </p>
-
-</div>
+    <div class="breaking-text">
+      🎬 సినిమా ప్రపంచంలోని తాజా వార్తలు, మూవీ అప్డేట్స్, రివ్యూస్, సెలబ్రిటీ న్యూస్...
+    </div>
+  </div>
 
 
-<!-- ================= MAIN 3 COLUMN ================= -->
+  <!-- =========================
+       PAGE
+  ========================= -->
 
-<div class="main-layout">
+  <main class="page">
 
-    <!-- ================= LEFT ================= -->
+    <div class="page-title">
+      🎬 Movies News
+    </div>
 
-    <div class="column-box left-column">
 
-        <div class="box-title">
-            MOST RECENT
+    <!-- =========================
+         MAIN GRID
+    ========================= -->
+
+    <div class="main-grid">
+
+
+      <!-- =========================
+           LEFT - MOST RECENT
+      ========================= -->
+
+      <section class="column left-column">
+
+        <div class="column-title">
+          MOST RECENT
         </div>
 
         <div class="recent-list">
 
-            <div class="recent-track" id="recentTrack"></div>
+          <div class="recent-track">
+
+            <!-- Duplicate set for continuous animation -->
+
+            <a href="temper.html" class="recent-item">
+              <img src="temper.png" alt="Bigg Boss Telugu 10">
+              <h3>
+                🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
+              </h3>
+            </a>
+
+            <a href="cbday.html" class="recent-item">
+              <img src="c2.webp" alt="Chiranjeevi Birthday">
+              <h3>
+                🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్
+              </h3>
+            </a>
+
+            <a href="p.html" class="recent-item">
+              <img src="p1.jpg" alt="Salaar 2">
+              <h3>
+                2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్
+              </h3>
+            </a>
+
+            <a href="Fouzi.html" class="recent-item">
+              <img src="f.jpg" alt="Fouzi Movie">
+              <h3>
+                ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?
+              </h3>
+            </a>
+
+            <a href="toc.html" class="recent-item">
+              <img src="toc1.jpg" alt="Toxic Movie">
+              <h3>
+                🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?
+              </h3>
+            </a>
+
+            <a href="ravi.html" class="recent-item">
+              <img src="ravi.webp" alt="Irumudi Movie">
+              <h3>
+                🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?
+              </h3>
+            </a>
+
+            <a href="ra.html" class="recent-item">
+              <img src="ra.jpg" alt="Madhuri Rathod">
+              <h3>
+                💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
+              </h3>
+            </a>
+
+            <a href="rip.html" class="recent-item">
+              <img src="rip.jpg" alt="GV Narayana Rao">
+              <h3>
+                🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
+              </h3>
+            </a>
+
+            <a href="am.html" class="recent-item">
+              <img src="am.jpg" alt="Young Heroine">
+              <h3>
+                సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!
+              </h3>
+            </a>
+
+
+            <!-- DUPLICATE -->
+
+            <a href="temper.html" class="recent-item">
+              <img src="temper.png" alt="Bigg Boss Telugu 10">
+              <h3>
+                🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
+              </h3>
+            </a>
+
+            <a href="cbday.html" class="recent-item">
+              <img src="c2.webp" alt="Chiranjeevi Birthday">
+              <h3>
+                🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్
+              </h3>
+            </a>
+
+            <a href="p.html" class="recent-item">
+              <img src="p1.jpg" alt="Salaar 2">
+              <h3>
+                2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్
+              </h3>
+            </a>
+
+            <a href="Fouzi.html" class="recent-item">
+              <img src="f.jpg" alt="Fouzi Movie">
+              <h3>
+                ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?
+              </h3>
+            </a>
+
+            <a href="toc.html" class="recent-item">
+              <img src="toc1.jpg" alt="Toxic Movie">
+              <h3>
+                🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?
+              </h3>
+            </a>
+
+            <a href="ravi.html" class="recent-item">
+              <img src="ravi.webp" alt="Irumudi Movie">
+              <h3>
+                🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?
+              </h3>
+            </a>
+
+            <a href="ra.html" class="recent-item">
+              <img src="ra.jpg" alt="Madhuri Rathod">
+              <h3>
+                💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
+              </h3>
+            </a>
+
+            <a href="rip.html" class="recent-item">
+              <img src="rip.jpg" alt="GV Narayana Rao">
+              <h3>
+                🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
+              </h3>
+            </a>
+
+            <a href="am.html" class="recent-item">
+              <img src="am.jpg" alt="Young Heroine">
+              <h3>
+                సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!
+              </h3>
+            </a>
+
+          </div>
 
         </div>
 
-    </div>
+      </section>
 
 
-    <!-- ================= CENTER ================= -->
+      <!-- =========================
+           CENTER - HERO
+      ========================= -->
 
-    <div class="hero-box">
+      <section class="column center-column">
 
-        <div class="hero-slider" id="heroSlider">
-
-            <!-- JS inserts hero articles here -->
-
-            <div class="hero-dots" id="heroDots"></div>
-
+        <div class="column-title">
+          TOP MOVIE NEWS
         </div>
 
-    </div>
+        <div class="hero">
 
+          <div class="hero-slide active">
 
-    <!-- ================= RIGHT ================= -->
+            <a href="temper.html">
+              <img src="temper.png" alt="Bigg Boss Telugu 10">
 
-    <div class="column-box right-column">
+              <div class="hero-overlay">
 
-        <div class="box-title">
-            TRENDING
-        </div>
+                <span class="hero-category">
+                  MOVIES
+                </span>
 
-        <div class="trending-list" id="trendingList"></div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= BOTTOM ================= -->
-
-<div class="bottom-section">
-
-    <div class="bottom-header">
-        🔥 LATEST MOVIE ARTICLES
-    </div>
-
-    <div class="bottom-scroll">
-
-        <div class="bottom-track" id="bottomTrack"></div>
-
-    </div>
-
-</div>
-
-
-
-<script>
-
-/* =========================================================
-   MOVIE ARTICLES
-   నీ Homepage లో ఉన్న movie articles ఇక్కడ పెట్టవచ్చు.
-========================================================= */
-
-const movies = [
-
-    {
-        image:"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
-        category:"MOVIES",
-        title:"కొత్త సినిమాతో ప్రేక్షకుల ముందుకు వస్తున్న స్టార్ హీరో",
-        description:"సినిమాకు సంబంధించిన తాజా అప్‌డేట్ ఇప్పుడు సోషల్ మీడియాలో వైరల్ అవుతోంది.",
-        author:"BS 360 NEWS",
-        time:"2h ago"
-    },
-
-    {
-        image:"https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80",
-        category:"CINEMA",
-        title:"బిగ్ బడ్జెట్ మూవీపై భారీ అప్‌డేట్.. ఫ్యాన్స్‌లో పెరిగిన ఆసక్తి",
-        description:"దర్శకుడు ఈ సినిమాకు సంబంధించి కీలక విషయాలను వెల్లడించారు.",
-        author:"BS 360 NEWS",
-        time:"3h ago"
-    },
-
-    {
-        image:"https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80",
-        category:"MOVIE UPDATE",
-        title:"ఈ మూవీ రిలీజ్ డేట్‌పై క్లారిటీ.. అభిమానులకు గుడ్ న్యూస్",
-        description:"మేకర్స్ అధికారికంగా రిలీజ్ డేట్‌ను ప్రకటించే అవకాశం ఉంది.",
-        author:"BS 360 NEWS",
-        time:"4h ago"
-    },
-
-    {
-        image:"https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80",
-        category:"OTT",
-        title:"OTTలోకి వచ్చేస్తున్న సూపర్ హిట్ సినిమా.. స్ట్రీమింగ్ ఎప్పటి నుంచంటే",
-        description:"థియేట్రికల్ రన్ తర్వాత ప్రముఖ OTT ప్లాట్‌ఫామ్‌లో ఈ మూవీ అందుబాటులోకి రానుంది.",
-        author:"BS 360 NEWS",
-        time:"5h ago"
-    },
-
-    {
-        image:"https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&w=1200&q=80",
-        category:"CELEBRITY",
-        title:"స్టార్ హీరోయిన్ కొత్త లుక్ వైరల్.. సోషల్ మీడియాలో ట్రెండింగ్",
-        description:"హీరోయిన్ షేర్ చేసిన ఫొటోలు ప్రస్తుతం నెట్టింట వైరల్ అవుతున్నాయి.",
-        author:"BS 360 NEWS",
-        time:"6h ago"
-    },
-
-    {
-        image:"https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&w=1200&q=80",
-        category:"MOVIE NEWS",
-        title:"మరో క్రేజీ కాంబినేషన్‌కు రంగం సిద్ధం.. త్వరలో అధికారిక ప్రకటన",
-        description:"ఇండస్ట్రీలో ఈ కాంబినేషన్‌పై ఆసక్తికరమైన చర్చ జరుగుతోంది.",
-        author:"BS 360 NEWS",
-        time:"7h ago"
-    },
-
-    {
-        image:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-        category:"REVIEW",
-        title:"సినిమా రివ్యూ: ప్రేక్షకులను ఆకట్టుకున్న మూవీ",
-        description:"మూవీకి ప్రేక్షకుల నుంచి మంచి స్పందన లభిస్తోంది.",
-        author:"BS 360 NEWS",
-        time:"8h ago"
-    },
-
-    {
-        image:"https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80",
-        category:"BOX OFFICE",
-        title:"బాక్సాఫీస్ దగ్గర దూసుకెళ్తున్న సినిమా.. భారీ కలెక్షన్స్",
-        description:"రిలీజ్ తర్వాత వరుసగా మంచి కలెక్షన్స్ సాధిస్తోంది.",
-        author:"BS 360 NEWS",
-        time:"9h ago"
-    }
-
-];
-
-
-/* =========================================================
-   LEFT MOST RECENT
-========================================================= */
-
-const recentTrack = document.getElementById("recentTrack");
-
-function createRecentArticle(movie){
-
-    return `
-        <div class="recent-item">
-
-            <img
-                class="recent-image"
-                src="${movie.image}"
-                alt=""
-            >
-
-            <div class="recent-content">
-
-                <div class="category">
-                    ${movie.category}
+                <div class="hero-title">
+                  🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
                 </div>
 
-                <div class="recent-title">
-                    ${movie.title}
+                <span class="hero-read">
+                  Read More →
+                </span>
+
+              </div>
+            </a>
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <a href="cbday.html">
+              <img src="c2.webp" alt="Chiranjeevi Birthday">
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+                  MOVIES
+                </span>
+
+                <div class="hero-title">
+                  🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్
                 </div>
 
-                <div class="meta">
-                    ${movie.author} · ${movie.time}
+                <span class="hero-read">
+                  Read More →
+                </span>
+
+              </div>
+            </a>
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <a href="p.html">
+              <img src="p1.jpg" alt="Salaar 2">
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+                  MOVIES
+                </span>
+
+                <div class="hero-title">
+                  2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్
                 </div>
 
-            </div>
+                <span class="hero-read">
+                  Read More →
+                </span>
+
+              </div>
+            </a>
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <a href="Fouzi.html">
+              <img src="f.jpg" alt="Fouzi Movie">
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+                  MOVIES
+                </span>
+
+                <div class="hero-title">
+                  ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?
+                </div>
+
+                <span class="hero-read">
+                  Read More →
+                </span>
+
+              </div>
+            </a>
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <a href="toc.html">
+              <img src="toc1.jpg" alt="Toxic Movie">
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+                  MOVIES
+                </span>
+
+                <div class="hero-title">
+                  🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?
+                </div>
+
+                <span class="hero-read">
+                  Read More →
+                </span>
+
+              </div>
+            </a>
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <a href="ravi.html">
+              <img src="ravi.webp" alt="Irumudi Movie">
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+                  MOVIES
+                </span>
+
+                <div class="hero-title">
+                  🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?
+                </div>
+
+                <span class="hero-read">
+                  Read More →
+                </span>
+
+              </div>
+            </a>
+
+          </div>
+
+
+          <div class="hero-slide">
+
+            <a href="rip.html">
+              <img src="rip.jpg" alt="GV Narayana Rao">
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+                  MOVIES
+                </span>
+
+                <div class="hero-title">
+                  🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
+                </div>
+
+                <span class="hero-read">
+                  Read More →
+                </span>
+
+              </div>
+            </a>
+
+          </div>
+
+
+          <div class="hero-dots">
+
+            <span class="hero-dot active"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+
+          </div>
 
         </div>
-    `;
-}
+
+      </section>
 
 
-/*
-   Duplicate articles so the scrolling loop
-   never appears empty.
-*/
+      <!-- =========================
+           RIGHT - TRENDING
+      ========================= -->
 
-recentTrack.innerHTML =
-    movies.map(createRecentArticle).join("") +
-    movies.map(createRecentArticle).join("");
+      <section class="column right-column">
 
+        <div class="column-title">
+          TRENDING
+        </div>
 
-/* =========================================================
-   LEFT AUTO SCROLL
-   Article cards slowly move upward.
-========================================================= */
+        <div class="trending-list">
 
-let recentPosition = 0;
+          <a href="temper.html" class="trend-item">
+            <div class="trend-number">1</div>
+            <h3>
+              🔥 Bigg Boss Telugu 10లో టాలీవుడ్ స్టార్ విలన్?
+            </h3>
+          </a>
 
-function recentAutoScroll(){
+          <a href="cbday.html" class="trend-item">
+            <div class="trend-number">2</div>
+            <h3>
+              🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు స్పెషల్
+            </h3>
+          </a>
 
-    recentPosition -= 0.35;
+          <a href="p.html" class="trend-item">
+            <div class="trend-number">3</div>
+            <h3>
+              ప్రభాస్ ‘సలార్-2’పై భారీ అప్డేట్
+            </h3>
+          </a>
 
-    const halfHeight = recentTrack.scrollHeight / 2;
+          <a href="Fouzi.html" class="trend-item">
+            <div class="trend-number">4</div>
+            <h3>
+              ‘ఫౌజీ’ నుంచి ఆగస్టు 15న ఏం రాబోతుంది?
+            </h3>
+          </a>
 
-    if(Math.abs(recentPosition) >= halfHeight){
+          <a href="toc.html" class="trend-item">
+            <div class="trend-number">5</div>
+            <h3>
+              🔥 టాక్సిక్ సెన్సార్ రివ్యూ.. 18+ సర్టిఫికెట్
+            </h3>
+          </a>
 
-        recentPosition = 0;
+          <a href="ravi.html" class="trend-item">
+            <div class="trend-number">6</div>
+            <h3>
+              🎬 Irumudi Movie Review.. రవితేజ హిట్ కొట్టాడా?
+            </h3>
+          </a>
 
-    }
-
-    recentTrack.style.transform =
-        `translateY(${recentPosition}px)`;
-
-    requestAnimationFrame(recentAutoScroll);
-}
-
-recentAutoScroll();
-
-
-/* =========================================================
-   CENTER HERO
-   Every 2 seconds next article.
-========================================================= */
-
-const heroSlider =
-    document.getElementById("heroSlider");
-
-const heroDots =
-    document.getElementById("heroDots");
-
-
-movies.forEach((movie,index)=>{
-
-    const slide = document.createElement("div");
-
-    slide.className =
-        "hero-slide" +
-        (index === 0 ? " active" : "");
-
-    slide.innerHTML = `
-
-        <img
-            class="hero-image"
-            src="${movie.image}"
-            alt=""
-        >
-
-        <div class="hero-info">
-
-            <div class="hero-category">
-                ${movie.category}
-            </div>
-
-            <div class="hero-title">
-                ${movie.title}
-            </div>
-
-            <div class="hero-description">
-                ${movie.description}
-            </div>
-
-            <div class="hero-meta">
-                ${movie.author} · ${movie.time}
-            </div>
+          <a href="rip.html" class="trend-item">
+            <div class="trend-number">7</div>
+            <h3>
+              టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు కన్నుమూత
+            </h3>
+          </a>
 
         </div>
-    `;
 
-    /*
-       dots should be before/inside slider
-       but slides must appear before dots
-    */
+      </section>
 
-    heroSlider.insertBefore(
-        slide,
-        heroDots
-    );
+    </div>
 
 
-    const dot = document.createElement("div");
+    <!-- =========================
+         LATEST MOVIE ARTICLES
+    ========================= -->
 
-    dot.className =
-        "hero-dot" +
-        (index === 0 ? " active" : "");
+    <section class="latest-section">
 
-    dot.addEventListener("click",()=>{
+      <div class="latest-title">
+        🎬 LATEST MOVIE ARTICLES
+      </div>
 
-        currentHero = index;
+      <div class="latest-wrapper">
 
-        showHero(currentHero);
-
-        restartHeroTimer();
-
-    });
-
-    heroDots.appendChild(dot);
-
-});
+        <div class="latest-track">
 
 
-let currentHero = 0;
+          <a href="temper.html" class="latest-card">
+            <img src="temper.png" alt="Bigg Boss Telugu 10">
 
-const heroSlides =
-    document.querySelectorAll(".hero-slide");
-
-const dots =
-    document.querySelectorAll(".hero-dot");
-
-
-function showHero(index){
-
-    heroSlides.forEach((slide,i)=>{
-
-        slide.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
-
-    dots.forEach((dot,i)=>{
-
-        dot.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
-
-}
+            <div class="latest-content">
+              <h3>
+                🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్
+              </h3>
+            </div>
+          </a>
 
 
-/* ================= 2 SECOND TIMER ================= */
+          <a href="cbday.html" class="latest-card">
+            <img src="c2.webp" alt="Chiranjeevi Birthday">
 
-let heroTimer;
+            <div class="latest-content">
+              <h3>
+                🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్
+              </h3>
+            </div>
+          </a>
 
-function restartHeroTimer(){
 
-    clearInterval(heroTimer);
+          <a href="p.html" class="latest-card">
+            <img src="p1.jpg" alt="Salaar 2">
 
-    heroTimer = setInterval(()=>{
+            <div class="latest-content">
+              <h3>
+                2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అప్డేట్
+              </h3>
+            </div>
+          </a>
 
-        currentHero++;
 
-        if(currentHero >= movies.length){
+          <a href="Fouzi.html" class="latest-card">
+            <img src="f.jpg" alt="Fouzi Movie">
 
-            currentHero = 0;
+            <div class="latest-content">
+              <h3>
+                ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్
+              </h3>
+            </div>
+          </a>
 
+
+          <a href="toc.html" class="latest-card">
+            <img src="toc1.jpg" alt="Toxic Movie">
+
+            <div class="latest-content">
+              <h3>
+                🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="ravi.html" class="latest-card">
+            <img src="ravi.webp" alt="Irumudi Movie">
+
+            <div class="latest-content">
+              <h3>
+                🎬 Irumudi Movie Review: రవితేజ హిట్ కొట్టాడా?
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="ra.html" class="latest-card">
+            <img src="ra.jpg" alt="Madhuri Rathod">
+
+            <div class="latest-content">
+              <h3>
+                💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="rip.html" class="latest-card">
+            <img src="rip.jpg" alt="GV Narayana Rao">
+
+            <div class="latest-content">
+              <h3>
+                🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత కన్నుమూత
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="am.html" class="latest-card">
+            <img src="am.jpg" alt="Young Heroine">
+
+            <div class="latest-content">
+              <h3>
+                సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా!
+              </h3>
+            </div>
+          </a>
+
+
+          <!-- DUPLICATE CARDS FOR CONTINUOUS SCROLL -->
+
+
+          <a href="temper.html" class="latest-card">
+            <img src="temper.png" alt="Bigg Boss Telugu 10">
+
+            <div class="latest-content">
+              <h3>
+                🔥 Bigg Boss Telugu 10: టాలీవుడ్ స్టార్ విలన్ ఎంట్రీ?
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="cbday.html" class="latest-card">
+            <img src="c2.webp" alt="Chiranjeevi Birthday">
+
+            <div class="latest-content">
+              <h3>
+                🎉 మెగాస్టార్ చిరంజీవి పుట్టినరోజు స్పెషల్
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="p.html" class="latest-card">
+            <img src="p1.jpg" alt="Salaar 2">
+
+            <div class="latest-content">
+              <h3>
+                ప్రభాస్ ‘సలార్-2’పై భారీ అప్డేట్
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="Fouzi.html" class="latest-card">
+            <img src="f.jpg" alt="Fouzi">
+
+            <div class="latest-content">
+              <h3>
+                ‘ఫౌజీ’ నుంచి ఆగస్టు 15న కొత్త అప్డేట్
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="toc.html" class="latest-card">
+            <img src="toc1.jpg" alt="Toxic">
+
+            <div class="latest-content">
+              <h3>
+                టాక్సిక్ సెన్సార్ రివ్యూ.. 18+ సర్టిఫికెట్ ఎందుకంటే?
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="ravi.html" class="latest-card">
+            <img src="ravi.webp" alt="Irumudi">
+
+            <div class="latest-content">
+              <h3>
+                Irumudi Movie Review.. రవితేజ హిట్ కొట్టాడా?
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="rip.html" class="latest-card">
+            <img src="rip.jpg" alt="GV Narayana Rao">
+
+            <div class="latest-content">
+              <h3>
+                టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు కన్నుమూత
+              </h3>
+            </div>
+          </a>
+
+
+          <a href="am.html" class="latest-card">
+            <img src="am.jpg" alt="Young Heroine">
+
+            <div class="latest-content">
+              <h3>
+                యంగ్ హీరోయిన్ ఛాలెంజ్!
+              </h3>
+            </div>
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+    <p>
+      © 2026 BS 360 NEWS. All Rights Reserved.
+    </p>
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      /* =========================
+         HERO SLIDER
+      ========================= */
+
+      const slides = document.querySelectorAll(".hero-slide");
+      const dots = document.querySelectorAll(".hero-dot");
+
+      let currentSlide = 0;
+
+      function showSlide(index) {
+
+        slides.forEach(function (slide) {
+          slide.classList.remove("active");
+        });
+
+        dots.forEach(function (dot) {
+          dot.classList.remove("active");
+        });
+
+        if (slides[index]) {
+          slides[index].classList.add("active");
         }
 
-        showHero(currentHero);
+        if (dots[index]) {
+          dots[index].classList.add("active");
+        }
+      }
 
-    },2000);
+      function nextSlide() {
 
-}
+        currentSlide++;
 
-restartHeroTimer();
+        if (currentSlide >= slides.length) {
+          currentSlide = 0;
+        }
 
+        showSlide(currentSlide);
+      }
 
-/* =========================================================
-   RIGHT TRENDING
-========================================================= */
+      /*
+        Center article every 2 seconds change
+      */
 
-const trendingList =
-    document.getElementById("trendingList");
+      setInterval(nextSlide, 2000);
 
 
-/*
-   First article = large trending article
-*/
+      /* =========================
+         DOT CLICK
+      ========================= */
 
-trendingList.innerHTML = `
+      dots.forEach(function (dot, index) {
 
-    <div class="trending-main">
+        dot.addEventListener("click", function () {
 
-        <img
-            src="${movies[1].image}"
-            alt=""
-        >
+          currentSlide = index;
 
-        <div class="category">
-            ${movies[1].category}
-        </div>
+          showSlide(currentSlide);
 
-        <h3>
-            ${movies[1].title}
-        </h3>
+        });
 
-    </div>
+      });
 
-`;
 
+      /* =========================
+         PAUSE HERO ON HOVER
+      ========================= */
 
-/*
-   Remaining trending articles
-*/
+      const hero = document.querySelector(".hero");
 
-movies.slice(2,7).forEach((movie,index)=>{
+      let heroTimer;
 
-    trendingList.innerHTML += `
+      function startHeroTimer() {
 
-        <div class="trending-item">
+        clearInterval(heroTimer);
 
-            <div class="rank">
-                ${index + 1}
-            </div>
+        heroTimer = setInterval(nextSlide, 2000);
 
-            <img
-                src="${movie.image}"
-                alt=""
-            >
+      }
 
-            <div class="trending-title">
-                ${movie.title}
-            </div>
+      function stopHeroTimer() {
 
-        </div>
+        clearInterval(heroTimer);
 
-    `;
+      }
 
-});
+      /*
+        Restart timer using hover
+      */
 
+      stopHeroTimer();
 
-/* =========================================================
-   BOTTOM ARTICLE CARDS
-========================================================= */
+      hero.addEventListener("mouseenter", stopHeroTimer);
 
-const bottomTrack =
-    document.getElementById("bottomTrack");
+      hero.addEventListener("mouseleave", startHeroTimer);
 
+      startHeroTimer();
 
-function createBottomCard(movie){
 
-    return `
+      /* =========================
+         PREVENT IMAGE DRAG
+      ========================= */
 
-        <article class="bottom-card">
+      document.querySelectorAll("img").forEach(function (img) {
 
-            <img
-                src="${movie.image}"
-                alt=""
-            >
+        img.addEventListener("dragstart", function (event) {
+          event.preventDefault();
+        });
 
-            <div class="bottom-card-content">
+      });
 
-                <div class="category">
-                    ${movie.category}
-                </div>
 
-                <h3>
-                    ${movie.title}
-                </h3>
+      /* =========================
+         SMOOTH PAGE LOAD
+      ========================= */
 
-            </div>
+      document.body.classList.add("page-loaded");
 
-        </article>
+    });
 
-    `;
-
-}
-
-
-/*
-   Duplicate list for infinite movement
-*/
-
-bottomTrack.innerHTML =
-    movies.map(createBottomCard).join("") +
-    movies.map(createBottomCard).join("");
-
-
-/* =========================================================
-   BOTTOM AUTO HORIZONTAL SCROLL
-========================================================= */
-
-let bottomPosition = 0;
-
-function bottomAutoScroll(){
-
-    bottomPosition -= 0.4;
-
-    const halfWidth =
-        bottomTrack.scrollWidth / 2;
-
-    if(Math.abs(bottomPosition) >= halfWidth){
-
-        bottomPosition = 0;
-
-    }
-
-    bottomTrack.style.transform =
-        `translateX(${bottomPosition}px)`;
-
-    requestAnimationFrame(bottomAutoScroll);
-
-}
-
-bottomAutoScroll();
-
-
-/* =========================================================
-   PAUSE LEFT SCROLL WHEN MOUSE IS OVER IT
-========================================================= */
-
-const recentList =
-    document.querySelector(".recent-list");
-
-let recentPaused = false;
-
-recentList.addEventListener(
-    "mouseenter",
-    ()=>{
-        recentPaused = true;
-    }
-);
-
-recentList.addEventListener(
-    "mouseleave",
-    ()=>{
-        recentPaused = false;
-    }
-);
-
-
-/* =========================================================
-   TOUCH / MOUSE FRIENDLY
-========================================================= */
-
-document.querySelectorAll(
-    ".recent-item, .bottom-card"
-).forEach(card=>{
-
-    card.style.cursor = "pointer";
-
-});
-
-
-</script>
+  </script>
 
 </body>
 </html>
