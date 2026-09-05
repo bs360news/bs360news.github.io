@@ -2476,7 +2476,171 @@ max-height: 360px;
 }
 
 }
+/* =========================================================
+ARTICLE CONTENT - FULL WIDTH
+========================================================= */
 
+.article-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 30px 3%;
+    background: #ffffff;
+}
+
+.article-content {
+    width: 100%;
+    max-width: none;
+}
+
+.article-content h1 {
+    width: 100%;
+    margin: 0 0 15px;
+    font-size: 38px;
+    line-height: 1.45;
+    font-weight: 900;
+    color: #111827;
+}
+
+.article-date {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.article-content img.article-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0 30px;
+    border-radius: 10px;
+}
+
+.article-content p {
+    width: 100%;
+    max-width: none;
+    margin: 0 0 25px;
+    font-size: 23px;
+    line-height: 2;
+    color: #111827;
+    text-align: left;
+}
+
+.article-content h2 {
+    width: 100%;
+    margin: 35px 0 20px;
+    padding-left: 14px;
+    border-left: 5px solid #e00000;
+    font-size: 29px;
+    line-height: 1.5;
+    font-weight: 900;
+    color: #111827;
+}
+
+/* SHARE BOX */
+
+.share-box {
+    width: 100%;
+    margin: 35px 0;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.share-buttons a {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.facebook {
+    background: #1877f2;
+}
+
+.twitter {
+    background: #000000;
+}
+
+.whatsapp {
+    background: #25d366;
+}
+
+
+/* =========================================================
+ARTICLE MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .article-container {
+        width: 100%;
+        padding: 20px 4%;
+    }
+
+    .article-content h1 {
+        font-size: 27px;
+        line-height: 1.5;
+    }
+
+    .article-content p {
+        width: 100%;
+        font-size: 18px;
+        line-height: 1.9;
+        margin-bottom: 20px;
+    }
+
+    .article-content h2 {
+        font-size: 23px;
+        margin: 28px 0 16px;
+    }
+
+    .article-content img.article-image {
+        width: 100%;
+        height: auto;
+        margin: 15px 0 25px;
+    }
+
+}
+
+
+/* =========================================================
+ARTICLE SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .article-container {
+        padding: 15px 4%;
+    }
+
+    .article-content h1 {
+        font-size: 23px;
+    }
+
+    .article-content p {
+        font-size: 17px;
+        line-height: 1.85;
+    }
+
+    .article-content h2 {
+        font-size: 20px;
+    }
+
+}
 /* =========================================================
 END OF BS 360 NEWS CSS
 ========================================================= */
