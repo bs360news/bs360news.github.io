@@ -2,14 +2,15 @@
 <html lang="te">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి - BS 360 NEWS</title>
+<title>
+🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి - BS 360 NEWS
+</title>
 
 <meta name="description"
-content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు తప్పక తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు.">
+content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు తప్పక తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు. బ్యాటరీ, రేంజ్, ఛార్జింగ్, సర్వీస్, ఖర్చుల గురించి పూర్తి సమాచారం.">
 
 <link rel="canonical" href="https://bs360news.com/ev1.html">
 
@@ -17,7 +18,7 @@ content="ఎలక్ట్రిక్ వెహికల్ కొనుగో
 content="🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి">
 
 <meta property="og:description"
-content="ఎలక్ట్రిక్ వెహికల్ కొనేముందు తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు.">
+content="ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు తెలుసుకోవాల్సిన ముఖ్యమైన విషయాలు.">
 
 <meta property="og:image"
 content="https://bs360news.com/ev1.png">
@@ -31,26 +32,25 @@ content="https://bs360news.com/ev1.html">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,"Noto Sans Telugu",sans-serif;
-    background:#f5f6f8;
+    margin:0;
+    background:#fff;
     color:#171717;
+    font-family:Arial,"Noto Sans Telugu",sans-serif;
     line-height:1.7;
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 .container{
@@ -58,17 +58,15 @@ a{
     margin:auto;
 }
 
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .site-header{
-    background:#fff;
-    border-bottom:1px solid #ddd;
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:9999;
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
 
 .header-inner{
@@ -76,248 +74,217 @@ a{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:15px;
 }
 
 .logo{
-    font-size:27px;
+    font-size:25px;
     font-weight:900;
     color:#0056b3;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#e60000;
 }
 
 .home-btn{
     background:#0056b3;
     color:#fff;
-    padding:8px 17px;
+    padding:7px 15px;
     border-radius:5px;
-    font-weight:700;
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-section{
-    background:#fff;
-    padding:13px 0;
-    border-bottom:1px solid #eee;
-}
-
-.search-box{
-    max-width:700px;
-    margin:auto;
-    display:flex;
-}
-
-.search-box input{
-    flex:1;
-    padding:12px 15px;
-    border:1px solid #ccc;
-    border-right:0;
-    border-radius:5px 0 0 5px;
-    font-size:16px;
-    outline:none;
-}
-
-.search-box button{
-    border:0;
-    background:#0056b3;
-    color:#fff;
-    padding:0 22px;
-    border-radius:0 5px 5px 0;
-    cursor:pointer;
+    font-size:14px;
     font-weight:bold;
 }
 
-
-/* =========================
-   BREAKING
-========================= */
+/* BREAKING */
 
 .breaking{
-    margin-top:18px;
-    background:#fff;
-    padding:10px 15px;
-    border-left:5px solid #e60000;
-    font-weight:700;
+    background:#111;
+    color:#fff;
+    overflow:hidden;
 }
 
-.breaking span{
-    color:#e60000;
-    margin-right:8px;
+.breaking-inner{
+    display:flex;
+    align-items:center;
+    height:42px;
 }
 
-
-/* =========================
-   ARTICLE
-========================= */
-
-.article-wrapper{
-    margin-top:18px;
+.breaking-label{
+    background:#e60000;
+    padding:5px 13px;
+    font-weight:bold;
+    white-space:nowrap;
+    margin-right:15px;
 }
 
-.article{
-    background:#fff;
-    padding:25px;
-    border:1px solid #e3e3e3;
-    border-radius:8px;
+.breaking-text{
+    white-space:nowrap;
+    animation:breakingMove 18s linear infinite;
+}
+
+@keyframes breakingMove{
+    from{
+        transform:translateX(100%);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+/* ARTICLE */
+
+.article-page{
+    padding:28px 0 15px;
 }
 
 .article-category{
     display:inline-block;
-    background:#e60000;
+    background:#0056b3;
     color:#fff;
     padding:4px 10px;
     border-radius:4px;
-    font-size:14px;
+    font-size:13px;
     font-weight:bold;
     margin-bottom:10px;
 }
 
-.article h1{
-    font-size:36px;
-    line-height:1.35;
-    margin-bottom:12px;
+.article-title{
+    font-size:38px;
+    line-height:1.3;
+    margin:0 0 18px;
+    font-weight:800;
 }
 
-.article-meta{
-    color:#777;
-    font-size:14px;
-    margin-bottom:18px;
-}
-
-.article-hero{
+.article-image{
     width:100%;
     aspect-ratio:16/9;
     object-fit:cover;
-    border-radius:7px;
     display:block;
+    border-radius:8px;
     margin-bottom:22px;
 }
 
-.article p{
+.article-content{
+    max-width:1000px;
+    margin:auto;
     font-size:18px;
-    margin-bottom:18px;
 }
 
-.article h2{
+.article-content p{
+    margin:0 0 18px;
+}
+
+.article-content h2{
     font-size:25px;
-    color:#0056b3;
-    margin:28px 0 12px;
+    margin:25px 0 10px;
 }
 
-.info-box{
-    background:#f1f7ff;
-    border-left:5px solid #0056b3;
-    padding:16px;
-    margin:22px 0;
-    border-radius:5px;
+.article-content ul{
+    padding-left:22px;
 }
 
-.quote-box{
-    background:#fff6f6;
-    border-left:4px solid #e60000;
-    padding:15px 18px;
-    margin:22px 0;
-    font-size:18px;
-    font-weight:600;
+.article-content li{
+    margin-bottom:8px;
 }
 
-
-/* ==================================================
-   LATEST NEWS
-================================================== */
+/* NEWS SECTION */
 
 .latest-section{
-    margin-top:30px;
+    margin-top:40px;
+    padding-top:25px;
+    border-top:1px solid #e5e7eb;
 }
 
 .section-title{
-    background:#fff;
-    border-left:5px solid #e60000;
-    padding:10px 15px;
-    font-size:25px;
+    font-size:27px;
+    margin:0 0 17px;
     font-weight:800;
-    margin-bottom:15px;
+    border-left:5px solid #e60000;
+    padding-left:10px;
 }
 
-
-/* ==================================================
-   TOP 6 HORIZONTAL SCROLLER
-================================================== */
+/* TOP 6 AUTO SLIDER */
 
 .top-news-wrapper{
+    width:100%;
     overflow-x:auto;
-    overflow-y:hidden;
-    padding-bottom:10px;
-    scrollbar-width:thin;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    scroll-behavior:smooth;
+    cursor:grab;
 }
 
 .top-news-wrapper::-webkit-scrollbar{
-    height:7px;
+    display:none;
 }
 
-.top-news-grid{
-    display:grid;
-    grid-template-columns:repeat(6,220px);
-    gap:15px;
+.top-news-track{
+    display:flex;
+    gap:14px;
     width:max-content;
 }
 
 .top-news-card{
-    width:220px;
+    flex:0 0 calc((min(1400px,96vw) - 70px) / 6);
+    width:calc((min(1400px,96vw) - 70px) / 6);
     background:#fff;
-    border:1px solid #ddd;
+    border:1px solid #e5e7eb;
     border-radius:8px;
     overflow:hidden;
+    box-shadow:0 2px 7px rgba(0,0,0,.06);
 }
 
-.top-news-image{
-    width:220px;
-    height:125px;
+.top-news-card img{
+    width:100%;
+    aspect-ratio:16/9;
     object-fit:cover;
     display:block;
 }
 
-.top-news-content{
-    padding:9px 11px;
+.top-news-info{
+    padding:9px 10px 11px;
 }
 
 .top-news-category{
-    font-size:12px;
     color:#e60000;
+    font-size:12px;
     font-weight:bold;
-    margin-bottom:3px;
 }
 
 .top-news-title{
-    font-size:16px;
+    font-size:15px;
     font-weight:700;
-    line-height:1.4;
+    line-height:1.45;
+    margin-top:3px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
 
-
-/* ==================================================
-   FEATURED ARTICLE
-================================================== */
+/* BIG AUTO ARTICLE */
 
 .featured-news{
-    margin-top:25px;
+    margin-top:28px;
 }
 
-.featured-card{
+.featured-box{
     position:relative;
-    background:#000;
-    border-radius:9px;
+    width:100%;
+    aspect-ratio:16/9;
     overflow:hidden;
-    display:block;
+    border-radius:10px;
+    background:#111;
 }
 
-.featured-image{
+.featured-box img{
     width:100%;
-    aspect-ratio:16/7;
+    height:100%;
     object-fit:cover;
     display:block;
+    transition:opacity .3s ease;
 }
 
 .featured-overlay{
@@ -325,159 +292,150 @@ a{
     left:0;
     right:0;
     bottom:0;
-    padding:65px 25px 22px;
+    padding:70px 25px 22px;
     background:linear-gradient(
         transparent,
-        rgba(0,0,0,.9)
+        rgba(0,0,0,.92)
     );
     color:#fff;
 }
 
 .featured-category{
-    font-size:14px;
-    color:#fff;
-    background:#e60000;
     display:inline-block;
+    background:#e60000;
     padding:3px 9px;
     border-radius:3px;
-    margin-bottom:7px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:6px;
 }
 
 .featured-title{
-    font-size:29px;
-    line-height:1.4;
+    font-size:30px;
+    line-height:1.35;
     font-weight:800;
+    margin:0;
 }
 
+/* DOTS */
 
-/* ==================================================
-   2 COLUMN NEWS
-================================================== */
+.featured-dots{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-top:10px;
+}
+
+.featured-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#ccc;
+}
+
+.featured-dot.active{
+    background:#e60000;
+}
+
+/* TWO COLUMN */
 
 .two-news{
-    margin-top:25px;
+    margin-top:30px;
 }
 
 .two-news-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:20px;
+    gap:18px;
 }
 
 .two-news-card{
-    background:#fff;
-    border:1px solid #ddd;
+    display:flex;
+    gap:14px;
+    padding:12px;
+    border:1px solid #e5e7eb;
     border-radius:8px;
-    overflow:hidden;
+    background:#fff;
+    box-shadow:0 2px 6px rgba(0,0,0,.05);
 }
 
-.two-news-image{
-    width:100%;
-    aspect-ratio:16/9;
+.two-news-card img{
+    width:210px;
+    height:120px;
     object-fit:cover;
-    display:block;
+    border-radius:6px;
+    flex-shrink:0;
 }
 
-.two-news-content{
-    padding:13px 15px 17px;
+.two-news-info{
+    min-width:0;
 }
 
 .two-news-category{
     color:#e60000;
-    font-size:13px;
+    font-size:12px;
     font-weight:bold;
-    margin-bottom:5px;
 }
 
 .two-news-title{
-    font-size:20px;
+    font-size:17px;
+    font-weight:700;
     line-height:1.45;
-    font-weight:800;
-}
-
-
-/* ==================================================
-   SEARCH RESULTS
-================================================== */
-
-.search-results{
-    display:none;
-    background:#fff;
-    margin-top:10px;
-    border:1px solid #ddd;
-    border-radius:6px;
+    margin-top:3px;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
     overflow:hidden;
 }
 
-.search-result-item{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:10px;
-    border-bottom:1px solid #eee;
-}
-
-.search-result-item img{
-    width:80px;
-    height:55px;
-    object-fit:cover;
-    border-radius:5px;
-}
-
-
-/* ==================================================
-   FOOTER
-================================================== */
+/* FOOTER */
 
 .site-footer{
+    margin-top:45px;
     background:#111;
     color:#ddd;
-    margin-top:40px;
+    padding:35px 0 20px;
 }
 
-.footer-inner{
-    width:min(1400px,96%);
-    margin:auto;
-    padding:35px 0;
+.footer-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
 }
 
-.footer-box h3{
+.footer-title{
     color:#fff;
-    margin-bottom:12px;
-    font-size:19px;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-.footer-box p{
-    color:#aaa;
+.footer-text{
+    color:#bbb;
     font-size:14px;
 }
 
-.footer-box a{
-    display:block;
-    color:#ccc;
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
     font-size:14px;
-    margin:5px 0;
 }
 
-.footer-box a:hover{
+.footer-links a:hover{
     color:#fff;
 }
 
 .footer-bottom{
     border-top:1px solid #333;
+    margin-top:25px;
+    padding-top:15px;
     text-align:center;
-    padding:14px;
     font-size:13px;
-    color:#aaa;
+    color:#999;
 }
 
-
-/* ==================================================
-   READING PROGRESS
-================================================== */
+/* READING PROGRESS */
 
 #readingProgress{
     position:fixed;
@@ -486,34 +444,40 @@ a{
     width:0;
     height:3px;
     background:#e60000;
-    z-index:2000;
+    z-index:10000;
 }
 
-
-/* ==================================================
-   TABLET
-================================================== */
+/* MOBILE */
 
 @media(max-width:900px){
 
-    .article h1{
-        font-size:30px;
+    .top-news-card{
+        flex:0 0 220px;
+        width:220px;
     }
 
     .two-news-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
     }
 
-    .footer-inner{
-        grid-template-columns:repeat(2,1fr);
+    .two-news-card{
+        display:block;
+        padding:8px;
+    }
+
+    .two-news-card img{
+        width:100%;
+        height:auto;
+        aspect-ratio:16/9;
+        margin-bottom:5px;
+    }
+
+    .two-news-title{
+        font-size:15px;
     }
 
 }
-
-
-/* ==================================================
-   MOBILE
-================================================== */
 
 @media(max-width:600px){
 
@@ -521,444 +485,362 @@ a{
         width:94%;
     }
 
+    .header-inner{
+        min-height:58px;
+    }
+
     .logo{
-        font-size:22px;
+        font-size:21px;
     }
 
     .home-btn{
-        font-size:14px;
-        padding:7px 12px;
+        font-size:12px;
+        padding:6px 10px;
     }
 
-    .article{
-        padding:16px;
+    .article-page{
+        padding-top:20px;
     }
 
-    .article h1{
-        font-size:25px;
+    .article-title{
+        font-size:27px;
     }
 
-    .article p{
+    .article-content{
         font-size:17px;
     }
 
-    .article h2{
-        font-size:21px;
-    }
-
-
-    /* 6 CARD SCROLLER */
-
-    .top-news-grid{
-        grid-template-columns:repeat(6,180px);
-        gap:11px;
+    .article-content h2{
+        font-size:22px;
     }
 
     .top-news-card{
-        width:180px;
-    }
-
-    .top-news-image{
-        width:180px;
-        height:102px;
+        flex:0 0 calc((94vw - 14px) / 2);
+        width:calc((94vw - 14px) / 2);
     }
 
     .top-news-title{
-        font-size:15px;
-    }
-
-
-    /* FEATURED */
-
-    .featured-image{
-        aspect-ratio:16/9;
-    }
-
-    .featured-overlay{
-        padding:55px 14px 14px;
+        font-size:14px;
     }
 
     .featured-title{
-        font-size:21px;
+        font-size:22px;
     }
 
-
-    /* TWO COLUMN */
+    .featured-overlay{
+        padding:50px 14px 14px;
+    }
 
     .two-news-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:10px;
+        gap:9px;
     }
 
-    .two-news-content{
-        padding:9px;
+    .two-news-card{
+        padding:6px;
     }
 
     .two-news-title{
-        font-size:16px;
+        font-size:14px;
         line-height:1.4;
+        -webkit-line-clamp:3;
     }
 
     .two-news-category{
-        font-size:11px;
+        font-size:10px;
     }
 
-
-    /* FOOTER */
-
-    .footer-inner{
+    .footer-grid{
         grid-template-columns:1fr;
-        padding:25px 0;
+        gap:20px;
     }
 
 }
 
+/* HIDE SOURCE */
+
+#legacyNewsSource{
+    display:none !important;
+}
+
 </style>
-
 </head>
-
 
 <body>
 
-
 <div id="readingProgress"></div>
 
-
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header class="site-header">
 
-    <div class="container header-inner">
+<div class="container header-inner">
 
-        <a href="index.html" class="logo">
-            BS 360 NEWS
-        </a>
+<a href="index.html" class="logo">
+BS <span>360</span> NEWS
+</a>
 
-        <a href="index.html" class="home-btn">
-            🏠 HOME
-        </a>
+<a href="index.html" class="home-btn">
+🏠 HOME
+</a>
 
-    </div>
+</div>
 
 </header>
 
 
-<!-- ================= SEARCH ================= -->
-
-<section class="search-section">
-
-    <div class="container">
-
-        <div class="search-box">
-
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="వార్తలు సెర్చ్ చేయండి..."
-                autocomplete="off"
-            >
-
-            <button onclick="searchNews()">
-                🔍 సెర్చ్
-            </button>
-
-        </div>
-
-        <div
-            id="searchResults"
-            class="search-results">
-        </div>
-
-    </div>
-
-</section>
-
-
-<main class="container">
-
-
-<!-- ================= BREAKING ================= -->
+<!-- BREAKING -->
 
 <div class="breaking">
 
-    <span>🔴 BREAKING</span>
+<div class="container breaking-inner">
 
-    ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు ఈ విషయాలు తెలుసుకోండి
+<div class="breaking-label">
+🔴 BREAKING
+</div>
+
+<div class="breaking-text">
+తెలుగు రాష్ట్రాలు, దేశం, సినిమా, స్పోర్ట్స్‌కు సంబంధించిన తాజా వార్తలు
+</div>
+
+</div>
 
 </div>
 
 
-<!-- ================= ARTICLE ================= -->
+<!-- CURRENT ARTICLE -->
 
-<div class="article-wrapper">
+<main>
 
-<article class="article">
+<section class="article-page">
 
-    <div class="article-category">
-        🚗 ఆటోమొబైల్స్
-    </div>
+<div class="container">
 
-    <h1>
-        🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి
-    </h1>
+<div class="article-category">
+ఆటోమొబైల్స్
+</div>
 
-    <div class="article-meta">
-        BS 360 NEWS | సెప్టెంబర్ 2026
-    </div>
+<h1 class="article-title">
+🚗 ఎలక్ట్రిక్ వెహికల్ కొంటున్నారా? అయితే ఈ విషయాలు తప్పక తెలుసుకోండి
+</h1>
 
-    <img
-        src="ev1.png"
-        alt="ఎలక్ట్రిక్ వెహికల్"
-        class="article-hero"
-    >
+<img
+class="article-image"
+src="ev1.png"
+alt="ఎలక్ట్రిక్ వెహికల్"
+loading="eager"
+>
 
+<div class="article-content">
 
-    <p>
-        పెట్రోల్, డీజిల్ ధరలు పెరుగుతున్న నేపథ్యంలో చాలామంది ఇప్పుడు ఎలక్ట్రిక్ వెహికల్స్ వైపు ఆసక్తి చూపిస్తున్నారు. కార్లు, బైకులు, స్కూటర్లలో ఎలక్ట్రిక్ మోడళ్లకు డిమాండ్ క్రమంగా పెరుగుతోంది.
-    </p>
+<p>
+దేశంలో ఎలక్ట్రిక్ వాహనాలకు డిమాండ్ రోజురోజుకూ పెరుగుతోంది. పెట్రోల్, డీజిల్ ధరలు పెరుగుతుండటంతో చాలామంది ఇప్పుడు ఎలక్ట్రిక్ స్కూటర్, కారు లేదా ఇతర ఈవీల వైపు చూస్తున్నారు. తక్కువ రన్నింగ్ ఖర్చు, మెయింటెనెన్స్ తక్కువగా ఉండటం వంటి కారణాలతో ఈవీలు ఆకర్షిస్తున్నాయి.
+</p>
 
-    <p>
-        అయితే ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేయడం అంటే కేవలం ధర చూసి నిర్ణయం తీసుకోవడం సరిపోదు. వాహనం రేంజ్, బ్యాటరీ, ఛార్జింగ్ సదుపాయం, సర్వీస్ నెట్‌వర్క్, వారంటీ వంటి అంశాలను కూడా ముందుగానే పరిశీలించాలి.
-    </p>
+<p>
+అయితే ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు కొన్ని విషయాలను తప్పకుండా పరిశీలించాలి. కేవలం వాహనం ధర తక్కువగా ఉందని కొనుగోలు చేస్తే తర్వాత కొన్ని ఇబ్బందులు ఎదురయ్యే అవకాశం ఉంటుంది.
+</p>
 
+<h2>
+🔋 బ్యాటరీ సామర్థ్యం ఎంత?
+</h2>
 
-    <div class="info-box">
+<p>
+ఎలక్ట్రిక్ వాహనంలో అత్యంత ముఖ్యమైన భాగం బ్యాటరీ. బ్యాటరీ కెపాసిటీ, వారంటీ, ఛార్జింగ్ సైకిల్స్ వంటి వివరాలను ముందుగానే తెలుసుకోవాలి. కంపెనీ ఎంత సంవత్సరాలు లేదా ఎన్ని కిలోమీటర్ల వరకు బ్యాటరీ వారంటీ ఇస్తుందో పరిశీలించడం మంచిది.
+</p>
 
-        <strong>త్వరిత సమాచారం:</strong><br>
+<h2>
+🔌 ఛార్జింగ్ సౌకర్యం ఉందా?
+</h2>
 
-        EV కొనేముందు రేంజ్, బ్యాటరీ సామర్థ్యం, ఛార్జింగ్ సమయం, సర్వీస్ సెంటర్లు, వారంటీ, టెస్ట్ రైడ్ వంటి అంశాలను తప్పకుండా పరిశీలించండి.
+<p>
+మీ ఇంట్లో ఛార్జింగ్ చేసుకునే అవకాశం ఉందా లేదా అనేది కూడా ముఖ్యమే. సాధారణ ఛార్జర్‌తో పూర్తిగా ఛార్జ్ కావడానికి ఎంత సమయం పడుతుంది? ఫాస్ట్ ఛార్జింగ్ సపోర్ట్ ఉందా? మీ ప్రాంతంలో పబ్లిక్ ఛార్జింగ్ స్టేషన్లు ఎక్కడ ఉన్నాయి? వంటి విషయాలు తెలుసుకోవాలి.
+</p>
 
-    </div>
+<h2>
+🛣️ కంపెనీ చెబుతున్న రేంజ్‌ను మాత్రమే నమ్మకండి
+</h2>
 
+<p>
+కంపెనీలు ప్రకటించే రేంజ్ సాధారణ పరీక్షల ఆధారంగా ఉంటుంది. వాస్తవ వినియోగంలో ట్రాఫిక్, వేగం, వాతావరణ పరిస్థితులు, ఏసీ వినియోగం వంటి అంశాల వల్ల రేంజ్ మారవచ్చు. అందుకే టెస్ట్ రైడ్ చేసి వాస్తవ పరిస్థితుల్లో వాహనం ఎలా పనిచేస్తుందో తెలుసుకోవాలి.
+</p>
 
-    <h2>
-        EV కొనేముందు రేంజ్‌ను తప్పకుండా చూడాలి
-    </h2>
+<h2>
+🛠️ సర్వీస్ సెంటర్లు ఎంత దగ్గరలో ఉన్నాయి?
+</h2>
 
-    <p>
-        ఎలక్ట్రిక్ వాహనాల్లో రేంజ్ చాలా ముఖ్యమైన అంశం. ఒకసారి పూర్తిగా ఛార్జ్ చేసిన తర్వాత వాహనం ఎంత దూరం ప్రయాణించగలదో ముందుగానే తెలుసుకోవాలి.
-    </p>
+<p>
+ఎలక్ట్రిక్ వాహనం కొనుగోలు చేసే ముందు మీ ప్రాంతంలో కంపెనీకి సర్వీస్ సెంటర్ ఉందా లేదా చూసుకోవాలి. భవిష్యత్తులో బ్యాటరీ, మోటార్ లేదా ఇతర ఎలక్ట్రానిక్ భాగాలకు సమస్య వచ్చినప్పుడు సర్వీస్ సౌకర్యం అందుబాటులో ఉండటం చాలా అవసరం.
+</p>
 
-    <p>
-        కంపెనీలు ప్రకటించే రేంజ్ సాధారణ పరిస్థితుల్లో వచ్చే రేంజ్ కంటే ఎక్కువగా ఉండే అవకాశం ఉంటుంది. అందుకే రోజువారీ ప్రయాణానికి వాస్తవంగా ఎంత రేంజ్ అవసరమో అంచనా వేసుకుని మోడల్‌ను ఎంచుకోవడం మంచిది.
-    </p>
+<h2>
+💰 మొత్తం ఖర్చును లెక్కించండి
+</h2>
 
+<p>
+వాహనం కొనుగోలు ధర మాత్రమే కాకుండా ఇన్సూరెన్స్, ఛార్జింగ్ ఖర్చు, మెయింటెనెన్స్, టైర్లు, బ్యాటరీకి సంబంధించిన భవిష్యత్ ఖర్చులను కూడా పరిగణనలోకి తీసుకోవాలి. అప్పుడే ఆ వాహనం మీకు నిజంగా ఎంత వరకు ప్రయోజనకరమో అర్థమవుతుంది.
+</p>
 
-    <h2>
-        బ్యాటరీనే EVలో కీలక భాగం
-    </h2>
-
-    <p>
-        ఎలక్ట్రిక్ వాహనంలో అత్యంత ఖరీదైన భాగాల్లో బ్యాటరీ ఒకటి. అందువల్ల బ్యాటరీ సామర్థ్యం, బ్యాటరీ వారంటీ, బ్యాటరీపై కంపెనీ అందించే నిబంధనలు తెలుసుకోవాలి.
-    </p>
-
-    <p>
-        భవిష్యత్తులో బ్యాటరీకి సంబంధించిన సమస్య వస్తే ఖర్చు ఎంత అవుతుందో కూడా కొనుగోలు చేసే ముందే తెలుసుకోవడం మంచిది.
-    </p>
-
-
-    <h2>
-        ఛార్జింగ్ సదుపాయం ఎలా ఉంది?
-    </h2>
-
-    <p>
-        ఇంట్లో ఛార్జింగ్ చేసుకునే సదుపాయం ఉందా? వాహనం పూర్తిగా ఛార్జ్ కావడానికి ఎంత సమయం పడుతుంది? ఫాస్ట్ ఛార్జింగ్ సపోర్ట్ చేస్తుందా? వంటి వివరాలను పరిశీలించాలి.
-    </p>
-
-    <p>
-        రోజువారీగా ఎక్కువ దూరం ప్రయాణించే వారు పబ్లిక్ ఛార్జింగ్ స్టేషన్లు తమ ప్రాంతంలో ఎంతవరకు అందుబాటులో ఉన్నాయో కూడా ముందుగానే తెలుసుకోవాలి.
-    </p>
-
-
-    <h2>
-        సర్వీస్ సెంటర్ నెట్‌వర్క్‌ను కూడా చూడాలి
-    </h2>
-
-    <p>
-        కొత్త వాహనం కొనుగోలు చేసిన తర్వాత సర్వీసింగ్ అవసరం ఉంటుంది. కాబట్టి మీరు నివసించే ప్రాంతానికి దగ్గరలో కంపెనీకి సర్వీస్ సెంటర్ ఉందా లేదా అనేది కూడా ముఖ్యమే.
-    </p>
-
-    <p>
-        EVలకు సాధారణ పెట్రోల్ వాహనాలతో పోలిస్తే మెయింటెనెన్స్ అవసరాలు వేరుగా ఉంటాయి. అందువల్ల కంపెనీ సర్వీస్ నెట్‌వర్క్ గురించి ముందుగానే తెలుసుకోవడం మంచిది.
-    </p>
-
-
-    <h2>
-        ఈ 5 విషయాలు తప్పకుండా చెక్ చేయండి
-    </h2>
-
-    <p>
-        EV కొనుగోలు చేసే ముందు ముఖ్యంగా రియల్ వరల్డ్ రేంజ్, బ్యాటరీ వారంటీ, ఛార్జింగ్ టైమ్, సర్వీస్ సెంటర్లు, రీసేల్ విలువ వంటి అంశాలను పోల్చి చూడాలి.
-    </p>
-
-
-    <div class="quote-box">
-
-        “ధర తక్కువగా ఉందని మాత్రమే EVను ఎంచుకోకుండా, మీ రోజువారీ అవసరాలకు సరిపోతుందా లేదా అనేది ముందుగా చూసుకోవాలి.”
-
-    </div>
-
-
-    <h2>
-        టెస్ట్ రైడ్ తప్పనిసరి
-    </h2>
-
-    <p>
-        ఆన్‌లైన్‌లో స్పెసిఫికేషన్స్ చూసి మాత్రమే వాహనం కొనుగోలు చేయకుండా, వీలైతే టెస్ట్ రైడ్ చేయాలి. డ్రైవింగ్ పొజిషన్, సీటింగ్, బ్రేకింగ్, యాక్సిలరేషన్, సస్పెన్షన్ వంటి అంశాలను స్వయంగా అనుభవించడం ద్వారా వాహనం మీకు సరిపోతుందో లేదో అర్థమవుతుంది.
-    </p>
-
-
-    <h2>
-        మొత్తం ఖర్చును లెక్కించాలి
-    </h2>
-
-    <p>
-        EV కొనుగోలు సమయంలో ఎక్స్-షోరూమ్ ధరతో పాటు ఇన్సూరెన్స్, రిజిస్ట్రేషన్, ఛార్జర్, యాక్సెసరీస్ వంటి అదనపు ఖర్చులను కూడా పరిగణనలోకి తీసుకోవాలి.
-    </p>
-
-    <p>
-        అదే సమయంలో పెట్రోల్ లేదా డీజిల్ వాహనంతో పోలిస్తే నెలకు ఎంత ఖర్చు తగ్గుతుందో కూడా లెక్కించాలి. అలా చేస్తే మీకు సరైన నిర్ణయం తీసుకోవడం సులభమవుతుంది.
-    </p>
-
-
-    <p>
-        మొత్తంగా చూస్తే ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేయడం మంచి నిర్ణయమే కావచ్చు. కానీ ప్రతి ఒక్కరి అవసరాలు ఒకేలా ఉండవు. మీ రోజువారీ ప్రయాణం, ఛార్జింగ్ సదుపాయం, బడ్జెట్, సర్వీస్ నెట్‌వర్క్ వంటి అంశాలను పరిగణనలోకి తీసుకున్న తర్వాతే వాహనాన్ని ఎంచుకోవడం మంచిది.
-    </p>
-
-</article>
+<p>
+కాబట్టి ఎలక్ట్రిక్ వెహికల్ కొనుగోలు చేసే ముందు బ్యాటరీ, రేంజ్, ఛార్జింగ్, సర్వీస్, వారంటీ, మొత్తం ఖర్చు వంటి అంశాలను పరిశీలించడం మంచిది. మీ రోజువారీ ప్రయాణానికి సరిపోయే మోడల్‌ను ఎంచుకుంటే ఈవీ మంచి ఎంపికగా మారవచ్చు.
+</p>
 
 </div>
 
+</div>
 
-<!-- ==================================================
-     TOP 6 ARTICLES
-================================================== -->
+</section>
+
+
+<!-- DYNAMIC NEWS -->
 
 <section class="latest-section">
 
-    <div class="section-title">
-        📰 తాజా వార్తలు
-    </div>
+<div class="container">
 
-    <div class="top-news-wrapper">
+<h2 class="section-title">
+📰 తాజా వార్తలు
+</h2>
 
-        <div
-            id="topNewsGrid"
-            class="top-news-grid">
-        </div>
 
-    </div>
+<!-- TOP 6 AUTO SCROLLER -->
+
+<div class="top-news-wrapper" id="topNewsWrapper">
+
+<div class="top-news-track" id="topNewsTrack">
+</div>
+
+</div>
+
+
+<!-- BIG ARTICLE AUTO CHANGE -->
+
+<div class="featured-news">
+
+<div class="featured-box">
+
+<a id="featuredLink" href="#">
+
+<img id="featuredImage"
+src=""
+alt="తాజా వార్త"
+>
+
+<div class="featured-overlay">
+
+<div id="featuredCategory"
+class="featured-category">
+తాజా వార్త
+</div>
+
+<h2 id="featuredTitle"
+class="featured-title">
+తాజా వార్త
+</h2>
+
+</div>
+
+</a>
+
+</div>
+
+<div id="featuredDots"
+class="featured-dots">
+</div>
+
+</div>
+
+
+<!-- TWO COLUMN -->
+
+<div class="two-news">
+
+<h2 class="section-title">
+📌 మరిన్ని వార్తలు
+</h2>
+
+<div
+id="twoNewsGrid"
+class="two-news-grid">
+</div>
+
+</div>
+
+</div>
 
 </section>
-
-
-<!-- ==================================================
-     FEATURED ARTICLE
-================================================== -->
-
-<section class="featured-news">
-
-    <div class="section-title">
-        🔥 ముఖ్యమైన వార్త
-    </div>
-
-    <div id="featuredNews"></div>
-
-</section>
-
-
-<!-- ==================================================
-     TWO COLUMN ARTICLES
-================================================== -->
-
-<section class="two-news">
-
-    <div class="section-title">
-        📰 మరిన్ని వార్తలు
-    </div>
-
-    <div
-        id="twoNewsGrid"
-        class="two-news-grid">
-    </div>
-
-</section>
-
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer class="site-footer">
 
-<div class="footer-inner">
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<div class="footer-title">
+BS 360 NEWS
+</div>
+
+<div class="footer-text">
+BS 360 NEWS ద్వారా తెలుగు రాష్ట్రాలు, దేశం, ప్రపంచం, సినిమా, స్పోర్ట్స్, బిజినెస్ మరియు టెక్నాలజీకి సంబంధించిన తాజా వార్తలను అందిస్తున్నాం.
+</div>
+
+</div>
 
 
-    <div class="footer-box">
+<div>
 
-        <h3>BS 360 NEWS</h3>
+<div class="footer-title">
+ముఖ్యమైన లింకులు
+</div>
 
-        <p>
-            తెలుగు రాష్ట్రాలు, దేశం, ప్రపంచం, సినిమా, స్పోర్ట్స్, బిజినెస్, టెక్నాలజీ తదితర తాజా వార్తలను అందించే తెలుగు న్యూస్ వెబ్‌సైట్.
-        </p>
+<div class="footer-links">
 
-    </div>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="disclaimer.html">Disclaimer</a>
 
+</div>
 
-    <div class="footer-box">
-
-        <h3>ముఖ్యమైన లింకులు</h3>
-
-        <a href="index.html">Home</a>
-
-        <a href="about.html">About Us</a>
-
-        <a href="contact.html">Contact Us</a>
-
-        <a href="privacy.html">Privacy Policy</a>
-
-    </div>
+</div>
 
 
-    <div class="footer-box">
+<div>
 
-        <h3>ఇతర లింకులు</h3>
+<div class="footer-title">
+ఇతర లింకులు
+</div>
 
-        <a href="disclaimer.html">Disclaimer</a>
+<div class="footer-links">
 
-        <a href="terms.html">Terms & Conditions</a>
+<a href="terms.html">Terms & Conditions</a>
+<a href="advertise.html">Advertise</a>
 
-        <a href="advertise.html">Advertise With Us</a>
+<a href="#" target="_blank">
+Facebook
+</a>
 
-    </div>
+<a href="#" target="_blank">
+YouTube
+</a>
 
+</div>
 
-    <div class="footer-box">
-
-        <h3>Follow Us</h3>
-
-        <a href="#" target="_blank">
-            Facebook
-        </a>
-
-        <a href="#" target="_blank">
-            Twitter / X
-        </a>
-
-        <a href="#" target="_blank">
-            YouTube
-        </a>
-
-    </div>
-
+</div>
 
 </div>
 
 
 <div class="footer-bottom">
-
-    © 2026 BS 360 NEWS. All Rights Reserved.
+© 2026 BS 360 NEWS. All Rights Reserved.
+</div>
 
 </div>
 
@@ -967,47 +849,12 @@ a{
 
 <script>
 
-/* ==================================================
-   SETTINGS
-================================================== */
+/* CURRENT ARTICLE */
 
 const CURRENT_ARTICLE = "ev1.html";
 
 
-/* ==================================================
-   NORMALIZE URL
-================================================== */
-
-function normalizeUrl(url){
-
-    if(!url) return "";
-
-    try{
-
-        return new URL(
-            url,
-            window.location.href
-        )
-        .pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
-
-    }catch(e){
-
-        return String(url)
-            .split("/")
-            .pop()
-            .toLowerCase();
-
-    }
-
-}
-
-
-/* ==================================================
-   GET HOMEPAGE POSTS
-================================================== */
+/* GET HOMEPAGE POSTS */
 
 async function getHomepagePosts(){
 
@@ -1020,75 +867,38 @@ async function getHomepagePosts(){
             }
         );
 
-        if(!response.ok){
+        const html = await response.text();
 
-            throw new Error(
-                "Homepage loading failed"
-            );
+        const parser = new DOMParser();
 
-        }
+        const doc = parser.parseFromString(
+            html,
+            "text/html"
+        );
 
-
-        const html =
-            await response.text();
-
-
-        const parser =
-            new DOMParser();
-
-
-        const doc =
-            parser.parseFromString(
-                html,
-                "text/html"
-            );
-
-
-        const selectors = [
-
-            "#legacyNewsSource .post[data-url]",
-
-            ".news-list .post[data-url]",
-
-            ".news-item.post[data-url]",
-
-            ".post[data-url]"
-
+        let posts = [
+            ...doc.querySelectorAll(
+                "#legacyNewsSource .post[data-url]"
+            ),
+            ...doc.querySelectorAll(
+                ".news-list .post[data-url]"
+            ),
+            ...doc.querySelectorAll(
+                ".news-item.post[data-url]"
+            ),
+            ...doc.querySelectorAll(
+                ".post[data-url]"
+            )
         ];
-
-
-        let posts = [];
-
-
-        for(
-            const selector
-            of selectors
-        ){
-
-            const found = [
-                ...doc.querySelectorAll(
-                    selector
-                )
-            ];
-
-
-            if(found.length){
-
-                posts = found;
-
-                break;
-
-            }
-
-        }
-
 
         return uniquePosts(posts);
 
-
     }catch(error){
 
-        console.error(error);
+        console.log(
+            "Homepage news loading error:",
+            error
+        );
 
         return [];
 
@@ -1097,659 +907,686 @@ async function getHomepagePosts(){
 }
 
 
-/* ==================================================
-   UNIQUE POSTS
-================================================== */
+/* REMOVE DUPLICATES */
 
 function uniquePosts(posts){
 
-    const seen =
-        new Set();
+    const map = new Map();
 
+    posts.forEach(post => {
 
-    return posts.filter(post => {
+        const url = articleUrl(post);
 
-        const url =
-            normalizeUrl(
-                post.dataset.url || ""
-            );
+        if(!url) return;
 
+        const key = normalizeUrl(url);
 
         if(
-            !url ||
-            seen.has(url)
+            key !== normalizeUrl(CURRENT_ARTICLE)
+            &&
+            !map.has(key)
         ){
 
-            return false;
+            map.set(key,post);
 
         }
 
-
-        seen.add(url);
-
-        return true;
-
     });
+
+    return [...map.values()];
 
 }
 
 
-/* ==================================================
-   TITLE
-================================================== */
+/* NORMALIZE URL */
+
+function normalizeUrl(url){
+
+    return String(url || "")
+        .split("#")[0]
+        .split("?")[0]
+        .replace(/^\.?\//,"")
+        .trim();
+
+}
+
+
+/* ARTICLE URL */
+
+function articleUrl(post){
+
+    return (
+        post.dataset.url ||
+        post.getAttribute("href") ||
+        post.querySelector("a[href]")?.getAttribute("href") ||
+        ""
+    );
+
+}
+
+
+/* TITLE */
 
 function titleOf(post){
 
-    const element =
+    return (
         post.querySelector(
-            "h1,h2,h3,h4,.title,.post-title,p"
-        );
-
-
-    return element
-        ?
-        element.textContent.trim()
-        :
-        "తాజా వార్త";
+            "h1,h2,h3,h4,p"
+        )?.textContent ||
+        post.textContent ||
+        "తాజా వార్త"
+    )
+    .replace(/\s+/g," ")
+    .trim();
 
 }
 
 
-/* ==================================================
-   IMAGE
-================================================== */
+/* IMAGE */
 
 function imageOf(post){
 
     const img =
         post.querySelector("img");
 
-
-    if(!img){
-
-        return "";
-
-    }
-
-
-    return img.getAttribute("src") || "";
+    return img?.getAttribute("src") || "";
 
 }
 
 
-/* ==================================================
-   ARTICLE URL
-================================================== */
-
-function articleUrl(post){
-
-    return post.dataset.url || "";
-
-}
-
-
-/* ==================================================
-   CATEGORY
-================================================== */
+/* CATEGORY */
 
 function categoryOf(post){
 
-    return post.dataset.category
-        ||
-        "తాజా వార్తలు";
+    return (
+        post.dataset.category ||
+        post.querySelector(
+            ".category,.post-category"
+        )?.textContent ||
+        "తాజా వార్త"
+    )
+    .replace(/\s+/g," ")
+    .trim();
 
 }
 
 
-/* ==================================================
-   CREATE TOP 6
-================================================== */
+/* CREATE TOP CARD */
 
-function createTopNews(posts){
+function createTopCard(post){
 
-    const grid =
-        document.getElementById(
-            "topNewsGrid"
-        );
+    const url = articleUrl(post);
 
+    const title = titleOf(post);
 
-    const topPosts =
-        posts.slice(0,6);
+    const image = imageOf(post);
 
+    const category = categoryOf(post);
 
-    grid.innerHTML =
-        topPosts.map(post => {
+    const card =
+        document.createElement("a");
 
-            const title =
-                titleOf(post);
+    card.className =
+        "top-news-card";
 
-            const image =
-                imageOf(post);
+    card.href = url;
 
-            const url =
-                articleUrl(post);
+    card.innerHTML = `
 
-            const category =
-                categoryOf(post);
+        <img
+            src="${image}"
+            alt="${title}"
+            loading="lazy"
+        >
 
+        <div class="top-news-info">
 
-            return `
+            <div class="top-news-category">
+                ${category}
+            </div>
 
-                <a
-                    href="${url}"
-                    class="top-news-card"
-                >
+            <div class="top-news-title">
+                ${title}
+            </div>
 
-                    ${
-                        image
-                        ?
-                        `
-                        <img
-                            src="${image}"
-                            class="top-news-image"
-                            alt=""
-                            loading="lazy"
-                        >
-                        `
-                        :
-                        ""
-                    }
+        </div>
 
-                    <div class="top-news-content">
+    `;
 
-                        <div class="top-news-category">
-                            ${category}
-                        </div>
-
-                        <div class="top-news-title">
-                            ${title}
-                        </div>
-
-                    </div>
-
-                </a>
-
-            `;
-
-        }).join("");
+    return card;
 
 }
 
 
-/* ==================================================
-   CREATE FEATURED
-================================================== */
+/* CREATE TWO COLUMN CARD */
 
-function createFeatured(post){
+function createTwoCard(post){
 
-    const box =
+    const url = articleUrl(post);
+
+    const title = titleOf(post);
+
+    const image = imageOf(post);
+
+    const category = categoryOf(post);
+
+    const card =
+        document.createElement("a");
+
+    card.className =
+        "two-news-card";
+
+    card.href = url;
+
+    card.innerHTML = `
+
+        <img
+            src="${image}"
+            alt="${title}"
+            loading="lazy"
+        >
+
+        <div class="two-news-info">
+
+            <div class="two-news-category">
+                ${category}
+            </div>
+
+            <div class="two-news-title">
+                ${title}
+            </div>
+
+        </div>
+
+    `;
+
+    return card;
+
+}
+
+
+/* FEATURED VARIABLES */
+
+let featuredPosts = [];
+
+let featuredIndex = 0;
+
+let featuredTimer = null;
+
+
+/* SHOW BIG ARTICLE */
+
+function showFeatured(index){
+
+    if(!featuredPosts.length) return;
+
+    featuredIndex =
+        index % featuredPosts.length;
+
+    const post =
+        featuredPosts[featuredIndex];
+
+    const image =
+        imageOf(post);
+
+    const title =
+        titleOf(post);
+
+    const category =
+        categoryOf(post);
+
+    const url =
+        articleUrl(post);
+
+
+    const img =
         document.getElementById(
-            "featuredNews"
+            "featuredImage"
+        );
+
+    const titleBox =
+        document.getElementById(
+            "featuredTitle"
+        );
+
+    const categoryBox =
+        document.getElementById(
+            "featuredCategory"
+        );
+
+    const link =
+        document.getElementById(
+            "featuredLink"
         );
 
 
-    if(!post){
+    img.style.opacity = "0";
 
-        box.innerHTML = "";
+
+    setTimeout(() => {
+
+        img.src = image;
+
+        img.alt = title;
+
+        titleBox.textContent =
+            title;
+
+        categoryBox.textContent =
+            category;
+
+        link.href =
+            url;
+
+        img.style.opacity = "1";
+
+    },150);
+
+
+    updateDots();
+
+}
+
+
+/* FEATURED DOTS */
+
+function createDots(){
+
+    const dotsBox =
+        document.getElementById(
+            "featuredDots"
+        );
+
+    dotsBox.innerHTML = "";
+
+    featuredPosts.forEach(
+        (_,index) => {
+
+            const dot =
+                document.createElement(
+                    "span"
+                );
+
+            dot.className =
+                "featured-dot";
+
+            dot.addEventListener(
+                "click",
+                () => {
+
+                    showFeatured(index);
+
+                    restartFeaturedTimer();
+
+                }
+            );
+
+            dotsBox.appendChild(dot);
+
+        }
+    );
+
+    updateDots();
+
+}
+
+
+/* UPDATE DOT */
+
+function updateDots(){
+
+    const dots =
+        document.querySelectorAll(
+            ".featured-dot"
+        );
+
+    dots.forEach(
+        (dot,index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === featuredIndex
+            );
+
+        }
+    );
+
+}
+
+
+/* START BIG ARTICLE AUTO CHANGE */
+
+function startFeaturedTimer(){
+
+    clearInterval(featuredTimer);
+
+    featuredTimer =
+        setInterval(() => {
+
+            showFeatured(
+                featuredIndex + 1
+            );
+
+        },3000);
+
+}
+
+
+/* RESTART TIMER */
+
+function restartFeaturedTimer(){
+
+    clearInterval(featuredTimer);
+
+    startFeaturedTimer();
+
+}
+
+
+/* TOP AUTO SCROLL */
+
+let topTimer = null;
+
+
+function startTopAutoScroll(){
+
+    const wrapper =
+        document.getElementById(
+            "topNewsWrapper"
+        );
+
+    if(!wrapper) return;
+
+
+    clearInterval(topTimer);
+
+
+    topTimer =
+        setInterval(() => {
+
+            const card =
+                wrapper.querySelector(
+                    ".top-news-card"
+                );
+
+            if(!card) return;
+
+
+            const style =
+                getComputedStyle(
+                    document.getElementById(
+                        "topNewsTrack"
+                    )
+                );
+
+            const gap =
+                parseFloat(
+                    style.columnGap ||
+                    style.gap ||
+                    14
+                );
+
+
+            const move =
+                card.offsetWidth +
+                gap;
+
+
+            const maxScroll =
+                wrapper.scrollWidth -
+                wrapper.clientWidth;
+
+
+            if(
+                wrapper.scrollLeft >=
+                maxScroll - 5
+            ){
+
+                wrapper.scrollTo({
+                    left:0,
+                    behavior:"smooth"
+                });
+
+            }else{
+
+                wrapper.scrollBy({
+                    left:move,
+                    behavior:"smooth"
+                });
+
+            }
+
+        },3000);
+
+}
+
+
+/* LOAD NEWS */
+
+async function loadNews(){
+
+    const posts =
+        await getHomepagePosts();
+
+
+    if(!posts.length){
+
+        console.log(
+            "No homepage posts found."
+        );
 
         return;
 
     }
 
 
-    const title =
-        titleOf(post);
+    /*
+       FIRST 18 ARTICLES
+       FOR TOP AUTO SLIDER
+    */
 
-    const image =
-        imageOf(post);
-
-    const url =
-        articleUrl(post);
-
-    const category =
-        categoryOf(post);
+    const topPosts =
+        posts.slice(0,18);
 
 
-    box.innerHTML = `
+    /*
+       NEXT ARTICLES
+       FOR TWO COLUMN
+    */
 
-        <a
-            href="${url}"
-            class="featured-card"
-        >
-
-            ${
-                image
-                ?
-                `
-                <img
-                    src="${image}"
-                    class="featured-image"
-                    alt=""
-                    loading="lazy"
-                >
-                `
-                :
-                ""
-            }
-
-            <div class="featured-overlay">
-
-                <div class="featured-category">
-                    ${category}
-                </div>
-
-                <div class="featured-title">
-                    ${title}
-                </div>
-
-            </div>
-
-        </a>
-
-    `;
-
-}
+    const lowerPosts =
+        posts.slice(18,36);
 
 
-/* ==================================================
-   CREATE TWO COLUMN NEWS
-================================================== */
+    /* TOP NEWS */
 
-function createTwoNews(posts){
+    const topTrack =
+        document.getElementById(
+            "topNewsTrack"
+        );
+
+    topTrack.innerHTML = "";
+
+
+    topPosts.forEach(
+        post => {
+
+            topTrack.appendChild(
+                createTopCard(post)
+            );
+
+        }
+    );
+
+
+    /* BIG FEATURED */
+
+    featuredPosts =
+        topPosts.length
+            ? topPosts
+            : posts;
+
+
+    createDots();
+
+    showFeatured(0);
+
+    startFeaturedTimer();
+
+
+    /* LOWER NEWS */
 
     const grid =
         document.getElementById(
             "twoNewsGrid"
         );
 
-
-    /*
-       POSTS 8 TO 19
-       = 12 ARTICLES
-    */
-
-    const twoPosts =
-        posts.slice(7,19);
+    grid.innerHTML = "";
 
 
-    grid.innerHTML =
-        twoPosts.map(post => {
+    lowerPosts.forEach(
+        post => {
 
-            const title =
-                titleOf(post);
-
-            const image =
-                imageOf(post);
-
-            const url =
-                articleUrl(post);
-
-            const category =
-                categoryOf(post);
-
-
-            return `
-
-                <a
-                    href="${url}"
-                    class="two-news-card"
-                >
-
-                    ${
-                        image
-                        ?
-                        `
-                        <img
-                            src="${image}"
-                            class="two-news-image"
-                            alt=""
-                            loading="lazy"
-                        >
-                        `
-                        :
-                        ""
-                    }
-
-                    <div class="two-news-content">
-
-                        <div class="two-news-category">
-                            ${category}
-                        </div>
-
-                        <div class="two-news-title">
-                            ${title}
-                        </div>
-
-                    </div>
-
-                </a>
-
-            `;
-
-        }).join("");
-
-}
-
-
-/* ==================================================
-   LOAD ALL NEWS
-================================================== */
-
-async function loadHomeNews(){
-
-    let posts =
-        await getHomepagePosts();
-
-
-    /*
-       CURRENT ARTICLE REMOVE
-    */
-
-    posts =
-        posts.filter(post => {
-
-            return normalizeUrl(
-                articleUrl(post)
-            )
-            !==
-            normalizeUrl(
-                CURRENT_ARTICLE
+            grid.appendChild(
+                createTwoCard(post)
             );
 
-        });
-
-
-    /*
-       TOP 6
-    */
-
-    createTopNews(posts);
-
-
-    /*
-       FEATURED = ARTICLE 7
-    */
-
-    createFeatured(
-        posts[6]
+        }
     );
 
 
-    /*
-       ARTICLES 8-19
-    */
+    /* TOP AUTO SCROLL */
 
-    createTwoNews(posts);
+    startTopAutoScroll();
 
 }
 
 
-/* ==================================================
-   SEARCH
-================================================== */
+/* PAUSE TOP SLIDER WHILE TOUCHING */
 
-let allSearchPosts = [];
-
-
-async function prepareSearch(){
-
-    allSearchPosts =
-        await getHomepagePosts();
+const topWrapper =
+    document.getElementById(
+        "topNewsWrapper"
+    );
 
 
-    allSearchPosts =
-        allSearchPosts.filter(post => {
+let resumeTopTimer;
 
-            return normalizeUrl(
-                articleUrl(post)
-            )
-            !==
-            normalizeUrl(
-                CURRENT_ARTICLE
+
+if(topWrapper){
+
+    topWrapper.addEventListener(
+        "touchstart",
+        () => {
+
+            clearInterval(topTimer);
+
+        },
+        {
+            passive:true
+        }
+    );
+
+
+    topWrapper.addEventListener(
+        "touchend",
+        () => {
+
+            clearTimeout(
+                resumeTopTimer
             );
 
-        });
+            resumeTopTimer =
+                setTimeout(
+                    startTopAutoScroll,
+                    1000
+                );
+
+        },
+        {
+            passive:true
+        }
+    );
 
 }
 
 
-/* ==================================================
-   SEARCH FUNCTION
-================================================== */
+/* PAUSE BIG ARTICLE ON MOUSE */
 
-function searchNews(){
-
-    const input =
-        document.getElementById(
-            "searchInput"
-        );
+const featuredBox =
+    document.querySelector(
+        ".featured-box"
+    );
 
 
-    const results =
-        document.getElementById(
-            "searchResults"
-        );
+if(featuredBox){
+
+    featuredBox.addEventListener(
+        "mouseenter",
+        () => {
+
+            clearInterval(
+                featuredTimer
+            );
+
+        }
+    );
 
 
-    const query =
-        input.value
-        .trim()
-        .toLowerCase();
+    featuredBox.addEventListener(
+        "mouseleave",
+        () => {
 
+            startFeaturedTimer();
 
-    if(!query){
-
-        results.style.display =
-            "none";
-
-        results.innerHTML =
-            "";
-
-        return;
-
-    }
-
-
-    const matches =
-        allSearchPosts
-        .filter(post => {
-
-            return titleOf(post)
-                .toLowerCase()
-                .includes(query);
-
-        })
-        .slice(0,10);
-
-
-    if(!matches.length){
-
-        results.innerHTML = `
-
-            <div style="padding:15px">
-                వార్తలు కనుగొనబడలేదు.
-            </div>
-
-        `;
-
-        results.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    results.innerHTML =
-        matches.map(post => {
-
-            const title =
-                titleOf(post);
-
-            const image =
-                imageOf(post);
-
-            const url =
-                articleUrl(post);
-
-
-            return `
-
-                <a
-                    href="${url}"
-                    class="search-result-item"
-                >
-
-                    ${
-                        image
-                        ?
-                        `
-                        <img
-                            src="${image}"
-                            alt=""
-                        >
-                        `
-                        :
-                        ""
-                    }
-
-                    <strong>
-                        ${title}
-                    </strong>
-
-                </a>
-
-            `;
-
-        }).join("");
-
-
-    results.style.display =
-        "block";
+        }
+    );
 
 }
 
 
-/* ==================================================
-   ENTER SEARCH
-================================================== */
-
-document
-.getElementById("searchInput")
-.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key === "Enter"
-        ){
-
-            searchNews();
-
-        }
-
-    }
-);
-
-
-/* ==================================================
-   LIVE SEARCH
-================================================== */
-
-document
-.getElementById("searchInput")
-.addEventListener(
-    "input",
-    function(){
-
-        if(
-            this.value.trim()
-        ){
-
-            searchNews();
-
-        }else{
-
-            document
-            .getElementById(
-                "searchResults"
-            )
-            .style.display =
-                "none";
-
-        }
-
-    }
-);
-
-
-/* ==================================================
-   READING PROGRESS
-================================================== */
+/* READING PROGRESS */
 
 window.addEventListener(
     "scroll",
-    function(){
+    () => {
 
-        const article =
-            document.querySelector(
-                ".article"
-            );
+        const scrollTop =
+            window.scrollY;
 
+        const documentHeight =
+            document.documentElement
+                .scrollHeight;
 
-        if(!article) return;
+        const windowHeight =
+            window.innerHeight;
 
+        const total =
+            documentHeight -
+            windowHeight;
 
-        const top =
-            article.offsetTop;
+        const progress =
+            total > 0
+                ? (scrollTop / total) * 100
+                : 0;
 
-
-        const height =
-            article.offsetHeight;
-
-
-        const scroll =
-            window.scrollY - top;
-
-
-        const percent =
-            Math.max(
-                0,
-                Math.min(
-                    100,
-                    (scroll / height) * 100
-                )
-            );
-
-
-        document
-        .getElementById(
+        document.getElementById(
             "readingProgress"
-        )
-        .style.width =
-            percent + "%";
+        ).style.width =
+            progress + "%";
 
     }
 );
 
 
-/* ==================================================
-   START
-================================================== */
+/* START */
 
 document.addEventListener(
     "DOMContentLoaded",
-    async function(){
-
-        await loadHomeNews();
-
-        await prepareSearch();
-
-    }
+    loadNews
 );
 
 </script>
 
 </body>
-
 </html>
