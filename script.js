@@ -2738,77 +2738,57 @@ document.addEventListener("DOMContentLoaded", function () {
         prepareOriginalArticles();
 
 
-        /* =================================================
-           NORMAL WEBSITE SECTIONS
-           BIGG BOSS AUTOMATICALLY EXCLUDED
-        ================================================= */
+      function setupBigBossAutoScroll() {
 
-        renderTopStory();
+    const slider = document.getElementById("bigbossSlider");
 
-        renderLatestSidebar();
+    if (!slider) return;
 
-        renderSlider();
+    let autoScroll;
 
-        renderLatest();
+    function startAutoScroll() {
 
-        renderMovies();
+        clearInterval(autoScroll);
 
-        renderSports();
+        autoScroll = setInterval(() => {
 
-        renderMostRead();
+            const maxScroll =
+                slider.scrollWidth - slider.clientWidth;
 
+            if (slider.scrollLeft >= maxScroll - 5) {
 
-        /* =================================================
-           BIGG BOSS 10 SPECIAL SECTION
-        ================================================= */
+                slider.scrollTo({
+                    left: 0,
+                    behavior: "smooth"
+                });
 
-        renderBigBoss();
+            } else {
 
+                slider.scrollBy({
+                    left: 373,
+                    behavior: "smooth"
+                });
 
-        /* =================================================
-           OTHER FUNCTIONS
-        ================================================= */
+            }
 
-        setupSearch();
-
-        setupCategoryFilter();
-
-        setupMobileMenu();
-
-        setupDarkMode();
-
-        setupDateTime();
-
-        setupSliderButtons();
-
-
-        console.log(
-            "BS 360 NEWS: " +
-            allPosts.length +
-            " total articles loaded."
-        );
-
-
-        console.log(
-            "BS 360 NEWS: " +
-            allPosts.filter(isBigBoss).length +
-            " Bigg Boss 10 articles found."
-        );
-
-
-        console.log(
-            "BS 360 NEWS: " +
-            normalPosts().length +
-            " normal articles loaded."
-        );
-
+        }, 5000);
     }
 
+    startAutoScroll();
 
-    /* =====================================================
-       START PORTAL
-    ===================================================== */
+    slider.addEventListener("mouseenter", () => {
+        clearInterval(autoScroll);
+    });
 
-    initializePortal();
+    slider.addEventListener("mouseleave", () => {
+        startAutoScroll();
+    });
 
-});
+    slider.addEventListener("touchstart", () => {
+        clearInterval(autoScroll);
+    }, { passive: true });
+
+    slider.addEventListener("touchend", () => {
+        startAutoScroll();
+    }, { passive: true });
+}
