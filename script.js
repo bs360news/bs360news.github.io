@@ -2724,71 +2724,67 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =====================================================
-       INITIALIZE PORTAL
-    ===================================================== */
+  /* =====================================================
+   INITIALIZE PORTAL
+===================================================== */
 
-    function initializePortal() {
+function initializePortal() {
 
-        if (!checkPortal()) {
-            return;
-        }
-
-
-        prepareOriginalArticles();
-
-
-      function setupBigBossAutoScroll() {
-
-    const slider = document.getElementById("bigbossSlider");
-
-    if (!slider) return;
-
-    let autoScroll;
-
-    function startAutoScroll() {
-
-        clearInterval(autoScroll);
-
-        autoScroll = setInterval(() => {
-
-            const maxScroll =
-                slider.scrollWidth - slider.clientWidth;
-
-            if (slider.scrollLeft >= maxScroll - 5) {
-
-                slider.scrollTo({
-                    left: 0,
-                    behavior: "smooth"
-                });
-
-            } else {
-
-                slider.scrollBy({
-                    left: 373,
-                    behavior: "smooth"
-                });
-
-            }
-
-        }, 5000);
+    if (!checkPortal()) {
+        return;
     }
 
-    startAutoScroll();
+    prepareOriginalArticles();
 
-    slider.addEventListener("mouseenter", () => {
-        clearInterval(autoScroll);
-    });
+    /* TOP STORY */
+    renderTopStory();
 
-    slider.addEventListener("mouseleave", () => {
-        startAutoScroll();
-    });
+    /* LATEST SIDEBAR */
+    renderLatestSidebar();
 
-    slider.addEventListener("touchstart", () => {
-        clearInterval(autoScroll);
-    }, { passive: true });
+    /* BIGG BOSS 10 */
+    renderBigBoss();
 
-    slider.addEventListener("touchend", () => {
-        startAutoScroll();
-    }, { passive: true });
+    /* FEATURED NEWS */
+    renderSlider();
+
+    /* LATEST NEWS */
+    renderLatest();
+
+    /* MOVIES */
+    renderMovies();
+
+    /* SPORTS */
+    renderSports();
+
+    /* MOST READ */
+    renderMostRead();
+
+    /* SEARCH */
+    setupSearch();
+
+    /* CATEGORY FILTER */
+    setupCategoryFilter();
+
+    /* MOBILE MENU */
+    setupMobileMenu();
+
+    /* DARK MODE */
+    setupDarkMode();
+
+    /* DATE + TIME */
+    setupDateTime();
+
+    /* FEATURED ARROWS */
+    setupSliderButtons();
+
 }
+
+
+/* =====================================================
+   START WEBSITE
+===================================================== */
+
+initializePortal();
+
+});
