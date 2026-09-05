@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Movies - BS 360 NEWS</title>
+
+<style>
+/* =========================================================
+   BS 360 NEWS - MOVIES PAGE
+   HTML + CSS + JS ALL IN ONE
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f1f1f1;
+    color:#111;
+    font-family:Arial, "Noto Sans Telugu", sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#111;
+    color:white;
+    height:62px;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    justify-content:space-between;
+    border-bottom:4px solid #f5c400;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:#f5c400;
+}
+
+.home-btn{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.home-btn:hover{
+    color:#f5c400;
+}
+
+/* ================= PAGE TITLE ================= */
+
+.page-title{
+    max-width:1250px;
+    margin:18px auto 12px;
+    padding:0 10px;
+}
+
+.page-title h1{
+    font-size:25px;
+    font-weight:900;
+    border-left:6px solid #f5c400;
+    padding-left:10px;
+}
+
+.page-title p{
+    color:#777;
+    margin-top:4px;
+    font-size:13px;
+}
+
+/* ================= MAIN GRID ================= */
+
+.main-layout{
+    max-width:1250px;
+    margin:auto;
+    padding:0 10px;
+
+    display:grid;
+    grid-template-columns:260px 1fr 260px;
+    gap:12px;
+}
+
+/* ================= COMMON BOX ================= */
+
+.column-box{
+    background:#fff;
+    border:1px solid #ddd;
+}
+
+.box-title{
+    height:30px;
+    display:flex;
+    align-items:center;
+    padding:0 10px;
+    font-size:13px;
+    font-weight:900;
+    font-style:italic;
+    letter-spacing:1px;
+    border-bottom:4px solid #f5c400;
+}
+
+/* ================= LEFT MOST RECENT ================= */
+
+.recent-list{
+    height:600px;
+    overflow:hidden;
+    position:relative;
+}
+
+.recent-track{
+    position:absolute;
+    width:100%;
+    top:0;
+    left:0;
+}
+
+.recent-item{
+    display:flex;
+    gap:9px;
+    padding:9px;
+    border-bottom:1px solid #ddd;
+    background:#fff;
+    min-height:91px;
+    transition:.3s;
+}
+
+.recent-item:hover{
+    background:#fafafa;
+}
+
+.recent-image{
+    width:78px;
+    height:68px;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.recent-content{
+    min-width:0;
+}
+
+.category{
+    color:#999;
+    font-size:8px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-weight:bold;
+    margin-bottom:3px;
+}
+
+.recent-title{
+    font-size:12px;
+    line-height:1.25;
+    font-weight:800;
+}
+
+.meta{
+    color:#999;
+    font-size:8px;
+    margin-top:5px;
+}
+
+/* ================= CENTER HERO ================= */
+
+.hero-box{
+    background:white;
+    border:1px solid #ddd;
+    overflow:hidden;
+}
+
+.hero-slider{
+    position:relative;
+    height:600px;
+}
+
+.hero-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transform:translateX(35px);
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+    pointer-events:none;
+}
+
+.hero-slide.active{
+    opacity:1;
+    transform:translateX(0);
+    pointer-events:auto;
+}
+
+.hero-image{
+    width:100%;
+    height:390px;
+    object-fit:cover;
+    display:block;
+}
+
+.hero-info{
+    padding:10px 14px 15px;
+}
+
+.hero-category{
+    color:#777;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-weight:bold;
+}
+
+.hero-title{
+    font-size:26px;
+    line-height:1.1;
+    margin-top:5px;
+    font-weight:900;
+}
+
+.hero-description{
+    font-size:12px;
+    color:#666;
+    line-height:1.5;
+    margin-top:7px;
+}
+
+.hero-meta{
+    font-size:9px;
+    color:#999;
+    margin-top:9px;
+}
+
+.hero-dots{
+    position:absolute;
+    bottom:9px;
+    right:12px;
+    display:flex;
+    gap:5px;
+}
+
+.hero-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#bbb;
+    cursor:pointer;
+}
+
+.hero-dot.active{
+    background:#f5c400;
+    width:22px;
+    border-radius:5px;
+}
+
+/* ================= RIGHT TRENDING ================= */
+
+.trending-list{
+    padding-bottom:5px;
+}
+
+.trending-main{
+    padding:8px;
+    border-bottom:1px solid #ddd;
+}
+
+.trending-main img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+}
+
+.trending-main h3{
+    font-size:15px;
+    line-height:1.2;
+    margin-top:5px;
+}
+
+.trending-item{
+    display:flex;
+    gap:8px;
+    padding:8px;
+    border-bottom:1px solid #ddd;
+}
+
+.rank{
+    width:20px;
+    height:20px;
+    background:#111;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.trending-item img{
+    width:58px;
+    height:48px;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.trending-title{
+    font-size:11px;
+    font-weight:800;
+    line-height:1.25;
+}
+
+/* ================= BOTTOM ARTICLES ================= */
+
+.bottom-section{
+    max-width:1250px;
+    margin:14px auto 30px;
+    padding:0 10px;
+}
+
+.bottom-header{
+    background:#fff;
+    border-left:6px solid #f5c400;
+    padding:7px 10px;
+    font-size:15px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+.bottom-scroll{
+    display:flex;
+    gap:10px;
+    overflow:hidden;
+    position:relative;
+}
+
+.bottom-track{
+    display:flex;
+    gap:10px;
+    width:max-content;
+}
+
+.bottom-card{
+    width:220px;
+    flex-shrink:0;
+    background:white;
+    border:1px solid #ddd;
+    transition:.3s;
+}
+
+.bottom-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.bottom-card img{
+    width:100%;
+    height:125px;
+    object-fit:cover;
+}
+
+.bottom-card-content{
+    padding:8px;
+}
+
+.bottom-card h3{
+    font-size:13px;
+    line-height:1.25;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+
+    .main-layout{
+        grid-template-columns:220px 1fr;
+    }
+
+    .right-column{
+        display:none;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        padding:0 12px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .main-layout{
+        grid-template-columns:1fr;
+    }
+
+    .left-column,
+    .right-column{
+        display:none;
+    }
+
+    .hero-slider{
+        height:500px;
+    }
+
+    .hero-image{
+        height:310px;
+    }
+
+    .hero-title{
+        font-size:21px;
+    }
+
+    .bottom-card{
+        width:190px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        BS <span>360</span> NEWS
+    </div>
+
+    <a href="./" class="home-btn">
+        🏠 హోమ్
+    </a>
+
+</header>
+
+
+<!-- ================= TITLE ================= -->
+
+<div class="page-title">
+
+    <h1>🎬 Movies</h1>
+
+    <p>
+        Latest Telugu Cinema News, Movie Updates, OTT, Reviews & Celebrity News
+    </p>
+
+</div>
+
+
+<!-- ================= MAIN 3 COLUMN ================= -->
+
+<div class="main-layout">
+
+    <!-- ================= LEFT ================= -->
+
+    <div class="column-box left-column">
+
+        <div class="box-title">
+            MOST RECENT
+        </div>
+
+        <div class="recent-list">
+
+            <div class="recent-track" id="recentTrack"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CENTER ================= -->
+
+    <div class="hero-box">
+
+        <div class="hero-slider" id="heroSlider">
+
+            <!-- JS inserts hero articles here -->
+
+            <div class="hero-dots" id="heroDots"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RIGHT ================= -->
+
+    <div class="column-box right-column">
+
+        <div class="box-title">
+            TRENDING
+        </div>
+
+        <div class="trending-list" id="trendingList"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= BOTTOM ================= -->
+
+<div class="bottom-section">
+
+    <div class="bottom-header">
+        🔥 LATEST MOVIE ARTICLES
+    </div>
+
+    <div class="bottom-scroll">
+
+        <div class="bottom-track" id="bottomTrack"></div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   MOVIE ARTICLES
+   నీ Homepage లో ఉన్న movie articles ఇక్కడ పెట్టవచ్చు.
+========================================================= */
+
+const movies = [
+
+    {
+        image:"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+        category:"MOVIES",
+        title:"కొత్త సినిమాతో ప్రేక్షకుల ముందుకు వస్తున్న స్టార్ హీరో",
+        description:"సినిమాకు సంబంధించిన తాజా అప్‌డేట్ ఇప్పుడు సోషల్ మీడియాలో వైరల్ అవుతోంది.",
+        author:"BS 360 NEWS",
+        time:"2h ago"
+    },
+
+    {
+        image:"https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80",
+        category:"CINEMA",
+        title:"బిగ్ బడ్జెట్ మూవీపై భారీ అప్‌డేట్.. ఫ్యాన్స్‌లో పెరిగిన ఆసక్తి",
+        description:"దర్శకుడు ఈ సినిమాకు సంబంధించి కీలక విషయాలను వెల్లడించారు.",
+        author:"BS 360 NEWS",
+        time:"3h ago"
+    },
+
+    {
+        image:"https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80",
+        category:"MOVIE UPDATE",
+        title:"ఈ మూవీ రిలీజ్ డేట్‌పై క్లారిటీ.. అభిమానులకు గుడ్ న్యూస్",
+        description:"మేకర్స్ అధికారికంగా రిలీజ్ డేట్‌ను ప్రకటించే అవకాశం ఉంది.",
+        author:"BS 360 NEWS",
+        time:"4h ago"
+    },
+
+    {
+        image:"https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80",
+        category:"OTT",
+        title:"OTTలోకి వచ్చేస్తున్న సూపర్ హిట్ సినిమా.. స్ట్రీమింగ్ ఎప్పటి నుంచంటే",
+        description:"థియేట్రికల్ రన్ తర్వాత ప్రముఖ OTT ప్లాట్‌ఫామ్‌లో ఈ మూవీ అందుబాటులోకి రానుంది.",
+        author:"BS 360 NEWS",
+        time:"5h ago"
+    },
+
+    {
+        image:"https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&w=1200&q=80",
+        category:"CELEBRITY",
+        title:"స్టార్ హీరోయిన్ కొత్త లుక్ వైరల్.. సోషల్ మీడియాలో ట్రెండింగ్",
+        description:"హీరోయిన్ షేర్ చేసిన ఫొటోలు ప్రస్తుతం నెట్టింట వైరల్ అవుతున్నాయి.",
+        author:"BS 360 NEWS",
+        time:"6h ago"
+    },
+
+    {
+        image:"https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&w=1200&q=80",
+        category:"MOVIE NEWS",
+        title:"మరో క్రేజీ కాంబినేషన్‌కు రంగం సిద్ధం.. త్వరలో అధికారిక ప్రకటన",
+        description:"ఇండస్ట్రీలో ఈ కాంబినేషన్‌పై ఆసక్తికరమైన చర్చ జరుగుతోంది.",
+        author:"BS 360 NEWS",
+        time:"7h ago"
+    },
+
+    {
+        image:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
+        category:"REVIEW",
+        title:"సినిమా రివ్యూ: ప్రేక్షకులను ఆకట్టుకున్న మూవీ",
+        description:"మూవీకి ప్రేక్షకుల నుంచి మంచి స్పందన లభిస్తోంది.",
+        author:"BS 360 NEWS",
+        time:"8h ago"
+    },
+
+    {
+        image:"https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80",
+        category:"BOX OFFICE",
+        title:"బాక్సాఫీస్ దగ్గర దూసుకెళ్తున్న సినిమా.. భారీ కలెక్షన్స్",
+        description:"రిలీజ్ తర్వాత వరుసగా మంచి కలెక్షన్స్ సాధిస్తోంది.",
+        author:"BS 360 NEWS",
+        time:"9h ago"
+    }
+
+];
+
+
+/* =========================================================
+   LEFT MOST RECENT
+========================================================= */
+
+const recentTrack = document.getElementById("recentTrack");
+
+function createRecentArticle(movie){
+
+    return `
+        <div class="recent-item">
+
+            <img
+                class="recent-image"
+                src="${movie.image}"
+                alt=""
+            >
+
+            <div class="recent-content">
+
+                <div class="category">
+                    ${movie.category}
+                </div>
+
+                <div class="recent-title">
+                    ${movie.title}
+                </div>
+
+                <div class="meta">
+                    ${movie.author} · ${movie.time}
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+/*
+   Duplicate articles so the scrolling loop
+   never appears empty.
+*/
+
+recentTrack.innerHTML =
+    movies.map(createRecentArticle).join("") +
+    movies.map(createRecentArticle).join("");
+
+
+/* =========================================================
+   LEFT AUTO SCROLL
+   Article cards slowly move upward.
+========================================================= */
+
+let recentPosition = 0;
+
+function recentAutoScroll(){
+
+    recentPosition -= 0.35;
+
+    const halfHeight = recentTrack.scrollHeight / 2;
+
+    if(Math.abs(recentPosition) >= halfHeight){
+
+        recentPosition = 0;
+
+    }
+
+    recentTrack.style.transform =
+        `translateY(${recentPosition}px)`;
+
+    requestAnimationFrame(recentAutoScroll);
+}
+
+recentAutoScroll();
+
+
+/* =========================================================
+   CENTER HERO
+   Every 2 seconds next article.
+========================================================= */
+
+const heroSlider =
+    document.getElementById("heroSlider");
+
+const heroDots =
+    document.getElementById("heroDots");
+
+
+movies.forEach((movie,index)=>{
+
+    const slide = document.createElement("div");
+
+    slide.className =
+        "hero-slide" +
+        (index === 0 ? " active" : "");
+
+    slide.innerHTML = `
+
+        <img
+            class="hero-image"
+            src="${movie.image}"
+            alt=""
+        >
+
+        <div class="hero-info">
+
+            <div class="hero-category">
+                ${movie.category}
+            </div>
+
+            <div class="hero-title">
+                ${movie.title}
+            </div>
+
+            <div class="hero-description">
+                ${movie.description}
+            </div>
+
+            <div class="hero-meta">
+                ${movie.author} · ${movie.time}
+            </div>
+
+        </div>
+    `;
+
+    /*
+       dots should be before/inside slider
+       but slides must appear before dots
+    */
+
+    heroSlider.insertBefore(
+        slide,
+        heroDots
+    );
+
+
+    const dot = document.createElement("div");
+
+    dot.className =
+        "hero-dot" +
+        (index === 0 ? " active" : "");
+
+    dot.addEventListener("click",()=>{
+
+        currentHero = index;
+
+        showHero(currentHero);
+
+        restartHeroTimer();
+
+    });
+
+    heroDots.appendChild(dot);
+
+});
+
+
+let currentHero = 0;
+
+const heroSlides =
+    document.querySelectorAll(".hero-slide");
+
+const dots =
+    document.querySelectorAll(".hero-dot");
+
+
+function showHero(index){
+
+    heroSlides.forEach((slide,i)=>{
+
+        slide.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
+
+    dots.forEach((dot,i)=>{
+
+        dot.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
+
+}
+
+
+/* ================= 2 SECOND TIMER ================= */
+
+let heroTimer;
+
+function restartHeroTimer(){
+
+    clearInterval(heroTimer);
+
+    heroTimer = setInterval(()=>{
+
+        currentHero++;
+
+        if(currentHero >= movies.length){
+
+            currentHero = 0;
+
+        }
+
+        showHero(currentHero);
+
+    },2000);
+
+}
+
+restartHeroTimer();
+
+
+/* =========================================================
+   RIGHT TRENDING
+========================================================= */
+
+const trendingList =
+    document.getElementById("trendingList");
+
+
+/*
+   First article = large trending article
+*/
+
+trendingList.innerHTML = `
+
+    <div class="trending-main">
+
+        <img
+            src="${movies[1].image}"
+            alt=""
+        >
+
+        <div class="category">
+            ${movies[1].category}
+        </div>
+
+        <h3>
+            ${movies[1].title}
+        </h3>
+
+    </div>
+
+`;
+
+
+/*
+   Remaining trending articles
+*/
+
+movies.slice(2,7).forEach((movie,index)=>{
+
+    trendingList.innerHTML += `
+
+        <div class="trending-item">
+
+            <div class="rank">
+                ${index + 1}
+            </div>
+
+            <img
+                src="${movie.image}"
+                alt=""
+            >
+
+            <div class="trending-title">
+                ${movie.title}
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =========================================================
+   BOTTOM ARTICLE CARDS
+========================================================= */
+
+const bottomTrack =
+    document.getElementById("bottomTrack");
+
+
+function createBottomCard(movie){
+
+    return `
+
+        <article class="bottom-card">
+
+            <img
+                src="${movie.image}"
+                alt=""
+            >
+
+            <div class="bottom-card-content">
+
+                <div class="category">
+                    ${movie.category}
+                </div>
+
+                <h3>
+                    ${movie.title}
+                </h3>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/*
+   Duplicate list for infinite movement
+*/
+
+bottomTrack.innerHTML =
+    movies.map(createBottomCard).join("") +
+    movies.map(createBottomCard).join("");
+
+
+/* =========================================================
+   BOTTOM AUTO HORIZONTAL SCROLL
+========================================================= */
+
+let bottomPosition = 0;
+
+function bottomAutoScroll(){
+
+    bottomPosition -= 0.4;
+
+    const halfWidth =
+        bottomTrack.scrollWidth / 2;
+
+    if(Math.abs(bottomPosition) >= halfWidth){
+
+        bottomPosition = 0;
+
+    }
+
+    bottomTrack.style.transform =
+        `translateX(${bottomPosition}px)`;
+
+    requestAnimationFrame(bottomAutoScroll);
+
+}
+
+bottomAutoScroll();
+
+
+/* =========================================================
+   PAUSE LEFT SCROLL WHEN MOUSE IS OVER IT
+========================================================= */
+
+const recentList =
+    document.querySelector(".recent-list");
+
+let recentPaused = false;
+
+recentList.addEventListener(
+    "mouseenter",
+    ()=>{
+        recentPaused = true;
+    }
+);
+
+recentList.addEventListener(
+    "mouseleave",
+    ()=>{
+        recentPaused = false;
+    }
+);
+
+
+/* =========================================================
+   TOUCH / MOUSE FRIENDLY
+========================================================= */
+
+document.querySelectorAll(
+    ".recent-item, .bottom-card"
+).forEach(card=>{
+
+    card.style.cursor = "pointer";
+
+});
+
+
+</script>
+
+</body>
+</html>
