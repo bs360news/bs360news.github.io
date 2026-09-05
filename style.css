@@ -2642,5 +2642,338 @@ ARTICLE SMALL MOBILE
 
 }
 /* =========================================================
+BIGG BOSS 10 SECTION
+10 CARDS DESKTOP + IMAGE OVERLAY + AUTO SCROLL
+========================================================= */
+
+.bigboss-section {
+    width: 100%;
+    margin-bottom: 34px;
+}
+
+.bigboss-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bigboss-slider {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    padding: 3px 2px 8px;
+}
+
+.bigboss-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.bigboss-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+
+    width: max-content;
+}
+
+/* =========================================================
+BIG BOSS CARD
+========================================================= */
+
+.bigboss-card {
+    position: relative;
+
+    width: 120px;
+    height: 150px;
+
+    flex: 0 0 120px;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    cursor: pointer;
+
+    border: 1px solid #e0e5ea;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.bigboss-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.bigboss-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.35s ease;
+}
+
+.bigboss-card:hover img {
+    transform: scale(1.06);
+}
+
+/* =========================================================
+IMAGE OVERLAY
+========================================================= */
+
+.bigboss-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 35px 7px 8px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.90)
+        );
+}
+
+.bigboss-overlay h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    line-height: 1.35;
+
+    font-weight: 900;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================================
+BIG BOSS CATEGORY TAG
+========================================================= */
+
+.bigboss-tag {
+    display: inline-block;
+
+    margin-bottom: 4px;
+
+    padding: 2px 5px;
+
+    border-radius: 3px;
+
+    background: #e00000;
+
+    color: #ffffff;
+
+    font-size: 8px;
+
+    font-weight: 900;
+}
+
+/* =========================================================
+BIG BOSS ARROWS
+========================================================= */
+
+.bigboss-btn {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.bigboss-btn:hover {
+    background: #075aaa;
+    color: #ffffff;
+}
+
+.bigboss-prev {
+    left: 4px;
+}
+
+.bigboss-next {
+    right: 4px;
+}
+
+/* =========================================================
+DARK MODE
+========================================================= */
+
+.dark-mode .bigboss-card {
+    border-color: #263244;
+    background: #111827;
+}
+
+.dark-mode .bigboss-btn {
+    background: #1f2937;
+    color: #ffffff;
+    border-color: #374151;
+}
+
+.dark-mode .bigboss-btn:hover {
+    background: #075aaa;
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .bigboss-card {
+        width: 115px;
+        height: 145px;
+
+        flex-basis: 115px;
+    }
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .bigboss-section {
+        margin-bottom: 28px;
+    }
+
+    .bigboss-track {
+        gap: 9px;
+    }
+
+    .bigboss-card {
+        width: 115px;
+        height: 145px;
+
+        flex-basis: 115px;
+
+        border-radius: 7px;
+    }
+
+    .bigboss-overlay {
+        padding:
+            30px
+            6px
+            7px;
+    }
+
+    .bigboss-overlay h3 {
+        font-size: 11px;
+        line-height: 1.34;
+    }
+
+    .bigboss-tag {
+        font-size: 7px;
+    }
+
+    .bigboss-btn {
+        width: 30px;
+        height: 30px;
+
+        font-size: 21px;
+    }
+
+}
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .bigboss-card {
+        width: 105px;
+        height: 135px;
+
+        flex-basis: 105px;
+    }
+
+    .bigboss-overlay h3 {
+        font-size: 10.5px;
+    }
+
+    .bigboss-btn {
+        width: 28px;
+        height: 28px;
+
+        font-size: 19px;
+    }
+
+}
+
+/* =========================================================
+VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .bigboss-card {
+        width: 100px;
+        height: 128px;
+
+        flex-basis: 100px;
+    }
+
+    .bigboss-overlay {
+        padding:
+            27px
+            5px
+            6px;
+    }
+
+    .bigboss-overlay h3 {
+        font-size: 10px;
+    }
+
+}
+/* =========================================================
 END OF BS 360 NEWS CSS
 ========================================================= */
