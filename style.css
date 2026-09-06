@@ -2992,6 +2992,133 @@ ARTICLE SMALL MOBILE
     line-height: 1.35;
     font-weight: 900;
 }
+/* =========================
+   MOST READ - 2 COLUMN
+   ========================= */
+
+.most-read,
+#most-read,
+.most-read-section {
+    width: 100%;
+}
+
+.most-read .news-list,
+#most-read .news-list,
+.most-read-section .news-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Card */
+.most-read .news-item,
+#most-read .news-item,
+.most-read-section .news-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+    min-height: 190px;
+}
+
+/* Image */
+.most-read .news-item img,
+#most-read .news-item img,
+.most-read-section .news-item img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+/* Dark overlay */
+.most-read .news-item::after,
+#most-read .news-item::after,
+.most-read-section .news-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.05),
+        rgba(0,0,0,0.75)
+    );
+    pointer-events: none;
+}
+
+/* Text over image */
+.most-read .news-content,
+#most-read .news-content,
+.most-read-section .news-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 12px;
+}
+
+/* Title */
+.most-read .news-content p,
+#most-read .news-content p,
+.most-read-section .news-content p {
+    margin: 0;
+    color: #0066ff;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+/* Hover */
+.most-read .news-item:hover img,
+#most-read .news-item:hover img,
+.most-read-section .news-item:hover img {
+    transform: scale(1.04);
+}
+
+.most-read .news-item img,
+#most-read .news-item img,
+.most-read-section .news-item img {
+    transition: transform 0.3s ease;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .most-read .news-list,
+    #most-read .news-list,
+    .most-read-section .news-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .most-read .news-item,
+    #most-read .news-item,
+    .most-read-section .news-item {
+        min-height: 145px;
+        border-radius: 7px;
+    }
+
+    .most-read .news-item img,
+    #most-read .news-item img,
+    .most-read-section .news-item img {
+        height: 145px;
+    }
+
+    .most-read .news-content,
+    #most-read .news-content,
+    .most-read-section .news-content {
+        padding: 8px;
+    }
+
+    .most-read .news-content p,
+    #most-read .news-content p,
+    .most-read-section .news-content p {
+        font-size: 13px;
+        line-height: 1.35;
+    }
+}
 /* =========================================================
 END OF BS 360 NEWS CSS
 ========================================================= */
