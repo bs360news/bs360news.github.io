@@ -3483,6 +3483,104 @@ body.dark-mode
 .most-read-category {
     color: #22aaff !important;
 }
+
+
+/* =========================================================
+   MOST READ - TEXT ON IMAGE FIX
+========================================================= */
+
+.most-read-item {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.most-read-item .most-read-image {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+}
+
+.most-read-item .most-read-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.most-read-item::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.90),
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.05)
+    ) !important;
+    pointer-events: none !important;
+}
+
+.most-read-item .most-read-text {
+    position: absolute !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    z-index: 10 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.most-read-item .most-read-text .portal-tag {
+    position: relative !important;
+    z-index: 11 !important;
+    display: inline-block !important;
+    color: #0084ff !important;
+    font-weight: 900 !important;
+}
+
+.most-read-item .most-read-text h3 {
+    position: relative !important;
+    z-index: 11 !important;
+    display: -webkit-box !important;
+    color: #0084ff !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    font-weight: 900 !important;
+    margin: 0 !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.most-read-item .most-number {
+    display: none !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .most-read-item .most-read-text {
+        left: 8px !important;
+        right: 8px !important;
+        bottom: 8px !important;
+    }
+
+    .most-read-item .most-read-text h3 {
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+    }
+
+    .most-read-item .most-read-text .portal-tag {
+        font-size: 9px !important;
+    }
+}
+
+
 /* =========================================================
 END OF BS 360 NEWS CSS
 ========================================================= */
