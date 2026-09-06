@@ -3119,6 +3119,370 @@ ARTICLE SMALL MOBILE
         line-height: 1.35;
     }
 }
+
+
+
+
+/* =========================================================
+   BS 360 NEWS
+   FINAL MOST READ + FEATURED NEWS
+========================================================= */
+
+
+/* =========================================================
+   MOST READ
+   DESKTOP = 2 COLUMNS
+   MOBILE = 2 COLUMNS
+   IMAGE + TITLE OVERLAY
+========================================================= */
+
+.most-read-grid,
+#mostReadList {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 14px !important;
+
+    width: 100%;
+}
+
+
+/* CARD */
+
+.most-read-item {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 210px !important;
+
+    min-height: 210px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    border: 0 !important;
+
+    border-radius: 9px !important;
+
+    background: #111827;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+
+/* IMAGE */
+
+.most-read-item .most-read-image {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    display: block !important;
+
+    object-fit: cover !important;
+
+    border-radius: 9px !important;
+
+    background: #e5e7eb;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* DARK OVERLAY */
+
+.most-read-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.92) 0%,
+            rgba(0,0,0,0.65) 40%,
+            rgba(0,0,0,0.18) 72%,
+            rgba(0,0,0,0) 100%
+        );
+}
+
+
+/* CONTENT */
+
+.most-read-overlay {
+    position: absolute !important;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    z-index: 2;
+
+    padding: 12px 13px 13px;
+
+    box-sizing: border-box;
+}
+
+
+/* NUMBER HIDDEN */
+
+.most-read-number {
+    display: none !important;
+}
+
+
+/* CATEGORY */
+
+.most-read-category {
+    display: inline-block;
+
+    margin-bottom: 4px;
+
+    color: #00aaff !important;
+
+    font-size: 11px !important;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+
+/* TITLE */
+
+.most-read-overlay h3 {
+    margin: 0 !important;
+
+    color: #0084ff !important;
+
+    font-size: 16px !important;
+
+    line-height: 1.38 !important;
+
+    font-weight: 800 !important;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,0.95),
+        0 2px 5px rgba(0,0,0,0.80);
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 3;
+
+    overflow: hidden;
+}
+
+
+/* HOVER */
+
+.most-read-item:hover
+.most-read-image {
+    transform: scale(1.04);
+}
+
+
+.most-read-item:hover
+.most-read-overlay h3 {
+    color: #33aaff !important;
+}
+
+
+/* =========================================================
+   FEATURED NEWS
+   AP NEWS + TS NEWS TOGETHER
+========================================================= */
+
+#newsSlider {
+    width: 100%;
+}
+
+
+/* FEATURED CARD */
+
+#sliderTrack .slider-card {
+    box-sizing: border-box;
+}
+
+
+/* FEATURED CATEGORY */
+
+#sliderTrack .portal-tag {
+    color: #0066ff !important;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .most-read-grid,
+    #mostReadList {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 12px !important;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   2 COLUMNS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .most-read-grid,
+    #mostReadList {
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 9px !important;
+    }
+
+
+    .most-read-item {
+        height: 170px !important;
+
+        min-height: 170px !important;
+
+        border-radius: 8px !important;
+    }
+
+
+    .most-read-item .most-read-image {
+        border-radius: 8px !important;
+    }
+
+
+    .most-read-overlay {
+        padding: 9px 9px 10px;
+    }
+
+
+    .most-read-category {
+        font-size: 9px !important;
+    }
+
+
+    .most-read-overlay h3 {
+        font-size: 13px !important;
+
+        line-height: 1.35 !important;
+
+        -webkit-line-clamp: 3;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   STILL 2 COLUMNS
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .most-read-grid,
+    #mostReadList {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 7px !important;
+    }
+
+
+    .most-read-item {
+        height: 145px !important;
+
+        min-height: 145px !important;
+
+        border-radius: 7px !important;
+    }
+
+
+    .most-read-item .most-read-image {
+        border-radius: 7px !important;
+    }
+
+
+    .most-read-overlay {
+        padding: 7px 8px 8px;
+    }
+
+
+    .most-read-category {
+        font-size: 8px !important;
+
+        margin-bottom: 2px;
+    }
+
+
+    .most-read-overlay h3 {
+        font-size: 11px !important;
+
+        line-height: 1.3 !important;
+
+        -webkit-line-clamp: 3;
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode
+.most-read-item {
+    background: #111827;
+}
+
+
+body.dark-mode
+.most-read-overlay h3 {
+    color: #008cff !important;
+}
+
+
+body.dark-mode
+.most-read-category {
+    color: #22aaff !important;
+}
 /* =========================================================
 END OF BS 360 NEWS CSS
 ========================================================= */
