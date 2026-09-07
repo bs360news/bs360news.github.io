@@ -603,7 +603,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </h3>
 
                 <span class="portal-read">
-                    పూర్తి వార్త చదవండి →
+                   
                 </span>
 
             </div>
