@@ -3280,3 +3280,711 @@ body.dark-mode .most-read-section {
     background: #111827;
     border-color: #263244;
 }
+/* =========================================================
+   BS 360 NEWS
+   MOBILE FINAL DESIGN
+   DESKTOP / LAPTOP UNTOUCHED
+========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* =====================================================
+       GLOBAL
+    ===================================================== */
+
+    html {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background: #f5f6f8;
+        font-family: Arial, "Noto Sans Telugu", sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+
+    /* =====================================================
+       MAIN CONTAINER
+    ===================================================== */
+
+    .container,
+    .main-container,
+    .content-container {
+        width: 94% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .brand-header,
+    .header,
+    .site-header {
+        width: 100%;
+        min-height: 72px;
+        padding: 8px 10px;
+        background: #fff;
+    }
+
+    .brand-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-mark {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+        border-radius: 11px;
+        overflow: hidden;
+    }
+
+    .logo-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .brand-name,
+    .site-title {
+        font-size: 21px;
+        line-height: 1.1;
+        font-weight: 800;
+    }
+
+    .brand-tagline {
+        font-size: 10px;
+        margin-top: 3px;
+    }
+
+
+    /* =====================================================
+       HEADER BUTTONS
+    ===================================================== */
+
+    .menu-btn,
+    .theme-btn,
+    .search-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* =====================================================
+       LANGUAGE NAV
+    ===================================================== */
+
+    nav,
+    .main-nav,
+    .language-nav {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar,
+    .main-nav::-webkit-scrollbar,
+    .language-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a,
+    .main-nav a,
+    .language-nav a {
+        display: inline-block;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       TOP HEADLINES
+    ===================================================== */
+
+    .top-headlines,
+    .headlines,
+    .breaking-news {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .top-headlines-inner,
+    .headlines-inner {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+
+    /* =====================================================
+       SEARCH
+    ===================================================== */
+
+    .search-section,
+    .search-box {
+        width: 100%;
+        margin: 12px 0;
+    }
+
+    .search-box input {
+        width: 100%;
+        height: 42px;
+        border-radius: 9px;
+        font-size: 14px;
+        padding: 0 13px;
+    }
+
+
+    /* =====================================================
+       SECTION HEADER
+    ===================================================== */
+
+    .section-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 18px 0 10px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #e4e7eb;
+    }
+
+    .section-title {
+        font-size: 21px;
+        line-height: 1.2;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .section-header .read-more,
+    .section-header .more,
+    .section-header a {
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       HOME NEWS LIST
+    ===================================================== */
+
+    .news-list {
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+
+    /* =====================================================
+       FIRST ARTICLE
+    ===================================================== */
+
+    .news-list .news-item:first-child {
+        grid-column: 1 / -1 !important;
+        width: 100%;
+        display: block;
+        padding: 0;
+        margin: 0 0 5px 0;
+    }
+
+    .news-list .news-item:first-child img {
+        width: 100%;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .news-list .news-item:first-child p {
+        font-size: 20px;
+        line-height: 1.4;
+        font-weight: 800;
+        margin: 7px 2px 0;
+    }
+
+    .news-list .news-item:first-child .summary {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       ARTICLES 2 - 9
+       TWO COLUMN
+    ===================================================== */
+
+    .news-list .news-item:nth-child(n+2):nth-child(-n+9) {
+        width: 100%;
+        min-width: 0;
+        display: block;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 9px;
+    }
+
+    .news-list .news-item:nth-child(n+2):nth-child(-n+9) img {
+        width: 100%;
+        height: auto !important;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .news-list .news-item:nth-child(n+2):nth-child(-n+9) .post-content {
+        padding: 7px 6px 9px;
+    }
+
+    .news-list .news-item:nth-child(n+2):nth-child(-n+9) p {
+        font-size: 14px;
+        line-height: 1.45;
+        font-weight: 700;
+        margin: 0;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .news-list .news-item:nth-child(n+2):nth-child(-n+9) .summary {
+        display: none;
+    }
+
+
+    /* =====================================================
+       ARTICLES 10+
+       LEFT IMAGE + RIGHT TEXT
+    ===================================================== */
+
+    .news-list .news-item:nth-child(n+10) {
+        grid-column: 1 / -1 !important;
+
+        width: 100%;
+        min-height: 88px;
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+
+        padding: 8px 0;
+        margin: 0;
+
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .news-list .news-item:nth-child(n+10) img {
+        flex: 0 0 105px;
+        width: 105px;
+        height: 70px !important;
+        aspect-ratio: auto;
+        object-fit: cover;
+        border-radius: 7px;
+        margin-right: 9px;
+    }
+
+    .news-list .news-item:nth-child(n+10) .post-content {
+        flex: 1;
+        min-width: 0;
+        padding: 0;
+    }
+
+    .news-list .news-item:nth-child(n+10) p {
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 700;
+        margin: 0;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .news-list .news-item:nth-child(n+10) .summary {
+        display: none;
+    }
+
+
+    /* =====================================================
+       MOVIES SECTION
+       2-COLUMN MOBILE
+    ===================================================== */
+
+    .movies-section {
+        width: 100%;
+        margin-top: 18px;
+    }
+
+    .movies-section .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .movies-section .more,
+    .movies-section .read-more,
+    .movies-section .section-header a {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .movies-section .news-list,
+    .movies-section .posts,
+    .movies-section .cards {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    .movies-section .news-item,
+    .movies-section .post,
+    .movies-section .card {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        border-radius: 9px;
+        background: #fff;
+    }
+
+    .movies-section img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        height: auto !important;
+        object-fit: cover;
+        display: block;
+    }
+
+
+    /* =====================================================
+       SPORTS SECTION
+       2-COLUMN MOBILE
+    ===================================================== */
+
+    .sports-section {
+        width: 100%;
+        margin-top: 18px;
+    }
+
+    .sports-section .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sports-section .more,
+    .sports-section .read-more,
+    .sports-section .section-header a {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .sports-section .news-list,
+    .sports-section .posts,
+    .sports-section .cards {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    .sports-section .news-item,
+    .sports-section .post,
+    .sports-section .card {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        border-radius: 9px;
+        background: #fff;
+    }
+
+    .sports-section img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        height: auto !important;
+        object-fit: cover;
+        display: block;
+    }
+
+
+    /* =====================================================
+       BIGG BOSS
+       IMPORTANT:
+       DO NOT CHANGE EXISTING BACKGROUND
+    ===================================================== */
+
+    .bigboss-section {
+        width: 100%;
+        margin-top: 18px;
+
+        /*
+           Existing background is intentionally NOT overridden.
+           background-image
+           background-size
+           background-position
+           remain untouched.
+        */
+    }
+
+    .bigboss-section .bigboss-bg,
+    .bigboss-section .background,
+    .bigboss-section .bg {
+        /*
+           DO NOT SET BACKGROUND HERE.
+           Your existing Bigg Boss background remains exactly same.
+        */
+    }
+
+    .bigboss-section .news-list,
+    .bigboss-section .posts,
+    .bigboss-section .cards {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 9px !important;
+    }
+
+    .bigboss-section .news-item,
+    .bigboss-section .post,
+    .bigboss-section .card {
+        min-width: 0;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .bigboss-section img {
+        /*
+           Keep original Bigg Boss image sizing wherever
+           the existing CSS already controls it.
+        */
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+
+    /* =====================================================
+       CAROUSEL SECTIONS
+    ===================================================== */
+
+    .carousel,
+    .horizontal-scroll,
+    .slider-track {
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        gap: 10px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel::-webkit-scrollbar,
+    .horizontal-scroll::-webkit-scrollbar,
+    .slider-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .carousel .card,
+    .horizontal-scroll .card,
+    .slider-track .card {
+        flex: 0 0 72%;
+        min-width: 72%;
+    }
+
+
+    /* =====================================================
+       MOST READ
+    ===================================================== */
+
+    .most-read {
+        width: 100%;
+        margin-top: 20px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .most-read h2,
+    .most-read .section-title {
+        font-size: 21px;
+        margin: 0 0 10px;
+    }
+
+    .most-read-item {
+        width: 100%;
+        min-height: 70px;
+
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .most-read-item:last-child {
+        border-bottom: 0;
+    }
+
+    .most-read-item img {
+        flex: 0 0 82px;
+        width: 82px;
+        height: 58px;
+        object-fit: cover;
+        border-radius: 7px;
+    }
+
+    .most-read-item h3 {
+        flex: 1;
+        min-width: 0;
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+
+    /* =====================================================
+       READ MORE BUTTON
+    ===================================================== */
+
+    .read-more-btn {
+        font-size: 12px;
+        padding: 7px 10px;
+        border-radius: 6px;
+    }
+
+
+    /* =====================================================
+       SHARE
+    ===================================================== */
+
+    .share-row {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .share-row button {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+
+
+    /* =====================================================
+       ADVERTISEMENT
+    ===================================================== */
+
+    .ad-container,
+    .advertisement {
+        width: 100%;
+        min-height: 100px;
+        margin: 15px 0;
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+        width: 100%;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   320px - 380px
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .container,
+    .main-container,
+    .content-container {
+        width: 95% !important;
+    }
+
+    .brand-name,
+    .site-title {
+        font-size: 19px;
+    }
+
+    .news-list {
+        gap: 8px !important;
+    }
+
+    .news-list .news-item:first-child p {
+        font-size: 18px;
+    }
+
+    .news-list .news-item:nth-child(n+2):nth-child(-n+9) p {
+        font-size: 13px;
+    }
+
+    .news-list .news-item:nth-child(n+10) img {
+        flex-basis: 95px;
+        width: 95px;
+        height: 64px !important;
+    }
+
+    .news-list .news-item:nth-child(n+10) p {
+        font-size: 13px;
+    }
+
+    .movies-section .news-list,
+    .movies-section .posts,
+    .movies-section .cards,
+    .sports-section .news-list,
+    .sports-section .posts,
+    .sports-section .cards,
+    .bigboss-section .news-list,
+    .bigboss-section .posts,
+    .bigboss-section .cards {
+        gap: 8px !important;
+    }
+}
