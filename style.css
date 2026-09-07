@@ -2809,7 +2809,124 @@ body.dark-mode {
     outline: 2px solid #075aaa;
     outline-offset: 2px;
 }
+/* =========================================================
+   FINAL NEWS GRID
+   LAPTOP/DESKTOP = 6 CARDS
+   MOBILE = 4 CARDS
+   SINGLE / FULL-WIDTH = SAME
+========================================================= */
 
+.news-list {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 15px !important;
+}
+
+/* Single / Full width articles */
+.news-list .news-item.full-width,
+.news-list .news-item.single {
+    grid-column: 1 / -1 !important;
+}
+
+/* First article remains full width */
+.news-list .news-item:first-child {
+    grid-column: 1 / -1 !important;
+}
+
+/* Normal articles */
+.news-list .news-item:not(.full-width):not(.single):not(:first-child) {
+    grid-column: auto !important;
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+@media (max-width: 1200px) and (min-width: 1001px) {
+
+    .news-list {
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+    }
+
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+@media (max-width: 1000px) and (min-width: 769px) {
+
+    .news-list {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+}
+
+/* =========================================================
+   MOBILE = 4 CARDS PER ROW
+========================================================= */
+@media (max-width: 768px) {
+
+    .news-list {
+        width: 100% !important;
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    .news-list .news-item:first-child {
+        grid-column: 1 / -1 !important;
+    }
+
+    .news-list .news-item.full-width,
+    .news-list .news-item.single {
+        grid-column: 1 / -1 !important;
+    }
+
+    .news-list .news-item:not(.full-width):not(.single):not(:first-child) {
+        grid-column: auto !important;
+        min-width: 0 !important;
+    }
+
+    .news-list .news-item img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .news-list .news-content,
+    .news-list .post-content {
+        min-width: 0;
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+@media (max-width: 430px) {
+
+    .news-list {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 6px !important;
+    }
+
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+@media (max-width: 360px) {
+
+    .news-list {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 5px !important;
+    }
+
+}
 /* =========================================================
    END
 ========================================================= */
