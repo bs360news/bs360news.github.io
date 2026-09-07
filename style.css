@@ -2248,7 +2248,20 @@ body.dark-mode .theme-button {
     }
 }
 
+/* DESKTOP */
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 15px;
+}
 
+/* MOBILE */
+@media (max-width: 768px) {
+    .news-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+}
 /* =========================================================
    END
 ========================================================= */
