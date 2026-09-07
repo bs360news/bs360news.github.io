@@ -1,345 +1,2893 @@
 <!DOCTYPE html>
 <html lang="te">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>BS 360 NEWS | స్పోర్ట్స్ తాజా వార్తలు</title>
-  <meta name="description" content="BS 360 NEWSలో క్రికెట్, ఫుట్‌బాల్ మరియు స్పోర్ట్స్‌కు సంబంధించిన తాజా వార్తలు, అప్‌డేట్స్ మరియు విశేషాలు.">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Sports News | BS 360 NEWS</title>
+
 
   <style>
-    :root {
-      --primary: #0056b3;
-      --border: #e5e7eb;
-      --text: #171717;
-    }
+
+    /* =====================================================
+       RESET
+    ===================================================== */
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
+
     body {
-      margin: 0;
-      font-family: Arial, "Noto Sans Telugu", sans-serif;
-      background: #ffffff;
-      color: var(--text);
-      line-height: 1.6;
+      font-family:
+        Arial,
+        "Noto Sans Telugu",
+        sans-serif;
+
+      background: #f5f5f5;
+
+      color: #111;
     }
 
-    .container {
-      width: min(900px, 94%);
-      margin: auto;
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    /* HEADER */
-    header {
-      background: #111827;
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .top-header {
+
+      background: #111;
+
       color: #fff;
-      padding: 15px 0;
-      border-bottom: 3px solid var(--primary);
+
+      padding: 15px 20px;
     }
+
 
     .header-inner {
+
+      max-width: 1400px;
+
+      margin: auto;
+
       display: flex;
-      justify-content: space-between;
+
       align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
     }
+
 
     .logo {
-      font-size: 22px;
-      font-weight: bold;
+
+      font-size: 30px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+
+    .logo span {
+
+      color: #e50914;
+    }
+
+
+    .home-btn {
+
+      background: #e50914;
+
       color: #fff;
-      text-decoration: none;
-    }
 
-    .back-home {
-      color: #60a5fa;
-      text-decoration: none;
+      padding: 10px 18px;
+
+      border-radius: 5px;
+
       font-weight: bold;
-      font-size: 14px;
     }
 
-    /* ARTICLE */
-    article {
-      padding: 25px 0;
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .nav-bar {
+
+      background: #fff;
+
+      border-bottom: 1px solid #ddd;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
     }
 
-    /* CATEGORY TITLE */
-    .category-title {
-      margin: 0 0 10px;
-      font-size: 26px;
-      font-weight: bold;
-      color: #111827;
+
+    .nav-inner {
+
+      max-width: 1400px;
+
+      margin: auto;
+
+      display: flex;
+
+      overflow-x: auto;
+
+      white-space: nowrap;
     }
 
-    .category-description {
-      margin: 0 0 20px;
-      color: #666;
+
+    .nav-inner a {
+
+      padding: 14px 20px;
+
+      font-weight: 700;
+
       font-size: 15px;
     }
 
-    /* RELATED CARD */
-    .related-card {
+
+    .nav-inner a:hover {
+
+      background: #e50914;
+
+      color: #fff;
+    }
+
+
+    /* =====================================================
+       BREAKING NEWS
+    ===================================================== */
+
+    .breaking {
+
+      max-width: 1400px;
+
+      margin: 15px auto 0;
+
+      background: #fff;
+
+      border: 1px solid #ddd;
+
       display: flex;
-      gap: 15px;
+
       align-items: center;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 15px 0;
+
+      overflow: hidden;
     }
 
-    /* IMAGE */
-    .related-card img {
-      width: 150px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
-      flex-shrink: 0;
-      display: block;
-    }
 
-    /* TAG */
-    .tag {
-      display: inline-block;
-      background: var(--primary);
+    .breaking-title {
+
+      background: #e50914;
+
       color: #fff;
-      font-size: 12px;
+
+      padding: 11px 16px;
+
       font-weight: bold;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 6px;
+
+      white-space: nowrap;
     }
 
-    /* TITLE */
-    .related-card h4 {
-      margin: 4px 0;
-      font-size: 18px;
-      line-height: 1.4;
+
+    .breaking-text {
+
+      padding: 10px 15px;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
     }
 
-    .related-card h4 a {
-      text-decoration: none;
-      color: #111827;
+
+    /* =====================================================
+       PAGE
+    ===================================================== */
+
+    .page {
+
+      max-width: 1400px;
+
+      margin: 20px auto 50px;
+
+      padding: 0 15px;
     }
 
-    .related-card h4 a:hover {
-      color: var(--primary);
+
+    .page-title {
+
+      background: #fff;
+
+      border-left: 6px solid #e50914;
+
+      padding: 15px 18px;
+
+      margin-bottom: 18px;
+
+      font-size: 28px;
+
+      font-weight: 900;
     }
 
-    /* DESCRIPTION */
-    .related-card p {
-      margin: 4px 0 0;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.5;
+
+    /* =====================================================
+       MAIN 3 COLUMN
+    ===================================================== */
+
+    .main-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1.65fr
+        1fr;
+
+      gap: 18px;
+
+      align-items: stretch;
     }
 
-    /* FOOTER */
-    footer {
-      background: #111827;
+
+    .column {
+
+      background: #fff;
+
+      border: 1px solid #ddd;
+
+      overflow: hidden;
+    }
+
+
+    .column-title {
+
+      background: #111;
+
       color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      font-size: 14px;
+
+      padding: 12px 15px;
+
+      font-size: 17px;
+
+      font-weight: 900;
+
+      border-left: 5px solid #e50914;
     }
 
-    /* MOBILE */
-    @media (max-width: 600px) {
 
-      .container {
-        width: 94%;
+    /* =====================================================
+       LEFT - MOST RECENT
+    ===================================================== */
+
+    .recent-list {
+
+      height: 620px;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+
+    .recent-track {
+
+      display: flex;
+
+      flex-direction: column;
+
+      animation:
+        recentScroll
+        28s
+        linear
+        infinite;
+    }
+
+
+    .recent-list:hover
+    .recent-track {
+
+      animation-play-state: paused;
+    }
+
+
+    .recent-item {
+
+      display: flex;
+
+      gap: 10px;
+
+      padding: 12px;
+
+      border-bottom: 1px solid #eee;
+
+      min-height: 115px;
+    }
+
+
+    .recent-item img {
+
+      width: 100px;
+
+      height: 78px;
+
+      flex-shrink: 0;
+
+      border-radius: 4px;
+    }
+
+
+    .recent-item h3 {
+
+      font-size: 15px;
+
+      line-height: 1.45;
+
+      font-weight: 800;
+    }
+
+
+    .recent-item:hover h3 {
+
+      color: #e50914;
+    }
+
+
+    @keyframes recentScroll {
+
+      0% {
+
+        transform: translateY(0);
       }
 
+      100% {
+
+        transform: translateY(-50%);
+      }
+
+    }
+
+
+    /* =====================================================
+       CENTER HERO
+    ===================================================== */
+
+    .hero {
+
+      position: relative;
+
+      height: 620px;
+
+      background: #000;
+
+      overflow: hidden;
+    }
+
+
+    .hero-slide {
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity: 0;
+
+      transition:
+        opacity
+        0.7s
+        ease;
+
+      pointer-events: none;
+    }
+
+
+    .hero-slide.active {
+
+      opacity: 1;
+
+      pointer-events: auto;
+    }
+
+
+    .hero-slide img {
+
+      height: 100%;
+
+      width: 100%;
+    }
+
+
+    .hero-overlay {
+
+      position: absolute;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      padding:
+        80px
+        25px
+        25px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,0.95)
+        );
+
+      color: #fff;
+    }
+
+
+    .hero-category {
+
+      display: inline-block;
+
+      background: #e50914;
+
+      padding: 5px 10px;
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+
+    .hero-title {
+
+      font-size: 28px;
+
+      line-height: 1.35;
+
+      font-weight: 900;
+    }
+
+
+    /* =====================================================
+       HERO READ MORE
+       
+       అవసరమైతే ఇక్కడ button పెట్టుకోవచ్చు
+    ===================================================== */
+
+    .hero-read {
+
+      display: inline-block;
+
+      margin-top: 15px;
+
+      background: #fff;
+
+      color: #111;
+
+      padding: 9px 15px;
+
+      font-weight: bold;
+
+      border-radius: 4px;
+    }
+
+
+    .hero-read:hover {
+
+      background: #e50914;
+
+      color: #fff;
+    }
+
+
+    /* =====================================================
+       HERO DOTS
+    ===================================================== */
+
+    .hero-dots {
+
+      position: absolute;
+
+      bottom: 15px;
+
+      right: 20px;
+
+      display: flex;
+
+      gap: 5px;
+
+      z-index: 5;
+    }
+
+
+    .hero-dot {
+
+      width: 9px;
+
+      height: 9px;
+
+      background: #fff;
+
+      border-radius: 50%;
+
+      opacity: 0.5;
+    }
+
+
+    .hero-dot.active {
+
+      opacity: 1;
+
+      background: #e50914;
+    }
+
+
+    /* =====================================================
+       TRENDING
+    ===================================================== */
+
+    .trending-list {
+
+      padding:
+        5px
+        12px
+        12px;
+    }
+
+
+    .trend-item {
+
+      display: grid;
+
+      grid-template-columns:
+        42px
+        1fr;
+
+      gap: 10px;
+
+      padding: 13px 0;
+
+      border-bottom:
+        1px solid #eee;
+    }
+
+
+    .trend-number {
+
+      width: 38px;
+
+      height: 38px;
+
+      background: #111;
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 18px;
+
+      font-weight: 900;
+
+      border-radius: 3px;
+    }
+
+
+    .trend-item:first-child
+    .trend-number {
+
+      background: #e50914;
+    }
+
+
+    .trend-item h3 {
+
+      font-size: 15px;
+
+      line-height: 1.45;
+    }
+
+
+    .trend-item:hover h3 {
+
+      color: #e50914;
+    }
+
+
+    /* =====================================================
+       LATEST SPORTS ARTICLES
+    ===================================================== */
+
+    .latest-section {
+
+      margin-top: 20px;
+
+      background: #fff;
+
+      border: 1px solid #ddd;
+    }
+
+
+    .latest-title {
+
+      background: #111;
+
+      color: #fff;
+
+      padding:
+        13px
+        16px;
+
+      font-size: 19px;
+
+      font-weight: 900;
+
+      border-left:
+        5px solid #e50914;
+    }
+
+
+    .latest-wrapper {
+
+      overflow: hidden;
+
+      padding: 15px;
+    }
+
+
+    .latest-track {
+
+      display: flex;
+
+      gap: 15px;
+
+      width: max-content;
+
+      animation:
+        latestMove
+        40s
+        linear
+        infinite;
+    }
+
+
+    .latest-wrapper:hover
+    .latest-track {
+
+      animation-play-state: paused;
+    }
+
+
+    .latest-card {
+
+      width: 280px;
+
+      background: #fff;
+
+      border: 1px solid #ddd;
+
+      flex-shrink: 0;
+
+      overflow: hidden;
+    }
+
+
+    .latest-card img {
+
+      height: 170px;
+    }
+
+
+    .latest-content {
+
+      padding: 12px;
+    }
+
+
+    .latest-content h3 {
+
+      font-size: 16px;
+
+      line-height: 1.45;
+    }
+
+
+    .latest-card:hover h3 {
+
+      color: #e50914;
+    }
+
+
+    @keyframes latestMove {
+
+      0% {
+
+        transform: translateX(0);
+      }
+
+      100% {
+
+        transform: translateX(-50%);
+      }
+
+    }
+
+
+    /* =====================================================
+       🏏 SPORTS SECTION
+       
+       ఇది Homepageలో కూడా ఉపయోగించవచ్చు
+    ===================================================== */
+
+    .sports-section {
+
+      width: 100%;
+
+      margin-top: 20px;
+
+      background: #fff;
+
+      border: 1px solid #ddd;
+
+      border-radius: 8px;
+
+      padding: 15px;
+
+      box-sizing: border-box;
+    }
+
+
+    .section-title-row {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 15px;
+    }
+
+
+    .section-title-row h2 {
+
+      margin: 0;
+
+      font-size: 24px;
+
+      font-weight: 900;
+    }
+
+
+    .view-all {
+
+      color: #e50914;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       SPORTS CAROUSEL
+       
+       Articles ఇక్కడ JavaScript ద్వారా కూడా పెట్టవచ్చు
+    ===================================================== */
+
+    .horizontal-carousel {
+
+      width: 100%;
+
+      display: flex;
+
+      gap: 15px;
+
+      overflow-x: auto;
+
+      overflow-y: hidden;
+
+      scroll-behavior: smooth;
+
+      scrollbar-width: none;
+    }
+
+
+    .horizontal-carousel::-webkit-scrollbar {
+
+      display: none;
+    }
+
+
+    /* =====================================================
+       SPORTS ARTICLE CARD
+       
+       ఒక article ఇక్కడ పెట్టాలి
+    ===================================================== */
+
+    .sports-card {
+
+      position: relative;
+
+      width: 280px;
+
+      min-width: 280px;
+
+      height: 220px;
+
+      overflow: hidden;
+
+      border-radius: 8px;
+
+      background: #111;
+
+      cursor: pointer;
+
+      flex-shrink: 0;
+    }
+
+
+    .sports-card img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+
+    .sports-overlay {
+
+      position: absolute;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      padding:
+        55px
+        12px
+        12px;
+
+      color: #fff;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,0.9)
+        );
+    }
+
+
+    .sports-overlay h3 {
+
+      margin: 0;
+
+      color: #fff;
+
+      font-size: 16px;
+
+      line-height: 1.35;
+
+      font-weight: 800;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      background: #111;
+
+      color: #fff;
+
+      padding: 25px 15px;
+
+      text-align: center;
+
+      margin-top: 30px;
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width: 1100px) {
+
+      .main-grid {
+
+        grid-template-columns:
+          1fr
+          1.4fr;
+      }
+
+
+      .right-column {
+
+        grid-column:
+          1 / -1;
+      }
+
+
+      .trending-list {
+
+        display: grid;
+
+        grid-template-columns:
+          1fr
+          1fr;
+
+        gap:
+          0
+          20px;
+      }
+
+
+      .hero {
+
+        height: 560px;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 768px) {
+
+      .top-header {
+
+        padding:
+          12px
+          15px;
+      }
+
+
       .logo {
+
+        font-size: 23px;
+      }
+
+
+      .home-btn {
+
+        padding:
+          8px
+          12px;
+
+        font-size: 13px;
+      }
+
+
+      .nav-inner a {
+
+        padding:
+          12px
+          14px;
+
+        font-size: 13px;
+      }
+
+
+      .breaking {
+
+        margin-top: 10px;
+      }
+
+
+      .breaking-title {
+
+        padding:
+          9px
+          10px;
+
+        font-size: 12px;
+      }
+
+
+      .breaking-text {
+
+        font-size: 13px;
+      }
+
+
+      .page {
+
+        margin-top: 12px;
+
+        padding:
+          0
+          10px;
+      }
+
+
+      .page-title {
+
+        font-size: 22px;
+
+        padding: 12px;
+
+        margin-bottom: 12px;
+      }
+
+
+      /* Mobile main layout */
+
+      .main-grid {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+      }
+
+
+      .left-column {
+
+        order: 2;
+      }
+
+
+      .center-column {
+
+        order: 1;
+      }
+
+
+      .right-column {
+
+        order: 3;
+      }
+
+
+      .hero {
+
+        height: 430px;
+      }
+
+
+      .hero-overlay {
+
+        padding:
+          100px
+          15px
+          20px;
+      }
+
+
+      .hero-title {
+
+        font-size: 21px;
+      }
+
+
+      .hero-category {
+
+        font-size: 11px;
+      }
+
+
+      .recent-list {
+
+        height: 420px;
+      }
+
+
+      .recent-track {
+
+        animation-duration: 22s;
+      }
+
+
+      .recent-item {
+
+        min-height: 105px;
+
+        padding: 10px;
+      }
+
+
+      .recent-item img {
+
+        width: 105px;
+
+        height: 78px;
+      }
+
+
+      .recent-item h3 {
+
+        font-size: 14px;
+      }
+
+
+      .trending-list {
+
+        display: block;
+      }
+
+
+      .trend-item {
+
+        padding:
+          11px
+          0;
+      }
+
+
+      .trend-item h3 {
+
+        font-size: 14px;
+      }
+
+
+      .latest-card {
+
+        width: 245px;
+      }
+
+
+      .latest-card img {
+
+        height: 150px;
+      }
+
+
+      .latest-content h3 {
+
+        font-size: 14px;
+      }
+
+
+      /* Sports mobile */
+
+      .sports-section {
+
+        padding:
+          12px
+          10px;
+      }
+
+
+      .section-title-row h2 {
+
+        font-size: 20px;
+      }
+
+
+      .view-all {
+
+        font-size: 12px;
+      }
+
+
+      .sports-card {
+
+        width: 230px;
+
+        min-width: 230px;
+
+        height: 190px;
+      }
+
+
+      .sports-overlay h3 {
+
+        font-size: 14px;
+      }
+
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media (max-width: 480px) {
+
+      .header-inner {
+
+        gap: 10px;
+      }
+
+
+      .logo {
+
+        font-size: 20px;
+      }
+
+
+      .hero {
+
+        height: 380px;
+      }
+
+
+      .hero-title {
+
         font-size: 19px;
       }
 
-      .back-home {
+
+      .recent-list {
+
+        height: 400px;
+      }
+
+
+      .recent-item img {
+
+        width: 90px;
+
+        height: 70px;
+      }
+
+
+      .recent-item h3 {
+
         font-size: 13px;
       }
 
-      .category-title {
-        font-size: 22px;
+
+      .sports-card {
+
+        width: 215px;
+
+        min-width: 215px;
+
+        height: 180px;
       }
 
-      .category-description {
-        font-size: 14px;
-      }
-
-      .related-card {
-        gap: 12px;
-        padding: 14px 0;
-        align-items: flex-start;
-      }
-
-      .related-card img {
-        width: 120px;
-        height: 85px;
-      }
-
-      .related-card h4 {
-        font-size: 15px;
-        line-height: 1.4;
-      }
-
-      .related-card p {
-        font-size: 13px;
-        line-height: 1.45;
-      }
-
-      .tag {
-        font-size: 11px;
-        padding: 2px 7px;
-      }
     }
 
-    /* VERY SMALL MOBILE */
-    @media (max-width: 380px) {
-
-      .related-card img {
-        width: 105px;
-        height: 75px;
-      }
-
-      .related-card h4 {
-        font-size: 14px;
-      }
-
-      .related-card p {
-        font-size: 12px;
-      }
-    }
   </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <div class="container header-inner">
 
-    <a href="index.html" class="logo">
-      BS 360 NEWS
-    </a>
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
 
-    <a href="index.html" class="back-home">
-      🏠 హోమ్
-    </a>
+  <header class="top-header">
+
+    <div class="header-inner">
+
+      <div class="logo">
+
+        BS <span>360</span> NEWS
+
+      </div>
+
+
+      <a
+        href="index.html"
+        class="home-btn"
+      >
+
+        🏠 Home
+
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
+
+  <nav class="nav-bar">
+
+    <div class="nav-inner">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="index.html#latest">
+        Latest News
+      </a>
+
+      <a href="movies.html">
+        🎬 Cinema
+      </a>
+
+      <a href="sports.html">
+        🏏 Sports
+      </a>
+
+      <a href="index.html#goldSection">
+        💰 Gold Rate
+      </a>
+
+      <a href="index.html#apSection">
+        Andhra Pradesh
+      </a>
+
+      <a href="index.html#tsSection">
+        Telangana
+      </a>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- =====================================================
+       BREAKING NEWS
+  ===================================================== -->
+
+  <div class="breaking">
+
+    <div class="breaking-title">
+
+      BREAKING NEWS
+
+    </div>
+
+
+    <div class="breaking-text">
+
+      🏏 క్రీడా ప్రపంచంలోని తాజా వార్తలు, క్రికెట్, ఫుట్‌బాల్, టెన్నిస్ మరియు ఇతర స్పోర్ట్స్ అప్డేట్స్...
+
+    </div>
 
   </div>
-</header>
 
 
-<main class="container">
 
-  <article>
+  <!-- =====================================================
+       PAGE
+  ===================================================== -->
 
-    <h1 class="category-title">
-      🏏 స్పోర్ట్స్ వార్తలు
-    </h1>
+  <main class="page">
 
-    <p class="category-description">
-      క్రికెట్, ఫుట్‌బాల్ మరియు ఇతర క్రీడలకు సంబంధించిన తాజా వార్తలు, అప్‌డేట్స్ ఇక్కడ తెలుసుకోండి.
+
+    <div class="page-title">
+
+      🏏 Sports News
+
+    </div>
+
+
+
+    <!-- =================================================
+         MAIN 3 COLUMN
+    ================================================= -->
+
+    <div class="main-grid">
+
+
+
+      <!-- =================================================
+           LEFT COLUMN
+           MOST RECENT
+           
+           👇 ARTICLES HERE
+           
+           Copy this structure for every article:
+           
+           <a href="ARTICLE.html" class="recent-item">
+             <img src="IMAGE.jpg" alt="">
+             <h3>YOUR ARTICLE TITLE</h3>
+           </a>
+           
+      ================================================= -->
+
+      <section class="column left-column">
+
+        <div class="column-title">
+
+          MOST RECENT
+
+        </div>
+
+
+        <div class="recent-list">
+
+          <div class="recent-track">
+
+
+            <!-- ============================================
+                 ARTICLE 1
+            ============================================= -->
+
+            <a
+              href="indiagirls.html"
+            class="news-item post"
+            >
+
+              <img
+                src="indiagirls.jpg"
+                alt="భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్"
+              >
+
+
+              <h3>
+
+
+       🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్ - BS 360 NEWS
+
+              </h3>
+
+            </a>
+
+
+
+            <!-- ============================================
+                 ARTICLE 2
+            ============================================= -->
+
+            <a
+              href="ARTICLE-2.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-2.jpg"
+                alt="Article 2"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 2
+
+              </h3>
+
+            </a>
+
+
+
+            <!-- ============================================
+                 ARTICLE 3
+            ============================================= -->
+
+            <a
+              href="ARTICLE-3.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-3.jpg"
+                alt="Article 3"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 3
+
+              </h3>
+
+            </a>
+
+
+
+            <!-- ============================================
+                 ARTICLE 4
+            ============================================= -->
+
+            <a
+              href="ARTICLE-4.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-4.jpg"
+                alt="Article 4"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 4
+
+              </h3>
+
+            </a>
+
+
+
+            <!-- ============================================
+                 ARTICLE 5
+            ============================================= -->
+
+            <a
+              href="ARTICLE-5.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-5.jpg"
+                alt="Article 5"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 5
+
+              </h3>
+
+            </a>
+
+
+
+            <!-- ============================================
+                 DUPLICATE SET
+                 
+                 Continuous scrolling కోసం same
+                 articlesను duplicate చేయాలి.
+            ============================================= -->
+
+
+            <a
+              href="ARTICLE-1.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-1.jpg"
+                alt="Article 1"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 1
+
+              </h3>
+
+            </a>
+
+
+            <a
+              href="ARTICLE-2.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-2.jpg"
+                alt="Article 2"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 2
+
+              </h3>
+
+            </a>
+
+
+            <a
+              href="ARTICLE-3.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-3.jpg"
+                alt="Article 3"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 3
+
+              </h3>
+
+            </a>
+
+
+            <a
+              href="ARTICLE-4.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-4.jpg"
+                alt="Article 4"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 4
+
+              </h3>
+
+            </a>
+
+
+            <a
+              href="ARTICLE-5.html"
+              class="recent-item"
+            >
+
+              <img
+                src="IMAGE-5.jpg"
+                alt="Article 5"
+              >
+
+
+              <h3>
+
+                YOUR SPORTS ARTICLE TITLE 5
+
+              </h3>
+
+            </a>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           CENTER COLUMN
+           TOP SPORTS NEWS
+           
+           👇 HERO ARTICLES HERE
+           
+           ప్రతి hero article:
+           
+           <div class="hero-slide">
+           
+             <a href="ARTICLE.html">
+               
+               <img src="IMAGE.jpg">
+               
+               <div class="hero-overlay">
+                 
+                 <span class="hero-category">
+                   SPORTS
+                 </span>
+                 
+                 <div class="hero-title">
+                   TITLE
+                 </div>
+               
+               </div>
+             
+             </a>
+           
+           </div>
+      ================================================= -->
+
+      <section class="column center-column">
+
+
+        <div class="column-title">
+
+          TOP SPORTS NEWS
+
+        </div>
+
+
+        <div class="hero">
+
+
+          <!-- ============================================
+               HERO ARTICLE 1
+          ============================================= -->
+
+          <div class="hero-slide active">
+
+            <a href="ARTICLE-1.html">
+
+              <img
+                src="IMAGE-1.jpg"
+                alt="Sports Article 1"
+              >
+
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+
+                  SPORTS
+
+                </span>
+
+
+                <div class="hero-title">
+
+                  YOUR TOP SPORTS ARTICLE TITLE 1
+
+                </div>
+
+              </div>
+
+            </a>
+
+          </div>
+
+
+
+          <!-- ============================================
+               HERO ARTICLE 2
+          ============================================= -->
+
+          <div class="hero-slide">
+
+            <a href="ARTICLE-2.html">
+
+              <img
+                src="IMAGE-2.jpg"
+                alt="Sports Article 2"
+              >
+
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+
+                  SPORTS
+
+                </span>
+
+
+                <div class="hero-title">
+
+                  YOUR TOP SPORTS ARTICLE TITLE 2
+
+                </div>
+
+              </div>
+
+            </a>
+
+          </div>
+
+
+
+          <!-- ============================================
+               HERO ARTICLE 3
+          ============================================= -->
+
+          <div class="hero-slide">
+
+            <a href="ARTICLE-3.html">
+
+              <img
+                src="IMAGE-3.jpg"
+                alt="Sports Article 3"
+              >
+
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+
+                  SPORTS
+
+                </span>
+
+
+                <div class="hero-title">
+
+                  YOUR TOP SPORTS ARTICLE TITLE 3
+
+                </div>
+
+              </div>
+
+            </a>
+
+          </div>
+
+
+
+          <!-- ============================================
+               HERO ARTICLE 4
+          ============================================= -->
+
+          <div class="hero-slide">
+
+            <a href="ARTICLE-4.html">
+
+              <img
+                src="IMAGE-4.jpg"
+                alt="Sports Article 4"
+              >
+
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+
+                  SPORTS
+
+                </span>
+
+
+                <div class="hero-title">
+
+                  YOUR TOP SPORTS ARTICLE TITLE 4
+
+                </div>
+
+              </div>
+
+            </a>
+
+          </div>
+
+
+
+          <!-- ============================================
+               HERO ARTICLE 5
+          ============================================= -->
+
+          <div class="hero-slide">
+
+            <a href="ARTICLE-5.html">
+
+              <img
+                src="IMAGE-5.jpg"
+                alt="Sports Article 5"
+              >
+
+
+              <div class="hero-overlay">
+
+                <span class="hero-category">
+
+                  SPORTS
+
+                </span>
+
+
+                <div class="hero-title">
+
+                  YOUR TOP SPORTS ARTICLE TITLE 5
+
+                </div>
+
+              </div>
+
+            </a>
+
+          </div>
+
+
+
+          <!-- ============================================
+               HERO DOTS
+          ============================================= -->
+
+          <div class="hero-dots">
+
+            <span class="hero-dot active"></span>
+
+            <span class="hero-dot"></span>
+
+            <span class="hero-dot"></span>
+
+            <span class="hero-dot"></span>
+
+            <span class="hero-dot"></span>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           RIGHT COLUMN
+           TRENDING
+           
+           👇 TRENDING ARTICLES HERE
+      ================================================= -->
+
+      <section class="column right-column">
+
+
+        <div class="column-title">
+
+          TRENDING
+
+        </div>
+
+
+        <div class="trending-list">
+
+
+          <!-- ARTICLE 1 -->
+
+          <a
+            href="ARTICLE-1.html"
+            class="trend-item"
+          >
+
+            <div class="trend-number">
+
+              1
+
+            </div>
+
+
+            <h3>
+
+              YOUR TRENDING SPORTS ARTICLE 1
+
+            </h3>
+
+          </a>
+
+
+
+          <!-- ARTICLE 2 -->
+
+          <a
+            href="ARTICLE-2.html"
+            class="trend-item"
+          >
+
+            <div class="trend-number">
+
+              2
+
+            </div>
+
+
+            <h3>
+
+              YOUR TRENDING SPORTS ARTICLE 2
+
+            </h3>
+
+          </a>
+
+
+
+          <!-- ARTICLE 3 -->
+
+          <a
+            href="ARTICLE-3.html"
+            class="trend-item"
+          >
+
+            <div class="trend-number">
+
+              3
+
+            </div>
+
+
+            <h3>
+
+              YOUR TRENDING SPORTS ARTICLE 3
+
+            </h3>
+
+          </a>
+
+
+
+          <!-- ARTICLE 4 -->
+
+          <a
+            href="ARTICLE-4.html"
+            class="trend-item"
+          >
+
+            <div class="trend-number">
+
+              4
+
+            </div>
+
+
+            <h3>
+
+              YOUR TRENDING SPORTS ARTICLE 4
+
+            </h3>
+
+          </a>
+
+
+
+          <!-- ARTICLE 5 -->
+
+          <a
+            href="ARTICLE-5.html"
+            class="trend-item"
+          >
+
+            <div class="trend-number">
+
+              5
+
+            </div>
+
+
+            <h3>
+
+              YOUR TRENDING SPORTS ARTICLE 5
+
+            </h3>
+
+          </a>
+
+
+
+          <!-- ARTICLE 6 -->
+
+          <a
+            href="ARTICLE-6.html"
+            class="trend-item"
+          >
+
+            <div class="trend-number">
+
+              6
+
+            </div>
+
+
+            <h3>
+
+              YOUR TRENDING SPORTS ARTICLE 6
+
+            </h3>
+
+          </a>
+
+
+
+          <!-- ARTICLE 7 -->
+
+          <a
+            href="ARTICLE-7.html"
+            class="trend-item"
+          >
+
+            <div class="trend-number">
+
+              7
+
+            </div>
+
+
+            <h3>
+
+              YOUR TRENDING SPORTS ARTICLE 7
+
+            </h3>
+
+          </a>
+
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LATEST SPORTS ARTICLES
+         
+         👇 ARTICLES HERE
+         
+         ఒక్క article structure:
+         
+         <a href="ARTICLE.html" class="latest-card">
+           
+           <img src="IMAGE.jpg">
+           
+           <div class="latest-content">
+             <h3>TITLE</h3>
+           </div>
+         
+         </a>
+    ===================================================== -->
+
+    <section class="latest-section">
+
+
+      <div class="latest-title">
+
+        🏏 LATEST SPORTS ARTICLES
+
+      </div>
+
+
+      <div class="latest-wrapper">
+
+
+        <div class="latest-track">
+
+
+          <!-- ============================================
+               LATEST ARTICLE 1
+          ============================================= -->
+
+          <a
+            href="ARTICLE-1.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-1.jpg"
+              alt="Article 1"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 1
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+
+          <!-- ============================================
+               LATEST ARTICLE 2
+          ============================================= -->
+
+          <a
+            href="ARTICLE-2.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-2.jpg"
+              alt="Article 2"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 2
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+
+          <!-- ============================================
+               LATEST ARTICLE 3
+          ============================================= -->
+
+          <a
+            href="ARTICLE-3.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-3.jpg"
+              alt="Article 3"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 3
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+
+          <!-- ============================================
+               LATEST ARTICLE 4
+          ============================================= -->
+
+          <a
+            href="ARTICLE-4.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-4.jpg"
+              alt="Article 4"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 4
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+
+          <!-- ============================================
+               LATEST ARTICLE 5
+          ============================================= -->
+
+          <a
+            href="ARTICLE-5.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-5.jpg"
+              alt="Article 5"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 5
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+
+          <!-- ============================================
+               DUPLICATE CARDS
+               
+               Continuous animation కోసం duplicate.
+          ============================================= -->
+
+
+          <a
+            href="ARTICLE-1.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-1.jpg"
+              alt="Article 1"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 1
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+          <a
+            href="ARTICLE-2.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-2.jpg"
+              alt="Article 2"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 2
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+          <a
+            href="ARTICLE-3.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-3.jpg"
+              alt="Article 3"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 3
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+          <a
+            href="ARTICLE-4.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-4.jpg"
+              alt="Article 4"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 4
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+          <a
+            href="ARTICLE-5.html"
+            class="latest-card"
+          >
+
+            <img
+              src="IMAGE-5.jpg"
+              alt="Article 5"
+            >
+
+
+            <div class="latest-content">
+
+              <h3>
+
+                YOUR LATEST SPORTS ARTICLE TITLE 5
+
+              </h3>
+
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         🏏 SPORTS SECTION
+         
+         ఇదే నీకు కావాల్సిన section.
+         
+         Homepageలో పెట్టాలంటే ఈ మొత్తం sectionను copy
+         చేసుకోవచ్చు.
+         
+         Articlesలను JavaScript లేదా HTML ద్వారా ఇక్కడ
+         add చేసుకోవచ్చు.
+    ===================================================== -->
+
+    <section
+      class="sports-section"
+      id="sportsSection"
+    >
+
+
+      <div class="section-title-row">
+
+
+        <h2>
+
+          🏏 Sports
+
+        </h2>
+
+
+        <a
+          href="#sportsSection"
+          class="view-all"
+        >
+
+          READ MORE →
+
+        </a>
+
+
+      </div>
+
+
+      <div
+        class="horizontal-carousel"
+        id="sportsGrid"
+      >
+
+
+        <!-- =================================================
+             SPORTS ARTICLE PLACEHOLDER 1
+             
+             👇 ఇక్కడ article పెట్టాలి
+        ================================================== -->
+
+        <a
+          href="ARTICLE-1.html"
+          class="sports-card"
+        >
+
+          <img
+            src="IMAGE-1.jpg"
+            alt="Sports Article 1"
+          >
+
+
+          <div class="sports-overlay">
+
+            <h3>
+
+              YOUR SPORTS ARTICLE TITLE 1
+
+            </h3>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             SPORTS ARTICLE PLACEHOLDER 2
+        ================================================== -->
+
+        <a
+          href="ARTICLE-2.html"
+          class="sports-card"
+        >
+
+          <img
+            src="IMAGE-2.jpg"
+            alt="Sports Article 2"
+          >
+
+
+          <div class="sports-overlay">
+
+            <h3>
+
+              YOUR SPORTS ARTICLE TITLE 2
+
+            </h3>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             SPORTS ARTICLE PLACEHOLDER 3
+        ================================================== -->
+
+        <a
+          href="ARTICLE-3.html"
+          class="sports-card"
+        >
+
+          <img
+            src="IMAGE-3.jpg"
+            alt="Sports Article 3"
+          >
+
+
+          <div class="sports-overlay">
+
+            <h3>
+
+              YOUR SPORTS ARTICLE TITLE 3
+
+            </h3>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             SPORTS ARTICLE PLACEHOLDER 4
+        ================================================== -->
+
+        <a
+          href="ARTICLE-4.html"
+          class="sports-card"
+        >
+
+          <img
+            src="IMAGE-4.jpg"
+            alt="Sports Article 4"
+          >
+
+
+          <div class="sports-overlay">
+
+            <h3>
+
+              YOUR SPORTS ARTICLE TITLE 4
+
+            </h3>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- =================================================
+             SPORTS ARTICLE PLACEHOLDER 5
+        ================================================== -->
+
+        <a
+          href="ARTICLE-5.html"
+          class="sports-card"
+        >
+
+          <img
+            src="IMAGE-5.jpg"
+            alt="Sports Article 5"
+          >
+
+
+          <div class="sports-overlay">
+
+            <h3>
+
+              YOUR SPORTS ARTICLE TITLE 5
+
+            </h3>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <p>
+
+      © 2026 BS 360 NEWS.
+      All Rights Reserved.
+
     </p>
 
-
-    <!-- SPORTS POST 1 -->
-
-    <div class="related-card">
-
-      <a href="rvs.html">
-        <img src="cricket.png" alt="Cricket Records">
-      </a>
-
-      <div>
-
-        <span class="tag">
-          క్రికెట్
-        </span>
-
-        <h4>
-          <a href="rvs.html">
-            🏏 5000 వన్డేల చరిత్రలో చెరిగిపోని ఆల్‌టైమ్ రికార్డులు
-          </a>
-        </h4>
-
-        <p>
-          అంతర్జాతీయ వన్డే క్రికెట్ చరిత్ర అనేది ఎన్నో అద్భుతమైన రికార్డులకు
-        వేదికగా నిలిచింది.
-        </p>
-
-      </div>
-
-    </div>
+  </footer>
 
 
-    <!-- SPORTS POST 2 -->
 
-    <div class="related-card">
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
 
-      <a href="rd.html">
-        <img src="dhoni,rohith.png" alt="రోహిత్ శర్మ,ధోనీ">
-      </a>
+  <script>
 
-      <div>
-
-        <span class="tag">
-          క్రికెట్
-        </span>
-
-        <h4>
-          <a href="rd.html">
-             ధోనీ Vs రోహిత్.. గ్రేటెస్ట్ కెప్టెన్ ఎవరు?
-          </a>
-        </h4>
-
-        <p>🏏🔥 టీమిండియాకు ఇద్దరూ
-            అద్భుతమైన కెప్టెన్లు. ధోనీ కెప్టెన్సీలో
-            భారత్ ఎన్నో చారిత్రాత్మక విజయాలు సాధించింది.
-        </p>
-
-      </div>
-
-    </div>
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
 
 
-   
-     
-    <!-- SPORTS POST 4 -->
+        /* =================================================
+           HERO SLIDER
+        ================================================= */
 
-    <div class="related-card">
-
-      <a href="kl.html">
-        <img src="c1.jpeg" alt="ఎల్ రాహుల్ ఫైల్ ఫోటో">
-      </a>
-
-      <div>
-
-        <span class="tag">
-          క్రికెట్
-        </span>
-
-        <h4>
-          <a href="kl.html">
-          రాహుల్‌తోనే శ్రీలంకకు ప్రమాదం - ధనంజయ డి సిల్వా కీలక వ్యాఖ్యలు.
-          </a>
-        </h4>
-
-        <p>టీమ్ ఇండియా స్టార్ బ్యాటర్ కేఎల్ రాహుల్ విషయంలో శ్రీలంక మాజీ/కెప్టెన్ ధనంజయ డి సిల్వా కీలక వ్యాఖ్యలు చేశారు
-        </p>
-
-      </div>
-
-    </div>
-
-  </article>
-
-</main>
+        const slides =
+          document.querySelectorAll(
+            ".hero-slide"
+          );
 
 
-<footer>
-  © 2026 BS 360 NEWS. All rights reserved.
-</footer>
+        const dots =
+          document.querySelectorAll(
+            ".hero-dot"
+          );
+
+
+        let currentSlide = 0;
+
+
+        function showSlide(index) {
+
+
+          slides.forEach(
+            function (slide) {
+
+              slide.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          dots.forEach(
+            function (dot) {
+
+              dot.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          if (slides[index]) {
+
+            slides[index]
+              .classList
+              .add("active");
+
+          }
+
+
+          if (dots[index]) {
+
+            dots[index]
+              .classList
+              .add("active");
+
+          }
+
+        }
+
+
+        function nextSlide() {
+
+
+          currentSlide++;
+
+
+          if (
+            currentSlide >=
+            slides.length
+          ) {
+
+            currentSlide = 0;
+
+          }
+
+
+          showSlide(
+            currentSlide
+          );
+
+        }
+
+
+        /* =================================================
+           HERO AUTO CHANGE
+           
+           Every 2 seconds
+        ================================================= */
+
+        let heroTimer =
+          setInterval(
+            nextSlide,
+            2000
+          );
+
+
+        /* =================================================
+           DOT CLICK
+        ================================================= */
+
+        dots.forEach(
+          function (
+            dot,
+            index
+          ) {
+
+
+            dot.addEventListener(
+              "click",
+              function () {
+
+
+                currentSlide =
+                  index;
+
+
+                showSlide(
+                  currentSlide
+                );
+
+
+              }
+            );
+
+
+          }
+        );
+
+
+        /* =================================================
+           PAUSE HERO ON HOVER
+        ================================================= */
+
+        const hero =
+          document.querySelector(
+            ".hero"
+          );
+
+
+        if (hero) {
+
+
+          hero.addEventListener(
+            "mouseenter",
+            function () {
+
+              clearInterval(
+                heroTimer
+              );
+
+            }
+          );
+
+
+          hero.addEventListener(
+            "mouseleave",
+            function () {
+
+              heroTimer =
+                setInterval(
+                  nextSlide,
+                  2000
+                );
+
+            }
+          );
+
+
+        }
+
+
+        /* =================================================
+           PREVENT IMAGE DRAG
+        ================================================= */
+
+        document
+          .querySelectorAll("img")
+          .forEach(
+            function (img) {
+
+
+              img.addEventListener(
+                "dragstart",
+                function (event) {
+
+                  event.preventDefault();
+
+                }
+              );
+
+
+            }
+          );
+
+
+        /* =================================================
+           PAGE LOADED
+        ================================================= */
+
+        document.body
+          .classList
+          .add(
+            "page-loaded"
+          );
+
+
+      }
+    );
+
+  </script>
 
 
 </body>
+
 </html>
