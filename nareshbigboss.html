@@ -66,6 +66,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -82,8 +86,14 @@ body{
     font-family:"Noto Sans Telugu",Arial,sans-serif;
 }
 
+img{
+    max-width:100%;
+}
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .site-header{
     width:100%;
@@ -123,7 +133,9 @@ body{
 }
 
 
-/* NAVIGATION */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .main-nav{
     width:100%;
@@ -153,7 +165,9 @@ body{
 }
 
 
-/* BREAKING */
+/* =========================================================
+   BREAKING
+========================================================= */
 
 .breaking-bar{
     width:100%;
@@ -181,7 +195,9 @@ body{
 }
 
 
-/* MAIN */
+/* =========================================================
+   MAIN
+========================================================= */
 
 .main-wrapper{
     width:min(1200px,94%);
@@ -190,7 +206,9 @@ body{
 }
 
 
-/* BREADCRUMB */
+/* =========================================================
+   BREADCRUMB
+========================================================= */
 
 .breadcrumb{
     width:100%;
@@ -210,7 +228,9 @@ body{
 }
 
 
-/* ARTICLE */
+/* =========================================================
+   ARTICLE
+========================================================= */
 
 .article-page{
     width:100%;
@@ -224,7 +244,9 @@ body{
 }
 
 
-/* CATEGORY */
+/* =========================================================
+   CATEGORY
+========================================================= */
 
 .article-category{
     display:inline-block;
@@ -238,7 +260,9 @@ body{
 }
 
 
-/* TITLE */
+/* =========================================================
+   TITLE
+========================================================= */
 
 .article-title{
     width:100%;
@@ -252,7 +276,9 @@ body{
 }
 
 
-/* META */
+/* =========================================================
+   META
+========================================================= */
 
 .article-meta{
     width:100%;
@@ -267,7 +293,9 @@ body{
 }
 
 
-/* IMAGE */
+/* =========================================================
+   ARTICLE IMAGE
+========================================================= */
 
 .article-image{
     display:block;
@@ -297,7 +325,9 @@ body{
 }
 
 
-/* ARTICLE TEXT */
+/* =========================================================
+   ARTICLE CONTENT
+========================================================= */
 
 .article-content{
     display:block;
@@ -319,7 +349,9 @@ body{
 }
 
 
-/* TAGS */
+/* =========================================================
+   TAGS
+========================================================= */
 
 .article-tags{
     width:100%;
@@ -341,7 +373,9 @@ body{
 }
 
 
-/* RELATED */
+/* =========================================================
+   RELATED
+========================================================= */
 
 .related-section{
     width:100%;
@@ -375,7 +409,9 @@ body{
 }
 
 
-/* RELATED CAROUSEL */
+/* =========================================================
+   RELATED CAROUSEL
+========================================================= */
 
 .related-carousel{
     position:relative;
@@ -391,7 +427,9 @@ body{
 }
 
 
-/* RELATED CARD */
+/* =========================================================
+   RELATED CARD
+========================================================= */
 
 .related-card{
     flex:0 0 190px;
@@ -435,7 +473,9 @@ body{
 }
 
 
-/* RELATED BUTTONS */
+/* =========================================================
+   RELATED BUTTONS
+========================================================= */
 
 .related-btn{
     position:absolute;
@@ -465,7 +505,178 @@ body{
 }
 
 
-/* BACK LINK */
+/* =========================================================
+   DYNAMIC NEWS
+========================================================= */
+
+.latest-section{
+    width:100%;
+    margin-top:30px;
+}
+
+.latest-section .container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    width:100%;
+    margin:0 0 15px;
+    font-size:25px;
+    line-height:1.4;
+    font-weight:900;
+}
+
+
+/* TOP AUTO SCROLLER */
+
+.top-news-wrapper{
+    width:100%;
+    overflow:hidden;
+    margin-bottom:18px;
+}
+
+.top-news-track{
+    width:max-content;
+    display:flex;
+    gap:12px;
+}
+
+
+/* FEATURED */
+
+.featured-news{
+    width:100%;
+}
+
+.featured-box{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+.featured-box a{
+    display:block;
+    width:100%;
+    text-decoration:none;
+}
+
+.featured-box img{
+    display:block;
+    width:100%;
+    aspect-ratio:16 / 9;
+    object-fit:cover;
+}
+
+.featured-overlay{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:50px 20px 18px;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.88)
+    );
+    color:#fff;
+}
+
+.featured-category{
+    display:inline-block;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.featured-title{
+    font-size:25px;
+    line-height:1.45;
+    font-weight:900;
+}
+
+
+/* FEATURED DOTS */
+
+.featured-dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    margin:10px 0 20px;
+}
+
+
+/* TWO NEWS */
+
+.two-news{
+    width:100%;
+    margin-top:20px;
+}
+
+.two-news .section-title{
+    margin-bottom:12px;
+}
+
+.two-news-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+}
+
+
+/* DYNAMIC CARD */
+
+.dynamic-news-card{
+    width:100%;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid #e2e6eb;
+    border-radius:9px;
+}
+
+.dynamic-news-card a{
+    display:block;
+    color:#171717;
+    text-decoration:none;
+}
+
+.dynamic-news-card img{
+    display:block;
+    width:100%;
+    aspect-ratio:16 / 10;
+    object-fit:cover;
+}
+
+.dynamic-news-content{
+    padding:10px;
+}
+
+.dynamic-news-category{
+    display:block;
+    color:#e00000;
+    font-size:10px;
+    font-weight:900;
+    margin-bottom:4px;
+}
+
+.dynamic-news-title{
+    font-size:15px;
+    line-height:1.5;
+    font-weight:800;
+
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
 
 .back-link{
     display:block;
@@ -479,7 +690,9 @@ body{
 }
 
 
-/* SOCIAL */
+/* =========================================================
+   SOCIAL
+========================================================= */
 
 .social-links{
     width:100%;
@@ -517,7 +730,9 @@ body{
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer{
     width:100%;
@@ -532,7 +747,53 @@ body{
 }
 
 
-/* DARK MODE */
+/* =========================================================
+   FOOTER GRID
+========================================================= */
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    text-align:left;
+}
+
+.footer-title{
+    font-size:17px;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.footer-text{
+    font-size:13px;
+    line-height:1.8;
+    color:#d1d5db;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.footer-links a{
+    color:#d1d5db;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.footer-bottom{
+    margin-top:25px;
+    padding-top:15px;
+    border-top:1px solid #374151;
+    font-size:12px;
+    color:#d1d5db;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
 
 body.dark-mode{
     background:#0b1220;
@@ -555,7 +816,8 @@ body.dark-mode{
 }
 
 .dark-mode .article-page,
-.dark-mode .related-section{
+.dark-mode .related-section,
+.dark-mode .dynamic-news-card{
     background:#111827;
     border-color:#263244;
 }
@@ -594,8 +856,14 @@ body.dark-mode{
     border-color:#374151;
 }
 
+.dark-mode .dynamic-news-card{
+    color:#fff;
+}
 
-/* TABLET */
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media(max-width:900px){
 
@@ -615,202 +883,550 @@ body.dark-mode{
         font-size:18px;
     }
 
-    .article-image{
-        height:auto;
-    }
-
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE FINAL
+========================================================= */
 
 @media(max-width:700px){
 
+    html,
+    body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden;
+    }
+
+    body{
+        background:#fff;
+    }
+
+
+    /* HEADER */
+
     .header-inner{
-        width:94%;
-        min-height:58px;
+        width:100%;
+        min-height:60px;
+        padding:7px 12px;
     }
 
     .logo{
         font-size:20px;
     }
 
+
+    /* NAV */
+
     .nav-inner{
-        width:94%;
-        gap:18px;
+        width:100%;
+        padding:0 12px;
+        gap:20px;
     }
 
     .nav-inner a{
-        font-size:13px;
+        font-size:12px;
+        padding:11px 0;
     }
 
+
+    /* BREAKING */
+
     .breaking-bar{
-        padding:8px 3%;
-        gap:9px;
+        padding:7px 10px;
+        gap:8px;
     }
 
     .breaking-bar strong{
-        font-size:11px;
+        font-size:10px;
     }
 
     .breaking-text{
-        font-size:11px;
+        font-size:10px;
     }
+
+
+    /* MAIN FULL WIDTH */
 
     .main-wrapper{
         width:100%;
         max-width:none;
-        margin:0 auto 30px;
+        margin:0;
+        padding:0;
     }
+
+
+    /* BREADCRUMB */
 
     .breadcrumb{
         width:100%;
-        padding:12px 12px 0;
-        margin-bottom:8px;
+        padding:10px 12px 5px;
+        margin:0;
+        font-size:10px;
+        gap:5px;
     }
+
+
+    /* ARTICLE FULL SCREEN */
 
     .article-page{
         width:100%;
         max-width:none;
+
         margin:0;
-        padding:13px;
-        border-left:0;
-        border-right:0;
+        padding:14px 12px 20px;
+
+        border:0;
         border-radius:0;
         box-shadow:none;
+
+        background:#fff;
     }
 
+
+    /* CATEGORY */
+
     .article-category{
+        margin-bottom:9px;
+        padding:5px 9px;
         font-size:10px;
-        margin-bottom:10px;
     }
+
+
+    /* TITLE */
 
     .article-title{
         width:100%;
         max-width:none;
-        font-size:24px;
-        line-height:1.45;
+
+        margin:0 0 11px;
+        padding:0;
+
+        font-size:22px;
+        line-height:1.5;
+        font-weight:900;
     }
+
+
+    /* META */
 
     .article-meta{
         width:100%;
-        font-size:12px;
+        padding-bottom:11px;
+        gap:6px;
+        font-size:11px;
     }
 
+
+    /* IMAGE FULL WIDTH */
+
     .article-image{
-        width:100%;
+        width:calc(100% + 24px);
         max-width:none;
-        height:auto;
-        margin:15px 0 20px;
+
+        margin:14px -12px 20px;
+        padding:0;
     }
 
     .article-image img{
+        display:block;
+
         width:100%;
-        height:auto;
         max-width:none;
+        height:auto;
+
+        border-radius:0;
+
         object-fit:contain;
-        border-radius:5px;
     }
+
+    .article-image figcaption{
+        padding:0 12px;
+        font-size:10px;
+        line-height:1.5;
+    }
+
+
+    /* ARTICLE TEXT FULL WIDTH */
 
     .article-content{
         width:100%;
         max-width:none;
+
         margin:0;
         padding:0;
-        font-size:17px;
-        line-height:1.9;
+
+        font-size:16.5px;
+        line-height:1.95;
     }
 
     .article-content p{
         width:100%;
         max-width:none;
+
         margin:0 0 18px;
+        padding:0;
+
+        font-size:16.5px;
+        line-height:1.95;
     }
+
+
+    /* TAGS */
+
+    .article-tags{
+        width:100%;
+        margin-top:20px;
+        padding-top:13px;
+        gap:6px;
+    }
+
+    .article-tags span{
+        padding:5px 9px;
+        font-size:10px;
+    }
+
+
+    /* =====================================================
+       RELATED - FULL WIDTH
+    ===================================================== */
 
     .related-section{
         width:100%;
-        margin-top:20px;
-        padding:14px;
+
+        margin:16px 0 0;
+        padding:15px 12px 18px;
+
         border-left:0;
         border-right:0;
+
         border-radius:0;
+
+        box-shadow:none;
+    }
+
+    .related-title-row{
+        margin-bottom:12px;
     }
 
     .related-title-row h2{
-        font-size:18px;
+        font-size:17px;
+        line-height:1.4;
+    }
+
+    .related-title-row a{
+        font-size:11px;
+    }
+
+    .related-carousel{
+        width:100%;
     }
 
     .related-card{
-        flex:0 0 155px;
-        width:155px;
+        flex:0 0 165px;
+        width:165px;
     }
 
     .related-card img{
         width:100%;
         height:100px;
+        object-fit:cover;
+    }
+
+    .related-card-content{
+        padding:8px;
+    }
+
+    .related-card h3{
+        font-size:11.5px;
+        line-height:1.5;
+    }
+
+    .related-btn{
+        width:32px;
+        height:32px;
+        font-size:21px;
+    }
+
+
+    /* =====================================================
+       DYNAMIC NEWS FULL WIDTH
+    ===================================================== */
+
+    .latest-section{
+        width:100%;
+        margin-top:18px;
+        background:#fff;
+    }
+
+    .latest-section .container{
+        width:100%;
+        max-width:none;
+        margin:0;
+        padding:0 12px;
+    }
+
+    .section-title{
+        font-size:19px;
+        line-height:1.4;
+        margin:0 0 12px;
+    }
+
+
+    /* TOP SCROLLER */
+
+    .top-news-wrapper{
+        width:100%;
+        overflow:hidden;
+        margin-bottom:14px;
+    }
+
+    .top-news-track{
+        gap:9px;
+    }
+
+
+    /* FEATURED IMAGE */
+
+    .featured-news{
+        width:100%;
+    }
+
+    .featured-box{
+        width:100%;
+        border-radius:8px;
+    }
+
+    .featured-box img{
+        width:100%;
+        height:auto;
+        aspect-ratio:16 / 9;
+        object-fit:cover;
+    }
+
+    .featured-overlay{
+        padding:45px 12px 12px;
+    }
+
+    .featured-category{
+        font-size:10px;
+    }
+
+    .featured-title{
+        font-size:19px;
+        line-height:1.45;
+    }
+
+    .featured-dots{
+        margin:8px 0 15px;
+    }
+
+
+    /* TWO COLUMN */
+
+    .two-news{
+        width:100%;
+        margin-top:15px;
+    }
+
+    .two-news-grid{
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+        gap:9px;
+    }
+
+
+    /* DYNAMIC CARDS */
+
+    .dynamic-news-card{
+        width:100%;
+        min-width:0;
+
+        border:1px solid #e1e5e9;
+        border-radius:8px;
+
+        overflow:hidden;
+    }
+
+    .dynamic-news-card img{
+        width:100%;
+        height:auto;
+        aspect-ratio:16 / 10;
+        object-fit:cover;
+    }
+
+    .dynamic-news-content{
+        padding:7px;
+    }
+
+    .dynamic-news-category{
+        font-size:9px;
+        margin-bottom:3px;
+    }
+
+    .dynamic-news-title{
+        font-size:13px;
+        line-height:1.45;
+
+        -webkit-line-clamp:3;
+    }
+
+
+    /* =====================================================
+       BACK LINK
+    ===================================================== */
+
+    .back-link{
+        width:100%;
+        margin:17px 0;
+        padding:0 12px;
+        font-size:12px;
+    }
+
+
+    /* SOCIAL */
+
+    .social-links{
+        width:100%;
+        margin-bottom:20px;
+        gap:9px;
+    }
+
+    .social-links a{
+        width:40px;
+        height:40px;
+        font-size:18px;
+    }
+
+
+    /* FOOTER */
+
+    .site-footer{
+        width:100%;
+        padding:22px 12px;
+    }
+
+    .site-footer .container{
+        width:100%;
+        max-width:none;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+        text-align:left;
+    }
+
+    .footer-title{
+        font-size:16px;
+    }
+
+    .footer-text,
+    .footer-links a{
+        font-size:12px;
+    }
+
+    .footer-bottom{
+        font-size:11px;
+        line-height:1.6;
     }
 
 }
 
 
-/* SMALL MOBILE */
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:430px){
 
     .article-page{
-        padding:12px;
+        padding:13px 10px 18px;
     }
 
     .article-title{
-        font-size:22px;
+        font-size:21px;
+        line-height:1.5;
+    }
+
+    .article-content,
+    .article-content p{
+        font-size:16px;
+        line-height:1.95;
     }
 
     .article-image{
-        width:100%;
-        height:auto;
+        width:calc(100% + 20px);
+        margin-left:-10px;
+        margin-right:-10px;
     }
 
-    .article-image img{
-        width:100%;
-        height:auto;
-        object-fit:contain;
+    .article-image figcaption{
+        padding:0 10px;
     }
 
-    .article-content{
-        width:100%;
-        max-width:none;
-        font-size:16px;
-        line-height:1.9;
+    .related-section{
+        padding-left:10px;
+        padding-right:10px;
     }
 
-    .article-content p{
-        width:100%;
-        max-width:none;
+    .latest-section .container{
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+    .featured-title{
+        font-size:18px;
+    }
+
+    .dynamic-news-title{
+        font-size:12.5px;
     }
 
 }
 
 
-/* VERY SMALL MOBILE */
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
 
 @media(max-width:360px){
 
-    .article-image{
-        width:100%;
-        height:auto;
+    .logo{
+        font-size:18px;
     }
 
-    .article-image img{
-        width:100%;
-        height:auto;
+    .theme-btn{
+        width:37px;
+        height:37px;
     }
 
     .article-title{
         font-size:20px;
     }
 
-    .article-content{
+    .article-content,
+    .article-content p{
         font-size:15.5px;
+    }
+
+    .related-card{
+        flex-basis:155px;
+        width:155px;
+    }
+
+    .related-card img{
+        height:95px;
+    }
+
+    .featured-title{
+        font-size:17px;
     }
 
 }
@@ -822,6 +1438,10 @@ body.dark-mode{
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="site-header">
 
@@ -846,6 +1466,10 @@ body.dark-mode{
 
 </header>
 
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <nav class="main-nav">
 
@@ -876,6 +1500,10 @@ body.dark-mode{
 </nav>
 
 
+<!-- =====================================================
+     BREAKING
+===================================================== -->
+
 <div class="breaking-bar">
 
     <strong>
@@ -891,8 +1519,16 @@ body.dark-mode{
 </div>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main class="main-wrapper">
 
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
 
 <div class="breadcrumb">
 
@@ -914,6 +1550,10 @@ body.dark-mode{
 
 </div>
 
+
+<!-- =====================================================
+     ARTICLE
+===================================================== -->
 
 <article class="article-page">
 
@@ -1090,387 +1730,165 @@ body.dark-mode{
 
     </div>
 
-
-    <div class="article-tags">
-
-        <span>#BiggBoss10</span>
-
-        <span>#BiggBossTelugu10</span>
-
-        <span>#JabardasthNaresh</span>
-
-        <span>#Naresh</span>
-
-        <span>#BiggBossTelugu</span>
-
-        <span>#Jabardasth</span>
-
-    </div>
-
-
 </article>
 
+<div class="featured-news">
 
-<section class="related-section">
+<div class="featured-box">
+
+<a
+id="featuredLink"
+href="#"
+>
+
+<img
+id="featuredImage"
+src=""
+alt="తాజా వార్త"
+>
+
+<div class="featured-overlay">
+
+<div
+id="featuredCategory"
+class="featured-category"
+>
+తాజా వార్త
+</div>
+
+<h2
+id="featuredTitle"
+class="featured-title"
+>
+తాజా వార్త
+</h2>
+
+</div>
+
+</a>
+
+</div>
 
 
-    <div class="related-title-row">
+<div
+id="featuredDots"
+class="featured-dots"
+>
+</div>
 
-        <h2>
-            📺 Bigg Boss 10 తాజా కథనాలు
-        </h2>
-
-        <a href="bigboss10.html">
-            మరిన్ని →
-        </a>
-
-    </div>
+</div>
 
 
-    <div class="related-carousel">
+<!-- ================= TWO COLUMN ================= -->
+
+<div class="two-news">
+
+<h2 class="section-title">
+
+more
+
+</h2>
+
+<div
+id="twoNewsGrid"
+class="two-news-grid"
+>
+</div>
+
+</div>
 
 
-        <button
-            class="related-btn related-prev"
-            id="relatedPrev"
-            type="button"
-        >
-            ‹
-        </button>
+</div>
 
+</section>
 
-        <div
-            class="related-track"
-            id="relatedTrack"
-        >
+</main>
+<!-- =====================================================
+     BIGG BOSS RELATED
+===================================================== -->
 
+            <div>
 
-            <a
-                href="nareshbigboss.html"
-                class="related-card"
-            >
+                <div class="footer-title">
+                    ముఖ్యమైన లింకులు
+                </div>
 
-                <img
-                    src="nareshbigboss.jpg"
-                    alt="జబర్దస్త్ నరేష్"
-                    loading="lazy"
-                >
+                <div class="footer-links">
 
-                <div class="related-card-content">
+                    <a href="about.html">
+                        About Us
+                    </a>
 
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
 
-                    <h3>
-                        బిగ్ బాస్ 10లో జబర్దస్త్ నరేష్ ఎంట్రీ?
-                    </h3>
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="disclaimer.html">
+                        Disclaimer
+                    </a>
 
                 </div>
 
-            </a>
+            </div>
 
 
-            <a
-                href="varshinibigboss.html"
-                class="related-card"
-            >
+            <div>
 
-                <img
-                    src="image.png"
-                    alt="వర్షిణి సౌందరాజన్"
-                    loading="lazy"
-                >
+                <div class="footer-title">
+                    ఇతర లింకులు
+                </div>
 
-                <div class="related-card-content">
+                <div class="footer-links">
 
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
+                    <a href="terms.html">
+                        Terms & Conditions
+                    </a>
 
-                    <h3>
-                        వర్షిణి సౌందరాజన్ ఎంట్రీ? వైరల్ అవుతున్న వార్త ఇదే
-                    </h3>
+                    <a href="advertise.html">
+                        Advertise
+                    </a>
+
+                    <a href="#" target="_blank">
+                        Facebook
+                    </a>
+
+                    <a href="#" target="_blank">
+                        YouTube
+                    </a>
 
                 </div>
 
-            </a>
-
-
-            <a
-                href="adith-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="adith-bigg-boss10.jpg"
-                    alt="ఆదిత్ అరుణ్"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        ఆదిత్ అరుణ్ బిగ్ బాస్ హౌస్‌లోకి వస్తున్నారా?
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="debjani-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="debjani-bigg-boss10.jpg"
-                    alt="దేబ్జానీ మోడక్"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        దేబ్జానీ మోడక్ ఎంట్రీపై వైరల్ చర్చ
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="ramprasad-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="ramprasad-bigg-boss10.jpg"
-                    alt="ఆటో రామ్ ప్రసాద్"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        ఆటో రామ్ ప్రసాద్ బిగ్ బాస్‌లోకి వస్తున్నారా?
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="temper-vamsi-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="temper-vamsi-bigg-boss10.jpg"
-                    alt="టెంపర్ వంశీ"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        టెంపర్ వంశీ బిగ్ బాస్ 10లోకి ఎంట్రీ?
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="sudheer-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="sudheer-bigg-boss10.jpg"
-                    alt="సుధీర్ రెడ్డి"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        సుధీర్ రెడ్డి గురించి ఆసక్తికరమైన చర్చ
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="krishnudu-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="krishnudu-bigg-boss10.jpg"
-                    alt="కృష్ణుడు"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        కృష్ణుడు బిగ్ బాస్ 10లో కనిపించబోతున్నారా?
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="mukesh-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="mukesh-bigg-boss10.jpg"
-                    alt="ముఖేష్ గౌడ"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        ముఖేష్ గౌడ ఎంట్రీపై ప్రేక్షకుల్లో ఆసక్తి
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="chaitra-bigg-boss10.html"
-                class="related-card"
-            >
-
-                <img
-                    src="chaitra-bigg-boss10.jpg"
-                    alt="చైత్ర రాయ్"
-                    loading="lazy"
-                >
-
-                <div class="related-card-content">
-
-                    <span class="related-card-tag">
-                        📺 BIGG BOSS 10
-                    </span>
-
-                    <h3>
-                        చైత్ర రాయ్ పేరు కూడా లిస్ట్‌లో?
-                    </h3>
-
-                </div>
-
-            </a>
+            </div>
 
 
         </div>
 
 
-        <button
-            class="related-btn related-next"
-            id="relatedNext"
-            type="button"
-        >
-            ›
-        </button>
+        <div class="footer-bottom">
 
+            © 2026 BS 360 NEWS. All Rights Reserved.
+
+        </div>
 
     </div>
-
-</section>
-
-
-<a
-    href="bigboss10.html"
-    class="back-link"
->
-    ← Bigg Boss 10 వార్తలకు తిరిగి వెళ్లండి
-</a>
-
-
-<div class="social-links">
-
-    <a
-        href="https://www.facebook.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-facebook"
-        aria-label="Facebook"
-    >
-        <i class="fa-brands fa-facebook-f"></i>
-    </a>
-
-
-    <a
-        href="https://twitter.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-twitter"
-        aria-label="Twitter"
-    >
-        <i class="fa-brands fa-x-twitter"></i>
-    </a>
-
-</div>
-
-
-</main>
-
-
-<footer class="site-footer">
-
-    <p>
-        © 2026 BS 360 NEWS. All Rights Reserved.
-    </p>
 
 </footer>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* DARK MODE */
+
+/* =====================================================
+   DARK MODE
+===================================================== */
 
 const themeButton =
 document.getElementById("themeButton");
@@ -1485,6 +1903,7 @@ if(themeButton){
             document.body.classList.toggle(
                 "dark-mode"
             );
+
 
             if(
                 document.body.classList.contains(
@@ -1516,7 +1935,9 @@ if(themeButton){
 }
 
 
-/* LOAD THEME */
+/* =====================================================
+   LOAD THEME
+===================================================== */
 
 if(
     localStorage.getItem("bs360-theme")
@@ -1537,7 +1958,9 @@ if(
 }
 
 
-/* RELATED CAROUSEL */
+/* =====================================================
+   RELATED CAROUSEL
+===================================================== */
 
 const relatedTrack =
 document.getElementById("relatedTrack");
@@ -1572,8 +1995,10 @@ function moveRelated(direction){
         relatedTrack.parentElement.offsetWidth
     );
 
+
     relatedPosition +=
     direction * cardWidth;
+
 
     if(relatedPosition < 0){
 
@@ -1581,11 +2006,13 @@ function moveRelated(direction){
 
     }
 
+
     if(relatedPosition > maxPosition){
 
         relatedPosition = maxPosition;
 
     }
+
 
     relatedTrack.style.transform =
     "translateX(-" +
@@ -1623,7 +2050,9 @@ if(relatedNext){
 }
 
 
-/* AUTO SCROLL */
+/* =====================================================
+   RELATED AUTO SCROLL
+===================================================== */
 
 let relatedAutoScroll;
 
@@ -1653,8 +2082,10 @@ function startRelatedAutoScroll(){
                 relatedTrack.parentElement.offsetWidth
             );
 
+
             relatedPosition +=
             cardWidth;
+
 
             if(
                 relatedPosition >= maxPosition
@@ -1664,10 +2095,12 @@ function startRelatedAutoScroll(){
 
             }
 
+
             relatedTrack.style.transform =
             "translateX(-" +
             relatedPosition +
             "px)";
+
 
         },
         5000
@@ -1679,7 +2112,9 @@ function startRelatedAutoScroll(){
 startRelatedAutoScroll();
 
 
-/* PAUSE ON HOVER */
+/* =====================================================
+   PAUSE RELATED
+===================================================== */
 
 if(relatedTrack){
 
@@ -1705,6 +2140,30 @@ if(relatedTrack){
     );
 
 }
+
+
+/* =====================================================
+   DYNAMIC NEWS
+===================================================== */
+
+/*
+   మీ existing Dynamic News JavaScript ఉంటే
+   దానిని ఇక్కడ కొనసాగించండి.
+
+   ఈ HTML IDs:
+
+   topNewsWrapper
+   topNewsTrack
+   featuredLink
+   featuredImage
+   featuredCategory
+   featuredTitle
+   featuredDots
+   twoNewsGrid
+
+   అన్నీ అలాగే ఉంచబడ్డాయి.
+*/
+
 
 </script>
 
