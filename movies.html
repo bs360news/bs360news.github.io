@@ -1180,6 +1180,7 @@
 
       <!-- =====================================================
            LEFT - MOST RECENT
+           GROUP 2 POSTS
       ===================================================== -->
 
       <section class="column left-column">
@@ -1190,7 +1191,10 @@
 
         <div class="recent-list">
 
-          <div class="recent-track" id="recentTrack"></div>
+          <div
+            class="recent-track"
+            id="recentTrack"
+          ></div>
 
         </div>
 
@@ -1199,6 +1203,7 @@
 
       <!-- =====================================================
            CENTER - TOP MOVIE NEWS
+           GROUP 1 POSTS
       ===================================================== -->
 
       <section class="column center-column">
@@ -1223,6 +1228,7 @@
 
       <!-- =====================================================
            RIGHT - TRENDING
+           SAME GROUP AS TOP MOVIE NEWS
       ===================================================== -->
 
       <section class="column right-column">
@@ -1243,6 +1249,7 @@
 
     <!-- =======================================================
          LATEST MOVIE ARTICLES
+         SAME GROUP AS MOST RECENT
     ======================================================= -->
 
     <section class="latest-section">
@@ -1309,115 +1316,236 @@
 
       /* =======================================================
          MOVIE POSTS
-         
-         group: 1
-         MOST RECENT + TOP MOVIE NEWS
 
-         group: 2
-         TRENDING + LATEST MOVIE ARTICLES
+         GROUP 1
+         → TOP MOVIE NEWS
+         → TRENDING
+
+         GROUP 2
+         → MOST RECENT
+         → LATEST MOVIE ARTICLES
 
          ALL MOVIE NEWS
          → అన్ని posts
       ======================================================= */
 
+
       const moviePosts = [
+
+        /* =====================================================
+           GROUP 1
+           TOP + TRENDING
+        ===================================================== */
 
         {
           url: "temper.html",
+
           image: "temper.png",
+
           alt: "Bigg Boss Telugu 10",
-          title: "🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట",
-          recentTitle: "🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట",
-          trendTitle: "🔥 Bigg Boss Telugu 10లో టాలీవుడ్ స్టార్ విలన్?",
-          latestTitle: "🔥 Bigg Boss Telugu 10: టాలీవుడ్ స్టార్ విలన్ ఎంట్రీ?",
+
+          title:
+            "🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట",
+
+          recentTitle:
+            "🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట",
+
+          trendTitle:
+            "🔥 Bigg Boss Telugu 10లో టాలీవుడ్ స్టార్ విలన్?",
+
+          latestTitle:
+            "🔥 Bigg Boss Telugu 10: టాలీవుడ్ స్టార్ విలన్ ఎంట్రీ?",
+
           group: 1
         },
+
 
         {
           url: "cbday.html",
+
           image: "c2.webp",
+
           alt: "Chiranjeevi Birthday",
-          title: "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్",
-          recentTitle: "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్",
-          trendTitle: "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు స్పెషల్",
-          latestTitle: "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్",
+
+          title:
+            "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్",
+
+          recentTitle:
+            "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్",
+
+          trendTitle:
+            "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు స్పెషల్",
+
+          latestTitle:
+            "🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్",
+
           group: 1
         },
+
 
         {
           url: "p.html",
+
           image: "p1.jpg",
+
           alt: "Salaar 2",
-          title: "2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్",
-          recentTitle: "2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్",
-          trendTitle: "ప్రభాస్ ‘సలార్-2’పై భారీ అప్డేట్",
-          latestTitle: "2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అప్డేట్",
+
+          title:
+            "2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్",
+
+          recentTitle:
+            "2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్",
+
+          trendTitle:
+            "ప్రభాస్ ‘సలార్-2’పై భారీ అప్డేట్",
+
+          latestTitle:
+            "2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అప్డేట్",
+
           group: 1
         },
+
 
         {
           url: "Fouzi.html",
+
           image: "f.jpg",
+
           alt: "Fouzi Movie",
-          title: "‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?",
-          recentTitle: "‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?",
-          trendTitle: "‘ఫౌజీ’ నుంచి ఆగస్టు 15న ఏం రాబోతుంది?",
-          latestTitle: "‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్",
+
+          title:
+            "‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?",
+
+          recentTitle:
+            "‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?",
+
+          trendTitle:
+            "‘ఫౌజీ’ నుంచి ఆగస్టు 15న ఏం రాబోతుంది?",
+
+          latestTitle:
+            "‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్",
+
           group: 1
         },
 
+
+        /* =====================================================
+           GROUP 2
+           MOST RECENT + LATEST
+        ===================================================== */
+
+
         {
           url: "toc.html",
+
           image: "toc1.jpg",
+
           alt: "Toxic Movie",
-          title: "🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?",
-          recentTitle: "🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?",
-          trendTitle: "🔥 టాక్సిక్ సెన్సార్ రివ్యూ.. 18+ సర్టిఫికెట్",
-          latestTitle: "🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! 18+ సర్టిఫికెట్ ఎందుకంటే?",
+
+          title:
+            "🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?",
+
+          recentTitle:
+            "🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?",
+
+          trendTitle:
+            "🔥 టాక్సిక్ సెన్సార్ రివ్యూ.. 18+ సర్టిఫికెట్",
+
+          latestTitle:
+            "🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! 18+ సర్టిఫికెట్ ఎందుకంటే?",
+
           group: 2
         },
+
 
         {
           url: "ravi.html",
+
           image: "ravi.webp",
+
           alt: "Irumudi Movie",
-          title: "🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?",
-          recentTitle: "🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?",
-          trendTitle: "🎬 Irumudi Movie Review.. రవితేజ హిట్ కొట్టాడా?",
-          latestTitle: "🎬 Irumudi Movie Review: రవితేజ హిట్ కొట్టాడా?",
+
+          title:
+            "🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?",
+
+          recentTitle:
+            "🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?",
+
+          trendTitle:
+            "🎬 Irumudi Movie Review.. రవితేజ హిట్ కొట్టాడా?",
+
+          latestTitle:
+            "🎬 Irumudi Movie Review: రవితేజ హిట్ కొట్టాడా?",
+
           group: 2
         },
+
 
         {
           url: "ra.html",
+
           image: "ra.jpg",
+
           alt: "Madhuri Rathod",
-          title: "💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?",
-          recentTitle: "💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?",
-          trendTitle: "💃 మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?",
-          latestTitle: "💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం",
+
+          title:
+            "💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?",
+
+          recentTitle:
+            "💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?",
+
+          trendTitle:
+            "💃 మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?",
+
+          latestTitle:
+            "💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం",
+
           group: 2
         },
+
 
         {
           url: "rip.html",
+
           image: "rip.jpg",
+
           alt: "GV Narayana Rao",
-          title: "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత",
-          recentTitle: "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత",
-          trendTitle: "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు కన్నుమూత",
-          latestTitle: "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత కన్నుమూత",
+
+          title:
+            "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత",
+
+          recentTitle:
+            "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత",
+
+          trendTitle:
+            "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు కన్నుమూత",
+
+          latestTitle:
+            "🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత కన్నుమూత",
+
           group: 2
         },
 
+
         {
           url: "am.html",
+
           image: "am.jpg",
+
           alt: "Young Heroine",
-          title: "సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!",
-          recentTitle: "సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!",
-          trendTitle: "యంగ్ హీరోయిన్ సంచలన ఛాలెంజ్!",
-          latestTitle: "సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా!",
+
+          title:
+            "సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!",
+
+          recentTitle:
+            "సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!",
+
+          trendTitle:
+            "యంగ్ హీరోయిన్ సంచలన ఛాలెంజ్!",
+
+          latestTitle:
+            "సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా!",
+
           group: 2
         }
 
@@ -1428,23 +1556,35 @@
          GROUPS
       ======================================================= */
 
-      const group1 = moviePosts.filter(function (post) {
-        return post.group === 1;
-      });
+      const group1 =
+        moviePosts.filter(function (post) {
 
-      const group2 = moviePosts.filter(function (post) {
-        return post.group === 2;
-      });
+          return post.group === 1;
+
+        });
+
+
+      const group2 =
+        moviePosts.filter(function (post) {
+
+          return post.group === 2;
+
+        });
 
 
       /* =======================================================
          HELPERS
       ======================================================= */
 
+
       function recentHTML(post) {
 
         return `
-          <a href="${post.url}" class="recent-item">
+
+          <a
+            href="${post.url}"
+            class="recent-item"
+          >
 
             <img
               src="${post.image}"
@@ -1457,6 +1597,7 @@
             </h3>
 
           </a>
+
         `;
 
       }
@@ -1465,14 +1606,19 @@
       function heroHTML(post, index) {
 
         return `
-          <div class="hero-slide ${index === 0 ? "active" : ""}">
+
+          <div
+            class="hero-slide ${index === 0 ? "active" : ""}"
+          >
 
             <a href="${post.url}">
 
               <img
                 src="${post.image}"
                 alt="${post.alt}"
-                ${index === 0 ? "" : 'loading="lazy"'}
+                ${index === 0
+                  ? ""
+                  : 'loading="lazy"'}
               >
 
               <div class="hero-overlay">
@@ -1494,6 +1640,7 @@
             </a>
 
           </div>
+
         `;
 
       }
@@ -1502,11 +1649,13 @@
       function dotHTML(index) {
 
         return `
+
           <button
             class="hero-dot ${index === 0 ? "active" : ""}"
             type="button"
             aria-label="Movie news ${index + 1}"
           ></button>
+
         `;
 
       }
@@ -1515,7 +1664,11 @@
       function trendingHTML(post, index) {
 
         return `
-          <a href="${post.url}" class="trend-item">
+
+          <a
+            href="${post.url}"
+            class="trend-item"
+          >
 
             <div class="trend-number">
               ${index + 1}
@@ -1526,6 +1679,7 @@
             </h3>
 
           </a>
+
         `;
 
       }
@@ -1534,7 +1688,11 @@
       function latestHTML(post) {
 
         return `
-          <a href="${post.url}" class="latest-card">
+
+          <a
+            href="${post.url}"
+            class="latest-card"
+          >
 
             <img
               src="${post.image}"
@@ -1551,6 +1709,7 @@
             </div>
 
           </a>
+
         `;
 
       }
@@ -1559,7 +1718,11 @@
       function movieGridHTML(post) {
 
         return `
-          <a href="${post.url}" class="movie-card">
+
+          <a
+            href="${post.url}"
+            class="movie-card"
+          >
 
             <img
               src="${post.image}"
@@ -1576,14 +1739,16 @@
             </div>
 
           </a>
+
         `;
 
       }
 
 
       /* =======================================================
-         RENDER MOST RECENT
-         GROUP 1 ONLY
+         MOST RECENT
+         GROUP 2 ONLY
+         SAME POSTS AS LATEST
          DUPLICATED FOR AUTO SCROLL
       ======================================================= */
 
@@ -1591,12 +1756,12 @@
         document.getElementById("recentTrack");
 
       recentTrack.innerHTML =
-        group1.map(recentHTML).join("") +
-        group1.map(recentHTML).join("");
+        group2.map(recentHTML).join("") +
+        group2.map(recentHTML).join("");
 
 
       /* =======================================================
-         RENDER TOP MOVIE NEWS
+         TOP MOVIE NEWS
          GROUP 1 ONLY
       ======================================================= */
 
@@ -1618,21 +1783,22 @@
 
 
       /* =======================================================
-         RENDER TRENDING
-         GROUP 2 ONLY
+         TRENDING
+         GROUP 1 ONLY
+         SAME POSTS AS TOP MOVIE NEWS
       ======================================================= */
 
       const trendingList =
         document.getElementById("trendingList");
 
       trendingList.innerHTML =
-        group2.map(trendingHTML).join("");
+        group1.map(trendingHTML).join("");
 
 
       /* =======================================================
-         RENDER LATEST MOVIE ARTICLES
+         LATEST MOVIE ARTICLES
          GROUP 2 ONLY
-         SAME POSTS AS TRENDING
+         SAME POSTS AS MOST RECENT
          DUPLICATED FOR AUTO SCROLL
       ======================================================= */
 
@@ -1645,7 +1811,7 @@
 
 
       /* =======================================================
-         RENDER ALL MOVIE NEWS
+         ALL MOVIE NEWS
          ALL POSTS
       ======================================================= */
 
@@ -1677,8 +1843,11 @@
       function showSlide(index) {
 
         if (!slides.length) {
+
           return;
+
         }
+
 
         slides.forEach(function (slide) {
 
@@ -1713,16 +1882,21 @@
       function nextSlide() {
 
         if (!slides.length) {
+
           return;
+
         }
 
+
         currentSlide++;
+
 
         if (currentSlide >= slides.length) {
 
           currentSlide = 0;
 
         }
+
 
         showSlide(currentSlide);
 
@@ -1733,10 +1907,14 @@
 
         stopHeroTimer();
 
+
         if (slides.length > 1) {
 
           heroTimer =
-            setInterval(nextSlide, 3000);
+            setInterval(
+              nextSlide,
+              3000
+            );
 
         }
 
@@ -1762,15 +1940,18 @@
 
       dots.forEach(function (dot, index) {
 
-        dot.addEventListener("click", function () {
+        dot.addEventListener(
+          "click",
+          function () {
 
-          currentSlide = index;
+            currentSlide = index;
 
-          showSlide(currentSlide);
+            showSlide(currentSlide);
 
-          startHeroTimer();
+            startHeroTimer();
 
-        });
+          }
+        );
 
       });
 
@@ -1785,6 +1966,7 @@
           "mouseenter",
           stopHeroTimer
         );
+
 
         hero.addEventListener(
           "mouseleave",
