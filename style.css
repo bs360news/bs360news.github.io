@@ -2858,3 +2858,228 @@ gap: 9px !important;
     }
 
 }
+/* ========================================================= 
+   MOST READ 
+   DESKTOP = 5 COLUMNS 
+   MOBILE = LEFT IMAGE + RIGHT TEXT 
+   ONLY MOST READ 
+   ========================================================= */ 
+ 
+#mostReadList, 
+.most-read-grid { 
+    display: grid !important; 
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important; 
+    gap: 15px !important; 
+    width: 100% !important; 
+} 
+ 
+ 
+/* ========================================================= 
+   DESKTOP MOST READ CARD 
+   ========================================================= */ 
+ 
+.most-read-item { 
+    position: relative; 
+    min-width: 0; 
+    width: 100%; 
+    overflow: hidden; 
+    border-radius: 9px; 
+    cursor: pointer; 
+    aspect-ratio: 16 / 10; 
+    background: #111827; 
+} 
+ 
+.most-read-image { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+} 
+ 
+.most-read-image img { 
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+} 
+ 
+.most-read-text { 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    z-index: 3; 
+    padding: 12px; 
+    color: #fff; 
+} 
+ 
+.most-read-text h3 { 
+    margin: 0; 
+    color: #fff; 
+    font-size: 16px; 
+    line-height: 1.35; 
+    font-weight: 800; 
+} 
+ 
+.most-read-text .portal-tag { 
+    display: block; 
+    margin-bottom: 4px; 
+    color: #fff; 
+    font-size: 10px; 
+} 
+ 
+ 
+/* ========================================================= 
+   MOBILE MOST READ ONLY 
+   LEFT IMAGE + RIGHT TEXT 
+   NUMBERS HIDDEN 
+   ========================================================= */ 
+ 
+@media (max-width: 768px) { 
+ 
+    #mostReadList, 
+    .most-read-grid { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        gap: 8px !important; 
+        width: 100% !important; 
+    } 
+ 
+ 
+    .most-read-item { 
+        display: flex !important; 
+        position: relative !important; 
+        width: 100% !important; 
+        height: 82px !important; 
+        min-height: 82px !important; 
+        max-height: 82px !important; 
+        aspect-ratio: auto !important; 
+        overflow: hidden !important; 
+        border-radius: 9px !important; 
+        background: #ffffff !important; 
+        border: 1px solid #e1e1e1 !important; 
+        box-sizing: border-box !important; 
+    } 
+ 
+ 
+    /* LEFT IMAGE */ 
+ 
+    .most-read-image { 
+        position: relative !important; 
+        inset: auto !important; 
+        flex: 0 0 128px !important; 
+        width: 128px !important; 
+        height: 82px !important; 
+        overflow: hidden !important; 
+    } 
+ 
+ 
+    .most-read-image img { 
+        width: 100% !important; 
+        height: 100% !important; 
+        object-fit: cover !important; 
+    } 
+ 
+ 
+    /* NUMBERS COMPLETELY HIDDEN */ 
+ 
+    .most-number { 
+        display: none !important; 
+    } 
+ 
+ 
+    /* RIGHT TEXT */ 
+ 
+    .most-read-text { 
+        position: relative !important; 
+        left: auto !important; 
+        right: auto !important; 
+        bottom: auto !important; 
+        flex: 1 !important; 
+        min-width: 0 !important; 
+        height: 100% !important; 
+        padding: 8px 9px !important; 
+        display: flex !important; 
+        flex-direction: column !important; 
+        justify-content: center !important; 
+        background: #fff !important; 
+        color: #111 !important; 
+    } 
+ 
+ 
+    .most-read-text .portal-tag { 
+        margin: 0 0 3px !important; 
+        color: #e00000 !important; 
+        font-size: 9px !important; 
+        line-height: 1.2 !important; 
+        font-weight: 800 !important; 
+    } 
+ 
+ 
+    .most-read-text h3 { 
+        margin: 0 !important; 
+        color: #111 !important; 
+        font-size: 14px !important; 
+        line-height: 1.35 !important; 
+        font-weight: 800 !important; 
+        text-shadow: none !important; 
+        display: -webkit-box !important; 
+        -webkit-box-orient: vertical !important; 
+        -webkit-line-clamp: 3 !important; 
+        overflow: hidden !important; 
+    } 
+ 
+ 
+    /* REMOVE DESKTOP DARK OVERLAY */ 
+ 
+    .most-read-item::after { 
+        display: none !important; 
+    } 
+ 
+} 
+ 
+ 
+/* ========================================================= 
+   SMALL MOBILE 
+   ========================================================= */ 
+ 
+@media (max-width: 430px) { 
+ 
+    .most-read-item { 
+        height: 78px !important; 
+        min-height: 78px !important; 
+        max-height: 78px !important; 
+    } 
+ 
+ 
+    .most-read-image { 
+        flex: 0 0 115px !important; 
+        width: 115px !important; 
+        height: 78px !important; 
+    } 
+ 
+ 
+    .most-read-text { 
+        padding: 7px 8px !important; 
+    } 
+ 
+ 
+    .most-read-text h3 { 
+        font-size: 13px !important; 
+        line-height: 1.3 !important; 
+        -webkit-line-clamp: 3 !important; 
+    } 
+ 
+ 
+    .most-read-text .portal-tag { 
+        font-size: 8px !important; 
+    } 
+ 
+ 
+    /* NUMBERS HIDDEN ON SMALL MOBILE TOO */ 
+ 
+    .most-number { 
+        display: none !important; 
+    } 
+ 
+}
