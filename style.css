@@ -3083,3 +3083,12 @@ gap: 9px !important;
     } 
  
 }
+.article-text-link{
+    color:inherit;
+    text-decoration:none;
+    font-weight:inherit;
+}
+
+.article-text-link:hover{
+    color:#0056b3;
+}
