@@ -2805,3 +2805,56 @@ gap: 9px !important;
 }
 
 }
+/* =========================================================
+   BIGG BOSS BACKGROUND - FIX
+   ========================================================= */
+
+.bigboss-section {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 420px !important;
+
+    background-color: #071a33 !important;
+    background-image: url("./bigboss-bg.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+
+    padding: 18px 26px 30px !important;
+    margin: 0 0 34px !important;
+
+    border-radius: 0 0 10px 10px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Background image visible but cards remain above it */
+.bigboss-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 26, 51, 0.18);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bigboss-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .bigboss-section {
+        min-height: 300px !important;
+        padding: 15px 12px 20px !important;
+
+        background-image: url("./bigboss-bg.png") !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+
+}
