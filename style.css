@@ -1,17 +1,6 @@
-/\* =========================================================
-BS 360 NEWS
-CLEAN FINAL CSS
-DUPLICATES REMOVED
-DESKTOP + LAPTOP + TABLET + MOBILE
-\========================================================= */
-
-/\* =========================================================
-RESET
-\========================================================= \*
-
-* {
-  box-sizing: border-box;
-  }
+*{
+box-sizing: border-box;
+}
 
 html {
 scroll-behavior: smooth;
@@ -56,9 +45,7 @@ padding-top: 20px;
 padding-bottom: 50px;
 }
 
-/\* =========================================================
-LOGO
-\========================================================= */
+/* LOGO */
 
 .logo-mark {
 width: 62px;
@@ -110,9 +97,7 @@ font-size: 13px;
 font-weight: 700;
 }
 
-/\* =========================================================
-HEADER
-\========================================================= */
+/* HEADER */
 
 .brand-header {
 background: #ffffff;
@@ -198,9 +183,9 @@ font-size: 22px;
 line-height: 1;
 }
 
-/\* =========================================================
+/* =========================================================
 NAVIGATION
-\========================================================= */
+========================================================= */
 
 .main-nav {
 background: #075aaa;
@@ -266,9 +251,9 @@ background: rgba(255, 255, 255, 0.16);
 background: rgba(255, 255, 255, 0.16);
 }
 
-/\* =========================================================
+/* =========================================================
 BREAKING NEWS
-\========================================================= */
+========================================================= */
 
 .headlines-bar {
 background: #111827;
@@ -299,9 +284,9 @@ font-weight: 700;
 white-space: nowrap;
 }
 
-/\* =========================================================
+/* =========================================================
 SEARCH
-\========================================================= */
+========================================================= */
 
 .search-container {
 position: relative;
@@ -363,9 +348,9 @@ color: #ffffff;
 font-weight: 800;
 }
 
-/\* =========================================================
+/* =========================================================
 SECTION TITLES
-\========================================================= */
+========================================================= */
 
 .section-title-row {
 display: flex;
@@ -407,10 +392,10 @@ text-decoration: underline;
 white-space: nowrap;
 }
 
-/\* =========================================================
+/* =========================================================
 TOP STORY
 DESKTOP = LATEST LEFT + HERO RIGHT
-\========================================================= */
+========================================================= */
 
 .top-story-grid {
 display: grid;
@@ -426,9 +411,9 @@ align-items: stretch;
 min-width: 0;
 }
 
-/\* =========================================================
+/* =========================================================
 PORTAL CARD
-\========================================================= */
+========================================================= */
 
 .portal-card {
 position: relative;
@@ -480,9 +465,9 @@ font-weight: 900;
 text-transform: uppercase;
 }
 
-/\* =========================================================
+/* =========================================================
 HERO
-\========================================================= */
+========================================================= */
 
 .hero-card {
 position: relative;
@@ -565,9 +550,9 @@ text-decoration: none;
 background: #ffffff;
 }
 
-/\* =========================================================
+/* =========================================================
 LATEST SIDEBAR
-\========================================================= */
+========================================================= */
 
 .latest-sidebar {
 background: #ffffff;
@@ -647,9 +632,9 @@ overflow: hidden;
 font-size: 9px;
 }
 
-/\* =========================================================
+/* =========================================================
 CAROUSELS
-\========================================================= */
+========================================================= */
 
 .carousel-wrap {
 position: relative;
@@ -691,14 +676,14 @@ gap: 15px;
 width: max-content;
 }
 
-.horizontal-carousel > \*,
-.slider-track > \* {
+.horizontal-carousel > *,
+.slider-track > * {
 flex: 0 0 auto;
 }
 
-/\* =========================================================
+/* =========================================================
 CAROUSEL BUTTONS
-\========================================================= */
+========================================================= */
 
 .carousel-btn {
 position: absolute;
@@ -726,9 +711,9 @@ left: -12px;
 right: -12px;
 }
 
-/\* =========================================================
+/* =========================================================
 FEATURED / LATEST / MOVIES / SPORTS
-\========================================================= */
+========================================================= */
 
 .slider-card {
 width: 250px;
@@ -814,9 +799,9 @@ padding: 10px 13px 14px;
 line-height: 1.43;
 }
 
-/\* =========================================================
+/* =========================================================
 AD
-\========================================================= */
+========================================================= */
 
 .ad-space {
 width: 100%;
@@ -833,9 +818,9 @@ font-weight: 800;
 letter-spacing: 1px;
 }
 
-/\* =========================================================
+/* =========================================================
 SEARCH / HIDDEN
-\========================================================= */
+========================================================= */
 
 .no-results {
 display: block;
@@ -862,9 +847,9 @@ display: none !important;
 margin-bottom: 10px;
 }
 
-/\* =========================================================
+/* =========================================================
 FOOTER
-\========================================================= */
+========================================================= */
 
 .site-footer {
 margin-top: 0;
@@ -918,9 +903,9 @@ color: #aeb8c7;
 font-size: 13px;
 }
 
-/\* =========================================================
+/* =========================================================
 DARK MODE
-\========================================================= */
+========================================================= */
 
 body.dark-mode {
 background: #0b1120;
@@ -1000,9 +985,9 @@ border-color: #374151;
 color: #64748b;
 }
 
-/\* =========================================================
+/* =========================================================
 HOME NEWS LIST
-\========================================================= */
+========================================================= */
 
 .news-list {
 width: 100%;
@@ -1036,806 +1021,799 @@ margin: 0;
 overflow-wrap: anywhere;
 }
 
-/\* =========================================================
+/* =========================================================
 DESKTOP
-\========================================================= */
+========================================================= */
 
 @media (min-width: 1201px) {
 
-
 .news-list {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 15px;
+grid-template-columns: repeat(6, minmax(0, 1fr));
+gap: 15px;
 }
 
 .news-list .news-item:first-child {
-    grid-column: 1 / -1;
+grid-column: 1 / -1;
 }
 
 .news-list .news-item:first-child img {
-    height: auto;
-    aspect-ratio: 16 / 9;
+height: auto;
+aspect-ratio: 16 / 9;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) {
-    grid-column: auto;
+grid-column: auto;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) img {
-    height: 210px;
-    aspect-ratio: 16 / 10;
-    border-radius: 7px;
+height: 210px;
+aspect-ratio: 16 / 10;
+border-radius: 7px;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) .news-content,
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) .post-content {
-    padding: 7px 4px 10px;
+padding: 7px 4px 10px;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) p {
-    font-size: 15px;
-    line-height: 1.4;
-    font-weight: 700;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+font-size: 15px;
+line-height: 1.4;
+font-weight: 700;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
-
 }
 
-/\* =========================================================
+/* =========================================================
 LAPTOP
-\========================================================= */
+========================================================= */
 
 @media (min-width: 1001px) and (max-width: 1200px) {
-
 
 .container,
 .brand-inner,
 .nav-container,
 .footer-grid {
-    width: min(1160px, 94%);
+width: min(1160px, 94%);
 }
 
 .top-story-grid {
-    grid-template-columns:
-        minmax(285px, 0.95fr)
-        minmax(0, 2fr);
+grid-template-columns:
+minmax(285px, 0.95fr)
+minmax(0, 2fr);
 }
 
 .hero-card {
-    min-height: 400px;
+min-height: 400px;
 }
 
 .hero-overlay h3 {
-    font-size: 27px;
+font-size: 27px;
 }
 
 .news-list {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 14px;
+grid-template-columns: repeat(5, minmax(0, 1fr));
+gap: 14px;
 }
 
 .news-list .news-item:first-child {
-    grid-column: 1 / -1;
+grid-column: 1 / -1;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) {
-    grid-column: auto;
+grid-column: auto;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) img {
-    height: 200px;
+height: 200px;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) p {
-    font-size: 14px;
+font-size: 14px;
 }
 
 .latest-card {
-    width: 275px;
-    flex-basis: 275px;
+width: 275px;
+flex-basis: 275px;
 }
 
 .most-read-grid,
 #mostReadList {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-
 }
 
-/\* =========================================================
+/* =========================================================
 TABLET
-\========================================================= */
+========================================================= */
 
 @media (min-width: 769px) and (max-width: 1000px) {
 
-
 .logo-name > div {
-    font-size: 27px;
+font-size: 27px;
 }
 
 .nav-container {
-    gap: 8px;
+gap: 8px;
 }
 
 .nav-links {
-    gap: 0;
+gap: 0;
 }
 
 .nav-links a {
-    padding: 10px 8px;
-    font-size: 12px;
+padding: 10px 8px;
+font-size: 12px;
 }
 
 .lang-selector {
-    font-size: 11px;
+font-size: 11px;
 }
 
 .top-story-grid {
-    grid-template-columns:
-        minmax(260px, 0.90fr)
-        minmax(0, 1.7fr);
-    gap: 15px;
+grid-template-columns:
+minmax(260px, 0.90fr)
+minmax(0, 1.7fr);
+gap: 15px;
 }
 
 .latest-sidebar {
-    height: 390px;
+height: 390px;
 }
 
 .hero-card {
-    min-height: 390px;
+min-height: 390px;
 }
 
 .hero-overlay {
-    padding: 22px;
+padding: 22px;
 }
 
 .hero-overlay h3 {
-    font-size: 24px;
+font-size: 24px;
 }
 
 .news-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 12px;
 }
 
 .news-list .news-item:first-child {
-    grid-column: 1 / -1;
+grid-column: 1 / -1;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) {
-    grid-column: auto;
+grid-column: auto;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) img {
-    height: 180px;
+height: 180px;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) p {
-    font-size: 13px;
+font-size: 13px;
 }
 
 .slider-card {
-    width: 225px;
-    flex-basis: 225px;
+width: 225px;
+flex-basis: 225px;
 }
 
 .latest-card {
-    width: 255px;
-    flex-basis: 255px;
+width: 255px;
+flex-basis: 255px;
 }
 
 .category-card {
-    width: 245px;
-    flex-basis: 245px;
+width: 245px;
+flex-basis: 245px;
 }
 
 .sports-card {
-    width: 270px;
-    flex-basis: 270px;
+width: 270px;
+flex-basis: 270px;
 }
 
 .most-read-grid,
 #mostReadList {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .footer-grid {
-    grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr;
 }
 
-
 }
 
-/\* =========================================================
+/* =========================================================
 MOBILE
 TOP STORY = LATEST LEFT + HERO RIGHT
-\========================================================= */
+========================================================= */
 
 @media (max-width: 768px) {
 
-
 html {
-    width: 100%;
-    overflow-x: hidden;
+width: 100%;
+overflow-x: hidden;
 }
 
 body {
-    width: 100%;
-    max-width: 100%;
-    background: #f5f6f8;
-    overflow-x: hidden;
+width: 100%;
+max-width: 100%;
+background: #f5f6f8;
+overflow-x: hidden;
 }
 
 .container,
 .main-container,
 .content-container {
-    width: 94% !important;
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+width: 94% !important;
+max-width: 100% !important;
+margin-left: auto !important;
+margin-right: auto !important;
 }
 
 main.container {
-    padding-top: 13px;
-    padding-bottom: 35px;
+padding-top: 13px;
+padding-bottom: 35px;
 }
 
 /* HEADER */
 
 .brand-inner {
-    width: 94%;
-    min-height: 74px;
-    gap: 8px;
+width: 94%;
+min-height: 74px;
+gap: 8px;
 }
 
 .logo-mark {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
-    border-radius: 8px;
+width: 48px;
+height: 48px;
+flex-basis: 48px;
+border-radius: 8px;
 }
 
 .logo-mark span:first-child {
-    font-size: 12px;
+font-size: 12px;
 }
 
 .logo-mark span:last-child {
-    font-size: 10px;
+font-size: 10px;
 }
 
 .logo-name > div {
-    font-size: 21px;
+font-size: 21px;
 }
 
 .logo-tagline {
-    margin-top: 2px;
-    font-size: 9px;
+margin-top: 2px;
+font-size: 9px;
 }
 
 .date-time-box,
 .live-button {
-    display: none;
+display: none;
 }
 
 .header-actions {
-    margin-left: auto;
-    gap: 6px;
+margin-left: auto;
+gap: 6px;
 }
 
 .theme-button {
-    min-width: 36px;
-    height: 36px;
-    padding: 6px 8px;
-    font-size: 11px;
+min-width: 36px;
+height: 36px;
+padding: 6px 8px;
+font-size: 11px;
 }
 
 .mobile-menu-toggle {
-    display: block;
+display: block;
 }
 
 /* NAV */
 
 .nav-container {
-    width: 94%;
-    min-height: 0;
-    padding: 7px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+width: 94%;
+min-height: 0;
+padding: 7px 0;
+display: flex;
+flex-direction: column;
+align-items: stretch;
 }
 
 .lang-selector {
-    text-align: center;
-    font-size: 12px;
-    padding-bottom: 4px;
+text-align: center;
+font-size: 12px;
+padding-bottom: 4px;
 }
 
 .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 1px;
+display: none;
+flex-direction: column;
+align-items: stretch;
+width: 100%;
+gap: 1px;
 }
 
 .nav-links.mobile-open,
 .nav-links.open {
-    display: flex;
+display: flex;
 }
 
 .nav-links a {
-    width: 100%;
-    padding: 9px 8px;
-    text-align: center;
-    font-size: 13px;
+width: 100%;
+padding: 9px 8px;
+text-align: center;
+font-size: 13px;
 }
 
 /* BREAKING */
 
 .headlines-bar .container {
-    width: 94%;
-    min-height: 40px;
+width: 94%;
+min-height: 40px;
 }
 
 .headlines-label {
-    font-size: 12px;
+font-size: 12px;
 }
 
 .headlines-bar marquee {
-    font-size: 12px;
+font-size: 12px;
 }
 
 /* SEARCH */
 
 .search-container {
-    margin-bottom: 13px;
+margin-bottom: 13px;
 }
 
 .search-icon {
-    width: 40px;
-    height: 40px;
+width: 40px;
+height: 40px;
 }
 
 .search-box {
-    width: min(340px, calc(100vw - 30px));
-    right: 0;
-    top: 48px;
+width: min(340px, calc(100vw - 30px));
+right: 0;
+top: 48px;
 }
 
 /* SECTION */
 
 .section-title-row {
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    gap: 8px;
+margin-bottom: 10px;
+padding-bottom: 8px;
+gap: 8px;
 }
 
 .section-title-row h2 {
-    font-size: 19px;
+font-size: 19px;
 }
 
 .section-title-row > span {
-    font-size: 11px;
+font-size: 11px;
 }
 
 .view-all {
-    font-size: 12px;
+font-size: 12px;
 }
 
 /* HOME NEWS */
 
 .news-list {
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 8px !important;
-    grid-auto-flow: row;
+width: 100% !important;
+display: grid !important;
+grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+gap: 8px !important;
+grid-auto-flow: row;
 }
 
 .news-list .news-item {
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+width: 100% !important;
+min-width: 0 !important;
+margin: 0 !important;
+padding: 0 !important;
 }
 
 .news-list .news-item:first-child,
 .news-list .news-item.full-width,
 .news-list .news-item.single {
-    grid-column: 1 / -1 !important;
-    display: block !important;
+grid-column: 1 / -1 !important;
+display: block !important;
 }
 
 .news-list .news-item:first-child img {
-    width: 100%;
-    height: auto !important;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 9px;
+width: 100%;
+height: auto !important;
+aspect-ratio: 16 / 9;
+object-fit: cover;
+border-radius: 9px;
 }
 
 .news-list .news-item:first-child .news-content,
 .news-list .news-item:first-child .post-content {
-    padding: 7px 2px 10px;
+padding: 7px 2px 10px;
 }
 
 .news-list .news-item:first-child p {
-    font-size: 19px;
-    line-height: 1.4;
-    font-weight: 900;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+font-size: 19px;
+line-height: 1.4;
+font-weight: 900;
+margin: 0;
+display: -webkit-box;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
 /* NORMAL ARTICLES = 4 */
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) {
-    grid-column: auto !important;
-    display: block !important;
-    background: #ffffff;
-    border-radius: 7px;
-    overflow: hidden;
+grid-column: auto !important;
+display: block !important;
+background: #ffffff;
+border-radius: 7px;
+overflow: hidden;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) img {
-    width: 100%;
-    height: auto !important;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    border-radius: 7px 7px 0 0;
+width: 100%;
+height: auto !important;
+aspect-ratio: 16 / 10;
+object-fit: cover;
+border-radius: 7px 7px 0 0;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) .news-content,
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) .post-content {
-    padding: 5px 3px 7px;
+padding: 5px 3px 7px;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) p {
-    font-size: 11px;
-    line-height: 1.35;
-    font-weight: 700;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+font-size: 11px;
+line-height: 1.35;
+font-weight: 700;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) .summary {
-    display: none;
+display: none;
 }
 
 /* FULL WIDTH ARTICLES */
 
 .news-list .news-item.full-width img,
 .news-list .news-item.single img {
-    width: 100%;
-    height: auto !important;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+width: 100%;
+height: auto !important;
+aspect-ratio: 16 / 9;
+object-fit: cover;
 }
 
 .news-list .news-item.full-width p,
 .news-list .news-item.single p {
-    font-size: 16px;
-    line-height: 1.4;
-    font-weight: 800;
+font-size: 16px;
+line-height: 1.4;
+font-weight: 800;
 }
 
 /* =====================================================
-   TOP STORY
-   MOBILE = LEFT LATEST + RIGHT HERO
-   ===================================================== */
+TOP STORY
+MOBILE = LEFT LATEST + RIGHT HERO
+===================================================== */
 
 .top-story-grid {
-    display: grid !important;
-    grid-template-columns: 42% 58% !important;
-    gap: 8px !important;
-    align-items: stretch;
-    width: 100%;
+display: grid !important;
+grid-template-columns: 42% 58% !important;
+gap: 8px !important;
+align-items: stretch;
+width: 100%;
 }
 
 .top-story-main,
 .hero-wrap {
-    min-width: 0 !important;
-    width: 100%;
+min-width: 0 !important;
+width: 100%;
 }
 
 .top-story-main {
-    order: 1;
+order: 1;
 }
 
 .hero-wrap {
-    order: 2;
+order: 2;
 }
 
 /* LATEST SIDEBAR */
 
 .latest-sidebar {
-    width: 100%;
-    height: 310px;
-    border-radius: 9px;
+width: 100%;
+height: 310px;
+border-radius: 9px;
 }
 
 .sidebar-heading {
-    padding: 10px 8px;
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
+padding: 10px 8px;
+font-size: 14px;
+white-space: nowrap;
+overflow: hidden;
 }
 
 .sidebar-list {
-    padding: 0 7px;
+padding: 0 7px;
 }
 
 .sidebar-card {
-    display: block;
-    padding: 8px 0;
+display: block;
+padding: 8px 0;
 }
 
 .sidebar-card .portal-card-media {
-    width: 100%;
-    height: 58px;
-    border-radius: 5px;
-    margin-bottom: 4px;
+width: 100%;
+height: 58px;
+border-radius: 5px;
+margin-bottom: 4px;
 }
 
 .sidebar-card .portal-card-body {
-    width: 100%;
+width: 100%;
 }
 
 .sidebar-card .portal-tag {
-    font-size: 8px;
-    line-height: 1.1;
+font-size: 8px;
+line-height: 1.1;
 }
 
 .sidebar-card h3 {
-    margin: 2px 0 0;
-    font-size: 10.5px;
-    line-height: 1.28;
-    -webkit-line-clamp: 3;
+margin: 2px 0 0;
+font-size: 10.5px;
+line-height: 1.28;
+-webkit-line-clamp: 3;
 }
 
 /* HERO */
 
 .hero-card {
-    width: 100%;
-    min-height: 310px;
-    height: 310px;
-    border-radius: 9px;
+width: 100%;
+min-height: 310px;
+height: 310px;
+border-radius: 9px;
 }
 
 .hero-overlay {
-    padding: 20px 10px 13px;
+padding: 20px 10px 13px;
 }
 
 .hero-overlay h3 {
-    font-size: 18px;
-    line-height: 1.32;
-    -webkit-line-clamp: 5;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+font-size: 18px;
+line-height: 1.32;
+-webkit-line-clamp: 5;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+overflow: hidden;
 }
 
 .hero-tag {
-    margin-bottom: 5px;
-    padding: 3px 6px;
-    font-size: 8px;
+margin-bottom: 5px;
+padding: 3px 6px;
+font-size: 8px;
 }
 
 .hero-read {
-    margin-top: 8px;
-    padding: 5px 8px;
-    font-size: 9px;
+margin-top: 8px;
+padding: 5px 8px;
+font-size: 9px;
 }
 
 /* CAROUSELS */
 
 .horizontal-carousel,
 .news-slider {
-    padding-bottom: 9px;
+padding-bottom: 9px;
 }
 
 .slider-track,
 .horizontal-carousel {
-    gap: 10px;
+gap: 10px;
 }
 
 .slider-card {
-    width: 205px;
-    flex-basis: 205px;
+width: 205px;
+flex-basis: 205px;
 }
 
 .slider-card .portal-card-media {
-    height: 120px;
+height: 120px;
 }
 
 .slider-card .portal-card-body {
-    padding: 8px 9px 10px;
+padding: 8px 9px 10px;
 }
 
 .slider-card h3 {
-    font-size: 13px;
+font-size: 13px;
 }
 
 .latest-card {
-    width: 205px;
-    flex-basis: 205px;
+width: 205px;
+flex-basis: 205px;
 }
 
 .latest-card .portal-card-media {
-    height: 118px;
+height: 118px;
 }
 
 .latest-card .portal-card-body {
-    padding: 8px 9px 10px;
+padding: 8px 9px 10px;
 }
 
 .latest-card h3 {
-    font-size: 13px;
-    line-height: 1.38;
+font-size: 13px;
+line-height: 1.38;
 }
 
 .category-card {
-    width: 205px;
-    flex-basis: 205px;
+width: 205px;
+flex-basis: 205px;
 }
 
 .category-card .portal-card-media {
-    height: 118px;
+height: 118px;
 }
 
 .category-card .portal-card-body {
-    padding: 8px 9px 10px;
+padding: 8px 9px 10px;
 }
 
 .category-card h3 {
-    font-size: 13px;
-    line-height: 1.38;
+font-size: 13px;
+line-height: 1.38;
 }
 
 .sports-card {
-    width: 215px;
-    flex-basis: 215px;
+width: 215px;
+flex-basis: 215px;
 }
 
 .sports-card .portal-card-media {
-    height: 122px;
+height: 122px;
 }
 
 .sports-card .portal-card-body {
-    padding: 8px 9px 10px;
+padding: 8px 9px 10px;
 }
 
 .sports-card h3 {
-    font-size: 13px;
-    line-height: 1.38;
+font-size: 13px;
+line-height: 1.38;
 }
 
 .carousel-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 22px;
+width: 32px;
+height: 32px;
+font-size: 22px;
 }
 
 .carousel-btn.prev {
-    left: -7px;
+left: -7px;
 }
 
 .carousel-btn.next {
-    right: -7px;
+right: -7px;
 }
 
 /* MOST READ */
 
 .most-read-section {
-    padding: 12px;
+padding: 12px;
 }
 
 #mostReadList,
 .most-read-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 9px !important;
+display: grid !important;
+grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+gap: 9px !important;
 }
 
 .most-read-item {
-    aspect-ratio: 1 / 1;
-    height: auto !important;
-    min-height: 0 !important;
-    border-radius: 8px !important;
-    overflow: hidden;
+aspect-ratio: 1 / 1;
+height: auto !important;
+min-height: 0 !important;
+border-radius: 8px !important;
+overflow: hidden;
 }
 
 .most-read-text {
-    left: 8px !important;
-    right: 8px !important;
-    bottom: 8px !important;
-    padding: 0 !important;
+left: 8px !important;
+right: 8px !important;
+bottom: 8px !important;
+padding: 0 !important;
 }
 
 .most-read-text .portal-tag,
 .most-read-category {
-    font-size: 9px !important;
+font-size: 9px !important;
 }
 
 .most-read-text h3,
 .most-read-overlay h3 {
-    font-size: 13px !important;
-    line-height: 1.35 !important;
-    -webkit-line-clamp: 3;
+font-size: 13px !important;
+line-height: 1.35 !important;
+-webkit-line-clamp: 3;
 }
 
 .most-number {
-    width: 26px;
-    height: 26px;
-    top: 6px;
-    left: 6px;
-    font-size: 11px;
+width: 26px;
+height: 26px;
+top: 6px;
+left: 6px;
+font-size: 11px;
 }
 
 /* AD */
 
 .ad-space {
-    min-height: 90px;
-    margin: 5px 0 25px;
+min-height: 90px;
+margin: 5px 0 25px;
 }
 
 /* FOOTER */
 
 .footer-grid {
-    width: 94%;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 28px 0;
+width: 94%;
+grid-template-columns: 1fr;
+gap: 20px;
+padding: 28px 0;
 }
 
 .footer-brand {
-    font-size: 22px;
+font-size: 22px;
 }
 
 .footer-grid p,
 .footer-grid a {
-    font-size: 13px;
+font-size: 13px;
 }
 
 .copyright {
-    font-size: 11px;
-    padding: 12px;
+font-size: 11px;
+padding: 12px;
 }
 
 .read-more-btn {
-    font-size: 12px;
-    padding: 7px 10px;
-    border-radius: 6px;
+font-size: 12px;
+padding: 7px 10px;
+border-radius: 6px;
 }
 
 .share-row {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
+display: flex;
+gap: 6px;
+flex-wrap: wrap;
 }
 
 .share-row button {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
+width: 34px;
+height: 34px;
+min-width: 34px;
 }
 
 /* MOVIES / SPORTS */
 
 .movies-section,
 .sports-section {
-    width: 100%;
-    margin-top: 18px;
+width: 100%;
+margin-top: 18px;
 }
 
 .movies-section .news-list,
@@ -1844,9 +1822,9 @@ main.container {
 .sports-section .news-list,
 .sports-section .posts,
 .sports-section .cards {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 10px !important;
+display: grid !important;
+grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+gap: 10px !important;
 }
 
 .movies-section .news-item,
@@ -1855,309 +1833,304 @@ main.container {
 .sports-section .news-item,
 .sports-section .post,
 .sports-section .card {
-    width: 100%;
-    min-width: 0;
-    overflow: hidden;
-    border-radius: 9px;
-    background: #fff;
+width: 100%;
+min-width: 0;
+overflow: hidden;
+border-radius: 9px;
+background: #fff;
 }
 
 .movies-section img,
 .sports-section img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    height: auto !important;
-    object-fit: cover;
+width: 100%;
+aspect-ratio: 16 / 10;
+height: auto !important;
+object-fit: cover;
 }
 
-
 }
 
-/\* =========================================================
+/* =========================================================
 SMALL MOBILE
-\========================================================= */
+========================================================= */
 
 @media (max-width: 430px) {
 
-
 .logo-name > div {
-    font-size: 19px;
+font-size: 19px;
 }
 
 .logo-tagline {
-    font-size: 8px;
+font-size: 8px;
 }
 
 main.container {
-    padding-top: 10px;
+padding-top: 10px;
 }
 
 .section-title-row h2 {
-    font-size: 18px;
+font-size: 18px;
 }
 
 .section-title-row > span {
-    display: none;
+display: none;
 }
 
 /* TOP STORY SMALL MOBILE */
 
 .top-story-grid {
-    grid-template-columns: 42% 58% !important;
-    gap: 6px !important;
+grid-template-columns: 42% 58% !important;
+gap: 6px !important;
 }
 
 .latest-sidebar {
-    height: 285px;
+height: 285px;
 }
 
 .sidebar-heading {
-    padding: 8px 7px;
-    font-size: 12px;
+padding: 8px 7px;
+font-size: 12px;
 }
 
 .sidebar-list {
-    padding: 0 6px;
+padding: 0 6px;
 }
 
 .sidebar-card {
-    padding: 7px 0;
+padding: 7px 0;
 }
 
 .sidebar-card .portal-card-media {
-    height: 52px;
+height: 52px;
 }
 
 .sidebar-card .portal-tag {
-    font-size: 7px;
+font-size: 7px;
 }
 
 .sidebar-card h3 {
-    font-size: 9.5px;
-    line-height: 1.25;
+font-size: 9.5px;
+line-height: 1.25;
 }
 
 .hero-card {
-    min-height: 285px;
-    height: 285px;
+min-height: 285px;
+height: 285px;
 }
 
 .hero-overlay {
-    padding: 16px 9px 12px;
+padding: 16px 9px 12px;
 }
 
 .hero-overlay h3 {
-    font-size: 16px;
-    line-height: 1.3;
+font-size: 16px;
+line-height: 1.3;
 }
 
 .hero-tag {
-    font-size: 7px;
-    padding: 3px 5px;
+font-size: 7px;
+padding: 3px 5px;
 }
 
 .hero-read {
-    font-size: 8px;
-    padding: 4px 7px;
+font-size: 8px;
+padding: 4px 7px;
 }
 
 .slider-card {
-    width: 190px;
-    flex-basis: 190px;
+width: 190px;
+flex-basis: 190px;
 }
 
 .slider-card .portal-card-media {
-    height: 110px;
+height: 110px;
 }
 
 .latest-card {
-    width: 190px;
-    flex-basis: 190px;
+width: 190px;
+flex-basis: 190px;
 }
 
 .latest-card .portal-card-media {
-    height: 108px;
+height: 108px;
 }
 
 .category-card {
-    width: 190px;
-    flex-basis: 190px;
+width: 190px;
+flex-basis: 190px;
 }
 
 .category-card .portal-card-media {
-    height: 108px;
+height: 108px;
 }
 
 .sports-card {
-    width: 195px;
-    flex-basis: 195px;
+width: 195px;
+flex-basis: 195px;
 }
 
 .sports-card .portal-card-media {
-    height: 110px;
+height: 110px;
 }
 
 .search-box {
-    width: calc(100vw - 28px);
+width: calc(100vw - 28px);
 }
 
 .most-read-grid,
 #mostReadList {
-    gap: 8px !important;
+gap: 8px !important;
 }
 
 .most-read-text h3 {
-    font-size: 12px !important;
+font-size: 12px !important;
 }
 
 .most-read-category,
 .most-read-text .portal-tag {
-    font-size: 8px !important;
+font-size: 8px !important;
 }
 
 .bigboss-section {
-    min-height: 270px;
-    padding: 13px 8px 16px;
+min-height: 270px;
+padding: 13px 8px 16px;
 }
 
 .bigboss-section .section-title-row h2 {
-    font-size: 20px;
+font-size: 20px;
 }
 
 .bigboss-card {
-    width: 220px;
-    height: 185px;
-    flex-basis: 220px;
+width: 220px;
+height: 185px;
+flex-basis: 220px;
 }
 
 .bigboss-overlay h3 {
-    font-size: 14px;
+font-size: 14px;
 }
 
 .bigboss-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
+width: 30px;
+height: 30px;
+font-size: 20px;
 }
 
-
 }
 
-/\* =========================================================
+/* =========================================================
 VERY SMALL PHONES
-\========================================================= */
+========================================================= */
 
 @media (max-width: 380px) {
-
 
 .container,
 .main-container,
 .content-container {
-    width: 95% !important;
+width: 95% !important;
 }
 
 .logo-name > div {
-    font-size: 17px;
+font-size: 17px;
 }
 
 .logo-tagline {
-    display: none;
+display: none;
 }
 
 .logo-mark {
-    width: 44px;
-    height: 44px;
-    flex-basis: 44px;
+width: 44px;
+height: 44px;
+flex-basis: 44px;
 }
 
 .theme-button {
-    min-width: 33px;
-    padding: 5px;
+min-width: 33px;
+padding: 5px;
 }
 
 .mobile-menu-toggle {
-    width: 38px;
+width: 38px;
 }
 
 .news-list {
-    gap: 7px !important;
+gap: 7px !important;
 }
 
 .news-list .news-item:first-child p {
-    font-size: 16px;
+font-size: 16px;
 }
 
 .news-list .news-item:not(:first-child):not(.full-width):not(.single) p {
-    font-size: 9px;
+font-size: 9px;
 }
 
 /* TOP STORY VERY SMALL */
 
 .top-story-grid {
-    grid-template-columns: 42% 58% !important;
-    gap: 5px !important;
+grid-template-columns: 42% 58% !important;
+gap: 5px !important;
 }
 
 .latest-sidebar {
-    height: 260px;
+height: 260px;
 }
 
 .sidebar-heading {
-    font-size: 11px;
-    padding: 7px 5px;
+font-size: 11px;
+padding: 7px 5px;
 }
 
 .sidebar-card {
-    padding: 6px 0;
+padding: 6px 0;
 }
 
 .sidebar-card .portal-card-media {
-    height: 47px;
+height: 47px;
 }
 
 .sidebar-card h3 {
-    font-size: 8.5px;
+font-size: 8.5px;
 }
 
 .hero-card {
-    min-height: 260px;
-    height: 260px;
+min-height: 260px;
+height: 260px;
 }
 
 .hero-overlay {
-    padding: 13px 7px 10px;
+padding: 13px 7px 10px;
 }
 
 .hero-overlay h3 {
-    font-size: 14px;
+font-size: 14px;
 }
 
 .hero-tag {
-    font-size: 6.5px;
-    padding: 2px 4px;
+font-size: 6.5px;
+padding: 2px 4px;
 }
 
 .hero-read {
-    font-size: 7px;
-    padding: 3px 5px;
+font-size: 7px;
+padding: 3px 5px;
 }
 
 .bigboss-section {
-    min-height: 260px;
+min-height: 260px;
 }
 
 .bigboss-card {
-    width: 210px;
-    height: 175px;
-    flex-basis: 210px;
+width: 210px;
+height: 175px;
+flex-basis: 210px;
 }
 
-
 }
 
-/\* =========================================================
+/* =========================================================
 ARTICLE TOP STORY
-\========================================================= */
+========================================================= */
 
 .article-top-story {
 width: min(1400px, 96%);
@@ -2291,500 +2264,20 @@ line-height: 1.35;
 font-size: 13px;
 }
 
-/\* =========================================================
+/* =========================================================
 ARTICLE CONTENT
-\========================================================= */
+========================================================= */
 
 .article-container {
 width: 100%;
 max-width: none;
 margin: 0;
-padding: 30px 3%;
-background: #ffffff;
+padding: 0;
 }
 
-.article-content {
-width: 100%;
-max-width: none;
-}
-
-.article-content h1 {
-width: 100%;
-margin: 0 0 15px;
-font-size: 38px;
-line-height: 1.45;
-font-weight: 900;
-color: #111827;
-}
-
-.article-date {
-width: 100%;
-margin-bottom: 20px;
-padding-bottom: 12px;
-border-bottom: 1px solid #e5e7eb;
-color: #6b7280;
-font-size: 14px;
-}
-
-.article-content img.article-image {
-width: 100%;
-max-width: 100%;
-height: auto;
-display: block;
-margin: 20px 0 30px;
-border-radius: 10px;
-}
-
-.article-content p {
-width: 100%;
-max-width: none;
-margin: 0 0 25px;
-font-size: 23px;
-line-height: 2;
-color: #111827;
-text-align: left;
-}
-
-.article-content h2 {
-width: 100%;
-margin: 35px 0 20px;
-padding-left: 14px;
-border-left: 5px solid #e00000;
-font-size: 29px;
-line-height: 1.5;
-font-weight: 900;
-color: #111827;
-}
-
-/\* =========================================================
-SHARE
-\========================================================= */
-
-.share-box {
-width: 100%;
-margin: 35px 0;
-padding: 20px;
-background: #f8fafc;
-border: 1px solid #e5e7eb;
-border-radius: 8px;
-}
-
-.share-buttons {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-}
-
-.share-buttons a {
-display: inline-block;
-padding: 10px 18px;
-border-radius: 6px;
-color: #ffffff;
-text-decoration: none;
-font-weight: 800;
-}
-
-.facebook {
-background: #1877f2;
-}
-
-.twitter {
-background: #000000;
-}
-
-.whatsapp {
-background: #25d366;
-}
-
-/\* =========================================================
-ARTICLE MOBILE
-\========================================================= */
-
-@media (max-width: 768px) {
-
-
-.article-top-story {
-    width: 94%;
-    margin: 30px auto;
-}
-
-.article-section-title h2 {
-    font-size: 20px;
-}
-
-.article-top-grid {
-    grid-template-columns: 42% 58%;
-    gap: 8px;
-}
-
-.article-hero-card {
-    aspect-ratio: auto;
-    height: 285px;
-    border-radius: 8px;
-}
-
-.article-hero-overlay {
-    padding: 55px 10px 15px;
-}
-
-.article-hero-overlay h2 {
-    font-size: 17px;
-    line-height: 1.35;
-}
-
-.article-latest-side {
-    order: 1;
-    min-width: 0;
-    height: 285px;
-}
-
-#articleHero {
-    order: 2;
-    min-width: 0;
-}
-
-#articleLatestList {
-    max-height: 230px;
-}
-
-.article-latest-item {
-    display: block;
-    padding: 7px;
-}
-
-.article-latest-image {
-    width: 100%;
-    height: 52px;
-    margin-bottom: 4px;
-}
-
-.article-latest-content span {
-    font-size: 8px;
-}
-
-.article-latest-content h3 {
-    font-size: 9px;
-    line-height: 1.25;
-}
-
-.article-container {
-    width: 100%;
-    padding: 20px 4%;
-}
-
-.article-content h1 {
-    font-size: 27px;
-    line-height: 1.5;
-}
-
-.article-content p {
-    font-size: 18px;
-    line-height: 1.9;
-    margin-bottom: 20px;
-}
-
-.article-content h2 {
-    font-size: 23px;
-    margin: 28px 0 16px;
-}
-
-.article-content img.article-image {
-    width: 100%;
-    height: auto;
-    margin: 15px 0 25px;
-}
-
-
-}
-
-@media (max-width: 430px) {
-
-
-.article-container {
-    padding: 15px 4%;
-}
-
-.article-content h1 {
-    font-size: 23px;
-}
-
-.article-content p {
-    font-size: 17px;
-    line-height: 1.85;
-}
-
-.article-content h2 {
-    font-size: 20px;
-}
-
-.article-top-grid {
-    grid-template-columns: 42% 58%;
-    gap: 6px;
-}
-
-.article-latest-side {
-    height: 260px;
-}
-
-.article-hero-card {
-    height: 260px;
-}
-
-.article-hero-overlay {
-    padding: 45px 8px 10px;
-}
-
-.article-hero-overlay h2 {
-    font-size: 14px;
-}
-
-.article-latest-image {
-    height: 47px;
-}
-
-.article-latest-content h3 {
-    font-size: 8.5px;
-}
-
-
-}
-
-/\* =========================================================
-BIGG BOSS 10
-\========================================================= */
-
-.bigboss-section {
-position: relative;
-width: 100%;
-min-height: 420px;
-background-color: #071a33;
-background-image: url("bigboss-bg.png");
-background-repeat: no-repeat;
-background-position: center top;
-background-size: 100% auto;
-padding: 18px 26px 30px;
-margin: 0 0 34px;
-border-radius: 0 0 10px 10px;
-overflow: hidden;
-}
-
-.bigboss-section .section-title-row {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 18px;
-}
-
-.bigboss-section .section-title-row h2 {
-margin: 0;
-color: #fff;
-font-size: 28px;
-font-weight: 900;
-}
-
-.bigboss-section .view-all {
-color: #fff;
-text-decoration: none;
-border: 1px solid #e5b94c;
-border-radius: 25px;
-padding: 8px 18px;
-font-size: 15px;
-font-weight: 700;
-}
-
-.bigboss-carousel {
-position: relative;
-width: 100%;
-}
-
-.bigboss-slider {
-width: 100%;
-overflow-x: auto;
-overflow-y: hidden;
-scroll-behavior: smooth;
-scrollbar-width: none;
-}
-
-.bigboss-slider::-webkit-scrollbar {
-display: none;
-}
-
-.bigboss-track {
-display: flex;
-flex-wrap: nowrap;
-gap: 28px;
-width: max-content;
-}
-
-.bigboss-card {
-position: relative;
-width: 345px;
-height: 285px;
-flex: 0 0 345px;
-overflow: hidden;
-border-radius: 6px;
-background: #111;
-border: 1px solid #d9aa3b;
-cursor: pointer;
-transition: transform .25s ease;
-}
-
-.bigboss-card {
-transform: translateY(-4px);
-}
-
-.bigboss-card img {
-display: block;
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
-
-.bigboss-overlay {
-position: absolute;
-left: 0;
-right: 0;
-bottom: 0;
-width: 100%;
-padding: 60px 12px 12px;
-color: #fff;
-background: linear-gradient(
-to bottom,
-transparent 0%,
-rgba(0,0,0,.15) 20%,
-rgba(0,0,0,.65) 60%,
-rgba(0,0,0,.95) 100%
-);
-}
-
-.bigboss-tag {
-display: inline-block;
-margin-bottom: 6px;
-padding: 3px 8px;
-border-radius: 3px;
-background: #e00000;
-color: #fff;
-font-size: 10px;
-font-weight: 900;
-}
-
-.bigboss-overlay h3 {
-width: 100%;
-margin: 0;
-color: #fff;
-font-size: 20px;
-line-height: 1.35;
-font-weight: 900;
-display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 3;
-overflow: hidden;
-text-shadow: 0 2px 4px rgba(0,0,0,.9);
-}
-
-.bigboss-btn {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-z-index: 20;
-width: 42px;
-height: 42px;
-border: none;
-border-radius: 50%;
-background: rgba(255,255,255,.95);
-color: #071a33;
-font-size: 30px;
-line-height: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-box-shadow: 0 3px 12px rgba(0,0,0,.3);
-}
-
-.bigboss-prev {
-left: 8px;
-}
-
-.bigboss-next {
-right: 8px;
-}
-
-@media (max-width: 1000px) {
-
-
-.bigboss-section {
-    padding: 16px 20px 25px;
-}
-
-.bigboss-card {
-    width: 300px;
-    height: 250px;
-    flex-basis: 300px;
-}
-
-.bigboss-track {
-    gap: 20px;
-}
-
-.bigboss-overlay h3 {
-    font-size: 18px;
-}
-
-
-}
-
-@media (max-width: 768px) {
-
-
-.bigboss-section {
-    min-height: 300px;
-    padding: 15px 12px 20px;
-    margin-bottom: 28px;
-    border-radius: 0 0 8px 8px;
-    background-size: auto 100%;
-    background-position: center top;
-}
-
-.bigboss-section .section-title-row h2 {
-    font-size: 22px;
-}
-
-.bigboss-section .view-all {
-    font-size: 13px;
-    padding: 6px 12px;
-}
-
-.bigboss-track {
-    gap: 12px;
-}
-
-.bigboss-card {
-    width: 245px;
-    height: 205px;
-    flex-basis: 245px;
-}
-
-.bigboss-overlay {
-    padding: 50px 10px 10px;
-}
-
-.bigboss-overlay h3 {
-    font-size: 15px;
-}
-
-.bigboss-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 23px;
-}
-
-
-}
-
-/\* =========================================================
+/* =========================================================
 MOST READ
-\========================================================= */
+========================================================= */
 
 .most-read-section {
 width: 100%;
@@ -2801,8 +2294,8 @@ margin-bottom: 14px;
 #mostReadList,
 .most-read-grid {
 display: grid;
-grid-template-columns: repeat(5, minmax(0, 1fr));
-gap: 15px;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 16px;
 width: 100%;
 }
 
@@ -2896,230 +2389,419 @@ font-size: 12px;
 font-weight: 900;
 }
 
-.most-read-item .most-read-image img {
-transform: scale(1.04);
+/* =========================================================
+BIG BOSS
+========================================================= */
+
+.bigboss-section {
+width: 100%;
+background: #ffffff;
+border: 1px solid #e0e5ea;
+border-radius: 10px;
+padding: 17px;
+overflow: hidden;
 }
 
-@media (max-width: 1200px) and (min-width: 769px) {
-
-
-#mostReadList,
-.most-read-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 13px;
+.bigboss-slider {
+width: 100%;
+overflow-x: auto;
+overflow-y: hidden;
+scroll-behavior: smooth;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: thin;
 }
 
-.most-read-text h3 {
-    font-size: 15px;
+.bigboss-track {
+display: flex;
+gap: 15px;
+width: max-content;
 }
 
+.bigboss-card {
+position: relative;
+width: 245px;
+height: 205px;
+flex: 0 0 245px;
+border-radius: 9px;
+overflow: hidden;
+background: #111827;
+cursor: pointer;
+}
+
+.bigboss-card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.bigboss-overlay {
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 50px 10px 10px;
+background: linear-gradient(
+transparent,
+rgba(0,0,0,.9)
+);
+color: #fff;
+}
+
+.bigboss-overlay h3 {
+margin: 0;
+font-size: 15px;
+line-height: 1.35;
+font-weight: 800;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.bigboss-btn {
+position: absolute;
+top: 45%;
+width: 34px;
+height: 34px;
+border: 0;
+border-radius: 50%;
+background: #075aaa;
+color: #fff;
+font-size: 23px;
+z-index: 10;
+}
+
+.bigboss-btn.prev {
+left: 5px;
+}
+
+.bigboss-btn.next {
+right: 5px;
+}
+
+/* =========================================================
+ARTICLE NEWS LIST
+========================================================= */
+
+.article-news-list {
+width: 100%;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 18px;
+}
+
+.article-news-card {
+background: #fff;
+border: 1px solid #e5e7eb;
+border-radius: 10px;
+overflow: hidden;
+}
+
+.article-news-card img {
+width: 100%;
+height: 190px;
+object-fit: cover;
+}
+
+.article-news-card .article-news-content {
+padding: 12px;
+}
+
+.article-news-card h3 {
+margin: 0;
+font-size: 17px;
+line-height: 1.4;
+}
+
+.article-news-card p {
+margin: 7px 0 0;
+font-size: 13px;
+color: #666;
+}
+
+/* =========================================================
+ARTICLE BODY
+========================================================= */
+
+.article-page {
+width: 100%;
+}
+
+.article-header {
+width: min(1000px, 94%);
+margin: 25px auto 0;
+}
+
+.article-header h1 {
+margin: 0;
+font-size: 34px;
+line-height: 1.3;
+font-weight: 900;
+}
+
+.article-meta {
+margin-top: 10px;
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+font-size: 13px;
+color: #666;
+}
+
+.article-image {
+width: min(1000px, 94%);
+margin: 20px auto;
+}
+
+.article-image img {
+width: 100%;
+aspect-ratio: 16 / 9;
+object-fit: cover;
+border-radius: 10px;
+}
+
+.article-body {
+width: min(900px, 94%);
+margin: 0 auto;
+font-size: 18px;
+line-height: 1.9;
+color: #202020;
+}
+
+.article-body p {
+margin: 0 0 18px;
+}
+
+.article-body img {
+max-width: 100%;
+height: auto;
+margin: 18px auto;
+border-radius: 8px;
+}
+
+.article-body h2 {
+font-size: 25px;
+margin: 28px 0 12px;
+}
+
+.article-body h3 {
+font-size: 21px;
+margin: 24px 0 10px;
+}
+
+/* =========================================================
+SHARE
+========================================================= */
+
+.share-row {
+display: flex;
+align-items: center;
+gap: 8px;
+flex-wrap: wrap;
+margin: 20px 0;
+}
+
+.share-row button {
+width: 38px;
+height: 38px;
+min-width: 38px;
+border: 0;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.read-more-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 8px 13px;
+border: 0;
+border-radius: 6px;
+background: #075aaa;
+color: #fff;
+font-size: 13px;
+font-weight: 800;
+text-decoration: none;
+cursor: pointer;
+}
+
+/* =========================================================
+RESPONSIVE ARTICLE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+.article-top-grid {
+grid-template-columns: 280px minmax(0, 1fr);
+gap: 15px;
+}
+
+.article-hero-overlay h2 {
+font-size: 24px;
+}
+
+.article-news-list {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.article-header h1 {
+font-size: 30px;
+}
 
 }
 
 @media (max-width: 768px) {
 
+.article-top-story {
+width: 94%;
+margin: 25px auto;
+}
+
+.article-section-title {
+margin-bottom: 12px;
+}
+
+.article-section-title h2 {
+font-size: 19px;
+}
+
+.article-section-title span {
+font-size: 11px;
+}
+
+.article-top-grid {
+grid-template-columns: 42% 58%;
+gap: 8px;
+}
+
+.article-side-title {
+font-size: 13px;
+padding: 9px;
+}
+
+.article-latest-item {
+display: block;
+padding: 7px;
+}
+
+.article-latest-image {
+width: 100%;
+height: 55px;
+}
+
+.article-latest-content h3 {
+font-size: 10px;
+line-height: 1.3;
+}
+
+.article-latest-content span {
+font-size: 8px;
+}
+
+.article-hero-overlay {
+padding: 50px 10px 12px;
+}
+
+.article-hero-overlay h2 {
+font-size: 17px;
+line-height: 1.3;
+}
+
+.article-hero-overlay b {
+font-size: 9px;
+}
+
+.article-news-list {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 10px;
+}
+
+.article-news-card img {
+height: auto;
+aspect-ratio: 16 / 10;
+}
+
+.article-news-card .article-news-content {
+padding: 7px;
+}
+
+.article-news-card h3 {
+font-size: 12px;
+line-height: 1.35;
+}
+
+.article-news-card p {
+display: none;
+}
+
+.article-header {
+width: 94%;
+margin-top: 18px;
+}
+
+.article-header h1 {
+font-size: 22px;
+line-height: 1.35;
+}
+
+.article-meta {
+font-size: 10px;
+}
+
+.article-image {
+width: 94%;
+margin: 14px auto;
+}
+
+.article-body {
+width: 94%;
+font-size: 16px;
+line-height: 1.8;
+}
+
+.article-body h2 {
+font-size: 21px;
+}
+
+.article-body h3 {
+font-size: 18px;
+}
+
+}
+
+/* =========================================================
+MOST READ - FINAL OVERRIDE
+DESKTOP / LAPTOP = 5 ARTICLES PER ROW
+MOBILE = 3 ARTICLES PER ROW
+========================================================= */
 
 #mostReadList,
 .most-read-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 9px;
-}
-
-.most-read-item {
-    aspect-ratio: 1 / 1;
-}
-
-.most-read-text {
-    padding: 8px;
-}
-
-.most-read-text h3 {
-    font-size: 13px;
-    line-height: 1.3;
-}
-
-.most-number {
-    width: 26px;
-    height: 26px;
-    top: 6px;
-    left: 6px;
-    font-size: 11px;
-}
-
-
-}
-
-@media (max-width: 430px) {
-
-
-#mostReadList,
-.most-read-grid {
-    gap: 8px;
-}
-
-.most-read-text h3 {
-    font-size: 12px;
-}
-
-
-}
-
-/\* =========================================================
-FEATURED NEWS
-\========================================================= */
-
-#newsSlider {
-width: 100%;
-}
-
-#sliderTrack .slider-card {
-box-sizing: border-box;
-}
-
-#sliderTrack .portal-tag {
-color: #0066ff !important;
-font-weight: 800;
-}
-
-/\* =========================================================
-ACCESSIBILITY
-\========================================================= */
-
-\::selection {
-background: #075aaa;
-color: #ffffff;
-}
-
-/\* =========================================================
-FINAL NEWS GRID
-\========================================================= */
-
-.news-list {
-width: 100%;
 display: grid !important;
-grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+width: 100% !important;
+grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
 gap: 15px !important;
 }
 
-.news-list .news-item.full-width,
-.news-list .news-item.single {
-grid-column: 1 / -1 !important;
+@media (min-width: 769px) {
+
+#mostReadList,
+.most-read-grid {
+grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+gap: 15px !important;
 }
 
-/\* First article full width */
-.news-list .news-item {
-grid-column: 1 / -1 !important;
 }
-
-/\* Normal articles */
-.news-list .news-item:not(.full-width):not(.single) {
-grid-column: auto !important;
-}
-
-/\* =========================================================
-LAPTOP
-\========================================================= */
-
-@media (max-width: 1200px) and (min-width: 1001px) {
-
-
-.news-list {
-    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
-    gap: 14px !important;
-}
-
-
-}
-
-/\* =========================================================
-TABLET
-\========================================================= */
-
-@media (max-width: 1000px) and (min-width: 769px) {
-
-
-.news-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-}
-
-
-}
-
-/\* =========================================================
-MOBILE = 4 CARDS PER ROW
-\========================================================= */
 
 @media (max-width: 768px) {
 
-
-.news-list {
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 8px !important;
+#mostReadList,
+.most-read-grid {
+grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+gap: 9px !important;
 }
 
-.news-list .news-item:first-child {
-    grid-column: 1 / -1 !important;
 }
-
-.news-list .news-item.full-width,
-.news-list .news-item.single {
-    grid-column: 1 / -1 !important;
-}
-
-.news-list .news-item:not(.full-width):not(.single):not(:first-child) {
-    grid-column: auto !important;
-    min-width: 0 !important;
-}
-
-.news-list .news-item img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
-
-.news-list .news-content,
-.news-list .post-content {
-    min-width: 0;
-    width: 100%;
-}
-
-
-}
-
-/\* =========================================================
-SMALL MOBILE
-\========================================================= */
-
-@media (max-width: 430px) {
-
-
-.news-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 6px !important;
-}
-
-
-}
-
-/\* =========================================================
-VERY SMALL MOBILE
-\========================================================= */
-
-@media (max-width: 360px) {
-
-
-.news-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 5px !important;
-}
-
-
-}
-
-/\* =========================================================
-END
-\========================================================= */
