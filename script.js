@@ -1791,7 +1791,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const mostReadPosts =
-            allPosts.slice();
+            allPosts.slice(0,60);
 
 
         /*
