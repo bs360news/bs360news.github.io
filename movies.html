@@ -220,16 +220,14 @@
 
 
     /* =========================================================
-       MAIN 3 COLUMN
+       MAIN GRID
+       MOST RECENT + TRENDING REMOVED
     ========================================================= */
 
     .main-grid {
       display: grid;
 
-      grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1.65fr)
-        minmax(0, 1fr);
+      grid-template-columns: 1fr;
 
       gap: 18px;
 
@@ -256,85 +254,6 @@
       font-weight: 900;
 
       border-left: 5px solid #e50914;
-    }
-
-
-    /* =========================================================
-       MOST RECENT
-    ========================================================= */
-
-    .recent-list {
-      height: 620px;
-
-      overflow: hidden;
-
-      position: relative;
-    }
-
-    .recent-track {
-      display: flex;
-      flex-direction: column;
-
-      animation: recentScroll 34s linear infinite;
-
-      will-change: transform;
-    }
-
-    .recent-list:hover .recent-track {
-      animation-play-state: paused;
-    }
-
-    .recent-item {
-      display: flex;
-
-      gap: 10px;
-
-      padding: 12px;
-
-      border-bottom: 1px solid #eee;
-
-      min-height: 115px;
-
-      flex-shrink: 0;
-
-      transition: background 0.2s ease;
-    }
-
-    .recent-item:hover {
-      background: #fafafa;
-    }
-
-    .recent-item img {
-      width: 100px;
-      height: 78px;
-
-      flex-shrink: 0;
-
-      border-radius: 5px;
-    }
-
-    .recent-item h3 {
-      font-size: 15px;
-
-      line-height: 1.45;
-
-      font-weight: 800;
-    }
-
-    .recent-item:hover h3 {
-      color: #e50914;
-    }
-
-    @keyframes recentScroll {
-
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-50%);
-      }
-
     }
 
 
@@ -493,63 +412,6 @@
       background: #e50914;
 
       transform: scale(1.15);
-    }
-
-
-    /* =========================================================
-       TRENDING
-    ========================================================= */
-
-    .trending-list {
-      padding: 5px 12px 12px;
-    }
-
-    .trend-item {
-      display: grid;
-
-      grid-template-columns: 42px 1fr;
-
-      gap: 10px;
-
-      padding: 13px 0;
-
-      border-bottom: 1px solid #eee;
-
-      align-items: start;
-    }
-
-    .trend-number {
-      width: 38px;
-      height: 38px;
-
-      background: #111;
-
-      color: #fff;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      font-size: 18px;
-
-      font-weight: 900;
-
-      border-radius: 3px;
-    }
-
-    .trend-item:first-child .trend-number {
-      background: #e50914;
-    }
-
-    .trend-item h3 {
-      font-size: 15px;
-
-      line-height: 1.45;
-    }
-
-    .trend-item:hover h3 {
-      color: #e50914;
     }
 
 
@@ -765,24 +627,6 @@
 
     @media (max-width: 1100px) {
 
-      .main-grid {
-        grid-template-columns:
-          minmax(0, 1fr)
-          minmax(0, 1.4fr);
-      }
-
-      .right-column {
-        grid-column: 1 / -1;
-      }
-
-      .trending-list {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 0 20px;
-      }
-
       .hero {
         height: 560px;
       }
@@ -870,16 +714,6 @@
         order: 1;
       }
 
-      .left-column {
-        order: 2;
-      }
-
-      .right-column {
-        order: 3;
-
-        grid-column: auto;
-      }
-
 
       /* HERO */
 
@@ -903,48 +737,6 @@
         font-size: 13px;
 
         padding: 8px 12px;
-      }
-
-
-      /* RECENT */
-
-      .recent-list {
-        height: 430px;
-      }
-
-      .recent-track {
-        animation-duration: 25s;
-      }
-
-      .recent-item {
-        min-height: 105px;
-
-        padding: 10px;
-      }
-
-      .recent-item img {
-        width: 105px;
-
-        height: 78px;
-      }
-
-      .recent-item h3 {
-        font-size: 14px;
-      }
-
-
-      /* TRENDING */
-
-      .trending-list {
-        display: block;
-      }
-
-      .trend-item {
-        padding: 11px 0;
-      }
-
-      .trend-item h3 {
-        font-size: 14px;
       }
 
 
@@ -1024,20 +816,6 @@
           18px;
       }
 
-      .recent-list {
-        height: 400px;
-      }
-
-      .recent-item img {
-        width: 90px;
-
-        height: 70px;
-      }
-
-      .recent-item h3 {
-        font-size: 13px;
-      }
-
       .movie-card img {
         height: 125px;
       }
@@ -1059,7 +837,6 @@
         scroll-behavior: auto;
       }
 
-      .recent-track,
       .latest-track {
         animation: none;
       }
@@ -1173,358 +950,10 @@
 
 
     <!-- =======================================================
-         MAIN GRID
+         TOP MOVIE NEWS
     ======================================================= -->
 
     <div class="main-grid">
-
-
-      <!-- =====================================================
-           LEFT - MOST RECENT
-      ===================================================== -->
-
-      <section class="column left-column">
-
-        <div class="column-title">
-          MOST RECENT
-        </div>
-
-        <div class="recent-list">
-
-          <div class="recent-track">
-
-
-            <a href="tamana.html" class="recent-item">
-
-              <img
-                src="tamana.jpg"
-                alt="the vvaan"
-                loading="lazy"
-              >
-
-              <h3>
-                తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!
-              </h3>
-
-            </a>
-
-
-            <a href="sardar.html" class="recent-item">
-
-              <img
-                src="sardar.jpg"
-                alt="sardar2"
-                loading="lazy"
-              >
-
-              <h3>
-                సర్దార్ 2పై కార్తీ ఆసక్తికర వ్యాఖ్యలు.. పది రెట్లు ఎక్కువ ఇంపాక్ట్ ఉంటుందంటూ హామీ
-              </h3>
-
-            </a>
-
-
-            <!-- SET 1 -->
-
-            <a href="paradise6.html" class="recent-item">
-
-              <img
-                src="paradise6.jpg"
-                alt="the paradaise"
-                loading="lazy"
-              >
-
-              <h3>
-                The Paradise: దుమ్మురేపుతున్న యెష నాగుల సాంగ్.. షేక్ అవుతున్న యూట్యూబ్
-              </h3>
-
-            </a>
-
-
-            <a href="cbday.html" class="recent-item">
-
-              <img
-                src="c2.webp"
-                alt="Chiranjeevi Birthday"
-                loading="lazy"
-              >
-
-              <h3>
-                🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్
-              </h3>
-
-            </a>
-
-
-            <a href="p.html" class="recent-item">
-
-              <img
-                src="p1.jpg"
-                alt="Salaar 2"
-                loading="lazy"
-              >
-
-              <h3>
-                2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్
-              </h3>
-
-            </a>
-
-
-            <a href="rakha99.html" class="recent-item">
-
-              <img
-                src="rakha99.jpg"
-                alt="raka"
-                loading="lazy"
-              >
-
-              <h3>
-                అల్లు అర్జున్‌తో మరోసారి రష్మిక.. ‘రాకా’లో కీలక పాత్ర.. సెప్టెంబర్‌లో భారీ యాక్షన్ షెడ్యూల్!
-              </h3>
-
-            </a>
-
-
-            <a href="Fouzi.html" class="recent-item">
-
-              <img
-                src="f.jpg"
-                alt="Fouzi Movie"
-                loading="lazy"
-              >
-
-              <h3>
-                ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?
-              </h3>
-
-            </a>
-
-
-            <a href="toc.html" class="recent-item">
-
-              <img
-                src="toc1.jpg"
-                alt="Toxic Movie"
-                loading="lazy"
-              >
-
-              <h3>
-                🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?
-              </h3>
-
-            </a>
-
-
-            <a href="ravi.html" class="recent-item">
-
-              <img
-                src="ravi.webp"
-                alt="Irumudi Movie"
-                loading="lazy"
-              >
-
-              <h3>
-                🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?
-              </h3>
-
-            </a>
-
-
-            <a href="ra.html" class="recent-item">
-
-              <img
-                src="ra.jpg"
-                alt="Madhuri Rathod"
-                loading="lazy"
-              >
-
-              <h3>
-                💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
-              </h3>
-
-            </a>
-
-
-            <a href="rip.html" class="recent-item">
-
-              <img
-                src="rip.jpg"
-                alt="GV Narayana Rao"
-                loading="lazy"
-              >
-
-              <h3>
-                🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
-              </h3>
-
-            </a>
-
-
-            <a href="am.html" class="recent-item">
-
-              <img
-                src="am.jpg"
-                alt="Young Heroine"
-                loading="lazy"
-              >
-
-              <h3>
-                సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!
-              </h3>
-
-            </a>
-
-
-            <!-- =================================================
-                 SET 2 - DUPLICATE
-            ================================================= -->
-
-            <a href="temper.html" class="recent-item">
-
-              <img
-                src="temper.png"
-                alt="Bigg Boss Telugu 10"
-                loading="lazy"
-              >
-
-              <h3>
-                🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
-              </h3>
-
-            </a>
-
-
-            <a href="cbday.html" class="recent-item">
-
-              <img
-                src="c2.webp"
-                alt="Chiranjeevi Birthday"
-                loading="lazy"
-              >
-
-              <h3>
-                🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్
-              </h3>
-
-            </a>
-
-
-            <a href="p.html" class="recent-item">
-
-              <img
-                src="p1.jpg"
-                alt="Salaar 2"
-                loading="lazy"
-              >
-
-              <h3>
-                2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అదిరిపోయే అప్డేట్
-              </h3>
-
-            </a>
-
-
-            <a href="Fouzi.html" class="recent-item">
-
-              <img
-                src="f.jpg"
-                alt="Fouzi Movie"
-                loading="lazy"
-              >
-
-              <h3>
-                ‘ఫౌజీ’ నుంచి అప్డేట్ కావాలని ఫ్యాన్స్ డిమాండ్.. ఆగస్టు 15న ఏం రాబోతుంది?
-              </h3>
-
-            </a>
-
-
-            <a href="toc.html" class="recent-item">
-
-              <img
-                src="toc1.jpg"
-                alt="Toxic Movie"
-                loading="lazy"
-              >
-
-              <h3>
-                🔥 టాక్సిక్ సెన్సార్ రివ్యూ..! థియేటర్స్ దద్దరిల్లాల్సిందే.. 18+ సర్టిఫికెట్ ఎందుకంటే?
-              </h3>
-
-            </a>
-
-
-            <a href="ravi.html" class="recent-item">
-
-              <img
-                src="ravi.webp"
-                alt="Irumudi Movie"
-                loading="lazy"
-              >
-
-              <h3>
-                🎬 Irumudi Movie Review: ఇరుముడి సినిమా రివ్యూ.. రవితేజ హిట్ కొట్టాడా?
-              </h3>
-
-            </a>
-
-
-            <a href="ra.html" class="recent-item">
-
-              <img
-                src="ra.jpg"
-                alt="Madhuri Rathod"
-                loading="lazy"
-              >
-
-              <h3>
-                💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
-              </h3>
-
-            </a>
-
-
-            <a href="rip.html" class="recent-item">
-
-              <img
-                src="rip.jpg"
-                alt="GV Narayana Rao"
-                loading="lazy"
-              >
-
-              <h3>
-                🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
-              </h3>
-
-            </a>
-
-
-            <a href="am.html" class="recent-item">
-
-              <img
-                src="am.jpg"
-                alt="Young Heroine"
-                loading="lazy"
-              >
-
-              <h3>
-                సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!
-              </h3>
-
-            </a>
-
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- =====================================================
-           CENTER - TOP MOVIE NEWS
-      ===================================================== -->
 
       <section class="column center-column">
 
@@ -1636,7 +1065,7 @@
           </div>
 
 
-          <!-- HERO 1 / SLIDE 4 -->
+          <!-- SLIDE 4 -->
 
           <div class="hero-slide">
 
@@ -1668,7 +1097,7 @@
           </div>
 
 
-          <!-- HERO 2 / SLIDE 5 -->
+          <!-- SLIDE 5 -->
 
           <div class="hero-slide">
 
@@ -1701,7 +1130,7 @@
           </div>
 
 
-          <!-- HERO 3 / SLIDE 6 -->
+          <!-- SLIDE 6 -->
 
           <div class="hero-slide">
 
@@ -1734,7 +1163,7 @@
           </div>
 
 
-          <!-- HERO 4 / SLIDE 7 -->
+          <!-- SLIDE 7 -->
 
           <div class="hero-slide">
 
@@ -1767,7 +1196,7 @@
           </div>
 
 
-          <!-- HERO 5 / SLIDE 8 -->
+          <!-- SLIDE 8 -->
 
           <div class="hero-slide">
 
@@ -1800,7 +1229,7 @@
           </div>
 
 
-          <!-- HERO 6 / SLIDE 9 -->
+          <!-- SLIDE 9 -->
 
           <div class="hero-slide">
 
@@ -1833,7 +1262,7 @@
           </div>
 
 
-          <!-- HERO 7 / SLIDE 10 -->
+          <!-- SLIDE 10 -->
 
           <div class="hero-slide">
 
@@ -1866,7 +1295,7 @@
           </div>
 
 
-          <!-- HERO 8 / SLIDE 11 -->
+          <!-- SLIDE 11 -->
 
           <div class="hero-slide">
 
@@ -1899,7 +1328,7 @@
           </div>
 
 
-          <!-- HERO 9 / SLIDE 12 -->
+          <!-- SLIDE 12 -->
 
           <div class="hero-slide">
 
@@ -2011,141 +1440,6 @@
             ></button>
 
           </div>
-
-
-        </div>
-
-      </section>
-
-
-      <!-- =====================================================
-           RIGHT - TRENDING
-      ===================================================== -->
-
-      <section class="column right-column">
-
-        <div class="column-title">
-          TRENDING
-        </div>
-
-        <div class="trending-list">
-
-
-          <a href="temper.html" class="trend-item">
-
-            <div class="trend-number">
-              1
-            </div>
-
-            <h3>
-              🔥 Bigg Boss Telugu 10లో టాలీవుడ్ స్టార్ విలన్?
-            </h3>
-
-          </a>
-
-
-          <a href="cbday.html" class="trend-item">
-
-            <div class="trend-number">
-              2
-            </div>
-
-            <h3>
-              🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు స్పెషల్
-            </h3>
-
-          </a>
-
-
-          <a href="p.html" class="trend-item">
-
-            <div class="trend-number">
-              3
-            </div>
-
-            <h3>
-              ప్రభాస్ ‘సలార్-2’పై భారీ అప్డేట్
-            </h3>
-
-          </a>
-
-
-          <a href="Fouzi.html" class="trend-item">
-
-            <div class="trend-number">
-              4
-            </div>
-
-            <h3>
-              ‘ఫౌజీ’ నుంచి ఆగస్టు 15న ఏం రాబోతుంది?
-            </h3>
-
-          </a>
-
-
-          <a href="toc.html" class="trend-item">
-
-            <div class="trend-number">
-              5
-            </div>
-
-            <h3>
-              🔥 టాక్సిక్ సెన్సార్ రివ్యూ.. 18+ సర్టిఫికెట్
-            </h3>
-
-          </a>
-
-
-          <a href="ravi.html" class="trend-item">
-
-            <div class="trend-number">
-              6
-            </div>
-
-            <h3>
-              🎬 Irumudi Movie Review.. రవితేజ హిట్ కొట్టాడా?
-            </h3>
-
-          </a>
-
-
-          <a href="ra.html" class="trend-item">
-
-            <div class="trend-number">
-              7
-            </div>
-
-            <h3>
-              💃 మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
-            </h3>
-
-          </a>
-
-
-          <a href="rip.html" class="trend-item">
-
-            <div class="trend-number">
-              8
-            </div>
-
-            <h3>
-              🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు కన్నుమూత
-            </h3>
-
-          </a>
-
-
-          <a href="am.html" class="trend-item">
-
-            <div class="trend-number">
-              9
-            </div>
-
-            <h3>
-              యంగ్ హీరోయిన్ సంచలన ఛాలెంజ్!
-            </h3>
-
-          </a>
 
 
         </div>
@@ -2362,10 +1656,7 @@
           </a>
 
 
-          <!-- =================================================
-               SET 2 - DUPLICATE
-          ================================================= -->
-
+          <!-- SET 2 -->
 
           <a href="temper.html" class="latest-card">
 
