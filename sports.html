@@ -498,7 +498,7 @@ img {
 
 
 /* =====================================================
-   SPORTS ALL
+   SPORTS ALL SECTION
 ===================================================== */
 
 .sports-section {
@@ -562,6 +562,7 @@ img {
 
 /* =====================================================
    SPORTS CARD
+   IMAGE TOP + TEXT BELOW
 ===================================================== */
 
 .sports-card {
@@ -569,64 +570,81 @@ img {
 
   width: 100%;
 
-  height: 220px;
+  background: #fff;
 
-  overflow: hidden;
+  border: 1px solid #ddd;
 
   border-radius: 8px;
 
-  background: #111;
+  overflow: hidden;
 
   display: block;
 
   cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.sports-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.12);
+}
+
+
+/* =====================================================
+   SPORTS IMAGE
+===================================================== */
 
 .sports-card img {
   width: 100%;
-  height: 100%;
+
+  height: 220px;
 
   object-fit: cover;
 
+  display: block;
+
   transition:
-    transform
-    0.4s
-    ease;
+    transform 0.4s ease;
 }
 
 .sports-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
+
+/* =====================================================
+   SPORTS TEXT BELOW IMAGE
+===================================================== */
+
 .sports-overlay {
-  position: absolute;
+  position: static;
 
-  left: 0;
-  right: 0;
-  bottom: 0;
+  padding: 12px;
 
-  padding:
-    65px
-    12px
-    12px;
+  background: #fff;
 
-  color: #fff;
-
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,0.92)
-    );
+  color: #111;
 }
 
 .sports-overlay h3 {
-  color: #fff;
+  color: #111;
 
-  font-size: 16px;
+  font-size: 17px;
 
-  line-height: 1.35;
+  line-height: 1.45;
 
   font-weight: 800;
+
+  margin: 0;
+}
+
+.sports-card:hover .sports-overlay h3 {
+  color: #e50914;
 }
 
 
@@ -719,6 +737,10 @@ img {
   .horizontal-carousel {
     grid-template-columns:
       repeat(3, minmax(0, 1fr));
+  }
+
+  .sports-card img {
+    height: 200px;
   }
 
 }
@@ -869,20 +891,22 @@ img {
   }
 
   .sports-card {
-    height: 190px;
+    height: auto;
+  }
+
+  .sports-card img {
+    height: 180px;
   }
 
   .sports-overlay {
     padding:
-      55px
-      8px
-      8px;
+      9px;
   }
 
   .sports-overlay h3 {
     font-size: 13px;
 
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
 
@@ -919,12 +943,14 @@ img {
     font-size: 19px;
   }
 
-  .sports-card {
-    height: 180px;
+  .sports-card img {
+    height: 150px;
   }
 
   .sports-overlay h3 {
     font-size: 12px;
+
+    line-height: 1.35;
   }
 
 }
@@ -1054,6 +1080,8 @@ img {
 
       </div>
 
+
+      <!-- HERO -->
 
       <div class="hero">
 
@@ -1301,10 +1329,7 @@ img {
 
         <!-- BCCI -->
 
-        <a
-          href="bcci.html"
-          class="latest-card"
-        >
+        <a href="bcci.html" class="latest-card">
 
           <img
             src="bcci.webp"
@@ -1315,9 +1340,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-
             </h3>
 
           </div>
@@ -1327,10 +1350,7 @@ img {
 
         <!-- INDIA GIRLS -->
 
-        <a
-          href="indiagirls.html"
-          class="latest-card"
-        >
+        <a href="indiagirls.html" class="latest-card">
 
           <img
             src="indiagirls.jpg"
@@ -1341,9 +1361,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
-
             </h3>
 
           </div>
@@ -1353,10 +1371,7 @@ img {
 
         <!-- INDG99 -->
 
-        <a
-          href="indg99.html"
-          class="latest-card"
-        >
+        <a href="indg99.html" class="latest-card">
 
           <img
             src="indg99.webp"
@@ -1367,9 +1382,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
-
             </h3>
 
           </div>
@@ -1379,10 +1392,7 @@ img {
 
         <!-- DHONI -->
 
-        <a
-          href="dhoni7.html"
-          class="latest-card"
-        >
+        <a href="dhoni7.html" class="latest-card">
 
           <img
             src="dhoni7.jpg"
@@ -1393,9 +1403,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
-
             </h3>
 
           </div>
@@ -1405,10 +1413,7 @@ img {
 
         <!-- ROHITH -->
 
-        <a
-          href="rohith45.html"
-          class="latest-card"
-        >
+        <a href="rohith45.html" class="latest-card">
 
           <img
             src="rohith.png"
@@ -1419,9 +1424,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?
-
             </h3>
 
           </div>
@@ -1431,10 +1434,7 @@ img {
 
         <!-- HARDIK -->
 
-        <a
-          href="hardik.html"
-          class="latest-card"
-        >
+        <a href="hardik.html" class="latest-card">
 
           <img
             src="hardik.jpg"
@@ -1445,9 +1445,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               😮 హార్దిక్ పాండ్యాకు మరో షాక్.. అఫ్గాన్ సిరీస్‌కు దూరం అవుతాడా..?
-
             </h3>
 
           </div>
@@ -1457,10 +1455,7 @@ img {
 
         <!-- ROHITH TV -->
 
-        <a
-          href="rohithtv.html"
-          class="latest-card"
-        >
+        <a href="rohithtv.html" class="latest-card">
 
           <img
             src="rohithtv.jpg"
@@ -1471,9 +1466,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
-
             </h3>
 
           </div>
@@ -1483,10 +1476,7 @@ img {
 
         <!-- TILAK -->
 
-        <a
-          href="tilak.html"
-          class="latest-card"
-        >
+        <a href="tilak.html" class="latest-card">
 
           <img
             src="tilak.webp"
@@ -1497,9 +1487,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
-
             </h3>
 
           </div>
@@ -1509,10 +1497,7 @@ img {
 
         <!-- VAIBHAV -->
 
-        <a
-          href="vaibhav.html"
-          class="latest-card"
-        >
+        <a href="vaibhav.html" class="latest-card">
 
           <img
             src="vaibhav.webp"
@@ -1523,9 +1508,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం.. 57 ఏళ్ల రికార్డు బద్దలు
-
             </h3>
 
           </div>
@@ -1535,10 +1518,7 @@ img {
 
         <!-- IPL -->
 
-        <a
-          href="ipl.html"
-          class="latest-card"
-        >
+        <a href="ipl.html" class="latest-card">
 
           <img
             src="ipl.png"
@@ -1549,9 +1529,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం.. ఫ్రాంచైజీల అభిప్రాయాలు కోరిన బోర్డు
-
             </h3>
 
           </div>
@@ -1561,10 +1539,7 @@ img {
 
         <!-- INDIA -->
 
-        <a
-          href="indiag.html"
-          class="latest-card"
-        >
+        <a href="indiag.html" class="latest-card">
 
           <img
             src="indiag.jpg"
@@ -1575,9 +1550,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 Cricket: భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. 94 పరుగుల తేడాతో థాయ్‌లాండ్ చిత్తు
-
             </h3>
 
           </div>
@@ -1587,10 +1560,7 @@ img {
 
         <!-- LANKA -->
 
-        <a
-          href="lanka.html"
-          class="latest-card"
-        >
+        <a href="lanka.html" class="latest-card">
 
           <img
             src="lanka.webp"
@@ -1601,9 +1571,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
-
             </h3>
 
           </div>
@@ -1613,10 +1581,7 @@ img {
 
         <!-- RISHAB -->
 
-        <a
-          href="rishab.html"
-          class="latest-card"
-        >
+        <a href="rishab.html" class="latest-card">
 
           <img
             src="rishab.jpg"
@@ -1627,9 +1592,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
-
             </h3>
 
           </div>
@@ -1637,12 +1600,9 @@ img {
         </a>
 
 
-        <!-- DUPLICATE SET FOR SMOOTH LOOP -->
+        <!-- DUPLICATE SET -->
 
-        <a
-          href="bcci.html"
-          class="latest-card"
-        >
+        <a href="bcci.html" class="latest-card">
 
           <img
             src="bcci.webp"
@@ -1653,9 +1613,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-
             </h3>
 
           </div>
@@ -1663,10 +1621,7 @@ img {
         </a>
 
 
-        <a
-          href="indiagirls.html"
-          class="latest-card"
-        >
+        <a href="indiagirls.html" class="latest-card">
 
           <img
             src="indiagirls.jpg"
@@ -1677,9 +1632,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
-
             </h3>
 
           </div>
@@ -1687,10 +1640,7 @@ img {
         </a>
 
 
-        <a
-          href="indg99.html"
-          class="latest-card"
-        >
+        <a href="indg99.html" class="latest-card">
 
           <img
             src="indg99.webp"
@@ -1701,9 +1651,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
-
             </h3>
 
           </div>
@@ -1711,10 +1659,7 @@ img {
         </a>
 
 
-        <a
-          href="dhoni7.html"
-          class="latest-card"
-        >
+        <a href="dhoni7.html" class="latest-card">
 
           <img
             src="dhoni7.jpg"
@@ -1725,9 +1670,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
-
             </h3>
 
           </div>
@@ -1735,10 +1678,7 @@ img {
         </a>
 
 
-        <a
-          href="rohith45.html"
-          class="latest-card"
-        >
+        <a href="rohith45.html" class="latest-card">
 
           <img
             src="rohith.png"
@@ -1749,9 +1689,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?
-
             </h3>
 
           </div>
@@ -1759,10 +1697,7 @@ img {
         </a>
 
 
-        <a
-          href="hardik.html"
-          class="latest-card"
-        >
+        <a href="hardik.html" class="latest-card">
 
           <img
             src="hardik.jpg"
@@ -1773,9 +1708,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               😮 హార్దిక్ పాండ్యాకు మరో షాక్.. అఫ్గాన్ సిరీస్‌కు దూరం అవుతాడా..?
-
             </h3>
 
           </div>
@@ -1783,10 +1716,7 @@ img {
         </a>
 
 
-        <a
-          href="rohithtv.html"
-          class="latest-card"
-        >
+        <a href="rohithtv.html" class="latest-card">
 
           <img
             src="rohithtv.jpg"
@@ -1797,9 +1727,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
-
             </h3>
 
           </div>
@@ -1807,10 +1735,7 @@ img {
         </a>
 
 
-        <a
-          href="tilak.html"
-          class="latest-card"
-        >
+        <a href="tilak.html" class="latest-card">
 
           <img
             src="tilak.webp"
@@ -1821,9 +1746,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
-
             </h3>
 
           </div>
@@ -1831,10 +1754,7 @@ img {
         </a>
 
 
-        <a
-          href="vaibhav.html"
-          class="latest-card"
-        >
+        <a href="vaibhav.html" class="latest-card">
 
           <img
             src="vaibhav.webp"
@@ -1845,9 +1765,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం.. 57 ఏళ్ల రికార్డు బద్దలు
-
             </h3>
 
           </div>
@@ -1855,10 +1773,7 @@ img {
         </a>
 
 
-        <a
-          href="ipl.html"
-          class="latest-card"
-        >
+        <a href="ipl.html" class="latest-card">
 
           <img
             src="ipl.png"
@@ -1869,9 +1784,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం.. ఫ్రాంచైజీల అభిప్రాయాలు కోరిన బోర్డు
-
             </h3>
 
           </div>
@@ -1879,10 +1792,7 @@ img {
         </a>
 
 
-        <a
-          href="indiag.html"
-          class="latest-card"
-        >
+        <a href="indiag.html" class="latest-card">
 
           <img
             src="indiag.jpg"
@@ -1893,9 +1803,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 Cricket: భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. 94 పరుగుల తేడాతో థాయ్‌లాండ్ చిత్తు
-
             </h3>
 
           </div>
@@ -1903,10 +1811,7 @@ img {
         </a>
 
 
-        <a
-          href="lanka.html"
-          class="latest-card"
-        >
+        <a href="lanka.html" class="latest-card">
 
           <img
             src="lanka.webp"
@@ -1917,9 +1822,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
-
             </h3>
 
           </div>
@@ -1927,10 +1830,7 @@ img {
         </a>
 
 
-        <a
-          href="rishab.html"
-          class="latest-card"
-        >
+        <a href="rishab.html" class="latest-card">
 
           <img
             src="rishab.jpg"
@@ -1941,9 +1841,7 @@ img {
           <div class="latest-content">
 
             <h3>
-
               🏏 టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
-
             </h3>
 
           </div>
@@ -2004,9 +1902,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-
           </h3>
 
         </div>
@@ -2030,9 +1926,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
-
           </h3>
 
         </div>
@@ -2056,9 +1950,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
-
           </h3>
 
         </div>
@@ -2082,9 +1974,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
-
           </h3>
 
         </div>
@@ -2108,9 +1998,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?
-
           </h3>
 
         </div>
@@ -2134,9 +2022,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             😮 హార్దిక్ పాండ్యాకు మరో షాక్.. అఫ్గాన్ సిరీస్‌కు దూరం అవుతాడా..?
-
           </h3>
 
         </div>
@@ -2160,9 +2046,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
-
           </h3>
 
         </div>
@@ -2186,9 +2070,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
-
           </h3>
 
         </div>
@@ -2212,9 +2094,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం.. 57 ఏళ్ల రికార్డు బద్దలు
-
           </h3>
 
         </div>
@@ -2238,9 +2118,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం.. ఫ్రాంచైజీల అభిప్రాయాలు కోరిన బోర్డు
-
           </h3>
 
         </div>
@@ -2264,9 +2142,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 Cricket: భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. 94 పరుగుల తేడాతో థాయ్‌లాండ్ చిత్తు
-
           </h3>
 
         </div>
@@ -2290,9 +2166,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
-
           </h3>
 
         </div>
@@ -2316,9 +2190,7 @@ img {
         <div class="sports-overlay">
 
           <h3>
-
             🏏 టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
-
           </h3>
 
         </div>
@@ -2399,10 +2271,8 @@ img {
 
 
   <p>
-
     © 2026 BS 360 NEWS.
     All Rights Reserved.
-
   </p>
 
 </footer>
