@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 "use strict";
 
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
 const $ = (selector, parent = document) =>
     parent.querySelector(selector);
 
@@ -35,8 +40,8 @@ function sourcePosts() {
     }
 
     return posts;
-
 }
+
 
 let allPosts = sourcePosts();
 
@@ -81,6 +86,7 @@ function uniquePosts(posts) {
 
 }
 
+
 allPosts = uniquePosts(allPosts);
 
 
@@ -96,7 +102,9 @@ function catsOf(post) {
         (post.getAttribute("data-categories") || "") +
         " " +
         (post.getAttribute("category") || "")
-    ).toLowerCase();
+    )
+    .toLowerCase()
+    .trim();
 
 }
 
@@ -140,9 +148,10 @@ function isSports(post) {
     const value = catsOf(post);
 
     return (
-        value.includes("sports") ||
-        value.includes("sport") ||
-        value.includes("క్రీడ")
+        /\bsports?\b/.test(value) ||
+        value.includes("క్రీడ") ||
+        value.includes("cricket") ||
+        value.includes("ipl")
     );
 
 }
@@ -157,9 +166,11 @@ function isMovies(post) {
     const value = catsOf(post);
 
     return (
-        value.includes("movies") ||
+        /\bmovies?\b/.test(value) ||
+        /\bcinema\b/.test(value) ||
         value.includes("movie") ||
-        value.includes("cinema") ||
+        value.includes("film") ||
+        value.includes("tollywood") ||
         value.includes("సినిమా")
     );
 
@@ -175,17 +186,17 @@ function isBusiness(post) {
     const value = catsOf(post);
 
     return (
-        value.includes("business") ||
-        value.includes("బిజినెస్") ||
-        value.includes("gold") ||
-        value.includes("finance")
+        /\bbusiness\b/.test(value) ||
+        /\bgold\b/.test(value) ||
+        /\bfinance\b/.test(value) ||
+        value.includes("బిజినెస్")
     );
 
 }
 
 
 /* =====================================================
-   AP
+   ANDHRA PRADESH
 ===================================================== */
 
 function isAPNews(post) {
@@ -193,7 +204,7 @@ function isAPNews(post) {
     const value = catsOf(post);
 
     return (
-        value.includes("ap") ||
+        /\bap\b/.test(value) ||
         value.includes("andhra-pradesh") ||
         value.includes("andhrapradesh") ||
         value.includes("andhra pradesh") ||
@@ -208,7 +219,7 @@ function isAPNews(post) {
 
 
 /* =====================================================
-   TS
+   TELANGANA
 ===================================================== */
 
 function isTSNews(post) {
@@ -216,7 +227,7 @@ function isTSNews(post) {
     const value = catsOf(post);
 
     return (
-        value.includes("ts") ||
+        /\bts\b/.test(value) ||
         value.includes("telangana") ||
         value.includes("telangana-news") ||
         value.includes("telangana_news") ||
@@ -330,14 +341,16 @@ function openPost(post) {
         url !== "#" &&
         url !== "javascript:void(0)"
     ) {
+
         window.location.href = url;
+
     }
 
 }
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(value) {
@@ -356,7 +369,11 @@ function escapeHTML(value) {
    CARD
 ===================================================== */
 
-function createCard(post, type = "latest", customLabel = null) {
+function createCard(
+    post,
+    type = "latest",
+    customLabel = null
+) {
 
     const card = document.createElement("article");
 
@@ -400,7 +417,7 @@ function createCard(post, type = "latest", customLabel = null) {
 
 
 /* =====================================================
-   HERO
+   HERO / LATEST TOP STORY DESIGN
 ===================================================== */
 
 function renderTopStory(posts = normalPosts()) {
@@ -414,8 +431,11 @@ function renderTopStory(posts = normalPosts()) {
     });
 
     if (!posts.length) {
+
         target.innerHTML = "";
+
         return;
+
     }
 
     let heroIndex = 0;
@@ -426,7 +446,8 @@ function renderTopStory(posts = normalPosts()) {
 
         if (!post) return;
 
-        const hero = document.createElement("article");
+        const hero =
+            document.createElement("article");
 
         hero.className =
             "portal-card hero-card hero-overlay-card hero-enter";
@@ -469,13 +490,19 @@ function renderTopStory(posts = normalPosts()) {
         });
 
         target.innerHTML = "";
+
         target.appendChild(hero);
 
     }
 
+
     showHero(heroIndex);
 
-    if (posts.length > 1 && !target.dataset.heroStarted) {
+
+    if (
+        posts.length > 1 &&
+        !target.dataset.heroStarted
+    ) {
 
         target.dataset.heroStarted = "true";
 
@@ -500,7 +527,9 @@ function renderTopStory(posts = normalPosts()) {
    LATEST SIDEBAR
 ===================================================== */
 
-function renderLatestSidebar(posts = normalPosts()) {
+function renderLatestSidebar(
+    posts = normalPosts()
+) {
 
     const target = $("#latestSidebar");
 
@@ -510,7 +539,8 @@ function renderLatestSidebar(posts = normalPosts()) {
 
     posts.slice(0, 12).forEach(function (post) {
 
-        const item = document.createElement("article");
+        const item =
+            document.createElement("article");
 
         item.className = "sidebar-card";
 
@@ -554,25 +584,41 @@ function renderLatestSidebar(posts = normalPosts()) {
 }
 
 
+/* =====================================================
+   SIDEBAR AUTO SCROLL
+===================================================== */
+
 function startSidebarAutoScroll(element) {
 
     if (!element) return;
 
-    if (element.dataset.sidebarScrollStarted === "true") return;
+    if (
+        element.dataset.sidebarScrollStarted === "true"
+    ) {
+        return;
+    }
 
     element.dataset.sidebarScrollStarted = "true";
 
     let paused = false;
 
-    element.addEventListener("mouseenter", () => paused = true);
-    element.addEventListener("mouseleave", () => paused = false);
+    element.addEventListener(
+        "mouseenter",
+        () => paused = true
+    );
+
+    element.addEventListener(
+        "mouseleave",
+        () => paused = false
+    );
 
     setInterval(function () {
 
         if (paused) return;
 
         const maxScroll =
-            element.scrollHeight - element.clientHeight;
+            element.scrollHeight -
+            element.clientHeight;
 
         if (maxScroll <= 10) return;
 
@@ -580,8 +626,14 @@ function startSidebarAutoScroll(element) {
             element.scrollTop + 90;
 
         element.scrollTo({
-            top: next >= maxScroll ? 0 : next,
+
+            top:
+                next >= maxScroll
+                    ? 0
+                    : next,
+
             behavior: "smooth"
+
         });
 
     }, 2600);
@@ -609,10 +661,15 @@ function renderBigBoss() {
 
     posts.forEach(function (post) {
 
-        const card = document.createElement("article");
+        const card =
+            document.createElement("article");
 
         card.className = "bigboss-card";
-        card.setAttribute("tabindex", "0");
+
+        card.setAttribute(
+            "tabindex",
+            "0"
+        );
 
         card.innerHTML = `
 
@@ -637,30 +694,50 @@ function renderBigBoss() {
 
         `;
 
-        card.addEventListener("click", () => openPost(post));
+        card.addEventListener(
+            "click",
+            () => openPost(post)
+        );
 
         track.appendChild(card);
 
     });
 
+
     if (!posts.length) return;
 
     setupBigBossAutoScroll(slider);
+
     setupBigBossButtons(slider);
 
 }
 
 
+/* =====================================================
+   BIGG BOSS AUTO SCROLL
+===================================================== */
+
 function setupBigBossAutoScroll(container) {
 
-    if (container.dataset.bigbossAutoScrollStarted === "true") return;
+    if (
+        container.dataset.bigbossAutoScrollStarted === "true"
+    ) {
+        return;
+    }
 
     container.dataset.bigbossAutoScrollStarted = "true";
 
     let paused = false;
 
-    container.addEventListener("mouseenter", () => paused = true);
-    container.addEventListener("mouseleave", () => paused = false);
+    container.addEventListener(
+        "mouseenter",
+        () => paused = true
+    );
+
+    container.addEventListener(
+        "mouseleave",
+        () => paused = false
+    );
 
     setInterval(function () {
 
@@ -672,7 +749,9 @@ function setupBigBossAutoScroll(container) {
 
         if (max <= 5) return;
 
-        if (container.scrollLeft >= max - 10) {
+        if (
+            container.scrollLeft >= max - 10
+        ) {
 
             container.scrollTo({
                 left: 0,
@@ -693,49 +772,75 @@ function setupBigBossAutoScroll(container) {
 }
 
 
+/* =====================================================
+   BIGG BOSS BUTTONS
+===================================================== */
+
 function setupBigBossButtons(slider) {
 
-    const previous = $(".bigboss-prev");
-    const next = $(".bigboss-next");
+    const previous =
+        $(".bigboss-prev");
+
+    const next =
+        $(".bigboss-next");
+
 
     if (previous) {
 
-        previous.addEventListener("click", function () {
-
-            slider.scrollBy({
-                left: -264,
-                behavior: "smooth"
-            });
-
-        });
-
-    }
-
-    if (next) {
-
-        next.addEventListener("click", function () {
-
-            const max =
-                slider.scrollWidth -
-                slider.clientWidth;
-
-            if (slider.scrollLeft >= max - 10) {
-
-                slider.scrollTo({
-                    left: 0,
-                    behavior: "smooth"
-                });
-
-            } else {
+        previous.addEventListener(
+            "click",
+            function () {
 
                 slider.scrollBy({
-                    left: 264,
+
+                    left: -264,
+
                     behavior: "smooth"
+
                 });
 
             }
+        );
 
-        });
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            function () {
+
+                const max =
+                    slider.scrollWidth -
+                    slider.clientWidth;
+
+                if (
+                    slider.scrollLeft >= max - 10
+                ) {
+
+                    slider.scrollTo({
+
+                        left: 0,
+
+                        behavior: "smooth"
+
+                    });
+
+                } else {
+
+                    slider.scrollBy({
+
+                        left: 264,
+
+                        behavior: "smooth"
+
+                    });
+
+                }
+
+            }
+        );
 
     }
 
@@ -743,17 +848,21 @@ function setupBigBossButtons(slider) {
 
 
 /* =====================================================
-   AP + TS
+   AP + TS NEWS
 ===================================================== */
 
 function renderSlider() {
 
-    const track = $("#sliderTrack");
-    const container = $("#newsSlider");
+    const track =
+        $("#sliderTrack");
+
+    const container =
+        $("#newsSlider");
 
     if (!track) return;
 
     track.innerHTML = "";
+
 
     const posts =
         normalPosts()
@@ -767,19 +876,30 @@ function renderSlider() {
             })
             .slice(0, 15);
 
+
     posts.forEach(function (post) {
+
+        let label = "News";
+
+        if (isAPNews(post)) {
+            label = "AP News";
+        }
+
+        if (isTSNews(post)) {
+            label = "TS News";
+        }
+
 
         track.appendChild(
             createCard(
                 post,
                 "slider",
-                isAPNews(post)
-                    ? "AP News"
-                    : "TS News"
+                label
             )
         );
 
     });
+
 
     setupHorizontalAutoScroll(
         container,
@@ -796,22 +916,32 @@ function renderSlider() {
 
 function renderMovies() {
 
-    const target = $("#cinemaGrid");
+    const target =
+        $("#cinemaGrid");
 
     if (!target) return;
 
     target.innerHTML = "";
 
-    normalPosts()
-        .filter(isMovies)
-        .slice(0, 12)
-        .forEach(function (post) {
 
-            target.appendChild(
-                createCard(post, "category")
-            );
+    const posts =
+        normalPosts()
+            .filter(isMovies)
+            .slice(0, 12);
 
-        });
+
+    posts.forEach(function (post) {
+
+        target.appendChild(
+            createCard(
+                post,
+                "category",
+                "CINEMA"
+            )
+        );
+
+    });
+
 
     setupHorizontalAutoScroll(
         target,
@@ -828,22 +958,32 @@ function renderMovies() {
 
 function renderSports() {
 
-    const target = $("#sportsGrid");
+    const target =
+        $("#sportsGrid");
 
     if (!target) return;
 
     target.innerHTML = "";
 
-    normalPosts()
-        .filter(isSports)
-        .slice(0, 12)
-        .forEach(function (post) {
 
-            target.appendChild(
-                createCard(post, "sports")
-            );
+    const posts =
+        normalPosts()
+            .filter(isSports)
+            .slice(0, 12);
 
-        });
+
+    posts.forEach(function (post) {
+
+        target.appendChild(
+            createCard(
+                post,
+                "sports",
+                "SPORTS"
+            )
+        );
+
+    });
+
 
     setupHorizontalAutoScroll(
         target,
@@ -855,7 +995,7 @@ function renderSports() {
 
 
 /* =====================================================
-   HORIZONTAL SCROLL
+   HORIZONTAL AUTO SCROLL
 ===================================================== */
 
 function setupHorizontalAutoScroll(
@@ -866,43 +1006,100 @@ function setupHorizontalAutoScroll(
 
     if (!container) return;
 
-    if (container.dataset.autoScrollStarted === "true") return;
+    if (
+        container.dataset.autoScrollStarted === "true"
+    ) {
+        return;
+    }
 
     container.dataset.autoScrollStarted = "true";
 
+
+    /* Container */
+
     container.style.display = "flex";
-    container.style.flexWrap = "nowrap";
-    container.style.overflowX = "auto";
-    container.style.overflowY = "hidden";
-    container.style.scrollBehavior = "smooth";
+
+    container.style.flexDirection =
+        "row";
+
+    container.style.flexWrap =
+        "nowrap";
+
+    container.style.overflowX =
+        "auto";
+
+    container.style.overflowY =
+        "hidden";
+
+    container.style.scrollBehavior =
+        "smooth";
+
+
+    /* Cards */
+
+    Array.from(
+        container.children
+    ).forEach(function (card) {
+
+        card.style.flex =
+            "0 0 300px";
+
+        card.style.minWidth =
+            "300px";
+
+        card.style.width =
+            "300px";
+
+    });
+
 
     let paused = false;
 
-    container.addEventListener("mouseenter", () => paused = true);
-    container.addEventListener("mouseleave", () => paused = false);
+
+    container.addEventListener(
+        "mouseenter",
+        () => paused = true
+    );
+
+    container.addEventListener(
+        "mouseleave",
+        () => paused = false
+    );
+
 
     setInterval(function () {
 
         if (paused) return;
 
+
         const max =
             container.scrollWidth -
             container.clientWidth;
 
+
         if (max <= 5) return;
 
-        if (container.scrollLeft >= max - 10) {
+
+        if (
+            container.scrollLeft >= max - 10
+        ) {
 
             container.scrollTo({
+
                 left: 0,
+
                 behavior: "smooth"
+
             });
 
         } else {
 
             container.scrollBy({
+
                 left: distance,
+
                 behavior: "smooth"
+
             });
 
         }
@@ -918,22 +1115,36 @@ function setupHorizontalAutoScroll(
 
 function renderMostRead() {
 
-    const target = $("#mostReadList");
+    const target =
+        $("#mostReadList");
 
     if (!target) return;
 
     target.innerHTML = "";
 
+
     const posts =
         normalPosts().slice(0, 60);
 
-    posts.forEach(function (post, index) {
+
+    posts.forEach(function (
+        post,
+        index
+    ) {
 
         const item =
             document.createElement("article");
 
-        item.className = "most-read-item";
-        item.setAttribute("tabindex", "0");
+
+        item.className =
+            "most-read-item";
+
+
+        item.setAttribute(
+            "tabindex",
+            "0"
+        );
+
 
         item.innerHTML = `
 
@@ -966,7 +1177,12 @@ function renderMostRead() {
 
         `;
 
-        item.addEventListener("click", () => openPost(post));
+
+        item.addEventListener(
+            "click",
+            () => openPost(post)
+        );
+
 
         target.appendChild(item);
 
@@ -981,134 +1197,220 @@ function renderMostRead() {
 
 function performSearch() {
 
-    const input = $("#searchInput");
+    const input =
+        $("#searchInput");
 
     if (!input) return;
 
+
     const query =
-        input.value.trim().toLowerCase();
+        input.value
+            .trim()
+            .toLowerCase();
+
 
     if (!query) {
 
         renderTopStory();
+
         renderLatestSidebar();
 
         return;
 
     }
 
+
     const matched =
-        normalPosts().filter(function (post) {
+        normalPosts()
+            .filter(function (post) {
 
-            return (
-                titleOf(post)
-                    .toLowerCase()
-                    .includes(query) ||
-                catsOf(post).includes(query)
-            );
+                return (
 
-        });
+                    titleOf(post)
+                        .toLowerCase()
+                        .includes(query)
+
+                    ||
+
+                    catsOf(post)
+                        .includes(query)
+
+                );
+
+            });
+
 
     renderSearchResults(matched);
 
 }
 
 
+/* =====================================================
+   SEARCH RESULTS
+===================================================== */
+
 function renderSearchResults(posts) {
 
-    const target = $("#latestSidebar");
-    const heroTarget = $("#topStory");
+    const target =
+        $("#latestSidebar");
+
+    const heroTarget =
+        $("#topStory");
+
 
     if (!target || !heroTarget) return;
 
+
     target.innerHTML = "";
+
     heroTarget.innerHTML = "";
+
 
     if (!posts.length) {
 
         heroTarget.innerHTML = `
+
             <div class="no-results">
-                <h3>వార్తలు కనిపించలేదు</h3>
-                <p>మరో keywordతో search చేయండి.</p>
+
+                <h3>
+                    వార్తలు కనిపించలేదు
+                </h3>
+
+                <p>
+                    మరో keywordతో search చేయండి.
+                </p>
+
             </div>
+
         `;
 
         return;
 
     }
 
+
     renderTopStory(posts);
-    renderLatestSidebar(posts.slice(1));
+
+    renderLatestSidebar(
+        posts.slice(1)
+    );
 
 }
 
+
+/* =====================================================
+   SEARCH SETUP
+===================================================== */
 
 function setupSearch() {
 
-    const button = $("#searchButton");
-    const box = $("#searchBox");
-    const input = $("#searchInput");
-    const submit = $("#searchSubmit");
+    const button =
+        $("#searchButton");
+
+    const box =
+        $("#searchBox");
+
+    const input =
+        $("#searchInput");
+
+    const submit =
+        $("#searchSubmit");
+
 
     if (button && box) {
 
-        button.addEventListener("click", function () {
+        button.addEventListener(
+            "click",
+            function () {
 
-            box.classList.toggle("active");
-            box.classList.toggle("open");
+                box.classList.toggle(
+                    "active"
+                );
 
-            if (
-                box.classList.contains("active") &&
-                input
-            ) {
+                box.classList.toggle(
+                    "open"
+                );
 
-                setTimeout(() => input.focus(), 100);
+
+                if (
+                    box.classList.contains(
+                        "active"
+                    ) &&
+                    input
+                ) {
+
+                    setTimeout(
+                        () => input.focus(),
+                        100
+                    );
+
+                }
 
             }
-
-        });
+        );
 
     }
+
 
     if (submit) {
-        submit.addEventListener("click", performSearch);
+
+        submit.addEventListener(
+            "click",
+            performSearch
+        );
+
     }
+
 
     if (input) {
 
-        input.addEventListener("keydown", function (event) {
+        input.addEventListener(
+            "keydown",
+            function (event) {
 
-            if (event.key === "Enter") {
+                if (
+                    event.key === "Enter"
+                ) {
 
-                event.preventDefault();
-                performSearch();
+                    event.preventDefault();
+
+                    performSearch();
+
+                }
 
             }
-
-        });
+        );
 
     }
 
 }
 
 
-window.searchNews = function () {
-    performSearch();
-};
+window.searchNews =
+    function () {
+
+        performSearch();
+
+    };
 
 
 /* =====================================================
    FILTER
 ===================================================== */
 
-window.filterPosts = function (category) {
+window.filterPosts =
+function (category) {
 
     category =
         String(category || "")
             .toLowerCase()
             .trim();
 
+
     let filtered;
+
+
+    /* ALL */
 
     if (
         category === "all" ||
@@ -1116,9 +1418,13 @@ window.filterPosts = function (category) {
         category === ""
     ) {
 
-        filtered = normalPosts();
+        filtered =
+            normalPosts();
 
     }
+
+
+    /* SPORTS */
 
     else if (
         category === "sports" ||
@@ -1126,9 +1432,14 @@ window.filterPosts = function (category) {
         category === "sports.html"
     ) {
 
-        filtered = normalPosts().filter(isSports);
+        filtered =
+            normalPosts()
+                .filter(isSports);
 
     }
+
+
+    /* MOVIES */
 
     else if (
         category === "movies" ||
@@ -1137,18 +1448,28 @@ window.filterPosts = function (category) {
         category === "movies.html"
     ) {
 
-        filtered = normalPosts().filter(isMovies);
+        filtered =
+            normalPosts()
+                .filter(isMovies);
 
     }
+
+
+    /* BUSINESS */
 
     else if (
         category === "business" ||
         category === "gold"
     ) {
 
-        filtered = normalPosts().filter(isBusiness);
+        filtered =
+            normalPosts()
+                .filter(isBusiness);
 
     }
+
+
+    /* AP + TS */
 
     else if (
         category === "apts" ||
@@ -1159,33 +1480,46 @@ window.filterPosts = function (category) {
     ) {
 
         filtered =
-            normalPosts().filter(function (post) {
+            normalPosts()
+                .filter(function (post) {
 
-                return (
-                    isAPNews(post) ||
-                    isTSNews(post)
-                );
+                    return (
+                        isAPNews(post) ||
+                        isTSNews(post)
+                    );
 
-            });
-
-    }
-
-    else if (category === "ap") {
-
-        filtered =
-            normalPosts().filter(isAPNews);
+                });
 
     }
+
+
+    /* AP */
 
     else if (
-        category === "ts" ||
-        category === "telangana"
+        category === "ap"
     ) {
 
         filtered =
-            normalPosts().filter(isTSNews);
+            normalPosts()
+                .filter(isAPNews);
 
     }
+
+
+    /* TS */
+
+    else if (
+        category === "ts"
+    ) {
+
+        filtered =
+            normalPosts()
+                .filter(isTSNews);
+
+    }
+
+
+    /* BIGG BOSS */
 
     else if (
         category === "bigboss10" ||
@@ -1193,32 +1527,50 @@ window.filterPosts = function (category) {
     ) {
 
         filtered =
-            allPosts.filter(isBigBoss);
+            allPosts
+                .filter(isBigBoss);
 
     }
+
+
+    /* OTHER */
 
     else {
 
         filtered =
-            normalPosts().filter(function (post) {
+            normalPosts()
+                .filter(function (post) {
 
-                return catsOf(post).includes(category);
+                    return catsOf(post)
+                        .includes(category);
 
-            });
+                });
 
     }
 
-    const hero = $("#topStory");
-    const sidebar = $("#latestSidebar");
+
+    const hero =
+        $("#topStory");
+
+    const sidebar =
+        $("#latestSidebar");
+
 
     if (!hero || !sidebar) return;
+
 
     if (!filtered.length) {
 
         hero.innerHTML = `
+
             <div class="no-results">
-                <h3>ఈ categoryలో వార్తలు లేవు</h3>
+
+                <h3>
+                    ఈ categoryలో వార్తలు లేవు
+                </h3>
+
             </div>
+
         `;
 
         sidebar.innerHTML = "";
@@ -1227,21 +1579,34 @@ window.filterPosts = function (category) {
 
     }
 
-    renderTopStory(filtered);
-    renderLatestSidebar(filtered.slice(1));
 
-    const section = $("#latestSection");
+    renderTopStory(filtered);
+
+    renderLatestSidebar(
+        filtered.slice(1)
+    );
+
+
+    const section =
+        $("#latestSection");
+
 
     if (section) {
 
-        setTimeout(function () {
+        setTimeout(
+            function () {
 
-            section.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+                section.scrollIntoView({
 
-        }, 50);
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            },
+            50
+        );
 
     }
 
@@ -1254,26 +1619,43 @@ window.filterPosts = function (category) {
 
 function setupMobileMenu() {
 
-    const toggle = $("#mobileMenuToggle");
-    const nav = $(".nav-links");
+    const toggle =
+        $("#mobileMenuToggle");
+
+    const nav =
+        $(".nav-links");
+
 
     if (!toggle || !nav) return;
 
-    toggle.addEventListener("click", function () {
 
-        nav.classList.toggle("mobile-open");
+    toggle.addEventListener(
+        "click",
+        function () {
 
-    });
+            nav.classList.toggle(
+                "mobile-open"
+            );
+
+        }
+    );
 
 }
 
 
-window.toggleMobileNav = function () {
+window.toggleMobileNav =
+function () {
 
-    const nav = $(".nav-links");
+    const nav =
+        $(".nav-links");
+
 
     if (nav) {
-        nav.classList.toggle("mobile-open");
+
+        nav.classList.toggle(
+            "mobile-open"
+        );
+
     }
 
 };
@@ -1283,23 +1665,40 @@ window.toggleMobileNav = function () {
    SEARCH TOGGLE
 ===================================================== */
 
-window.toggleSearch = function () {
+window.toggleSearch =
+function () {
 
-    const box = $("#searchBox");
+    const box =
+        $("#searchBox");
+
 
     if (!box) return;
 
-    box.classList.toggle("active");
-    box.classList.toggle("open");
 
-    const input = $("#searchInput");
+    box.classList.toggle(
+        "active"
+    );
+
+    box.classList.toggle(
+        "open"
+    );
+
+
+    const input =
+        $("#searchInput");
+
 
     if (
         input &&
-        box.classList.contains("active")
+        box.classList.contains(
+            "active"
+        )
     ) {
 
-        setTimeout(() => input.focus(), 100);
+        setTimeout(
+            () => input.focus(),
+            100
+        );
 
     }
 
@@ -1312,17 +1711,25 @@ window.toggleSearch = function () {
 
 function setupDarkMode() {
 
-    const button = $("#themeButton");
+    const button =
+        $("#themeButton");
+
 
     if (
-        localStorage.getItem("bs360-dark-mode") === "true"
+        localStorage.getItem(
+            "bs360-dark-mode"
+        ) === "true"
     ) {
 
-        document.body.classList.add("dark-mode");
+        document.body.classList.add(
+            "dark-mode"
+        );
 
     }
 
+
     updateThemeButton();
+
 
     if (button) {
 
@@ -1336,14 +1743,24 @@ function setupDarkMode() {
 }
 
 
-window.toggleTheme = function () {
+window.toggleTheme =
+function () {
 
-    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle(
+        "dark-mode"
+    );
+
 
     localStorage.setItem(
+
         "bs360-dark-mode",
-        document.body.classList.contains("dark-mode")
+
+        document.body.classList.contains(
+            "dark-mode"
+        )
+
     );
+
 
     updateThemeButton();
 
@@ -1352,14 +1769,22 @@ window.toggleTheme = function () {
 
 function updateThemeButton() {
 
-    const button = $("#themeButton");
+    const button =
+        $("#themeButton");
+
 
     if (!button) return;
 
+
     button.textContent =
-        document.body.classList.contains("dark-mode")
-            ? "☀️ Dark"
-            : "🌙 Dark";
+
+        document.body.classList.contains(
+            "dark-mode"
+        )
+
+        ? "☀️ Dark"
+
+        : "🌙 Dark";
 
 }
 
@@ -1374,15 +1799,25 @@ function setupDateTime() {
         $("#currentDate") ||
         $("#live-date");
 
+
     const timeElement =
         $("#currentTime") ||
         $("#live-clock");
 
-    if (!dateElement && !timeElement) return;
+
+    if (
+        !dateElement &&
+        !timeElement
+    ) {
+        return;
+    }
+
 
     function updateTime() {
 
-        const now = new Date();
+        const now =
+            new Date();
+
 
         if (dateElement) {
 
@@ -1398,6 +1833,7 @@ function setupDateTime() {
                 );
 
         }
+
 
         if (timeElement) {
 
@@ -1416,9 +1852,14 @@ function setupDateTime() {
 
     }
 
+
     updateTime();
 
-    setInterval(updateTime, 1000);
+
+    setInterval(
+        updateTime,
+        1000
+    );
 
 }
 
@@ -1427,28 +1868,39 @@ function setupDateTime() {
    SHARE
 ===================================================== */
 
-window.shareArticle = function (title, url) {
+window.shareArticle =
+function (title, url) {
 
     const data = {
+
         title: title,
+
         text: title,
+
         url: url
+
     };
+
 
     if (navigator.share) {
 
-        navigator.share(data).catch(() => {});
+        navigator.share(data)
+            .catch(() => {});
 
         return;
 
     }
 
+
     if (navigator.clipboard) {
 
-        navigator.clipboard.writeText(url)
+        navigator.clipboard
+            .writeText(url)
             .then(function () {
 
-                alert("Article link copied!");
+                alert(
+                    "Article link copied!"
+                );
 
             })
             .catch(function () {
@@ -1461,6 +1913,7 @@ window.shareArticle = function (title, url) {
 
     }
 
+
     alert(url);
 
 };
@@ -1472,36 +1925,57 @@ window.shareArticle = function (title, url) {
 
 function setupSliderButtons() {
 
-    const slider = $("#newsSlider");
+    const slider =
+        $("#newsSlider");
+
 
     if (!slider) return;
 
-    const previous = $("#sliderPrev");
-    const next = $("#sliderNext");
+
+    const previous =
+        $("#sliderPrev");
+
+
+    const next =
+        $("#sliderNext");
+
 
     if (previous) {
 
-        previous.addEventListener("click", function () {
+        previous.addEventListener(
+            "click",
+            function () {
 
-            slider.scrollBy({
-                left: -300,
-                behavior: "smooth"
-            });
+                slider.scrollBy({
 
-        });
+                    left: -300,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
 
     }
 
+
     if (next) {
 
-        next.addEventListener("click", function () {
+        next.addEventListener(
+            "click",
+            function () {
 
-            slider.scrollBy({
-                left: 300,
-                behavior: "smooth"
-            });
+                slider.scrollBy({
 
-        });
+                    left: 300,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
 
     }
 
@@ -1509,19 +1983,21 @@ function setupSliderButtons() {
 
 
 /* =====================================================
-   PREPARE
+   PREPARE ORIGINAL ARTICLES
 ===================================================== */
 
 function prepareOriginalArticles() {
 
-    allPosts.forEach(function (post) {
+    allPosts.forEach(
+        function (post) {
 
-        post.setAttribute(
-            "data-rendered",
-            "true"
-        );
+            post.setAttribute(
+                "data-rendered",
+                "true"
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -1555,29 +2031,70 @@ function initializePortal() {
 
     if (!checkPortal()) return;
 
+
     prepareOriginalArticles();
+
+
+    /* Latest */
 
     renderTopStory();
 
     renderLatestSidebar();
 
+
+    /* Bigg Boss */
+
     renderBigBoss();
+
+
+    /* AP + TS */
 
     renderSlider();
 
+
+    /* Movies */
+
     renderMovies();
+
+
+    /* Sports */
 
     renderSports();
 
+
+    /* Most Read */
+
     renderMostRead();
+
+
+    /* Search */
 
     setupSearch();
 
+
+    /* IMPORTANT:
+       setupCategoryFilter() removed
+       because that function does not exist
+       in this script.
+    */
+
+
+    /* Mobile */
+
     setupMobileMenu();
+
+
+    /* Dark */
 
     setupDarkMode();
 
+
+    /* Date / Time */
+
     setupDateTime();
+
+
+    /* AP + TS Buttons */
 
     setupSliderButtons();
 
@@ -1590,42 +2107,67 @@ initializePortal();
 
 
 /* =========================================================
-   MAIN NAVIGATION
-========================================================= */
+   MAIN NAVIGATION ACTIVE
+   ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const navLinks =
-        document.querySelectorAll(".main-nav a");
+        const navLinks =
+            document.querySelectorAll(
+                ".main-nav a"
+            );
 
-    if (!navLinks.length) return;
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .toLowerCase();
+        if (!navLinks.length) return;
 
-    navLinks.forEach(function (link) {
 
-        const linkPage =
-            link.getAttribute("href")
+        const currentPage =
+            window.location.pathname
                 .split("/")
                 .pop()
                 .toLowerCase();
 
-        if (
-            linkPage === currentPage ||
-            (
-                currentPage === "" &&
-                linkPage === "index.html"
-            )
-        ) {
 
-            link.classList.add("active");
+        navLinks.forEach(
+            function (link) {
 
-        }
+                const href =
+                    link.getAttribute("href");
 
-    });
 
-});
+                if (!href) return;
+
+
+                const linkPage =
+                    href
+                        .split("/")
+                        .pop()
+                        .toLowerCase();
+
+
+                if (
+
+                    linkPage === currentPage
+
+                    ||
+
+                    (
+                        currentPage === "" &&
+                        linkPage === "index.html"
+                    )
+
+                ) {
+
+                    link.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
