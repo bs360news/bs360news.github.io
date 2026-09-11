@@ -1,16 +1,16 @@
 /* =========================================================
    BS 360 NEWS
-   FINAL HOMEPAGE SCRIPT
-   ========================================================= */
+   HOMEPAGE FINAL SCRIPT
+   TOP NEWS + SCROLLING SECTIONS
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
 "use strict";
 
-
-/* =====================================================
+/* =========================================================
    HELPERS
-===================================================== */
+========================================================= */
 
 const $ = (selector, parent = document) =>
     parent.querySelector(selector);
@@ -19,42 +19,38 @@ const $$ = (selector, parent = document) =>
     Array.from(parent.querySelectorAll(selector));
 
 
-/* =====================================================
+/* =========================================================
    SOURCE POSTS
-===================================================== */
+========================================================= */
 
 function sourcePosts() {
 
     let posts = $$("#legacyNewsSource .post[data-url]");
 
-    if (!posts.length) {
+    if (!posts.length)
         posts = $$(".news-list .post[data-url]");
-    }
 
-    if (!posts.length) {
+    if (!posts.length)
         posts = $$(".news-item.post[data-url]");
-    }
 
-    if (!posts.length) {
+    if (!posts.length)
         posts = $$(".post[data-url]");
-    }
 
     return posts;
 }
 
-
 let allPosts = sourcePosts();
 
 
-/* =====================================================
+/* =========================================================
    UNIQUE POSTS
-===================================================== */
+========================================================= */
 
 function uniquePosts(posts) {
 
     const seen = new Set();
 
-    return posts.filter(function (post) {
+    return posts.filter(post => {
 
         const url =
             (post.getAttribute("data-url") || "").trim();
@@ -67,32 +63,28 @@ function uniquePosts(posts) {
             $("h3", post) ||
             $("p", post);
 
-        const title =
-            titleElement
-                ? titleElement.textContent.trim()
-                : "";
+        const title = titleElement
+            ? titleElement.textContent.trim()
+            : "";
 
         const key = url + "|" + title;
 
-        if (seen.has(key)) {
+        if (seen.has(key))
             return false;
-        }
 
         seen.add(key);
 
         return true;
 
     });
-
 }
-
 
 allPosts = uniquePosts(allPosts);
 
 
-/* =====================================================
+/* =========================================================
    CATEGORY
-===================================================== */
+========================================================= */
 
 function catsOf(post) {
 
@@ -105,13 +97,12 @@ function catsOf(post) {
     )
     .toLowerCase()
     .trim();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BIGG BOSS
-===================================================== */
+========================================================= */
 
 function isBigBoss(post) {
 
@@ -126,22 +117,18 @@ function isBigBoss(post) {
         value.includes("బిగ్ బాస్ 10") ||
         value.includes("బిగ్‌బాస్ 10")
     );
-
 }
-
 
 function normalPosts() {
 
-    return allPosts.filter(function (post) {
-        return !isBigBoss(post);
-    });
+    return allPosts.filter(post => !isBigBoss(post));
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SPORTS
-===================================================== */
+========================================================= */
 
 function isSports(post) {
 
@@ -153,13 +140,12 @@ function isSports(post) {
         value.includes("cricket") ||
         value.includes("ipl")
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    MOVIES
-===================================================== */
+========================================================= */
 
 function isMovies(post) {
 
@@ -173,13 +159,12 @@ function isMovies(post) {
         value.includes("tollywood") ||
         value.includes("సినిమా")
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BUSINESS
-===================================================== */
+========================================================= */
 
 function isBusiness(post) {
 
@@ -191,13 +176,12 @@ function isBusiness(post) {
         /\bfinance\b/.test(value) ||
         value.includes("బిజినెస్")
     );
-
 }
 
 
-/* =====================================================
-   ANDHRA PRADESH
-===================================================== */
+/* =========================================================
+   AP
+========================================================= */
 
 function isAPNews(post) {
 
@@ -214,13 +198,12 @@ function isAPNews(post) {
         value.includes("ఆంధ్రప్రదేశ్") ||
         value.includes("ఆంధ్ర ప్రదేశ్")
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    TELANGANA
-===================================================== */
+========================================================= */
 
 function isTSNews(post) {
 
@@ -236,13 +219,12 @@ function isTSNews(post) {
         value.includes("tsnews") ||
         value.includes("తెలంగాణ")
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    TITLE
-===================================================== */
+========================================================= */
 
 function titleOf(post) {
 
@@ -252,27 +234,26 @@ function titleOf(post) {
         $("h1", post) ||
         $("h2", post) ||
         $("h3", post) ||
+        $(".news-content p", post) ||
         $("p", post) ||
         $("a", post);
 
     return element
         ? element.textContent.replace(/\s+/g, " ").trim()
         : "BS 360 NEWS";
-
 }
 
 
-/* =====================================================
+/* =========================================================
    IMAGE
-===================================================== */
+========================================================= */
 
 function imageOf(post) {
 
     const image = $("img", post);
 
-    if (!image) {
+    if (!image)
         return "dp.png.png";
-    }
 
     return (
         image.getAttribute("src") ||
@@ -280,13 +261,12 @@ function imageOf(post) {
         image.getAttribute("data-lazy-src") ||
         "dp.png.png"
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    ALT
-===================================================== */
+========================================================= */
 
 function altOf(post) {
 
@@ -295,31 +275,12 @@ function altOf(post) {
     return image
         ? image.getAttribute("alt") || titleOf(post)
         : titleOf(post);
-
 }
 
 
-/* =====================================================
-   LABEL
-===================================================== */
-
-function labelOf(post) {
-
-    if (isBigBoss(post)) return "BIGG BOSS 10";
-    if (isSports(post)) return "SPORTS";
-    if (isMovies(post)) return "CINEMA";
-    if (isBusiness(post)) return "BUSINESS";
-    if (isAPNews(post)) return "ANDHRA PRADESH";
-    if (isTSNews(post)) return "TELANGANA";
-
-    return "LATEST";
-
-}
-
-
-/* =====================================================
+/* =========================================================
    URL
-===================================================== */
+========================================================= */
 
 function articleUrl(post) {
 
@@ -328,7 +289,6 @@ function articleUrl(post) {
         post.querySelector("a")?.getAttribute("href") ||
         "#"
     );
-
 }
 
 
@@ -341,17 +301,14 @@ function openPost(post) {
         url !== "#" &&
         url !== "javascript:void(0)"
     ) {
-
         window.location.href = url;
-
     }
-
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* =========================================================
+   ESCAPE
+========================================================= */
 
 function escapeHTML(value) {
 
@@ -361,13 +318,40 @@ function escapeHTML(value) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-
 }
 
 
-/* =====================================================
-   CARD
-===================================================== */
+/* =========================================================
+   LABEL
+========================================================= */
+
+function labelOf(post) {
+
+    if (isBigBoss(post))
+        return "BIGG BOSS 10";
+
+    if (isSports(post))
+        return "SPORTS";
+
+    if (isMovies(post))
+        return "CINEMA";
+
+    if (isBusiness(post))
+        return "BUSINESS";
+
+    if (isAPNews(post))
+        return "AP";
+
+    if (isTSNews(post))
+        return "TELANGANA";
+
+    return "LATEST";
+}
+
+
+/* =========================================================
+   CREATE CARD
+========================================================= */
 
 function createCard(
     post,
@@ -375,7 +359,8 @@ function createCard(
     customLabel = null
 ) {
 
-    const card = document.createElement("article");
+    const card =
+        document.createElement("article");
 
     card.className =
         "portal-card " + type + "-card";
@@ -396,7 +381,9 @@ function createCard(
         <div class="portal-card-body">
 
             <span class="portal-tag">
-                ${escapeHTML(customLabel || labelOf(post))}
+                ${escapeHTML(
+                    customLabel || labelOf(post)
+                )}
             </span>
 
             <h3>
@@ -407,67 +394,175 @@ function createCard(
 
     `;
 
-    card.addEventListener("click", function () {
-        openPost(post);
-    });
+    card.addEventListener(
+        "click",
+        () => openPost(post)
+    );
 
     return card;
-
 }
 
 
-/* =====================================================
-   HERO / LATEST TOP STORY DESIGN
-===================================================== */
+/* =========================================================
+   CREATE TOP NEWS SECTION
+========================================================= */
 
-function renderTopStory(posts = normalPosts()) {
+function createTopNewsSection() {
 
-    const target = $("#topStory");
+    if ($("#topNewsSection"))
+        return $("#topNewsSection");
 
-    if (!target) return;
+    const section =
+        document.createElement("section");
 
-    posts = posts.filter(function (post) {
-        return articleUrl(post) !== "#";
-    });
+    section.id = "topNewsSection";
+    section.className = "top-news-section";
 
-    if (!posts.length) {
+    section.innerHTML = `
 
-        target.innerHTML = "";
+        <div class="top-news-heading">
 
-        return;
+            <div>
+                <h2>🔥 TOP NEWS</h2>
+                <span>తాజా ముఖ్య వార్తలు</span>
+            </div>
+
+        </div>
+
+        <div class="top-news-layout">
+
+            <div
+                class="top-news-main"
+                id="topNewsMain"
+            ></div>
+
+            <div class="top-news-side-window">
+
+                <div
+                    class="top-news-side-track"
+                    id="topNewsSideTrack"
+                ></div>
+
+            </div>
+
+        </div>
+
+    `;
+
+    const latestSection =
+        $("#latestSection");
+
+    if (latestSection) {
+
+        latestSection.parentNode.insertBefore(
+            section,
+            latestSection
+        );
 
     }
 
-    let heroIndex = 0;
+    return section;
+}
 
-    function showHero(index) {
 
-        const post = posts[index];
+/* =========================================================
+   TOP NEWS
+========================================================= */
 
-        if (!post) return;
+let topNewsTimer = null;
 
-        const hero =
-            document.createElement("article");
+function renderTopNews(posts = normalPosts()) {
 
-        hero.className =
-            "portal-card hero-card hero-overlay-card hero-enter";
+    const section =
+        createTopNewsSection();
 
-        hero.innerHTML = `
+    const main =
+        $("#topNewsMain");
 
-            <div class="hero-media">
+    const track =
+        $("#topNewsSideTrack");
 
-                <img
-                    src="${escapeHTML(imageOf(post))}"
-                    alt="${escapeHTML(altOf(post))}"
-                    loading="eager"
-                    onerror="this.onerror=null;this.src='dp.png.png';"
-                >
+    if (!main || !track)
+        return;
 
-                <div class="hero-shade"></div>
+    posts = posts
+        .filter(post => articleUrl(post) !== "#")
+        .filter(post => !isBigBoss(post))
+        .slice(0, 8);
 
-                <div class="hero-overlay">
+    if (!posts.length)
+        return;
 
-                    <span class="hero-tag">
+    main.innerHTML = "";
+    track.innerHTML = "";
+
+    const mainPost = posts[0];
+
+    const hero =
+        document.createElement("article");
+
+    hero.className =
+        "top-news-main-card";
+
+    hero.innerHTML = `
+
+        <img
+            src="${escapeHTML(imageOf(mainPost))}"
+            alt="${escapeHTML(altOf(mainPost))}"
+            onerror="this.onerror=null;this.src='dp.png.png';"
+        >
+
+        <div class="top-news-main-overlay">
+
+            <span>TOP NEWS</span>
+
+            <h2>
+                ${escapeHTML(titleOf(mainPost))}
+            </h2>
+
+            <small>
+                სრული వార్త చదవండి →
+            </small>
+
+        </div>
+
+    `;
+
+    hero.addEventListener(
+        "click",
+        () => openPost(mainPost)
+    );
+
+    main.appendChild(hero);
+
+
+    /* SIDE NEWS */
+
+    posts.slice(1, 6).forEach(
+        function (post) {
+
+            const item =
+                document.createElement("article");
+
+            item.className =
+                "top-news-side-card";
+
+            item.innerHTML = `
+
+                <div class="top-news-side-image">
+
+                    <img
+                        src="${escapeHTML(imageOf(post))}"
+                        alt="${escapeHTML(altOf(post))}"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='dp.png.png';"
+                    >
+
+                </div>
+
+                <div class="top-news-side-content">
+
+                    <span>
                         ${escapeHTML(labelOf(post))}
                     </span>
 
@@ -475,182 +570,179 @@ function renderTopStory(posts = normalPosts()) {
                         ${escapeHTML(titleOf(post))}
                     </h3>
 
-                    <span class="hero-read">
-                        పూర్తి వార్త చదవండి →
-                    </span>
-
                 </div>
 
-            </div>
+            `;
 
-        `;
+            item.addEventListener(
+                "click",
+                () => openPost(post)
+            );
 
-        hero.addEventListener("click", function () {
-            openPost(post);
-        });
+            track.appendChild(item);
 
-        target.innerHTML = "";
-
-        target.appendChild(hero);
-
-    }
+        }
+    );
 
 
-    showHero(heroIndex);
-
-
-    if (
-        posts.length > 1 &&
-        !target.dataset.heroStarted
-    ) {
-
-        target.dataset.heroStarted = "true";
-
-        setInterval(function () {
-
-            heroIndex++;
-
-            if (heroIndex >= posts.length) {
-                heroIndex = 0;
-            }
-
-            showHero(heroIndex);
-
-        }, 5000);
-
-    }
-
+    startTopNewsScroll();
 }
 
 
-/* =====================================================
-   LATEST SIDEBAR
-===================================================== */
+/* =========================================================
+   TOP NEWS VERTICAL AUTO SCROLL
+========================================================= */
 
-function renderLatestSidebar(
-    posts = normalPosts()
-) {
+function startTopNewsScroll() {
 
-    const target = $("#latestSidebar");
+    const container =
+        $(".top-news-side-window");
 
-    if (!target) return;
+    const track =
+        $("#topNewsSideTrack");
 
-    target.innerHTML = "";
-
-    posts.slice(0, 12).forEach(function (post) {
-
-        const item =
-            document.createElement("article");
-
-        item.className = "sidebar-card";
-
-        item.innerHTML = `
-
-            <div class="sidebar-thumb">
-
-                <img
-                    src="${escapeHTML(imageOf(post))}"
-                    alt="${escapeHTML(altOf(post))}"
-                    loading="lazy"
-                    onerror="this.onerror=null;this.src='dp.png.png';"
-                >
-
-            </div>
-
-            <div class="sidebar-content">
-
-                <span class="portal-tag">
-                    ${escapeHTML(labelOf(post))}
-                </span>
-
-                <h3>
-                    ${escapeHTML(titleOf(post))}
-                </h3>
-
-            </div>
-
-        `;
-
-        item.addEventListener("click", function () {
-            openPost(post);
-        });
-
-        target.appendChild(item);
-
-    });
-
-    startSidebarAutoScroll(target);
-
-}
-
-
-/* =====================================================
-   SIDEBAR AUTO SCROLL
-===================================================== */
-
-function startSidebarAutoScroll(element) {
-
-    if (!element) return;
-
-    if (
-        element.dataset.sidebarScrollStarted === "true"
-    ) {
+    if (!container || !track)
         return;
-    }
 
-    element.dataset.sidebarScrollStarted = "true";
+    if (topNewsTimer)
+        clearInterval(topNewsTimer);
 
     let paused = false;
 
-    element.addEventListener(
-        "mouseenter",
-        () => paused = true
-    );
+    container.onmouseenter = () => {
+        paused = true;
+    };
 
-    element.addEventListener(
-        "mouseleave",
-        () => paused = false
-    );
+    container.onmouseleave = () => {
+        paused = false;
+    };
 
-    setInterval(function () {
+    topNewsTimer =
+        setInterval(function () {
 
-        if (paused) return;
+            if (paused)
+                return;
 
-        const maxScroll =
-            element.scrollHeight -
-            element.clientHeight;
+            if (
+                window.innerWidth <= 768
+            ) {
+                return;
+            }
 
-        if (maxScroll <= 10) return;
+            const max =
+                container.scrollHeight -
+                container.clientHeight;
 
-        const next =
-            element.scrollTop + 90;
+            if (max <= 5)
+                return;
 
-        element.scrollTo({
+            const item =
+                track.querySelector(
+                    ".top-news-side-card"
+                );
 
-            top:
-                next >= maxScroll
-                    ? 0
-                    : next,
+            const distance =
+                item
+                    ? item.offsetHeight + 10
+                    : 90;
 
-            behavior: "smooth"
+            if (
+                container.scrollTop >=
+                max - 5
+            ) {
 
-        });
+                container.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
-    }, 2600);
+            } else {
 
+                container.scrollBy({
+                    top: distance,
+                    behavior: "smooth"
+                });
+
+            }
+
+        }, 5000);
 }
 
 
-/* =====================================================
+/* =========================================================
+   LATEST NEWS
+========================================================= */
+
+function renderLatestNews() {
+
+    const oldSection =
+        $("#latestSection");
+
+    if (!oldSection)
+        return;
+
+    oldSection.className =
+        "latest-news-section";
+
+    oldSection.innerHTML = `
+
+        <div class="section-title-row">
+
+            <h2>📰 Latest News</h2>
+
+            <span>
+                తాజా వార్తలు
+            </span>
+
+        </div>
+
+        <div
+            class="latest-news-slider"
+            id="latestNewsSlider"
+        ></div>
+
+    `;
+
+    const slider =
+        $("#latestNewsSlider");
+
+    const posts =
+        normalPosts()
+            .slice(0, 12);
+
+    posts.forEach(function (post) {
+
+        slider.appendChild(
+            createCard(
+                post,
+                "latest"
+            )
+        );
+
+    });
+
+    setupHorizontalAutoScroll(
+        slider,
+        305,
+        4000
+    );
+}
+
+
+/* =========================================================
    BIGG BOSS
-===================================================== */
+========================================================= */
 
 function renderBigBoss() {
 
-    const track = $("#bigbossTrack");
-    const slider = $("#bigbossSlider");
+    const track =
+        $("#bigbossTrack");
 
-    if (!track || !slider) return;
+    const slider =
+        $("#bigbossSlider");
+
+    if (!track || !slider)
+        return;
 
     track.innerHTML = "";
 
@@ -664,12 +756,8 @@ function renderBigBoss() {
         const card =
             document.createElement("article");
 
-        card.className = "bigboss-card";
-
-        card.setAttribute(
-            "tabindex",
-            "0"
-        );
+        card.className =
+            "bigboss-card";
 
         card.innerHTML = `
 
@@ -703,29 +791,26 @@ function renderBigBoss() {
 
     });
 
-
-    if (!posts.length) return;
+    if (!posts.length)
+        return;
 
     setupBigBossAutoScroll(slider);
-
     setupBigBossButtons(slider);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BIGG BOSS AUTO SCROLL
-===================================================== */
+========================================================= */
 
 function setupBigBossAutoScroll(container) {
 
     if (
-        container.dataset.bigbossAutoScrollStarted === "true"
-    ) {
+        container.dataset.started === "true"
+    )
         return;
-    }
 
-    container.dataset.bigbossAutoScrollStarted = "true";
+    container.dataset.started = "true";
 
     let paused = false;
 
@@ -741,16 +826,19 @@ function setupBigBossAutoScroll(container) {
 
     setInterval(function () {
 
-        if (paused) return;
+        if (paused)
+            return;
 
         const max =
             container.scrollWidth -
             container.clientWidth;
 
-        if (max <= 5) return;
+        if (max <= 5)
+            return;
 
         if (
-            container.scrollLeft >= max - 10
+            container.scrollLeft >=
+            max - 10
         ) {
 
             container.scrollTo({
@@ -761,42 +849,37 @@ function setupBigBossAutoScroll(container) {
         } else {
 
             container.scrollBy({
-                left: 264,
+                left: 260,
                 behavior: "smooth"
             });
 
         }
 
     }, 5000);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BIGG BOSS BUTTONS
-===================================================== */
+========================================================= */
 
 function setupBigBossButtons(slider) {
 
-    const previous =
+    const prev =
         $(".bigboss-prev");
 
     const next =
         $(".bigboss-next");
 
+    if (prev) {
 
-    if (previous) {
-
-        previous.addEventListener(
+        prev.addEventListener(
             "click",
-            function () {
+            () => {
 
                 slider.scrollBy({
-
-                    left: -264,
-
+                    left: -260,
                     behavior: "smooth"
-
                 });
 
             }
@@ -804,37 +887,31 @@ function setupBigBossButtons(slider) {
 
     }
 
-
     if (next) {
 
         next.addEventListener(
             "click",
-            function () {
+            () => {
 
                 const max =
                     slider.scrollWidth -
                     slider.clientWidth;
 
                 if (
-                    slider.scrollLeft >= max - 10
+                    slider.scrollLeft >=
+                    max - 10
                 ) {
 
                     slider.scrollTo({
-
                         left: 0,
-
                         behavior: "smooth"
-
                     });
 
                 } else {
 
                     slider.scrollBy({
-
-                        left: 264,
-
+                        left: 260,
                         behavior: "smooth"
-
                     });
 
                 }
@@ -843,13 +920,12 @@ function setupBigBossButtons(slider) {
         );
 
     }
-
 }
 
 
-/* =====================================================
-   AP + TS NEWS
-===================================================== */
+/* =========================================================
+   AP + TS
+========================================================= */
 
 function renderSlider() {
 
@@ -859,36 +935,28 @@ function renderSlider() {
     const container =
         $("#newsSlider");
 
-    if (!track) return;
+    if (!track)
+        return;
 
     track.innerHTML = "";
 
-
     const posts =
         normalPosts()
-            .filter(function (post) {
-
-                return (
-                    isAPNews(post) ||
-                    isTSNews(post)
-                );
-
-            })
+            .filter(post =>
+                isAPNews(post) ||
+                isTSNews(post)
+            )
             .slice(0, 15);
-
 
     posts.forEach(function (post) {
 
-        let label = "News";
+        let label = "NEWS";
 
-        if (isAPNews(post)) {
-            label = "AP News";
-        }
+        if (isAPNews(post))
+            label = "AP NEWS";
 
-        if (isTSNews(post)) {
-            label = "TS News";
-        }
-
+        if (isTSNews(post))
+            label = "TS NEWS";
 
         track.appendChild(
             createCard(
@@ -900,161 +968,184 @@ function renderSlider() {
 
     });
 
-
     setupHorizontalAutoScroll(
         container,
-        280,
-        3000
+        270,
+        3500
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
+   BUSINESS
+========================================================= */
+
+function createBusinessSection() {
+
+    if ($("#businessSection"))
+        return;
+
+    const section =
+        document.createElement("section");
+
+    section.id =
+        "businessSection";
+
+    section.className =
+        "category-section custom-business-section";
+
+    section.innerHTML = `
+
+        <div class="section-title-row">
+
+            <h2>💰 Business</h2>
+
+            <span>
+                బిజినెస్ వార్తలు
+            </span>
+
+        </div>
+
+        <div
+            class="horizontal-carousel"
+            id="businessGrid"
+        ></div>
+
+    `;
+
+    const cinema =
+        $("#cinemaSection");
+
+    if (cinema) {
+
+        cinema.parentNode.insertBefore(
+            section,
+            cinema
+        );
+
+    }
+
+    const grid =
+        $("#businessGrid");
+
+    normalPosts()
+        .filter(isBusiness)
+        .slice(0, 12)
+        .forEach(post => {
+
+            grid.appendChild(
+                createCard(
+                    post,
+                    "category",
+                    "BUSINESS"
+                )
+            );
+
+        });
+
+    setupHorizontalAutoScroll(
+        grid,
+        285,
+        3500
+    );
+}
+
+
+/* =========================================================
    MOVIES
-===================================================== */
+========================================================= */
 
 function renderMovies() {
 
     const target =
         $("#cinemaGrid");
 
-    if (!target) return;
+    if (!target)
+        return;
 
     target.innerHTML = "";
 
+    normalPosts()
+        .filter(isMovies)
+        .slice(0, 12)
+        .forEach(post => {
 
-    const posts =
-        normalPosts()
-            .filter(isMovies)
-            .slice(0, 12);
+            target.appendChild(
+                createCard(
+                    post,
+                    "category",
+                    "CINEMA"
+                )
+            );
 
-
-    posts.forEach(function (post) {
-
-        target.appendChild(
-            createCard(
-                post,
-                "category",
-                "CINEMA"
-            )
-        );
-
-    });
-
+        });
 
     setupHorizontalAutoScroll(
         target,
-        300,
-        3400
+        285,
+        3500
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    SPORTS
-===================================================== */
+========================================================= */
 
 function renderSports() {
 
     const target =
         $("#sportsGrid");
 
-    if (!target) return;
+    if (!target)
+        return;
 
     target.innerHTML = "";
 
+    normalPosts()
+        .filter(isSports)
+        .slice(0, 12)
+        .forEach(post => {
 
-    const posts =
-        normalPosts()
-            .filter(isSports)
-            .slice(0, 12);
+            target.appendChild(
+                createCard(
+                    post,
+                    "sports",
+                    "SPORTS"
+                )
+            );
 
-
-    posts.forEach(function (post) {
-
-        target.appendChild(
-            createCard(
-                post,
-                "sports",
-                "SPORTS"
-            )
-        );
-
-    });
-
+        });
 
     setupHorizontalAutoScroll(
         target,
         300,
         3500
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HORIZONTAL AUTO SCROLL
-===================================================== */
+========================================================= */
 
 function setupHorizontalAutoScroll(
     container,
     distance = 280,
-    interval = 3000
+    interval = 3500
 ) {
 
-    if (!container) return;
+    if (!container)
+        return;
 
     if (
-        container.dataset.autoScrollStarted === "true"
-    ) {
+        container.dataset.autoStarted === "true"
+    )
         return;
-    }
 
-    container.dataset.autoScrollStarted = "true";
-
-
-    /* Container */
-
-    container.style.display = "flex";
-
-    container.style.flexDirection =
-        "row";
-
-    container.style.flexWrap =
-        "nowrap";
-
-    container.style.overflowX =
-        "auto";
-
-    container.style.overflowY =
-        "hidden";
-
-    container.style.scrollBehavior =
-        "smooth";
-
-
-    /* Cards */
-
-    Array.from(
-        container.children
-    ).forEach(function (card) {
-
-        card.style.flex =
-            "0 0 300px";
-
-        card.style.minWidth =
-            "300px";
-
-        card.style.width =
-            "300px";
-
-    });
-
+    container.dataset.autoStarted = "true";
 
     let paused = false;
-
 
     container.addEventListener(
         "mouseenter",
@@ -1066,209 +1157,160 @@ function setupHorizontalAutoScroll(
         () => paused = false
     );
 
-
     setInterval(function () {
 
-        if (paused) return;
-
+        if (paused)
+            return;
 
         const max =
             container.scrollWidth -
             container.clientWidth;
 
-
-        if (max <= 5) return;
-
+        if (max <= 5)
+            return;
 
         if (
-            container.scrollLeft >= max - 10
+            container.scrollLeft >=
+            max - 10
         ) {
 
             container.scrollTo({
-
                 left: 0,
-
                 behavior: "smooth"
-
             });
 
         } else {
 
             container.scrollBy({
-
                 left: distance,
-
                 behavior: "smooth"
-
             });
 
         }
 
     }, interval);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    MOST READ
-===================================================== */
+========================================================= */
 
 function renderMostRead() {
 
     const target =
         $("#mostReadList");
 
-    if (!target) return;
+    if (!target)
+        return;
 
     target.innerHTML = "";
 
+    normalPosts()
+        .slice(0, 12)
+        .forEach(function (post) {
 
-    const posts =
-        normalPosts().slice(0, 60);
+            const item =
+                document.createElement("article");
 
+            item.className =
+                "most-read-item";
 
-    posts.forEach(function (
-        post,
-        index
-    ) {
+            item.innerHTML = `
 
-        const item =
-            document.createElement("article");
+                <div class="most-read-image">
 
+                    <img
+                        src="${escapeHTML(imageOf(post))}"
+                        alt="${escapeHTML(altOf(post))}"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='dp.png.png';"
+                    >
 
-        item.className =
-            "most-read-item";
+                </div>
 
+                <div class="most-read-text">
 
-        item.setAttribute(
-            "tabindex",
-            "0"
-        );
+                    <span class="portal-tag">
+                        ${escapeHTML(labelOf(post))}
+                    </span>
 
+                    <h3>
+                        ${escapeHTML(titleOf(post))}
+                    </h3>
 
-        item.innerHTML = `
+                </div>
 
-            <div class="most-number">
-                ${String(index + 1).padStart(2, "0")}
-            </div>
+            `;
 
-            <div class="most-read-image">
+            item.addEventListener(
+                "click",
+                () => openPost(post)
+            );
 
-                <img
-                    src="${escapeHTML(imageOf(post))}"
-                    alt="${escapeHTML(altOf(post))}"
-                    loading="lazy"
-                    onerror="this.onerror=null;this.src='dp.png.png';"
-                >
+            target.appendChild(item);
 
-            </div>
-
-            <div class="most-read-text">
-
-                <span class="portal-tag">
-                    ${escapeHTML(labelOf(post))}
-                </span>
-
-                <h3>
-                    ${escapeHTML(titleOf(post))}
-                </h3>
-
-            </div>
-
-        `;
-
-
-        item.addEventListener(
-            "click",
-            () => openPost(post)
-        );
-
-
-        target.appendChild(item);
-
-    });
-
+        });
 }
 
 
-/* =====================================================
+/* =========================================================
    SEARCH
-===================================================== */
+========================================================= */
 
 function performSearch() {
 
     const input =
         $("#searchInput");
 
-    if (!input) return;
-
+    if (!input)
+        return;
 
     const query =
         input.value
             .trim()
             .toLowerCase();
 
-
     if (!query) {
 
-        renderTopStory();
-
-        renderLatestSidebar();
+        renderTopNews();
+        renderLatestNews();
 
         return;
-
     }
-
 
     const matched =
         normalPosts()
-            .filter(function (post) {
-
-                return (
-
-                    titleOf(post)
-                        .toLowerCase()
-                        .includes(query)
-
-                    ||
-
-                    catsOf(post)
-                        .includes(query)
-
-                );
-
-            });
-
+            .filter(post =>
+                titleOf(post)
+                    .toLowerCase()
+                    .includes(query)
+                ||
+                catsOf(post)
+                    .includes(query)
+            );
 
     renderSearchResults(matched);
-
 }
 
 
-/* =====================================================
-   SEARCH RESULTS
-===================================================== */
-
 function renderSearchResults(posts) {
 
-    const target =
-        $("#latestSidebar");
+    const main =
+        $("#topNewsMain");
 
-    const heroTarget =
-        $("#topStory");
+    const track =
+        $("#topNewsSideTrack");
 
+    if (!main || !track)
+        return;
 
-    if (!target || !heroTarget) return;
-
-
-    target.innerHTML = "";
-
-    heroTarget.innerHTML = "";
-
+    main.innerHTML = "";
+    track.innerHTML = "";
 
     if (!posts.length) {
 
-        heroTarget.innerHTML = `
+        main.innerHTML = `
 
             <div class="no-results">
 
@@ -1285,22 +1327,15 @@ function renderSearchResults(posts) {
         `;
 
         return;
-
     }
 
-
-    renderTopStory(posts);
-
-    renderLatestSidebar(
-        posts.slice(1)
-    );
-
+    renderTopNews(posts);
 }
 
 
-/* =====================================================
+/* =========================================================
    SEARCH SETUP
-===================================================== */
+========================================================= */
 
 function setupSearch() {
 
@@ -1316,26 +1351,17 @@ function setupSearch() {
     const submit =
         $("#searchSubmit");
 
-
     if (button && box) {
 
         button.addEventListener(
             "click",
             function () {
 
-                box.classList.toggle(
-                    "active"
-                );
-
-                box.classList.toggle(
-                    "open"
-                );
-
+                box.classList.toggle("active");
+                box.classList.toggle("open");
 
                 if (
-                    box.classList.contains(
-                        "active"
-                    ) &&
+                    box.classList.contains("active") &&
                     input
                 ) {
 
@@ -1351,26 +1377,19 @@ function setupSearch() {
 
     }
 
-
-    if (submit) {
-
+    if (submit)
         submit.addEventListener(
             "click",
             performSearch
         );
 
-    }
-
-
     if (input) {
 
         input.addEventListener(
             "keydown",
-            function (event) {
+            event => {
 
-                if (
-                    event.key === "Enter"
-                ) {
+                if (event.key === "Enter") {
 
                     event.preventDefault();
 
@@ -1382,240 +1401,15 @@ function setupSearch() {
         );
 
     }
-
 }
 
-
 window.searchNews =
-    function () {
+    performSearch;
 
-        performSearch();
 
-    };
-
-
-/* =====================================================
-   FILTER
-===================================================== */
-
-window.filterPosts =
-function (category) {
-
-    category =
-        String(category || "")
-            .toLowerCase()
-            .trim();
-
-
-    let filtered;
-
-
-    /* ALL */
-
-    if (
-        category === "all" ||
-        category === "news" ||
-        category === ""
-    ) {
-
-        filtered =
-            normalPosts();
-
-    }
-
-
-    /* SPORTS */
-
-    else if (
-        category === "sports" ||
-        category === "sport" ||
-        category === "sports.html"
-    ) {
-
-        filtered =
-            normalPosts()
-                .filter(isSports);
-
-    }
-
-
-    /* MOVIES */
-
-    else if (
-        category === "movies" ||
-        category === "movie" ||
-        category === "cinema" ||
-        category === "movies.html"
-    ) {
-
-        filtered =
-            normalPosts()
-                .filter(isMovies);
-
-    }
-
-
-    /* BUSINESS */
-
-    else if (
-        category === "business" ||
-        category === "gold"
-    ) {
-
-        filtered =
-            normalPosts()
-                .filter(isBusiness);
-
-    }
-
-
-    /* AP + TS */
-
-    else if (
-        category === "apts" ||
-        category === "ap&ts" ||
-        category === "ap&ts.html" ||
-        category === "ap-ts" ||
-        category === "ap-ts.html"
-    ) {
-
-        filtered =
-            normalPosts()
-                .filter(function (post) {
-
-                    return (
-                        isAPNews(post) ||
-                        isTSNews(post)
-                    );
-
-                });
-
-    }
-
-
-    /* AP */
-
-    else if (
-        category === "ap"
-    ) {
-
-        filtered =
-            normalPosts()
-                .filter(isAPNews);
-
-    }
-
-
-    /* TS */
-
-    else if (
-        category === "ts"
-    ) {
-
-        filtered =
-            normalPosts()
-                .filter(isTSNews);
-
-    }
-
-
-    /* BIGG BOSS */
-
-    else if (
-        category === "bigboss10" ||
-        category === "bigg boss 10"
-    ) {
-
-        filtered =
-            allPosts
-                .filter(isBigBoss);
-
-    }
-
-
-    /* OTHER */
-
-    else {
-
-        filtered =
-            normalPosts()
-                .filter(function (post) {
-
-                    return catsOf(post)
-                        .includes(category);
-
-                });
-
-    }
-
-
-    const hero =
-        $("#topStory");
-
-    const sidebar =
-        $("#latestSidebar");
-
-
-    if (!hero || !sidebar) return;
-
-
-    if (!filtered.length) {
-
-        hero.innerHTML = `
-
-            <div class="no-results">
-
-                <h3>
-                    ఈ categoryలో వార్తలు లేవు
-                </h3>
-
-            </div>
-
-        `;
-
-        sidebar.innerHTML = "";
-
-        return;
-
-    }
-
-
-    renderTopStory(filtered);
-
-    renderLatestSidebar(
-        filtered.slice(1)
-    );
-
-
-    const section =
-        $("#latestSection");
-
-
-    if (section) {
-
-        setTimeout(
-            function () {
-
-                section.scrollIntoView({
-
-                    behavior: "smooth",
-
-                    block: "start"
-
-                });
-
-            },
-            50
-        );
-
-    }
-
-};
-
-
-/* =====================================================
+/* =========================================================
    MOBILE MENU
-===================================================== */
+========================================================= */
 
 function setupMobileMenu() {
 
@@ -1625,13 +1419,12 @@ function setupMobileMenu() {
     const nav =
         $(".nav-links");
 
-
-    if (!toggle || !nav) return;
-
+    if (!toggle || !nav)
+        return;
 
     toggle.addEventListener(
         "click",
-        function () {
+        () => {
 
             nav.classList.toggle(
                 "mobile-open"
@@ -1639,9 +1432,7 @@ function setupMobileMenu() {
 
         }
     );
-
 }
-
 
 window.toggleMobileNav =
 function () {
@@ -1649,71 +1440,22 @@ function () {
     const nav =
         $(".nav-links");
 
-
-    if (nav) {
-
+    if (nav)
         nav.classList.toggle(
             "mobile-open"
         );
 
-    }
-
 };
 
 
-/* =====================================================
-   SEARCH TOGGLE
-===================================================== */
-
-window.toggleSearch =
-function () {
-
-    const box =
-        $("#searchBox");
-
-
-    if (!box) return;
-
-
-    box.classList.toggle(
-        "active"
-    );
-
-    box.classList.toggle(
-        "open"
-    );
-
-
-    const input =
-        $("#searchInput");
-
-
-    if (
-        input &&
-        box.classList.contains(
-            "active"
-        )
-    ) {
-
-        setTimeout(
-            () => input.focus(),
-            100
-        );
-
-    }
-
-};
-
-
-/* =====================================================
+/* =========================================================
    DARK MODE
-===================================================== */
+========================================================= */
 
 function setupDarkMode() {
 
     const button =
         $("#themeButton");
-
 
     if (
         localStorage.getItem(
@@ -1727,9 +1469,7 @@ function setupDarkMode() {
 
     }
 
-
     updateThemeButton();
-
 
     if (button) {
 
@@ -1739,9 +1479,7 @@ function setupDarkMode() {
         );
 
     }
-
 }
-
 
 window.toggleTheme =
 function () {
@@ -1750,74 +1488,90 @@ function () {
         "dark-mode"
     );
 
-
     localStorage.setItem(
-
         "bs360-dark-mode",
-
         document.body.classList.contains(
             "dark-mode"
         )
-
     );
-
 
     updateThemeButton();
 
 };
-
 
 function updateThemeButton() {
 
     const button =
         $("#themeButton");
 
-
-    if (!button) return;
-
+    if (!button)
+        return;
 
     button.textContent =
-
         document.body.classList.contains(
             "dark-mode"
         )
-
-        ? "☀️ Dark"
-
-        : "🌙 Dark";
-
+            ? "☀️"
+            : "🌙";
 }
 
 
-/* =====================================================
+/* =========================================================
    DATE + TIME
-===================================================== */
+========================================================= */
 
 function setupDateTime() {
 
-    const dateElement =
+    let dateElement =
         $("#currentDate") ||
         $("#live-date");
 
-
-    const timeElement =
+    let timeElement =
         $("#currentTime") ||
         $("#live-clock");
 
+    if (!dateElement || !timeElement) {
 
-    if (
-        !dateElement &&
-        !timeElement
-    ) {
-        return;
+        const headerActions =
+            $(".header-actions");
+
+        if (headerActions) {
+
+            const box =
+                document.createElement("div");
+
+            box.className =
+                "date-time-box";
+
+            box.innerHTML = `
+
+                <span id="currentDate"></span>
+
+                <strong id="currentTime"></strong>
+
+            `;
+
+            headerActions.insertBefore(
+                box,
+                headerActions.firstChild
+            );
+
+            dateElement =
+                $("#currentDate");
+
+            timeElement =
+                $("#currentTime");
+
+        }
+
     }
 
+    if (!dateElement && !timeElement)
+        return;
 
-    function updateTime() {
+    function update() {
 
-        const now =
-            new Date();
-
+        const now = new Date();
 
         if (dateElement) {
 
@@ -1825,15 +1579,14 @@ function setupDateTime() {
                 now.toLocaleDateString(
                     "en-IN",
                     {
-                        weekday: "short",
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric"
+                        weekday:"short",
+                        day:"2-digit",
+                        month:"short",
+                        year:"numeric"
                     }
                 );
 
         }
-
 
         if (timeElement) {
 
@@ -1841,10 +1594,10 @@ function setupDateTime() {
                 now.toLocaleTimeString(
                     "en-IN",
                     {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                        second: "2-digit",
-                        hour12: true
+                        hour:"2-digit",
+                        minute:"2-digit",
+                        second:"2-digit",
+                        hour12:true
                     }
                 );
 
@@ -1852,254 +1605,183 @@ function setupDateTime() {
 
     }
 
+    update();
 
-    updateTime();
-
-
-    setInterval(
-        updateTime,
-        1000
-    );
-
+    setInterval(update,1000);
 }
 
 
-/* =====================================================
-   SHARE
-===================================================== */
-
-window.shareArticle =
-function (title, url) {
-
-    const data = {
-
-        title: title,
-
-        text: title,
-
-        url: url
-
-    };
-
-
-    if (navigator.share) {
-
-        navigator.share(data)
-            .catch(() => {});
-
-        return;
-
-    }
-
-
-    if (navigator.clipboard) {
-
-        navigator.clipboard
-            .writeText(url)
-            .then(function () {
-
-                alert(
-                    "Article link copied!"
-                );
-
-            })
-            .catch(function () {
-
-                alert(url);
-
-            });
-
-        return;
-
-    }
-
-
-    alert(url);
-
-};
-
-
-/* =====================================================
+/* =========================================================
    SLIDER BUTTONS
-===================================================== */
+========================================================= */
 
 function setupSliderButtons() {
 
     const slider =
         $("#newsSlider");
 
+    if (!slider)
+        return;
 
-    if (!slider) return;
-
-
-    const previous =
+    const prev =
         $("#sliderPrev");
-
 
     const next =
         $("#sliderNext");
 
+    if (prev) {
 
-    if (previous) {
-
-        previous.addEventListener(
+        prev.addEventListener(
             "click",
-            function () {
+            () => {
 
                 slider.scrollBy({
-
-                    left: -300,
-
-                    behavior: "smooth"
-
+                    left:-280,
+                    behavior:"smooth"
                 });
 
             }
         );
 
     }
-
 
     if (next) {
 
         next.addEventListener(
             "click",
-            function () {
+            () => {
 
                 slider.scrollBy({
-
-                    left: 300,
-
-                    behavior: "smooth"
-
+                    left:280,
+                    behavior:"smooth"
                 });
 
             }
         );
 
     }
-
 }
 
 
-/* =====================================================
-   PREPARE ORIGINAL ARTICLES
-===================================================== */
+/* =========================================================
+   NAV ACTIVE
+========================================================= */
 
-function prepareOriginalArticles() {
+function setupActiveNav() {
 
-    allPosts.forEach(
-        function (post) {
+    const links =
+        document.querySelectorAll(
+            ".main-nav a"
+        );
 
-            post.setAttribute(
-                "data-rendered",
-                "true"
-            );
+    const current =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+    links.forEach(link => {
+
+        const href =
+            link.getAttribute("href");
+
+        if (!href)
+            return;
+
+        const page =
+            href
+                .split("/")
+                .pop()
+                .toLowerCase();
+
+        if (
+            page === current ||
+            (
+                current === "" &&
+                page === "index.html"
+            )
+        ) {
+
+            link.classList.add("active");
 
         }
-    );
+
+    });
 
 }
 
 
-/* =====================================================
-   CHECK
-===================================================== */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
-function checkPortal() {
+function initializePortal() {
 
     if (!allPosts.length) {
 
         console.warn(
-            "BS 360 NEWS: No original articles found."
+            "BS 360 NEWS: No articles found."
         );
 
-        return false;
-
+        return;
     }
 
-    return true;
+    /* TOP NEWS */
 
-}
+    renderTopNews();
 
+    /* LATEST */
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+    renderLatestNews();
 
-function initializePortal() {
-
-    if (!checkPortal()) return;
-
-
-    prepareOriginalArticles();
-
-
-    /* Latest */
-
-    renderTopStory();
-
-    renderLatestSidebar();
-
-
-    /* Bigg Boss */
+    /* BIGG BOSS */
 
     renderBigBoss();
-
 
     /* AP + TS */
 
     renderSlider();
 
+    /* BUSINESS */
 
-    /* Movies */
+    createBusinessSection();
+
+    /* MOVIES */
 
     renderMovies();
 
-
-    /* Sports */
+    /* SPORTS */
 
     renderSports();
 
-
-    /* Most Read */
+    /* MOST READ */
 
     renderMostRead();
 
-
-    /* Search */
+    /* SEARCH */
 
     setupSearch();
 
-
-    /* IMPORTANT:
-       setupCategoryFilter() removed
-       because that function does not exist
-       in this script.
-    */
-
-
-    /* Mobile */
+    /* MOBILE */
 
     setupMobileMenu();
 
-
-    /* Dark */
+    /* DARK */
 
     setupDarkMode();
 
-
-    /* Date / Time */
+    /* DATE TIME */
 
     setupDateTime();
 
-
-    /* AP + TS Buttons */
+    /* BUTTONS */
 
     setupSliderButtons();
 
-}
+    /* NAV */
 
+    setupActiveNav();
+}
 
 initializePortal();
 
@@ -2107,67 +1789,37 @@ initializePortal();
 
 
 /* =========================================================
-   MAIN NAVIGATION ACTIVE
-   ========================================================= */
+   GLOBAL MOBILE NAV
+========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+window.toggleSearch =
+function () {
 
-        const navLinks =
-            document.querySelectorAll(
-                ".main-nav a"
-            );
+    const box =
+        document.querySelector(
+            "#searchBox"
+        );
 
+    if (!box)
+        return;
 
-        if (!navLinks.length) return;
+    box.classList.toggle("active");
+    box.classList.toggle("open");
 
+    const input =
+        document.querySelector(
+            "#searchInput"
+        );
 
-        const currentPage =
-            window.location.pathname
-                .split("/")
-                .pop()
-                .toLowerCase();
+    if (
+        input &&
+        box.classList.contains("active")
+    ) {
 
-
-        navLinks.forEach(
-            function (link) {
-
-                const href =
-                    link.getAttribute("href");
-
-
-                if (!href) return;
-
-
-                const linkPage =
-                    href
-                        .split("/")
-                        .pop()
-                        .toLowerCase();
-
-
-                if (
-
-                    linkPage === currentPage
-
-                    ||
-
-                    (
-                        currentPage === "" &&
-                        linkPage === "index.html"
-                    )
-
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
+        setTimeout(
+            () => input.focus(),
+            100
         );
 
     }
-);
+};
