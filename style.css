@@ -4045,113 +4045,57 @@ color:#fff;
     }
 
 }
-/* =========================
-   NAVIGATION
-========================= */
+/* NAV MENU - SMALL ONE LINE */
 
-.main-nav{
-    background:#075aaa;
-    width:100%;
-}
+@media (max-width:600px){
 
-.nav-container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:10px 15px 14px;
-}
-
-/* Telugu / English / Hindi */
-
-.lang-selector{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    margin-bottom:10px;
-    color:#fff;
-    font-size:16px;
-    font-weight:600;
-    white-space:nowrap;
-}
-
-.lang-selector a{
-    color:#fff;
-    text-decoration:none;
-}
-
-.lang-selector .active{
-    background:#f10b0b;
-    padding:5px 18px;
-    border-radius:5px;
-    text-decoration:underline;
-}
-
-/* Menu */
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    width:100%;
-}
-
-.nav-links a{
-    color:#fff;
-    text-decoration:none;
-    font-size:16px;
-    font-weight:600;
-    white-space:nowrap;
-    padding:7px 15px;
-    border-radius:25px;
-    background:rgba(0,120,190,.65);
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    background:#e00000;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    .nav-container{
-        padding:8px 8px 12px;
+    .main-nav .nav-container{
+        padding:6px 5px 8px !important;
     }
 
-    .lang-selector{
-        font-size:14px;
-        gap:5px;
-        margin-bottom:8px;
+    /* తెలుగు | English | हिन्दी చిన్నగా */
+
+    .main-nav .lang-selector{
+        font-size:12px !important;
+        gap:3px !important;
+        margin-bottom:5px !important;
+        line-height:1 !important;
     }
 
-    .lang-selector .active{
-        padding:4px 15px;
+    .main-nav .lang-selector .active{
+        padding:3px 10px !important;
+        border-radius:4px !important;
+        font-size:12px !important;
     }
 
-    /* అన్ని menu items ఒకే line */
+    /* హోమ్ సినిమా స్పోర్ట్స్ AP&TS బిజినెస్ */
 
-    .nav-links{
-        flex-direction:row;
-        flex-wrap:nowrap;
-        gap:4px;
-        overflow:hidden;
+    .main-nav .nav-links{
+        display:flex !important;
+        flex-direction:row !important;
+        flex-wrap:nowrap !important;
+        gap:3px !important;
+        width:100% !important;
     }
 
-    .nav-links a{
-        font-size:12px;
-        padding:7px 9px;
-        border-radius:20px;
-        flex:1;
-        text-align:center;
+    .main-nav .nav-links a{
+        flex:1 1 0 !important;
+        min-width:0 !important;
+        padding:6px 2px !important;
+        margin:0 !important;
+
+        font-size:11px !important;
+        line-height:1 !important;
+        font-weight:600 !important;
+
+        border-radius:18px !important;
+
+        white-space:nowrap !important;
+        text-align:center !important;
     }
 
 }
+
 /* =========================
    MOST READ - MOBILE FIX
    IMAGE TOP + TEXT BELOW
