@@ -4,43 +4,84 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>About Us | BS 360 NEWS</title>
 
-    <meta name="description"
-        content="BS 360 NEWS గురించి తెలుసుకోండి. తెలుగు రాష్ట్రాలు, దేశం, ప్రపంచం, సినిమా, క్రీడలు మరియు తాజా వార్తలను అందించే తెలుగు డిజిటల్ న్యూస్ వెబ్‌సైట్.">
+    <meta
+        name="description"
+        content="BS 360 NEWS గురించి తెలుసుకోండి. తెలుగు రాష్ట్రాలు, దేశం, ప్రపంచం, సినిమా, క్రీడలు, బిజినెస్, టెక్నాలజీ మరియు తాజా వార్తలను అందించే తెలుగు డిజిటల్ న్యూస్ వెబ్‌సైట్."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://bs360news.com/about.html"
+    >
 
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
 
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial, "Noto Sans Telugu", sans-serif;
-            background: #f4f4f4;
+            background: #f5f7fa;
             color: #222;
             line-height: 1.8;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
         .top-header {
             background: #111;
             color: #fff;
-            padding: 18px 15px;
             border-bottom: 3px solid #e00000;
         }
 
         .header-inner {
-            width: min(1100px, 94%);
-            margin: auto;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 18px 20px;
         }
 
         .logo {
             margin: 0;
             font-size: 28px;
             font-weight: 700;
+            letter-spacing: .3px;
         }
 
         .tagline {
@@ -49,75 +90,137 @@
             color: #ccc;
         }
 
+
+        /* =========================
+           MAIN
+        ========================= */
+
         .page-wrap {
-            width: min(900px, 94%);
+            width: 100%;
+            max-width: 1000px;
             margin: 30px auto;
+            padding: 0 18px;
         }
+
+
+        /* =========================
+           ABOUT CONTENT
+        ========================= */
 
         .about-box {
             background: #fff;
-            padding: 30px;
+            padding: 32px;
+            border: 1px solid #e1e5e9;
             border-radius: 8px;
-            border: 1px solid #e3e3e3;
         }
 
         .about-title {
-            margin: 0 0 20px;
-            padding-bottom: 12px;
+            margin: 0 0 25px;
+            padding-bottom: 14px;
             border-bottom: 2px solid #e00000;
-            font-size: 26px;
+            font-size: 28px;
+            line-height: 1.4;
             color: #111;
         }
 
         .about-box p {
-            margin: 0 0 18px;
-            font-size: 16px;
+            margin: 0 0 20px;
+            font-size: 17px;
+            line-height: 1.9;
         }
+
+        .about-box strong {
+            color: #111;
+        }
+
+
+        /* =========================
+           SECTION HEADINGS
+        ========================= */
 
         .about-box h3 {
-            margin: 28px 0 8px;
+            margin: 30px 0 10px;
+            padding-left: 12px;
+            border-left: 4px solid #e00000;
             font-size: 20px;
-            color: #d00000;
+            line-height: 1.5;
+            color: #222;
         }
 
+
+        /* =========================
+           CONTACT BOX
+        ========================= */
+
         .contact-box {
-            margin-top: 25px;
-            padding: 18px;
-            background: #f7f7f7;
+            margin-top: 28px;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #e3e6e9;
             border-left: 4px solid #e00000;
+            border-radius: 4px;
+        }
+
+        .contact-box strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+            color: #111;
         }
 
         .contact-box p {
-            margin: 5px 0;
+            margin: 5px 0 0;
+            font-size: 16px;
         }
 
-        a {
-            color: #d00000;
-            text-decoration: none;
-        }
 
-        a:hover {
-            text-decoration: underline;
-        }
+        /* =========================
+           HOME LINK
+        ========================= */
 
         .back-home {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 25px;
+            padding: 9px 16px;
+            background: #075aaa;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 15px;
             font-weight: 600;
         }
 
+        .back-home:hover {
+            color: #fff;
+            text-decoration: none;
+            opacity: .92;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
             margin-top: 40px;
-            padding: 20px 15px;
+            padding: 24px 15px;
             background: #111;
             color: #bbb;
             text-align: center;
             font-size: 14px;
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 600px) {
 
             .top-header {
+                border-bottom-width: 2px;
+            }
+
+            .header-inner {
                 padding: 15px;
             }
 
@@ -125,26 +228,83 @@
                 font-size: 24px;
             }
 
+            .tagline {
+                font-size: 13px;
+            }
+
             .page-wrap {
-                width: 94%;
-                margin: 20px auto;
+                width: 100%;
+                margin: 18px auto;
+                padding: 0 10px;
             }
 
             .about-box {
-                padding: 20px 16px;
+                padding: 22px 16px;
+                border-radius: 6px;
             }
 
             .about-title {
+                margin-bottom: 20px;
+                padding-bottom: 11px;
                 font-size: 23px;
             }
 
             .about-box p {
+                font-size: 16px;
+                line-height: 1.85;
+                margin-bottom: 18px;
+            }
+
+            .about-box h3 {
+                margin: 26px 0 9px;
+                padding-left: 10px;
+                font-size: 19px;
+            }
+
+            .contact-box {
+                padding: 16px;
+                margin-top: 24px;
+            }
+
+            .contact-box p {
                 font-size: 15px;
                 line-height: 1.8;
             }
 
-            .about-box h3 {
-                font-size: 19px;
+            .back-home {
+                margin-top: 22px;
+                font-size: 15px;
+            }
+
+            footer {
+                margin-top: 25px;
+                padding: 20px 12px;
+                font-size: 13px;
+            }
+
+        }
+
+
+        /* =========================
+           VERY SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 380px) {
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .about-box {
+                padding: 20px 14px;
+            }
+
+            .about-title {
+                font-size: 21px;
+            }
+
+            .about-box p {
+                font-size: 15px;
             }
 
         }
@@ -153,13 +313,21 @@
 
 </head>
 
+
 <body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
 
     <header class="top-header">
 
         <div class="header-inner">
 
-            <h1 class="logo">BS 360 NEWS</h1>
+            <h1 class="logo">
+                BS 360 NEWS
+            </h1>
 
             <p class="tagline">
                 తెలుగు వార్తలు మీ ముందుకు
@@ -170,11 +338,19 @@
     </header>
 
 
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
     <main class="page-wrap">
 
         <article class="about-box">
 
-            <h2 class="about-title">About Us</h2>
+            <h2 class="about-title">
+                About Us
+            </h2>
+
 
             <p>
                 <strong>BS 360 NEWS</strong> తెలుగు పాఠకులకు తాజా
@@ -184,6 +360,7 @@
                 తీసుకురావడమే మా ప్రయత్నం.
             </p>
 
+
             <p>
                 తెలంగాణ, ఆంధ్రప్రదేశ్‌తో పాటు దేశంలో మరియు
                 ప్రపంచవ్యాప్తంగా జరుగుతున్న ముఖ్యమైన పరిణామాలు,
@@ -192,7 +369,11 @@
                 వెబ్‌సైట్‌లో అందిస్తాము.
             </p>
 
-            <h3>BS 360 NEWS గురించి</h3>
+
+            <h3>
+                BS 360 NEWS గురించి
+            </h3>
+
 
             <p>
                 వార్తలను కేవలం అందించడం మాత్రమే కాకుండా,
@@ -202,7 +383,11 @@
                 ప్రచురించడం మా విధానం.
             </p>
 
-            <h3>మా వెబ్‌సైట్‌లో ఏమి చూడొచ్చు?</h3>
+
+            <h3>
+                మా వెబ్‌సైట్‌లో ఏమి చూడొచ్చు?
+            </h3>
+
 
             <p>
                 తెలుగు రాష్ట్రాల వార్తలు, జాతీయ మరియు అంతర్జాతీయ
@@ -211,7 +396,11 @@
                 ఇతర సమాచారాన్ని BS 360 NEWSలో చూడవచ్చు.
             </p>
 
-            <h3>మా ఉద్దేశం</h3>
+
+            <h3>
+                మా ఉద్దేశం
+            </h3>
+
 
             <p>
                 పాఠకులకు ఉపయోగపడే సమాచారాన్ని వేగంగా,
@@ -220,7 +409,11 @@
                 నమ్మకాన్ని నిలబెట్టుకోవడానికి మేము కృషి చేస్తాము.
             </p>
 
-            <h3>మీ అభిప్రాయం మాకు ముఖ్యం</h3>
+
+            <h3>
+                మీ అభిప్రాయం మాకు ముఖ్యం
+            </h3>
+
 
             <p>
                 మా వార్తలు, వెబ్‌సైట్ లేదా కంటెంట్‌కు సంబంధించి
@@ -229,9 +422,16 @@
                 మరింత మెరుగుపరచడానికి ఉపయోగపడతాయి.
             </p>
 
+
+            <!-- =========================
+                 CONTACT
+            ========================= -->
+
             <div class="contact-box">
 
-                <strong>Contact Us</strong>
+                <strong>
+                    Contact Us
+                </strong>
 
                 <p>
                     ప్రశ్నలు, సూచనలు లేదా ఫీడ్‌బ్యాక్ కోసం
@@ -240,7 +440,15 @@
 
             </div>
 
-            <a class="back-home" href="index.html">
+
+            <!-- =========================
+                 HOME
+            ========================= -->
+
+            <a
+                class="back-home"
+                href="index.html"
+            >
                 ← Homeకి తిరిగి వెళ్లండి
             </a>
 
@@ -249,11 +457,17 @@
     </main>
 
 
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
 
         © 2026 BS 360 NEWS. All Rights Reserved.
 
     </footer>
+
 
 </body>
 
