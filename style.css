@@ -4045,3 +4045,110 @@ color:#fff;
     }
 
 }
+/* =========================
+   NAVIGATION
+========================= */
+
+.main-nav{
+    background:#075aaa;
+    width:100%;
+}
+
+.nav-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:10px 15px 14px;
+}
+
+/* Telugu / English / Hindi */
+
+.lang-selector{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    margin-bottom:10px;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.lang-selector a{
+    color:#fff;
+    text-decoration:none;
+}
+
+.lang-selector .active{
+    background:#f10b0b;
+    padding:5px 18px;
+    border-radius:5px;
+    text-decoration:underline;
+}
+
+/* Menu */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:600;
+    white-space:nowrap;
+    padding:7px 15px;
+    border-radius:25px;
+    background:rgba(0,120,190,.65);
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    background:#e00000;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .nav-container{
+        padding:8px 8px 12px;
+    }
+
+    .lang-selector{
+        font-size:14px;
+        gap:5px;
+        margin-bottom:8px;
+    }
+
+    .lang-selector .active{
+        padding:4px 15px;
+    }
+
+    /* అన్ని menu items ఒకే line */
+
+    .nav-links{
+        flex-direction:row;
+        flex-wrap:nowrap;
+        gap:4px;
+        overflow:hidden;
+    }
+
+    .nav-links a{
+        font-size:12px;
+        padding:7px 9px;
+        border-radius:20px;
+        flex:1;
+        text-align:center;
+    }
+
+}
