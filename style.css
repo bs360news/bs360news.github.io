@@ -3121,3 +3121,64 @@ body {
 body.dark-mode {
     ...
 }
+/* ================================
+   MAIN NAVIGATION
+================================ */
+
+.main-nav{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0;
+    background:#075aaa;
+    border-bottom:1px solid #064d91;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+}
+
+.main-nav::-webkit-scrollbar{
+    display:none;
+}
+
+.main-nav a{
+    display:block;
+    padding:13px 22px;
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:700;
+    transition:background .2s ease,color .2s ease;
+}
+
+.main-nav a:hover{
+    background:#064b8f;
+    color:#fff;
+}
+
+.main-nav a.active{
+    background:#e00000;
+    color:#fff;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+    .main-nav{
+        justify-content:flex-start;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .main-nav a{
+        flex:0 0 auto;
+        padding:11px 14px;
+        font-size:14px;
+    }
+
+}
