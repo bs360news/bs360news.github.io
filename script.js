@@ -35,6 +35,7 @@ function sourcePosts() {
     }
 
     return posts;
+
 }
 
 let allPosts = sourcePosts();
@@ -192,6 +193,7 @@ function isAPNews(post) {
     const value = catsOf(post);
 
     return (
+        value.includes("ap") ||
         value.includes("andhra-pradesh") ||
         value.includes("andhrapradesh") ||
         value.includes("andhra pradesh") ||
@@ -214,6 +216,7 @@ function isTSNews(post) {
     const value = catsOf(post);
 
     return (
+        value.includes("ts") ||
         value.includes("telangana") ||
         value.includes("telangana-news") ||
         value.includes("telangana_news") ||
@@ -755,7 +758,12 @@ function renderSlider() {
     const posts =
         normalPosts()
             .filter(function (post) {
-                return isAPNews(post) || isTSNews(post);
+
+                return (
+                    isAPNews(post) ||
+                    isTSNews(post)
+                );
+
             })
             .slice(0, 15);
 
@@ -773,7 +781,11 @@ function renderSlider() {
 
     });
 
-    setupHorizontalAutoScroll(container, 280, 3000);
+    setupHorizontalAutoScroll(
+        container,
+        280,
+        3000
+    );
 
 }
 
@@ -1049,7 +1061,9 @@ function setupSearch() {
                 box.classList.contains("active") &&
                 input
             ) {
+
                 setTimeout(() => input.focus(), 100);
+
             }
 
         });
@@ -1138,26 +1152,38 @@ window.filterPosts = function (category) {
 
     else if (
         category === "apts" ||
-        category === "ap&ts.html"
+        category === "ap&ts" ||
+        category === "ap&ts.html" ||
+        category === "ap-ts" ||
+        category === "ap-ts.html"
     ) {
 
-        filtered = normalPosts().filter(function (post) {
+        filtered =
+            normalPosts().filter(function (post) {
 
-            return isAPNews(post) || isTSNews(post);
+                return (
+                    isAPNews(post) ||
+                    isTSNews(post)
+                );
 
-        });
+            });
 
     }
 
     else if (category === "ap") {
 
-        filtered = normalPosts().filter(isAPNews);
+        filtered =
+            normalPosts().filter(isAPNews);
 
     }
 
-    else if (category === "ts") {
+    else if (
+        category === "ts" ||
+        category === "telangana"
+    ) {
 
-        filtered = normalPosts().filter(isTSNews);
+        filtered =
+            normalPosts().filter(isTSNews);
 
     }
 
@@ -1166,7 +1192,8 @@ window.filterPosts = function (category) {
         category === "bigg boss 10"
     ) {
 
-        filtered = allPosts.filter(isBigBoss);
+        filtered =
+            allPosts.filter(isBigBoss);
 
     }
 
@@ -1298,10 +1325,12 @@ function setupDarkMode() {
     updateThemeButton();
 
     if (button) {
+
         button.addEventListener(
             "click",
             window.toggleTheme
         );
+
     }
 
 }
@@ -1418,10 +1447,14 @@ window.shareArticle = function (title, url) {
 
         navigator.clipboard.writeText(url)
             .then(function () {
+
                 alert("Article link copied!");
+
             })
             .catch(function () {
+
                 alert(url);
+
             });
 
         return;
@@ -1525,6 +1558,7 @@ function initializePortal() {
     prepareOriginalArticles();
 
     renderTopStory();
+
     renderLatestSidebar();
 
     renderBigBoss();
@@ -1538,8 +1572,6 @@ function initializePortal() {
     renderMostRead();
 
     setupSearch();
-
-    setupCategoryFilter();
 
     setupMobileMenu();
 
@@ -1557,9 +1589,9 @@ initializePortal();
 });
 
 
-/* =====================================================
+/* =========================================================
    MAIN NAVIGATION
-===================================================== */
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
