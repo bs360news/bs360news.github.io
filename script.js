@@ -1112,3 +1112,1374 @@ function renderFilteredPosts(posts) {
     });
 
 }
+/* =========================================================
+   BS 360 NEWS - CLEAN SCRIPT
+   Part 2
+   ========================================================= */
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+function setupMobileMenu() {
+
+    const nav =
+        document.getElementById("navLinks");
+
+    if (!nav) {
+        return;
+    }
+
+    nav.addEventListener(
+        "click",
+        function (event) {
+
+            const link =
+                event.target.closest("a");
+
+            if (!link) {
+                return;
+            }
+
+            nav.classList.remove("mobile-open");
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   TOGGLE MOBILE NAV
+   ========================================================= */
+
+function toggleMobileNav() {
+
+    const nav =
+        document.getElementById("navLinks");
+
+    if (!nav) {
+        return;
+    }
+
+    nav.classList.toggle(
+        "mobile-open"
+    );
+
+}
+
+
+/* =========================================================
+   THEME SETUP
+   ========================================================= */
+
+function setupTheme() {
+
+    const savedTheme =
+        localStorage.getItem(
+            "bs360-theme"
+        );
+
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+        updateThemeButton(true);
+
+    }
+    else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+        updateThemeButton(false);
+
+    }
+
+}
+
+
+/* =========================================================
+   TOGGLE THEME
+   ========================================================= */
+
+function toggleTheme() {
+
+    const isDark =
+        document.body.classList.toggle(
+            "dark-mode"
+        );
+
+
+    localStorage.setItem(
+        "bs360-theme",
+        isDark ? "dark" : "light"
+    );
+
+
+    updateThemeButton(isDark);
+
+}
+
+
+/* =========================================================
+   THEME BUTTON
+   ========================================================= */
+
+function updateThemeButton(isDark) {
+
+    const button =
+        document.getElementById(
+            "themeButton"
+        );
+
+    if (!button) {
+        return;
+    }
+
+
+    if (isDark) {
+
+        button.innerHTML =
+            "☀️ Light";
+
+        button.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+    }
+    else {
+
+        button.innerHTML =
+            "🌙 Dark";
+
+        button.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CAROUSEL SETUP
+   ========================================================= */
+
+function setupCarousels() {
+
+    setupBigBossCarousel();
+
+    setupApTsCarousel();
+
+    setupHorizontalCarousel(
+        "cinemaGrid"
+    );
+
+    setupHorizontalCarousel(
+        "sportsGrid"
+    );
+
+}
+
+
+/* =========================================================
+   BIGG BOSS CAROUSEL
+   ========================================================= */
+
+function setupBigBossCarousel() {
+
+    const slider =
+        document.getElementById(
+            "bigbossSlider"
+        );
+
+    const track =
+        document.getElementById(
+            "bigbossTrack"
+        );
+
+    const prev =
+        document.querySelector(
+            ".bigboss-prev"
+        );
+
+    const next =
+        document.querySelector(
+            ".bigboss-next"
+        );
+
+
+    if (!slider || !track) {
+        return;
+    }
+
+
+    const getAmount = function () {
+
+        const card =
+            track.querySelector(
+                ".bigboss-card"
+            );
+
+        if (!card) {
+            return 280;
+        }
+
+        return (
+            card.offsetWidth + 16
+        );
+
+    };
+
+
+    if (prev) {
+
+        prev.addEventListener(
+            "click",
+            function () {
+
+                slider.scrollBy({
+
+                    left: -getAmount(),
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            function () {
+
+                slider.scrollBy({
+
+                    left: getAmount(),
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+    /*
+       Automatic Bigg Boss scrolling.
+    */
+
+    startAutoScroll(
+        slider,
+        5000
+    );
+
+}
+
+
+/* =========================================================
+   AP + TS CAROUSEL
+   ========================================================= */
+
+function setupApTsCarousel() {
+
+    const slider =
+        document.getElementById(
+            "newsSlider"
+        );
+
+    const track =
+        document.getElementById(
+            "sliderTrack"
+        );
+
+    const prev =
+        document.getElementById(
+            "sliderPrev"
+        );
+
+    const next =
+        document.getElementById(
+            "sliderNext"
+        );
+
+
+    if (!slider || !track) {
+        return;
+    }
+
+
+    const getAmount = function () {
+
+        const card =
+            track.querySelector(
+                ".news-small-card"
+            );
+
+        if (!card) {
+            return 300;
+        }
+
+        return (
+            card.offsetWidth + 16
+        );
+
+    };
+
+
+    if (prev) {
+
+        prev.addEventListener(
+            "click",
+            function () {
+
+                slider.scrollBy({
+
+                    left: -getAmount(),
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+    if (next) {
+
+        next.addEventListener(
+            "click",
+            function () {
+
+                slider.scrollBy({
+
+                    left: getAmount(),
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+    startAutoScroll(
+        slider,
+        4500
+    );
+
+}
+
+
+/* =========================================================
+   HORIZONTAL CAROUSEL
+   ========================================================= */
+
+function setupHorizontalCarousel(
+    elementId
+) {
+
+    const container =
+        document.getElementById(
+            elementId
+        );
+
+    if (!container) {
+        return;
+    }
+
+
+    let isDown = false;
+
+    let startX = 0;
+
+    let scrollLeft = 0;
+
+
+    container.addEventListener(
+        "mousedown",
+        function (event) {
+
+            isDown = true;
+
+            startX =
+                event.pageX -
+                container.offsetLeft;
+
+            scrollLeft =
+                container.scrollLeft;
+
+        }
+    );
+
+
+    container.addEventListener(
+        "mouseleave",
+        function () {
+
+            isDown = false;
+
+        }
+    );
+
+
+    container.addEventListener(
+        "mouseup",
+        function () {
+
+            isDown = false;
+
+        }
+    );
+
+
+    container.addEventListener(
+        "mousemove",
+        function (event) {
+
+            if (!isDown) {
+                return;
+            }
+
+            event.preventDefault();
+
+
+            const x =
+                event.pageX -
+                container.offsetLeft;
+
+
+            const walk =
+                (x - startX) * 1.5;
+
+
+            container.scrollLeft =
+                scrollLeft - walk;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   AUTO SCROLL
+   ========================================================= */
+
+function startAutoScroll(
+    element,
+    interval
+) {
+
+    if (!element) {
+        return;
+    }
+
+
+    let timer = null;
+
+
+    function start() {
+
+        stop();
+
+
+        timer =
+            setInterval(
+                function () {
+
+                    autoScrollElement(
+                        element
+                    );
+
+                },
+                interval
+            );
+
+    }
+
+
+    function stop() {
+
+        if (timer) {
+
+            clearInterval(timer);
+
+            timer = null;
+
+        }
+
+    }
+
+
+    element.addEventListener(
+        "mouseenter",
+        stop
+    );
+
+
+    element.addEventListener(
+        "mouseleave",
+        start
+    );
+
+
+    element.addEventListener(
+        "touchstart",
+        stop,
+        {
+            passive: true
+        }
+    );
+
+
+    element.addEventListener(
+        "touchend",
+        function () {
+
+            setTimeout(
+                start,
+                2000
+            );
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    start();
+
+}
+
+
+/* =========================================================
+   AUTO SCROLL ELEMENT
+   ========================================================= */
+
+function autoScrollElement(element) {
+
+    const maxScroll =
+        element.scrollWidth -
+        element.clientWidth;
+
+
+    if (maxScroll <= 0) {
+        return;
+    }
+
+
+    const amount =
+        Math.max(
+            element.clientWidth * 0.8,
+            250
+        );
+
+
+    if (
+        element.scrollLeft >=
+        maxScroll - 10
+    ) {
+
+        element.scrollTo({
+
+            left: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+    else {
+
+        element.scrollBy({
+
+            left: amount,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   KEYBOARD EVENTS
+   ========================================================= */
+
+function setupKeyboardEvents() {
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            /*
+               ESC → close search
+            */
+
+            if (event.key === "Escape") {
+
+                closeSearch();
+
+                closeMobileMenu();
+
+            }
+
+
+            /*
+               CTRL + K → search
+            */
+
+            if (
+                (event.ctrlKey ||
+                 event.metaKey) &&
+                event.key.toLowerCase() === "k"
+            ) {
+
+                event.preventDefault();
+
+                openSearch();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   OPEN SEARCH
+   ========================================================= */
+
+function openSearch() {
+
+    const box =
+        document.getElementById(
+            "searchBox"
+        );
+
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    if (!box) {
+        return;
+    }
+
+
+    box.classList.add(
+        "active"
+    );
+
+
+    if (input) {
+
+        setTimeout(
+            function () {
+
+                input.focus();
+
+            },
+            100
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE SEARCH
+   ========================================================= */
+
+function closeSearch() {
+
+    const box =
+        document.getElementById(
+            "searchBox"
+        );
+
+
+    if (!box) {
+        return;
+    }
+
+
+    box.classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+   ========================================================= */
+
+function closeMobileMenu() {
+
+    const nav =
+        document.getElementById(
+            "navLinks"
+        );
+
+
+    if (!nav) {
+        return;
+    }
+
+
+    nav.classList.remove(
+        "mobile-open"
+    );
+
+}
+
+
+/* =========================================================
+   DATE + TIME
+   ========================================================= */
+
+function updateDateTime() {
+
+    const dateElement =
+        document.getElementById(
+            "live-date"
+        );
+
+    const clockElement =
+        document.getElementById(
+            "live-clock"
+        );
+
+
+    if (!dateElement &&
+        !clockElement) {
+
+        return;
+
+    }
+
+
+    const now =
+        new Date();
+
+
+    const dateOptions = {
+
+        day: "2-digit",
+
+        month: "short",
+
+        year: "numeric"
+
+    };
+
+
+    const timeOptions = {
+
+        hour: "2-digit",
+
+        minute: "2-digit",
+
+        second: "2-digit",
+
+        hour12: true
+
+    };
+
+
+    if (dateElement) {
+
+        dateElement.textContent =
+            "📅 " +
+            now.toLocaleDateString(
+                "en-IN",
+                dateOptions
+            );
+
+    }
+
+
+    if (clockElement) {
+
+        clockElement.textContent =
+            "⏰ " +
+            now.toLocaleTimeString(
+                "en-IN",
+                timeOptions
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   START CLOCK
+   ========================================================= */
+
+function startClock() {
+
+    updateDateTime();
+
+
+    setInterval(
+        updateDateTime,
+        1000
+    );
+
+}
+
+
+/* =========================================================
+   SHARE ARTICLE
+   ========================================================= */
+
+function shareArticle(
+    title,
+    url
+) {
+
+    const shareUrl =
+        url ||
+        window.location.href;
+
+
+    const shareTitle =
+        title ||
+        document.title;
+
+
+    /*
+       Native share
+    */
+
+    if (
+        navigator.share &&
+        typeof navigator.share ===
+        "function"
+    ) {
+
+        navigator.share({
+
+            title: shareTitle,
+
+            text: shareTitle,
+
+            url: shareUrl
+
+        })
+        .catch(
+            function () {}
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Clipboard fallback
+    */
+
+    if (
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ) {
+
+        navigator.clipboard
+            .writeText(shareUrl)
+            .then(
+                function () {
+
+                    showToast(
+                        "లింక్ కాపీ అయింది"
+                    );
+
+                }
+            )
+            .catch(
+                function () {
+
+                    fallbackCopy(
+                        shareUrl
+                    );
+
+                }
+            );
+
+        return;
+
+    }
+
+
+    fallbackCopy(
+        shareUrl
+    );
+
+}
+
+
+/* =========================================================
+   FALLBACK COPY
+   ========================================================= */
+
+function fallbackCopy(text) {
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+
+    textarea.value = text;
+
+    textarea.style.position =
+        "fixed";
+
+    textarea.style.left =
+        "-9999px";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.select();
+
+
+    try {
+
+        document.execCommand(
+            "copy"
+        );
+
+
+        showToast(
+            "లింక్ కాపీ అయింది"
+        );
+
+    }
+    catch (error) {
+
+        console.warn(
+            "Copy failed",
+            error
+        );
+
+    }
+
+
+    document.body.removeChild(
+        textarea
+    );
+
+}
+
+
+/* =========================================================
+   TOAST MESSAGE
+   ========================================================= */
+
+function showToast(message) {
+
+    let toast =
+        document.getElementById(
+            "bs360Toast"
+        );
+
+
+    if (!toast) {
+
+        toast =
+            document.createElement(
+                "div"
+            );
+
+
+        toast.id =
+            "bs360Toast";
+
+
+        toast.className =
+            "bs360-toast";
+
+
+        document.body.appendChild(
+            toast
+        );
+
+    }
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        function () {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        2200
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE ERROR HANDLING
+   ========================================================= */
+
+document.addEventListener(
+    "error",
+    function (event) {
+
+        const image =
+            event.target;
+
+
+        if (
+            image &&
+            image.tagName === "IMG"
+        ) {
+
+            image.classList.add(
+                "image-error"
+            );
+
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   EXTERNAL LINK SAFETY
+   ========================================================= */
+
+function secureExternalLinks() {
+
+    const links =
+        document.querySelectorAll(
+            "a[target='_blank']"
+        );
+
+
+    links.forEach(
+        function (link) {
+
+            const existing =
+                link.getAttribute(
+                    "rel"
+                ) || "";
+
+
+            if (
+                !existing.includes(
+                    "noopener"
+                )
+            ) {
+
+                link.setAttribute(
+                    "rel",
+                    (
+                        existing +
+                        " noopener noreferrer"
+                    ).trim()
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LAZY IMAGE OBSERVER
+   ========================================================= */
+
+function setupLazyImages() {
+
+    const images =
+        document.querySelectorAll(
+            "img[loading='lazy']"
+        );
+
+
+    if (
+        !("IntersectionObserver"
+        in window)
+    ) {
+
+        return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            const image =
+                                entry.target;
+
+
+                            image.classList.add(
+                                "loaded"
+                            );
+
+
+                            observer.unobserve(
+                                image
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                rootMargin:
+                    "150px"
+            }
+        );
+
+
+    images.forEach(
+        function (image) {
+
+            observer.observe(
+                image
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INITIAL EXTRA SETUP
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        startClock();
+
+        secureExternalLinks();
+
+        setupLazyImages();
+
+    }
+);
+
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+function setupBackToTop() {
+
+    let button =
+        document.getElementById(
+            "backToTop"
+        );
+
+
+    if (!button) {
+
+        button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.id =
+            "backToTop";
+
+
+        button.className =
+            "back-to-top";
+
+
+        button.type =
+            "button";
+
+
+        button.setAttribute(
+            "aria-label",
+            "Back to top"
+        );
+
+
+        button.innerHTML =
+            "↑";
+
+
+        document.body.appendChild(
+            button
+        );
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        function () {
+
+            if (
+                window.scrollY > 500
+            ) {
+
+                button.classList.add(
+                    "show"
+                );
+
+            }
+            else {
+
+                button.classList.remove(
+                    "show"
+                );
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    button.addEventListener(
+        "click",
+        function () {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    setupBackToTop
+);
+
+
+/* =========================================================
+   PREVENT EMPTY LINKS
+   ========================================================= */
+
+function fixEmptyLinks() {
+
+    const links =
+        document.querySelectorAll(
+            "a[href='#']"
+        );
+
+
+    links.forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                function (event) {
+
+                    /*
+                       Navigation filter links
+                       already have onclick.
+                    */
+
+                    if (
+                        link.hasAttribute(
+                            "onclick"
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    event.preventDefault();
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    fixEmptyLinks
+);
+
+
+/* =========================================================
+   CONSOLE INFO
+   ========================================================= */
+
+console.log(
+    "BS 360 NEWS clean script loaded successfully."
+);
