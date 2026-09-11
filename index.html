@@ -123,6 +123,107 @@ gtag('config', 'G-EWXPS1N2TL');
     href="style.css?v=20260911"
 >
 
+<style>
+
+/* ================================
+   MOBILE NAVIGATION
+================================ */
+
+.main-nav {
+    background: #075aaa;
+}
+
+.nav-container {
+    width: 100%;
+}
+
+/* LANGUAGE */
+
+.lang-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px 5px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.lang-selector a,
+.lang-selector span {
+    color: #fff;
+    text-decoration: none;
+}
+
+.lang-selector .active {
+    background: #ff0000;
+    color: #fff;
+    padding: 4px 18px;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* CATEGORY NAV */
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 10px 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-links a {
+    flex: 0 0 auto;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 6px 11px;
+    border-radius: 18px;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,.15);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .lang-selector {
+        padding: 7px 8px 4px;
+        font-size: 14px;
+    }
+
+    .lang-selector .active {
+        font-size: 17px;
+        padding: 3px 20px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        gap: 5px;
+        padding: 4px 8px 9px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 5px 9px;
+    }
+
+}
+
+</style>
+
 </head>
 
 
@@ -214,22 +315,27 @@ gtag('config', 'G-EWXPS1N2TL');
 
     <div class="container nav-container">
 
+
+        <!-- LANGUAGE -->
+
         <div class="lang-selector">
 
             <a href="./" class="active">
                 తెలుగు
             </a>
 
-            |
+            <span>|</span>
 
             <span>English</span>
 
-            |
+            <span>|</span>
 
             <span>हिन्दी</span>
 
         </div>
 
+
+        <!-- CATEGORY MENU -->
 
         <div
             class="nav-links"
@@ -238,10 +344,6 @@ gtag('config', 'G-EWXPS1N2TL');
 
             <a href="index.html">
                 🏠 హోమ్
-            </a>
-
-            <a href="home.html">
-                📰 తాజా వార్తలు
             </a>
 
             <a href="MOVIES.html">
@@ -253,7 +355,11 @@ gtag('config', 'G-EWXPS1N2TL');
             </a>
 
             <a href="AP&TS.html">
-                ఆంధ్రప్రదేశ్, తెలంగాణ
+                🏛️ AP & TS
+            </a>
+
+            <a href="business.html">
+                💼 బిజినెస్
             </a>
 
         </div>
@@ -1276,7 +1382,7 @@ gtag('config', 'G-EWXPS1N2TL');
             <img
                 src="tamana.jpg"
                 alt="తమన్నా భాటియా సిద్ధార్థ్ మల్హోత్రా The Vvaan"
-            >
+        >
 
             <div class="news-content">
 
