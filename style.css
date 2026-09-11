@@ -3087,3 +3087,37 @@ font-weight;
 }
 
 .article-text-link
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background: #ffffff;
+    color: #222222;
+    font-family: Arial, "Noto Sans Telugu", sans-serif;
+    line-height: 1.7;
+}
+
+/* మీ codeలో ఉన్న మిగతా CSS మొత్తం */
+
+@media (max-width: 900px) {
+    ...
+}
+
+@media (max-width: 600px) {
+    ...
+}
+
+body.dark-mode {
+    ...
+}
