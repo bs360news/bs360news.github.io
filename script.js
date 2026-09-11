@@ -2248,3 +2248,40 @@ initializePortal();
 
 });
 
+/* ================================
+   MAIN NAVIGATION
+================================ */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const navLinks = document.querySelectorAll(".main-nav a");
+
+    if(!navLinks.length) return;
+
+    const currentPage =
+        window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+    navLinks.forEach(function(link){
+
+        const linkPage =
+            link.getAttribute("href")
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+        if(
+            linkPage === currentPage ||
+            (
+                currentPage === "" &&
+                linkPage === "index.html"
+            )
+        ){
+            link.classList.add("active");
+        }
+
+    });
+
+});
