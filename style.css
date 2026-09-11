@@ -4156,64 +4156,84 @@ color:#fff;
     width:100% !important;
     font-size:10px !important;
     font-weight:700 !important;
-    color:#d00000 !important;
-    margin-bottom:3px !important;
-    white-space:nowrap !important;
+
+
+   
+/* MOST READ - TEXT BELOW IMAGE */
+
+.most-read-grid a,
+.most-read-grid .most-read-card,
+.most-read-grid .news-card {
+    display:flex !important;
+    flex-direction:column !important;
+    width:100% !important;
+    height:auto !important;
     overflow:hidden !important;
 }
 
-/* TITLE */
-
-.most-read-grid > * h3,
-.most-read-grid > * p,
-.most-read-grid > * .most-read-title{
+.most-read-grid img {
     display:block !important;
+    width:100% !important;
+    height:140px !important;
+    object-fit:cover !important;
+    flex:none !important;
+}
+
+/* image kinda unna text area */
+.most-read-grid a > div,
+.most-read-grid .most-read-card > div,
+.most-read-grid .news-card > div {
+    width:100% !important;
+    height:auto !important;
+    padding:7px 8px 9px !important;
+    position:static !important;
+    background:#fff !important;
+    overflow:hidden !important;
+}
+
+/* category */
+.most-read-grid .category,
+.most-read-grid .most-read-category {
+    display:block !important;
+    font-size:10px !important;
+    color:#d00000 !important;
+    font-weight:700 !important;
+    margin-bottom:3px !important;
+}
+
+/* Telugu title */
+.most-read-grid h3,
+.most-read-grid p,
+.most-read-grid .title,
+.most-read-grid .most-read-title {
+    display:-webkit-box !important;
     width:100% !important;
     margin:0 !important;
     padding:0 !important;
-
-    color:#111827 !important;
-    font-size:15px !important;
-    font-weight:700 !important;
-    line-height:1.45 !important;
-
+    color:#111 !important;
+    font-size:14px !important;
+    line-height:1.4 !important;
     white-space:normal !important;
-    overflow:visible !important;
-    text-overflow:clip !important;
-
-    -webkit-line-clamp:3 !important;
-    display:-webkit-box !important;
     -webkit-box-orient:vertical !important;
+    -webkit-line-clamp:3 !important;
     overflow:hidden !important;
 }
 
-
-/* MOBILE */
-
 @media(max-width:600px){
 
-    .most-read-grid{
-        grid-template-columns:repeat(2, 1fr) !important;
+    .most-read-grid {
+        grid-template-columns:repeat(2,1fr) !important;
         gap:10px !important;
     }
 
-    .most-read-grid > * img{
-        width:100% !important;
+    .most-read-grid img {
         height:125px !important;
-        object-fit:cover !important;
     }
 
-    .most-read-grid > * > div,
-    .most-read-grid > * .most-read-content,
-    .most-read-grid > * .news-content{
-        padding:7px 8px 9px !important;
+    .most-read-grid h3,
+    .most-read-grid p,
+    .most-read-grid .title,
+    .most-read-grid .most-read-title {
+        font-size:13px !important;
     }
-
-    .most-read-grid > * h3,
-    .most-read-grid > * p,
-    .most-read-grid > * .most-read-title{
-        font-size:14px !important;
-        line-height:1.4 !important;
-    }
-
 }
