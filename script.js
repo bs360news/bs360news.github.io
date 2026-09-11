@@ -3055,3 +3055,27 @@ function initializePortal() {
 initializePortal();
 
 })
+function copyLink() {
+    ...
+}
+
+const CURRENT_ARTICLE = "oil.html";
+
+async function getHomepagePosts() {
+    ...
+}
+
+function uniquePosts(posts) {
+    ...
+}
+
+function normalizeUrl(url) {
+    ...
+}
+
+/* మిగతా మొత్తం JS */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadNews
+);
