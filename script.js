@@ -1,2722 +1,2124 @@
 /* =========================================================
-   BS 360 NEWS - HOMEPAGE JAVASCRIPT
-   CLEAN HOMEPAGE CSS MATCHED VERSION
-   ========================================================= */
+BS 360 NEWS
+FINAL HOMEPAGE SCRIPT
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    "use strict";
+"use strict";
 
+/* =====================================================
+HELPERS
+===================================================== */
 
-    /* =====================================================
-       HELPERS
-       ===================================================== */
+const $ = (selector, parent = document) =>
+parent.querySelector(selector);
 
-    const $ = (selector, parent = document) => {
-        return parent.querySelector(selector);
-    };
+const $$ = (selector, parent = document) =>
+Array.from(parent.querySelectorAll(selector));
 
-    const $$ = (selector, parent = document) => {
-        return Array.from(parent.querySelectorAll(selector));
-    };
+/* =====================================================
+SOURCE POSTS
+===================================================== */
 
+function sourcePosts() {
 
-    function escapeHTML(value) {
+let posts = $$("#legacyNewsSource .post[data-url]");  
 
-        const div = document.createElement("div");
+if (!posts.length) {  
+    posts = $$(".news-list .post[data-url]");  
+}  
 
-        div.textContent = value || "";
+if (!posts.length) {  
+    posts = $$(".news-item.post[data-url]");  
+}  
 
-        return div.innerHTML;
-    }
+if (!posts.length) {  
+    posts = $$(".post[data-url]");  
+}  
 
+return posts;
 
-    /* =====================================================
-       LEGACY NEWS SOURCE
-       ===================================================== */
+}
 
-    const legacySource =
-        $("#legacyNewsSource");
+let allPosts = sourcePosts();
 
+/* =====================================================
+UNIQUE POSTS
+===================================================== */
 
-    if (!legacySource) {
+function uniquePosts(posts) {
 
-        console.error(
-            "BS360: #legacyNewsSource not found."
-        );
+const seen = new Set();  
 
-        return;
-    }
+return posts.filter(function (post) {  
 
+    const url =  
+        (post.getAttribute("data-url") || "").trim();  
 
-    /* =====================================================
-       READ ALL ORIGINAL ARTICLES
-       ===================================================== */
+    const titleElement =  
+        $(".post-title", post) ||  
+        $(".article-title", post) ||  
+        $("h1", post) ||  
+        $("h2", post) ||  
+        $("h3", post) ||  
+        $("p", post);  
 
-    let articles =
-        $$(".news-item.post", legacySource)
-        .map(function (article) {
+    const title =  
+        titleElement  
+            ? titleElement.textContent.trim()  
+            : "";  
 
-            const image =
-                $("img", article);
+    const key = url + "|" + title;  
 
+    if (seen.has(key)) {  
+        return false;  
+    }  
 
-            const titleElement =
-                $(".news-content p", article) ||
-                $(".news-content h3", article) ||
-                $("p", article) ||
-                $("h3", article);
+    seen.add(key);  
 
-
-            return {
-
-                element: article,
-
-                title:
-                    titleElement
-                        ? titleElement.textContent.trim()
-                        : (
-                            image
-                                ? image.alt
-                                : "Latest News"
-                        ),
-
-                image:
-                    image
-                        ? image.getAttribute("src") || ""
-                        : "",
-
-                url:
-                    article.getAttribute("data-url") ||
-                    article.getAttribute("href") ||
-                    "#",
-
-                category:
-                    (
-                        article.getAttribute(
-                            "data-category"
-                        ) || ""
-                    )
-                    .toLowerCase()
-                    .trim()
-            };
-
-        });
-
-
-    /* =====================================================
-       REMOVE DUPLICATES
-       ===================================================== */
-
-    const seen =
-        new Set();
-
-
-    articles =
-        articles.filter(function (article) {
-
-            const key =
-                article.url !== "#"
-                    ? article.url
-                    : article.title;
-
-
-            if (seen.has(key)) {
-
-                return false;
-            }
-
-
-            seen.add(key);
-
-            return true;
-
-        });
-
-
-    /* =====================================================
-       CATEGORY TEXT
-       ===================================================== */
-
-    function articleText(article) {
-
-        return (
-            article.category +
-            " " +
-            article.title
-        ).toLowerCase();
-
-    }
-
-
-    /* =====================================================
-       BIGG BOSS
-       ===================================================== */
-
-    function isBigBoss(article) {
-
-        const text =
-            articleText(article);
-
-
-        return (
-            text.includes("bigboss") ||
-            text.includes("big boss") ||
-            text.includes("బిగ్‌బాస్") ||
-            text.includes("బిగ్ బాస్")
-        );
-    }
-
-
-    /* =====================================================
-       SPORTS
-       ===================================================== */
-
-    function isSports(article) {
-
-        const text =
-            articleText(article);
-
-
-        return (
-
-            /* Category */
-            text.includes("sports") ||
-            text.includes("sport") ||
-            text.includes("cricket") ||
-
-            /* Cricket / Sports keywords */
-            text.includes("ipl") ||
-            text.includes("bcci") ||
-            text.includes("world cup") ||
-            text.includes("afghanistan") ||
-            text.includes("australia") ||
-            text.includes("bumrah") ||
-            text.includes("hardik") ||
-            text.includes("dhoni") ||
-            text.includes("rohit") ||
-            text.includes("tilak") ||
-            text.includes("pakistan") ||
-            text.includes("hong kong") ||
-
-            /* Telugu */
-            text.includes("క్రికెట్") ||
-            text.includes("క్రికెటర్") ||
-            text.includes("మ్యాచ్") ||
-            text.includes("టీ20") ||
-            text.includes("టెస్ట్") ||
-            text.includes("వరల్డ్ కప్") ||
-            text.includes("బీసీసీఐ") ||
-            text.includes("బుమ్రా") ||
-            text.includes("హార్దిక్") ||
-            text.includes("ధోనీ") ||
-            text.includes("రోహిత్ శర్మ") ||
-            text.includes("తిలక్ వర్మ")
-        );
-    }
-
-
-    /* =====================================================
-       MOVIES
-       ===================================================== */
-
-    function isMovies(article) {
-
-        const text =
-            articleText(article);
-
-
-        return (
-
-            text.includes("movies") ||
-            text.includes("movie") ||
-            text.includes("cinema") ||
-            text.includes("entertainment") ||
-
-            /* Telugu */
-            text.includes("సినిమా") ||
-            text.includes("హీరో") ||
-            text.includes("హీరోయిన్") ||
-            text.includes("నటుడు") ||
-            text.includes("నటి") ||
-            text.includes("షూటింగ్") ||
-            text.includes("థియేటర్") ||
-            text.includes("ట్రైలర్") ||
-            text.includes("కల్కి") ||
-            text.includes("సర్దార్") ||
-            text.includes("తమన్నా") ||
-            text.includes("సిద్ధార్థ్") ||
-            text.includes("హనుమాన్")
-        );
-    }
-
-
-    /* =====================================================
-       BUSINESS
-       ===================================================== */
-
-    function isBusiness(article) {
-
-        const text =
-            articleText(article);
-
-
-        return (
-
-            text.includes("business") ||
-            text.includes("stock") ||
-            text.includes("finance") ||
-            text.includes("economy") ||
-            text.includes("gold") ||
-            text.includes("market") ||
-
-            /* Telugu */
-            text.includes("బిజినెస్") ||
-            text.includes("స్టాక్ మార్కెట్") ||
-            text.includes("మార్కెట్") ||
-            text.includes("ఆర్థిక") ||
-            text.includes("రేటింగ్") ||
-            text.includes("ఆర్బీఐ") ||
-            text.includes("ఆర్‌బీఐ") ||
-            text.includes("నిఫ్టీ") ||
-            text.includes("సెన్సెక్స్")
-        );
-    }
-
-
-    /* =====================================================
-       AP & TS
-       ===================================================== */
-
-    function isAPTS(article) {
-
-        const category =
-            article.category;
-
-
-        const title =
-            article.title.toLowerCase();
-
-
-        if (
-
-            category === "ap" ||
-            category === "ts" ||
-            category.includes("andhra") ||
-            category.includes("telangana")
-
-        ) {
-
-            return true;
-        }
-
-
-        const keywords = [
-
-            "చంద్రబాబు",
-            "పవన్ కల్యాణ్",
-            "పవన్ కళ్యాణ్",
-            "కేటీఆర్",
-            "కె.టి.ఆర్",
-            "హరీశ్ రావు",
-            "హరీష్ రావు",
-            "రేవంత్ రెడ్డి",
-            "కొండా సురేఖ",
-            "తెలంగాణ",
-            "ఆంధ్రప్రదేశ్",
-            "అసెంబ్లీ",
-            "బీఆర్ఎస్",
-            "బీఆర్‌ఎస్",
-            "కాంగ్రెస్",
-            "జనసేన",
-            "తిరుమల",
-            "లడ్డు",
-            "కలెక్టర్ల",
-            "కలెక్టర్ల కాన్ఫరెన్స్",
-            "ఏపీ",
-            "టీఎస్"
-        ];
-
-
-        return keywords.some(function (word) {
-
-            return title.includes(
-                word.toLowerCase()
-            );
-
-        });
-    }
-
-
-    /* =====================================================
-       LATEST NEWS
-       
-       Bigg Boss
-       Sports
-       Movies
-       AP & TS
-       Business
-
-       ఇవన్నీ Latest నుంచి బయటకు వెళ్తాయి.
-       ===================================================== */
-
-    function isLatest(article) {
-
-        return (
-
-            !isBigBoss(article) &&
-            !isSports(article) &&
-            !isMovies(article) &&
-            !isAPTS(article) &&
-            !isBusiness(article)
-
-        );
-    }
-
-
-    /* =====================================================
-       SLIDER CARD
-       ===================================================== */
-
-    function createSliderCard(article) {
-
-        const card =
-            document.createElement("a");
-
-
-        card.className =
-            "slider-card";
-
-
-        card.href =
-            article.url || "#";
-
-
-        card.innerHTML = `
-
-            <img
-                src="${escapeHTML(article.image)}"
-                alt="${escapeHTML(article.title)}"
-                loading="lazy"
-            >
-
-            <div class="slider-content">
-
-                <h3>
-                    ${escapeHTML(article.title)}
-                </h3>
-
-            </div>
-        `;
-
-
-        return card;
-    }
-
-
-    /* =====================================================
-       BIGG BOSS CARD
-       ===================================================== */
-
-    function createBigBossCard(article) {
-
-        const card =
-            document.createElement("a");
-
-
-        card.className =
-            "bigboss-card";
-
-
-        card.href =
-            article.url || "#";
-
-
-        card.innerHTML = `
-
-            <img
-                src="${escapeHTML(article.image)}"
-                alt="${escapeHTML(article.title)}"
-                loading="lazy"
-            >
-
-            <div class="bigboss-content">
-
-                <h3>
-                    ${escapeHTML(article.title)}
-                </h3>
-
-            </div>
-        `;
-
-
-        return card;
-    }
-
-
-    /* =====================================================
-       CATEGORY CARD
-       Movies / Sports
-       ===================================================== */
-
-    function createCategoryCard(article) {
-
-        const card =
-            document.createElement("a");
-
-
-        card.className =
-            "category-card";
-
-
-        card.href =
-            article.url || "#";
-
-
-        card.innerHTML = `
-
-            <img
-                src="${escapeHTML(article.image)}"
-                alt="${escapeHTML(article.title)}"
-                loading="lazy"
-            >
-
-            <div class="category-content">
-
-                <h3>
-                    ${escapeHTML(article.title)}
-                </h3>
-
-            </div>
-        `;
-
-
-        return card;
-    }
-
-
-    /* =====================================================
-       ALL NEWS CARD
-       ===================================================== */
-
-    function createAllNewsCard(article) {
-
-        const card =
-            document.createElement("a");
-
-
-        card.className =
-            "all-news-card";
-
-
-        card.href =
-            article.url || "#";
-
-
-        card.innerHTML = `
-
-            <img
-                src="${escapeHTML(article.image)}"
-                alt="${escapeHTML(article.title)}"
-                loading="lazy"
-            >
-
-            <div class="all-news-card-content">
-
-                <h3 class="all-news-card-title">
-                    ${escapeHTML(article.title)}
-                </h3>
-
-            </div>
-        `;
-
-
-        return card;
-    }
-
-
-    /* =====================================================
-       LATEST NEWS
-       
-       1 HERO
-       +
-       9 SMALL ARTICLES
-       ===================================================== */
-
-    function renderLatestNews() {
-
-        const section =
-            $(".top-story-section");
-
-
-        if (!section) {
-
-            console.warn(
-                "BS360: .top-story-section not found."
-            );
-
-            return;
-        }
-
-
-        const latestArticles =
-            articles
-                .filter(isLatest)
-                .slice(0, 10);
-
-
-        if (!latestArticles.length) {
-            return;
-        }
-
-
-        let grid =
-            $(".top-story-grid", section);
-
-
-        let sidebar =
-            $(".latest-sidebar", section);
-
-
-        let heroWrap =
-            $(".hero-wrap", section);
-
-
-        if (!grid) {
-
-            grid =
-                document.createElement("div");
-
-            grid.className =
-                "top-story-grid";
-
-            section.appendChild(grid);
-        }
-
-
-        if (!sidebar) {
-
-            sidebar =
-                document.createElement("aside");
-
-            sidebar.className =
-                "latest-sidebar";
-
-            grid.appendChild(sidebar);
-        }
-
-
-        if (!heroWrap) {
-
-            heroWrap =
-                document.createElement("div");
-
-            heroWrap.className =
-                "hero-wrap";
-
-            grid.appendChild(heroWrap);
-        }
-
-
-        /* SIDEBAR */
-
-        sidebar.innerHTML = `
-
-            <div class="sidebar-heading">
-                📰 తాజా వార్తలు
-            </div>
-
-            <div class="sidebar-list"></div>
-        `;
-
-
-        const sidebarList =
-            $(".sidebar-list", sidebar);
-
-
-        latestArticles
-            .slice(1, 10)
-            .forEach(function (article) {
-
-                const item =
-                    document.createElement("a");
-
-
-                item.className =
-                    "latest-side-item";
-
-
-                item.href =
-                    article.url || "#";
-
-
-                item.innerHTML = `
-
-                    <img
-                        src="${escapeHTML(article.image)}"
-                        alt="${escapeHTML(article.title)}"
-                        loading="lazy"
-                    >
-
-                    <div class="latest-side-title">
-                        ${escapeHTML(article.title)}
-                    </div>
-                `;
-
-
-                sidebarList.appendChild(item);
-
-            });
-
-
-        /* HERO */
-
-        const hero =
-            latestArticles[0];
-
-
-        heroWrap.innerHTML = `
-
-            <a
-                href="${escapeHTML(hero.url)}"
-                class="latest-hero"
-            >
-
-                <img
-                    src="${escapeHTML(hero.image)}"
-                    alt="${escapeHTML(hero.title)}"
-                    loading="eager"
-                >
-
-                <div class="latest-hero-overlay">
-
-                    <h2 class="latest-hero-title">
-                        ${escapeHTML(hero.title)}
-                    </h2>
-
-                </div>
-
-            </a>
-        `;
-    }
-
-
-    /* =====================================================
-       BIGG BOSS
-       ===================================================== */
-
-    function renderBigBoss() {
-
-        const section =
-            $(".bigboss-section") ||
-            $("#bigboss10Section");
-
-
-        if (!section) return;
-
-
-        const track =
-            $("#bigbossTrack", section) ||
-            $(".bigboss-track", section);
-
-
-        if (!track) return;
-
-
-        const list =
-            articles
-                .filter(isBigBoss)
-                .slice(0, 10);
-
-
-        track.innerHTML = "";
-
-
-        if (!list.length) {
-
-            track.innerHTML = `
-                <div class="no-news">
-                    No Bigg Boss news available.
-                </div>
-            `;
-
-            return;
-        }
-
-
-        list.forEach(function (article) {
-
-            track.appendChild(
-                createBigBossCard(article)
-            );
-
-        });
-    }
-
-
-    /* =====================================================
-       AP & TS
-       ===================================================== */
-
-    function renderAPTS() {
-
-        const section =
-            $(".slider-section");
-
-
-        if (!section) return;
-
-
-        const track =
-            $("#sliderTrack", section) ||
-            $(".slider-track", section);
-
-
-        if (!track) return;
-
-
-        const list =
-            articles
-                .filter(isAPTS)
-                .slice(0, 10);
-
-
-        track.innerHTML = "";
-
-
-        if (!list.length) {
-
-            track.innerHTML = `
-                <div class="no-news">
-                    No AP & TS news available.
-                </div>
-            `;
-
-            return;
-        }
-
-
-        list.forEach(function (article) {
-
-            track.appendChild(
-                createSliderCard(article)
-            );
-
-        });
-    }
-
-
-    /* =====================================================
-       BUSINESS
-       ===================================================== */
-
-    function renderBusiness() {
-
-        let section =
-            $(".business-section");
-
-
-        /* CREATE BUSINESS SECTION */
-
-        if (!section) {
-
-            section =
-                document.createElement("section");
-
-
-            section.className =
-                "business-section";
-
-
-            section.innerHTML = `
-
-                <div class="section-title-row">
-
-                    <h2>
-                        💼 Business
-                    </h2>
-
-                    <span>
-                        బిజినెస్ తాజా వార్తలు
-                    </span>
-
-                    <a
-                        href="business.html"
-                        class="view-all"
-                    >
-                        READ MORE →
-                    </a>
-
-                </div>
-
-
-                <div class="carousel-wrap">
-
-                    <button
-                        type="button"
-                        class="carousel-btn business-prev"
-                        aria-label="Previous"
-                    >
-                        ‹
-                    </button>
-
-
-                    <div class="news-slider">
-
-                        <div
-                            class="slider-track business-track"
-                        ></div>
-
-                    </div>
-
-
-                    <button
-                        type="button"
-                        class="carousel-btn business-next"
-                        aria-label="Next"
-                    >
-                        ›
-                    </button>
-
-                </div>
-            `;
-
-
-            const apSection =
-                $(".slider-section");
-
-
-            if (apSection) {
-
-                apSection.insertAdjacentElement(
-                    "afterend",
-                    section
-                );
-
-            } else {
-
-                const movieSection =
-                    $("#cinemaSection") ||
-                    $(".category-section");
-
-
-                if (movieSection) {
-
-                    movieSection.insertAdjacentElement(
-                        "beforebegin",
-                        section
-                    );
-
-                }
-            }
-        }
-
-
-        const track =
-            $(".business-track", section);
-
-
-        if (!track) return;
-
-
-        const list =
-            articles
-                .filter(isBusiness)
-                .slice(0, 10);
-
-
-        track.innerHTML = "";
-
-
-        if (!list.length) {
-
-            track.innerHTML = `
-                <div class="no-news">
-                    No Business news available.
-                </div>
-            `;
-
-            return;
-        }
-
-
-        list.forEach(function (article) {
-
-            track.appendChild(
-                createSliderCard(article)
-            );
-
-        });
-
-
-        setupCarousel(
-
-            $(".business-prev", section),
-
-            $(".business-next", section),
-
-            track
-
-        );
-    }
-
-
-    /* =====================================================
-       CATEGORY CAROUSEL
-       
-       IMPORTANT:
-       Movies / Sports రెండింటినీ proper
-       .carousel-wrap
-       +
-       .news-slider
-       +
-       .horizontal-carousel
-       లోకి మార్చుతుంది.
-       ===================================================== */
-
-    function setupCategoryCarousel(
-        section,
-        grid,
-        type
-    ) {
-
-        if (!section || !grid) {
-            return;
-        }
-
-
-        /* Already setup */
-
-        if (
-            grid.dataset.carouselReady === "true"
-        ) {
-
-            return;
-        }
-
-
-        grid.dataset.carouselReady =
-            "true";
-
-
-        grid.classList.add(
-            "horizontal-carousel"
-        );
-
-
-        let slider =
-            grid.closest(".news-slider");
-
-
-        let wrapper =
-            slider
-                ? slider.parentElement
-                : null;
-
-
-        let previous =
-            wrapper
-                ? $(".category-prev", wrapper)
-                : null;
-
-
-        let next =
-            wrapper
-                ? $(".category-next", wrapper)
-                : null;
-
-
-        /* -------------------------------------------------
-           If existing news-slider is NOT present,
-           create one.
-           ------------------------------------------------- */
-
-        if (!slider) {
-
-            wrapper =
-                document.createElement("div");
-
-
-            wrapper.className =
-                `carousel-wrap category-carousel-${type}`;
-
-
-            previous =
-                document.createElement("button");
-
-
-            previous.type =
-                "button";
-
-
-            previous.className =
-                "carousel-btn category-prev";
-
-
-            previous.setAttribute(
-                "aria-label",
-                `${type} previous`
-            );
-
-
-            previous.textContent =
-                "‹";
-
-
-            slider =
-                document.createElement("div");
-
-
-            slider.className =
-                "news-slider";
-
-
-            next =
-                document.createElement("button");
-
-
-            next.type =
-                "button";
-
-
-            next.className =
-                "carousel-btn category-next";
-
-
-            next.setAttribute(
-                "aria-label",
-                `${type} next`
-            );
-
-
-            next.textContent =
-                "›";
-
-
-            /* Put new wrapper exactly where grid was */
-
-            grid.parentElement.insertBefore(
-                wrapper,
-                grid
-            );
-
-
-            wrapper.appendChild(
-                previous
-            );
-
-
-            wrapper.appendChild(
-                slider
-            );
-
-
-            wrapper.appendChild(
-                next
-            );
-
-
-            slider.appendChild(
-                grid
-            );
-        }
-
-
-        /* -------------------------------------------------
-           If wrapper exists but buttons don't exist
-           ------------------------------------------------- */
-
-        if (!previous) {
-
-            previous =
-                document.createElement("button");
-
-
-            previous.type =
-                "button";
-
-
-            previous.className =
-                "carousel-btn category-prev";
-
-
-            previous.textContent =
-                "‹";
-
-
-            previous.setAttribute(
-                "aria-label",
-                `${type} previous`
-            );
-
-
-            wrapper.insertBefore(
-                previous,
-                slider
-            );
-        }
-
-
-        if (!next) {
-
-            next =
-                document.createElement("button");
-
-
-            next.type =
-                "button";
-
-
-            next.className =
-                "carousel-btn category-next";
-
-
-            next.textContent =
-                "›";
-
-
-            next.setAttribute(
-                "aria-label",
-                `${type} next`
-            );
-
-
-            wrapper.appendChild(
-                next
-            );
-        }
-
-
-        /* -------------------------------------------------
-           Scroll
-           ------------------------------------------------- */
-
-        setupCarousel(
-            previous,
-            next,
-            grid
-        );
-    }
-
-
-    /* =====================================================
-       MOVIES
-       
-       MAX 10
-       HORIZONTAL SCROLL
-       ===================================================== */
-
-    function renderMovies() {
-
-        const section =
-            $("#cinemaSection") ||
-            $(".category-section");
-
-
-        if (!section) {
-
-            console.warn(
-                "BS360: Movies section not found."
-            );
-
-            return;
-        }
-
-
-        const grid =
-            $("#cinemaGrid", section) ||
-            $(".horizontal-carousel", section) ||
-            $(".slider-track", section);
-
-
-        if (!grid) {
-
-            console.warn(
-                "BS360: #cinemaGrid not found."
-            );
-
-            return;
-        }
-
-
-        const list =
-            articles
-                .filter(isMovies)
-                .slice(0, 10);
-
-
-        grid.innerHTML = "";
-
-
-        if (!list.length) {
-
-            grid.innerHTML = `
-                <div class="no-news">
-                    No Movies news available.
-                </div>
-            `;
-
-            return;
-        }
-
-
-        list.forEach(function (article) {
-
-            grid.appendChild(
-                createCategoryCard(article)
-            );
-
-        });
-
-
-        /* FIX MOVIES CAROUSEL */
-
-        setupCategoryCarousel(
-            section,
-            grid,
-            "movies"
-        );
-    }
-
-
-    /* =====================================================
-       SPORTS
-       
-       MAX 10
-       HORIZONTAL SCROLL
-       ===================================================== */
-
-    function renderSports() {
-
-        const section =
-            $("#sportsSection") ||
-            $(".sports-section");
-
-
-        if (!section) {
-
-            console.warn(
-                "BS360: Sports section not found."
-            );
-
-            return;
-        }
-
-
-        const grid =
-            $("#sportsGrid", section) ||
-            $(".horizontal-carousel", section) ||
-            $(".slider-track", section);
-
-
-        if (!grid) {
-
-            console.warn(
-                "BS360: #sportsGrid not found."
-            );
-
-            return;
-        }
-
-
-        const list =
-            articles
-                .filter(isSports)
-                .slice(0, 10);
-
-
-        grid.innerHTML = "";
-
-
-        if (!list.length) {
-
-            grid.innerHTML = `
-                <div class="no-news">
-                    No Sports news available.
-                </div>
-            `;
-
-            return;
-        }
-
-
-        list.forEach(function (article) {
-
-            grid.appendChild(
-                createCategoryCard(article)
-            );
-
-        });
-
-
-        /* FIX SPORTS CAROUSEL */
-
-        setupCategoryCarousel(
-            section,
-            grid,
-            "sports"
-        );
-    }
-
-
-    /* =====================================================
-       ALL NEWS
-       ===================================================== */
-
-    function renderAllNews() {
-
-        let section =
-            $("#allNewsSection");
-
-
-        /* EXISTING SECTION */
-
-        if (section) {
-
-            let grid =
-                $("#allNewsGrid", section) ||
-                $(".all-news-grid", section);
-
-
-            if (!grid) {
-
-                grid =
-                    document.createElement("div");
-
-                grid.id =
-                    "allNewsGrid";
-
-                grid.className =
-                    "all-news-grid";
-
-                section.appendChild(grid);
-            }
-
-
-            grid.innerHTML = "";
-
-
-            articles.forEach(function (article) {
-
-                grid.appendChild(
-                    createAllNewsCard(article)
-                );
-
-            });
-
-
-            return;
-        }
-
-
-        /* CREATE SECTION */
-
-        section =
-            document.createElement("section");
-
-
-        section.id =
-            "allNewsSection";
-
-
-        section.className =
-            "all-news-section";
-
-
-        section.innerHTML = `
-
-            <div class="section-title-row">
-
-                <h2>
-                    📰 ALL NEWS
-                </h2>
-
-                <span>
-                    అన్ని తాజా వార్తలు
-                </span>
-
-            </div>
-
-
-            <div
-                id="allNewsGrid"
-                class="all-news-grid"
-            ></div>
-        `;
-
-
-        const grid =
-            $("#allNewsGrid", section);
-
-
-        articles.forEach(function (article) {
-
-            grid.appendChild(
-                createAllNewsCard(article)
-            );
-
-        });
-
-
-        /* AFTER SPORTS */
-
-        const sports =
-            $("#sportsSection") ||
-            $(".sports-section");
-
-
-        if (sports) {
-
-            sports.insertAdjacentElement(
-                "afterend",
-                section
-            );
-
-        } else {
-
-            const footer =
-                $(".site-footer") ||
-                $("footer");
-
-
-            if (footer) {
-
-                footer.insertAdjacentElement(
-                    "beforebegin",
-                    section
-                );
-
-            } else {
-
-                document.body.appendChild(
-                    section
-                );
-            }
-        }
-    }
-
-
-    /* =====================================================
-       REMOVE MOST READ
-       ===================================================== */
-
-    function removeMostRead() {
-
-        $$(".most-read-section")
-            .forEach(function (section) {
-
-                section.remove();
-
-            });
-
-
-        $$("#mostReadSection")
-            .forEach(function (element) {
-
-                element.remove();
-
-            });
-    }
-
-
-    /* =====================================================
-       REMOVE EXTRA TOP STORY
-       ===================================================== */
-
-    function cleanExtraTopStory() {
-
-        const sections =
-            $$("section");
-
-
-        sections.forEach(function (section) {
-
-            if (
-                section.classList.contains(
-                    "top-story-section"
-                )
-            ) {
-
-                return;
-            }
-
-
-            const heading =
-                $("h1, h2, h3", section);
-
-
-            if (!heading) return;
-
-
-            const text =
-                heading.textContent
-                    .toLowerCase()
-                    .trim();
-
-
-            if (
-                text === "top story" ||
-                text.includes("top story")
-            ) {
-
-                section.remove();
-
-            }
-
-        });
-    }
-
-
-    /* =====================================================
-       GENERAL CAROUSEL
-       ===================================================== */
-
-    function setupCarousel(
-        previousButton,
-        nextButton,
-        track
-    ) {
-
-        if (!track) return;
-
-
-        function getScroller() {
-
-            const slider =
-                track.closest(".news-slider") ||
-                track.closest(".bigboss-slider") ||
-                track.parentElement;
-
-
-            return slider;
-        }
-
-
-        function scrollAmount() {
-
-            const first =
-                track.children[0];
-
-
-            if (!first) {
-
-                return 230;
-            }
-
-
-            return (
-                first.getBoundingClientRect().width +
-                12
-            );
-        }
-
-
-        if (previousButton) {
-
-            previousButton.onclick =
-                function () {
-
-                    const scroller =
-                        getScroller();
-
-
-                    if (!scroller) return;
-
-
-                    scroller.scrollBy({
-
-                        left:
-                            -scrollAmount(),
-
-                        behavior:
-                            "smooth"
-
-                    });
-
-                };
-        }
-
-
-        if (nextButton) {
-
-            nextButton.onclick =
-                function () {
-
-                    const scroller =
-                        getScroller();
-
-
-                    if (!scroller) return;
-
-
-                    scroller.scrollBy({
-
-                        left:
-                            scrollAmount(),
-
-                        behavior:
-                            "smooth"
-
-                    });
-
-                };
-        }
-    }
-
-
-    /* =====================================================
-       EXISTING CAROUSELS
-       ===================================================== */
-
-    function setupAllCarousels() {
-
-        /* BIGG BOSS */
-
-        const bigbossSection =
-            $(".bigboss-section") ||
-            $("#bigboss10Section");
-
-
-        if (bigbossSection) {
-
-            const track =
-                $("#bigbossTrack", bigbossSection) ||
-                $(".bigboss-track", bigbossSection);
-
-
-            const previous =
-                $(".bigboss-prev", bigbossSection) ||
-                $(".prev", bigbossSection);
-
-
-            const next =
-                $(".bigboss-next", bigbossSection) ||
-                $(".next", bigbossSection);
-
-
-            setupCarousel(
-                previous,
-                next,
-                track
-            );
-        }
-
-
-        /* AP & TS */
-
-        const apSection =
-            $(".slider-section");
-
-
-        if (apSection) {
-
-            const track =
-                $("#sliderTrack", apSection) ||
-                $(".slider-track", apSection);
-
-
-            const previous =
-                $(".carousel-btn.prev", apSection) ||
-                $(".prev", apSection);
-
-
-            const next =
-                $(".carousel-btn.next", apSection) ||
-                $(".next", apSection);
-
-
-            setupCarousel(
-                previous,
-                next,
-                track
-            );
-        }
-    }
-
-
-    /* =====================================================
-       BIGG BOSS AUTO SCROLL
-       EVERY 5 SECONDS
-       ===================================================== */
-
-    function startBigBossAutoScroll() {
-
-        const section =
-            $(".bigboss-section") ||
-            $("#bigboss10Section");
-
-
-        if (!section) return;
-
-
-        const slider =
-            $(".bigboss-slider", section) ||
-            $(".bigboss-track", section)?.parentElement;
-
-
-        if (!slider) return;
-
-
-        let timer =
-            null;
-
-
-        function start() {
-
-            stop();
-
-
-            timer =
-                setInterval(
-                    function () {
-
-                        const maxScroll =
-                            slider.scrollWidth -
-                            slider.clientWidth;
-
-
-                        if (maxScroll <= 0) {
-
-                            return;
-                        }
-
-
-                        const first =
-                            slider.querySelector(
-                                ".bigboss-card"
-                            );
-
-
-                        const amount =
-                            first
-                                ? first.getBoundingClientRect().width + 12
-                                : 227;
-
-
-                        if (
-                            slider.scrollLeft >=
-                            maxScroll - 10
-                        ) {
-
-                            slider.scrollTo({
-
-                                left: 0,
-
-                                behavior:
-                                    "smooth"
-
-                            });
-
-                        } else {
-
-                            slider.scrollBy({
-
-                                left: amount,
-
-                                behavior:
-                                    "smooth"
-
-                            });
-                        }
-
-                    },
-                    5000
-                );
-        }
-
-
-        function stop() {
-
-            if (timer) {
-
-                clearInterval(timer);
-
-                timer = null;
-            }
-        }
-
-
-        slider.addEventListener(
-            "mouseenter",
-            stop
-        );
-
-
-        slider.addEventListener(
-            "mouseleave",
-            start
-        );
-
-
-        slider.addEventListener(
-            "touchstart",
-            stop,
-            {
-                passive: true
-            }
-        );
-
-
-        slider.addEventListener(
-            "touchend",
-            start,
-            {
-                passive: true
-            }
-        );
-
-
-        start();
-    }
-
-
-    /* =====================================================
-       DATE & TIME
-       ===================================================== */
-
-    function setupDateTime() {
-
-        const headerActions =
-            $(".header-actions");
-
-
-        if (!headerActions) return;
-
-
-        let box =
-            $(".header-date-time", headerActions);
-
-
-        if (!box) {
-
-            box =
-                document.createElement("div");
-
-
-            box.className =
-                "header-date-time";
-
-
-            const liveButton =
-                $(".live-button", headerActions);
-
-
-            if (liveButton) {
-
-                headerActions.insertBefore(
-                    box,
-                    liveButton
-                );
-
-            } else {
-
-                headerActions.appendChild(
-                    box
-                );
-            }
-        }
-
-
-        box.innerHTML = `
-
-            <div class="header-date"></div>
-
-            <div class="header-time"></div>
-        `;
-
-
-        const dateElement =
-            $(".header-date", box);
-
-
-        const timeElement =
-            $(".header-time", box);
-
-
-        function updateDateTime() {
-
-            const now =
-                new Date();
-
-
-            const date =
-                now.toLocaleDateString(
-                    "en-IN",
-                    {
-                        weekday:
-                            "short",
-
-                        day:
-                            "2-digit",
-
-                        month:
-                            "short",
-
-                        year:
-                            "numeric"
-                    }
-                );
-
-
-            const time =
-                now.toLocaleTimeString(
-                    "en-IN",
-                    {
-                        hour:
-                            "2-digit",
-
-                        minute:
-                            "2-digit",
-
-                        second:
-                            "2-digit",
-
-                        hour12:
-                            true
-                    }
-                );
-
-
-            dateElement.textContent =
-                date;
-
-
-            timeElement.textContent =
-                time;
-        }
-
-
-        updateDateTime();
-
-
-        setInterval(
-            updateDateTime,
-            1000
-        );
-    }
-
-
-    /* =====================================================
-       SEARCH
-       ===================================================== */
-
-    function setupSearch() {
-
-        const icon =
-            $(".search-icon");
-
-
-        const box =
-            $(".search-box");
-
-
-        const input =
-            $(".search-box input");
-
-
-        const button =
-            $(".search-box button");
-
-
-        if (
-            !icon ||
-            !box ||
-            !input
-        ) {
-
-            return;
-        }
-
-
-        icon.addEventListener(
-            "click",
-            function () {
-
-                box.classList.toggle(
-                    "show"
-                );
-
-
-                if (
-                    box.classList.contains(
-                        "show"
-                    )
-                ) {
-
-                    input.focus();
-
-                } else {
-
-                    input.value = "";
-
-                    clearSearch();
-                }
-
-            }
-        );
-
-
-        function performSearch() {
-
-            const query =
-                input.value
-                    .trim()
-                    .toLowerCase();
-
-
-            if (!query) {
-
-                clearSearch();
-
-                return;
-            }
-
-
-            let found =
-                false;
-
-
-            articles.forEach(
-                function (article) {
-
-                    const title =
-                        article.title.toLowerCase();
-
-
-                    const matches =
-                        title.includes(query);
-
-
-                    article.element.style.display =
-                        matches
-                            ? ""
-                            : "none";
-
-
-                    if (matches) {
-
-                        found = true;
-                    }
-
-                }
-            );
-
-
-            showSearchResults(
-                query,
-                found
-            );
-        }
-
-
-        function clearSearch() {
-
-            articles.forEach(
-                function (article) {
-
-                    article.element.style.display =
-                        "";
-
-                }
-            );
-
-
-            const result =
-                $("#searchResultSection");
-
-
-            if (result) {
-
-                result.remove();
-            }
-        }
-
-
-        if (button) {
-
-            button.addEventListener(
-                "click",
-                performSearch
-            );
-        }
-
-
-        input.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (
-                    event.key === "Enter"
-                ) {
-
-                    event.preventDefault();
-
-                    performSearch();
-                }
-
-            }
-        );
-    }
-
-
-    /* =====================================================
-       SEARCH RESULTS
-       ===================================================== */
-
-    function showSearchResults(
-        query,
-        found
-    ) {
-
-        let section =
-            $("#searchResultSection");
-
-
-        if (!section) {
-
-            section =
-                document.createElement("section");
-
-
-            section.id =
-                "searchResultSection";
-
-
-            section.className =
-                "search-result-section";
-
-
-            const searchContainer =
-                $(".search-container");
-
-
-            if (searchContainer) {
-
-                searchContainer.insertAdjacentElement(
-                    "afterend",
-                    section
-                );
-
-            } else {
-
-                const portal =
-                    $(".portal-wrap");
-
-
-                if (portal) {
-
-                    portal.prepend(
-                        section
-                    );
-
-                } else {
-
-                    document.body.prepend(
-                        section
-                    );
-                }
-            }
-        }
-
-
-        section.innerHTML = `
-
-            <h2>
-                🔎 Search Results
-            </h2>
-
-            <div
-                class="search-result-grid"
-            ></div>
-        `;
-
-
-        const grid =
-            $(".search-result-grid", section);
-
-
-        const results =
-            articles.filter(
-                function (article) {
-
-                    return article.title
-                        .toLowerCase()
-                        .includes(query);
-
-                }
-            );
-
-
-        if (!results.length) {
-
-            grid.innerHTML = `
-
-                <div class="no-news">
-                    "${escapeHTML(query)}"
-                    కు వార్తలు లభించలేదు.
-                </div>
-
-            `;
-
-            return;
-        }
-
-
-        results.forEach(
-            function (article) {
-
-                grid.appendChild(
-                    createAllNewsCard(article)
-                );
-
-            }
-        );
-
-
-        section.scrollIntoView({
-
-            behavior:
-                "smooth",
-
-            block:
-                "start"
-
-        });
-    }
-
-
-    /* =====================================================
-       DARK MODE
-       ===================================================== */
-
-    function setupDarkMode() {
-
-        const button =
-            $(".theme-button");
-
-
-        if (!button) return;
-
-
-        const saved =
-            localStorage.getItem(
-                "bs360-dark-mode"
-            );
-
-
-        if (saved === "on") {
-
-            document.body.classList.add(
-                "dark-mode"
-            );
-        }
-
-
-        updateThemeButton();
-
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                document.body.classList.toggle(
-                    "dark-mode"
-                );
-
-
-                const isDark =
-                    document.body.classList.contains(
-                        "dark-mode"
-                    );
-
-
-                localStorage.setItem(
-                    "bs360-dark-mode",
-                    isDark
-                        ? "on"
-                        : "off"
-                );
-
-
-                updateThemeButton();
-
-            }
-        );
-
-
-        function updateThemeButton() {
-
-            const isDark =
-                document.body.classList.contains(
-                    "dark-mode"
-                );
-
-
-            button.textContent =
-                isDark
-                    ? "☀️ Light"
-                    : "🌙 Dark";
-        }
-    }
-
-
-    /* =====================================================
-       MOBILE MENU
-       ===================================================== */
-
-    function setupMobileMenu() {
-
-        const button =
-            $(".mobile-menu-toggle");
-
-
-        const nav =
-            $(".main-nav");
-
-
-        if (!button || !nav) {
-            return;
-        }
-
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                nav.classList.toggle(
-                    "mobile-open"
-                );
-
-            }
-        );
-    }
-
-
-    /* =====================================================
-       TOP HEADLINES
-       ===================================================== */
-
-    function setupHeadlines() {
-
-        const text =
-            $(".headlines-text");
-
-
-        if (!text) return;
-
-
-        const headlineArticles =
-            articles.slice(0, 8);
-
-
-        if (!headlineArticles.length) {
-            return;
-        }
-
-
-        let index =
-            0;
-
-
-        function showHeadline() {
-
-            const article =
-                headlineArticles[index];
-
-
-            text.textContent =
-                article.title;
-
-
-            index =
-                (
-                    index + 1
-                ) %
-                headlineArticles.length;
-        }
-
-
-        showHeadline();
-
-
-        setInterval(
-            showHeadline,
-            4000
-        );
-    }
-
-
-    /* =====================================================
-       READ MORE LINKS
-       ===================================================== */
-
-    function setupReadMore() {
-
-        /* BIGG BOSS */
-
-        const bigboss =
-            $(".bigboss-section") ||
-            $("#bigboss10Section");
-
-
-        if (bigboss) {
-
-            const link =
-                $(".view-all", bigboss) ||
-                $$("a", bigboss).find(
-                    function (a) {
-
-                        return a.textContent
-                            .toUpperCase()
-                            .includes(
-                                "READ MORE"
-                            );
-
-                    }
-                );
-
-
-            if (link) {
-
-                link.href =
-                    "bigboss10.html";
-            }
-        }
-
-
-        /* AP & TS */
-
-        const apSection =
-            $(".slider-section");
-
-
-        if (apSection) {
-
-            const link =
-                $(".view-all", apSection) ||
-                $$("a", apSection).find(
-                    function (a) {
-
-                        return a.textContent
-                            .toUpperCase()
-                            .includes(
-                                "READ MORE"
-                            );
-
-                    }
-                );
-
-
-            if (link) {
-
-                link.href =
-                    "AP&TS.html";
-            }
-        }
-
-
-        /* BUSINESS */
-
-        const business =
-            $(".business-section");
-
-
-        if (business) {
-
-            const link =
-                $(".view-all", business);
-
-
-            if (link) {
-
-                link.href =
-                    "business.html";
-            }
-        }
-
-
-        /* MOVIES */
-
-        const movies =
-            $("#cinemaSection") ||
-            $(".category-section");
-
-
-        if (movies) {
-
-            const link =
-                $(".view-all", movies) ||
-                $$("a", movies).find(
-                    function (a) {
-
-                        return a.textContent
-                            .toUpperCase()
-                            .includes(
-                                "READ MORE"
-                            );
-
-                    }
-                );
-
-
-            if (link) {
-
-                link.href =
-                    "movies.html";
-            }
-        }
-
-
-        /* SPORTS */
-
-        const sports =
-            $("#sportsSection") ||
-            $(".sports-section");
-
-
-        if (sports) {
-
-            const link =
-                $(".view-all", sports) ||
-                $$("a", sports).find(
-                    function (a) {
-
-                        return a.textContent
-                            .toUpperCase()
-                            .includes(
-                                "READ MORE"
-                            );
-
-                    }
-                );
-
-
-            if (link) {
-
-                link.href =
-                    "sports.html";
-            }
-        }
-    }
-
-
-    /* =====================================================
-       INITIALIZE
-       ===================================================== */
-
-    cleanExtraTopStory();
-
-
-    removeMostRead();
-
-
-    renderLatestNews();
-
-
-    renderBigBoss();
-
-
-    renderAPTS();
-
-
-    renderBusiness();
-
-
-    renderMovies();
-
-
-    renderSports();
-
-
-    renderAllNews();
-
-
-    setupAllCarousels();
-
-
-    startBigBossAutoScroll();
-
-
-    setupDateTime();
-
-
-    setupSearch();
-
-
-    setupDarkMode();
-
-
-    setupMobileMenu();
-
-
-    setupHeadlines();
-
-
-    setupReadMore();
-
-
-    /* =====================================================
-       DEBUG / CONSOLE
-       ===================================================== */
-
-    console.log(
-        "===================================="
-    );
-
-
-    console.log(
-        "✅ BS 360 NEWS homepage loaded."
-    );
-
-
-    console.log(
-        "📰 Total articles:",
-        articles.length
-    );
-
-
-    console.log(
-        "📺 Bigg Boss:",
-        articles.filter(
-            isBigBoss
-        ).length
-    );
-
-
-    console.log(
-        "🏛️ AP & TS:",
-        articles.filter(
-            isAPTS
-        ).length
-    );
-
-
-    console.log(
-        "💼 Business:",
-        articles.filter(
-            isBusiness
-        ).length
-    );
-
-
-    console.log(
-        "🎬 Movies:",
-        articles.filter(
-            isMovies
-        ).length
-    );
-
-
-    console.log(
-        "🏏 Sports:",
-        articles.filter(
-            isSports
-        ).length
-    );
-
-
-    console.log(
-        "===================================="
-    );
+    return true;  
 
 });
+
+}
+
+allPosts = uniquePosts(allPosts);
+
+/* =====================================================
+CATEGORY
+===================================================== */
+
+function catsOf(post) {
+
+return (  
+    (post.getAttribute("data-category") || "") +  
+    " " +  
+    (post.getAttribute("data-categories") || "") +  
+    " " +  
+    (post.getAttribute("category") || "")  
+)  
+.toLowerCase()  
+.trim();
+
+}
+
+/* =====================================================
+BIGG BOSS
+===================================================== */
+
+function isBigBoss(post) {
+
+const value = catsOf(post);  
+
+return (  
+    value.includes("bigboss10") ||  
+    value.includes("bigg boss 10") ||  
+    value.includes("bigboss 10") ||  
+    value.includes("bigg-boss-10") ||  
+    value.includes("bigg_boss_10") ||  
+    value.includes("బిగ్ బాస్ 10") ||  
+    value.includes("బిగ్‌బాస్ 10")  
+);
+
+}
+
+function normalPosts() {
+
+return allPosts.filter(function (post) {  
+    return !isBigBoss(post);  
+});
+
+}
+
+/* =====================================================
+SPORTS
+===================================================== */
+
+function isSports(post) {
+
+const value = catsOf(post);  
+
+return (  
+    /\bsports?\b/.test(value) ||  
+    value.includes("క్రీడ") ||  
+    value.includes("cricket") ||  
+    value.includes("ipl")  
+);
+
+}
+
+/* =====================================================
+MOVIES
+===================================================== */
+
+function isMovies(post) {
+
+const value = catsOf(post);  
+
+return (  
+    /\bmovies?\b/.test(value) ||  
+    /\bcinema\b/.test(value) ||  
+    value.includes("movie") ||  
+    value.includes("film") ||  
+    value.includes("tollywood") ||  
+    value.includes("సినిమా")  
+);
+
+}
+
+/* =====================================================
+BUSINESS
+===================================================== */
+
+function isBusiness(post) {
+
+const value = catsOf(post);  
+
+return (  
+    /\bbusiness\b/.test(value) ||  
+    /\bgold\b/.test(value) ||  
+    /\bfinance\b/.test(value) ||  
+    value.includes("బిజినెస్")  
+);
+
+}
+
+/* =====================================================
+ANDHRA PRADESH
+===================================================== */
+
+function isAPNews(post) {
+
+const value = catsOf(post);  
+
+return (  
+    /\bap\b/.test(value) ||  
+    value.includes("andhra-pradesh") ||  
+    value.includes("andhrapradesh") ||  
+    value.includes("andhra pradesh") ||  
+    value.includes("ap-news") ||  
+    value.includes("ap_news") ||  
+    value.includes("apnews") ||  
+    value.includes("ఆంధ్రప్రదేశ్") ||  
+    value.includes("ఆంధ్ర ప్రదేశ్")  
+);
+
+}
+
+/* =====================================================
+TELANGANA
+===================================================== */
+
+function isTSNews(post) {
+
+const value = catsOf(post);  
+
+return (  
+    /\bts\b/.test(value) ||  
+    value.includes("telangana") ||  
+    value.includes("telangana-news") ||  
+    value.includes("telangana_news") ||  
+    value.includes("ts-news") ||  
+    value.includes("ts_news") ||  
+    value.includes("tsnews") ||  
+    value.includes("తెలంగాణ")  
+);
+
+}
+
+/* =====================================================
+TITLE
+===================================================== */
+
+function titleOf(post) {
+
+const element =  
+    $(".post-title", post) ||  
+    $(".article-title", post) ||  
+    $("h1", post) ||  
+    $("h2", post) ||  
+    $("h3", post) ||  
+    $("p", post) ||  
+    $("a", post);  
+
+return element  
+    ? element.textContent.replace(/\s+/g, " ").trim()  
+    : "BS 360 NEWS";
+
+}
+
+/* =====================================================
+IMAGE
+===================================================== */
+
+function imageOf(post) {
+
+const image = $("img", post);  
+
+if (!image) {  
+    return "dp.png.png";  
+}  
+
+return (  
+    image.getAttribute("src") ||  
+    image.getAttribute("data-src") ||  
+    image.getAttribute("data-lazy-src") ||  
+    "dp.png.png"  
+);
+
+}
+
+/* =====================================================
+ALT
+===================================================== */
+
+function altOf(post) {
+
+const image = $("img", post);  
+
+return image  
+    ? image.getAttribute("alt") || titleOf(post)  
+    : titleOf(post);
+
+}
+
+/* =====================================================
+LABEL
+===================================================== */
+
+function labelOf(post) {
+
+if (isBigBoss(post)) return "BIGG BOSS 10";  
+if (isSports(post)) return "SPORTS";  
+if (isMovies(post)) return "CINEMA";  
+if (isBusiness(post)) return "BUSINESS";  
+if (isAPNews(post)) return "ANDHRA PRADESH";  
+if (isTSNews(post)) return "TELANGANA";  
+
+return "LATEST";
+
+}
+
+/* =====================================================
+URL
+===================================================== */
+
+function articleUrl(post) {
+
+return (  
+    post.getAttribute("data-url") ||  
+    post.querySelector("a")?.getAttribute("href") ||  
+    "#"  
+);
+
+}
+
+function openPost(post) {
+
+const url = articleUrl(post);  
+
+if (  
+    url &&  
+    url !== "#" &&  
+    url !== "javascript:void(0)"  
+) {  
+
+    window.location.href = url;  
+
+}
+
+}
+
+/* =====================================================
+ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+return String(value)  
+    .replace(/&/g, "&amp;")  
+    .replace(/</g, "&lt;")  
+    .replace(/>/g, "&gt;")  
+    .replace(/"/g, "&quot;")  
+    .replace(/'/g, "&#039;");
+
+}
+
+/* =====================================================
+CARD
+===================================================== */
+
+function createCard(
+post,
+type = "latest",
+customLabel = null
+) {
+
+const card = document.createElement("article");  
+
+card.className =  
+    "portal-card " + type + "-card";  
+
+card.innerHTML = `  
+
+    <div class="portal-card-media">  
+
+        <img  
+            src="${escapeHTML(imageOf(post))}"  
+            alt="${escapeHTML(altOf(post))}"  
+            loading="lazy"  
+            onerror="this.onerror=null;this.src='dp.png.png';"  
+        >  
+
+    </div>  
+
+    <div class="portal-card-body">  
+
+        <span class="portal-tag">  
+            ${escapeHTML(customLabel || labelOf(post))}  
+        </span>  
+
+        <h3>  
+            ${escapeHTML(titleOf(post))}  
+        </h3>  
+
+    </div>  
+
+`;  
+
+card.addEventListener("click", function () {  
+    openPost(post);  
+});  
+
+return card;
+
+}
+
+/* =====================================================
+HERO / LATEST TOP STORY DESIGN
+===================================================== */
+
+function renderTopStory(posts = normalPosts()) {
+
+const target = $("#topStory");  
+
+if (!target) return;  
+
+posts = posts.filter(function (post) {  
+    return articleUrl(post) !== "#";  
+});  
+
+if (!posts.length) {  
+
+    target.innerHTML = "";  
+
+    return;  
+
+}  
+
+let heroIndex = 0;  
+
+function showHero(index) {  
+
+    const post = posts[index];  
+
+    if (!post) return;  
+
+    const hero =  
+        document.createElement("article");  
+
+    hero.className =  
+        "portal-card hero-card hero-overlay-card hero-enter";  
+
+    hero.innerHTML = `  
+
+        <div class="hero-media">  
+
+            <img  
+                src="${escapeHTML(imageOf(post))}"  
+                alt="${escapeHTML(altOf(post))}"  
+                loading="eager"  
+                onerror="this.onerror=null;this.src='dp.png.png';"  
+            >  
+
+            <div class="hero-shade"></div>  
+
+            <div class="hero-overlay">  
+
+                <span class="hero-tag">  
+                    ${escapeHTML(labelOf(post))}  
+                </span>  
+
+                <h3>  
+                    ${escapeHTML(titleOf(post))}  
+                </h3>  
+
+                <span class="hero-read">  
+                    పూర్తి వార్త చదవండి →  
+                </span>  
+
+            </div>  
+
+        </div>  
+
+    `;  
+
+    hero.addEventListener("click", function () {  
+        openPost(post);  
+    });  
+
+    target.innerHTML = "";  
+
+    target.appendChild(hero);  
+
+}  
+
+
+showHero(heroIndex);  
+
+
+if (  
+    posts.length > 1 &&  
+    !target.dataset.heroStarted  
+) {  
+
+    target.dataset.heroStarted = "true";  
+
+    setInterval(function () {  
+
+        heroIndex++;  
+
+        if (heroIndex >= posts.length) {  
+            heroIndex = 0;  
+        }  
+
+        showHero(heroIndex);  
+
+    }, 5000);  
+
+}
+
+}
+
+/* =====================================================
+LATEST SIDEBAR
+===================================================== */
+
+function renderLatestSidebar(
+posts = normalPosts()
+) {
+
+const target = $("#latestSidebar");  
+
+if (!target) return;  
+
+target.innerHTML = "";  
+
+posts.slice(0, 12).forEach(function (post) {  
+
+    const item =  
+        document.createElement("article");  
+
+    item.className = "sidebar-card";  
+
+    item.innerHTML = `  
+
+        <div class="sidebar-thumb">  
+
+            <img  
+                src="${escapeHTML(imageOf(post))}"  
+                alt="${escapeHTML(altOf(post))}"  
+                loading="lazy"  
+                onerror="this.onerror=null;this.src='dp.png.png';"  
+            >  
+
+        </div>  
+
+        <div class="sidebar-content">  
+
+            <span class="portal-tag">  
+                ${escapeHTML(labelOf(post))}  
+            </span>  
+
+            <h3>  
+                ${escapeHTML(titleOf(post))}  
+            </h3>  
+
+        </div>  
+
+    `;  
+
+    item.addEventListener("click", function () {  
+        openPost(post);  
+    });  
+
+    target.appendChild(item);  
+
+});  
+
+startSidebarAutoScroll(target);
+
+}
+
+/* =====================================================
+SIDEBAR AUTO SCROLL
+===================================================== */
+
+function startSidebarAutoScroll(element) {
+
+if (!element) return;  
+
+if (  
+    element.dataset.sidebarScrollStarted === "true"  
+) {  
+    return;  
+}  
+
+element.dataset.sidebarScrollStarted = "true";  
+
+let paused = false;  
+
+element.addEventListener(  
+    "mouseenter",  
+    () => paused = true  
+);  
+
+element.addEventListener(  
+    "mouseleave",  
+    () => paused = false  
+);  
+
+setInterval(function () {  
+
+    if (paused) return;  
+
+    const maxScroll =  
+        element.scrollHeight -  
+        element.clientHeight;  
+
+    if (maxScroll <= 10) return;  
+
+    const next =  
+        element.scrollTop + 90;  
+
+    element.scrollTo({  
+
+        top:  
+            next >= maxScroll  
+                ? 0  
+                : next,  
+
+        behavior: "smooth"  
+
+    });  
+
+}, 2600);
+
+}
+
+/* =====================================================
+BIGG BOSS
+===================================================== */
+
+function renderBigBoss() {
+
+const track = $("#bigbossTrack");  
+const slider = $("#bigbossSlider");  
+
+if (!track || !slider) return;  
+
+track.innerHTML = "";  
+
+const posts =  
+    allPosts  
+        .filter(isBigBoss)  
+        .slice(0, 10);  
+
+posts.forEach(function (post) {  
+
+    const card =  
+        document.createElement("article");  
+
+    card.className = "bigboss-card";  
+
+    card.setAttribute(  
+        "tabindex",  
+        "0"  
+    );  
+
+    card.innerHTML = `  
+
+        <img  
+            src="${escapeHTML(imageOf(post))}"  
+            alt="${escapeHTML(altOf(post))}"  
+            loading="lazy"  
+            onerror="this.onerror=null;this.src='dp.png.png';"  
+        >  
+
+        <div class="bigboss-overlay">  
+
+            <span class="bigboss-tag">  
+                📺 BIGG BOSS 10  
+            </span>  
+
+            <h3>  
+                ${escapeHTML(titleOf(post))}  
+            </h3>  
+
+        </div>  
+
+    `;  
+
+    card.addEventListener(  
+        "click",  
+        () => openPost(post)  
+    );  
+
+    track.appendChild(card);  
+
+});  
+
+
+if (!posts.length) return;  
+
+setupBigBossAutoScroll(slider);  
+
+setupBigBossButtons(slider);
+
+}
+
+/* =====================================================
+BIGG BOSS AUTO SCROLL
+===================================================== */
+
+function setupBigBossAutoScroll(container) {
+
+if (  
+    container.dataset.bigbossAutoScrollStarted === "true"  
+) {  
+    return;  
+}  
+
+container.dataset.bigbossAutoScrollStarted = "true";  
+
+let paused = false;  
+
+container.addEventListener(  
+    "mouseenter",  
+    () => paused = true  
+);  
+
+container.addEventListener(  
+    "mouseleave",  
+    () => paused = false  
+);  
+
+setInterval(function () {  
+
+    if (paused) return;  
+
+    const max =  
+        container.scrollWidth -  
+        container.clientWidth;  
+
+    if (max <= 5) return;  
+
+    if (  
+        container.scrollLeft >= max - 10  
+    ) {  
+
+        container.scrollTo({  
+            left: 0,  
+            behavior: "smooth"  
+        });  
+
+    } else {  
+
+        container.scrollBy({  
+            left: 264,  
+            behavior: "smooth"  
+        });  
+
+    }  
+
+}, 5000);
+
+}
+
+/* =====================================================
+BIGG BOSS BUTTONS
+===================================================== */
+
+function setupBigBossButtons(slider) {
+
+const previous =  
+    $(".bigboss-prev");  
+
+const next =  
+    $(".bigboss-next");  
+
+
+if (previous) {  
+
+    previous.addEventListener(  
+        "click",  
+        function () {  
+
+            slider.scrollBy({  
+
+                left: -264,  
+
+                behavior: "smooth"  
+
+            });  
+
+        }  
+    );  
+
+}  
+
+
+if (next) {  
+
+    next.addEventListener(  
+        "click",  
+        function () {  
+
+            const max =  
+                slider.scrollWidth -  
+                slider.clientWidth;  
+
+            if (  
+                slider.scrollLeft >= max - 10  
+            ) {  
+
+                slider.scrollTo({  
+
+                    left: 0,  
+
+                    behavior: "smooth"  
+
+                });  
+
+            } else {  
+
+                slider.scrollBy({  
+
+                    left: 264,  
+
+                    behavior: "smooth"  
+
+                });  
+
+            }  
+
+        }  
+    );  
+
+}
+
+}
+
+/* =====================================================
+AP + TS NEWS
+===================================================== */
+
+function renderSlider() {
+
+const track =  
+    $("#sliderTrack");  
+
+const container =  
+    $("#newsSlider");  
+
+if (!track) return;  
+
+track.innerHTML = "";  
+
+
+const posts =  
+    normalPosts()  
+        .filter(function (post) {  
+
+            return (  
+                isAPNews(post) ||  
+                isTSNews(post)  
+            );  
+
+        })  
+        .slice(0, 15);  
+
+
+posts.forEach(function (post) {  
+
+    let label = "News";  
+
+    if (isAPNews(post)) {  
+        label = "AP News";  
+    }  
+
+    if (isTSNews(post)) {  
+        label = "TS News";  
+    }  
+
+
+    track.appendChild(  
+        createCard(  
+            post,  
+            "slider",  
+            label  
+        )  
+    );  
+
+});  
+
+
+setupHorizontalAutoScroll(  
+    container,  
+    280,  
+    3000  
+);
+
+}
+
+/* =====================================================
+MOVIES
+===================================================== */
+
+function renderMovies() {
+
+const target =  
+    $("#cinemaGrid");  
+
+if (!target) return;  
+
+target.innerHTML = "";  
+
+
+const posts =  
+    normalPosts()  
+        .filter(isMovies)  
+        .slice(0, 12);  
+
+
+posts.forEach(function (post) {  
+
+    target.appendChild(  
+        createCard(  
+            post,  
+            "category",  
+            "CINEMA"  
+        )  
+    );  
+
+});  
+
+
+setupHorizontalAutoScroll(  
+    target,  
+    300,  
+    3400  
+);
+
+}
+
+/* =====================================================
+SPORTS
+===================================================== */
+
+function renderSports() {
+
+const target =  
+    $("#sportsGrid");  
+
+if (!target) return;  
+
+target.innerHTML = "";  
+
+
+const posts =  
+    normalPosts()  
+        .filter(isSports)  
+        .slice(0, 12);  
+
+
+posts.forEach(function (post) {  
+
+    target.appendChild(  
+        createCard(  
+            post,  
+            "sports",  
+            "SPORTS"  
+        )  
+    );  
+
+});  
+
+
+setupHorizontalAutoScroll(  
+    target,  
+    300,  
+    3500  
+);
+
+}
+
+/* =====================================================
+HORIZONTAL AUTO SCROLL
+===================================================== */
+
+function setupHorizontalAutoScroll(
+container,
+distance = 280,
+interval = 3000
+) {
+
+if (!container) return;  
+
+if (  
+    container.dataset.autoScrollStarted === "true"  
+) {  
+    return;  
+}  
+
+container.dataset.autoScrollStarted = "true";  
+
+
+/* Container */  
+
+container.style.display = "flex";  
+
+container.style.flexDirection =  
+    "row";  
+
+container.style.flexWrap =  
+    "nowrap";  
+
+container.style.overflowX =  
+    "auto";  
+
+container.style.overflowY =  
+    "hidden";  
+
+container.style.scrollBehavior =  
+    "smooth";  
+
+
+/* Cards */  
+
+Array.from(  
+    container.children  
+).forEach(function (card) {  
+
+    card.style.flex =  
+        "0 0 300px";  
+
+    card.style.minWidth =  
+        "300px";  
+
+    card.style.width =  
+        "300px";  
+
+});  
+
+
+let paused = false;  
+
+
+container.addEventListener(  
+    "mouseenter",  
+    () => paused = true  
+);  
+
+container.addEventListener(  
+    "mouseleave",  
+    () => paused = false  
+);  
+
+
+setInterval(function () {  
+
+    if (paused) return;  
+
+
+    const max =  
+        container.scrollWidth -  
+        container.clientWidth;  
+
+
+    if (max <= 5) return;  
+
+
+    if (  
+        container.scrollLeft >= max - 10  
+    ) {  
+
+        container.scrollTo({  
+
+            left: 0,  
+
+            behavior: "smooth"  
+
+        });  
+
+    } else {  
+
+        container.scrollBy({  
+
+            left: distance,  
+
+            behavior: "smooth"  
+
+        });  
+
+    }  
+
+}, interval);
+
+}
+
+/* =====================================================
+MOST READ
+===================================================== */
+
+function renderMostRead() {
+
+const target =  
+    $("#mostReadList");  
+
+if (!target) return;  
+
+target.innerHTML = "";  
+
+
+const posts =  
+    normalPosts().slice(0, 60);  
+
+
+posts.forEach(function (  
+    post,  
+    index  
+) {  
+
+    const item =  
+        document.createElement("article");  
+
+
+    item.className =  
+        "most-read-item";  
+
+
+    item.setAttribute(  
+        "tabindex",  
+        "0"  
+    );  
+
+
+    item.innerHTML = `  
+
+        <div class="most-number">  
+            ${String(index + 1).padStart(2, "0")}  
+        </div>  
+
+        <div class="most-read-image">  
+
+            <img  
+                src="${escapeHTML(imageOf(post))}"  
+                alt="${escapeHTML(altOf(post))}"  
+                loading="lazy"  
+                onerror="this.onerror=null;this.src='dp.png.png';"  
+            >  
+
+        </div>  
+
+        <div class="most-read-text">  
+
+            <span class="portal-tag">  
+                ${escapeHTML(labelOf(post))}  
+            </span>  
+
+            <h3>  
+                ${escapeHTML(titleOf(post))}  
+            </h3>  
+
+        </div>  
+
+    `;  
+
+
+    item.addEventListener(  
+        "click",  
+        () => openPost(post)  
+    );  
+
+
+    target.appendChild(item);  
+
+});
+
+}
+
+/* =====================================================
+SEARCH
+===================================================== */
+
+function performSearch() {
+
+const input =  
+    $("#searchInput");  
+
+if (!input) return;  
+
+
+const query =  
+    input.value  
+        .trim()  
+        .toLowerCase();  
+
+
+if (!query) {  
+
+    renderTopStory();  
+
+    renderLatestSidebar();  
+
+    return;  
+
+}  
+
+
+const matched =  
+    normalPosts()  
+        .filter(function (post) {  
+
+            return (  
+
+                titleOf(post)  
+                    .toLowerCase()  
+                    .includes(query)  
+
+                ||  
+
+                catsOf(post)  
+                    .includes(query)  
+
+            );  
+
+        });  
+
+
+renderSearchResults(matched);
+
+}
+
+/* =====================================================
+SEARCH RESULTS
+===================================================== */
+
+function renderSearchResults(posts) {
+
+const target =  
+    $("#latestSidebar");  
+
+const heroTarget =  
+    $("#topStory");  
+
+
+if (!target || !heroTarget) return;  
+
+
+target.innerHTML = "";  
+
+heroTarget.innerHTML = "";  
+
+
+if (!posts.length) {  
+
+    heroTarget.innerHTML = `  
+
+        <div class="no-results">  
+
+            <h3>  
+                వార్తలు కనిపించలేదు  
+            </h3>  
+
+            <p>  
+                మరో keywordతో search చేయండి.  
+            </p>  
+
+        </div>  
+
+    `;  
+
+    return;  
+
+}  
+
+
+renderTopStory(posts);  
+
+renderLatestSidebar(  
+    posts.slice(1)  
+);
+
+}
+
+/* =====================================================
+SEARCH SETUP
+===================================================== */
+
+function setupSearch() {
+
+const button =  
+    $("#searchButton");  
+
+const box =  
+    $("#searchBox");  
+
+const input =  
+    $("#searchInput");  
+
+const submit =  
+    $("#searchSubmit");  
+
+
+if (button && box) {  
+
+    button.addEventListener(  
+        "click",  
+        function () {  
+
+            box.classList.toggle(  
+                "active"  
+            );  
+
+            box.classList.toggle(  
+                "open"  
+            );  
+
+
+            if (  
+                box.classList.contains(  
+                    "active"  
+                ) &&  
+                input  
+            ) {  
+
+                setTimeout(  
+                    () => input.focus(),  
+                    100  
+                );  
+
+            }  
+
+        }  
+    );  
+
+}  
+
+
+if (submit) {  
+
+    submit.addEventListener(  
+        "click",  
+        performSearch  
+    );  
+
+}  
+
+
+if (input) {  
+
+    input.addEventListener(  
+        "keydown",  
+        function (event) {  
+
+            if (  
+                event.key === "Enter"  
+            ) {  
+
+                event.preventDefault();  
+
+                performSearch();  
+
+            }  
+
+        }  
+    );  
+
+}
+
+}
+
+window.searchNews =
+function () {
+
+performSearch();  
+
+};
+
+/* =====================================================
+FILTER
+===================================================== */
+
+window.filterPosts =
+function (category) {
+
+category =  
+    String(category || "")  
+        .toLowerCase()  
+        .trim();  
+
+
+let filtered;  
+
+
+/* ALL */  
+
+if (  
+    category === "all" ||  
+    category === "news" ||  
+    category === ""  
+) {  
+
+    filtered =  
+        normalPosts();  
+
+}  
+
+
+/* SPORTS */  
+
+else if (  
+    category === "sports" ||  
+    category === "sport" ||  
+    category === "sports.html"  
+) {  
+
+    filtered =  
+        normalPosts()  
+            .filter(isSports);  
+
+}  
+
+
+/* MOVIES */  
+
+else if (  
+    category === "movies" ||  
+    category === "movie" ||  
+    category === "cinema" ||  
+    category === "movies.html"  
+) {  
+
+    filtered =  
+        normalPosts()  
+            .filter(isMovies);  
+
+}  
+
+
+/* BUSINESS */  
+
+else if (  
+    category === "business" ||  
+    category === "gold"  
+) {  
+
+    filtered =  
+        normalPosts()  
+            .filter(isBusiness);  
+
+}  
+
+
+/* AP + TS */  
+
+else if (  
+    category === "apts" ||  
+    category === "ap&ts" ||  
+    category === "ap&ts.html" ||  
+    category === "ap-ts" ||  
+    category === "ap-ts.html"  
+) {  
+
+    filtered =  
+        normalPosts()  
+            .filter(function (post) {  
+
+                return (  
+                    isAPNews(post) ||  
+                    isTSNews(post)  
+                );  
+
+            });  
+
+}  
+
+
+/* AP */  
+
+else if (  
+    category === "ap"  
+) {  
+
+    filtered =  
+        normalPosts()  
+            .filter(isAPNews);  
+
+}  
+
+
+/* TS */  
+
+else if (  
+    category === "ts"  
+) {  
+
+    filtered =  
+        normalPosts()  
+            .filter(isTSNews);  
+
+}  
+
+
+/* BIGG BOSS */  
+
+else if (  
+    category === "bigboss10" ||  
+    category === "bigg boss 10"  
+) {  
+
+    filtered =  
+        allPosts  
+            .filter(isBigBoss);  
+
+}  
+
+
+/* OTHER */  
+
+else {  
+
+    filtered =  
+        normalPosts()  
+            .filter(function (post) {  
+
+                return catsOf(post)  
+                    .includes(category);  
+
+            });  
+
+}  
+
+
+const hero =  
+    $("#topStory");  
+
+const sidebar =  
+    $("#latestSidebar");  
+
+
+if (!hero || !sidebar) return;  
+
+
+if (!filtered.length) {  
+
+    hero.innerHTML = `  
+
+        <div class="no-results">  
+
+            <h3>  
+                ఈ categoryలో వార్తలు లేవు  
+            </h3>  
+
+        </div>  
+
+    `;  
+
+    sidebar.innerHTML = "";  
+
+    return;  
+
+}  
+
+
+renderTopStory(filtered);  
+
+renderLatestSidebar(  
+    filtered.slice(1)  
+);  
+
+
+const section =  
+    $("#latestSection");  
+
+
+if (section) {  
+
+    setTimeout(  
+        function () {  
+
+            section.scrollIntoView({  
+
+                behavior: "smooth",  
+
+                block: "start"  
+
+            });  
+
+        },  
+        50  
+    );  
+
+}
+
+};
+
+/* =====================================================
+MOBILE MENU
+===================================================== */
+
+function setupMobileMenu() {
+
+const toggle =  
+    $("#mobileMenuToggle");  
+
+const nav =  
+    $(".nav-links");  
+
+
+if (!toggle || !nav) return;  
+
+
+toggle.addEventListener(  
+    "click",  
+    function () {  
+
+        nav.classList.toggle(  
+            "mobile-open"  
+        );  
+
+    }  
+);
+
+}
+
+window.toggleMobileNav =
+function () {
+
+const nav =  
+    $(".nav-links");  
+
+
+if (nav) {  
+
+    nav.classList.toggle(  
+        "mobile-open"  
+    );  
+
+}
+
+};
+
+/* =====================================================
+SEARCH TOGGLE
+===================================================== */
+
+window.toggleSearch =
+function () {
+
+const box =  
+    $("#searchBox");  
+
+
+if (!box) return;  
+
+
+box.classList.toggle(  
+    "active"  
+);  
+
+box.classList.toggle(  
+    "open"  
+);  
+
+
+const input =  
+    $("#searchInput");  
+
+
+if (  
+    input &&  
+    box.classList.contains(  
+        "active"  
+    )  
+) {  
+
+    setTimeout(  
+        () => input.focus(),  
+        100  
+    );  
+
+}
+
+};
+
+/* =====================================================
+DARK MODE
+===================================================== */
+
+function setupDarkMode() {
+
+const button =  
+    $("#themeButton");  
+
+
+if (  
+    localStorage.getItem(  
+        "bs360-dark-mode"  
+    ) === "true"  
+) {  
+
+    document.body.classList.add(  
+        "dark-mode"  
+    );  
+
+}  
+
+
+updateThemeButton();  
+
+
+if (button) {  
+
+    button.addEventListener(  
+        "click",  
+        window.toggleTheme  
+    );  
+
+}
+
+}
+
+window.toggleTheme =
+function () {
+
+document.body.classList.toggle(  
+    "dark-mode"  
+);  
+
+
+localStorage.setItem(  
+
+    "bs360-dark-mode",  
+
+    document.body.classList.contains(  
+        "dark-mode"  
+    )  
+
+);  
+
+
+updateThemeButton();
+
+};
+
+function updateThemeButton() {
+
+const button =  
+    $("#themeButton");  
+
+
+if (!button) return;  
+
+
+button.textContent =  
+
+    document.body.classList.contains(  
+        "dark-mode"  
+    )  
+
+    ? "☀️ Dark"  
+
+    : "🌙 Dark";
+
+}
+
+/* =====================================================
+DATE + TIME
+===================================================== */
+
+function setupDateTime() {
+
+const dateElement =  
+    $("#currentDate") ||  
+    $("#live-date");  
+
+
+const timeElement =  
+    $("#currentTime") ||  
+    $("#live-clock");  
+
+
+if (  
+    !dateElement &&  
+    !timeElement  
+) {  
+    return;  
+}  
+
+
+function updateTime() {  
+
+    const now =  
+        new Date();  
+
+
+    if (dateElement) {  
+
+        dateElement.textContent =  
+            now.toLocaleDateString(  
+                "en-IN",  
+                {  
+                    weekday: "short",  
+                    day: "2-digit",  
+                    month: "short",  
+                    year: "numeric"  
+                }  
+            );  
+
+    }  
+
+
+    if (timeElement) {  
+
+        timeElement.textContent =  
+            now.toLocaleTimeString(  
+                "en-IN",  
+                {  
+                    hour: "2-digit",  
+                    minute: "2-digit",  
+                    second: "2-digit",  
+                    hour12: true  
+                }  
+            );  
+
+    }  
+
+}  
+
+
+updateTime();  
+
+
+setInterval(  
+    updateTime,  
+    1000  
+);
+
+}
+
+/* =====================================================
+SHARE
+===================================================== */
+
+window.shareArticle =
+function (title, url) {
+
+const data = {  
+
+    title: title,  
+
+    text: title,  
+
+    url: url  
+
+};  
+
+
+if (navigator.share) {  
+
+    navigator.share(data)  
+        .catch(() => {});  
+
+    return;  
+
+}  
+
+
+if (navigator.clipboard) {  
+
+    navigator.clipboard  
+        .writeText(url)  
+        .then(function () {  
+
+            alert(  
+                "Article link copied!"  
+            );  
+
+        })  
+        .catch(function () {  
+
+            alert(url);  
+
+        });  
+
+    return;  
+
+}  
+
+
+alert(url);
+
+};
+
+/* =====================================================
+SLIDER BUTTONS
+===================================================== */
+
+function setupSliderButtons() {
+
+const slider =  
+    $("#newsSlider");  
+
+
+if (!slider) return;  
+
+
+const previous =  
+    $("#sliderPrev");  
+
+
+const next =  
+    $("#sliderNext");  
+
+
+if (previous) {  
+
+    previous.addEventListener(  
+        "click",  
+        function () {  
+
+            slider.scrollBy({  
+
+                left: -300,  
+
+                behavior: "smooth"  
+
+            });  
+
+        }  
+    );  
+
+}  
+
+
+if (next) {  
+
+    next.addEventListener(  
+        "click",  
+        function () {  
+
+            slider.scrollBy({  
+
+                left: 300,  
+
+                behavior: "smooth"  
+
+            });  
+
+        }  
+    );  
+
+}
+
+}
+
+/* =====================================================
+PREPARE ORIGINAL ARTICLES
+===================================================== */
+
+function prepareOriginalArticles() {
+
+allPosts.forEach(  
+    function (post) {  
+
+        post.setAttribute(  
+            "data-rendered",  
+            "true"  
+        );  
+
+    }  
+);
+
+}
+
+/* =====================================================
+CHECK
+===================================================== */
+
+function checkPortal() {
+
+if (!allPosts.length) {  
+
+    console.warn(  
+        "BS 360 NEWS: No original articles found."  
+    );  
+
+    return false;  
+
+}  
+
+return true;
+
+}
+
+/* =====================================================
+INITIALIZE
+===================================================== */
+
+function initializePortal() {
+
+if (!checkPortal()) return;  
+
+
+prepareOriginalArticles();  
+
+
+/* Latest */  
+
+renderTopStory();  
+
+renderLatestSidebar();  
+
+
+/* Bigg Boss */  
+
+renderBigBoss();  
+
+
+/* AP + TS */  
+
+renderSlider();  
+
+
+/* Movies */  
+
+renderMovies();  
+
+
+/* Sports */  
+
+renderSports();  
+
+
+/* Most Read */  
+
+renderMostRead();  
+
+
+/* Search */  
+
+setupSearch();  
+
+
+/* IMPORTANT:  
+   setupCategoryFilter() removed  
+   because that function does not exist  
+   in this script.  
+*/  
+
+
+/* Mobile */  
+
+setupMobileMenu();  
+
+
+/* Dark */  
+
+setupDarkMode();  
+
+
+/* Date / Time */  
+
+setupDateTime();  
+
+
+/* AP + TS Buttons */  
+
+setupSliderButtons();
+
+}
+
+initializePortal();
+
+});
+
+/* =========================================================
+MAIN NAVIGATION ACTIVE
+========================================================= */
+
+document.addEventListener(
+"DOMContentLoaded",
+function () {
+
+const navLinks =  
+        document.querySelectorAll(  
+            ".main-nav a"  
+        );  
+
+
+    if (!navLinks.length) return;  
+
+
+    const currentPage =  
+        window.location.pathname  
+            .split("/")  
+            .pop()  
+            .toLowerCase();  
+
+
+    navLinks.forEach(  
+        function (link) {  
+
+            const href =  
+                link.getAttribute("href");  
+
+
+            if (!href) return;  
+
+
+            const linkPage =  
+                href  
+                    .split("/")  
+                    .pop()  
+                    .toLowerCase();  
+
+
+            if (  
+
+                linkPage === currentPage  
+
+                ||  
+
+                (  
+                    currentPage === "" &&  
+                    linkPage === "index.html"  
+                )  
+
+            ) {  
+
+                link.classList.add(  
+                    "active"  
+                );  
+
+            }  
+
+        }  
+    );  
+
+}
+
+);
