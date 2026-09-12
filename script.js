@@ -1,118 +1,127 @@
 /* =========================================================
-   BS 360 NEWS - MAIN SCRIPT
+   BS 360 NEWS - HOMEPAGE JAVASCRIPT
+   Matches the supplied CLEAN HOMEPAGE CSS
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
+
+    "use strict";
+
 
     /* =====================================================
-       BASIC HELPERS
+       HELPERS
        ===================================================== */
 
-    const $ = (selector, parent = document) =>
-        parent.querySelector(selector);
-
-    const $$ = (selector, parent = document) =>
-        [...parent.querySelectorAll(selector)];
-
-    const escapeHTML = (text = "") => {
-        const div = document.createElement("div");
-        div.textContent = text;
-        return div.innerHTML;
+    const $ = (selector, parent = document) => {
+        return parent.querySelector(selector);
     };
 
+    const $$ = (selector, parent = document) => {
+        return Array.from(parent.querySelectorAll(selector));
+    };
+
+    function escapeHTML(value) {
+        const div = document.createElement("div");
+        div.textContent = value || "";
+        return div.innerHTML;
+    }
+
 
     /* =====================================================
-       LEGACY SOURCE
-       Existing articles are kept here and only rendered
-       into different homepage sections.
+       LEGACY NEWS SOURCE
        ===================================================== */
 
-    const source = $("#legacyNewsSource");
+    const legacySource = $("#legacyNewsSource");
 
-    if (!source) {
-        console.warn("legacyNewsSource not found");
+    if (!legacySource) {
+        console.error("BS360: #legacyNewsSource not found.");
         return;
     }
 
-    const allSourceArticles = $$(".news-item.post", source);
-
 
     /* =====================================================
-       GET ARTICLE DATA
+       READ ALL ORIGINAL ARTICLES
        ===================================================== */
 
-    function getArticleData(article) {
+    let articles = $$(".news-item.post", legacySource).map(function (article) {
 
-        const img = $("img", article);
+        const image = $("img", article);
+
         const titleElement =
             $(".news-content p", article) ||
             $(".news-content h3", article) ||
             $("p", article) ||
             $("h3", article);
 
-        const title =
-            titleElement?.textContent?.trim() ||
-            img?.alt?.trim() ||
-            "Latest News";
-
-        const image =
-            img?.getAttribute("src") ||
-            "";
-
-        const url =
-            article.getAttribute("data-url") ||
-            $("a", article)?.getAttribute("href") ||
-            "#";
-
-        const category =
-            (
-                article.getAttribute("data-category") ||
-                ""
-            ).toLowerCase().trim();
-
         return {
             element: article,
-            title,
-            image,
-            url,
-            category
+
+            title:
+                titleElement
+                    ? titleElement.textContent.trim()
+                    : (image ? image.alt : "Latest News"),
+
+            image:
+                image
+                    ? image.getAttribute("src") || ""
+                    : "",
+
+            url:
+                article.getAttribute("data-url") ||
+                article.getAttribute("href") ||
+                "#",
+
+            category:
+                (
+                    article.getAttribute("data-category") ||
+                    ""
+                ).toLowerCase().trim()
         };
-    }
 
-
-    let articles = allSourceArticles.map(getArticleData);
+    });
 
 
     /* =====================================================
-       REMOVE DUPLICATES
+       REMOVE DUPLICATE ARTICLES
        ===================================================== */
 
-    const uniqueMap = new Map();
+    const seen = new Set();
 
-    articles.forEach(article => {
+    articles = articles.filter(function (article) {
 
         const key =
             article.url !== "#"
                 ? article.url
                 : article.title;
 
-        if (!uniqueMap.has(key)) {
-            uniqueMap.set(key, article);
+        if (seen.has(key)) {
+            return false;
         }
 
-    });
+        seen.add(key);
 
-    articles = [...uniqueMap.values()];
+        return true;
+    });
 
 
     /* =====================================================
-       CATEGORY FUNCTIONS
+       CATEGORY HELPERS
        ===================================================== */
+
+    function articleText(article) {
+
+        return (
+            article.category +
+            " " +
+            article.title
+        ).toLowerCase();
+
+    }
+
 
     function isBigBoss(article) {
 
-        const text =
-            `${article.category} ${article.title}`.toLowerCase();
+        const text = articleText(article);
 
         return (
             text.includes("bigboss") ||
@@ -123,8 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function isSports(article) {
 
-        const text =
-            `${article.category} ${article.title}`.toLowerCase();
+        const text = articleText(article);
 
         return (
             text.includes("sports") ||
@@ -136,8 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function isMovies(article) {
 
-        const text =
-            `${article.category} ${article.title}`.toLowerCase();
+        const text = articleText(article);
 
         return (
             text.includes("movies") ||
@@ -150,8 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function isBusiness(article) {
 
-        const text =
-            `${article.category} ${article.title}`.toLowerCase();
+        const text = articleText(article);
 
         return (
             text.includes("business") ||
@@ -166,38 +172,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function isAPTS(article) {
 
-        const text =
-            `${article.category} ${article.title}`.toLowerCase();
-
-        return (
-            text.includes("ap") ||
-            text.includes("ts") ||
-            text.includes("andhra") ||
-            text.includes("telangana") ||
-            text.includes("politics") ||
-            text.includes("political")
-        );
-    }
-
-
-    /* =====================================================
-       SPECIAL: POLITICAL / AP TS TITLES
-       ===================================================== */
-
-    function isAPTSByTitle(article) {
-
+        const category = article.category;
         const title = article.title.toLowerCase();
+
+        if (
+            category === "ap" ||
+            category === "ts" ||
+            category.includes("andhra") ||
+            category.includes("telangana")
+        ) {
+            return true;
+        }
 
         const keywords = [
             "చంద్రబాబు",
-            "పవన్",
+            "పవన్ కల్యాణ్",
+            "పవన్ కళ్యాణ్",
             "కేటీఆర్",
-            "హరీశ్",
-            "రేవంత్",
+            "హరీశ్ రావు",
+            "రేవంత్ రెడ్డి",
             "కొండా సురేఖ",
             "తెలంగాణ",
             "ఆంధ్రప్రదేశ్",
             "అసెంబ్లీ",
+            "బీఆర్ఎస్",
             "బీఆర్‌ఎస్",
             "కాంగ్రెస్",
             "జనసేన",
@@ -206,55 +204,49 @@ document.addEventListener("DOMContentLoaded", () => {
             "కలెక్టర్ల"
         ];
 
-        return keywords.some(word =>
-            title.includes(word.toLowerCase())
-        );
-    }
-
-
-    /* =====================================================
-       FINAL AP TS CHECK
-       ===================================================== */
-
-    function belongsToAPTS(article) {
-
-        return (
-            isAPTS(article) ||
-            isAPTSByTitle(article)
-        );
+        return keywords.some(function (word) {
+            return title.includes(word.toLowerCase());
+        });
     }
 
 
     /* =====================================================
        LATEST NEWS
-       IMPORTANT:
-       BigBoss / Sports / Movies / AP-TS / Business
-       WILL NOT COME HERE.
+       
+       Latest News must NOT contain:
+       Bigg Boss
+       Sports
+       Movies
+       AP & TS
+       Business
        ===================================================== */
 
-    function isLatestNews(article) {
+    function isLatest(article) {
 
         return (
             !isBigBoss(article) &&
             !isSports(article) &&
             !isMovies(article) &&
-            !belongsToAPTS(article) &&
+            !isAPTS(article) &&
             !isBusiness(article)
         );
     }
 
 
     /* =====================================================
-       CREATE CARD
+       CARD - HORIZONTAL
+       Matches CSS:
+       .slider-card
+       .slider-content
        ===================================================== */
 
-    function createCard(article, className = "") {
+    function createSliderCard(article) {
 
         const card = document.createElement("a");
 
+        card.className = "slider-card";
+
         card.href = article.url || "#";
-        card.className =
-            `news-card ${className}`.trim();
 
         card.innerHTML = `
             <img
@@ -263,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 loading="lazy"
             >
 
-            <div class="news-card-content">
+            <div class="slider-content">
                 <h3>
                     ${escapeHTML(article.title)}
                 </h3>
@@ -275,15 +267,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CREATE HORIZONTAL CARD
+       BIGG BOSS CARD
+       Matches CSS:
+       .bigboss-card
+       .bigboss-content
        ===================================================== */
 
-    function createHorizontalCard(article) {
+    function createBigBossCard(article) {
 
         const card = document.createElement("a");
 
+        card.className = "bigboss-card";
+
         card.href = article.url || "#";
-        card.className = "slider-card";
 
         card.innerHTML = `
             <img
@@ -292,8 +288,75 @@ document.addEventListener("DOMContentLoaded", () => {
                 loading="lazy"
             >
 
-            <div class="slider-card-content">
+            <div class="bigboss-content">
                 <h3>
+                    ${escapeHTML(article.title)}
+                </h3>
+            </div>
+        `;
+
+        return card;
+    }
+
+
+    /* =====================================================
+       CATEGORY CARD
+       Matches CSS:
+       .category-card
+       .category-content
+       ===================================================== */
+
+    function createCategoryCard(article) {
+
+        const card = document.createElement("a");
+
+        card.className = "category-card";
+
+        card.href = article.url || "#";
+
+        card.innerHTML = `
+            <img
+                src="${escapeHTML(article.image)}"
+                alt="${escapeHTML(article.title)}"
+                loading="lazy"
+            >
+
+            <div class="category-content">
+                <h3>
+                    ${escapeHTML(article.title)}
+                </h3>
+            </div>
+        `;
+
+        return card;
+    }
+
+
+    /* =====================================================
+       ALL NEWS CARD
+       Matches CSS:
+       .all-news-card
+       .all-news-card-content
+       .all-news-card-title
+       ===================================================== */
+
+    function createAllNewsCard(article) {
+
+        const card = document.createElement("a");
+
+        card.className = "all-news-card";
+
+        card.href = article.url || "#";
+
+        card.innerHTML = `
+            <img
+                src="${escapeHTML(article.image)}"
+                alt="${escapeHTML(article.title)}"
+                loading="lazy"
+            >
+
+            <div class="all-news-card-content">
+                <h3 class="all-news-card-title">
                     ${escapeHTML(article.title)}
                 </h3>
             </div>
@@ -305,81 +368,130 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
        LATEST NEWS
-       1 HERO + 9 SMALL ARTICLES
+       
+       1 BIG HERO
+       +
+       9 SMALL ARTICLES
+       
+       CSS:
+       .top-story-section
+       .top-story-grid
+       .latest-sidebar
+       .sidebar-list
+       .latest-side-item
+       .latest-side-title
+       .hero-wrap
+       .latest-hero
        ===================================================== */
 
     function renderLatestNews() {
 
         const section =
-            $("#latestNewsSection") ||
             $(".top-story-section");
 
         if (!section) {
-            console.warn("Latest News section not found");
+            console.warn(
+                "BS360: .top-story-section not found."
+            );
             return;
         }
 
-        const latest =
+
+        const latestArticles =
             articles
-                .filter(isLatestNews)
+                .filter(isLatest)
                 .slice(0, 10);
 
-        if (!latest.length) return;
 
-
-        /* Existing elements */
-
-        const sidebar =
-            $("#latestSidebar");
-
-        const hero =
-            $("#topStory");
-
-
-        /* -----------------------------------------------
-           HERO
-           ----------------------------------------------- */
-
-        if (hero && latest[0]) {
-
-            hero.innerHTML = `
-                <a href="${escapeHTML(latest[0].url)}"
-                   class="top-story-link">
-
-                    <img
-                        src="${escapeHTML(latest[0].image)}"
-                        alt="${escapeHTML(latest[0].title)}"
-                    >
-
-                    <div class="top-story-content">
-                        <h2>
-                            ${escapeHTML(latest[0].title)}
-                        </h2>
-                    </div>
-
-                </a>
-            `;
+        if (!latestArticles.length) {
+            return;
         }
 
 
-        /* -----------------------------------------------
-           9 SMALL NEWS
-           ----------------------------------------------- */
+        /* -------------------------------------------------
+           FIND EXISTING LATEST ELEMENTS
+           ------------------------------------------------- */
 
-        if (sidebar) {
+        let grid =
+            $(".top-story-grid", section);
 
-            sidebar.innerHTML = "";
+        let sidebar =
+            $(".latest-sidebar", section);
 
-            latest.slice(1, 10).forEach(article => {
+        let heroWrap =
+            $(".hero-wrap", section);
+
+
+        /* -------------------------------------------------
+           If old HTML structure is missing,
+           create the exact CSS structure.
+           ------------------------------------------------- */
+
+        if (!grid) {
+
+            grid =
+                document.createElement("div");
+
+            grid.className =
+                "top-story-grid";
+
+            section.appendChild(grid);
+        }
+
+
+        if (!sidebar) {
+
+            sidebar =
+                document.createElement("aside");
+
+            sidebar.className =
+                "latest-sidebar";
+
+            grid.appendChild(sidebar);
+        }
+
+
+        if (!heroWrap) {
+
+            heroWrap =
+                document.createElement("div");
+
+            heroWrap.className =
+                "hero-wrap";
+
+            grid.appendChild(heroWrap);
+        }
+
+
+        /* -------------------------------------------------
+           SIDEBAR
+           ------------------------------------------------- */
+
+        sidebar.innerHTML = `
+            <div class="sidebar-heading">
+                📰 తాజా వార్తలు
+            </div>
+
+            <div class="sidebar-list"></div>
+        `;
+
+
+        const sidebarList =
+            $(".sidebar-list", sidebar);
+
+
+        latestArticles
+            .slice(1, 10)
+            .forEach(function (article) {
 
                 const item =
                     document.createElement("a");
 
+                item.className =
+                    "latest-side-item";
+
                 item.href =
                     article.url || "#";
-
-                item.className =
-                    "latest-sidebar-item";
 
                 item.innerHTML = `
                     <img
@@ -388,70 +500,45 @@ document.addEventListener("DOMContentLoaded", () => {
                         loading="lazy"
                     >
 
-                    <div>
-                        <h3>
-                            ${escapeHTML(article.title)}
-                        </h3>
+                    <div class="latest-side-title">
+                        ${escapeHTML(article.title)}
                     </div>
                 `;
 
-                sidebar.appendChild(item);
-            });
-        }
-    }
-
-
-    /* =====================================================
-       GENERIC HORIZONTAL SECTION
-       ===================================================== */
-
-    function renderHorizontalSection({
-        sectionSelector,
-        trackSelector,
-        articlesList,
-        title
-    }) {
-
-        const section =
-            $(sectionSelector);
-
-        if (!section) return;
-
-        const track =
-            $(trackSelector, section) ||
-            $(trackSelector);
-
-        if (!track) return;
-
-
-        track.innerHTML = "";
-
-
-        articlesList
-            .slice(0, 10)
-            .forEach(article => {
-
-                track.appendChild(
-                    createHorizontalCard(article)
-                );
-
+                sidebarList.appendChild(item);
             });
 
 
-        /* -----------------------------------------------
-           Title only if empty
-           ----------------------------------------------- */
+        /* -------------------------------------------------
+           HERO
+           ------------------------------------------------- */
 
-        const heading =
-            $("h2", section);
+        const hero =
+            latestArticles[0];
 
-        if (
-            heading &&
-            title &&
-            !heading.textContent.trim()
-        ) {
-            heading.textContent = title;
-        }
+
+        heroWrap.innerHTML = `
+            <a
+                href="${escapeHTML(hero.url)}"
+                class="latest-hero"
+            >
+
+                <img
+                    src="${escapeHTML(hero.image)}"
+                    alt="${escapeHTML(hero.title)}"
+                    loading="eager"
+                >
+
+                <div class="latest-hero-overlay">
+
+                    <h2 class="latest-hero-title">
+                        ${escapeHTML(hero.title)}
+                    </h2>
+
+                </div>
+
+            </a>
+        `;
     }
 
 
@@ -461,30 +548,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderBigBoss() {
 
-        const list =
-            articles.filter(isBigBoss);
-
         const section =
+            $(".bigboss-section") ||
             $("#bigboss10Section");
 
         if (!section) return;
 
+
         const track =
-            $("#bigbossTrack", section);
+            $("#bigbossTrack", section) ||
+            $(".bigboss-track", section);
 
         if (!track) return;
 
+
+        const list =
+            articles
+                .filter(isBigBoss)
+                .slice(0, 10);
+
+
         track.innerHTML = "";
 
-        list
-            .slice(0, 10)
-            .forEach(article => {
 
-                track.appendChild(
-                    createHorizontalCard(article)
-                );
+        if (!list.length) {
 
-            });
+            track.innerHTML =
+                `<div class="no-news">
+                    No Bigg Boss news available.
+                </div>`;
+
+            return;
+        }
+
+
+        list.forEach(function (article) {
+
+            track.appendChild(
+                createBigBossCard(article)
+            );
+
+        });
     }
 
 
@@ -494,58 +598,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderAPTS() {
 
-        const list =
-            articles.filter(belongsToAPTS);
-
         const section =
-            $("#newsSlider")?.closest(".slider-section") ||
             $(".slider-section");
 
         if (!section) return;
 
+
         const track =
-            $("#newsSlider") ||
-            $("#sliderTrack");
+            $("#sliderTrack", section) ||
+            $(".slider-track", section);
+
 
         if (!track) return;
 
+
+        const list =
+            articles
+                .filter(isAPTS)
+                .slice(0, 10);
+
+
         track.innerHTML = "";
 
-        list
-            .slice(0, 10)
-            .forEach(article => {
 
-                track.appendChild(
-                    createHorizontalCard(article)
-                );
+        if (!list.length) {
 
-            });
+            track.innerHTML =
+                `<div class="no-news">
+                    No AP & TS news available.
+                </div>`;
+
+            return;
+        }
+
+
+        list.forEach(function (article) {
+
+            track.appendChild(
+                createSliderCard(article)
+            );
+
+        });
     }
 
 
     /* =====================================================
-       CREATE BUSINESS SECTION
+       BUSINESS
+       
+       Creates Business section if it doesn't already exist.
        ===================================================== */
 
-    function createBusinessSection() {
+    function renderBusiness() {
 
-        const business =
-            articles.filter(isBusiness);
-
-        if (!business.length) return;
-
-
-        /* -----------------------------------------------
-           If Business already exists, use it.
-           ----------------------------------------------- */
-
-        let section =
+        const existing =
             $(".business-section");
 
+        let section =
+            existing;
 
-        /* -----------------------------------------------
-           Create Business section
-           ----------------------------------------------- */
+
+        /* -------------------------------------------------
+           CREATE SECTION
+           ------------------------------------------------- */
 
         if (!section) {
 
@@ -553,41 +667,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.createElement("section");
 
             section.className =
-                "slider-section business-section";
+                "business-section";
 
             section.innerHTML = `
-                <div class="section-header">
-                    <div>
-                        <h2>💼 Business</h2>
-                        <p>బిజినెస్ తాజా వార్తలు</p>
-                    </div>
+                <div class="section-title-row">
+
+                    <h2>
+                        💼 Business
+                    </h2>
+
+                    <span>
+                        బిజినెస్ తాజా వార్తలు
+                    </span>
 
                     <a
                         href="business.html"
-                        class="section-more"
+                        class="view-all"
                     >
                         READ MORE →
                     </a>
+
                 </div>
 
-                <div class="business-slider-wrap">
+                <div class="carousel-wrap">
 
                     <button
-                        class="slider-btn business-prev"
                         type="button"
+                        class="carousel-btn business-prev"
                         aria-label="Previous"
                     >
                         ‹
                     </button>
 
-                    <div
-                        class="business-slider"
-                        id="businessSlider"
-                    ></div>
+                    <div class="news-slider">
+
+                        <div
+                            class="slider-track business-track"
+                        ></div>
+
+                    </div>
 
                     <button
-                        class="slider-btn business-next"
                         type="button"
+                        class="carousel-btn business-next"
                         aria-label="Next"
                     >
                         ›
@@ -597,10 +719,11 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
 
-            /* Put Business after AP & TS */
+            /* -------------------------------------------------
+               INSERT AFTER AP & TS
+               ------------------------------------------------- */
 
             const apSection =
-                $("#newsSlider")?.closest(".slider-section") ||
                 $(".slider-section");
 
             if (apSection) {
@@ -613,40 +736,65 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
 
                 const movieSection =
+                    $(".category-section") ||
+                    $(".cinema-section") ||
                     $("#cinemaSection");
 
                 if (movieSection) {
+
                     movieSection.insertAdjacentElement(
                         "beforebegin",
                         section
                     );
+
                 }
             }
         }
 
 
-        const slider =
-            $("#businessSlider", section);
+        /* -------------------------------------------------
+           BUSINESS ARTICLES
+           ------------------------------------------------- */
 
-        if (!slider) return;
+        const track =
+            $(".business-track", section);
 
-        slider.innerHTML = "";
-
-        business
-            .slice(0, 10)
-            .forEach(article => {
-
-                slider.appendChild(
-                    createHorizontalCard(article)
-                );
-
-            });
+        if (!track) return;
 
 
-        setupSlider(
-            slider,
+        const list =
+            articles
+                .filter(isBusiness)
+                .slice(0, 10);
+
+
+        track.innerHTML = "";
+
+
+        if (!list.length) {
+
+            track.innerHTML =
+                `<div class="no-news">
+                    No Business news available.
+                </div>`;
+
+            return;
+        }
+
+
+        list.forEach(function (article) {
+
+            track.appendChild(
+                createSliderCard(article)
+            );
+
+        });
+
+
+        setupCarousel(
             $(".business-prev", section),
-            $(".business-next", section)
+            $(".business-next", section),
+            track
         );
     }
 
@@ -657,30 +805,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderMovies() {
 
-        const list =
-            articles.filter(isMovies);
-
         const section =
-            $("#cinemaSection");
+            $("#cinemaSection") ||
+            $(".category-section");
 
         if (!section) return;
 
+
         const grid =
-            $("#cinemaGrid", section);
+            $("#cinemaGrid", section) ||
+            $(".horizontal-carousel", section) ||
+            $(".slider-track", section);
+
 
         if (!grid) return;
 
+
+        const list =
+            articles
+                .filter(isMovies)
+                .slice(0, 10);
+
+
         grid.innerHTML = "";
 
-        list
-            .slice(0, 10)
-            .forEach(article => {
 
-                grid.appendChild(
-                    createHorizontalCard(article)
-                );
+        if (!list.length) {
 
-            });
+            grid.innerHTML =
+                `<div class="no-news">
+                    No Movies news available.
+                </div>`;
+
+            return;
+        }
+
+
+        list.forEach(function (article) {
+
+            grid.appendChild(
+                createCategoryCard(article)
+            );
+
+        });
     }
 
 
@@ -690,70 +857,110 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderSports() {
 
-        const list =
-            articles.filter(isSports);
-
         const section =
-            $("#sportsSection");
+            $("#sportsSection") ||
+            $(".sports-section");
 
         if (!section) return;
 
+
         const grid =
-            $("#sportsGrid", section);
+            $("#sportsGrid", section) ||
+            $(".horizontal-carousel", section) ||
+            $(".slider-track", section);
+
 
         if (!grid) return;
 
+
+        const list =
+            articles
+                .filter(isSports)
+                .slice(0, 10);
+
+
         grid.innerHTML = "";
 
-        list
-            .slice(0, 10)
-            .forEach(article => {
 
-                grid.appendChild(
-                    createHorizontalCard(article)
-                );
+        if (!list.length) {
 
-            });
-    }
-
-
-    /* =====================================================
-       ALL NEWS
-       ===================================================== */
-
-    function renderAllNews() {
-
-        const existing =
-            $("#allNewsSection");
-
-        if (existing) {
-
-            const container =
-                $("#allNewsGrid", existing) ||
-                $(".all-news-grid", existing);
-
-            if (container) {
-
-                container.innerHTML = "";
-
-                articles.forEach(article => {
-
-                    container.appendChild(
-                        createCard(article)
-                    );
-
-                });
-            }
+            grid.innerHTML =
+                `<div class="no-news">
+                    No Sports news available.
+                </div>`;
 
             return;
         }
 
 
-        /* -----------------------------------------------
-           Create All News if HTML does not have it
-           ----------------------------------------------- */
+        list.forEach(function (article) {
 
-        const section =
+            grid.appendChild(
+                createCategoryCard(article)
+            );
+
+        });
+    }
+
+
+    /* =====================================================
+       ALL NEWS
+       
+       All original articles remain here.
+       ===================================================== */
+
+    function renderAllNews() {
+
+        let section =
+            $("#allNewsSection");
+
+
+        /* -------------------------------------------------
+           EXISTING ALL NEWS
+           ------------------------------------------------- */
+
+        if (section) {
+
+            let grid =
+                $("#allNewsGrid", section) ||
+                $(".all-news-grid", section);
+
+
+            if (!grid) {
+
+                grid =
+                    document.createElement("div");
+
+                grid.id =
+                    "allNewsGrid";
+
+                grid.className =
+                    "all-news-grid";
+
+                section.appendChild(grid);
+            }
+
+
+            grid.innerHTML = "";
+
+
+            articles.forEach(function (article) {
+
+                grid.appendChild(
+                    createAllNewsCard(article)
+                );
+
+            });
+
+            return;
+        }
+
+
+        /* -------------------------------------------------
+           CREATE ALL NEWS SECTION
+           ------------------------------------------------- */
+
+        section =
             document.createElement("section");
 
         section.id =
@@ -762,12 +969,18 @@ document.addEventListener("DOMContentLoaded", () => {
         section.className =
             "all-news-section";
 
+
         section.innerHTML = `
-            <div class="section-header">
-                <div>
-                    <h2>📰 ALL NEWS</h2>
-                    <p>అన్ని తాజా వార్తలు</p>
-                </div>
+            <div class="section-title-row">
+
+                <h2>
+                    📰 ALL NEWS
+                </h2>
+
+                <span>
+                    అన్ని తాజా వార్తలు
+                </span>
+
             </div>
 
             <div
@@ -777,35 +990,55 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
 
-        const sportsSection =
-            $("#sportsSection");
+        const grid =
+            $("#allNewsGrid", section);
 
-        if (sportsSection) {
 
-            sportsSection.insertAdjacentElement(
+        articles.forEach(function (article) {
+
+            grid.appendChild(
+                createAllNewsCard(article)
+            );
+
+        });
+
+
+        /* -------------------------------------------------
+           PUT ALL NEWS AFTER SPORTS
+           ------------------------------------------------- */
+
+        const sports =
+            $("#sportsSection") ||
+            $(".sports-section");
+
+
+        if (sports) {
+
+            sports.insertAdjacentElement(
                 "afterend",
                 section
             );
 
         } else {
 
-            source.insertAdjacentElement(
-                "beforebegin",
-                section
-            );
+            const footer =
+                $(".site-footer") ||
+                $("footer");
+
+            if (footer) {
+
+                footer.insertAdjacentElement(
+                    "beforebegin",
+                    section
+                );
+
+            } else {
+
+                document.body.appendChild(
+                    section
+                );
+            }
         }
-
-
-        const grid =
-            $("#allNewsGrid", section);
-
-        articles.forEach(article => {
-
-            grid.appendChild(
-                createCard(article)
-            );
-
-        });
     }
 
 
@@ -816,65 +1049,66 @@ document.addEventListener("DOMContentLoaded", () => {
     function removeMostRead() {
 
         $$(".most-read-section")
-            .forEach(section => {
+            .forEach(function (section) {
 
                 section.remove();
 
             });
 
-        $$("[id*='mostRead']")
-            .forEach(element => {
 
-                if (
-                    element.id === "mostReadList" ||
-                    element.id === "mostReadSection"
-                ) {
-                    const parent =
-                        element.closest(
-                            ".most-read-section"
-                        );
+        /* Extra protection */
 
-                    if (parent) {
-                        parent.remove();
-                    }
-                }
+        $$("#mostReadSection")
+            .forEach(function (element) {
+
+                element.remove();
 
             });
     }
 
 
     /* =====================================================
-       REMOVE OLD TOP STORY DUPLICATES
+       REMOVE EXTRA TOP STORY
+       Keep the real Latest News section.
        ===================================================== */
 
-    function cleanOldSections() {
-
-        /*
-         * Do NOT remove Latest News.
-         * Only remove old extra TOP STORY sections.
-         */
+    function cleanExtraTopStory() {
 
         const sections =
             $$("section");
 
-        sections.forEach(section => {
+
+        sections.forEach(function (section) {
+
+            if (
+                section.classList.contains(
+                    "top-story-section"
+                )
+            ) {
+                return;
+            }
+
+
+            const heading =
+                $("h1, h2, h3", section);
+
+
+            if (!heading) return;
+
 
             const text =
-                section.textContent
+                heading.textContent
                     .toLowerCase()
                     .trim();
 
-            const hasLatest =
-                text.includes("latest news");
-
-            const hasTopStory =
-                text.includes("top story");
 
             if (
-                hasTopStory &&
-                !hasLatest
+                text === "top story" ||
+                text.includes("top story")
             ) {
+
                 section.remove();
+
             }
 
         });
@@ -882,186 +1116,247 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       SLIDER
+       CAROUSEL
        ===================================================== */
 
-    function setupSlider(
-        track,
-        prevButton,
-        nextButton
+    function setupCarousel(
+        previousButton,
+        nextButton,
+        track
     ) {
 
         if (!track) return;
 
 
-        const amount = () => {
+        function scrollAmount() {
 
             const first =
                 track.children[0];
 
-            if (!first) return 300;
+            if (!first) {
+                return 230;
+            }
 
-            return first.offsetWidth + 16;
-        };
+            return (
+                first.getBoundingClientRect().width +
+                12
+            );
+        }
 
 
-        if (prevButton) {
+        if (previousButton) {
 
-            prevButton.onclick = () => {
+            previousButton.onclick =
+                function () {
 
-                track.scrollBy({
-                    left: -amount(),
-                    behavior: "smooth"
-                });
+                    track.parentElement.scrollBy({
+                        left: -scrollAmount(),
+                        behavior: "smooth"
+                    });
 
-            };
+                };
         }
 
 
         if (nextButton) {
 
-            nextButton.onclick = () => {
+            nextButton.onclick =
+                function () {
 
-                track.scrollBy({
-                    left: amount(),
-                    behavior: "smooth"
-                });
+                    track.parentElement.scrollBy({
+                        left: scrollAmount(),
+                        behavior: "smooth"
+                    });
 
-            };
+                };
         }
     }
 
 
     /* =====================================================
-       EXISTING SLIDERS
+       SETUP ALL EXISTING CAROUSELS
        ===================================================== */
 
-    function setupExistingSliders() {
+    function setupAllCarousels() {
 
-        const sliders = [
+        /* Bigg Boss */
 
-            {
-                track: $("#bigbossTrack"),
-                prev: document.querySelector(
-                    "#bigboss10Section .prev"
-                ),
-                next: document.querySelector(
-                    "#bigboss10Section .next"
-                )
-            },
-
-            {
-                track: $("#sliderTrack"),
-                prev: document.querySelector(
-                    ".slider-section .prev"
-                ),
-                next: document.querySelector(
-                    ".slider-section .next"
-                )
-            }
-
-        ];
+        const bigbossSection =
+            $(".bigboss-section") ||
+            $("#bigboss10Section");
 
 
-        sliders.forEach(item => {
+        if (bigbossSection) {
 
-            if (!item.track) return;
+            const track =
+                $("#bigbossTrack", bigbossSection) ||
+                $(".bigboss-track", bigbossSection);
 
-            setupSlider(
-                item.track,
-                item.prev,
-                item.next
+
+            const previous =
+                $(".bigboss-prev", bigbossSection) ||
+                $(".prev", bigbossSection);
+
+
+            const next =
+                $(".bigboss-next", bigbossSection) ||
+                $(".next", bigbossSection);
+
+
+            setupCarousel(
+                previous,
+                next,
+                track
             );
+        }
 
-        });
+
+        /* AP & TS */
+
+        const apSection =
+            $(".slider-section");
+
+
+        if (apSection) {
+
+            const track =
+                $("#sliderTrack", apSection) ||
+                $(".slider-track", apSection);
+
+
+            const previous =
+                $(".carousel-btn.prev", apSection) ||
+                $(".prev", apSection);
+
+
+            const next =
+                $(".carousel-btn.next", apSection) ||
+                $(".next", apSection);
+
+
+            setupCarousel(
+                previous,
+                next,
+                track
+            );
+        }
     }
 
 
     /* =====================================================
        BIGG BOSS AUTO SCROLL
+       Every 5 seconds
        ===================================================== */
 
     function startBigBossAutoScroll() {
 
-        const track =
-            $("#bigbossTrack");
+        const section =
+            $(".bigboss-section") ||
+            $("#bigboss10Section");
 
-        if (!track) return;
 
-        let timer;
+        if (!section) return;
+
+
+        const slider =
+            $(".bigboss-slider", section) ||
+            $(".bigboss-track", section)?.parentElement;
+
+
+        if (!slider) return;
+
+
+        let timer = null;
+
 
         function start() {
 
-            clearInterval(timer);
+            stop();
+
 
             timer =
-                setInterval(() => {
+                setInterval(function () {
 
-                    if (
-                        track.scrollWidth <=
-                        track.clientWidth
-                    ) {
+                    const maxScroll =
+                        slider.scrollWidth -
+                        slider.clientWidth;
+
+
+                    if (maxScroll <= 0) {
                         return;
                     }
 
 
-                    const maxScroll =
-                        track.scrollWidth -
-                        track.clientWidth;
+                    const first =
+                        slider.querySelector(
+                            ".bigboss-card"
+                        );
+
+
+                    const amount =
+                        first
+                            ? first.getBoundingClientRect().width + 12
+                            : 227;
 
 
                     if (
-                        track.scrollLeft >=
+                        slider.scrollLeft >=
                         maxScroll - 10
                     ) {
 
-                        track.scrollTo({
+                        slider.scrollTo({
                             left: 0,
                             behavior: "smooth"
                         });
 
                     } else {
 
-                        const first =
-                            track.children[0];
-
-                        const amount =
-                            first
-                                ? first.offsetWidth + 16
-                                : 280;
-
-                        track.scrollBy({
+                        slider.scrollBy({
                             left: amount,
                             behavior: "smooth"
                         });
-
                     }
 
                 }, 5000);
         }
 
 
-        track.addEventListener(
+        function stop() {
+
+            if (timer) {
+
+                clearInterval(timer);
+
+                timer = null;
+            }
+        }
+
+
+        slider.addEventListener(
             "mouseenter",
-            () => clearInterval(timer)
+            stop
         );
 
-        track.addEventListener(
+
+        slider.addEventListener(
             "mouseleave",
             start
         );
 
-        track.addEventListener(
+
+        slider.addEventListener(
             "touchstart",
-            () => clearInterval(timer),
+            stop,
             { passive: true }
         );
 
-        track.addEventListener(
+
+        slider.addEventListener(
             "touchend",
             start,
             { passive: true }
         );
+
 
         start();
     }
@@ -1069,47 +1364,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
        DATE & TIME
+       
+       CSS expects:
+       .header-date-time
+       .header-date
+       .header-time
        ===================================================== */
 
     function setupDateTime() {
 
-        let dateTime =
-            $("#currentDateTime");
+        const headerActions =
+            $(".header-actions");
 
-        if (!dateTime) {
+        if (!headerActions) return;
 
-            const header =
-                $("header");
 
-            if (!header) return;
+        let box =
+            $(".header-date-time", headerActions);
 
-            dateTime =
+
+        if (!box) {
+
+            box =
                 document.createElement("div");
 
-            dateTime.id =
-                "currentDateTime";
+            box.className =
+                "header-date-time";
 
-            dateTime.className =
-                "current-date-time";
 
-            header.appendChild(dateTime);
+            const liveButton =
+                $(".live-button", headerActions);
+
+
+            if (liveButton) {
+
+                headerActions.insertBefore(
+                    box,
+                    liveButton
+                );
+
+            } else {
+
+                headerActions.appendChild(
+                    box
+                );
+            }
         }
 
 
-        function update() {
+        box.innerHTML = `
+            <div class="header-date"></div>
+            <div class="header-time"></div>
+        `;
+
+
+        const dateElement =
+            $(".header-date", box);
+
+
+        const timeElement =
+            $(".header-time", box);
+
+
+        function updateDateTime() {
 
             const now =
                 new Date();
+
 
             const date =
                 now.toLocaleDateString(
                     "en-IN",
                     {
+                        weekday: "short",
                         day: "2-digit",
                         month: "short",
                         year: "numeric"
                     }
                 );
+
 
             const time =
                 now.toLocaleTimeString(
@@ -1122,15 +1455,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 );
 
-            dateTime.textContent =
-                `${date} | ${time}`;
+
+            dateElement.textContent =
+                date;
+
+
+            timeElement.textContent =
+                time;
         }
 
 
-        update();
+        updateDateTime();
+
 
         setInterval(
-            update,
+            updateDateTime,
             1000
         );
     }
@@ -1142,20 +1481,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setupSearch() {
 
+        const icon =
+            $(".search-icon");
+
+
+        const box =
+            $(".search-box");
+
+
         const input =
-            $("#searchInput") ||
-            $('input[placeholder*="వార్తలు"]');
+            $(".search-box input");
+
 
         const button =
-            $("#searchBtn") ||
-            $(".search-btn") ||
-            $('button[type="submit"]');
+            $(".search-box button");
 
 
-        if (!input) return;
+        if (!icon || !box || !input) {
+            return;
+        }
 
 
-        function search() {
+        /* Open / close search */
+
+        icon.addEventListener(
+            "click",
+            function () {
+
+                box.classList.toggle("show");
+
+
+                if (
+                    box.classList.contains("show")
+                ) {
+
+                    input.focus();
+
+                } else {
+
+                    input.value = "";
+
+                    clearSearch();
+
+                }
+            }
+        );
+
+
+        function performSearch() {
 
             const query =
                 input.value
@@ -1165,45 +1538,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!query) {
 
-                articles.forEach(article => {
-
-                    article.element.style.display =
-                        "";
-
-                });
+                clearSearch();
 
                 return;
             }
 
 
-            articles.forEach(article => {
+            let found = false;
 
-                const match =
-                    article.title
-                        .toLowerCase()
-                        .includes(query);
+
+            articles.forEach(function (article) {
+
+                const title =
+                    article.title.toLowerCase();
+
+
+                const matches =
+                    title.includes(query);
+
 
                 article.element.style.display =
-                    match ? "" : "none";
+                    matches
+                        ? ""
+                        : "none";
+
+
+                if (matches) {
+                    found = true;
+                }
+            });
+
+
+            /* Existing source is hidden,
+               so show search results separately. */
+
+            showSearchResults(
+                query,
+                found
+            );
+        }
+
+
+        function clearSearch() {
+
+            articles.forEach(function (article) {
+
+                article.element.style.display =
+                    "";
 
             });
 
 
-            const firstMatch =
-                articles.find(article =>
-                    article.title
-                        .toLowerCase()
-                        .includes(query)
-                );
+            const result =
+                $("#searchResultSection");
 
 
-            if (firstMatch) {
-
-                firstMatch.element.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
+            if (result) {
+                result.remove();
             }
         }
 
@@ -1212,24 +1603,155 @@ document.addEventListener("DOMContentLoaded", () => {
 
             button.addEventListener(
                 "click",
-                search
+                performSearch
             );
-
         }
 
 
         input.addEventListener(
             "keydown",
-            event => {
+            function (event) {
 
                 if (
                     event.key === "Enter"
                 ) {
-                    search();
-                }
 
+                    event.preventDefault();
+
+                    performSearch();
+                }
             }
         );
+    }
+
+
+    /* =====================================================
+       SEARCH RESULTS
+       ===================================================== */
+
+    function showSearchResults(
+        query,
+        found
+    ) {
+
+        let section =
+            $("#searchResultSection");
+
+
+        if (!section) {
+
+            section =
+                document.createElement("section");
+
+            section.id =
+                "searchResultSection";
+
+            section.className =
+                "search-result-section";
+
+
+            const searchContainer =
+                $(".search-container");
+
+
+            if (searchContainer) {
+
+                searchContainer.insertAdjacentElement(
+                    "afterend",
+                    section
+                );
+
+            } else {
+
+                const portal =
+                    $(".portal-wrap");
+
+                if (portal) {
+
+                    portal.prepend(section);
+
+                } else {
+
+                    document.body.prepend(section);
+
+                }
+            }
+        }
+
+
+        section.innerHTML = `
+            <h2>
+                🔎 Search Results
+            </h2>
+
+            <div
+                class="search-result-grid"
+            ></div>
+        `;
+
+
+        const grid =
+            $(".search-result-grid", section);
+
+
+        const results =
+            articles.filter(function (article) {
+
+                return article.title
+                    .toLowerCase()
+                    .includes(query);
+
+            });
+
+
+        if (!results.length) {
+
+            grid.innerHTML =
+                `<div class="no-news">
+                    "${escapeHTML(query)}" కు వార్తలు లభించలేదు.
+                </div>`;
+
+            return;
+        }
+
+
+        results.forEach(function (article) {
+
+            const card =
+                document.createElement("a");
+
+            card.href =
+                article.url || "#";
+
+            card.className =
+                "all-news-card";
+
+
+            card.innerHTML = `
+                <img
+                    src="${escapeHTML(article.image)}"
+                    alt="${escapeHTML(article.title)}"
+                    loading="lazy"
+                >
+
+                <div class="all-news-card-content">
+
+                    <h3 class="all-news-card-title">
+                        ${escapeHTML(article.title)}
+                    </h3>
+
+                </div>
+            `;
+
+
+            grid.appendChild(card);
+        });
+
+
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     }
 
 
@@ -1240,52 +1762,70 @@ document.addEventListener("DOMContentLoaded", () => {
     function setupDarkMode() {
 
         const button =
-            $("#themeToggle") ||
-            $('button[aria-label*="Dark"]') ||
-            document.querySelector(
-                ".theme-toggle"
-            );
+            $(".theme-button");
+
 
         if (!button) return;
 
 
         const saved =
             localStorage.getItem(
-                "bs360-theme"
+                "bs360-dark-mode"
             );
 
 
-        if (saved === "dark") {
+        if (saved === "on") {
 
             document.body.classList.add(
                 "dark-mode"
             );
-
         }
+
+
+        updateThemeButton();
 
 
         button.addEventListener(
             "click",
-            () => {
+            function () {
 
                 document.body.classList.toggle(
                     "dark-mode"
                 );
 
 
-                const dark =
+                const isDark =
                     document.body.classList.contains(
                         "dark-mode"
                     );
 
 
                 localStorage.setItem(
-                    "bs360-theme",
-                    dark ? "dark" : "light"
+                    "bs360-dark-mode",
+                    isDark
+                        ? "on"
+                        : "off"
                 );
 
+
+                updateThemeButton();
             }
         );
+
+
+        function updateThemeButton() {
+
+            const isDark =
+                document.body.classList.contains(
+                    "dark-mode"
+                );
+
+
+            button.textContent =
+                isDark
+                    ? "☀️ Light"
+                    : "🌙 Dark";
+        }
     }
 
 
@@ -1295,20 +1835,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setupMobileMenu() {
 
-        const toggle =
-            $("#menuToggle") ||
-            $(".menu-toggle");
+        const button =
+            $(".mobile-menu-toggle");
+
 
         const nav =
-            $("#mainNav") ||
-            $("nav");
-
-        if (!toggle || !nav) return;
+            $(".main-nav");
 
 
-        toggle.addEventListener(
+        if (!button || !nav) {
+            return;
+        }
+
+
+        button.addEventListener(
             "click",
-            () => {
+            function () {
 
                 nav.classList.toggle(
                     "mobile-open"
@@ -1316,22 +1858,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
-
-
-        $$("a", nav).forEach(link => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    nav.classList.remove(
-                        "mobile-open"
-                    );
-
-                }
-            );
-
-        });
     }
 
 
@@ -1341,74 +1867,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setupHeadlines() {
 
-        const container =
-            $("#headlineTrack") ||
-            $(".headline-track") ||
-            $(".top-headlines");
-
-        if (!container) return;
+        const text =
+            $(".headlines-text");
 
 
-        const latest =
-            articles
-                .slice(0, 10);
+        if (!text) return;
 
 
-        if (
-            container.children.length
-        ) {
+        const headlineArticles =
+            articles.slice(0, 8);
+
+
+        if (!headlineArticles.length) {
             return;
         }
 
 
-        latest.forEach(article => {
+        let index = 0;
 
-            const link =
-                document.createElement("a");
 
-            link.href =
-                article.url || "#";
+        function showHeadline() {
 
-            link.textContent =
+            const article =
+                headlineArticles[index];
+
+
+            text.textContent =
                 article.title;
 
-            container.appendChild(
-                link
-            );
 
-        });
-    }
+            index =
+                (index + 1) %
+                headlineArticles.length;
+        }
 
 
-    /* =====================================================
-       LANGUAGE SELECTOR
-       ===================================================== */
+        showHeadline();
 
-    function setupLanguageSelector() {
 
-        const selectors =
-            $$("[data-language]");
-
-        selectors.forEach(item => {
-
-            item.addEventListener(
-                "click",
-                () => {
-
-                    const language =
-                        item.dataset.language;
-
-                    if (!language) return;
-
-                    localStorage.setItem(
-                        "bs360-language",
-                        language
-                    );
-
-                }
-            );
-
-        });
+        setInterval(
+            showHeadline,
+            4000
+        );
     }
 
 
@@ -1416,75 +1916,125 @@ document.addEventListener("DOMContentLoaded", () => {
        READ MORE LINKS
        ===================================================== */
 
-    function setupReadMoreLinks() {
+    function setupReadMore() {
 
-        const map = [
+        /* Bigg Boss */
 
-            {
-                section: "#bigboss10Section",
-                url: "bigboss10.html"
-            },
-
-            {
-                section: ".slider-section",
-                url: "AP&TS.html"
-            },
-
-            {
-                section: ".business-section",
-                url: "business.html"
-            },
-
-            {
-                section: "#cinemaSection",
-                url: "movies.html"
-            },
-
-            {
-                section: "#sportsSection",
-                url: "sports.html"
-            }
-
-        ];
+        const bigboss =
+            $(".bigboss-section") ||
+            $("#bigboss10Section");
 
 
-        map.forEach(item => {
+        if (bigboss) {
 
-            const section =
-                $(item.section);
+            const link =
+                $(".view-all", bigboss) ||
+                $$("a", bigboss).find(function (a) {
 
-            if (!section) return;
-
-
-            const links =
-                $$("a", section);
-
-
-            const readMore =
-                links.find(link =>
-                    link.textContent
+                    return a.textContent
                         .toUpperCase()
-                        .includes("READ MORE")
-                );
+                        .includes("READ MORE");
+
+                });
 
 
-            if (
-                readMore &&
-                !readMore.getAttribute("href")
-            ) {
-                readMore.href =
-                    item.url;
+            if (link) {
+
+                link.href =
+                    "bigboss10.html";
             }
+        }
 
-        });
+
+        /* AP & TS */
+
+        const apSection =
+            $(".slider-section");
+
+
+        if (apSection) {
+
+            const link =
+                $(".view-all", apSection) ||
+                $$("a", apSection).find(function (a) {
+
+                    return a.textContent
+                        .toUpperCase()
+                        .includes("READ MORE");
+
+                });
+
+
+            if (link) {
+
+                link.href =
+                    "AP&TS.html";
+            }
+        }
+
+
+        /* Movies */
+
+        const movies =
+            $("#cinemaSection") ||
+            $(".category-section");
+
+
+        if (movies) {
+
+            const link =
+                $(".view-all", movies) ||
+                $$("a", movies).find(function (a) {
+
+                    return a.textContent
+                        .toUpperCase()
+                        .includes("READ MORE");
+
+                });
+
+
+            if (link) {
+
+                link.href =
+                    "movies.html";
+            }
+        }
+
+
+        /* Sports */
+
+        const sports =
+            $("#sportsSection") ||
+            $(".sports-section");
+
+
+        if (sports) {
+
+            const link =
+                $(".view-all", sports) ||
+                $$("a", sports).find(function (a) {
+
+                    return a.textContent
+                        .toUpperCase()
+                        .includes("READ MORE");
+
+                });
+
+
+            if (link) {
+
+                link.href =
+                    "sports.html";
+            }
+        }
     }
 
 
     /* =====================================================
-       INITIAL RENDER
+       INITIALIZE
        ===================================================== */
 
-    cleanOldSections();
+    cleanExtraTopStory();
 
     removeMostRead();
 
@@ -1494,7 +2044,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderAPTS();
 
-    createBusinessSection();
+    renderBusiness();
 
     renderMovies();
 
@@ -1502,7 +2052,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderAllNews();
 
-    setupExistingSliders();
+    setupAllCarousels();
 
     startBigBossAutoScroll();
 
@@ -1516,22 +2066,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setupHeadlines();
 
-    setupLanguageSelector();
-
-    setupReadMoreLinks();
+    setupReadMore();
 
 
     /* =====================================================
-       FINISH
+       DONE
        ===================================================== */
 
     console.log(
-        "BS 360 NEWS loaded successfully."
+        "✅ BS 360 NEWS homepage loaded."
     );
 
     console.log(
-        "Total articles:",
+        "📰 Total articles:",
         articles.length
+    );
+
+    console.log(
+        "📺 Bigg Boss:",
+        articles.filter(isBigBoss).length
+    );
+
+    console.log(
+        "🏛️ AP & TS:",
+        articles.filter(isAPTS).length
+    );
+
+    console.log(
+        "💼 Business:",
+        articles.filter(isBusiness).length
+    );
+
+    console.log(
+        "🎬 Movies:",
+        articles.filter(isMovies).length
+    );
+
+    console.log(
+        "🏏 Sports:",
+        articles.filter(isSports).length
     );
 
 });
