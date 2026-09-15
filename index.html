@@ -135,7 +135,7 @@
     >
 
 
-    <!-- NAVIGATION CSS -->
+    <!-- NAVIGATION -->
 
     <style>
 
@@ -147,9 +147,6 @@
             width: 100%;
         }
 
-
-        /* LANGUAGE */
-
         .lang-selector {
 
             display: flex;
@@ -160,7 +157,7 @@
 
             gap: 6px;
 
-            padding: 8px 10px 5px;
+            padding: 7px 10px 4px;
 
             color: #fff;
 
@@ -179,22 +176,19 @@
 
         .lang-selector .active {
 
-            background: #ff0000;
+            background: #e60000;
 
             color: #fff;
 
-            padding: 4px 18px;
+            padding: 3px 16px;
 
             border-radius: 3px;
 
-            font-size: 18px;
+            font-size: 17px;
 
-            font-weight: 700;
+            font-weight: 800;
 
         }
-
-
-        /* CATEGORY NAV */
 
         .nav-links {
 
@@ -204,9 +198,9 @@
 
             align-items: center;
 
-            gap: 7px;
+            gap: 5px;
 
-            padding: 5px 10px 10px;
+            padding: 4px 10px 9px;
 
             overflow-x: auto;
 
@@ -217,9 +211,7 @@
         }
 
         .nav-links::-webkit-scrollbar {
-
             display: none;
-
         }
 
         .nav-links a {
@@ -230,9 +222,9 @@
 
             text-decoration: none;
 
-            font-size: 15px;
+            font-size: 14px;
 
-            font-weight: 700;
+            font-weight: 800;
 
             padding: 6px 11px;
 
@@ -241,29 +233,24 @@
         }
 
         .nav-links a:hover {
-
             background: rgba(255,255,255,.15);
-
         }
 
-
-        /* MOBILE */
-
-        @media (max-width:600px) {
+        @media (max-width: 600px) {
 
             .lang-selector {
 
-                padding: 7px 8px 4px;
+                padding: 6px 8px 3px;
 
-                font-size: 14px;
+                font-size: 12px;
 
             }
 
             .lang-selector .active {
 
-                font-size: 17px;
+                font-size: 14px;
 
-                padding: 3px 20px;
+                padding: 3px 13px;
 
             }
 
@@ -271,17 +258,17 @@
 
                 justify-content: flex-start;
 
-                gap: 5px;
+                gap: 2px;
 
-                padding: 4px 8px 9px;
+                padding: 3px 6px 7px;
 
             }
 
             .nav-links a {
 
-                font-size: 14px;
+                font-size: 12px;
 
-                padding: 5px 9px;
+                padding: 5px 8px;
 
             }
 
@@ -330,7 +317,6 @@
                     </span>
 
                 </div>
-
 
                 <span class="logo-tagline">
                     Fast | Fair | Fearless
@@ -456,10 +442,7 @@
 
 <div class="headlines-bar">
 
-    <div
-        class="container"
-        style="display:flex;align-items:center"
-    >
+    <div class="container">
 
         <span class="headlines-label">
             ❗ TOP HEADLINES
@@ -508,7 +491,6 @@
                 placeholder="వార్తలు వెతకండి..."
             >
 
-
             <button onclick="searchNews()">
                 Search
             </button>
@@ -527,6 +509,7 @@
 
         <!-- =================================================
              LATEST NEWS
+             ONLY BIG FEATURED
         ================================================= -->
 
         <section
@@ -579,6 +562,7 @@
 
         <!-- =================================================
              AP & TS NEWS
+             1 BIG + 2 COLUMN CARDS
         ================================================= -->
 
         <section
@@ -647,6 +631,7 @@
 
         <!-- =================================================
              SPORTS
+             1 BIG + 2 COLUMN CARDS
         ================================================= -->
 
         <section
@@ -684,6 +669,7 @@
 
         <!-- =================================================
              ENTERTAINMENT
+             1 BIG + 2 COLUMN CARDS
         ================================================= -->
 
         <section
@@ -721,6 +707,7 @@
 
         <!-- =================================================
              BUSINESS
+             1 BIG + 2 COLUMN CARDS
         ================================================= -->
 
         <section
@@ -772,6 +759,13 @@
         <!-- =================================================
              LEGACY NEWS SOURCE
              DO NOT REMOVE
+             
+             JS reads these articles and creates:
+             Latest
+             AP & TS
+             Sports
+             Entertainment
+             Business
         ================================================= -->
 
         <div
@@ -1804,6 +1798,7 @@
 <footer class="site-footer">
 
     <div class="container footer-inner">
+
 
         <div class="footer-column">
 
