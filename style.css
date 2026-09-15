@@ -1,13 +1,10 @@
-/* =========================================================
-   BS 360 NEWS - EXACT HOMEPAGE LAYOUT
-========================================================= */
-
 *{
     box-sizing:border-box;
 }
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:80px;
 }
 
 body{
@@ -23,6 +20,7 @@ body{
 img{
     display:block;
     width:100%;
+    max-width:100%;
 }
 
 a{
@@ -41,12 +39,212 @@ input{
 }
 
 
-/* =========================================================
-   SECTION
-========================================================= */
+/* =====================================================
+   HEADER
+===================================================== */
+
+.brand-header{
+    background:#fff;
+    border-bottom:1px solid #ddd;
+}
+
+.brand-inner{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-mark{
+    width:52px;
+    height:52px;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.logo-mark img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.logo-name > div{
+    font-size:25px;
+    font-weight:900;
+}
+
+.logo-red{
+    color:#e00000;
+}
+
+.logo-tagline{
+    display:block;
+    font-size:11px;
+    color:#777;
+    font-weight:700;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.theme-button,
+.live-button{
+    border:0;
+    border-radius:20px;
+    padding:7px 12px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.theme-button{
+    background:#edf2f7;
+}
+
+.live-button{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:#111;
+    color:#fff;
+}
+
+.live-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:red;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        opacity:.35;
+    }
+}
+
+.mobile-menu-toggle{
+    display:none;
+}
+
+
+/* =====================================================
+   NAV
+===================================================== */
+
+.main-nav{
+    background:#075aaa;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    min-height:42px;
+}
+
+.nav-links a{
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+}
+
+
+/* =====================================================
+   BREAKING
+===================================================== */
+
+.headlines-bar{
+    background:#111827;
+    color:#fff;
+}
+
+.headlines-bar .container{
+    min-height:40px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.headlines-label{
+    background:#e00000;
+    padding:5px 10px;
+    font-size:12px;
+    font-weight:900;
+    flex:none;
+}
+
+.headlines-text{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-container{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    margin:14px 0;
+}
+
+.search-icon{
+    width:40px;
+    height:40px;
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.search-box{
+    display:none;
+    gap:6px;
+    margin-left:8px;
+}
+
+.search-box.show{
+    display:flex;
+}
+
+.search-box input{
+    width:250px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding:9px;
+}
+
+.search-box button{
+    border:0;
+    background:#075aaa;
+    color:#fff;
+    border-radius:5px;
+    padding:0 14px;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.portal-wrap{
+    padding-bottom:40px;
+}
 
 section{
-    margin:0 0 38px;
+    margin-bottom:34px;
 }
 
 .section-title-row{
@@ -55,31 +253,38 @@ section{
     gap:10px;
     margin-bottom:14px;
     padding-bottom:7px;
-    border-bottom:3px solid #075aaa;
+    border-bottom:4px solid #075aaa;
 }
 
 .section-title-row h2{
     margin:0;
     color:#075aaa;
-    font-size:24px;
+    font-size:23px;
     font-weight:900;
 }
 
-.section-title-row .view-all{
+.section-title-row > span{
+    color:#777;
+    font-size:13px;
+    font-weight:700;
+}
+
+.view-all{
     margin-left:auto;
     color:#e00000;
     font-size:13px;
-    font-weight:800;
+    font-weight:900;
 }
 
 
-/* =========================================================
+/* =====================================================
    LATEST NEWS
-   ONE BIG NEWS AT A TIME
-========================================================= */
+   ONE BIG BOX
+   5 SEC CHANGE
+===================================================== */
 
 .top-story-grid{
-    width:100%;
+    display:block;
 }
 
 .latest-sidebar{
@@ -96,13 +301,12 @@ section{
 
 .latest-big-card{
     position:relative;
-    display:block;
     width:100%;
-    height:520px;
+    height:500px;
+    border-radius:14px;
     overflow:hidden;
-    border-radius:12px;
     background:#111;
-    box-shadow:0 4px 18px rgba(0,0,0,.14);
+    display:block;
 }
 
 .latest-big-card img{
@@ -114,10 +318,7 @@ section{
 .latest-big-card::after{
     content:"";
     position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:65%;
+    inset:35% 0 0;
     background:linear-gradient(
         to bottom,
         transparent,
@@ -127,7 +328,7 @@ section{
 
 .latest-big-content{
     position:absolute;
-    z-index:2;
+    z-index:3;
     left:0;
     right:0;
     bottom:0;
@@ -137,69 +338,51 @@ section{
 
 .latest-big-content .read-label{
     display:inline-block;
-    margin-bottom:9px;
-    padding:4px 9px;
-    border-radius:3px;
     background:#e00000;
-    color:#fff;
+    padding:4px 9px;
+    margin-bottom:8px;
+    border-radius:3px;
     font-size:12px;
     font-weight:900;
 }
 
 .latest-big-content h3{
     margin:0;
-    font-size:31px;
+    font-size:30px;
     line-height:1.35;
     font-weight:900;
 }
 
 
-/* =========================================================
-   CATEGORY SECTIONS
-   BIG + 2x2
-========================================================= */
-
-.news-slider,
-#sliderTrack,
-#sportsGrid,
-#cinemaGrid,
-#businessGrid{
-    width:100%;
-}
-
+/* =====================================================
+   CATEGORY
+===================================================== */
 
 /*
-   EXACT STRUCTURE:
+    EXACT LAYOUT:
 
-   ┌────────────────────────────┐
-   │          BIG NEWS          │
-   └────────────────────────────┘
+          BIG NEWS
+    ─────────────────
 
-   ┌────────────┐ ┌────────────┐
-   │     2      │ │     3      │
-   ├────────────┤ ├────────────┤
-   │     4      │ │     5      │
-   └────────────┘ └────────────┘
+       2          3
+
+       4          5
 */
 
 .category-news-layout{
-    width:100%;
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:14px;
 }
 
 
-/* =========================================================
-   BIG ARTICLE
-========================================================= */
+/* BIG */
 
 .category-feature{
-    position:relative;
     grid-column:1 / -1;
-    display:block;
+    position:relative;
     width:100%;
-    height:430px;
+    height:420px;
     overflow:hidden;
     border-radius:12px;
     background:#111;
@@ -214,10 +397,7 @@ section{
 .category-feature::after{
     content:"";
     position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:65%;
+    inset:35% 0 0;
     background:linear-gradient(
         to bottom,
         transparent,
@@ -227,11 +407,11 @@ section{
 
 .category-feature-content{
     position:absolute;
-    z-index:2;
+    z-index:3;
     left:0;
     right:0;
     bottom:0;
-    padding:25px;
+    padding:24px;
     color:#fff;
 }
 
@@ -243,25 +423,20 @@ section{
 }
 
 
-/* =========================================================
-   SMALL ARTICLES
-   2 + 3
-   4 + 5
-========================================================= */
+/* SMALL */
 
 .category-card{
     display:block;
-    width:100%;
+    background:#fff;
+    border-radius:11px;
     overflow:hidden;
     border:1px solid #e0e4e8;
-    border-radius:10px;
-    background:#fff;
-    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    box-shadow:0 3px 10px rgba(0,0,0,.07);
 }
 
 .category-card img{
     width:100%;
-    height:220px;
+    height:210px;
     object-fit:cover;
 }
 
@@ -276,34 +451,116 @@ section{
     font-weight:800;
 
     display:-webkit-box;
-    -webkit-box-orient:vertical;
     -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
     overflow:hidden;
 }
 
 
-/* =========================================================
-   OLD CAROUSEL BUTTONS
-========================================================= */
+/* =====================================================
+   OLD SLIDER
+===================================================== */
+
+.news-slider{
+    width:100%;
+    overflow:visible;
+}
 
 .carousel-btn{
     display:none !important;
 }
 
 
-/* =========================================================
-   LEGACY ARTICLES
-========================================================= */
+/* =====================================================
+   LEGACY
+===================================================== */
 
-#legacyNewsSource,
 .legacy-news-source{
     display:none !important;
 }
 
 
-/* =========================================================
+/* =====================================================
+   AD
+===================================================== */
+
+.ad-space{
+    width:100%;
+    min-height:90px;
+    margin:30px 0;
+    background:#fff;
+    border:1px dashed #ccc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#aaa;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer{
+    background:#111827;
+    color:#fff;
+    margin-top:30px;
+}
+
+.footer-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    padding:35px 0;
+}
+
+.site-footer h3{
+    margin:0 0 15px;
+}
+
+.footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 18px;
+}
+
+.footer-links a{
+    color:#ddd;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode{
+    background:#101418;
+    color:#eee;
+}
+
+body.dark-mode .brand-header,
+body.dark-mode .category-card,
+body.dark-mode .search-icon,
+body.dark-mode .search-box input,
+body.dark-mode .ad-space{
+    background:#1b2026;
+    color:#fff;
+    border-color:#333;
+}
+
+body.dark-mode .category-card-content h3{
+    color:#fff;
+}
+
+body.dark-mode .theme-button{
+    background:#292f36;
+    color:#fff;
+}
+
+
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
 @media(max-width:700px){
 
@@ -311,66 +568,149 @@ section{
         width:94%;
     }
 
-    section{
-        margin-bottom:30px;
+    .brand-inner{
+        min-height:62px;
     }
+
+    .logo-mark{
+        width:42px;
+        height:42px;
+    }
+
+    .logo-name > div{
+        font-size:20px;
+    }
+
+    .logo-tagline{
+        font-size:9px;
+    }
+
+    .header-actions{
+        display:none;
+    }
+
+    .mobile-menu-toggle{
+        display:block;
+        border:0;
+        background:#075aaa;
+        color:#fff;
+        padding:8px 11px;
+        border-radius:6px;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:8px 0;
+    }
+
+    .nav-links.mobile-open{
+        display:flex;
+    }
+
+    .nav-links a{
+        width:100%;
+        padding:7px 0;
+        font-size:13px;
+    }
+
+    .headlines-bar .container{
+        min-height:35px;
+    }
+
+    .headlines-label{
+        font-size:10px;
+        padding:4px 7px;
+    }
+
+    .headlines-text{
+        font-size:11px;
+    }
+
+
+    /* SEARCH */
+
+    .search-container{
+        margin:10px 0;
+    }
+
+    .search-box input{
+        width:180px;
+    }
+
+
+    /* SECTION TITLE */
 
     .section-title-row{
         margin-bottom:10px;
-        padding-bottom:6px;
+        gap:5px;
     }
 
     .section-title-row h2{
         font-size:19px;
     }
 
-    .section-title-row .view-all{
-        font-size:11px;
+    .section-title-row > span{
+        font-size:10px;
+    }
+
+    .view-all{
+        font-size:10px;
     }
 
 
-    /* =============================================
-       LATEST
-    ============================================= */
+    /* =================================================
+       LATEST MOBILE
+    ================================================= */
 
     .latest-big-card{
         height:auto;
         aspect-ratio:16 / 9;
-        border-radius:9px;
+        border-radius:11px;
     }
 
     .latest-big-content{
         padding:13px;
     }
 
-    .latest-big-content .read-label{
-        margin-bottom:5px;
-        padding:3px 7px;
-        font-size:9px;
-    }
-
     .latest-big-content h3{
-        font-size:18px;
+        font-size:19px;
         line-height:1.3;
     }
 
+    .latest-big-content .read-label{
+        font-size:10px;
+        padding:3px 7px;
+    }
 
-    /* =============================================
-       CATEGORY
-    ============================================= */
+
+    /* =================================================
+       CATEGORY MOBILE
+
+       BIG
+       ----
+
+       2 | 3
+       ----
+       4 | 5
+    ================================================= */
 
     .category-news-layout{
         grid-template-columns:1fr 1fr;
         gap:9px;
     }
 
-
-    /* BIG */
-
     .category-feature{
+        grid-column:1 / -1;
         height:auto;
         aspect-ratio:16 / 9;
-        border-radius:9px;
+        border-radius:10px;
+    }
+
+    .category-feature img{
+        height:100%;
     }
 
     .category-feature-content{
@@ -378,15 +718,12 @@ section{
     }
 
     .category-feature-content h3{
-        font-size:17px;
+        font-size:18px;
         line-height:1.3;
     }
 
-
-    /* SMALL */
-
     .category-card{
-        border-radius:8px;
+        border-radius:9px;
     }
 
     .category-card img{
@@ -396,34 +733,39 @@ section{
     }
 
     .category-card-content{
-        padding:7px;
+        padding:8px;
     }
 
     .category-card-content h3{
-        font-size:13px;
+        font-size:14px;
         line-height:1.35;
         -webkit-line-clamp:3;
+    }
+
+
+    .footer-inner{
+        grid-template-columns:1fr;
     }
 
 }
 
 
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
+/* =====================================================
+   VERY SMALL
+===================================================== */
 
 @media(max-width:420px){
 
-    .latest-big-content h3{
+    .category-feature-content h3{
         font-size:16px;
     }
 
-    .category-feature-content h3{
-        font-size:15px;
+    .category-card-content h3{
+        font-size:13px;
     }
 
-    .category-card-content h3{
-        font-size:12px;
+    .latest-big-content h3{
+        font-size:17px;
     }
 
 }
