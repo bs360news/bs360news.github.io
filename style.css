@@ -1016,3 +1016,710 @@ body.dark-mode .ad-space {
     }
 
 }
+/* =========================================================
+   BS 360 NEWS
+   HOMEPAGE NEW DESIGN
+   ========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background:#f3f5f7;
+    color:#111827;
+    font-family:Arial,"Noto Sans Telugu","Segoe UI",sans-serif;
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 16px;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.homepage-section{
+    width:100%;
+    margin:30px 0 38px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.section-title-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    margin-bottom:15px;
+    padding-bottom:10px;
+    border-bottom:3px solid #075aaa;
+}
+
+.section-title-row > div:first-child{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+
+.section-title-row h2{
+    margin:0;
+    padding:0;
+    color:#111827;
+    font-size:25px;
+    line-height:1.2;
+    font-weight:800;
+}
+
+.section-title-row span{
+    color:#6b7280;
+    font-size:13px;
+}
+
+.view-all{
+    color:#075aaa;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.view-all:hover{
+    text-decoration:underline;
+}
+
+
+/* =========================================================
+   LATEST NEWS
+   ========================================================= */
+
+.latest-slider{
+    width:100%;
+    position:relative;
+}
+
+.latest-feature{
+    position:relative;
+    width:100%;
+    height:560px;
+    overflow:hidden;
+    border-radius:16px;
+    background:#111827;
+    box-shadow:0 5px 22px rgba(0,0,0,.14);
+}
+
+.latest-feature img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.latest-feature::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.95) 0%,
+            rgba(0,0,0,.72) 32%,
+            rgba(0,0,0,.18) 70%,
+            rgba(0,0,0,0) 100%
+        );
+
+    pointer-events:none;
+}
+
+.latest-content{
+    position:absolute;
+    z-index:2;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:40px 42px 60px;
+    color:#fff;
+}
+
+.latest-category{
+    display:inline-block;
+    padding:5px 11px;
+    margin-bottom:11px;
+    border-radius:5px;
+    background:#e31b23;
+    color:#fff;
+    font-size:12px;
+    font-weight:800;
+}
+
+.latest-content h3{
+    margin:0 0 16px;
+    max-width:900px;
+    color:#fff;
+    font-size:34px;
+    line-height:1.35;
+    font-weight:800;
+}
+
+.latest-read{
+    display:inline-block;
+    padding:9px 16px;
+    border-radius:6px;
+    background:#075aaa;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+}
+
+.latest-read:hover{
+    background:#064b91;
+}
+
+
+/* =========================================================
+   LATEST DOTS
+   ========================================================= */
+
+.latest-dots{
+    position:absolute;
+    z-index:5;
+    left:50%;
+    bottom:17px;
+    transform:translateX(-50%);
+
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.latest-dot{
+    width:8px;
+    height:8px;
+    padding:0;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.55);
+    cursor:pointer;
+}
+
+.latest-dot.active{
+    width:23px;
+    border-radius:8px;
+    background:#fff;
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.category-news-layout{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+}
+
+
+/* =========================================================
+   BIG ARTICLE
+   ========================================================= */
+
+.category-feature{
+    position:relative;
+    display:block;
+
+    width:100%;
+    min-height:430px;
+
+    overflow:hidden;
+    border-radius:15px;
+
+    background:#111827;
+
+    text-decoration:none;
+
+    box-shadow:0 4px 18px rgba(0,0,0,.10);
+}
+
+.category-feature img{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+}
+
+.category-feature::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,.05) 75%
+        );
+}
+
+.category-feature-content{
+    position:absolute;
+    z-index:2;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:28px;
+}
+
+.article-category{
+    display:inline-block;
+
+    padding:4px 9px;
+    margin-bottom:8px;
+
+    border-radius:4px;
+
+    background:#e31b23;
+    color:#fff;
+
+    font-size:11px;
+    font-weight:800;
+}
+
+.category-feature-content h3{
+    margin:0;
+
+    color:#fff;
+
+    font-size:27px;
+    line-height:1.35;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   SMALL ARTICLE GRID
+   ========================================================= */
+
+.category-small-grid{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:14px;
+}
+
+
+/* =========================================================
+   SMALL CARD
+   ========================================================= */
+
+.category-small-card{
+    display:block;
+
+    min-width:0;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    border:1px solid #e3e7eb;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 2px 9px rgba(0,0,0,.06);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.category-small-card:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 17px rgba(0,0,0,.11);
+}
+
+.category-small-card img{
+    width:100%;
+
+    height:205px;
+
+    object-fit:cover;
+}
+
+.category-small-content{
+    padding:11px 12px 14px;
+}
+
+.category-small-content .article-category{
+    margin:0 0 4px;
+
+    padding:0;
+
+    background:none;
+
+    color:#e31b23;
+
+    font-size:10px;
+}
+
+.category-small-content h3{
+    margin:0;
+
+    color:#111827;
+
+    font-size:16px;
+    line-height:1.4;
+
+    font-weight:750;
+
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   REMOVE OLD CAROUSELS
+   ========================================================= */
+
+.carousel-wrap{
+    width:100%;
+}
+
+.carousel-btn{
+    display:none !important;
+}
+
+.horizontal-carousel{
+    display:block !important;
+    width:100%;
+    overflow:visible !important;
+}
+
+
+/* =========================================================
+   HIDE OLD SOURCE
+   ========================================================= */
+
+#legacyNewsSource{
+    display:none !important;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark-mode{
+    background:#101418;
+    color:#f3f4f6;
+}
+
+body.dark-mode .section-title-row h2{
+    color:#fff;
+}
+
+body.dark-mode .section-title-row span{
+    color:#aeb6c0;
+}
+
+body.dark-mode .category-small-card{
+    background:#1b2026;
+    border-color:#303740;
+}
+
+body.dark-mode .category-small-content h3{
+    color:#fff;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width:1000px){
+
+    .homepage-section{
+        margin-top:35px;
+        margin-bottom:45px;
+    }
+
+    .latest-feature{
+        height:570px;
+    }
+
+    .latest-content{
+        padding:
+            45px
+            45px
+            60px;
+    }
+
+    .latest-content h3{
+        font-size:36px;
+    }
+
+    .category-feature{
+        min-height:470px;
+    }
+
+    .category-feature img{
+        height:470px;
+    }
+
+    .category-feature-content{
+        padding:34px;
+    }
+
+    .category-feature-content h3{
+        font-size:30px;
+    }
+
+    .category-small-card img{
+        height:220px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:699px){
+
+    .container{
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+    .homepage-section{
+        margin:22px 0 28px;
+    }
+
+    .section-title-row{
+        margin-bottom:11px;
+        padding-bottom:8px;
+        border-bottom-width:2px;
+    }
+
+    .section-title-row h2{
+        font-size:19px;
+    }
+
+    .section-title-row span{
+        font-size:10px;
+    }
+
+    .view-all{
+        font-size:10px;
+    }
+
+
+    /* LATEST */
+
+    .latest-feature{
+        height:auto;
+
+        aspect-ratio:16 / 10;
+
+        min-height:275px;
+
+        border-radius:11px;
+    }
+
+    .latest-content{
+        padding:
+            20px
+            16px
+            39px;
+    }
+
+    .latest-category{
+        font-size:9px;
+
+        padding:
+            4px
+            8px;
+
+        margin-bottom:5px;
+    }
+
+    .latest-content h3{
+        margin-bottom:9px;
+
+        font-size:18px;
+
+        line-height:1.35;
+    }
+
+    .latest-read{
+        padding:
+            6px
+            10px;
+
+        font-size:10px;
+    }
+
+
+    /* DOTS */
+
+    .latest-dots{
+        bottom:10px;
+        gap:5px;
+    }
+
+    .latest-dot{
+        width:6px;
+        height:6px;
+    }
+
+    .latest-dot.active{
+        width:17px;
+    }
+
+
+    /* BIG CATEGORY */
+
+    .category-feature{
+        min-height:0;
+
+        aspect-ratio:16 / 10;
+
+        border-radius:11px;
+    }
+
+    .category-feature img{
+        height:100%;
+    }
+
+    .category-feature-content{
+        padding:
+            17px
+            14px;
+    }
+
+    .article-category{
+        font-size:9px;
+
+        padding:
+            3px
+            7px;
+
+        margin-bottom:4px;
+    }
+
+    .category-feature-content h3{
+        font-size:17px;
+        line-height:1.35;
+    }
+
+
+    /* SMALL CARDS */
+
+    .category-small-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:9px;
+    }
+
+    .category-small-card{
+        border-radius:9px;
+    }
+
+    .category-small-card img{
+        height:auto;
+
+        aspect-ratio:16 / 10;
+    }
+
+    .category-small-content{
+        padding:
+            8px
+            9px
+            10px;
+    }
+
+    .category-small-content .article-category{
+        font-size:8px;
+    }
+
+    .category-small-content h3{
+        font-size:12px;
+        line-height:1.35;
+
+        -webkit-line-clamp:3;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width:380px){
+
+    .section-title-row h2{
+        font-size:17px;
+    }
+
+    .section-title-row span{
+        display:none;
+    }
+
+    .view-all{
+        font-size:9px;
+    }
+
+    .latest-content h3{
+        font-size:16px;
+    }
+
+    .category-feature-content h3{
+        font-size:15px;
+    }
+
+    .category-small-content h3{
+        font-size:11px;
+    }
+
+}
