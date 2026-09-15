@@ -1,43 +1,14 @@
 /* =========================================================
    BS 360 NEWS - HOMEPAGE JAVASCRIPT
-
-   LATEST NEWS:
-   - One large featured card
-   - Changes every 5 seconds
-   - Image + title + category + Read More + dots change together
-
-   AP & TS:
-   - 1 large article
-   - Remaining articles in 2 columns
-   - NO automatic scrolling
-
-   SPORTS:
-   - 1 large article
-   - Remaining articles in 2 columns
-   - NO automatic scrolling
-
-   ENTERTAINMENT:
-   - 1 large article
-   - Remaining articles in 2 columns
-   - NO automatic scrolling
-
-   BUSINESS:
-   - 1 large article
-   - Remaining articles in 2 columns
-   - NO automatic scrolling
-
-   DATA:
-   - Everything comes automatically from #legacyNewsSource
-========================================================= */
+   ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
     "use strict";
 
-
     /* =====================================================
        HELPERS
-    ===================================================== */
+       ===================================================== */
 
     const $ = (selector, parent = document) => {
         return parent.querySelector(selector);
@@ -49,657 +20,673 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       LEGACY ARTICLES
-    ===================================================== */
+       LEGACY SOURCE
+       Read all existing articles from HTML
+       ===================================================== */
 
-    const source = $("#legacyNewsSource");
+    const sourcePosts = $$("#legacyNewsSource .post");
 
-    if (!source) {
-        console.error("legacyNewsSource not found.");
-        return;
-    }
-
-
-    const allPosts = $$(".news-item.post", source);
-
-
-    /*
-       Convert old HTML article into clean JS object
-    */
-
-    const articles = allPosts.map((post, index) => {
+    const articles = sourcePosts.map((post, index) => {
 
         const image = $("img", post);
         const titleElement = $(".news-content p", post);
 
         return {
-
             index: index,
 
-            category:
-                post.dataset.category || "news",
+            category: (
+                post.dataset.category || ""
+            ).toLowerCase().trim(),
 
-            url:
-                post.dataset.url || "#",
+            url: post.dataset.url || "#",
 
-            image:
-                image ? image.getAttribute("src") : "",
+            image: image ? image.getAttribute("src") : "",
 
-            alt:
-                image
-                    ? image.getAttribute("alt") || ""
-                    : "",
+            alt: image
+                ? image.getAttribute("alt") || ""
+                : "",
 
-            title:
-                titleElement
-                    ? titleElement.textContent.trim()
-                    : ""
-
+            title: titleElement
+                ? titleElement.textContent.trim()
+                : ""
         };
 
-    }).filter(item => {
+    }).filter(article => {
 
-        return item.title &&
-               item.image &&
-               item.url;
+        return (
+            article.title &&
+            article.image &&
+            article.url
+        );
 
     });
 
 
     /* =====================================================
-       CATEGORY FILTERS
-    ===================================================== */
+       CATEGORY LABEL
+       ===================================================== */
 
-    function getCategoryArticles(category) {
+    function categoryLabel(category) {
 
-        return articles.filter(article => {
+        const labels = {
 
-            return article.category.toLowerCase() ===
-                category.toLowerCase();
+            business: "💼 BUSINESS",
 
-        });
+            sports: "🏏 SPORTS",
 
-    }
+            cinema: "🎬 ENTERTAINMENT",
 
+            movies: "🎬 ENTERTAINMENT",
 
-    /*
-       Entertainment uses BOTH cinema + movies
-    */
+            ap: "🏛️ AP NEWS",
 
-    function getEntertainmentArticles() {
+            ts: "🏛️ TS NEWS",
 
-        return articles.filter(article => {
+            bigboss10: "📺 BIGG BOSS",
 
-            const cat = article.category.toLowerCase();
+            lifestyle: "👑 LIFESTYLE",
 
-            return cat === "cinema" ||
-                   cat === "movies";
+            agriculture: "🌾 AGRICULTURE",
 
-        });
+            automobiles: "🚗 AUTOMOBILES",
 
-    }
+            "human-interest": "📰 NEWS",
 
+            politics: "🏛️ POLITICS",
 
-    /*
-       AP + TS together
-    */
-
-    function getAptsArticles() {
-
-        return articles.filter(article => {
-
-            const cat = article.category.toLowerCase();
-
-            return cat === "ap" ||
-                   cat === "ts";
-
-        });
-
-    }
-
-
-    /* =====================================================
-       CATEGORY NAME
-    ===================================================== */
-
-    function categoryName(category) {
-
-        const names = {
-
-            business: "BUSINESS",
-
-            sports: "SPORTS",
-
-            cinema: "ENTERTAINMENT",
-
-            movies: "ENTERTAINMENT",
-
-            ap: "AP & TS",
-
-            ts: "AP & TS",
-
-            news: "NEWS",
-
-            lifestyle: "LIFESTYLE",
-
-            politics: "POLITICS",
-
-            agriculture: "AGRICULTURE",
-
-            automobiles: "AUTOMOBILES",
-
-            "human-interest": "NEWS"
+            news: "📰 NEWS"
 
         };
 
-        return names[category] || category.toUpperCase();
-
+        return labels[category] || "📰 NEWS";
     }
 
 
     /* =====================================================
-       SAFE HTML
-    ===================================================== */
+       CREATE IMAGE
+       ===================================================== */
 
-    function escapeHTML(value) {
+    function createImage(src, alt) {
 
-        return String(value)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
+        const img = document.createElement("img");
 
+        img.src = src;
+        img.alt = alt || "BS 360 NEWS";
+        img.loading = "lazy";
+
+        img.onerror = function () {
+            this.style.display = "none";
+        };
+
+        return img;
+    }
+
+
+    /* =====================================================
+       CREATE LATEST FEATURE
+       ===================================================== */
+
+    function createLatestFeature(article, index, total) {
+
+        const feature = document.createElement("a");
+
+        feature.className = "latest-feature";
+
+        feature.href = article.url;
+
+        feature.setAttribute(
+            "aria-label",
+            article.title
+        );
+
+
+        const image = createImage(
+            article.image,
+            article.alt || article.title
+        );
+
+
+        const content = document.createElement("div");
+
+        content.className = "latest-content";
+
+
+        const category = document.createElement("span");
+
+        category.className = "latest-category";
+
+        category.textContent =
+            categoryLabel(article.category);
+
+
+        const title = document.createElement("h3");
+
+        title.className = "latest-title";
+
+        title.textContent = article.title;
+
+
+        const read = document.createElement("span");
+
+        read.className = "latest-read";
+
+        read.textContent = "READ MORE →";
+
+
+        content.appendChild(category);
+        content.appendChild(title);
+        content.appendChild(read);
+
+
+        feature.appendChild(image);
+        feature.appendChild(content);
+
+
+        /* Dots */
+
+        if (total > 1) {
+
+            const dots = document.createElement("div");
+
+            dots.className = "latest-dots";
+
+            dots.addEventListener(
+                "click",
+                function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            );
+
+
+            for (let i = 0; i < total; i++) {
+
+                const dot = document.createElement("button");
+
+                dot.type = "button";
+
+                dot.className =
+                    "latest-dot" +
+                    (i === index ? " active" : "");
+
+                dot.setAttribute(
+                    "aria-label",
+                    "Latest News " + (i + 1)
+                );
+
+
+                dot.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.preventDefault();
+                        event.stopPropagation();
+
+                        showLatest(i);
+
+                    }
+                );
+
+
+                dots.appendChild(dot);
+
+            }
+
+            feature.appendChild(dots);
+        }
+
+
+        return feature;
     }
 
 
     /* =====================================================
        LATEST NEWS
-    ===================================================== */
+       5 SECOND AUTO CHANGE
+       ===================================================== */
 
-    /*
-       Bigg Boss is kept separate.
-       Latest gets all normal news.
-    */
+    const latestContainer = $("#topStory");
 
-    let latestArticles = articles.filter(article => {
-
-        return article.category.toLowerCase() !== "bigboss10";
-
-    });
-
-
-    /*
-       If no normal articles exist,
-       use all articles.
-    */
-
-    if (!latestArticles.length) {
-        latestArticles = [...articles];
-    }
-
-
-    const topStory = $("#topStory");
+    let latestArticles = [];
 
     let latestIndex = 0;
 
     let latestTimer = null;
 
 
-    function renderLatest(index) {
+    if (latestContainer) {
 
-        if (!topStory || !latestArticles.length) {
-            return;
-        }
+        /*
+         * Bigg Boss articles are kept separate.
+         * Latest News uses the latest general news
+         * from the existing HTML source.
+         */
 
-        latestIndex =
-            (index + latestArticles.length) %
-            latestArticles.length;
-
-
-        const article =
-            latestArticles[latestIndex];
-
-
-        topStory.innerHTML = `
-
-            <article class="latest-hero">
-
-                <a href="${escapeHTML(article.url)}"
-                   aria-label="${escapeHTML(article.title)}">
-
-                    <img
-                        src="${escapeHTML(article.image)}"
-                        alt="${escapeHTML(article.alt || article.title)}"
-                        loading="eager"
-                    >
-
-                </a>
-
-
-                <div class="latest-info">
-
-                    <span class="latest-category">
-
-                        ${escapeHTML(
-                            categoryName(article.category)
-                        )}
-
-                    </span>
-
-
-                    <h1 class="latest-title">
-
-                        ${escapeHTML(article.title)}
-
-                    </h1>
-
-
-                    <a
-                        class="latest-read"
-                        href="${escapeHTML(article.url)}"
-                    >
-                        Read More →
-                    </a>
-
-                </div>
-
-
-                <div class="latest-dots">
-
-                    ${latestArticles.map((item, i) => `
-
-                        <span
-                            class="latest-dot
-                            ${i === latestIndex ? "active" : ""}"
-                            data-latest-index="${i}"
-                        ></span>
-
-                    `).join("")}
-
-                </div>
-
-            </article>
-
-        `;
+        latestArticles = articles
+            .filter(article => {
+                return article.category !== "bigboss10";
+            })
+            .slice(0, 5);
 
 
         /*
-           Dots click
-        */
+         * If fewer than 5 articles exist,
+         * use whatever is available.
+         */
 
-        $$(".latest-dot", topStory).forEach(dot => {
+        if (latestArticles.length === 0) {
 
-            dot.addEventListener("click", function (event) {
+            latestContainer.innerHTML =
+                '<div class="no-news">వార్తలు అందుబాటులో లేవు.</div>';
 
-                event.preventDefault();
+        } else {
 
-                const newIndex =
-                    Number(
-                        this.dataset.latestIndex
+            function showLatest(index) {
+
+                if (!latestArticles.length) {
+                    return;
+                }
+
+                latestIndex =
+                    (index + latestArticles.length) %
+                    latestArticles.length;
+
+
+                latestContainer.innerHTML = "";
+
+                const feature =
+                    createLatestFeature(
+                        latestArticles[latestIndex],
+                        latestIndex,
+                        latestArticles.length
                     );
 
-                renderLatest(newIndex);
+                latestContainer.appendChild(feature);
 
-                restartLatestTimer();
+            }
 
-            });
+
+            window.showLatest = showLatest;
+
+
+            showLatest(0);
+
+
+            /*
+             * EXACTLY 5 SECONDS
+             */
+
+            latestTimer = setInterval(
+                function () {
+
+                    showLatest(
+                        latestIndex + 1
+                    );
+
+                },
+                5000
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       FILTER CATEGORY ARTICLES
+       ===================================================== */
+
+    function getCategoryArticles(categories) {
+
+        return articles.filter(article => {
+
+            return categories.includes(
+                article.category
+            );
 
         });
 
     }
 
 
-    function startLatestTimer() {
-
-        clearInterval(latestTimer);
-
-        latestTimer = setInterval(function () {
-
-            renderLatest(latestIndex + 1);
-
-        }, 5000);
-
-    }
-
-
-    function restartLatestTimer() {
-
-        clearInterval(latestTimer);
-
-        startLatestTimer();
-
-    }
-
-
-    /*
-       FIRST LATEST
-    */
-
-    renderLatest(0);
-
-    startLatestTimer();
-
-
     /* =====================================================
-       CATEGORY CARD
-    ===================================================== */
-
-    function createSmallCard(article) {
-
-        return `
-
-            <article class="category-card">
-
-                <a href="${escapeHTML(article.url)}">
-
-                    <div class="category-card-image">
-
-                        <img
-                            src="${escapeHTML(article.image)}"
-                            alt="${escapeHTML(
-                                article.alt || article.title
-                            )}"
-                            loading="lazy"
-                        >
-
-                    </div>
-
-
-                    <div class="category-card-content">
-
-                        <div class="category-card-label">
-
-                            ${escapeHTML(
-                                categoryName(article.category)
-                            )}
-
-                        </div>
-
-
-                        <h3 class="category-card-title">
-
-                            ${escapeHTML(article.title)}
-
-                        </h3>
-
-                    </div>
-
-                </a>
-
-            </article>
-
-        `;
-
-    }
-
-
-    /* =====================================================
-       FEATURED CATEGORY
-    ===================================================== */
+       CREATE FEATURED CATEGORY CARD
+       ===================================================== */
 
     function createFeaturedCard(article) {
 
-        return `
+        const card = document.createElement("a");
 
-            <article class="category-featured">
+        card.className = "category-featured";
 
-                <a href="${escapeHTML(article.url)}">
-
-                    <img
-                        src="${escapeHTML(article.image)}"
-                        alt="${escapeHTML(
-                            article.alt || article.title
-                        )}"
-                        loading="lazy"
-                    >
+        card.href = article.url;
 
 
-                    <div class="category-featured-content">
+        const imageWrap =
+            document.createElement("div");
 
-                        <span class="category-label">
-
-                            ${escapeHTML(
-                                categoryName(article.category)
-                            )}
-
-                        </span>
+        imageWrap.className =
+            "category-featured-image";
 
 
-                        <h2 class="category-featured-title">
+        const image = createImage(
+            article.image,
+            article.alt || article.title
+        );
 
-                            ${escapeHTML(article.title)}
 
-                        </h2>
+        imageWrap.appendChild(image);
 
-                    </div>
 
-                </a>
+        const body =
+            document.createElement("div");
 
-            </article>
+        body.className =
+            "category-featured-body";
 
-        `;
 
+        const badge =
+            document.createElement("span");
+
+        badge.className =
+            "category-badge";
+
+        badge.textContent =
+            categoryLabel(article.category);
+
+
+        const title =
+            document.createElement("h3");
+
+        title.className =
+            "category-featured-title";
+
+        title.textContent =
+            article.title;
+
+
+        body.appendChild(badge);
+        body.appendChild(title);
+
+
+        card.appendChild(imageWrap);
+        card.appendChild(body);
+
+
+        return card;
+    }
+
+
+    /* =====================================================
+       CREATE SMALL CARD
+       ===================================================== */
+
+    function createSmallCard(article) {
+
+        const card = document.createElement("a");
+
+        card.className = "news-card";
+
+        card.href = article.url;
+
+
+        const imageWrap =
+            document.createElement("div");
+
+        imageWrap.className =
+            "news-card-image";
+
+
+        const image = createImage(
+            article.image,
+            article.alt || article.title
+        );
+
+
+        imageWrap.appendChild(image);
+
+
+        const body =
+            document.createElement("div");
+
+        body.className =
+            "news-card-body";
+
+
+        const category =
+            document.createElement("span");
+
+        category.className =
+            "news-card-category";
+
+        category.textContent =
+            categoryLabel(article.category);
+
+
+        const title =
+            document.createElement("p");
+
+        title.className =
+            "news-card-title";
+
+        title.textContent =
+            article.title;
+
+
+        body.appendChild(category);
+        body.appendChild(title);
+
+
+        card.appendChild(imageWrap);
+        card.appendChild(body);
+
+
+        return card;
     }
 
 
     /* =====================================================
        RENDER CATEGORY
-    ===================================================== */
+       1 BIG + ALL REMAINING IN 2 COLUMN GRID
+       ===================================================== */
 
-    function renderCategory(container, categoryArticles) {
+    function renderCategory(
+        container,
+        categoryList
+    ) {
 
         if (!container) {
             return;
         }
 
 
-        if (!categoryArticles.length) {
+        container.innerHTML = "";
 
-            container.innerHTML = "";
+
+        if (!categoryList.length) {
+
+            container.innerHTML =
+                '<div class="no-news">వార్తలు అందుబాటులో లేవు.</div>';
 
             return;
+        }
+
+
+        const layout =
+            document.createElement("div");
+
+        layout.className =
+            "category-news-layout";
+
+
+        /*
+         * First article = BIG ARTICLE
+         */
+
+        const featured =
+            createFeaturedCard(
+                categoryList[0]
+            );
+
+
+        /*
+         * Remaining articles
+         */
+
+        const smallGrid =
+            document.createElement("div");
+
+        smallGrid.className =
+            "small-news-grid";
+
+
+        categoryList
+            .slice(1)
+            .forEach(function (article) {
+
+                smallGrid.appendChild(
+                    createSmallCard(article)
+                );
+
+            });
+
+
+        layout.appendChild(featured);
+
+
+        /*
+         * Only add grid if remaining articles exist
+         */
+
+        if (categoryList.length > 1) {
+
+            layout.appendChild(
+                smallGrid
+            );
 
         }
 
 
-        const featured =
-            categoryArticles[0];
-
-
-        const remaining =
-            categoryArticles.slice(1);
-
-
-        let html = `
-
-            <div class="category-news-layout">
-
-                ${createFeaturedCard(featured)}
-
-                ${remaining.map(article => {
-
-                    return createSmallCard(article);
-
-                }).join("")}
-
-            </div>
-
-        `;
-
-
-        container.innerHTML = html;
+        container.appendChild(layout);
 
     }
 
 
     /* =====================================================
        AP & TS
-    ===================================================== */
+       ===================================================== */
 
     const apTsArticles =
-        getAptsArticles();
+        getCategoryArticles([
+            "ap",
+            "ts"
+        ]);
 
 
     /*
-       Existing sliderTrack is reused.
-       This avoids changing your HTML structure.
-    */
+     * Your HTML uses old carousel container.
+     * We use the same ID so HTML does not need
+     * another complicated structure.
+     */
 
-    const sliderTrack =
+    const apTsContainer =
         $("#sliderTrack");
 
 
-    if (sliderTrack) {
-
-        renderCategory(
-            sliderTrack,
-            apTsArticles
-        );
-
-    }
-
-
-    /* =====================================================
-       BUSINESS
-    ===================================================== */
-
-    const businessGrid =
-        $("#businessGrid");
-
-
-    if (businessGrid) {
-
-        renderCategory(
-            businessGrid,
-            getCategoryArticles("business")
-        );
-
-    }
+    renderCategory(
+        apTsContainer,
+        apTsArticles
+    );
 
 
     /* =====================================================
        SPORTS
-    ===================================================== */
+       ===================================================== */
 
-    const sportsGrid =
+    const sportsArticles =
+        getCategoryArticles([
+            "sports"
+        ]);
+
+
+    const sportsContainer =
         $("#sportsGrid");
 
 
-    if (sportsGrid) {
-
-        renderCategory(
-            sportsGrid,
-            getCategoryArticles("sports")
-        );
-
-    }
+    renderCategory(
+        sportsContainer,
+        sportsArticles
+    );
 
 
     /* =====================================================
        ENTERTAINMENT
-    ===================================================== */
+       ===================================================== */
 
-    const cinemaGrid =
+    const entertainmentArticles =
+        getCategoryArticles([
+            "cinema",
+            "movies"
+        ]);
+
+
+    const entertainmentContainer =
         $("#cinemaGrid");
 
 
-    if (cinemaGrid) {
-
-        renderCategory(
-            cinemaGrid,
-            getEntertainmentArticles()
-        );
-
-    }
+    renderCategory(
+        entertainmentContainer,
+        entertainmentArticles
+    );
 
 
     /* =====================================================
-       REMOVE OLD AP TS CAROUSEL BUTTONS
-       NO AUTO SLIDER FOR AP TS
-    ===================================================== */
+       BUSINESS
+       ===================================================== */
 
-    const sliderPrev =
-        $("#sliderPrev");
-
-    const sliderNext =
-        $("#sliderNext");
+    const businessArticles =
+        getCategoryArticles([
+            "business"
+        ]);
 
 
-    if (sliderPrev) {
-
-        sliderPrev.style.display = "none";
-
-    }
+    const businessContainer =
+        $("#businessGrid");
 
 
-    if (sliderNext) {
-
-        sliderNext.style.display = "none";
-
-    }
-
-
-    /* =====================================================
-       LATEST SIDEBAR
-       HIDDEN BY CSS BUT KEEP DATA
-    ===================================================== */
-
-    const latestSidebar =
-        $("#latestSidebar");
-
-
-    if (latestSidebar) {
-
-        latestSidebar.innerHTML =
-            latestArticles.slice(0, 10).map((article, index) => {
-
-                return `
-
-                    <a
-                        href="${escapeHTML(article.url)}"
-                        class="latest-side-item"
-                    >
-
-                        <strong>
-                            ${index + 1}
-                        </strong>
-
-                        <span>
-                            ${escapeHTML(article.title)}
-                        </span>
-
-                    </a>
-
-                `;
-
-            }).join("");
-
-    }
+    renderCategory(
+        businessContainer,
+        businessArticles
+    );
 
 
     /* =====================================================
        SEARCH
-    ===================================================== */
+       ===================================================== */
 
     window.toggleSearch = function () {
 
-        const searchBox =
+        const box =
             $("#searchBox");
 
-        if (!searchBox) {
+        if (!box) {
             return;
         }
 
-        searchBox.classList.toggle("show");
+        box.classList.toggle("show");
 
-        if (searchBox.classList.contains("show")) {
+        if (box.classList.contains("show")) {
 
             const input =
                 $("#searchInput");
 
             if (input) {
-                input.focus();
+                setTimeout(
+                    function () {
+                        input.focus();
+                    },
+                    50
+                );
             }
 
         }
@@ -718,7 +705,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const query =
-            input.value.trim().toLowerCase();
+            input.value
+                .trim()
+                .toLowerCase();
 
 
         if (!query) {
@@ -744,7 +733,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
 
             alert(
-                "వార్తలు కనబడలేదు."
+                "ఈ పదంతో వార్త ఏదీ కనుగొనబడలేదు."
             );
 
         }
@@ -752,9 +741,9 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
-    /*
-       Enter key search
-    */
+    /* =====================================================
+       SEARCH ENTER KEY
+       ===================================================== */
 
     const searchInput =
         $("#searchInput");
@@ -768,6 +757,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (event.key === "Enter") {
 
+                    event.preventDefault();
+
                     window.searchNews();
 
                 }
@@ -780,7 +771,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        THEME
-    ===================================================== */
+       ===================================================== */
 
     window.toggleTheme = function () {
 
@@ -807,60 +798,19 @@ document.addEventListener("DOMContentLoaded", function () {
             button.textContent =
                 "☀️ Light";
 
-            localStorage.setItem(
-                "bs360-theme",
-                "dark"
-            );
-
         } else {
 
             button.textContent =
                 "🌙 Dark";
-
-            localStorage.setItem(
-                "bs360-theme",
-                "light"
-            );
 
         }
 
     };
 
 
-    /*
-       Restore theme
-    */
-
-    const savedTheme =
-        localStorage.getItem(
-            "bs360-theme"
-        );
-
-
-    if (savedTheme === "dark") {
-
-        document.body.classList.add(
-            "dark-mode"
-        );
-
-
-        const button =
-            $("#themeButton");
-
-
-        if (button) {
-
-            button.textContent =
-                "☀️ Light";
-
-        }
-
-    }
-
-
     /* =====================================================
        MOBILE NAV
-    ===================================================== */
+       ===================================================== */
 
     window.toggleMobileNav = function () {
 
@@ -871,743 +821,52 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        nav.classList.toggle(
-            "mobile-nav-open"
-        );
+        nav.classList.toggle("show");
 
     };
 
 
     /* =====================================================
-       PREVENT OLD CAROUSEL JS EFFECTS
-    ===================================================== */
-
-    const newsSlider =
-        $("#newsSlider");
-
-
-    if (newsSlider) {
-
-        newsSlider.style.overflow =
-            "visible";
-
-    }
-
-
-    console.log(
-        "BS 360 NEWS loaded:",
-        articles.length,
-        "articles"
-    );
-
-
-    console.log(
-        "Latest:",
-        latestArticles.length
-    );
-
-
-    console.log(
-        "AP & TS:",
-        apTsArticles.length
-    );
-
-
-    console.log(
-        "Sports:",
-        getCategoryArticles("sports").length
-    );
-
-
-    console.log(
-        "Entertainment:",
-        getEntertainmentArticles().length
-    );
-
-
-    console.log(
-        "Business:",
-        getCategoryArticles("business").length
-    );
-
-});
-/* =========================================================
-   BS 360 NEWS
-   HOMEPAGE AUTOMATIC ARTICLE SYSTEM
-   ========================================================= */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    "use strict";
-
-
-    /* =====================================================
-       SOURCE
+       STOP LATEST TIMER WHEN PAGE IS HIDDEN
        ===================================================== */
 
-    const source =
-        document.querySelector("#legacyNewsSource");
-
-    if(!source){
-
-        console.error(
-            "BS360: #legacyNewsSource not found"
-        );
-
-        return;
-    }
-
-
-    /* =====================================================
-       GET ARTICLES
-       ===================================================== */
-
-    function getArticles(){
-
-        const posts =
-            Array.from(
-                source.querySelectorAll(
-                    ".news-item.post"
-                )
-            );
-
-        return posts.map(function(post){
-
-            const img =
-                post.querySelector("img");
-
-            const titleElement =
-                post.querySelector(
-                    ".news-content p"
-                ) ||
-                post.querySelector("p") ||
-                post.querySelector("h3") ||
-                post.querySelector("h2");
-
-            return {
-
-                category:
-                    (
-                        post.dataset.category ||
-                        ""
-                    )
-                    .toLowerCase()
-                    .trim(),
-
-                url:
-                    post.dataset.url ||
-                    "#",
-
-                image:
-                    img
-                        ? img.getAttribute("src")
-                        : "",
-
-                title:
-                    titleElement
-                        ? titleElement.textContent
-                            .replace(/\s+/g," ")
-                            .trim()
-                        : ""
-
-            };
-
-        }).filter(function(article){
-
-            return (
-                article.title &&
-                article.image &&
-                article.url
-            );
-
-        });
-
-    }
-
-
-    const articles =
-        getArticles();
-
-
-    console.log(
-        "BS360 total articles:",
-        articles.length
-    );
-
-
-    /* =====================================================
-       CATEGORY NAME
-       ===================================================== */
-
-    function categoryName(category){
-
-        const names = {
-
-            ap:
-                "AP NEWS",
-
-            ts:
-                "TS NEWS",
-
-            sports:
-                "SPORTS",
-
-            cinema:
-                "ENTERTAINMENT",
-
-            movies:
-                "ENTERTAINMENT",
-
-            business:
-                "BUSINESS",
-
-            politics:
-                "POLITICS",
-
-            news:
-                "NEWS",
-
-            lifestyle:
-                "LIFESTYLE",
-
-            agriculture:
-                "AGRICULTURE",
-
-            automobiles:
-                "AUTOMOBILES",
-
-            "human-interest":
-                "NEWS"
-
-        };
-
-        return (
-            names[category] ||
-            "NEWS"
-        );
-
-    }
-
-
-    /* =====================================================
-       ESCAPE
-       ===================================================== */
-
-    function escapeHTML(value){
-
-        return String(value || "")
-            .replace(/&/g,"&amp;")
-            .replace(/</g,"&lt;")
-            .replace(/>/g,"&gt;")
-            .replace(/"/g,"&quot;")
-            .replace(/'/g,"&#039;");
-
-    }
-
-
-    /* =====================================================
-       CATEGORY FILTER
-       ===================================================== */
-
-    const latestArticles =
-        articles.filter(function(article){
-
-            return article.category !==
-                "bigboss10";
-
-        });
-
-
-    const apTsArticles =
-        articles.filter(function(article){
-
-            return (
-                article.category === "ap" ||
-                article.category === "ts"
-            );
-
-        });
-
-
-    const sportsArticles =
-        articles.filter(function(article){
-
-            return (
-                article.category === "sports"
-            );
-
-        });
-
-
-    const entertainmentArticles =
-        articles.filter(function(article){
-
-            return (
-                article.category === "cinema" ||
-                article.category === "movies"
-            );
-
-        });
-
-
-    const businessArticles =
-        articles.filter(function(article){
-
-            return (
-                article.category === "business"
-            );
-
-        });
-
-
-    /* =====================================================
-       LATEST NEWS
-       ===================================================== */
-
-    const latestBox =
-        document.querySelector("#topStory");
-
-    let latestIndex = 0;
-
-    let latestTimer = null;
-
-
-    function renderLatest(){
-
-        if(
-            !latestBox ||
-            !latestArticles.length
-        ){
-
-            return;
-        }
-
-
-        const article =
-            latestArticles[latestIndex];
-
-
-        latestBox.innerHTML = `
-
-            <div class="latest-feature">
-
-                <img
-                    src="${escapeHTML(article.image)}"
-                    alt="${escapeHTML(article.title)}"
-                >
-
-                <div class="latest-content">
-
-                    <span class="latest-category">
-                        ${escapeHTML(
-                            categoryName(
-                                article.category
-                            )
-                        )}
-                    </span>
-
-                    <h3>
-                        ${escapeHTML(
-                            article.title
-                        )}
-                    </h3>
-
-                    <a
-                        href="${escapeHTML(article.url)}"
-                        class="latest-read"
-                    >
-                        Read More →
-                    </a>
-
-                </div>
-
-
-                <div class="latest-dots">
-
-                    ${
-                        latestArticles
-                            .map(function(item,index){
-
-                                return `
-
-                                    <button
-                                        type="button"
-                                        class="
-                                            latest-dot
-                                            ${
-                                                index === latestIndex
-                                                    ? "active"
-                                                    : ""
-                                            }
-                                        "
-                                        data-index="${index}"
-                                    ></button>
-
-                                `;
-
-                            })
-                            .join("")
-                    }
-
-                </div>
-
-            </div>
-
-        `;
-
-
-        latestBox
-            .querySelectorAll(".latest-dot")
-            .forEach(function(dot){
-
-                dot.addEventListener(
-                    "click",
-                    function(){
-
-                        latestIndex =
-                            Number(
-                                this.dataset.index
+    document.addEventListener(
+        "visibilitychange",
+        function () {
+
+            if (
+                document.hidden &&
+                latestTimer
+            ) {
+
+                clearInterval(
+                    latestTimer
+                );
+
+                latestTimer = null;
+
+            } else if (
+                !document.hidden &&
+                latestArticles.length &&
+                !latestTimer
+            ) {
+
+                latestTimer =
+                    setInterval(
+                        function () {
+
+                            showLatest(
+                                latestIndex + 1
                             );
 
-                        renderLatest();
+                        },
+                        5000
+                    );
 
-                        restartLatest();
-
-                    }
-                );
-
-            });
-
-    }
-
-
-    function nextLatest(){
-
-        if(
-            !latestArticles.length
-        ){
-
-            return;
-        }
-
-
-        latestIndex++;
-
-
-        if(
-            latestIndex >=
-            latestArticles.length
-        ){
-
-            latestIndex = 0;
+            }
 
         }
-
-
-        renderLatest();
-
-    }
-
-
-    function restartLatest(){
-
-        if(latestTimer){
-
-            clearInterval(
-                latestTimer
-            );
-
-        }
-
-
-        if(
-            latestArticles.length > 1
-        ){
-
-            latestTimer =
-                setInterval(
-                    nextLatest,
-                    5000
-                );
-
-        }
-
-    }
-
-
-    renderLatest();
-
-    restartLatest();
-
-
-    /* =====================================================
-       CATEGORY RENDERER
-       ===================================================== */
-
-    function renderCategory(
-        container,
-        categoryArticles
-    ){
-
-        if(!container){
-
-            return;
-        }
-
-
-        if(
-            !categoryArticles.length
-        ){
-
-            container.innerHTML = "";
-
-            return;
-        }
-
-
-        /*
-         * ARTICLE 1
-         * = BIG ARTICLE
-         */
-
-        const featured =
-            categoryArticles[0];
-
-
-        /*
-         * ARTICLE 2+
-         * = SMALL 2 COLUMN CARDS
-         */
-
-        const smallArticles =
-            categoryArticles.slice(1);
-
-
-        let html = `
-
-            <a
-                href="${escapeHTML(featured.url)}"
-                class="category-feature"
-            >
-
-                <img
-                    src="${escapeHTML(featured.image)}"
-                    alt="${escapeHTML(featured.title)}"
-                    loading="lazy"
-                >
-
-                <div class="category-feature-content">
-
-                    <span class="article-category">
-
-                        ${escapeHTML(
-                            categoryName(
-                                featured.category
-                            )
-                        )}
-
-                    </span>
-
-                    <h3>
-
-                        ${escapeHTML(
-                            featured.title
-                        )}
-
-                    </h3>
-
-                </div>
-
-            </a>
-
-        `;
-
-
-        /*
-         * SMALL ARTICLES
-         */
-
-        if(
-            smallArticles.length
-        ){
-
-            html += `
-
-                <div class="category-small-grid">
-
-            `;
-
-
-            smallArticles.forEach(
-                function(article){
-
-                    html += `
-
-                        <a
-                            href="${escapeHTML(
-                                article.url
-                            )}"
-                            class="category-small-card"
-                        >
-
-                            <img
-                                src="${escapeHTML(
-                                    article.image
-                                )}"
-                                alt="${escapeHTML(
-                                    article.title
-                                )}"
-                                loading="lazy"
-                            >
-
-                            <div
-                                class="category-small-content"
-                            >
-
-                                <span
-                                    class="article-category"
-                                >
-
-                                    ${escapeHTML(
-                                        categoryName(
-                                            article.category
-                                        )
-                                    )}
-
-                                </span>
-
-                                <h3>
-
-                                    ${escapeHTML(
-                                        article.title
-                                    )}
-
-                                </h3>
-
-                            </div>
-
-                        </a>
-
-                    `;
-
-                }
-            );
-
-
-            html += `</div>`;
-
-        }
-
-
-        container.innerHTML =
-            html;
-
-    }
-
-
-    /* =====================================================
-       AP & TS
-       ===================================================== */
-
-    renderCategory(
-
-        document.querySelector(
-            "#sliderTrack"
-        ),
-
-        apTsArticles
-
     );
 
-
-    /* =====================================================
-       SPORTS
-       ===================================================== */
-
-    renderCategory(
-
-        document.querySelector(
-            "#sportsGrid"
-        ),
-
-        sportsArticles
-
-    );
-
-
-    /* =====================================================
-       ENTERTAINMENT
-       ===================================================== */
-
-    renderCategory(
-
-        document.querySelector(
-            "#cinemaGrid"
-        ),
-
-        entertainmentArticles
-
-    );
-
-
-    /* =====================================================
-       BUSINESS
-       ===================================================== */
-
-    renderCategory(
-
-        document.querySelector(
-            "#businessGrid"
-        ),
-
-        businessArticles
-
-    );
-
-
-    /* =====================================================
-       OLD CAROUSEL BUTTONS
-       ===================================================== */
-
-    document
-        .querySelectorAll(
-            ".carousel-btn"
-        )
-        .forEach(function(button){
-
-            button.style.display =
-                "none";
-
-        });
-
-
-    /* =====================================================
-       DEBUG
-       ===================================================== */
-
-    console.log(
-        "BS360 Latest:",
-        latestArticles.length
-    );
-
-    console.log(
-        "BS360 AP & TS:",
-        apTsArticles.length
-    );
-
-    console.log(
-        "BS360 Sports:",
-        sportsArticles.length
-    );
-
-    console.log(
-        "BS360 Entertainment:",
-        entertainmentArticles.length
-    );
-
-    console.log(
-        "BS360 Business:",
-        businessArticles.length
-    );
 
 });
