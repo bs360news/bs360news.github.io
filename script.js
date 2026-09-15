@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .map((item) => {
 
             const image = $("img", item);
-
             const titleElement = $(".news-content p", item);
 
             return {
@@ -48,10 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     item.dataset.url || "#",
 
                 image:
-                    image ? image.getAttribute("src") : "",
+                    image
+                        ? image.getAttribute("src")
+                        : "",
 
                 alt:
-                    image ? image.getAttribute("alt") : "",
+                    image
+                        ? image.getAttribute("alt")
+                        : "",
 
                 title:
                     titleElement
@@ -61,7 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
         })
-        .filter(item => item.title && item.image);
+        .filter(item =>
+            item.title &&
+            item.image
+        );
 
 
     console.log(
@@ -97,14 +103,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       LATEST ARTICLES
-       
-       BigBoss articles excluded.
+       LATEST NEWS
+       BIGBOSS ARTICLES EXCLUDED
     ===================================================== */
 
     const latestArticles = articles.filter(article =>
         article.category !== "bigboss10"
     );
+
+
+    /* =====================================================
+       LATEST TARGET
+    ===================================================== */
+
+    const latestTarget = $("#topStory");
+
+    let latestIndex = 0;
+    let latestTimer = null;
 
 
     /* =====================================================
@@ -146,58 +161,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       LATEST AUTO SLIDER
+       SHOW LATEST
     ===================================================== */
-
-    const latestTarget = $("#topStory");
-
-    let latestIndex = 0;
-
-    let latestTimer = null;
-
 
     function showLatest() {
 
-        if (!latestTarget || !latestArticles.length) {
+        if (
+            !latestTarget ||
+            latestArticles.length === 0
+        ) {
             return;
         }
 
-        if (latestIndex >= latestArticles.length) {
+
+        if (
+            latestIndex >=
+            latestArticles.length
+        ) {
             latestIndex = 0;
         }
+
 
         latestTarget.innerHTML =
             createLatestCard(
                 latestArticles[latestIndex]
             );
 
+
         latestIndex++;
 
     }
 
 
-    showLatest();
-
+    /* =====================================================
+       START LATEST TIMER
+    ===================================================== */
 
     function startLatestTimer() {
 
         if (latestTimer) {
-            clearInterval(latestTimer);
+
+            clearInterval(
+                latestTimer
+            );
+
         }
 
-        latestTimer = setInterval(
-            showLatest,
-            5000
-        );
+
+        latestTimer =
+            setInterval(
+                showLatest,
+                5000
+            );
 
     }
 
+
+    /* =====================================================
+       FIRST LATEST NEWS
+    ===================================================== */
+
+    showLatest();
 
     startLatestTimer();
 
 
     /* =====================================================
-       CATEGORY CARD
+       CATEGORY FEATURE
     ===================================================== */
 
     function createCategoryFeature(article) {
@@ -229,6 +259,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    /* =====================================================
+       CATEGORY SMALL CARD
+    ===================================================== */
 
     function createCategoryCard(article) {
 
@@ -263,8 +297,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =====================================================
        RENDER CATEGORY
        
-       First article = BIG
-       Remaining = 2-column cards
+       1st article = BIG
+       Remaining articles = SMALL CARDS
     ===================================================== */
 
     function renderCategory(target, data) {
@@ -273,7 +307,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+
         target.innerHTML = "";
+
 
         if (!data.length) {
             return;
@@ -283,6 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const wrapper =
             document.createElement("div");
 
+
         wrapper.className =
             "category-news-layout";
 
@@ -291,23 +328,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
         wrapper.insertAdjacentHTML(
             "beforeend",
-            createCategoryFeature(data[0])
+            createCategoryFeature(
+                data[0]
+            )
         );
 
 
         /* SMALL ARTICLES */
 
-        data.slice(1).forEach(article => {
+        data
+            .slice(1)
+            .forEach(article => {
 
-            wrapper.insertAdjacentHTML(
-                "beforeend",
-                createCategoryCard(article)
-            );
+                wrapper.insertAdjacentHTML(
+                    "beforeend",
+                    createCategoryCard(
+                        article
+                    )
+                );
 
-        });
+            });
 
 
-        target.appendChild(wrapper);
+        target.appendChild(
+            wrapper
+        );
 
     }
 
@@ -316,7 +361,9 @@ document.addEventListener("DOMContentLoaded", function () {
        AP & TS
     ===================================================== */
 
-    const apTsTarget = $("#sliderTrack");
+    const apTsTarget =
+        $("#sliderTrack");
+
 
     renderCategory(
         apTsTarget,
@@ -328,7 +375,9 @@ document.addEventListener("DOMContentLoaded", function () {
        SPORTS
     ===================================================== */
 
-    const sportsTarget = $("#sportsGrid");
+    const sportsTarget =
+        $("#sportsGrid");
+
 
     renderCategory(
         sportsTarget,
@@ -343,6 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const entertainmentTarget =
         $("#cinemaGrid");
 
+
     renderCategory(
         entertainmentTarget,
         entertainmentArticles
@@ -356,6 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const businessTarget =
         $("#businessGrid");
 
+
     renderCategory(
         businessTarget,
         businessArticles
@@ -368,23 +419,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.toggleSearch = function () {
 
-        const box = $("#searchBox");
+        const box =
+            $("#searchBox");
+
 
         if (!box) {
             return;
         }
 
-        box.classList.toggle("show");
 
-        if (box.classList.contains("show")) {
+        box.classList.toggle(
+            "show"
+        );
+
+
+        if (
+            box.classList.contains(
+                "show"
+            )
+        ) {
 
             const input =
                 $("#searchInput");
 
+
             if (input) {
-                setTimeout(() => {
-                    input.focus();
-                }, 100);
+
+                setTimeout(
+                    () => input.focus(),
+                    100
+                );
+
             }
 
         }
@@ -392,14 +457,20 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
+    /* =====================================================
+       SEARCH NEWS
+    ===================================================== */
+
     window.searchNews = function () {
 
         const input =
             $("#searchInput");
 
+
         if (!input) {
             return;
         }
+
 
         const query =
             input.value
@@ -451,6 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const button =
             $("#themeButton");
 
+
         if (!button) {
             return;
         }
@@ -465,6 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button.textContent =
                 "☀️ Light";
 
+
             localStorage.setItem(
                 "bs360-theme",
                 "dark"
@@ -474,6 +547,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             button.textContent =
                 "🌙 Dark";
+
 
             localStorage.setItem(
                 "bs360-theme",
@@ -495,7 +569,9 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-    if (savedTheme === "dark") {
+    if (
+        savedTheme === "dark"
+    ) {
 
         document.body.classList.add(
             "dark-mode"
@@ -505,9 +581,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const button =
             $("#themeButton");
 
+
         if (button) {
+
             button.textContent =
                 "☀️ Light";
+
         }
 
     }
@@ -522,9 +601,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const nav =
             $("#navLinks");
 
+
         if (!nav) {
             return;
         }
+
 
         nav.classList.toggle(
             "mobile-open"
@@ -534,7 +615,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       PAUSE LATEST TIMER WHEN TAB HIDDEN
+       PAUSE LATEST TIMER
+       WHEN TAB IS HIDDEN
     ===================================================== */
 
     document.addEventListener(
@@ -546,9 +628,13 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
 
                 if (latestTimer) {
+
                     clearInterval(
                         latestTimer
                     );
+
+                    latestTimer = null;
+
                 }
 
             } else {
@@ -562,23 +648,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       ESC KEY SEARCH CLOSE
+       ESC KEY
     ===================================================== */
 
     document.addEventListener(
         "keydown",
         function (event) {
 
-            if (event.key !== "Escape") {
+            if (
+                event.key !== "Escape"
+            ) {
                 return;
             }
+
 
             const search =
                 $("#searchBox");
 
+
             if (
                 search &&
-                search.classList.contains("show")
+                search.classList.contains(
+                    "show"
+                )
             ) {
 
                 search.classList.remove(
