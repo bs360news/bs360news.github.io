@@ -161,88 +161,57 @@ document.addEventListener("DOMContentLoaded", function () {
             !latestTarget ||
             latestArticles.length === 0
         ) {
-            return;
-        }
 
 
-        if (
-            latestIndex >=
-            latestArticles.length
-        ) {
+/* =====================================================
+   LATEST NEWS - 6 CARDS
+===================================================== */
 
-            latestIndex = 0;
+function createLatestCard(article){
 
-        }
+    return `
+        <a
+            href="${article.url}"
+            class="latest-news-card"
+        >
 
-
-        latestTarget.innerHTML =
-            createLatestCard(
-                latestArticles[latestIndex]
-            );
-
-
-        latestIndex++;
-
-    }
-
-
-    function startLatestTimer() {
-
-        if (latestTimer) {
-
-            clearInterval(
-                latestTimer
-            );
-
-        }
-
-
-        latestTimer =
-            setInterval(
-                showLatest,
-                5000
-            );
-
-    }
-
-
-    showLatest();
-
-    startLatestTimer();
-
-
-    /* =====================================================
-       CATEGORY BIG CARD
-    ===================================================== */
-
-    function createCategoryFeature(article) {
-
-        return `
-            <a
-                href="${article.url}"
-                class="category-feature"
+            <img
+                src="${article.image}"
+                alt="${article.alt}"
+                loading="lazy"
             >
 
-                <img
-                    src="${article.image}"
-                    alt="${article.alt}"
-                    loading="lazy"
-                >
+            <h3>
+                ${article.title}
+            </h3>
 
-                <div class="category-feature-content">
+        </a>
+    `;
+}
 
-                    <h3>
-                        ${article.title}
-                    </h3>
 
-                </div>
+function showLatest(){
 
-            </a>
-        `;
-
+    if(
+        !latestTarget ||
+        latestArticles.length === 0
+    ){
+        return;
     }
 
+    const latestSix =
+        latestArticles.slice(0, 6);
 
+    latestTarget.innerHTML = `
+        <div class="latest-news-grid">
+
+            ${latestSix.map(article =>
+                createLatestCard(article)
+            ).join("")}
+
+        </div>
+    `;
+}
     /* =====================================================
        CATEGORY SMALL CARD
     ===================================================== */
