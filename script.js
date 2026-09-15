@@ -85,14 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
         article.category === "ts"
     );
 
+
     const sportsArticles = articles.filter(article =>
         article.category === "sports"
     );
+
 
     const entertainmentArticles = articles.filter(article =>
         article.category === "cinema" ||
         article.category === "movies"
     );
+
 
     const businessArticles = articles.filter(article =>
         article.category === "business"
@@ -100,9 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       LATEST
+       LATEST NEWS
        
        BIGBOSS EXCLUDED
+       
+       3 COLUMNS × 2 ROWS
+       
+       TOTAL 6 ARTICLES
     ===================================================== */
 
     const latestArticles = articles.filter(article =>
@@ -110,38 +117,117 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    /* =====================================================
-       LATEST NEWS
-       
-       ONE BIG BOX
-       EVERY 5 SECONDS NEXT ARTICLE
-    ===================================================== */
-
     const latestTarget = $("#topStory");
 
-    let latestIndex = 0;
-    let latestTimer = null;
 
+    /* =====================================================
+       CREATE LATEST CARD
+    ===================================================== */
 
     function createLatestCard(article) {
 
         return `
             <a
                 href="${article.url}"
-                class="latest-big-card"
+                class="latest-news-card"
             >
 
                 <img
                     src="${article.image}"
-                    alt="${article.alt}"
-                    loading="eager"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
                 >
 
-                <div class="latest-big-content">
+                <h3>
+                    ${article.title}
+                </h3>
 
-                    <span class="read-label">
-                        LATEST NEWS
-                    </span>
+            </a>
+        `;
+
+    }
+
+
+    /* =====================================================
+       RENDER LATEST NEWS
+    ===================================================== */
+
+    function renderLatestNews() {
+
+        if (!latestTarget) {
+
+            console.error(
+                "Latest News target #topStory not found"
+            );
+
+            return;
+        }
+
+
+        if (!latestArticles.length) {
+
+            latestTarget.innerHTML = `
+                <p class="latest-empty">
+                    తాజా వార్తలు అందుబాటులో లేవు
+                </p>
+            `;
+
+            return;
+        }
+
+
+        /*
+           FIRST 6 ARTICLES ONLY
+        */
+
+        const latestSix =
+            latestArticles.slice(0, 6);
+
+
+        latestTarget.innerHTML = `
+
+            <div class="latest-news-grid">
+
+                ${latestSix
+                    .map(article =>
+                        createLatestCard(article)
+                    )
+                    .join("")
+                }
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       SHOW LATEST NEWS
+    ===================================================== */
+
+    renderLatestNews();
+
+
+    /* =====================================================
+       CATEGORY FEATURE
+    ===================================================== */
+
+    function createCategoryFeature(article) {
+
+        return `
+            <a
+                href="${article.url}"
+                class="category-feature"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="category-feature-content">
 
                     <h3>
                         ${article.title}
@@ -155,63 +241,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function showLatest() {
-
-        if (
-            !latestTarget ||
-            latestArticles.length === 0
-        ) {
-
-
-/* =====================================================
-   LATEST NEWS - 6 CARDS
-===================================================== */
-
-function createLatestCard(article){
-
-    return `
-        <a
-            href="${article.url}"
-            class="latest-news-card"
-        >
-
-            <img
-                src="${article.image}"
-                alt="${article.alt}"
-                loading="lazy"
-            >
-
-            <h3>
-                ${article.title}
-            </h3>
-
-        </a>
-    `;
-}
-
-
-function showLatest(){
-
-    if(
-        !latestTarget ||
-        latestArticles.length === 0
-    ){
-        return;
-    }
-
-    const latestSix =
-        latestArticles.slice(0, 6);
-
-    latestTarget.innerHTML = `
-        <div class="latest-news-grid">
-
-            ${latestSix.map(article =>
-                createLatestCard(article)
-            ).join("")}
-
-        </div>
-    `;
-}
     /* =====================================================
        CATEGORY SMALL CARD
     ===================================================== */
@@ -226,7 +255,7 @@ function showLatest(){
 
                 <img
                     src="${article.image}"
-                    alt="${article.alt}"
+                    alt="${article.alt || article.title}"
                     loading="lazy"
                 >
 
@@ -247,8 +276,6 @@ function showLatest(){
     /* =====================================================
        RENDER CATEGORY
        
-       IMPORTANT:
-       
        ONLY FIRST 5 ARTICLES
 
        1 = BIG
@@ -266,11 +293,6 @@ function showLatest(){
 
         target.innerHTML = "";
 
-
-        /*
-           IMPORTANT:
-           Only 5 articles.
-        */
 
         const fiveArticles =
             data.slice(0, 5);
@@ -371,19 +393,26 @@ function showLatest(){
         const box =
             $("#searchBox");
 
+
         if (!box) {
             return;
         }
 
-        box.classList.toggle("show");
+
+        box.classList.toggle(
+            "show"
+        );
 
 
         if (
-            box.classList.contains("show")
+            box.classList.contains(
+                "show"
+            )
         ) {
 
             const input =
                 $("#searchInput");
+
 
             if (input) {
 
@@ -399,10 +428,15 @@ function showLatest(){
     };
 
 
+    /* =====================================================
+       SEARCH NEWS
+    ===================================================== */
+
     window.searchNews = function () {
 
         const input =
             $("#searchInput");
+
 
         if (!input) {
             return;
@@ -473,6 +507,7 @@ function showLatest(){
             button.textContent =
                 "☀️ Light";
 
+
             localStorage.setItem(
                 "bs360-theme",
                 "dark"
@@ -482,6 +517,7 @@ function showLatest(){
 
             button.textContent =
                 "🌙 Dark";
+
 
             localStorage.setItem(
                 "bs360-theme",
@@ -493,13 +529,19 @@ function showLatest(){
     };
 
 
+    /* =====================================================
+       LOAD SAVED THEME
+    ===================================================== */
+
     const savedTheme =
         localStorage.getItem(
             "bs360-theme"
         );
 
 
-    if (savedTheme === "dark") {
+    if (
+        savedTheme === "dark"
+    ) {
 
         document.body.classList.add(
             "dark-mode"
@@ -509,9 +551,12 @@ function showLatest(){
         const button =
             $("#themeButton");
 
+
         if (button) {
+
             button.textContent =
                 "☀️ Light";
+
         }
 
     }
@@ -526,45 +571,17 @@ function showLatest(){
         const nav =
             $("#navLinks");
 
+
         if (!nav) {
             return;
         }
+
 
         nav.classList.toggle(
             "mobile-open"
         );
 
     };
-
-
-    /* =====================================================
-       PAUSE LATEST WHEN TAB HIDDEN
-    ===================================================== */
-
-    document.addEventListener(
-        "visibilitychange",
-        function () {
-
-            if (document.hidden) {
-
-                if (latestTimer) {
-
-                    clearInterval(
-                        latestTimer
-                    );
-
-                    latestTimer = null;
-
-                }
-
-            } else {
-
-                startLatestTimer();
-
-            }
-
-        }
-    );
 
 
     /* =====================================================
@@ -588,7 +605,9 @@ function showLatest(){
 
             if (
                 search &&
-                search.classList.contains("show")
+                search.classList.contains(
+                    "show"
+                )
             ) {
 
                 search.classList.remove(
