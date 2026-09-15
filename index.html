@@ -210,69 +210,132 @@
 
         }
 
-        .nav-links::-webkit-scrollbar {
-            display: none;
-        }
+/* =====================================================
+   NAVIGATION - WHITE + SINGLE LINE
+===================================================== */
 
-        .nav-links a {
+.main-nav{
+    background:#fff !important;
+    border-bottom:1px solid #e5e7eb;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+}
 
-            flex: 0 0 auto;
+.nav-container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+}
 
-            color: #fff;
+/* LANGUAGE */
 
-            text-decoration: none;
+.lang-selector{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    padding:7px 10px 4px;
+    color:#075aaa;
+    font-weight:700;
+}
 
-            font-size: 14px;
+.lang-selector a,
+.lang-selector span{
+    color:#075aaa;
+    text-decoration:none;
+}
 
-            font-weight: 800;
+.lang-selector .active{
+    background:#e60000;
+    color:#fff;
+    padding:3px 16px;
+    border-radius:3px;
+    font-size:17px;
+    font-weight:800;
+}
 
-            padding: 6px 11px;
 
-            border-radius: 18px;
+/* =====================================================
+   HOME - ENTERTAINMENT - SPORTS - AP&TS - BUSINESS
+   ALWAYS ONE LINE
+===================================================== */
 
-        }
+.nav-links{
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    padding:4px 8px 8px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    scrollbar-width:none;
+}
 
-        .nav-links a:hover {
-            background: rgba(255,255,255,.15);
-        }
+.nav-links::-webkit-scrollbar{
+    display:none;
+}
 
-        @media (max-width: 600px) {
+.nav-links a{
+    display:inline-flex;
+    flex:0 0 auto;
+    align-items:center;
+    justify-content:center;
+    color:#075aaa !important;
+    background:transparent;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:800;
+    padding:6px 10px;
+    border-radius:4px;
+}
 
-            .lang-selector {
+.nav-links a:hover{
+    background:#f0f6ff;
+    color:#075aaa !important;
+}
 
-                padding: 6px 8px 3px;
 
-                font-size: 12px;
+/* =====================================================
+   MOBILE
+===================================================== */
 
-            }
+@media(max-width:600px){
 
-            .lang-selector .active {
+    .main-nav{
+        background:#fff !important;
+    }
 
-                font-size: 14px;
+    .lang-selector{
+        padding:6px 8px 3px;
+        font-size:12px;
+        gap:5px;
+    }
 
-                padding: 3px 13px;
+    .lang-selector .active{
+        font-size:14px;
+        padding:3px 13px;
+    }
 
-            }
+    .nav-links{
+        display:flex !important;
+        flex-direction:row !important;
+        justify-content:flex-start;
+        align-items:center;
+        gap:1px;
+        padding:3px 6px 7px;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
 
-            .nav-links {
+    .nav-links a{
+        flex:0 0 auto;
+        font-size:12px;
+        padding:5px 8px;
+        white-space:nowrap;
+    }
 
-                justify-content: flex-start;
-
-                gap: 2px;
-
-                padding: 3px 6px 7px;
-
-            }
-
-            .nav-links a {
-
-                font-size: 12px;
-
-                padding: 5px 8px;
-
-            }
-
-        }
+}
 
     </style>
 
