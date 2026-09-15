@@ -868,9 +868,8 @@ body.dark-mode .theme-button{
 }
 
 
-
 /* =========================================================
-   MOST READ
+   MOST READ - SIMPLE LIST
 ========================================================= */
 
 .most-read-section{
@@ -879,10 +878,10 @@ body.dark-mode .theme-button{
 }
 
 .most-read-list{
-    margin-top:14px;
     display:flex;
     flex-direction:column;
-    gap:11px;
+    gap:12px;
+    margin-top:15px;
 }
 
 .most-read-item{
@@ -890,63 +889,43 @@ body.dark-mode .theme-button{
     align-items:center;
     justify-content:space-between;
     gap:15px;
-    background:#fff;
-    border:1px solid #e2e5e8;
-    border-radius:10px;
-    padding:9px;
+
+    background:transparent;
+    border:none;
+    border-radius:0;
+    padding:8px 0;
+
     text-decoration:none;
-    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    box-shadow:none;
 }
 
 .most-read-text{
-    min-width:0;
     flex:1;
-    display:flex;
-    align-items:center;
-    gap:12px;
+    min-width:0;
 }
 
 .most-read-number{
-    flex:0 0 42px;
-    font-size:22px;
-    font-weight:900;
-    color:#e60000;
-    text-align:center;
+    display:none !important;
 }
 
 .most-read-item h3{
     margin:0;
+    padding:0;
+
     color:#17202a;
-    font-size:18px;
-    line-height:1.4;
+    font-size:19px;
+    line-height:1.45;
     font-weight:800;
 }
 
 .most-read-item img{
     width:145px;
     height:85px;
+
+    flex:0 0 145px;
+
     object-fit:cover;
     border-radius:7px;
-    flex:0 0 145px;
-}
-
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
-.dark-mode .trending-card,
-.dark-mode .most-read-item{
-    background:#17191d;
-    border-color:#30343a;
-}
-
-.dark-mode .trending-card h3{
-    color:#58aaf5;
-}
-
-.dark-mode .most-read-item h3{
-    color:#f1f3f5;
 }
 
 
@@ -956,48 +935,18 @@ body.dark-mode .theme-button{
 
 @media(max-width:700px){
 
-    .trending-section,
-    .most-read-section{
-        margin-top:30px;
-        margin-bottom:30px;
-    }
-
-    .trending-grid{
-        grid-template-columns:1fr;
-        gap:12px;
-    }
-
-    .trending-card img{
-        height:auto;
-        aspect-ratio:16 / 9;
-        object-fit:cover;
-    }
-
-    .trending-card h3{
-        font-size:17px;
-        padding:10px 11px 13px;
-    }
-
     .most-read-list{
-        gap:9px;
+        gap:8px;
+        margin-top:12px;
     }
 
     .most-read-item{
-        gap:9px;
-        padding:7px;
-    }
-
-    .most-read-text{
-        gap:7px;
-    }
-
-    .most-read-number{
-        flex:0 0 30px;
-        font-size:18px;
+        gap:10px;
+        padding:7px 0;
     }
 
     .most-read-item h3{
-        font-size:15px;
+        font-size:16px;
         line-height:1.4;
     }
 
@@ -1011,4 +960,10 @@ body.dark-mode .theme-button{
 }
 
 
+/* =========================================================
+   DARK MODE
+========================================================= */
 
+.dark-mode .most-read-item h3{
+    color:#f1f3f5;
+}
