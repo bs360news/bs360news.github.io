@@ -931,3 +931,683 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+/* =========================================================
+   BS 360 NEWS
+   HOMEPAGE AUTOMATIC ARTICLE SYSTEM
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    "use strict";
+
+
+    /* =====================================================
+       SOURCE
+       ===================================================== */
+
+    const source =
+        document.querySelector("#legacyNewsSource");
+
+    if(!source){
+
+        console.error(
+            "BS360: #legacyNewsSource not found"
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       GET ARTICLES
+       ===================================================== */
+
+    function getArticles(){
+
+        const posts =
+            Array.from(
+                source.querySelectorAll(
+                    ".news-item.post"
+                )
+            );
+
+        return posts.map(function(post){
+
+            const img =
+                post.querySelector("img");
+
+            const titleElement =
+                post.querySelector(
+                    ".news-content p"
+                ) ||
+                post.querySelector("p") ||
+                post.querySelector("h3") ||
+                post.querySelector("h2");
+
+            return {
+
+                category:
+                    (
+                        post.dataset.category ||
+                        ""
+                    )
+                    .toLowerCase()
+                    .trim(),
+
+                url:
+                    post.dataset.url ||
+                    "#",
+
+                image:
+                    img
+                        ? img.getAttribute("src")
+                        : "",
+
+                title:
+                    titleElement
+                        ? titleElement.textContent
+                            .replace(/\s+/g," ")
+                            .trim()
+                        : ""
+
+            };
+
+        }).filter(function(article){
+
+            return (
+                article.title &&
+                article.image &&
+                article.url
+            );
+
+        });
+
+    }
+
+
+    const articles =
+        getArticles();
+
+
+    console.log(
+        "BS360 total articles:",
+        articles.length
+    );
+
+
+    /* =====================================================
+       CATEGORY NAME
+       ===================================================== */
+
+    function categoryName(category){
+
+        const names = {
+
+            ap:
+                "AP NEWS",
+
+            ts:
+                "TS NEWS",
+
+            sports:
+                "SPORTS",
+
+            cinema:
+                "ENTERTAINMENT",
+
+            movies:
+                "ENTERTAINMENT",
+
+            business:
+                "BUSINESS",
+
+            politics:
+                "POLITICS",
+
+            news:
+                "NEWS",
+
+            lifestyle:
+                "LIFESTYLE",
+
+            agriculture:
+                "AGRICULTURE",
+
+            automobiles:
+                "AUTOMOBILES",
+
+            "human-interest":
+                "NEWS"
+
+        };
+
+        return (
+            names[category] ||
+            "NEWS"
+        );
+
+    }
+
+
+    /* =====================================================
+       ESCAPE
+       ===================================================== */
+
+    function escapeHTML(value){
+
+        return String(value || "")
+            .replace(/&/g,"&amp;")
+            .replace(/</g,"&lt;")
+            .replace(/>/g,"&gt;")
+            .replace(/"/g,"&quot;")
+            .replace(/'/g,"&#039;");
+
+    }
+
+
+    /* =====================================================
+       CATEGORY FILTER
+       ===================================================== */
+
+    const latestArticles =
+        articles.filter(function(article){
+
+            return article.category !==
+                "bigboss10";
+
+        });
+
+
+    const apTsArticles =
+        articles.filter(function(article){
+
+            return (
+                article.category === "ap" ||
+                article.category === "ts"
+            );
+
+        });
+
+
+    const sportsArticles =
+        articles.filter(function(article){
+
+            return (
+                article.category === "sports"
+            );
+
+        });
+
+
+    const entertainmentArticles =
+        articles.filter(function(article){
+
+            return (
+                article.category === "cinema" ||
+                article.category === "movies"
+            );
+
+        });
+
+
+    const businessArticles =
+        articles.filter(function(article){
+
+            return (
+                article.category === "business"
+            );
+
+        });
+
+
+    /* =====================================================
+       LATEST NEWS
+       ===================================================== */
+
+    const latestBox =
+        document.querySelector("#topStory");
+
+    let latestIndex = 0;
+
+    let latestTimer = null;
+
+
+    function renderLatest(){
+
+        if(
+            !latestBox ||
+            !latestArticles.length
+        ){
+
+            return;
+        }
+
+
+        const article =
+            latestArticles[latestIndex];
+
+
+        latestBox.innerHTML = `
+
+            <div class="latest-feature">
+
+                <img
+                    src="${escapeHTML(article.image)}"
+                    alt="${escapeHTML(article.title)}"
+                >
+
+                <div class="latest-content">
+
+                    <span class="latest-category">
+                        ${escapeHTML(
+                            categoryName(
+                                article.category
+                            )
+                        )}
+                    </span>
+
+                    <h3>
+                        ${escapeHTML(
+                            article.title
+                        )}
+                    </h3>
+
+                    <a
+                        href="${escapeHTML(article.url)}"
+                        class="latest-read"
+                    >
+                        Read More →
+                    </a>
+
+                </div>
+
+
+                <div class="latest-dots">
+
+                    ${
+                        latestArticles
+                            .map(function(item,index){
+
+                                return `
+
+                                    <button
+                                        type="button"
+                                        class="
+                                            latest-dot
+                                            ${
+                                                index === latestIndex
+                                                    ? "active"
+                                                    : ""
+                                            }
+                                        "
+                                        data-index="${index}"
+                                    ></button>
+
+                                `;
+
+                            })
+                            .join("")
+                    }
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        latestBox
+            .querySelectorAll(".latest-dot")
+            .forEach(function(dot){
+
+                dot.addEventListener(
+                    "click",
+                    function(){
+
+                        latestIndex =
+                            Number(
+                                this.dataset.index
+                            );
+
+                        renderLatest();
+
+                        restartLatest();
+
+                    }
+                );
+
+            });
+
+    }
+
+
+    function nextLatest(){
+
+        if(
+            !latestArticles.length
+        ){
+
+            return;
+        }
+
+
+        latestIndex++;
+
+
+        if(
+            latestIndex >=
+            latestArticles.length
+        ){
+
+            latestIndex = 0;
+
+        }
+
+
+        renderLatest();
+
+    }
+
+
+    function restartLatest(){
+
+        if(latestTimer){
+
+            clearInterval(
+                latestTimer
+            );
+
+        }
+
+
+        if(
+            latestArticles.length > 1
+        ){
+
+            latestTimer =
+                setInterval(
+                    nextLatest,
+                    5000
+                );
+
+        }
+
+    }
+
+
+    renderLatest();
+
+    restartLatest();
+
+
+    /* =====================================================
+       CATEGORY RENDERER
+       ===================================================== */
+
+    function renderCategory(
+        container,
+        categoryArticles
+    ){
+
+        if(!container){
+
+            return;
+        }
+
+
+        if(
+            !categoryArticles.length
+        ){
+
+            container.innerHTML = "";
+
+            return;
+        }
+
+
+        /*
+         * ARTICLE 1
+         * = BIG ARTICLE
+         */
+
+        const featured =
+            categoryArticles[0];
+
+
+        /*
+         * ARTICLE 2+
+         * = SMALL 2 COLUMN CARDS
+         */
+
+        const smallArticles =
+            categoryArticles.slice(1);
+
+
+        let html = `
+
+            <a
+                href="${escapeHTML(featured.url)}"
+                class="category-feature"
+            >
+
+                <img
+                    src="${escapeHTML(featured.image)}"
+                    alt="${escapeHTML(featured.title)}"
+                    loading="lazy"
+                >
+
+                <div class="category-feature-content">
+
+                    <span class="article-category">
+
+                        ${escapeHTML(
+                            categoryName(
+                                featured.category
+                            )
+                        )}
+
+                    </span>
+
+                    <h3>
+
+                        ${escapeHTML(
+                            featured.title
+                        )}
+
+                    </h3>
+
+                </div>
+
+            </a>
+
+        `;
+
+
+        /*
+         * SMALL ARTICLES
+         */
+
+        if(
+            smallArticles.length
+        ){
+
+            html += `
+
+                <div class="category-small-grid">
+
+            `;
+
+
+            smallArticles.forEach(
+                function(article){
+
+                    html += `
+
+                        <a
+                            href="${escapeHTML(
+                                article.url
+                            )}"
+                            class="category-small-card"
+                        >
+
+                            <img
+                                src="${escapeHTML(
+                                    article.image
+                                )}"
+                                alt="${escapeHTML(
+                                    article.title
+                                )}"
+                                loading="lazy"
+                            >
+
+                            <div
+                                class="category-small-content"
+                            >
+
+                                <span
+                                    class="article-category"
+                                >
+
+                                    ${escapeHTML(
+                                        categoryName(
+                                            article.category
+                                        )
+                                    )}
+
+                                </span>
+
+                                <h3>
+
+                                    ${escapeHTML(
+                                        article.title
+                                    )}
+
+                                </h3>
+
+                            </div>
+
+                        </a>
+
+                    `;
+
+                }
+            );
+
+
+            html += `</div>`;
+
+        }
+
+
+        container.innerHTML =
+            html;
+
+    }
+
+
+    /* =====================================================
+       AP & TS
+       ===================================================== */
+
+    renderCategory(
+
+        document.querySelector(
+            "#sliderTrack"
+        ),
+
+        apTsArticles
+
+    );
+
+
+    /* =====================================================
+       SPORTS
+       ===================================================== */
+
+    renderCategory(
+
+        document.querySelector(
+            "#sportsGrid"
+        ),
+
+        sportsArticles
+
+    );
+
+
+    /* =====================================================
+       ENTERTAINMENT
+       ===================================================== */
+
+    renderCategory(
+
+        document.querySelector(
+            "#cinemaGrid"
+        ),
+
+        entertainmentArticles
+
+    );
+
+
+    /* =====================================================
+       BUSINESS
+       ===================================================== */
+
+    renderCategory(
+
+        document.querySelector(
+            "#businessGrid"
+        ),
+
+        businessArticles
+
+    );
+
+
+    /* =====================================================
+       OLD CAROUSEL BUTTONS
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".carousel-btn"
+        )
+        .forEach(function(button){
+
+            button.style.display =
+                "none";
+
+        });
+
+
+    /* =====================================================
+       DEBUG
+       ===================================================== */
+
+    console.log(
+        "BS360 Latest:",
+        latestArticles.length
+    );
+
+    console.log(
+        "BS360 AP & TS:",
+        apTsArticles.length
+    );
+
+    console.log(
+        "BS360 Sports:",
+        sportsArticles.length
+    );
+
+    console.log(
+        "BS360 Entertainment:",
+        entertainmentArticles.length
+    );
+
+    console.log(
+        "BS360 Business:",
+        businessArticles.length
+    );
+
+});
