@@ -20,10 +20,10 @@ body{
 img{
     display:block;
     width:100%;
-    max-width:100%;
+    max-width:100%;ó
 }
 
-a{
+{
     color:inherit;
     text-decoration:none;
 }
@@ -278,81 +278,89 @@ section{
 
 
 /* =====================================================
-   LATEST NEWS
-   ONE BIG BOX
-   5 SEC CHANGE
+/* =====================================================
+   LATEST NEWS - 3 COLUMNS × 2 ROWS
 ===================================================== */
-
-.top-story-grid{
-    display:block;
-}
-
-.latest-sidebar{
-    display:none;
-}
-
-.hero-wrap{
-    width:100%;
-}
 
 #topStory{
     width:100%;
 }
 
-.latest-big-card{
-    position:relative;
+.latest-news-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
     width:100%;
-    height:500px;
-    border-radius:14px;
-    overflow:hidden;
-    background:#111;
-    display:block;
 }
 
-.latest-big-card img{
+/* CARD */
+
+.latest-news-card{
+    display:block;
+    text-decoration:none;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #e2e6ea;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+/* IMAGE */
+
+.latest-news-card img{
+    display:block;
     width:100%;
-    height:100%;
+    height:210px;
     object-fit:cover;
 }
 
-.latest-big-card::after{
-    content:"";
-    position:absolute;
-    inset:35% 0 0;
-    background:linear-gradient(
-        to bottom,
-        transparent,
-        rgba(0,0,0,.92)
-    );
-}
+/* TITLE */
 
-.latest-big-content{
-    position:absolute;
-    z-index:3;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:28px;
-    color:#fff;
-}
-
-.latest-big-content .read-label{
-    display:inline-block;
-    background:#e00000;
-    padding:4px 9px;
-    margin-bottom:8px;
-    border-radius:3px;
-    font-size:12px;
-    font-weight:900;
-}
-
-.latest-big-content h3{
+.latest-news-card h3{
     margin:0;
-    font-size:30px;
-    line-height:1.35;
-    font-weight:900;
+    padding:13px 14px 16px;
+    color:#0069a9;
+    font-size:20px;
+    font-weight:700;
+    line-height:1.45;
 }
 
+/* REMOVE RED LABEL */
+
+.latest-news-card .read-label,
+.latest-news-card span{
+    display:none !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .latest-news-grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:10px;
+    }
+
+    .latest-news-card{
+        border-radius:10px;
+    }
+
+    .latest-news-card img{
+        height:125px;
+    }
+
+    .latest-news-card h3{
+        padding:9px 9px 12px;
+        font-size:15px;
+        line-height:1.4;
+    }
+
+}
+    
+              
 
 /* =====================================================
    CATEGORY
