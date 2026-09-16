@@ -1,7 +1,5 @@
 /* =========================================================
    BS 360 NEWS - CLEAN HOMEPAGE CSS
-   DESKTOP:
-   BIG HERO + ARTICLE 2 + ARTICLE 3 + ARTICLE 4
    MOBILE VERSION PRESERVED
 ========================================================= */
 
@@ -291,272 +289,63 @@ section{
 
 /* =========================================================
    LATEST NEWS
+   DESKTOP = 7 COLUMNS
 ========================================================= */
 
 #topStory{
     width:100%;
 }
 
-
-/* =========================================================
-   LAPTOP / DESKTOP
-   BIG HERO + ARTICLE 2 + ARTICLE 3 + ARTICLE 4
-========================================================= */
-
-@media(min-width:701px){
-
-    /*
-       IMPORTANT
-
-       Structure should be:
-
-       BIG HERO | ARTICLE 2 | ARTICLE 3 | ARTICLE 4
-
-       First article = BIG HERO
-       Next 3 articles = small cards
-       Remaining articles = hidden in this top layout
-    */
-
-    #sportsGrid,
-    #cinemaGrid,
-    #businessGrid,
-    #apGrid,
-    #tsGrid,
-    #entertainmentGrid,
-    #aptsSection .slider-track{
-
-        display:grid !important;
-
-        grid-template-columns:
-            minmax(0,2fr)
-            minmax(0,1fr)
-            minmax(0,1fr)
-            minmax(0,1fr);
-
-        gap:14px;
-
-        width:100%;
-        align-items:start;
-    }
-
-
-    /* BIG HERO */
-
-    #sportsGrid > :first-child,
-    #cinemaGrid > :first-child,
-    #businessGrid > :first-child,
-    #apGrid > :first-child,
-    #tsGrid > :first-child,
-    #entertainmentGrid > :first-child,
-    #aptsSection .slider-track > :first-child{
-
-        grid-column:1;
-        grid-row:1;
-
-        width:100%;
-        height:100%;
-
-        min-width:0;
-    }
-
-
-    /* BIG HERO IMAGE */
-
-    #sportsGrid > :first-child img,
-    #cinemaGrid > :first-child img,
-    #businessGrid > :first-child img,
-    #apGrid > :first-child img,
-    #tsGrid > :first-child img,
-    #entertainmentGrid > :first-child img,
-    #aptsSection .slider-track > :first-child img{
-
-        width:100%;
-        height:360px;
-
-        object-fit:cover;
-
-        border-radius:10px;
-    }
-
-
-    /* BIG HERO TITLE */
-
-    #sportsGrid > :first-child h3,
-    #cinemaGrid > :first-child h3,
-    #businessGrid > :first-child h3,
-    #apGrid > :first-child h3,
-    #tsGrid > :first-child h3,
-    #entertainmentGrid > :first-child h3,
-    #aptsSection .slider-track > :first-child h3{
-
-        margin:9px 0 0;
-
-        font-size:22px;
-        line-height:1.4;
-        font-weight:900;
-
-        color:#111827;
-
-        display:-webkit-box;
-        -webkit-line-clamp:3;
-        -webkit-box-orient:vertical;
-        overflow:hidden;
-    }
-
-
-    /* ARTICLE 2 */
-
-    #sportsGrid > :nth-child(2),
-    #cinemaGrid > :nth-child(2),
-    #businessGrid > :nth-child(2),
-    #apGrid > :nth-child(2),
-    #tsGrid > :nth-child(2),
-    #entertainmentGrid > :nth-child(2),
-    #aptsSection .slider-track > :nth-child(2){
-
-        grid-column:2;
-        grid-row:1;
-
-        min-width:0;
-    }
-
-
-    /* ARTICLE 3 */
-
-    #sportsGrid > :nth-child(3),
-    #cinemaGrid > :nth-child(3),
-    #businessGrid > :nth-child(3),
-    #apGrid > :nth-child(3),
-    #tsGrid > :nth-child(3),
-    #entertainmentGrid > :nth-child(3),
-    #aptsSection .slider-track > :nth-child(3){
-
-        grid-column:3;
-        grid-row:1;
-
-        min-width:0;
-    }
-
-
-    /* ARTICLE 4 */
-
-    #sportsGrid > :nth-child(4),
-    #cinemaGrid > :nth-child(4),
-    #businessGrid > :nth-child(4),
-    #apGrid > :nth-child(4),
-    #tsGrid > :nth-child(4),
-    #entertainmentGrid > :nth-child(4),
-    #aptsSection .slider-track > :nth-child(4){
-
-        grid-column:4;
-        grid-row:1;
-
-        min-width:0;
-    }
-
-
-    /* SMALL ARTICLE IMAGES */
-
-    #sportsGrid > :nth-child(2) img,
-    #sportsGrid > :nth-child(3) img,
-    #sportsGrid > :nth-child(4) img,
-
-    #cinemaGrid > :nth-child(2) img,
-    #cinemaGrid > :nth-child(3) img,
-    #cinemaGrid > :nth-child(4) img,
-
-    #businessGrid > :nth-child(2) img,
-    #businessGrid > :nth-child(3) img,
-    #businessGrid > :nth-child(4) img,
-
-    #apGrid > :nth-child(2) img,
-    #apGrid > :nth-child(3) img,
-    #apGrid > :nth-child(4) img,
-
-    #tsGrid > :nth-child(2) img,
-    #tsGrid > :nth-child(3) img,
-    #tsGrid > :nth-child(4) img,
-
-    #entertainmentGrid > :nth-child(2) img,
-    #entertainmentGrid > :nth-child(3) img,
-    #entertainmentGrid > :nth-child(4) img,
-
-    #aptsSection .slider-track > :nth-child(2) img,
-    #aptsSection .slider-track > :nth-child(3) img,
-    #aptsSection .slider-track > :nth-child(4) img{
-
-        width:100%;
-        height:155px;
-
-        object-fit:cover;
-
-        border-radius:8px;
-    }
-
-
-    /* SMALL ARTICLE TITLES */
-
-    #sportsGrid > :nth-child(2) h3,
-    #sportsGrid > :nth-child(3) h3,
-    #sportsGrid > :nth-child(4) h3,
-
-    #cinemaGrid > :nth-child(2) h3,
-    #cinemaGrid > :nth-child(3) h3,
-    #cinemaGrid > :nth-child(4) h3,
-
-    #businessGrid > :nth-child(2) h3,
-    #businessGrid > :nth-child(3) h3,
-    #businessGrid > :nth-child(4) h3,
-
-    #apGrid > :nth-child(2) h3,
-    #apGrid > :nth-child(3) h3,
-    #apGrid > :nth-child(4) h3,
-
-    #tsGrid > :nth-child(2) h3,
-    #tsGrid > :nth-child(3) h3,
-    #tsGrid > :nth-child(4) h3,
-
-    #entertainmentGrid > :nth-child(2) h3,
-    #entertainmentGrid > :nth-child(3) h3,
-    #entertainmentGrid > :nth-child(4) h3,
-
-    #aptsSection .slider-track > :nth-child(2) h3,
-    #aptsSection .slider-track > :nth-child(3) h3,
-    #aptsSection .slider-track > :nth-child(4) h3{
-
-        margin:7px 0 0;
-
-        font-size:15px;
-        line-height:1.35;
-        font-weight:800;
-
-        color:#111827;
-
-        display:-webkit-box;
-        -webkit-line-clamp:3;
-        -webkit-box-orient:vertical;
-        overflow:hidden;
-    }
-
-
-    /* HIDE ARTICLES AFTER 4 */
-
-    #sportsGrid > :nth-child(n+5),
-    #cinemaGrid > :nth-child(n+5),
-    #businessGrid > :nth-child(n+5),
-    #apGrid > :nth-child(n+5),
-    #tsGrid > :nth-child(n+5),
-    #entertainmentGrid > :nth-child(n+5),
-    #aptsSection .slider-track > :nth-child(n+5){
-
-        display:none !important;
-    }
+.latest-news-grid{
+    display:grid;
+    grid-template-columns:repeat(7,minmax(0,1fr));
+    gap:14px;
+    width:100%;
+}
+
+.latest-news-card{
+    display:block;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    overflow:visible;
+    text-decoration:none;
+}
+
+.latest-news-card img{
+    width:100%;
+    aspect-ratio:16 / 10;
+    height:auto;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.latest-news-card h3{
+    margin:8px 0 0;
+    padding:0;
+    color:#111827 !important;
+    background:transparent;
+    font-size:16px;
+    font-weight:700;
+    line-height:1.4;
+
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.latest-news-card .read-label,
+.latest-news-card span{
+    display:none !important;
 }
 
 
 /* =========================================================
-   OLD / GENERAL CATEGORY LAYOUT
-   Used only where category-news-layout exists
+   CATEGORY
+   DESKTOP
+   BIG IMAGE + 2 x 2 SMALL
 ========================================================= */
 
 .category-news-layout{
@@ -607,6 +396,7 @@ section{
     font-size:28px;
     line-height:1.35;
     font-weight:900;
+    text-shadow:none;
 }
 
 .category-card{
@@ -737,6 +527,7 @@ section{
 
 /* =========================================================
    MOST READ
+   DESKTOP = LIST
 ========================================================= */
 
 .most-read-section{
@@ -804,6 +595,7 @@ section{
 
 /* =========================================================
    AFTER MOST READ
+   DESKTOP = 7 COLUMNS
 ========================================================= */
 
 .after-most-read{
@@ -1463,86 +1255,6 @@ body.dark-mode .theme-button{
     }
 
 
-    /* =================================================
-       IMPORTANT:
-       DESKTOP HERO LAYOUT MUST NOT AFFECT MOBILE
-    ================================================= */
-
-    #sportsGrid,
-    #cinemaGrid,
-    #businessGrid,
-    #apGrid,
-    #tsGrid,
-    #entertainmentGrid,
-    #aptsSection .slider-track{
-
-        display:grid !important;
-
-        grid-template-columns:repeat(2,minmax(0,1fr));
-
-        gap:10px;
-    }
-
-
-    /* MOBILE FIRST ARTICLE = NORMAL CARD */
-
-    #sportsGrid > :first-child,
-    #cinemaGrid > :first-child,
-    #businessGrid > :first-child,
-    #apGrid > :first-child,
-    #tsGrid > :first-child,
-    #entertainmentGrid > :first-child,
-    #aptsSection .slider-track > :first-child{
-
-        grid-column:auto;
-        grid-row:auto;
-    }
-
-
-    /* MOBILE IMAGES */
-
-    #sportsGrid img,
-    #cinemaGrid img,
-    #businessGrid img,
-    #apGrid img,
-    #tsGrid img,
-    #entertainmentGrid img,
-    #aptsSection .slider-track img{
-
-        width:100%;
-        height:auto;
-
-        aspect-ratio:16 / 10;
-
-        object-fit:cover;
-
-        border-radius:8px;
-    }
-
-
-    /* MOBILE TITLES */
-
-    #sportsGrid h3,
-    #cinemaGrid h3,
-    #businessGrid h3,
-    #apGrid h3,
-    #tsGrid h3,
-    #entertainmentGrid h3,
-    #aptsSection .slider-track h3{
-
-        margin:7px 0 0;
-
-        font-size:14px;
-        line-height:1.35;
-
-        -webkit-line-clamp:3;
-        display:-webkit-box;
-        -webkit-box-orient:vertical;
-
-        overflow:hidden;
-    }
-
-
     .footer-inner{
         grid-template-columns:1fr;
     }
@@ -1550,7 +1262,7 @@ body.dark-mode .theme-button{
 
 
 /* =========================================================
-   VERY SMALL
+   VERY SMALL - ORIGINAL
 ========================================================= */
 
 @media(max-width:420px){
@@ -1566,5 +1278,4 @@ body.dark-mode .theme-button{
     .latest-big-content h3{
         font-size:17px;
     }
-
-}
+} 
