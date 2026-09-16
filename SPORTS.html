@@ -1,2602 +1,1926 @@
 <!DOCTYPE html>
 <html lang="te">
-
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sports News | BS 360 NEWS</title>
 
-<meta
-  name="description"
-  content="BS 360 NEWS Sports - క్రికెట్, IPL, భారత జట్టు, మహిళల క్రికెట్ మరియు తాజా స్పోర్ట్స్ వార్తలు."
->
+<meta name="description"
+content="BS 360 NEWS Sports - క్రికెట్, IPL, భారత జట్టు, మహిళల క్రికెట్ మరియు తాజా స్పోర్ట్స్ వార్తలు.">
 
-<meta
-  name="robots"
-  content="index, follow"
->
+<link rel="canonical" href="https://bs360news.com/sports.html">
 
-<link
-  rel="canonical"
-  href="https://bs360news.com/sports.html"
->
+<link rel="icon" href="dp.png.png">
 
 <style>
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-  font-family:
-    Arial,
-    "Noto Sans Telugu",
-    sans-serif;
-
-  background: #f5f5f5;
-  color: #111;
+body{
+    background:#f5f5f5;
+    color:#111;
+    font-family:Arial,"Noto Sans Telugu","Segoe UI",sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
+img{
+    display:block;
+    width:100%;
+    max-width:100%;
+}
+
+button{
+    font-family:inherit;
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
-.top-header {
-  background: #111;
-  color: #fff;
-  padding: 15px 20px;
+.top-header{
+    background:#111;
+    color:#fff;
+    width:100%;
 }
 
-.header-inner {
-  width: min(1400px, 96%);
-  margin: auto;
+.header-inner{
+    max-width:1400px;
+    margin:auto;
+    min-height:70px;
+    padding:10px 20px;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.logo {
-  font-size: 30px;
-  font-weight: 900;
-  letter-spacing: 1px;
+.logo{
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:.5px;
 }
 
-.logo span {
-  color: #e50914;
+.logo span{
+    color:#e50914;
 }
 
-.home-btn {
-  background: #e50914;
-  color: #fff;
+.home-btn{
+    background:#e50914;
+    color:#fff;
 
-  padding: 10px 18px;
-  border-radius: 5px;
+    padding:9px 18px;
+    border-radius:5px;
 
-  font-weight: bold;
+    font-size:15px;
+    font-weight:700;
 }
 
-.home-btn:hover {
-  background: #c90812;
+.home-btn:hover{
+    background:#c90812;
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVIGATION
-===================================================== */
+========================================================= */
 
-.nav-bar {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
+.nav-bar{
+    background:#fff;
+    border-bottom:1px solid #ddd;
 
-  position: sticky;
-  top: 0;
-
-  z-index: 100;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.nav-inner {
-  width: min(1400px, 96%);
-  margin: auto;
+.nav-inner{
+    max-width:1400px;
+    margin:auto;
 
-  display: flex;
+    display:flex;
+    align-items:center;
 
-  overflow-x: auto;
-  white-space: nowrap;
-
-  scrollbar-width: none;
+    overflow-x:auto;
+    scrollbar-width:none;
 }
 
-.nav-inner::-webkit-scrollbar {
-  display: none;
+.nav-inner::-webkit-scrollbar{
+    display:none;
 }
 
-.nav-inner a {
-  padding: 14px 20px;
+.nav-inner a{
+    white-space:nowrap;
 
-  font-weight: 700;
-  font-size: 15px;
+    padding:12px 17px;
 
-  transition: 0.2s ease;
+    font-size:14px;
+    font-weight:700;
+
+    border-bottom:3px solid transparent;
 }
 
-.nav-inner a:hover,
-.nav-inner a.active {
-  background: #e50914;
-  color: #fff;
+.nav-inner a:hover{
+    color:#e50914;
+}
+
+.nav-inner a.active{
+    color:#e50914;
+    border-bottom-color:#e50914;
 }
 
 
-/* =====================================================
+/* =========================================================
    BREAKING NEWS
-===================================================== */
+========================================================= */
 
-.breaking {
-  width: min(1400px, 96%);
+.breaking{
+    max-width:1400px;
+    margin:12px auto 0;
 
-  margin: 15px auto 0;
+    background:#fff;
 
-  background: #fff;
+    display:flex;
+    align-items:center;
 
-  border: 1px solid #ddd;
-
-  display: flex;
-  align-items: center;
-
-  overflow: hidden;
+    border:1px solid #ddd;
+    overflow:hidden;
 }
 
-.breaking-title {
-  background: #e50914;
-  color: #fff;
+.breaking-title{
+    background:#e50914;
+    color:#fff;
 
-  padding: 11px 16px;
+    padding:10px 16px;
 
-  font-weight: bold;
+    font-size:14px;
+    font-weight:900;
 
-  white-space: nowrap;
+    white-space:nowrap;
 }
 
-.breaking-text {
-  padding: 10px 15px;
+.breaking-text{
+    padding:9px 15px;
 
-  white-space: nowrap;
+    font-size:14px;
+    font-weight:600;
 
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  font-size: 15px;
-}
-
-
-/* =====================================================
-   PAGE
-===================================================== */
-
-.page {
-  width: min(1400px, 96%);
-
-  margin: 20px auto 50px;
-}
-
-.page-title {
-  background: #fff;
-
-  border-left: 6px solid #e50914;
-
-  padding: 15px 18px;
-
-  margin-bottom: 18px;
-
-  font-size: 28px;
-  font-weight: 900;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 
-/* =====================================================
-   MAIN GRID
-===================================================== */
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
 
-.main-grid {
-  display: grid;
+.page{
+    width:96%;
+    max-width:1400px;
 
-  grid-template-columns: 1fr;
-
-  gap: 18px;
-}
-
-.column {
-  background: #fff;
-
-  border: 1px solid #ddd;
-
-  overflow: hidden;
-}
-
-.column-title {
-  background: #111;
-
-  color: #fff;
-
-  padding: 12px 15px;
-
-  font-size: 17px;
-
-  font-weight: 900;
-
-  border-left: 5px solid #e50914;
+    margin:18px auto 40px;
 }
 
 
-/* =====================================================
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin:28px 0 14px;
+
+    border-bottom:2px solid #e50914;
+    padding-bottom:7px;
+}
+
+.section-head h2{
+    font-size:23px;
+    line-height:1.2;
+    font-weight:900;
+    color:#e50914;
+}
+
+.section-head a{
+    color:#e50914;
+    font-size:13px;
+    font-weight:700;
+}
+
+
+/* =========================================================
+   MAIN SPORTS
+========================================================= */
+
+.main-sports{
+    display:grid;
+    grid-template-columns:65% 35%;
+
+    gap:15px;
+}
+
+
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
-.hero {
-  position: relative;
+.hero-story{
+    position:relative;
+    height:500px;
 
-  height: 620px;
+    overflow:hidden;
+    border-radius:8px;
 
-  background: #000;
-
-  overflow: hidden;
+    background:#111;
 }
 
-.hero-slide {
-  position: absolute;
+.hero-story img{
+    width:100%;
+    height:100%;
 
-  inset: 0;
+    object-fit:cover;
 
-  opacity: 0;
-
-  visibility: hidden;
-
-  transition: opacity 0.7s ease;
-
-  pointer-events: none;
+    transition:transform .4s ease;
 }
 
-.hero-slide.active {
-  opacity: 1;
-
-  visibility: visible;
-
-  pointer-events: auto;
+.hero-story:hover img{
+    transform:scale(1.03);
 }
 
-.hero-slide > a {
-  display: block;
+.hero-overlay{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
 
-  width: 100%;
-  height: 100%;
-}
+    padding:35px 25px 24px;
 
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  padding:
-    120px
-    25px
-    25px;
-
-  background:
+    background:
     linear-gradient(
-      transparent,
-      rgba(0,0,0,0.95)
+        to top,
+        rgba(0,0,0,.92),
+        rgba(0,0,0,.55),
+        transparent
     );
-
-  color: #fff;
 }
 
-.hero-category {
-  display: inline-block;
+.hero-title{
+    color:#fff;
 
-  background: #e50914;
+    font-size:30px;
+    line-height:1.3;
 
-  padding: 5px 10px;
-
-  font-size: 13px;
-
-  font-weight: bold;
-
-  margin-bottom: 10px;
-}
-
-.hero-title {
-  font-size: 28px;
-
-  line-height: 1.35;
-
-  font-weight: 900;
+    font-weight:900;
 }
 
 
-/* =====================================================
-   HERO DOTS
-===================================================== */
+/* =========================================================
+   SIDE STORIES
+========================================================= */
 
-.hero-dots {
-  position: absolute;
-
-  bottom: 15px;
-  right: 20px;
-
-  display: flex;
-
-  gap: 6px;
-
-  z-index: 5;
+.side-stories{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 }
 
-.hero-dot {
-  width: 9px;
-  height: 9px;
+.side-story{
+    flex:1;
 
-  background: #fff;
+    display:grid;
+    grid-template-columns:43% 57%;
 
-  border-radius: 50%;
+    gap:12px;
 
-  opacity: 0.5;
+    background:#fff;
 
-  cursor: pointer;
+    overflow:hidden;
+    border-radius:7px;
 }
 
-.hero-dot.active {
-  opacity: 1;
+.side-story img{
+    height:100%;
+    min-height:150px;
 
-  background: #e50914;
+    object-fit:cover;
 }
 
+.side-story-content{
+    padding:9px 10px 9px 0;
 
-/* =====================================================
-   LATEST SPORTS
-===================================================== */
-
-.latest-section {
-  margin-top: 20px;
-
-  background: #fff;
-
-  border: 1px solid #ddd;
-
-  overflow: hidden;
+    display:flex;
+    align-items:center;
 }
 
-.latest-title {
-  background: #111;
-
-  color: #fff;
-
-  padding: 13px 16px;
-
-  font-size: 19px;
-
-  font-weight: 900;
-
-  border-left: 5px solid #e50914;
-}
-
-.latest-wrapper {
-  overflow: hidden;
-
-  padding: 15px;
-}
-
-.latest-track {
-  display: flex;
-
-  gap: 15px;
-
-  width: max-content;
-
-  animation:
-    latestMove
-    55s
-    linear
-    infinite;
-}
-
-.latest-wrapper:hover .latest-track {
-  animation-play-state: paused;
-}
-
-.latest-card {
-  width: 280px;
-
-  background: #fff;
-
-  border: 1px solid #ddd;
-
-  flex-shrink: 0;
-
-  overflow: hidden;
-
-  transition:
-    transform
-    0.2s
-    ease;
-}
-
-.latest-card:hover {
-  transform: translateY(-3px);
-}
-
-.latest-card img {
-  height: 170px;
-
-  object-fit: cover;
-}
-
-.latest-content {
-  padding: 12px;
-}
-
-.latest-content h3 {
-  font-size: 16px;
-
-  line-height: 1.45;
-
-  font-weight: 800;
-}
-
-.latest-card:hover h3 {
-  color: #e50914;
-}
-
-@keyframes latestMove {
-
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-
+.side-story h3{
+    font-size:17px;
+    line-height:1.35;
+    font-weight:800;
 }
 
 
-/* =====================================================
-   SPORTS ALL SECTION
-===================================================== */
+/* =========================================================
+   HORIZONTAL SECTIONS
+========================================================= */
 
-.sports-section {
-  width: 100%;
+.horizontal-track{
+    display:grid;
 
-  margin-top: 20px;
+    grid-auto-flow:column;
 
-  background: #fff;
+    /*
+       DESKTOP
+       7 cards visible
+    */
+    grid-auto-columns:
+        calc((100% - 72px) / 7);
 
-  border: 1px solid #ddd;
+    gap:12px;
 
-  border-radius: 8px;
+    overflow-x:auto;
+    overflow-y:hidden;
 
-  padding: 15px;
+    scroll-behavior:smooth;
+
+    padding:2px 2px 10px;
+
+    scrollbar-width:none;
+
+    overscroll-behavior-inline:contain;
 }
 
-.section-title-row {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 10px;
-
-  margin-bottom: 15px;
-}
-
-.section-title-row h2 {
-  font-size: 24px;
-
-  font-weight: 900;
-}
-
-.view-all {
-  color: #e50914;
-
-  font-size: 14px;
-
-  font-weight: 800;
-
-  white-space: nowrap;
+.horizontal-track::-webkit-scrollbar{
+    display:none;
 }
 
 
-/* =====================================================
-   SPORTS GRID
-===================================================== */
+/* =========================================================
+   NORMAL SPORTS CARD
+========================================================= */
 
-.horizontal-carousel {
-  width: 100%;
+.sports-card{
+    min-width:0;
+}
 
-  display: grid;
+.sports-card img{
+    width:100%;
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    aspect-ratio:16 / 10;
 
-  gap: 15px;
+    object-fit:cover;
+
+    border-radius:7px;
+
+    background:#ddd;
+
+    transition:transform .3s ease;
+}
+
+.sports-card:hover img{
+    transform:scale(1.025);
+}
+
+.sports-card h3{
+    margin-top:7px;
+
+    font-size:15px;
+    line-height:1.35;
+
+    font-weight:800;
+
+    color:#111;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
 }
 
 
-/* =====================================================
-   SPORTS CARD
-   IMAGE TOP + TEXT BELOW
-===================================================== */
+/* =========================================================
+   CATEGORY LABEL
+========================================================= */
 
-.sports-card {
-  position: relative;
+.category-tag{
+    display:inline-block;
 
-  width: 100%;
+    margin-top:7px;
 
-  background: #fff;
+    color:#e50914;
 
-  border: 1px solid #ddd;
+    font-size:11px;
+    font-weight:800;
 
-  border-radius: 8px;
-
-  overflow: hidden;
-
-  display: block;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.sports-card:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 5px 15px rgba(0,0,0,0.12);
+    text-transform:uppercase;
 }
 
 
-/* =====================================================
-   SPORTS IMAGE
-===================================================== */
+/* =========================================================
+   VIDEO SECTION
+========================================================= */
 
-.sports-card img {
-  width: 100%;
-
-  height: 220px;
-
-  object-fit: cover;
-
-  display: block;
-
-  transition:
-    transform 0.4s ease;
+.video-card{
+    position:relative;
 }
 
-.sports-card:hover img {
-  transform: scale(1.03);
+.video-card img{
+    aspect-ratio:16 / 10;
+    object-fit:cover;
+    border-radius:7px;
+}
+
+.video-play{
+    position:absolute;
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    width:44px;
+    height:44px;
+
+    border-radius:50%;
+
+    background:rgba(229,9,20,.95);
+
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:20px;
+
+    padding-left:3px;
+}
+
+.video-card h3{
+    margin-top:7px;
+
+    font-size:15px;
+    line-height:1.35;
+
+    font-weight:800;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
 }
 
 
-/* =====================================================
-   SPORTS TEXT BELOW IMAGE
-===================================================== */
+/* =========================================================
+   SPORTS CATEGORY BLOCK
+========================================================= */
 
-.sports-overlay {
-  position: static;
-
-  padding: 12px;
-
-  background: #fff;
-
-  color: #111;
-}
-
-.sports-overlay h3 {
-  color: #111;
-
-  font-size: 17px;
-
-  line-height: 1.45;
-
-  font-weight: 800;
-
-  margin: 0;
-}
-
-.sports-card:hover .sports-overlay h3 {
-  color: #e50914;
+.category-section{
+    margin-top:28px;
 }
 
 
-/* =====================================================
+/* =========================================================
+   AD SPACE
+========================================================= */
+
+.ad-space{
+    width:100%;
+    min-height:90px;
+
+    margin:20px 0;
+
+    background:#eee;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#999;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
-.site-footer {
-  background: #111;
+.site-footer{
+    background:#111;
+    color:#fff;
 
-  color: #fff;
+    margin-top:45px;
 
-  margin-top: 30px;
-
-  padding: 30px 15px;
+    padding:35px 20px 18px;
 }
 
-.footer-inner {
-  width: min(1200px, 96%);
+.footer-inner{
+    max-width:1400px;
+    margin:auto;
 
-  margin: auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr;
-
-  gap: 40px;
-
-  margin-bottom: 25px;
+    gap:40px;
 }
 
 .footer-column h3,
-.footer-contact h3 {
-  margin-bottom: 15px;
+.footer-contact h3{
+    color:#fff;
 
-  font-size: 18px;
+    font-size:18px;
+
+    margin-bottom:15px;
 }
 
-.footer-links {
-  display: flex;
+.footer-links{
+    display:flex;
+    flex-wrap:wrap;
 
-  flex-wrap: wrap;
-
-  gap: 10px 20px;
+    gap:8px 18px;
 }
 
-.footer-links a {
-  color: #ddd;
+.footer-links a{
+    color:#ddd;
 
-  font-size: 14px;
+    font-size:14px;
 }
 
-.footer-links a:hover {
-  color: #e50914;
+.footer-links a:hover{
+    color:#e50914;
 }
 
-.footer-contact p {
-  color: #ddd;
-
-  margin-bottom: 8px;
-
-  font-size: 14px;
+.footer-contact p{
+    color:#ccc;
+    font-size:14px;
+    margin-bottom:7px;
 }
 
-.site-footer > p {
-  text-align: center;
+.site-footer > p{
+    max-width:1400px;
+    margin:30px auto 0;
 
-  border-top: 1px solid #333;
+    padding-top:15px;
 
-  padding-top: 20px;
+    border-top:1px solid #333;
 
-  color: #aaa;
+    text-align:center;
 
-  font-size: 13px;
+    color:#aaa;
+
+    font-size:13px;
 }
 
 
-/* =====================================================
+/* =========================================================
    TABLET
-===================================================== */
+========================================================= */
 
-@media (max-width: 1100px) {
+@media(max-width:1000px){
 
-  .hero {
-    height: 560px;
-  }
+    .main-sports{
+        grid-template-columns:60% 40%;
+    }
 
-  .horizontal-carousel {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
+    .hero-story{
+        height:440px;
+    }
 
-  .sports-card img {
-    height: 200px;
-  }
+    .hero-title{
+        font-size:25px;
+    }
+
+    .side-story{
+        grid-template-columns:42% 58%;
+    }
+
+    .side-story h3{
+        font-size:15px;
+    }
+
+    .horizontal-track{
+        grid-auto-columns:
+            calc((100% - 48px) / 5);
+    }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
-@media (max-width: 768px) {
+@media(max-width:768px){
 
-  .top-header {
-    padding:
-      12px
-      15px;
-  }
+    body{
+        background:#fff;
+    }
 
-  .logo {
-    font-size: 23px;
-  }
+    .header-inner{
+        min-height:58px;
+        padding:8px 12px;
+    }
 
-  .home-btn {
-    padding:
-      8px
-      12px;
+    .logo{
+        font-size:22px;
+    }
 
-    font-size: 13px;
-  }
+    .home-btn{
+        padding:7px 12px;
+        font-size:13px;
+    }
 
+    .nav-bar{
+        position:relative;
+    }
 
-  .nav-inner a {
-    padding:
-      12px
-      14px;
+    .nav-inner a{
+        padding:10px 13px;
 
-    font-size: 13px;
-  }
+        font-size:12px;
+    }
 
+    .breaking{
+        width:100%;
+        margin:0;
 
-  .breaking {
-    width: 100%;
+        border-left:0;
+        border-right:0;
 
-    margin-top: 10px;
-  }
+        border-radius:0;
+    }
 
-  .breaking-title {
-    padding:
-      9px
-      10px;
+    .breaking-title{
+        padding:9px 11px;
+        font-size:11px;
+    }
 
-    font-size: 12px;
-  }
+    .breaking-text{
+        padding:8px 10px;
+        font-size:12px;
+    }
 
-  .breaking-text {
-    font-size: 13px;
-  }
-
-
-  .page {
-    width: 100%;
-
-    margin-top: 12px;
-
-    padding:
-      0
-      10px;
-  }
-
-  .page-title {
-    font-size: 22px;
-
-    padding: 12px;
-
-    margin-bottom: 12px;
-  }
+    .page{
+        width:100%;
+        margin:0 auto 30px;
+    }
 
 
-  /* HERO */
+    /* -----------------------------------------
+       MAIN SPORTS
+    ----------------------------------------- */
 
-  .main-grid {
-    display: flex;
+    .section-head{
+        margin:20px 10px 12px;
+        padding-bottom:6px;
+    }
 
-    flex-direction: column;
+    .section-head h2{
+        font-size:19px;
+    }
 
-    gap: 12px;
-  }
+    .section-head a{
+        font-size:11px;
+    }
 
-  .hero {
-    height: 430px;
-  }
-
-  .hero-overlay {
-    padding:
-      100px
-      15px
-      20px;
-  }
-
-  .hero-title {
-    font-size: 21px;
-  }
-
-  .hero-category {
-    font-size: 11px;
-  }
+    .main-sports{
+        display:block;
+    }
 
 
-  /* LATEST */
+    /* -----------------------------------------
+       MOBILE HERO
+    ----------------------------------------- */
 
-  .latest-wrapper {
-    padding: 10px;
-  }
+    .hero-story{
+        width:100%;
 
-  .latest-card {
-    width: 245px;
-  }
+        height:auto;
 
-  .latest-card img {
-    height: 150px;
-  }
+        aspect-ratio:16 / 9;
 
-  .latest-content h3 {
-    font-size: 14px;
-  }
+        border-radius:0;
+    }
 
+    .hero-overlay{
+        padding:30px 13px 13px;
+    }
 
-  /* SPORTS */
-
-  .sports-section {
-    padding:
-      12px
-      10px;
-  }
-
-  .section-title-row h2 {
-    font-size: 20px;
-  }
-
-  .view-all {
-    font-size: 12px;
-  }
-
-  .horizontal-carousel {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
-    gap: 9px;
-  }
-
-  .sports-card {
-    height: auto;
-  }
-
-  .sports-card img {
-    height: 180px;
-  }
-
-  .sports-overlay {
-    padding:
-      9px;
-  }
-
-  .sports-overlay h3 {
-    font-size: 13px;
-
-    line-height: 1.4;
-  }
+    .hero-title{
+        font-size:20px;
+        line-height:1.3;
+    }
 
 
-  /* FOOTER */
+    /* -----------------------------------------
+       SIDE STORIES MOBILE
+    ----------------------------------------- */
 
-  .footer-inner {
-    grid-template-columns: 1fr;
+    .side-stories{
+        margin-top:12px;
 
-    gap: 25px;
-  }
+        padding:0 10px;
+
+        gap:10px;
+    }
+
+    .side-story{
+        display:grid;
+
+        grid-template-columns:34% 66%;
+
+        min-height:92px;
+
+        border-radius:6px;
+
+        background:#fff;
+    }
+
+    .side-story img{
+        width:100%;
+        height:92px;
+
+        min-height:0;
+
+        object-fit:cover;
+
+        border-radius:6px;
+    }
+
+    .side-story-content{
+        padding:5px 7px;
+    }
+
+    .side-story h3{
+        font-size:14px;
+        line-height:1.3;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE HORIZONTAL
+       3 CARDS VISIBLE
+    ----------------------------------------- */
+
+    .horizontal-track{
+
+        grid-auto-columns:
+            calc((100% - 24px) / 3);
+
+        gap:12px;
+
+        padding:
+
+            2px 10px 12px;
+    }
+
+    .sports-card h3{
+        font-size:12.5px;
+        line-height:1.3;
+
+        margin-top:6px;
+    }
+
+    .category-tag{
+        font-size:9px;
+        margin-top:5px;
+    }
+
+
+    /* -----------------------------------------
+       VIDEO
+    ----------------------------------------- */
+
+    .video-play{
+        width:35px;
+        height:35px;
+
+        font-size:16px;
+    }
+
+
+    /* -----------------------------------------
+       AD
+    ----------------------------------------- */
+
+    .ad-space{
+        min-height:70px;
+        margin:18px 0;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+    ----------------------------------------- */
+
+    .footer-inner{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .site-footer{
+        padding:28px 15px 15px;
+    }
+
+    .footer-links{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:9px;
+    }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SMALL MOBILE
-===================================================== */
+========================================================= */
 
-@media (max-width: 480px) {
+@media(max-width:480px){
 
-  .header-inner {
-    gap: 10px;
-  }
+    .logo{
+        font-size:20px;
+    }
 
-  .logo {
-    font-size: 20px;
-  }
+    .home-btn{
+        font-size:12px;
+        padding:6px 10px;
+    }
 
-  .hero {
-    height: 380px;
-  }
+    .hero-title{
+        font-size:18px;
+    }
 
-  .hero-title {
-    font-size: 19px;
-  }
+    .side-story h3{
+        font-size:13px;
+    }
 
-  .sports-card img {
-    height: 150px;
-  }
+    .horizontal-track{
+        grid-auto-columns:
+            calc((100% - 24px) / 3);
+    }
 
-  .sports-overlay h3 {
-    font-size: 12px;
+    .sports-card h3{
+        font-size:12px;
+    }
 
-    line-height: 1.35;
-  }
+}
 
+
+/* =========================================================
+   DESKTOP LARGE
+========================================================= */
+
+@media(min-width:1200px){
+
+    .hero-story{
+        height:500px;
+    }
+
+    .hero-title{
+        font-size:31px;
+    }
+
+}
+
+
+/* =========================================================
+   REMOVE IMAGE DRAG
+========================================================= */
+
+img{
+    user-select:none;
+    -webkit-user-drag:none;
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- ======================================================
      HEADER
-===================================================== -->
+====================================================== -->
 
 <header class="top-header">
 
-  <div class="header-inner">
+    <div class="header-inner">
 
-    <div class="logo">
+        <div class="logo">
+            BS <span>360</span> NEWS
+        </div>
 
-      BS <span>360</span> NEWS
+        <a href="index.html" class="home-btn">
+            🏠 Home
+        </a>
 
     </div>
-
-    <a
-      href="index.html"
-      class="home-btn"
-    >
-      🏠 Home
-    </a>
-
-  </div>
 
 </header>
 
 
-<!-- =====================================================
+<!-- ======================================================
      NAVIGATION
-===================================================== -->
+====================================================== -->
 
 <nav class="nav-bar">
 
-  <div class="nav-inner">
+    <div class="nav-inner">
 
-    <a href="index.html">
-      Home
-    </a>
+        <a href="index.html">
+            Home
+        </a>
 
-    <a href="index.html#latestSection">
-      Latest News
-    </a>
+        <a href="index.html#latestSection">
+            Latest News
+        </a>
 
-    <a href="movies.html">
-      🎬 Cinema
-    </a>
+        <a href="movies.html">
+            🎬 Cinema
+        </a>
 
-    <a
-      href="sports.html"
-      class="active"
-    >
-      🏏 Sports
-    </a>
+        <a href="sports.html" class="active">
+            🏏 Sports
+        </a>
 
-    <a href="index.html#goldSection">
-      💰 Gold Rate
-    </a>
+        <a href="index.html#goldSection">
+            💰 Gold Rate
+        </a>
 
-    <a href="index.html#apSection">
-      Andhra Pradesh
-    </a>
+        <a href="index.html#apSection">
+            Andhra Pradesh
+        </a>
 
-    <a href="index.html#tsSection">
-      Telangana
-    </a>
+        <a href="index.html#tsSection">
+            Telangana
+        </a>
 
-  </div>
+    </div>
 
 </nav>
 
 
-<!-- =====================================================
+<!-- ======================================================
      BREAKING NEWS
-===================================================== -->
+====================================================== -->
 
 <div class="breaking">
 
-  <div class="breaking-title">
-    BREAKING NEWS
-  </div>
+    <div class="breaking-title">
+        BREAKING NEWS
+    </div>
 
-  <div class="breaking-text">
-
-    🏏 క్రీడా ప్రపంచంలోని తాజా వార్తలు.. క్రికెట్, IPL, భారత జట్టు, మహిళల క్రికెట్ మరియు ఇతర స్పోర్ట్స్ అప్‌డేట్స్
-
-  </div>
+    <div class="breaking-text">
+        🏏 క్రీడా ప్రపంచంలోని తాజా వార్తలు.. క్రికెట్, IPL, భారత జట్టు, మహిళల క్రికెట్ మరియు ఇతర స్పోర్ట్స్ అప్‌డేట్స్
+    </div>
 
 </div>
 
-
-<!-- =====================================================
-     PAGE
-===================================================== -->
 
 <main class="page">
 
 
-  <div class="page-title">
+<!-- ======================================================
+     MAIN SPORTS
+====================================================== -->
 
-    🏏 Sports News
+<div class="section-head">
 
-  </div>
+    <h2>
+        🏏 Sports News
+    </h2>
+
+</div>
 
 
-  <!-- ===================================================
-       TOP SPORTS NEWS
-  =================================================== -->
+<div class="main-sports">
 
-  <div class="main-grid">
 
-    <section class="column center-column">
+    <!-- HERO -->
 
-      <div class="column-title">
-
-        TOP SPORTS NEWS
-
-      </div>
-            
-      <!-- HERO -->
-
-      <div class="hero">
-        
-
-<div class="hero-slide active">
-
-    <a href="bhumrha.html">
+    <a href="bhumrha.html" class="hero-story">
 
         <img
             src="bhumrha.jpg"
-            alt="బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు"
+            alt="బుమ్రా ఎంపిక"
         >
 
         <div class="hero-overlay">
 
-            <span class="hero-category">
-                SPORTS
-            </span>
-
-            <div class="hero-title">
-
+            <h1 class="hero-title">
                 🏏 బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
-
-            </div>
+            </h1>
 
         </div>
 
     </a>
 
+
+    <!-- THREE SIDE STORIES -->
+
+    <div class="side-stories">
+
+
+        <a href="hardik97.html" class="side-story">
+
+            <img
+                src="hardik.jpg"
+                alt="హార్దిక్ పాండ్యా"
+            >
+
+            <div class="side-story-content">
+
+                <h3>
+                    🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
+                </h3>
+
+            </div>
+
+        </a>
+
+
+        <a href="bcci.html" class="side-story">
+
+            <img
+                src="bcci.webp"
+                alt="భారత్ అఫ్గానిస్థాన్"
+            >
+
+            <div class="side-story-content">
+
+                <h3>
+                    🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
+                </h3>
+
+            </div>
+
+        </a>
+
+
+        <a href="rohithtv.html" class="side-story">
+
+            <img
+                src="rohithtv.jpg"
+                alt="రోహిత్ శర్మ"
+            >
+
+            <div class="side-story-content">
+
+                <h3>
+                    📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ
+                </h3>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
 </div>
 
 
-        
-<div class="hero-slide">
+<!-- ======================================================
+     AD
+====================================================== -->
 
-    <a href="hardik97.html">
+<div class="ad-space">
+    Advertisement
+</div>
 
-        <img
-            src="hardik.jpg"
-            alt="హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక"
-        >
 
-        <div class="hero-overlay">
+<!-- ======================================================
+     LATEST SPORTS
+====================================================== -->
 
-            <span class="hero-category">
-                SPORTS
+<section>
+
+    <div class="section-head">
+
+        <h2>
+            🔥 Latest Sports
+        </h2>
+
+    </div>
+
+
+    <div class="horizontal-track">
+
+
+        <a href="hardik97.html" class="sports-card">
+
+            <img src="hardik.jpg" alt="హార్దిక్ పాండ్యా">
+
+            <h3>
+                🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
+            </h3>
+
+        </a>
+
+
+        <a href="bcci.html" class="sports-card">
+
+            <img src="bcci.webp" alt="భారత్ అఫ్గానిస్థాన్">
+
+            <h3>
+                🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
+            </h3>
+
+        </a>
+
+
+        <a href="indiagirls.html" class="sports-card">
+
+            <img src="indiagirls.jpg" alt="భారత్ మహిళల జట్టు">
+
+            <h3>
+                🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
+            </h3>
+
+        </a>
+
+
+        <a href="indg99.html" class="sports-card">
+
+            <img src="indg99.webp" alt="మహిళల ఆసియా కప్">
+
+            <h3>
+                🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం
+            </h3>
+
+        </a>
+
+
+        <a href="dhoni7.html" class="sports-card">
+
+            <img src="dhoni7.jpg" alt="ధోనీ">
+
+            <h3>
+                🏏 ధోనీ IPL 2027 ఆడతాడా? మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
+            </h3>
+
+        </a>
+
+
+        <a href="rohith45.html" class="sports-card">
+
+            <img src="rohith.png" alt="రోహిత్ శర్మ">
+
+            <h3>
+                🏏 రోహిత్ శర్మపై కీలక అప్‌డేట్
+            </h3>
+
+        </a>
+
+
+        <a href="tilak.html" class="sports-card">
+
+            <img src="tilak.webp" alt="తిలక్ వర్మ">
+
+            <h3>
+                🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
+            </h3>
+
+        </a>
+
+
+        <a href="vaibhav.html" class="sports-card">
+
+            <img src="vaibhav.webp" alt="వైభవ్ సూర్యవంశీ">
+
+            <h3>
+                🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం
+            </h3>
+
+        </a>
+
+
+        <a href="ipl.html" class="sports-card">
+
+            <img src="ipl.png" alt="IPL">
+
+            <h3>
+                🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం
+            </h3>
+
+        </a>
+
+
+        <a href="lanka.html" class="sports-card">
+
+            <img src="lanka.webp" alt="శ్రీలంక">
+
+            <h3>
+                🏏 IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు
+            </h3>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     CRICKET
+====================================================== -->
+
+<section class="category-section">
+
+    <div class="section-head">
+
+        <h2>
+            🏏 Cricket
+        </h2>
+
+        <a href="#">
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="horizontal-track">
+
+
+        <a href="bhumrha.html" class="sports-card">
+            <img src="bhumrha.jpg" alt="బుమ్రా">
+            <h3>బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు</h3>
+        </a>
+
+
+        <a href="hardik97.html" class="sports-card">
+            <img src="hardik.jpg" alt="హార్దిక్">
+            <h3>హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం</h3>
+        </a>
+
+
+        <a href="bcci.html" class="sports-card">
+            <img src="bcci.webp" alt="BCCI">
+            <h3>భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం</h3>
+        </a>
+
+
+        <a href="tilak.html" class="sports-card">
+            <img src="tilak.webp" alt="తిలక్">
+            <h3>తిలక్ వర్మ అద్భుత సెంచరీ</h3>
+        </a>
+
+
+        <a href="dhoni7.html" class="sports-card">
+            <img src="dhoni7.jpg" alt="ధోనీ">
+            <h3>ధోనీ IPL 2027 ఆడతాడా?</h3>
+        </a>
+
+
+        <a href="rishab.html" class="sports-card">
+            <img src="rishab.jpg" alt="రిషభ్ పంత్">
+            <h3>టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్</h3>
+        </a>
+
+
+        <a href="vaibhav.html" class="sports-card">
+            <img src="vaibhav.webp" alt="వైభవ్">
+            <h3>దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం</h3>
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     IPL
+====================================================== -->
+
+<section class="category-section">
+
+    <div class="section-head">
+
+        <h2>
+            🏆 IPL
+        </h2>
+
+        <a href="#">
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="horizontal-track">
+
+
+        <a href="ipl.html" class="sports-card">
+
+            <img src="ipl.png" alt="IPL">
+
+            <h3>
+                IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం
+            </h3>
+
+        </a>
+
+
+        <a href="dhoni7.html" class="sports-card">
+
+            <img src="dhoni7.jpg" alt="ధోనీ">
+
+            <h3>
+                ధోనీ IPL 2027 ఆడతాడా? కీలక వ్యాఖ్యలు
+            </h3>
+
+        </a>
+
+
+        <a href="hardik97.html" class="sports-card">
+
+            <img src="hardik.jpg" alt="హార్దిక్">
+
+            <h3>
+                హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం
+            </h3>
+
+        </a>
+
+
+        <a href="hardik.html" class="sports-card">
+
+            <img src="hardik.jpg" alt="హార్దిక్">
+
+            <h3>
+                హార్దిక్ పాండ్యాపై కీలక అప్‌డేట్
+            </h3>
+
+        </a>
+
+
+        <a href="rohith45.html" class="sports-card">
+
+            <img src="rohith.png" alt="రోహిత్">
+
+            <h3>
+                రోహిత్ శర్మపై కీలక చర్చ
+            </h3>
+
+        </a>
+
+
+        <a href="tilak.html" class="sports-card">
+
+            <img src="tilak.webp" alt="తిలక్">
+
+            <h3>
+                తిలక్ వర్మ అద్భుత ప్రదర్శన
+            </h3>
+
+        </a>
+
+
+        <a href="bcci.html" class="sports-card">
+
+            <img src="bcci.webp" alt="BCCI">
+
+            <h3>
+                BCCI నుంచి కీలక నిర్ణయం
+            </h3>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     WOMEN'S CRICKET
+====================================================== -->
+
+<section class="category-section">
+
+    <div class="section-head">
+
+        <h2>
+            👩 Women’s Cricket
+        </h2>
+
+        <a href="#">
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="horizontal-track">
+
+
+        <a href="indiagirls.html" class="sports-card">
+
+            <img src="indiagirls.jpg" alt="భారత్ మహిళల జట్టు">
+
+            <h3>
+                భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
+            </h3>
+
+        </a>
+
+
+        <a href="indg99.html" class="sports-card">
+
+            <img src="indg99.webp" alt="మహిళల ఆసియా కప్">
+
+            <h3>
+                మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం
+            </h3>
+
+        </a>
+
+
+        <a href="indiag.html" class="sports-card">
+
+            <img src="indiag.jpg" alt="భారత్ మహిళల క్రికెట్">
+
+            <h3>
+                భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో ఘన విజయం
+            </h3>
+
+        </a>
+
+
+        <a href="indiagirls.html" class="sports-card">
+
+            <img src="indiagirls.jpg" alt="మహిళల క్రికెట్">
+
+            <h3>
+                భారత మహిళల జట్టుకు అద్భుత విజయం
+            </h3>
+
+        </a>
+
+
+        <a href="indg99.html" class="sports-card">
+
+            <img src="indg99.webp" alt="ఆసియా కప్">
+
+            <h3>
+                ఆసియా కప్‌లో భారత జట్టు జోరు
+            </h3>
+
+        </a>
+
+
+        <a href="indiag.html" class="sports-card">
+
+            <img src="indiag.jpg" alt="మహిళల జట్టు">
+
+            <h3>
+                మహిళల క్రికెట్‌లో భారత్ మరో విజయం
+            </h3>
+
+        </a>
+
+
+        <a href="indg99.html" class="sports-card">
+
+            <img src="indg99.webp" alt="భారత్">
+
+            <h3>
+                భారత మహిళల జట్టు నుంచి అదరగొట్టే ప్రదర్శన
+            </h3>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     INTERNATIONAL CRICKET
+====================================================== -->
+
+<section class="category-section">
+
+    <div class="section-head">
+
+        <h2>
+            🌍 International Cricket
+        </h2>
+
+        <a href="#">
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="horizontal-track">
+
+
+        <a href="bcci.html" class="sports-card">
+
+            <img src="bcci.webp" alt="India Afghanistan">
+
+            <h3>
+                భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
+            </h3>
+
+        </a>
+
+
+        <a href="lanka.html" class="sports-card">
+
+            <img src="lanka.webp" alt="శ్రీలంక">
+
+            <h3>
+                IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు
+            </h3>
+
+        </a>
+
+
+        <a href="rishab.html" class="sports-card">
+
+            <img src="rishab.jpg" alt="రిషభ్ పంత్">
+
+            <h3>
+                టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్
+            </h3>
+
+        </a>
+
+
+        <a href="indiagirls.html" class="sports-card">
+
+            <img src="indiagirls.jpg" alt="భారత్">
+
+            <h3>
+                భారత్ మహిళల జట్టు అద్భుత బౌలింగ్
+            </h3>
+
+        </a>
+
+
+        <a href="indg99.html" class="sports-card">
+
+            <img src="indg99.webp" alt="Asia Cup">
+
+            <h3>
+                మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం
+            </h3>
+
+        </a>
+
+
+        <a href="bcci.html" class="sports-card">
+
+            <img src="bcci.webp" alt="India">
+
+            <h3>
+                భారత జట్టుకు కీలక సిరీస్
+            </h3>
+
+        </a>
+
+
+        <a href="lanka.html" class="sports-card">
+
+            <img src="lanka.webp" alt="Sri Lanka">
+
+            <h3>
+                శ్రీలంక యువ బ్యాటర్ రికార్డు
+            </h3>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SPORTS VIDEOS
+====================================================== -->
+
+<section class="category-section">
+
+    <div class="section-head">
+
+        <h2>
+            🎥 Sports Videos
+        </h2>
+
+    </div>
+
+
+    <div class="horizontal-track">
+
+
+        <a href="bhumrha.html" class="sports-card video-card">
+
+            <img src="bhumrha.jpg" alt="బుమ్రా వీడియో">
+
+            <span class="video-play">
+                ▶
             </span>
 
-            <div class="hero-title">
-
-                🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
-
-            </div>
-
-        </div>
-
-    </a>
-
-</div>
-        
-
-        <!-- HERO 1 -->
-
-        <div class="hero-slide">
-
-          <a href="bcci.html">
-
-            <img
-              src="bcci.webp"
-              alt="భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం"
-            >
-
-            <div class="hero-overlay">
-
-              <span class="hero-category">
-                SPORTS
-              </span>
-
-              <div class="hero-title">
-
-                🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-
-              </div>
-
-            </div>
-
-          </a>
-
-        </div>
-
-
-        <!-- HERO 2 -->
-
-        <div class="hero-slide">
-
-          <a href="rohithtv.html">
-
-            <img
-              src="rohithtv.jpg"
-              alt="రోహిత్ శర్మ కొత్త అవతారం"
-            >
-
-            <div class="hero-overlay">
-
-              <span class="hero-category">
-                SPORTS
-              </span>
-
-              <div class="hero-title">
-
-                📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
-
-              </div>
-
-            </div>
-
-          </a>
-
-        </div>
-
-
-        <!-- HERO 3 -->
-
-        <div class="hero-slide">
-
-          <a href="indiagirls.html">
-
-            <img
-              src="indiagirls.jpg"
-              alt="భారత్ మహిళల జట్టు అద్భుత బౌలింగ్"
-            >
-
-            <div class="hero-overlay">
-
-              <span class="hero-category">
-                SPORTS
-              </span>
-
-              <div class="hero-title">
-
-                🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
-
-              </div>
-
-            </div>
-
-          </a>
-
-        </div>
-
-
-        <!-- HERO 4 -->
-
-        <div class="hero-slide">
-
-          <a href="tilak.html">
-
-            <img
-              src="tilak.webp"
-              alt="తిలక్ వర్మ అద్భుత సెంచరీ"
-            >
-
-            <div class="hero-overlay">
-
-              <span class="hero-category">
-                SPORTS
-              </span>
-
-              <div class="hero-title">
-
-                🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
-
-              </div>
-
-            </div>
-
-          </a>
-
-        </div>
-
-
-        <!-- HERO 5 -->
-
-        <div class="hero-slide">
-
-          <a href="dhoni7.html">
-
-            <img
-              src="dhoni7.jpg"
-              alt="ధోనీ IPL 2027"
-            >
-
-            <div class="hero-overlay">
-
-              <span class="hero-category">
-                SPORTS
-              </span>
-
-              <div class="hero-title">
-
-                🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
-
-              </div>
-
-            </div>
-
-          </a>
-
-        </div>
-
-
-        <!-- HERO 6 -->
-
-        <div class="hero-slide">
-
-          <a href="indg99.html">
-
-            <img
-              src="indg99.webp"
-              alt="మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం"
-            >
-
-            <div class="hero-overlay">
-
-              <span class="hero-category">
-                SPORTS
-              </span>
-
-              <div class="hero-title">
-
-                🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
-
-              </div>
-
-            </div>
-
-          </a>
-
-        </div>
-
-
-        <!-- HERO DOTS -->
-
-        <div class="hero-dots">
-
-          <span
-            class="hero-dot active"
-            data-slide="0"
-          ></span>
-
-          <span
-            class="hero-dot"
-            data-slide="1"
-          ></span>
-
-          <span
-            class="hero-dot"
-            data-slide="2"
-          ></span>
-
-          <span
-            class="hero-dot"
-            data-slide="3"
-          ></span>
-
-          <span
-            class="hero-dot"
-            data-slide="4"
-          ></span>
-
-          <span
-            class="hero-dot"
-            data-slide="5"
-          ></span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </div>
-
-
-  <!-- ===================================================
-       LATEST SPORTS ARTICLES
-  =================================================== -->
-
-  <section class="latest-section">
-
-    <div class="latest-title">
-
-      🏏 LATEST SPORTS ARTICLES
-
-    </div>
-
-
-    <div class="latest-wrapper">
-
-      <div class="latest-track">
-<a href="hardik97.html" class="latest-card">
-
-    <img
-        src="hardik.jpg"
-        alt="హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక"
-        loading="lazy"
-    >
-
-    <div class="latest-content">
-
-        <h3>
-            🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
-        </h3>
-
-    </div>
-
-</a>
-        
-
-        <!-- BCCI -->
-
-        <a href="bcci.html" class="latest-card">
-
-          <img
-            src="bcci.webp"
-            alt="భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
             <h3>
-              🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
+                బుమ్రా ఎంపికపై మాజీ క్రికెటర్ల కీలక వ్యాఖ్యలు
             </h3>
-
-          </div>
 
         </a>
 
 
-        <!-- INDIA GIRLS -->
+        <a href="dhoni7.html" class="sports-card video-card">
 
-        <a href="indiagirls.html" class="latest-card">
+            <img src="dhoni7.jpg" alt="ధోనీ వీడియో">
 
-          <img
-            src="indiagirls.jpg"
-            alt="భారత్ మహిళల జట్టు అద్భుత బౌలింగ్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
+            <span class="video-play">
+                ▶
+            </span>
 
             <h3>
-              🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
+                ధోనీ IPL భవిష్యత్తుపై కీలక వ్యాఖ్యలు
             </h3>
-
-          </div>
 
         </a>
 
 
-        <!-- INDG99 -->
+        <a href="hardik97.html" class="sports-card video-card">
 
-        <a href="indg99.html" class="latest-card">
+            <img src="hardik.jpg" alt="హార్దిక్ వీడియో">
 
-          <img
-            src="indg99.webp"
-            alt="మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
+            <span class="video-play">
+                ▶
+            </span>
 
             <h3>
-              🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
+                హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం
             </h3>
-
-          </div>
 
         </a>
 
 
-        <!-- DHONI -->
+        <a href="tilak.html" class="sports-card video-card">
 
-        <a href="dhoni7.html" class="latest-card">
+            <img src="tilak.webp" alt="తిలక్ వీడియో">
 
-          <img
-            src="dhoni7.jpg"
-            alt="ధోనీ IPL 2027"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
+            <span class="video-play">
+                ▶
+            </span>
 
             <h3>
-              🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
+                తిలక్ వర్మ అద్భుత సెంచరీ
             </h3>
-
-          </div>
 
         </a>
 
 
-        <!-- ROHITH -->
+        <a href="indiagirls.html" class="sports-card video-card">
 
-        <a href="rohith45.html" class="latest-card">
+            <img src="indiagirls.jpg" alt="మహిళల క్రికెట్ వీడియో">
 
-          <img
-            src="rohith.png"
-            alt="రోహిత్ శర్మ భవిష్యత్తు"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
+            <span class="video-play">
+                ▶
+            </span>
 
             <h3>
-              🏏 రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?
+                భారత మహిళల జట్టు అద్భుత బౌలింగ్
             </h3>
-
-          </div>
 
         </a>
 
 
-        <!-- HARDIK -->
+        <a href="bcci.html" class="sports-card video-card">
 
-        <a href="hardik.html" class="latest-card">
+            <img src="bcci.webp" alt="BCCI వీడియో">
 
-          <img
-            src="hardik.jpg"
-            alt="హార్దిక్ పాండ్యా"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
+            <span class="video-play">
+                ▶
+            </span>
 
             <h3>
-              😮 హార్దిక్ పాండ్యాకు మరో షాక్.. అఫ్గాన్ సిరీస్‌కు దూరం అవుతాడా..?
+                భారత్–అఫ్గానిస్థాన్ సిరీస్ అప్‌డేట్
             </h3>
-
-          </div>
 
         </a>
 
 
-        <!-- ROHITH TV -->
+        <a href="rohithtv.html" class="sports-card video-card">
 
-        <a href="rohithtv.html" class="latest-card">
+            <img src="rohithtv.jpg" alt="రోహిత్ వీడియో">
 
-          <img
-            src="rohithtv.jpg"
-            alt="రోహిత్ శర్మ కొత్త అవతారం"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
+            <span class="video-play">
+                ▶
+            </span>
 
             <h3>
-              📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
+                రోహిత్ శర్మ కొత్త అవతారం
             </h3>
 
-          </div>
-
         </a>
-
-
-        <!-- TILAK -->
-
-        <a href="tilak.html" class="latest-card">
-
-          <img
-            src="tilak.webp"
-            alt="తిలక్ వర్మ అద్భుత సెంచరీ"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <!-- VAIBHAV -->
-
-        <a href="vaibhav.html" class="latest-card">
-
-          <img
-            src="vaibhav.webp"
-            alt="వైభవ్ సూర్యవంశీ"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం.. 57 ఏళ్ల రికార్డు బద్దలు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <!-- IPL -->
-
-        <a href="ipl.html" class="latest-card">
-
-          <img
-            src="ipl.png"
-            alt="IPL 2027 ఇంపాక్ట్ ప్లేయర్ రూల్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం.. ఫ్రాంచైజీల అభిప్రాయాలు కోరిన బోర్డు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <!-- INDIA -->
-
-        <a href="indiag.html" class="latest-card">
-
-          <img
-            src="indiag.jpg"
-            alt="భారత్ vs థాయ్‌లాండ్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 Cricket: భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. 94 పరుగుల తేడాతో థాయ్‌లాండ్ చిత్తు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <!-- LANKA -->
-
-        <a href="lanka.html" class="latest-card">
-
-          <img
-            src="lanka.webp"
-            alt="శ్రీలంక యువ బ్యాటర్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <!-- RISHAB -->
-
-        <a href="rishab.html" class="latest-card">
-
-          <img
-            src="rishab.jpg"
-            alt="రిషభ్ పంత్ రికార్డు"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <!-- DUPLICATE SET -->
-
-        <a href="bcci.html" class="latest-card">
-
-          <img
-            src="bcci.webp"
-            alt="భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="indiagirls.html" class="latest-card">
-
-          <img
-            src="indiagirls.jpg"
-            alt="భారత్ మహిళల జట్టు"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="indg99.html" class="latest-card">
-
-          <img
-            src="indg99.webp"
-            alt="మహిళల ఆసియా కప్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="dhoni7.html" class="latest-card">
-
-          <img
-            src="dhoni7.jpg"
-            alt="ధోనీ IPL 2027"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="rohith45.html" class="latest-card">
-
-          <img
-            src="rohith.png"
-            alt="రోహిత్ శర్మ"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="hardik.html" class="latest-card">
-
-          <img
-            src="hardik.jpg"
-            alt="హార్దిక్ పాండ్యా"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              😮 హార్దిక్ పాండ్యాకు మరో షాక్.. అఫ్గాన్ సిరీస్‌కు దూరం అవుతాడా..?
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="rohithtv.html" class="latest-card">
-
-          <img
-            src="rohithtv.jpg"
-            alt="రోహిత్ శర్మ కొత్త అవతారం"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="tilak.html" class="latest-card">
-
-          <img
-            src="tilak.webp"
-            alt="తిలక్ వర్మ"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="vaibhav.html" class="latest-card">
-
-          <img
-            src="vaibhav.webp"
-            alt="వైభవ్ సూర్యవంశీ"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం.. 57 ఏళ్ల రికార్డు బద్దలు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="ipl.html" class="latest-card">
-
-          <img
-            src="ipl.png"
-            alt="IPL 2027"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం.. ఫ్రాంచైజీల అభిప్రాయాలు కోరిన బోర్డు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="indiag.html" class="latest-card">
-
-          <img
-            src="indiag.jpg"
-            alt="భారత్ vs థాయ్‌లాండ్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 Cricket: భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. 94 పరుగుల తేడాతో థాయ్‌లాండ్ చిత్తు
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="lanka.html" class="latest-card">
-
-          <img
-            src="lanka.webp"
-            alt="శ్రీలంక యువ బ్యాటర్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
-            </h3>
-
-          </div>
-
-        </a>
-
-
-        <a href="rishab.html" class="latest-card">
-
-          <img
-            src="rishab.jpg"
-            alt="రిషభ్ పంత్"
-            loading="lazy"
-          >
-
-          <div class="latest-content">
-
-            <h3>
-              🏏 టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
-            </h3>
-
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===================================================
-       SPORTS ALL
-  =================================================== -->
-
-  <section
-    class="sports-section"
-    id="sportsSection"
-  >
-
-    <div class="section-title-row">
-
-      <h2>
-        🏏 Sports All
-      </h2>
-
-      <a
-        href="sports.html"
-        class="view-all"
-      >
-        READ MORE →
-      </a>
-
-    </div>
-
-
-    <div
-      class="horizontal-carousel"
-      id="sportsGrid"
-    >
-
-
-<!---bhumrha-->
-      <a
-    href="bhumrha.html"
-    class="sports-card"
->
-
-    <img
-        src="bhumrha.jpg"
-        alt="బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు"
-        loading="lazy"
-    >
-
-    <div class="sports-overlay">
-
-        <h3>
-            🏏 బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
-        </h3>
-
-    </div>
-
-      </a>
-
-
-      
-<a
-    href="hardik97.html"
-    class="sports-card"
->
-
-    <img
-        src="hardik.jpg"
-        alt="హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక"
-        loading="lazy"
-    >
-
-    <div class="sports-overlay">
-
-        <h3>
-            🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
-        </h3>
-
-    </div>
-
-</a>
-      
-
-      <!-- BCCI -->
-
-      <a
-        href="bcci.html"
-        class="sports-card"
-      >
-
-        <img
-          src="bcci.webp"
-          alt="భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- INDIA GIRLS -->
-
-      <a
-        href="indiagirls.html"
-        class="sports-card"
-      >
-
-        <img
-          src="indiagirls.jpg"
-          alt="భారత్ మహిళల జట్టు అద్భుత బౌలింగ్"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 భారత్ మహిళల జట్టు అద్భుత బౌలింగ్.. పాకిస్థాన్ 55 పరుగులకే ఆలౌట్
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- INDG99 -->
-
-      <a
-        href="indg99.html"
-        class="sports-card"
-      >
-
-        <img
-          src="indg99.webp"
-          alt="మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. హాంకాంగ్‌పై 137 పరుగుల తేడాతో గెలుపు
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- DHONI -->
-
-      <a
-        href="dhoni7.html"
-        class="sports-card"
-      >
-
-        <img
-          src="dhoni7.jpg"
-          alt="ధోనీ IPL 2027"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- ROHITH -->
-
-      <a
-        href="rohith45.html"
-        class="sports-card"
-      >
-
-        <img
-          src="rohith.png"
-          alt="రోహిత్ శర్మ భవిష్యత్తు"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 రోహిత్ శర్మ భవిష్యత్తుపై BCCIలో కీలక చర్చ.. 2027 వరల్డ్‌కప్‌ బరిలో హిట్‌మ్యాన్ ఉంటాడా?
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- HARDIK -->
-
-      <a
-        href="hardik.html"
-        class="sports-card"
-      >
-
-        <img
-          src="hardik.jpg"
-          alt="హార్దిక్ పాండ్యా"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            😮 హార్దిక్ పాండ్యాకు మరో షాక్.. అఫ్గాన్ సిరీస్‌కు దూరం అవుతాడా..?
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- ROHITH TV -->
-
-      <a
-        href="rohithtv.html"
-        class="sports-card"
-      >
-
-        <img
-          src="rohithtv.jpg"
-          alt="రోహిత్ శర్మ కొత్త అవతారం"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            📺 రోహిత్ శర్మ కొత్త అవతారం.. ‘ఫ్యామిలీ ఫుల్ హౌస్’తో టీవీ ఎంట్రీ.. సెప్టెంబర్ 19 నుంచి సందడి
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- TILAK -->
-
-      <a
-        href="tilak.html"
-        class="sports-card"
-      >
-
-        <img
-          src="tilak.webp"
-          alt="తిలక్ వర్మ అద్భుత సెంచరీ"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 తిలక్ వర్మ అద్భుత సెంచరీ.. సౌత్ జోన్‌కు భారీ ఆధిక్యం
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- VAIBHAV -->
-
-      <a
-        href="vaibhav.html"
-        class="sports-card"
-      >
-
-        <img
-          src="vaibhav.webp"
-          alt="వైభవ్ సూర్యవంశీ"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 దులీప్ ట్రోఫీలో వైభవ్ సూర్యవంశీ సంచలనం.. 57 ఏళ్ల రికార్డు బద్దలు
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- IPL -->
-
-      <a
-        href="ipl.html"
-        class="sports-card"
-      >
-
-        <img
-          src="ipl.png"
-          alt="IPL 2027 ఇంపాక్ట్ ప్లేయర్ రూల్"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 IPL 2027: ఇంపాక్ట్ ప్లేయర్ రూల్‌పై BCCI కీలక నిర్ణయం.. ఫ్రాంచైజీల అభిప్రాయాలు కోరిన బోర్డు
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- INDIA THAILAND -->
-
-      <a
-        href="indiag.html"
-        class="sports-card"
-      >
-
-        <img
-          src="indiag.jpg"
-          alt="భారత్ vs థాయ్‌లాండ్"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 Cricket: భారత్ vs థాయ్‌లాండ్.. మహిళల ఆసియా కప్‌లో భారత్ ఘన విజయం.. 94 పరుగుల తేడాతో థాయ్‌లాండ్ చిత్తు
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- LANKA -->
-
-      <a
-        href="lanka.html"
-        class="sports-card"
-      >
-
-        <img
-          src="lanka.webp"
-          alt="శ్రీలంక యువ బ్యాటర్"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 IND vs SL: ఒకే టెస్ట్‌లో రెండు సెంచరీలు.. భారత్‌పై వరల్డ్ రికార్డు క్రియేట్ చేసిన శ్రీలంక యువ బ్యాటర్
-          </h3>
-
-        </div>
-
-      </a>
-
-
-      <!-- RISHAB -->
-
-      <a
-        href="rishab.html"
-        class="sports-card"
-      >
-
-        <img
-          src="rishab.jpg"
-          alt="రిషభ్ పంత్ రికార్డు"
-          loading="lazy"
-        >
-
-        <div class="sports-overlay">
-
-          <h3>
-            🏏 టెస్టుల్లో 100 సిక్సర్లు కొట్టిన తొలి భారత బ్యాటర్‌గా రిషభ్ పంత్ అరుదైన రికార్డు
-          </h3>
-
-        </div>
-
-      </a>
 
 
     </div>
 
-  </section>
+</section>
+
 
 </main>
 
 
-<!-- =====================================================
+<!-- ======================================================
      FOOTER
-===================================================== -->
+====================================================== -->
 
 <footer class="site-footer">
 
-  <div class="footer-inner">
+    <div class="footer-inner">
 
 
-    <div class="footer-column">
+        <div class="footer-column">
 
-      <h3>
-        ముఖ్యమైన లింకులు
-      </h3>
+            <h3>
+                ముఖ్యమైన లింకులు
+            </h3>
 
-      <div class="footer-links">
+            <div class="footer-links">
 
-        <a href="advertise.html">
-          📢 Advertise With Us
-        </a>
+                <a href="advertise.html">
+                    📢 Advertise With Us
+                </a>
 
-        <a href="about.html">
-          ℹ️ About Us
-        </a>
+                <a href="about.html">
+                    ℹ️ About Us
+                </a>
 
-        <a href="contact.html">
-          ✉️ Contact Us
-        </a>
+                <a href="contact.html">
+                    ✉️ Contact Us
+                </a>
 
-        <a href="Privacy Policy.html">
-          🔒 Privacy Policy
-        </a>
+                <a href="Privacy Policy.html">
+                    🔒 Privacy Policy
+                </a>
 
-        <a href="disclaimer.html">
-          ⚠️ Disclaimer
-        </a>
+                <a href="disclaimer.html">
+                    ⚠️ Disclaimer
+                </a>
 
-        <a href="terms.html">
-          📄 Terms & Conditions
-        </a>
+                <a href="terms.html">
+                    📄 Terms & Conditions
+                </a>
 
-      </div>
+            </div>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                ✉️ newsb386@gmail.com
+            </p>
+
+            <p>
+                Follow us for latest updates.
+            </p>
+
+        </div>
+
 
     </div>
 
 
-    <div class="footer-contact">
-
-      <h3>
-        Contact
-      </h3>
-
-      <p>
-        ✉️ newsb386@gmail.com
-      </p>
-
-      <p>
-        Follow us for latest updates.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <p>
-    © 2026 BS 360 NEWS.
-    All Rights Reserved.
-  </p>
+    <p>
+        © 2026 BS 360 NEWS. All Rights Reserved.
+    </p>
 
 </footer>
 
 
-<!-- =====================================================
+<!-- ======================================================
      JAVASCRIPT
-===================================================== -->
+====================================================== -->
 
 <script>
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
+/* =========================================================
+   HORIZONTAL TOUCH / MOUSE DRAG
+========================================================= */
 
+document.querySelectorAll(".horizontal-track").forEach(function(track){
 
-    /* ================================================
-       HERO SLIDER
-    ================================================= */
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-    const hero =
-      document.querySelector(".hero");
 
-    const slides =
-      hero
-        ? hero.querySelectorAll(".hero-slide")
-        : [];
+    track.addEventListener("mousedown", function(e){
 
-    const dots =
-      hero
-        ? hero.querySelectorAll(".hero-dot")
-        : [];
+        isDown = true;
 
-    let currentSlide = 0;
+        track.classList.add("dragging");
 
-    let heroTimer;
+        startX = e.pageX - track.offsetLeft;
 
+        scrollLeft = track.scrollLeft;
 
-    function showSlide(index) {
+    });
 
-      slides.forEach(
-        function (slide) {
 
-          slide.classList.remove("active");
+    track.addEventListener("mouseleave", function(){
 
-        }
-      );
+        isDown = false;
 
-      dots.forEach(
-        function (dot) {
+    });
 
-          dot.classList.remove("active");
 
-        }
-      );
+    track.addEventListener("mouseup", function(){
 
+        isDown = false;
 
-      if (slides[index]) {
+    });
 
-        slides[index]
-          .classList
-          .add("active");
 
-      }
+    track.addEventListener("mousemove", function(e){
 
+        if(!isDown) return;
 
-      if (dots[index]) {
+        e.preventDefault();
 
-        dots[index]
-          .classList
-          .add("active");
+        const x = e.pageX - track.offsetLeft;
 
-      }
+        const walk = (x - startX) * 1.5;
 
-    }
+        track.scrollLeft = scrollLeft - walk;
 
+    });
 
-    function nextSlide() {
+});
 
-      if (!slides.length) {
-        return;
-      }
 
-      currentSlide++;
+/* =========================================================
+   PREVENT IMAGE DRAG
+========================================================= */
 
-      if (
-        currentSlide >=
-        slides.length
-      ) {
+document.querySelectorAll("img").forEach(function(img){
 
-        currentSlide = 0;
+    img.addEventListener("dragstart", function(e){
 
-      }
+        e.preventDefault();
 
-      showSlide(currentSlide);
+    });
 
-    }
+});
 
 
-    function startHero() {
+/* =========================================================
+   SMOOTH TOUCH
+========================================================= */
 
-      clearInterval(heroTimer);
+document.querySelectorAll(".horizontal-track").forEach(function(track){
 
-      heroTimer =
-        setInterval(
-          nextSlide,
-          4000
-        );
+    track.style.touchAction = "pan-x";
 
-    }
+});
 
-
-    function stopHero() {
-
-      clearInterval(heroTimer);
-
-    }
-
-
-    /* ================================================
-       DOT CLICK
-    ================================================= */
-
-    dots.forEach(
-      function (dot, index) {
-
-        dot.addEventListener(
-          "click",
-          function () {
-
-            currentSlide = index;
-
-            showSlide(
-              currentSlide
-            );
-
-            startHero();
-
-          }
-        );
-
-      }
-    );
-
-
-    /* ================================================
-       HERO HOVER
-    ================================================= */
-
-    if (hero) {
-
-      hero.addEventListener(
-        "mouseenter",
-        stopHero
-      );
-
-      hero.addEventListener(
-        "mouseleave",
-        startHero
-      );
-
-    }
-
-
-    /* ================================================
-       START HERO
-    ================================================= */
-
-    showSlide(0);
-
-    startHero();
-
-
-    /* ================================================
-       PREVENT IMAGE DRAG
-    ================================================= */
-
-    document
-      .querySelectorAll("img")
-      .forEach(
-        function (img) {
-
-          img.addEventListener(
-            "dragstart",
-            function (event) {
-
-              event.preventDefault();
-
-            }
-          );
-
-        }
-      );
-
-
-    /* ================================================
-       PAGE LOADED
-    ================================================= */
-
-    document.body
-      .classList
-      .add("page-loaded");
-
-  }
-);
 
 </script>
 
