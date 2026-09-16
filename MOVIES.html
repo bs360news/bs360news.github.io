@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Movies News | BS 360 NEWS</title>
@@ -9,15 +11,16 @@
 <meta name="description"
 content="BS 360 NEWS Movies News - తెలుగు సినిమా తాజా వార్తలు, మూవీ అప్డేట్స్, హీరో హీరోయిన్ల వార్తలు.">
 
-<meta name="theme-color" content="#075aaa">
+<meta name="theme-color" content="#ffffff">
 
 <style>
 
 /* =========================================================
    BS 360 NEWS - MOVIES PAGE
-   LAPTOP = 7 ARTICLES
-   MOBILE = 3 ARTICLES
-   ========================================================= */
+   DESKTOP = HERO + 4 SIDE ARTICLES
+   MOBILE = ORIGINAL HERO + 3 ARTICLES
+   BLUE COLOR REMOVED
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -49,17 +52,19 @@ a{
 
 /* =========================================================
    HEADER
-   ========================================================= */
+========================================================= */
 
 .top-header{
-    background:#075aaa;
-    color:#fff;
+    background:#fff;
+    color:#111827;
+    border-bottom:1px solid #e5e7eb;
 }
 
 .header-inner{
     width:min(1400px,96%);
     margin:auto;
     min-height:68px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -70,18 +75,22 @@ a{
     font-size:30px;
     font-weight:900;
     letter-spacing:.5px;
+    color:#111827;
 }
 
 .logo span{
-    color:#ff3030;
+    color:#e50914;
 }
 
 .home-btn{
     background:#e50914;
     color:#fff;
+
     padding:8px 16px;
     border-radius:6px;
+
     font-weight:700;
+
     transition:.2s;
 }
 
@@ -92,11 +101,12 @@ a{
 
 /* =========================================================
    NAVIGATION
-   ========================================================= */
+========================================================= */
 
 .nav-bar{
     background:#fff;
     border-bottom:1px solid #e5e7eb;
+
     position:sticky;
     top:0;
     z-index:100;
@@ -105,9 +115,12 @@ a{
 .nav-inner{
     width:min(1400px,96%);
     margin:auto;
+
     display:flex;
     align-items:center;
+
     gap:5px;
+
     overflow-x:auto;
     scrollbar-width:none;
 }
@@ -118,54 +131,78 @@ a{
 
 .nav-inner a{
     flex:0 0 auto;
+
     padding:11px 15px;
+
     font-size:14px;
     font-weight:700;
+
     white-space:nowrap;
+
+    color:#111827;
+
+    border-bottom:3px solid transparent;
 }
 
-.nav-inner a:hover,
+.nav-inner a:hover{
+    color:#e50914;
+}
+
 .nav-inner a.active{
-    background:#e50914;
-    color:#fff;
+    color:#e50914;
+    border-bottom:3px solid #e50914;
+    background:#fff;
 }
 
 
 /* =========================================================
    BREAKING NEWS
-   ========================================================= */
+========================================================= */
 
 .breaking{
     width:min(1400px,96%);
     margin:12px auto 0;
+
     background:#fff;
+
     display:flex;
     align-items:center;
+
     overflow:hidden;
+
     border-radius:6px;
+
+    border:1px solid #e5e7eb;
 }
 
 .breaking-title{
     background:#e50914;
     color:#fff;
+
     padding:8px 16px;
+
     font-size:13px;
     font-weight:900;
+
     white-space:nowrap;
 }
 
 .breaking-text{
     padding:8px 15px;
+
     font-size:14px;
+
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+
+    color:#111827;
 }
 
 
 /* =========================================================
    PAGE
-   ========================================================= */
+========================================================= */
 
 .page{
     width:min(1400px,96%);
@@ -174,9 +211,13 @@ a{
 
 .page-title{
     background:#fff;
+
     border-left:5px solid #e50914;
+
     padding:12px 15px;
+
     margin-bottom:15px;
+
     font-size:24px;
     font-weight:900;
 }
@@ -184,7 +225,7 @@ a{
 
 /* =========================================================
    SECTION HEAD
-   ========================================================= */
+========================================================= */
 
 .section{
     margin-top:25px;
@@ -194,15 +235,20 @@ a{
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     margin-bottom:12px;
+
     border-bottom:2px solid #e50914;
+
     padding-bottom:7px;
 }
 
 .section-head h2{
     margin:0;
+
     font-size:21px;
     font-weight:900;
+
     color:#111827;
 }
 
@@ -212,30 +258,60 @@ a{
 
 .more{
     color:#e50914;
+
     font-size:13px;
     font-weight:800;
 }
 
 
 /* =========================================================
+   TOP MOVIE LAYOUT
+   DESKTOP:
+   LEFT = SMALL HERO
+   RIGHT = 4 SIDE ARTICLES
+========================================================= */
+
+.movie-top-layout{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.15fr)
+        minmax(0,1fr);
+
+    gap:14px;
+
+    align-items:stretch;
+}
+
+
+/* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
 .hero{
     position:relative;
+
     width:100%;
-    aspect-ratio:16 / 8;
-    min-height:420px;
+
+    height:390px;
+
+    min-height:0;
+
     overflow:hidden;
+
     background:#111;
+
     border-radius:8px;
 }
 
 .hero-slide{
     position:absolute;
+
     inset:0;
+
     opacity:0;
     visibility:hidden;
+
     transition:opacity .5s ease;
 }
 
@@ -247,69 +323,98 @@ a{
 .hero-slide img{
     width:100%;
     height:100%;
+
     object-fit:cover;
 }
 
 .hero-overlay{
     position:absolute;
+
     left:0;
     right:0;
     bottom:0;
-    padding:55px 30px 35px;
+
+    padding:55px 25px 30px;
+
     background:linear-gradient(
         to top,
         rgba(0,0,0,.90),
         rgba(0,0,0,.55),
         transparent
     );
+
     color:#fff;
 }
 
 .hero-category{
     display:inline-block;
+
     background:#e50914;
+    color:#fff;
+
     padding:4px 9px;
+
     border-radius:4px;
+
     font-size:11px;
     font-weight:800;
+
     margin-bottom:8px;
 }
 
 .hero-title{
     max-width:850px;
-    font-size:28px;
+
+    font-size:24px;
+
     line-height:1.35;
+
     font-weight:900;
+
     margin-bottom:12px;
 }
 
 .hero-read{
     display:inline-block;
+
     background:#fff;
     color:#111;
+
     padding:7px 13px;
+
     border-radius:4px;
+
     font-size:13px;
     font-weight:800;
 }
 
 .hero-dots{
     position:absolute;
+
     bottom:13px;
     right:20px;
+
     display:flex;
+
     gap:5px;
+
     z-index:5;
 }
 
 .hero-dot{
     width:8px;
     height:8px;
+
     padding:0;
+
     border:0;
+
     border-radius:50%;
+
     background:#fff;
+
     opacity:.55;
+
     cursor:pointer;
 }
 
@@ -320,27 +425,115 @@ a{
 
 
 /* =========================================================
+   SIDE ARTICLES
+   DESKTOP ONLY
+========================================================= */
+
+.movie-side-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:14px;
+}
+
+.movie-side-card{
+    background:#fff;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.movie-side-card:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.10);
+}
+
+.movie-side-card img{
+    width:100%;
+
+    height:165px;
+
+    object-fit:cover;
+}
+
+.movie-side-content{
+    padding:9px 10px 11px;
+}
+
+.movie-side-tag{
+    color:#e50914;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    margin-bottom:3px;
+}
+
+.movie-side-title{
+    margin:0;
+
+    font-size:14px;
+
+    line-height:1.4;
+
+    font-weight:800;
+
+    color:#111827;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:3;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
    ALL ARTICLE GRIDS
-   LAPTOP / DESKTOP = 7
-   ========================================================= */
+   DESKTOP = 7
+========================================================= */
 
 .news-grid,
 .feature-grid,
 .video-grid{
     display:grid;
-    grid-template-columns:repeat(7,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(7,minmax(0,1fr));
+
     gap:12px;
 }
 
 
 /* =========================================================
    NEWS CARD
-   ========================================================= */
+========================================================= */
 
 .news-card{
     background:#fff;
+
     overflow:hidden;
+
     border-radius:7px;
+
     transition:transform .2s ease;
 }
 
@@ -350,6 +543,7 @@ a{
 
 .news-card img{
     aspect-ratio:16 / 9;
+
     object-fit:cover;
 }
 
@@ -359,34 +553,48 @@ a{
 
 .card-tag{
     color:#e50914;
+
     font-size:9px;
+
     font-weight:900;
+
     text-transform:uppercase;
+
     margin-bottom:3px;
 }
 
 .card-title{
     margin:0;
+
     color:#111827;
+
     font-size:13px;
+
     line-height:1.4;
+
     font-weight:800;
 
     display:-webkit-box;
+
     -webkit-line-clamp:4;
+
     -webkit-box-orient:vertical;
+
     overflow:hidden;
 }
 
 
 /* =========================================================
    FEATURE CARD
-   ========================================================= */
+========================================================= */
 
 .feature-card{
     background:#fff;
+
     border-radius:7px;
+
     overflow:hidden;
+
     transition:transform .2s ease;
 }
 
@@ -396,6 +604,7 @@ a{
 
 .feature-card img{
     aspect-ratio:16 / 9;
+
     object-fit:cover;
 }
 
@@ -405,25 +614,34 @@ a{
 
 .feature-content h3{
     margin:0;
+
     font-size:13px;
+
     line-height:1.4;
+
     font-weight:800;
 
     display:-webkit-box;
+
     -webkit-line-clamp:4;
+
     -webkit-box-orient:vertical;
+
     overflow:hidden;
 }
 
 
 /* =========================================================
    VIDEO CARD
-   ========================================================= */
+========================================================= */
 
 .video-card{
     background:#fff;
+
     overflow:hidden;
+
     border-radius:7px;
+
     transition:transform .2s ease;
 }
 
@@ -437,72 +655,100 @@ a{
 
 .video-image img{
     aspect-ratio:16 / 9;
+
     object-fit:cover;
 }
 
 .play{
     position:absolute;
+
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
+
     width:42px;
     height:42px;
+
     border-radius:50%;
+
     background:rgba(229,9,20,.95);
+
     color:#fff;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     font-size:18px;
 }
 
 .video-card h3{
     margin:0;
+
     padding:9px;
+
     font-size:13px;
+
     line-height:1.4;
+
     font-weight:800;
 
     display:-webkit-box;
+
     -webkit-line-clamp:3;
+
     -webkit-box-orient:vertical;
+
     overflow:hidden;
 }
 
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 .site-footer{
     background:#111827;
+
     color:#fff;
+
     margin-top:35px;
+
     padding:30px 0 15px;
 }
 
 .footer-inner{
     width:min(1400px,96%);
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:40px;
 }
 
 .footer-column h3,
 .footer-contact h3{
     margin:0 0 12px;
+
     font-size:18px;
 }
 
 .footer-links{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:8px 15px;
 }
 
 .footer-links a{
     color:#d1d5db;
+
     font-size:14px;
 }
 
@@ -512,25 +758,33 @@ a{
 
 .footer-contact p{
     margin:5px 0;
+
     color:#d1d5db;
+
     font-size:14px;
 }
 
 .copyright{
     width:min(1400px,96%);
+
     margin:25px auto 0;
+
     padding-top:15px;
+
     border-top:1px solid #374151;
+
     text-align:center;
+
     color:#9ca3af;
+
     font-size:13px;
 }
 
 
 /* =========================================================
    MOBILE
-   MOBILE = 3 ARTICLES PER ROW
-   ========================================================= */
+   ORIGINAL MOBILE LAYOUT
+========================================================= */
 
 @media(max-width:600px){
 
@@ -552,6 +806,7 @@ a{
 
     .nav-inner a{
         padding:9px 11px;
+
         font-size:12px;
     }
 
@@ -564,11 +819,13 @@ a{
 
     .breaking-title{
         padding:7px 10px;
+
         font-size:10px;
     }
 
     .breaking-text{
         font-size:12px;
+
         padding:7px 10px;
     }
 
@@ -577,11 +834,13 @@ a{
 
     .page{
         width:94%;
+
         margin-top:10px;
     }
 
     .page-title{
         font-size:20px;
+
         padding:10px 12px;
     }
 
@@ -602,12 +861,28 @@ a{
 
 
     /* =====================================================
-       HERO
-       ===================================================== */
+       TOP MOVIE
+       MOBILE = HERO ONLY
+    ===================================================== */
+
+    .movie-top-layout{
+        display:block;
+    }
+
+    .movie-side-grid{
+        display:none;
+    }
+
+
+    /* HERO */
 
     .hero{
         aspect-ratio:16 / 9;
+
+        height:auto;
+
         min-height:0;
+
         border-radius:6px;
     }
 
@@ -617,40 +892,47 @@ a{
 
     .hero-title{
         font-size:18px;
+
         line-height:1.35;
+
         margin-bottom:7px;
     }
 
     .hero-category{
         font-size:9px;
+
         padding:3px 6px;
+
         margin-bottom:4px;
     }
 
     .hero-read{
         padding:5px 9px;
+
         font-size:10px;
     }
 
     .hero-dots{
         bottom:8px;
+
         right:10px;
     }
 
     .hero-dot{
         width:7px;
+
         height:7px;
     }
 
 
-    /* =====================================================
-       EVERY ARTICLE GRID = 3
-       ===================================================== */
+    /* EVERY ARTICLE GRID = 3 */
 
     .news-grid,
     .feature-grid,
     .video-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
         gap:7px;
     }
 
@@ -675,17 +957,21 @@ a{
     .feature-content h3,
     .video-card h3{
         font-size:10px;
+
         line-height:1.35;
     }
 
     .card-tag{
         font-size:7px;
+
         margin-bottom:2px;
     }
 
     .play{
         width:32px;
+
         height:32px;
+
         font-size:13px;
     }
 
@@ -698,11 +984,13 @@ a{
 
     .footer-inner{
         grid-template-columns:1fr;
+
         gap:22px;
     }
 
     .footer-links{
         display:grid;
+
         grid-template-columns:1fr 1fr;
     }
 
@@ -712,14 +1000,16 @@ a{
 /* =========================================================
    SMALL MOBILE
    STILL 3 ARTICLES
-   ========================================================= */
+========================================================= */
 
 @media(max-width:380px){
 
     .news-grid,
     .feature-grid,
     .video-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
         gap:5px;
     }
 
@@ -732,6 +1022,7 @@ a{
     .feature-content h3,
     .video-card h3{
         font-size:9px;
+
         line-height:1.3;
     }
 
@@ -745,17 +1036,35 @@ a{
 /* =========================================================
    TABLET
    4 ARTICLES
-   ========================================================= */
+========================================================= */
 
 @media(min-width:601px) and (max-width:1100px){
 
     .news-grid,
     .feature-grid,
     .video-grid{
-        grid-template-columns:repeat(4,minmax(0,1fr));
+        grid-template-columns:
+            repeat(4,minmax(0,1fr));
+    }
+
+    /*
+       TABLET = ORIGINAL HERO
+       SIDE ARTICLES HIDDEN
+    */
+
+    .movie-top-layout{
+        display:block;
+    }
+
+    .movie-side-grid{
+        display:none;
     }
 
     .hero{
+        height:auto;
+
+        aspect-ratio:16 / 8;
+
         min-height:350px;
     }
 
@@ -765,15 +1074,54 @@ a{
 
 }
 
+
+/* =========================================================
+   DESKTOP TOP MOVIE TUNING
+========================================================= */
+
+@media(min-width:1101px){
+
+    .movie-top-layout{
+        min-height:390px;
+    }
+
+    .movie-side-card{
+        min-height:188px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY LARGE DESKTOP
+========================================================= */
+
+@media(min-width:1500px){
+
+    .hero{
+        height:410px;
+    }
+
+    .movie-top-layout{
+        min-height:410px;
+    }
+
+    .movie-side-card img{
+        height:175px;
+    }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
 
 <!-- =====================================================
      HEADER
-     ===================================================== -->
+===================================================== -->
 
 <header class="top-header">
 
@@ -784,7 +1132,7 @@ a{
         </div>
 
         <a href="index.html" class="home-btn">
-            🏠 Home
+            Home
         </a>
 
     </div>
@@ -794,7 +1142,7 @@ a{
 
 <!-- =====================================================
      NAVIGATION
-     ===================================================== -->
+===================================================== -->
 
 <nav class="nav-bar">
 
@@ -809,15 +1157,15 @@ a{
         </a>
 
         <a href="movies.html" class="active">
-            🎬 Cinema
+             Cinema
         </a>
 
         <a href="sports.html">
-            🏏 Sports
+             Sports
         </a>
 
         <a href="index.html#goldSection">
-            💰 Gold Rate
+             Gold Rate
         </a>
 
         <a href="AP&TS.html">
@@ -825,7 +1173,7 @@ a{
         </a>
 
         <a href="business.html">
-            💼 Business
+             Business
         </a>
 
     </div>
@@ -835,7 +1183,7 @@ a{
 
 <!-- =====================================================
      BREAKING NEWS
-     ===================================================== -->
+===================================================== -->
 
 <div class="breaking">
 
@@ -855,17 +1203,17 @@ a{
 
 <!-- =====================================================
      PAGE TITLE
-     ===================================================== -->
+===================================================== -->
 
 <div class="page-title">
-    🎬 Movies News
+     Movies News
 </div>
 
 
 <!-- =====================================================
      TOP MOVIE NEWS
-     HERO
-     ===================================================== -->
+     SMALL HERO + 4 SIDE ARTICLES
+===================================================== -->
 
 <section class="section">
 
@@ -878,47 +1226,226 @@ a{
     </div>
 
 
-    <div class="hero">
+    <div class="movie-top-layout">
 
 
-        <!-- SLIDE 1 -->
+        <!-- =================================================
+             LEFT HERO
+        ================================================== -->
 
-        <article class="hero-slide active">
+        <div class="hero">
 
-            <a href="hm.html">
 
-                <img
-                    src="hm.jpg"
-                    alt="అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్"
-                    loading="eager"
-                >
+            <!-- SLIDE 1 -->
 
-                <div class="hero-overlay">
+            <article class="hero-slide active">
 
-                    <div class="hero-category">
-                        MOVIES
+                <a href="hm.html">
+
+                    <img
+                        src="hm.jpg"
+                        alt="అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్"
+                        loading="eager"
+                    >
+
+                    <div class="hero-overlay">
+
+                        <div class="hero-category">
+                            MOVIES
+                        </div>
+
+                        <div class="hero-title">
+                            అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.. ‘హనుమాన్ అంష్’ వెనుక అసలు కథ ఇదే!
+                        </div>
+
+                        <span class="hero-read">
+                            Read More →
+                        </span>
+
                     </div>
 
-                    <div class="hero-title">
-                        అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.. ‘హనుమాన్ అంష్’ వెనుక అసలు కథ ఇదే!
+                </a>
+
+            </article>
+
+
+            <!-- SLIDE 2 -->
+
+            <article class="hero-slide">
+
+                <a href="tamana.html">
+
+                    <img
+                        src="tamana.jpg"
+                        alt="తమన్నా భాటియా సిద్ధార్థ్ మల్హోత్రా"
+                        loading="lazy"
+                    >
+
+                    <div class="hero-overlay">
+
+                        <div class="hero-category">
+                            MOVIES
+                        </div>
+
+                        <div class="hero-title">
+                            తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!
+                        </div>
+
+                        <span class="hero-read">
+                            Read More →
+                        </span>
+
                     </div>
 
-                    <span class="hero-read">
-                        Read More →
-                    </span>
+                </a>
 
-                </div>
-
-            </a>
-
-        </article>
+            </article>
 
 
-        <!-- SLIDE 2 -->
+            <!-- SLIDE 3 -->
 
-        <article class="hero-slide">
+            <article class="hero-slide">
 
-            <a href="tamana.html">
+                <a href="sardar.html">
+
+                    <img
+                        src="sardar.jpg"
+                        alt="సర్దార్ 2 కార్తీ"
+                        loading="lazy"
+                    >
+
+                    <div class="hero-overlay">
+
+                        <div class="hero-category">
+                            MOVIES
+                        </div>
+
+                        <div class="hero-title">
+                            సర్దార్ 2పై కార్తీ ఆసక్తికర వ్యాఖ్యలు.. సినిమా కోసం ఫ్యాన్స్ ఎదురుచూపులు!
+                        </div>
+
+                        <span class="hero-read">
+                            Read More →
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- SLIDE 4 -->
+
+            <article class="hero-slide">
+
+                <a href="paradise6.html">
+
+                    <img
+                        src="paradise6.jpg"
+                        alt="The Paradise యెష నాగుల సాంగ్"
+                        loading="lazy"
+                    >
+
+                    <div class="hero-overlay">
+
+                        <div class="hero-category">
+                            MOVIES
+                        </div>
+
+                        <div class="hero-title">
+                            The Paradise: దుమ్మురేపుతున్న యెష నాగుల సాంగ్.. షేక్ అవుతున్న యూట్యూబ్
+                        </div>
+
+                        <span class="hero-read">
+                            Read More →
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- SLIDE 5 -->
+
+            <article class="hero-slide">
+
+                <a href="temper.html">
+
+                    <img
+                        src="temper.png"
+                        alt="Bigg Boss Telugu 10 టాలీవుడ్ స్టార్ విలన్"
+                        loading="lazy"
+                    >
+
+                    <div class="hero-overlay">
+
+                        <div class="hero-category">
+                            CINEMA
+                        </div>
+
+                        <div class="hero-title">
+                             Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
+                        </div>
+
+                        <span class="hero-read">
+                            Read More →
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- DOTS -->
+
+            <div class="hero-dots">
+
+                <button
+                    class="hero-dot active"
+                    aria-label="Slide 1">
+                </button>
+
+                <button
+                    class="hero-dot"
+                    aria-label="Slide 2">
+                </button>
+
+                <button
+                    class="hero-dot"
+                    aria-label="Slide 3">
+                </button>
+
+                <button
+                    class="hero-dot"
+                    aria-label="Slide 4">
+                </button>
+
+                <button
+                    class="hero-dot"
+                    aria-label="Slide 5">
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RIGHT SIDE 4 ARTICLES
+             DESKTOP ONLY
+        ================================================== -->
+
+        <div class="movie-side-grid">
+
+
+            <!-- SIDE ARTICLE 1 -->
+
+            <a href="tamana.html" class="movie-side-card">
 
                 <img
                     src="tamana.jpg"
@@ -926,32 +1453,24 @@ a{
                     loading="lazy"
                 >
 
-                <div class="hero-overlay">
+                <div class="movie-side-content">
 
-                    <div class="hero-category">
+                    <div class="movie-side-tag">
                         MOVIES
                     </div>
 
-                    <div class="hero-title">
+                    <h3 class="movie-side-title">
                         తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!
-                    </div>
-
-                    <span class="hero-read">
-                        Read More →
-                    </span>
+                    </h3>
 
                 </div>
 
             </a>
 
-        </article>
 
+            <!-- SIDE ARTICLE 2 -->
 
-        <!-- SLIDE 3 -->
-
-        <article class="hero-slide">
-
-            <a href="sardar.html">
+            <a href="sardar.html" class="movie-side-card">
 
                 <img
                     src="sardar.jpg"
@@ -959,32 +1478,24 @@ a{
                     loading="lazy"
                 >
 
-                <div class="hero-overlay">
+                <div class="movie-side-content">
 
-                    <div class="hero-category">
+                    <div class="movie-side-tag">
                         MOVIES
                     </div>
 
-                    <div class="hero-title">
+                    <h3 class="movie-side-title">
                         సర్దార్ 2పై కార్తీ ఆసక్తికర వ్యాఖ్యలు.. సినిమా కోసం ఫ్యాన్స్ ఎదురుచూపులు!
-                    </div>
-
-                    <span class="hero-read">
-                        Read More →
-                    </span>
+                    </h3>
 
                 </div>
 
             </a>
 
-        </article>
 
+            <!-- SIDE ARTICLE 3 -->
 
-        <!-- SLIDE 4 -->
-
-        <article class="hero-slide">
-
-            <a href="paradise6.html">
+            <a href="paradise6.html" class="movie-side-card">
 
                 <img
                     src="paradise6.jpg"
@@ -992,32 +1503,24 @@ a{
                     loading="lazy"
                 >
 
-                <div class="hero-overlay">
+                <div class="movie-side-content">
 
-                    <div class="hero-category">
-                        MOVIES
+                    <div class="movie-side-tag">
+                        SONG
                     </div>
 
-                    <div class="hero-title">
+                    <h3 class="movie-side-title">
                         The Paradise: దుమ్మురేపుతున్న యెష నాగుల సాంగ్.. షేక్ అవుతున్న యూట్యూబ్
-                    </div>
-
-                    <span class="hero-read">
-                        Read More →
-                    </span>
+                    </h3>
 
                 </div>
 
             </a>
 
-        </article>
 
+            <!-- SIDE ARTICLE 4 -->
 
-        <!-- SLIDE 5 -->
-
-        <article class="hero-slide">
-
-            <a href="temper.html">
+            <a href="temper.html" class="movie-side-card">
 
                 <img
                     src="temper.png"
@@ -1025,40 +1528,20 @@ a{
                     loading="lazy"
                 >
 
-                <div class="hero-overlay">
+                <div class="movie-side-content">
 
-                    <div class="hero-category">
+                    <div class="movie-side-tag">
                         CINEMA
                     </div>
 
-                    <div class="hero-title">
+                    <h3 class="movie-side-title">
                         🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
-                    </div>
-
-                    <span class="hero-read">
-                        Read More →
-                    </span>
+                    </h3>
 
                 </div>
 
             </a>
 
-        </article>
-
-
-        <!-- DOTS -->
-
-        <div class="hero-dots">
-
-            <button class="hero-dot active" aria-label="Slide 1"></button>
-
-            <button class="hero-dot" aria-label="Slide 2"></button>
-
-            <button class="hero-dot" aria-label="Slide 3"></button>
-
-            <button class="hero-dot" aria-label="Slide 4"></button>
-
-            <button class="hero-dot" aria-label="Slide 5"></button>
 
         </div>
 
@@ -1069,18 +1552,19 @@ a{
 
 <!-- =====================================================
      LATEST MOVIE NEWS
-     7 LAPTOP / 3 MOBILE
-     ===================================================== -->
+===================================================== -->
 
 <section class="section">
 
     <div class="section-head">
 
         <h2>
-            🎬 <span>Latest</span> Movie News
+             <span>Latest</span> Movie News
         </h2>
 
-        <a href="index.html#latest" class="more">
+        <a
+            href="index.html#latest"
+            class="more">
             More →
         </a>
 
@@ -1258,15 +1742,14 @@ a{
 
 <!-- =====================================================
      MOVIE UPDATES
-     7 LAPTOP / 3 MOBILE
-     ===================================================== -->
+===================================================== -->
 
 <section class="section">
 
     <div class="section-head">
 
         <h2>
-            🎥 <span>Movie</span> Updates
+            <span>Movie</span> Updates
         </h2>
 
     </div>
@@ -1413,202 +1896,17 @@ a{
 </section>
 
 
-<!-- =====================================================
-     ACTORS & CELEBRITIES
-     7 LAPTOP / 3 MOBILE
-     ===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <h2>
-            ⭐ <span>Actors</span> & Celebrities
-        </h2>
-
-    </div>
-
-
-    <div class="news-grid">
-
-
-        <a href="cbday.html" class="news-card">
-
-            <img
-                src="c2.webp"
-                alt="చిరంజీవి"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    STAR
-                </div>
-
-                <h3 class="card-title">
-                    🎉 మెగాస్టార్ చిరంజీవి 71వ పుట్టినరోజు.. అభిమానులకు అదిరిపోయే సర్‌ప్రైజ్
-                </h3>
-
-            </div>
-
-        </a>
-
-
-        <a href="ra.html" class="news-card">
-
-            <img
-                src="ra.jpg"
-                alt="మాధురి రాథోడ్"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    CELEBRITY
-                </div>
-
-                <h3 class="card-title">
-                    💃 ఫోక్ డ్యాన్స్‌తో ఫేమస్.. మాధురి రాథోడ్ నెల ఆదాయం ఎంతో తెలుసా?
-                </h3>
-
-            </div>
-
-        </a>
-
-
-        <a href="am.html" class="news-card">
-
-            <img
-                src="am.jpg"
-                alt="యంగ్ హీరోయిన్"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    HEROINE
-                </div>
-
-                <h3 class="card-title">
-                    సినిమా ఆడకపోతే అమీర్‌పేట సెంటర్‌లో గుండు గీయించుకుంటా.. యంగ్ హీరోయిన్ ఛాలెంజ్!
-                </h3>
-
-            </div>
-
-        </a>
-
-
-        <a href="rip.html" class="news-card">
-
-            <img
-                src="rip.jpg"
-                alt="జీవీ నారాయణరావు"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    TOLLYWOOD
-                </div>
-
-                <h3 class="card-title">
-                    🎬 టాలీవుడ్‌లో విషాదం.. సీనియర్ నటుడు, నిర్మాత జీవీ నారాయణరావు కన్నుమూత
-                </h3>
-
-            </div>
-
-        </a>
-
-
-        <a href="tamana.html" class="news-card">
-
-            <img
-                src="tamana.jpg"
-                alt="తమన్నా భాటియా"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    HEROINE
-                </div>
-
-                <h3 class="card-title">
-                    🔥 తమన్నా భాటియా మూవీపై పెరుగుతున్న ఆసక్తి
-                </h3>
-
-            </div>
-
-        </a>
-
-
-        <a href="p.html" class="news-card">
-
-            <img
-                src="p1.jpg"
-                alt="ప్రభాస్"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    HERO
-                </div>
-
-                <h3 class="card-title">
-                    🔥 ప్రభాస్ సలార్-2పై అదిరిపోయే అప్డేట్
-                </h3>
-
-            </div>
-
-        </a>
-
-
-        <a href="sardar.html" class="news-card">
-
-            <img
-                src="sardar.jpg"
-                alt="కార్తీ"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    ACTOR
-                </div>
-
-                <h3 class="card-title">
-                    🎬 సర్దార్ 2పై కార్తీ ఆసక్తికర వ్యాఖ్యలు
-                </h3>
-
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
 
 <!-- =====================================================
      MOVIE HIGHLIGHTS
-     7 LAPTOP / 3 MOBILE
-     ===================================================== -->
+===================================================== -->
 
 <section class="section">
 
     <div class="section-head">
 
         <h2>
-            📺 <span>Movie</span> Highlights
+             <span>MOVIES</span>ALL
         </h2>
 
     </div>
@@ -1783,13 +2081,12 @@ a{
 </section>
 
 
-
 </main>
 
 
 <!-- =====================================================
      FOOTER
-     ===================================================== -->
+===================================================== -->
 
 <footer class="site-footer">
 
@@ -1805,19 +2102,19 @@ a{
             <div class="footer-links">
 
                 <a href="advertise.html">
-                     Advertise With Us
+                    Advertise With Us
                 </a>
 
                 <a href="about.html">
-                     About Us
+                    About Us
                 </a>
 
                 <a href="contact.html">
-                     Contact Us
+                    Contact Us
                 </a>
 
                 <a href="Privacy Policy.html">
-                     Privacy Policy
+                    Privacy Policy
                 </a>
 
                 <a href="disclaimer.html">
@@ -1825,7 +2122,7 @@ a{
                 </a>
 
                 <a href="terms.html">
-                     Terms & Conditions
+                    Terms & Conditions
                 </a>
 
             </div>
@@ -1861,7 +2158,7 @@ a{
 
 <!-- =====================================================
      HERO JAVASCRIPT
-     ===================================================== -->
+===================================================== -->
 
 <script>
 
@@ -2010,6 +2307,7 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 
 </script>
+
 
 </body>
 </html>
