@@ -382,7 +382,109 @@ document.addEventListener("DOMContentLoaded", function () {
         $("#businessGrid"),
         businessArticles
     );
+/* =====================================================
+   AFTER MOST READ - 3 × 3 CATEGORY GRIDS
+===================================================== */
 
+
+/* =====================================================
+   CREATE SIMPLE CARD
+===================================================== */
+
+function createThreeColumnCard(article) {
+
+    return `
+        <a
+            href="${article.url}"
+            class="three-column-news-card"
+        >
+
+            <img
+                src="${article.image}"
+                alt="${article.alt}"
+                loading="lazy"
+            >
+
+            <h3>
+                ${article.title}
+            </h3>
+
+        </a>
+    `;
+}
+
+
+/* =====================================================
+   RENDER 3 × 3 GRID
+   MAXIMUM 9 ARTICLES
+===================================================== */
+
+function renderThreeColumnGrid(target, data) {
+
+    if (!target) {
+        return;
+    }
+
+
+    target.innerHTML = "";
+
+
+    const nineArticles =
+        data.slice(0, 9);
+
+
+    if (!nineArticles.length) {
+        return;
+    }
+
+
+    target.innerHTML =
+        nineArticles
+            .map(article =>
+                createThreeColumnCard(article)
+            )
+            .join("");
+}
+
+
+/* =====================================================
+   AP & TS
+===================================================== */
+
+renderThreeColumnGrid(
+    $("#afterApTsGrid"),
+    apTsArticles
+);
+
+
+/* =====================================================
+   SPORTS
+===================================================== */
+
+renderThreeColumnGrid(
+    $("#afterSportsGrid"),
+    sportsArticles
+);
+
+
+/* =====================================================
+   ENTERTAINMENT
+===================================================== */
+
+renderThreeColumnGrid(
+    $("#afterEntertainmentGrid"),
+    entertainmentArticles
+);
+
+
+/* =====================================================
+   BUSINESS
+===================================================== */
+
+renderThreeColumnGrid(
+    $("#afterBusinessGrid"),
+    businessArticles
+);
 
     /* =====================================================
        SEARCH
