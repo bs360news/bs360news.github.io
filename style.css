@@ -1101,3 +1101,16 @@ body.dark-mode .theme-button{
 .dark-mode .most-read-item h3{
     color:#f1f3f5;
 }
+/* BIG IMAGE TITLE - RED */
+.category-feature-content h3,
+.category-feature h3 {
+    color: #e00000 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+}
+
+/* SMALL CARD TITLES - BLACK */
+.category-card h3 {
+    color: #111827 !important;
+}
+    
