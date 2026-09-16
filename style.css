@@ -341,7 +341,237 @@ section{
     display:none !important;
 }
 
+/* =====================================================
+   LAPTOP / DESKTOP
+   HERO LEFT + 3 ARTICLES RIGHT
+   SPORTS / AP&TS / ENTERTAINMENT / BUSINESS
+===================================================== */
 
+@media (min-width: 769px) {
+
+    /* Section main layout */
+    #sportsSection,
+    #apSection,
+    #tsSection,
+    #cinemaSection,
+    #entertainmentSection,
+    #businessSection {
+
+        width: 100%;
+    }
+
+    /* Section cards layout */
+    #sportsGrid,
+    #apGrid,
+    #tsGrid,
+    #cinemaGrid,
+    #entertainmentGrid,
+    #businessGrid {
+
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 2fr)
+            repeat(3, minmax(0, 1fr));
+
+        gap: 15px;
+
+        align-items: stretch;
+    }
+
+    /* First article = BIG HERO */
+    #sportsGrid > :first-child,
+    #apGrid > :first-child,
+    #tsGrid > :first-child,
+    #cinemaGrid > :first-child,
+    #entertainmentGrid > :first-child,
+    #businessGrid > :first-child {
+
+        grid-column: span 1;
+    }
+
+    /* Hero image */
+    #sportsGrid > :first-child img,
+    #apGrid > :first-child img,
+    #tsGrid > :first-child img,
+    #cinemaGrid > :first-child img,
+    #entertainmentGrid > :first-child img,
+    #businessGrid > :first-child img {
+
+        height: 390px;
+
+        object-fit: cover;
+    }
+
+    /* Remaining 3 articles */
+    #sportsGrid > :nth-child(2),
+    #sportsGrid > :nth-child(3),
+    #sportsGrid > :nth-child(4),
+
+    #apGrid > :nth-child(2),
+    #apGrid > :nth-child(3),
+    #apGrid > :nth-child(4),
+
+    #tsGrid > :nth-child(2),
+    #tsGrid > :nth-child(3),
+    #tsGrid > :nth-child(4),
+
+    #cinemaGrid > :nth-child(2),
+    #cinemaGrid > :nth-child(3),
+    #cinemaGrid > :nth-child(4),
+
+    #entertainmentGrid > :nth-child(2),
+    #entertainmentGrid > :nth-child(3),
+    #entertainmentGrid > :nth-child(4),
+
+    #businessGrid > :nth-child(2),
+    #businessGrid > :nth-child(3),
+    #businessGrid > :nth-child(4) {
+
+        height: 100%;
+    }
+
+    /* Small article images */
+    #sportsGrid > :nth-child(2) img,
+    #sportsGrid > :nth-child(3) img,
+    #sportsGrid > :nth-child(4) img,
+
+    #apGrid > :nth-child(2) img,
+    #apGrid > :nth-child(3) img,
+    #apGrid > :nth-child(4) img,
+
+    #tsGrid > :nth-child(2) img,
+    #tsGrid > :nth-child(3) img,
+    #tsGrid > :nth-child(4) img,
+
+    #cinemaGrid > :nth-child(2) img,
+    #cinemaGrid > :nth-child(3) img,
+    #cinemaGrid > :nth-child(4) img,
+
+    #entertainmentGrid > :nth-child(2) img,
+    #entertainmentGrid > :nth-child(3) img,
+    #entertainmentGrid > :nth-child(4) img,
+
+    #businessGrid > :nth-child(2) img,
+    #businessGrid > :nth-child(3) img,
+    #businessGrid > :nth-child(4) img {
+
+        height: 120px;
+
+        object-fit: cover;
+    }
+
+    /* Small article layout */
+    #sportsGrid > :nth-child(2),
+    #sportsGrid > :nth-child(3),
+    #sportsGrid > :nth-child(4),
+
+    #apGrid > :nth-child(2),
+    #apGrid > :nth-child(3),
+    #apGrid > :nth-child(4),
+
+    #tsGrid > :nth-child(2),
+    #tsGrid > :nth-child(3),
+    #tsGrid > :nth-child(4),
+
+    #cinemaGrid > :nth-child(2),
+    #cinemaGrid > :nth-child(3),
+    #cinemaGrid > :nth-child(4),
+
+    #entertainmentGrid > :nth-child(2),
+    #entertainmentGrid > :nth-child(3),
+    #entertainmentGrid > :nth-child(4),
+
+    #businessGrid > :nth-child(2),
+    #businessGrid > :nth-child(3),
+    #businessGrid > :nth-child(4) {
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: flex-start;
+
+        overflow: hidden;
+    }
+
+    /* Small article title */
+    #sportsGrid > :nth-child(2) h3,
+    #sportsGrid > :nth-child(3) h3,
+    #sportsGrid > :nth-child(4) h3,
+
+    #apGrid > :nth-child(2) h3,
+    #apGrid > :nth-child(3) h3,
+    #apGrid > :nth-child(4) h3,
+
+    #tsGrid > :nth-child(2) h3,
+    #tsGrid > :nth-child(3) h3,
+    #tsGrid > :nth-child(4) h3,
+
+    #cinemaGrid > :nth-child(2) h3,
+    #cinemaGrid > :nth-child(3) h3,
+    #cinemaGrid > :nth-child(4) h3,
+
+    #entertainmentGrid > :nth-child(2) h3,
+    #entertainmentGrid > :nth-child(3) h3,
+    #entertainmentGrid > :nth-child(4) h3,
+
+    #businessGrid > :nth-child(2) h3,
+    #businessGrid > :nth-child(3) h3,
+    #businessGrid > :nth-child(4) h3 {
+
+        font-size: 16px;
+
+        line-height: 1.4;
+
+        display: -webkit-box;
+
+        -webkit-line-clamp: 3;
+
+        -webkit-box-orient: vertical;
+
+        overflow: hidden;
+    }
+
+    /* Big hero title */
+    #sportsGrid > :first-child h3,
+    #apGrid > :first-child h3,
+    #tsGrid > :first-child h3,
+    #cinemaGrid > :first-child h3,
+    #entertainmentGrid > :first-child h3,
+    #businessGrid > :first-child h3 {
+
+        font-size: 22px;
+
+        line-height: 1.4;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   NO CHANGE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #sportsGrid,
+    #apGrid,
+    #tsGrid,
+    #cinemaGrid,
+    #entertainmentGrid,
+    #businessGrid {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+}
 /* =========================================================
    CATEGORY
    DESKTOP
