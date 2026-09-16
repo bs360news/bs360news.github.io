@@ -966,6 +966,132 @@ body.dark-mode .theme-button{
     }
 
 }
+    /* =====================================================
+   ALL ARTICLE TITLES - BLACK COLOR
+===================================================== */
+
+/* Latest News */
+.latest-news-card h3,
+.latest-big-card h3,
+.latest-big-content h3 {
+    color: #111827 !important;
+}
+
+/* AP & TS */
+.category-card h3,
+.category-feature-content h3 {
+    color: #111827 !important;
+}
+
+/* Sports */
+#sportsGrid h3 {
+    color: #111827 !important;
+}
+
+/* Entertainment */
+#cinemaGrid h3 {
+    color: #111827 !important;
+}
+
+/* Business */
+#businessGrid h3 {
+    color: #111827 !important;
+}
+
+/* Trending News */
+.trending-card h3,
+.trending-news-card h3 {
+    color: #111827 !important;
+}
+
+/* Most Read */
+.most-read-item h3,
+.most-read-list h3 {
+    color: #111827 !important;
+}
+
+/* All article links */
+.latest-news-card,
+.latest-big-card,
+.category-card,
+.category-feature,
+.trending-card,
+.trending-news-card,
+.most-read-item {
+    color: #111827 !important;
+}
+
+/* Prevent visited-link purple/blue */
+.latest-news-card:visited,
+.latest-big-card:visited,
+.category-card:visited,
+.category-feature:visited,
+.trending-card:visited,
+.trending-news-card:visited,
+.most-read-item:visited {
+    color: #111827 !important;
+}
+
+
+    /* =====================================================
+   REMOVE ARTICLE BOXES
+===================================================== */
+
+/* Latest News */
+.latest-news-card,
+.latest-big-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Category sections */
+.category-card,
+.category-feature {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Trending */
+.trending-card,
+.trending-news-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Most Read */
+.most-read-item {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Images */
+.latest-news-card img,
+.category-card img,
+.trending-card img,
+.trending-news-card img {
+    border-radius: 0 !important;
+}
+
+/* Article titles BLACK */
+.latest-news-card h3,
+.latest-big-card h3,
+.category-card h3,
+.category-feature h3,
+.trending-card h3,
+.trending-news-card h3,
+.most-read-item h3 {
+    color: #111827 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+    
 
 
 /* =========================================================
