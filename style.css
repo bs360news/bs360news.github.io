@@ -1113,4 +1113,243 @@ body.dark-mode .theme-button{
 .category-card h3 {
     color: #111827 !important;
 }
-    
+
+    /* =====================================================
+   CATEGORY GRID AFTER MOST READ
+   3 COLUMNS × 3 ROWS
+===================================================== */
+
+.after-most-read {
+    width: 100%;
+    margin-top: 45px;
+}
+
+
+/* =====================================================
+   CATEGORY SECTION
+===================================================== */
+
+.after-category-section {
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.after-category-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 5px solid #006baa;
+
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+}
+
+
+.after-category-heading h2 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    color: #006baa;
+}
+
+
+.after-category-heading a {
+    color: #e00000;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   3 COLUMN GRID
+===================================================== */
+
+.three-column-news-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px 18px;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   NEWS CARD
+   NO BOX
+   NO BORDER
+   NO SHADOW
+===================================================== */
+
+.three-column-news-card {
+    display: block;
+
+    width: 100%;
+
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    text-decoration: none;
+
+    overflow: visible;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.three-column-news-card img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: none !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.three-column-news-card h3 {
+    margin: 9px 0 0;
+
+    padding: 0;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    color: #111827 !important;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    line-height: 1.45;
+
+    text-decoration: none;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   REMOVE VISITED LINK COLOR
+===================================================== */
+
+.three-column-news-card:visited,
+.three-column-news-card:hover,
+.three-column-news-card:active {
+    color: inherit !important;
+
+    background: transparent !important;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+.dark-mode .three-column-news-card h3 {
+    color: #111827 !important;
+}
+
+
+/* =====================================================
+   MOBILE
+   STILL 3 COLUMNS
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .after-most-read {
+        margin-top: 35px;
+    }
+
+
+    .after-category-section {
+        margin-bottom: 38px;
+    }
+
+
+    .after-category-heading {
+        padding-bottom: 8px;
+        margin-bottom: 14px;
+
+        border-bottom-width: 4px;
+    }
+
+
+    .after-category-heading h2 {
+        font-size: 21px;
+    }
+
+
+    .after-category-heading a {
+        font-size: 12px;
+    }
+
+
+    .three-column-news-grid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 16px 8px;
+    }
+
+
+    .three-column-news-card img {
+        border-radius: 7px;
+    }
+
+
+    .three-column-news-card h3 {
+
+        margin-top: 6px;
+
+        font-size: 13px;
+
+        line-height: 1.35;
+
+        -webkit-line-clamp: 3;
+    }
+
+}
