@@ -1280,33 +1280,50 @@ body.dark-mode .theme-button{
     }
 } 
 /* =========================================================
-   DESKTOP CATEGORY STRUCTURE
-   SPORTS + MOVIES
-   BUSINESS + AP & TS
-   MOBILE UNCHANGED
+   DESKTOP ONLY
+   AP & TS + SPORTS
+   ENTERTAINMENT + BUSINESS
 ========================================================= */
 
-@media(min-width:701px){
+@media (min-width:701px){
 
-    .after-most-read{
-        display:grid;
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:45px 24px;
-        align-items:start;
-    }
-
-    .after-category-section{
+    /* 4 category sections become 2 rows × 2 columns */
+    #aptsSection,
+    #sportsSection,
+    #cinemaSection,
+    #businessSection{
         width:100%;
-        margin-bottom:0;
     }
 
-    .after-category-heading{
-        margin-bottom:18px;
+    /* Parent container */
+    .portal-wrap{
+        display:block;
     }
 
-    .three-column-news-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        gap:20px 12px;
+    /* Put the four sections into desktop grid */
+    #aptsSection,
+    #sportsSection,
+    #cinemaSection,
+    #businessSection{
+        display:inline-block;
+        vertical-align:top;
+        width:calc(50% - 10px);
+        margin-right:16px;
+    }
+
+    #sportsSection,
+    #businessSection{
+        margin-right:0;
+    }
+
+    #aptsSection,
+    #sportsSection{
+        margin-bottom:40px;
+    }
+
+    #cinemaSection,
+    #businessSection{
+        margin-bottom:40px;
     }
 
 }
