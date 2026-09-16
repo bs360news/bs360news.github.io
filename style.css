@@ -837,6 +837,89 @@ section{
 
 
 /* =========================================================
+   DESKTOP CATEGORY STRUCTURE
+   AP & TS + SPORTS
+   ENTERTAINMENT + BUSINESS
+
+   DESKTOP ONLY
+========================================================= */
+
+@media(min-width:701px){
+
+    #aptsSection,
+    #sportsSection,
+    #cinemaSection,
+    #businessSection{
+        display:block;
+        width:calc(50% - 12px);
+        float:left;
+        vertical-align:top;
+        box-sizing:border-box;
+    }
+
+    /* FIRST ROW */
+
+    #aptsSection{
+        clear:left;
+        margin-right:24px;
+        margin-bottom:40px;
+    }
+
+    #sportsSection{
+        clear:none;
+        margin-right:0;
+        margin-bottom:40px;
+    }
+
+    /* SECOND ROW */
+
+    #cinemaSection{
+        clear:left;
+        margin-right:24px;
+        margin-bottom:40px;
+    }
+
+    #businessSection{
+        clear:none;
+        margin-right:0;
+        margin-bottom:40px;
+    }
+
+    /* Keep content below these four sections clear */
+
+    #businessSection + section{
+        clear:both;
+    }
+
+    /* Category grids inside each box */
+
+    #aptsSection .horizontal-carousel,
+    #sportsSection .horizontal-carousel,
+    #cinemaSection .horizontal-carousel,
+    #businessSection .horizontal-carousel{
+        width:100%;
+    }
+
+    #aptsSection .news-slider,
+    #sportsSection .news-slider,
+    #cinemaSection .news-slider,
+    #businessSection .news-slider{
+        width:100%;
+    }
+
+    /* Prevent section contents from overflowing */
+
+    #aptsSection *,
+    #sportsSection *,
+    #cinemaSection *,
+    #businessSection *{
+        max-width:100%;
+    }
+
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -1278,52 +1361,4 @@ body.dark-mode .theme-button{
     .latest-big-content h3{
         font-size:17px;
     }
-} 
-/* =========================================================
-   DESKTOP ONLY
-   AP & TS + SPORTS
-   ENTERTAINMENT + BUSINESS
-========================================================= */
-
-@media (min-width:701px){
-
-    /* 4 category sections become 2 rows × 2 columns */
-    #aptsSection,
-    #sportsSection,
-    #cinemaSection,
-    #businessSection{
-        width:100%;
-    }
-
-    /* Parent container */
-    .portal-wrap{
-        display:block;
-    }
-
-    /* Put the four sections into desktop grid */
-    #aptsSection,
-    #sportsSection,
-    #cinemaSection,
-    #businessSection{
-        display:inline-block;
-        vertical-align:top;
-        width:calc(50% - 10px);
-        margin-right:16px;
-    }
-
-    #sportsSection,
-    #businessSection{
-        margin-right:0;
-    }
-
-    #aptsSection,
-    #sportsSection{
-        margin-bottom:40px;
-    }
-
-    #cinemaSection,
-    #businessSection{
-        margin-bottom:40px;
-    }
-
 }
