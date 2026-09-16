@@ -1353,3 +1353,299 @@ body.dark-mode .theme-button{
     }
 
 }
+/* =====================================================
+   PHOTO GALLERY + VIDEO NEWS
+===================================================== */
+
+.photo-gallery-section,
+.video-news-section {
+    width: 100%;
+    margin: 45px 0;
+}
+
+
+/* SECTION HEADING */
+
+.extra-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 4px solid #006baa;
+
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+}
+
+.extra-section-heading h2 {
+    margin: 0;
+
+    color: #006baa;
+
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.extra-section-heading a {
+    color: #e00000;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   PHOTO GALLERY
+   HORIZONTAL SCROLL
+===================================================== */
+
+.photo-gallery-scroll {
+    display: flex;
+
+    gap: 16px;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+
+    padding-bottom: 8px;
+
+    scrollbar-width: none;
+}
+
+.photo-gallery-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+.photo-gallery-card {
+    flex: 0 0 230px;
+
+    display: block;
+
+    text-decoration: none;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+
+.photo-gallery-card img {
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    object-fit: cover;
+
+    border-radius: 9px;
+
+    display: block;
+}
+
+
+.photo-gallery-card h3 {
+    margin: 8px 0 0;
+
+    padding: 0;
+
+    color: #111827;
+
+    background: transparent;
+
+    font-size: 17px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   VIDEO NEWS
+   3 COLUMNS
+===================================================== */
+
+.video-news-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px 18px;
+}
+
+
+.video-news-card {
+    display: block;
+
+    text-decoration: none;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+
+.video-thumbnail {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 9px;
+}
+
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* PLAY ICON */
+
+.video-play {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: rgba(220, 0, 0, 0.92);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    padding-left: 3px;
+}
+
+
+.video-news-card h3 {
+    margin: 9px 0 0;
+
+    padding: 0;
+
+    color: #111827;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+    font-size: 19px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .photo-gallery-section,
+    .video-news-section {
+        margin: 35px 0;
+    }
+
+
+    .extra-section-heading h2 {
+        font-size: 21px;
+    }
+
+
+    .extra-section-heading a {
+        font-size: 12px;
+    }
+
+
+    /* PHOTO */
+
+    .photo-gallery-card {
+        flex: 0 0 190px;
+    }
+
+
+    .photo-gallery-card h3 {
+        font-size: 14px;
+    }
+
+
+    /* VIDEO 3 COLUMNS */
+
+    .video-news-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 16px 8px;
+    }
+
+
+    .video-thumbnail {
+        border-radius: 7px;
+    }
+
+
+    .video-play {
+        width: 34px;
+        height: 34px;
+
+        font-size: 14px;
+    }
+
+
+    .video-news-card h3 {
+        font-size: 13px;
+
+        line-height: 1.35;
+
+        margin-top: 6px;
+    }
+
+}
