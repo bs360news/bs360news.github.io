@@ -1,596 +1,775 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AP & TS News | BS 360 NEWS</title>
-
-    <meta name="description"
-        content="ఆంధ్రప్రదేశ్ మరియు తెలంగాణ తాజా వార్తలు, రాజకీయాలు, రాష్ట్ర వార్తలు - BS 360 NEWS">
-
-    <meta name="robots" content="index, follow, max-image-preview:large">
-
-    <meta name="author" content="BS 360 NEWS">
-
-    <meta name="theme-color" content="#075aaa">
-
-    <link rel="canonical" href="https://bs360news.com/AP%26TS.html">
-
-    <link rel="icon" type="image/png" href="dp.png.png">
-
-    <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        *{
-            box-sizing:border-box;
-            margin:0;
-            padding:0;
-        }
-
-        html{
-            scroll-behavior:smooth;
-        }
-
-        body{
-            background:#f3f5f7;
-            color:#111827;
-            font-family:Arial,"Noto Sans Telugu","Segoe UI",sans-serif;
-            line-height:1.5;
-            overflow-x:hidden;
-        }
-
-        img{
-            display:block;
-            width:100%;
-            max-width:100%;
-        }
-
-        a{
-            text-decoration:none;
-            color:inherit;
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        .header{
-            background:#075aaa;
-            color:#fff;
-        }
-
-        .header-inner{
-            max-width:1400px;
-            margin:auto;
-            min-height:72px;
-            padding:10px 18px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:15px;
-        }
-
-        .brand{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            min-width:0;
-        }
-
-        .brand img{
-            width:50px;
-            height:50px;
-            object-fit:cover;
-            border-radius:50%;
-            background:#fff;
-        }
-
-        .brand-text{
-            min-width:0;
-        }
-
-        .brand-title{
-            font-size:25px;
-            font-weight:800;
-            line-height:1.1;
-            white-space:nowrap;
-        }
-
-        .tagline{
-            font-size:11px;
-            opacity:.9;
-            margin-top:3px;
-        }
-
-
-        /* =====================================================
-           HEADER BUTTONS
-        ===================================================== */
-
-        .header-actions{
-            display:flex;
-            align-items:center;
-            gap:8px;
-        }
-
-        .live-btn,
-        .theme-btn{
-            border:1px solid rgba(255,255,255,.35);
-            background:rgba(255,255,255,.12);
-            color:#fff;
-            border-radius:6px;
-            padding:8px 12px;
-            font-weight:700;
-            cursor:pointer;
-        }
-
-        .live-btn{
-            display:flex;
-            align-items:center;
-            gap:6px;
-        }
-
-        .live-dot{
-            width:8px;
-            height:8px;
-            border-radius:50%;
-            background:#ff2222;
-            display:inline-block;
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .nav{
-            background:#064d91;
-            border-top:1px solid rgba(255,255,255,.12);
-        }
-
-        .nav-inner{
-            max-width:1400px;
-            margin:auto;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:4px;
-            padding:7px 12px;
-        }
-
-        .nav a{
-            color:#fff;
-            padding:8px 15px;
-            border-radius:5px;
-            font-size:14px;
-            font-weight:700;
-            white-space:nowrap;
-        }
-
-        .nav a:hover,
-        .nav a.active{
-            background:#e11d2e;
-        }
-
-
-        /* =====================================================
-           BREAKING NEWS
-        ===================================================== */
-
-        .breaking{
-            background:#fff;
-            border-bottom:1px solid #ddd;
-            display:flex;
-            align-items:center;
-            max-width:1400px;
-            margin:auto;
-            min-height:42px;
-            overflow:hidden;
-        }
-
-        .breaking-label{
-            background:#e11d2e;
-            color:#fff;
-            font-weight:800;
-            padding:10px 14px;
-            white-space:nowrap;
-            font-size:13px;
-        }
-
-        .breaking-text{
-            padding:0 14px;
-            white-space:nowrap;
-            overflow:hidden;
-            text-overflow:ellipsis;
-            font-size:13px;
-            font-weight:600;
-        }
-
-
-        /* =====================================================
-           MAIN
-        ===================================================== */
-
-        .container{
-            width:calc(100% - 30px);
-            max-width:1400px;
-            margin:22px auto 40px;
-        }
-
-        .page-title{
-            background:#fff;
-            border-left:5px solid #075aaa;
-            padding:13px 16px;
-            margin-bottom:20px;
-            border-radius:5px;
-        }
-
-        .page-title h1{
-            font-size:25px;
-            font-weight:800;
-        }
-
-        .page-title p{
-            margin-top:3px;
-            color:#667085;
-            font-size:13px;
-        }
-
-
-        /* =====================================================
-           SECTION
-        ===================================================== */
-
-        .section{
-            margin-bottom:30px;
-        }
-
-        .section-title{
-            display:flex;
-            align-items:center;
-            gap:8px;
-            margin-bottom:12px;
-            font-size:20px;
-            font-weight:800;
-            padding-left:10px;
-            border-left:4px solid #e11d2e;
-        }
-
-        .ts-title{
-            border-left-color:#075aaa;
-        }
-
-
-        /* =====================================================
-           NEWS GRID
-           LAPTOP/DESKTOP = 7
-           MOBILE = 3
-        ===================================================== */
-
-        .news-grid{
-            display:grid;
-            grid-template-columns:repeat(7,minmax(0,1fr));
-            gap:12px;
-        }
-
-
-        /* =====================================================
-           CARD
-        ===================================================== */
-
-        .news-card{
-            background:#fff;
-            border:1px solid #e1e5e9;
-            border-radius:7px;
-            overflow:hidden;
-            transition:.2s ease;
-        }
-
-        .news-card:hover{
-            transform:translateY(-2px);
-            box-shadow:0 4px 14px rgba(0,0,0,.10);
-        }
-
-        .news-image{
-            aspect-ratio:16/9;
-            overflow:hidden;
-            background:#ddd;
-        }
-
-        .news-image img{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            transition:.25s ease;
-        }
-
-        .news-card:hover .news-image img{
-            transform:scale(1.04);
-        }
-
-        .news-content{
-            padding:9px;
-        }
-
-        .news-tag{
-            display:inline-block;
-            color:#e11d2e;
-            font-size:9px;
-            font-weight:800;
-            margin-bottom:4px;
-            text-transform:uppercase;
-        }
-
-        .ts-section .news-tag{
-            color:#075aaa;
-        }
-
-        .news-title{
-            font-size:13px;
-            font-weight:700;
-            line-height:1.4;
-
-            display:-webkit-box;
-            -webkit-line-clamp:3;
-            -webkit-box-orient:vertical;
-            overflow:hidden;
-        }
-
-
-        /* =====================================================
-           AD
-        ===================================================== */
-
-        .ad-space{
-            min-height:90px;
-            margin:25px 0;
-            background:#fff;
-            border:1px dashed #c7cdd4;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:#98a2b3;
-            font-size:12px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer{
-            background:#111827;
-            color:#fff;
-            margin-top:40px;
-        }
-
-        .footer-inner{
-            max-width:1400px;
-            margin:auto;
-            padding:28px 18px;
-            text-align:center;
-        }
-
-        .footer-links{
-            display:flex;
-            justify-content:center;
-            flex-wrap:wrap;
-            gap:8px 18px;
-            margin-bottom:14px;
-        }
-
-        .footer-links a{
-            color:#dbe4ef;
-            font-size:13px;
-        }
-
-        .footer-links a:hover{
-            color:#fff;
-        }
-
-        .footer-email{
-            font-size:13px;
-            color:#cbd5e1;
-            margin-bottom:7px;
-        }
-
-        .footer-follow{
-            font-size:12px;
-            color:#94a3b8;
-            margin-bottom:12px;
-        }
-
-        .copyright{
-            border-top:1px solid rgba(255,255,255,.12);
-            padding-top:13px;
-            font-size:12px;
-            color:#94a3b8;
-        }
-
-
-        /* =====================================================
-           MOBILE
-           3 CARDS PER ROW
-        ===================================================== */
-
-        @media(max-width:768px){
-
-            .header-inner{
-                min-height:60px;
-                padding:7px 10px;
-            }
-
-            .brand img{
-                width:42px;
-                height:42px;
-            }
-
-            .brand-title{
-                font-size:18px;
-            }
-
-            .tagline{
-                font-size:9px;
-            }
-
-            .header-actions{
-                gap:4px;
-            }
-
-            .theme-btn,
-            .live-btn{
-                padding:6px 8px;
-                font-size:11px;
-            }
-
-            .nav-inner{
-                justify-content:flex-start;
-                overflow-x:auto;
-                scrollbar-width:none;
-                padding:5px 7px;
-            }
-
-            .nav-inner::-webkit-scrollbar{
-                display:none;
-            }
-
-            .nav a{
-                font-size:11px;
-                padding:7px 10px;
-            }
-
-            .breaking{
-                min-height:36px;
-            }
-
-            .breaking-label{
-                padding:8px 9px;
-                font-size:10px;
-            }
-
-            .breaking-text{
-                font-size:10px;
-                padding:0 8px;
-            }
-
-            .container{
-                width:calc(100% - 14px);
-                margin:15px auto 30px;
-            }
-
-            .page-title{
-                padding:10px 12px;
-                margin-bottom:15px;
-            }
-
-            .page-title h1{
-                font-size:19px;
-            }
-
-            .page-title p{
-                font-size:11px;
-            }
-
-            .section{
-                margin-bottom:22px;
-            }
-
-            .section-title{
-                font-size:16px;
-                margin-bottom:9px;
-                padding-left:7px;
-            }
-
-            /* MOBILE = 3 */
-
-            .news-grid{
-                grid-template-columns:repeat(3,minmax(0,1fr));
-                gap:7px;
-            }
-
-            .news-card{
-                border-radius:5px;
-            }
-
-            .news-content{
-                padding:6px;
-            }
-
-            .news-tag{
-                font-size:7px;
-                margin-bottom:2px;
-            }
-
-            .news-title{
-                font-size:10px;
-                line-height:1.35;
-                -webkit-line-clamp:3;
-            }
-
-            .ad-space{
-                min-height:70px;
-                margin:18px 0;
-            }
-
-            .footer-inner{
-                padding:22px 10px;
-            }
-
-            .footer-links{
-                gap:7px 12px;
-            }
-
-            .footer-links a{
-                font-size:11px;
-            }
-
-            .footer-email,
-            .footer-follow,
-            .copyright{
-                font-size:11px;
-            }
-        }
-
-
-        /* =====================================================
-           VERY SMALL MOBILE
-        ===================================================== */
-
-        @media(max-width:380px){
-
-            .brand-title{
-                font-size:16px;
-            }
-
-            .theme-btn{
-                display:none;
-            }
-
-            .news-grid{
-                gap:5px;
-            }
-
-            .news-content{
-                padding:5px;
-            }
-
-            .news-title{
-                font-size:9px;
-            }
-
-            .news-tag{
-                font-size:6.5px;
-            }
-        }
-
-    </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AP & TS News | BS 360 NEWS</title>
+
+<meta name="description"
+content="ఆంధ్రప్రదేశ్ మరియు తెలంగాణ తాజా వార్తలు, రాజకీయాలు, రాష్ట్ర వార్తలు - BS 360 NEWS">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta name="author" content="BS 360 NEWS">
+
+<meta name="theme-color" content="#ffffff">
+
+<link rel="canonical" href="https://bs360news.com/AP%26TS.html">
+
+<link rel="icon" type="image/png" href="dp.png.png">
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f3f5f7;
+    color:#111827;
+    font-family:Arial,"Noto Sans Telugu","Segoe UI",sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+    width:100%;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    background:#fff;
+    color:#111;
+    border-bottom:1px solid #ddd;
+}
+
+.header-inner{
+    max-width:1400px;
+    margin:auto;
+
+    min-height:68px;
+
+    padding:8px 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    min-width:0;
+}
+
+.brand img{
+    width:48px;
+    height:48px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    background:#fff;
+}
+
+.brand-text{
+    min-width:0;
+}
+
+.brand-title{
+    font-size:25px;
+    font-weight:900;
+
+    line-height:1.1;
+
+    white-space:nowrap;
+
+    color:#111;
+}
+
+.brand-title span{
+    color:#e11d2e;
+}
+
+.tagline{
+    font-size:10px;
+
+    color:#666;
+
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   HEADER BUTTONS
+===================================================== */
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.live-btn,
+.theme-btn{
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    color:#111;
+
+    border-radius:6px;
+
+    padding:7px 11px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.live-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.live-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#e11d2e;
+
+    display:inline-block;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav{
+    background:#fff;
+
+    border-bottom:1px solid #ddd;
+}
+
+.nav-inner{
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:4px;
+
+    padding:5px 12px;
+}
+
+.nav a{
+    color:#222;
+
+    padding:8px 15px;
+
+    border-radius:4px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    border-bottom:3px solid transparent;
+}
+
+.nav a:hover{
+    color:#e11d2e;
+}
+
+.nav a.active{
+    color:#e11d2e;
+
+    border-bottom-color:#e11d2e;
+
+    background:#fff;
+}
+
+
+/* =====================================================
+   BREAKING NEWS
+===================================================== */
+
+.breaking{
+    background:#fff;
+
+    border-bottom:1px solid #ddd;
+
+    display:flex;
+
+    align-items:center;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    min-height:42px;
+
+    overflow:hidden;
+}
+
+.breaking-label{
+    background:#e11d2e;
+
+    color:#fff;
+
+    font-weight:800;
+
+    padding:10px 14px;
+
+    white-space:nowrap;
+
+    font-size:13px;
+}
+
+.breaking-text{
+    padding:0 14px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container{
+    width:calc(100% - 30px);
+
+    max-width:1400px;
+
+    margin:22px auto 40px;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+    background:#fff;
+
+    border-left:5px solid #e11d2e;
+
+    padding:13px 16px;
+
+    margin-bottom:20px;
+
+    border-radius:5px;
+}
+
+.page-title h1{
+    font-size:25px;
+
+    font-weight:800;
+}
+
+.page-title p{
+    margin-top:3px;
+
+    color:#667085;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section{
+    margin-bottom:30px;
+}
+
+.section-title{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:12px;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    padding-left:10px;
+
+    border-left:4px solid #e11d2e;
+}
+
+.ts-title{
+    border-left-color:#e11d2e;
+}
+
+
+/* =====================================================
+   NEWS GRID
+   DESKTOP = 7
+   MOBILE = 3
+===================================================== */
+
+.news-grid{
+    display:grid;
+
+    grid-template-columns:repeat(7,minmax(0,1fr));
+
+    gap:12px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.news-card{
+    background:#fff;
+
+    border:1px solid #e1e5e9;
+
+    border-radius:7px;
+
+    overflow:hidden;
+
+    transition:.2s ease;
+}
+
+.news-card:hover{
+    transform:translateY(-2px);
+
+    box-shadow:0 4px 14px rgba(0,0,0,.10);
+}
+
+.news-image{
+    aspect-ratio:16/9;
+
+    overflow:hidden;
+
+    background:#ddd;
+}
+
+.news-image img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.25s ease;
+}
+
+.news-card:hover .news-image img{
+    transform:scale(1.04);
+}
+
+.news-content{
+    padding:9px;
+}
+
+.news-tag{
+    display:inline-block;
+
+    color:#e11d2e;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    margin-bottom:4px;
+
+    text-transform:uppercase;
+}
+
+.ts-section .news-tag{
+    color:#e11d2e;
+}
+
+.news-title{
+    font-size:13px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:3;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   AD
+===================================================== */
+
+.ad-space{
+    min-height:90px;
+
+    margin:25px 0;
+
+    background:#fff;
+
+    border:1px dashed #c7cdd4;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#98a2b3;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:#111827;
+
+    color:#fff;
+
+    margin-top:40px;
+}
+
+.footer-inner{
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:28px 18px;
+
+    text-align:center;
+}
+
+.footer-links{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:8px 18px;
+
+    margin-bottom:14px;
+}
+
+.footer-links a{
+    color:#dbe4ef;
+
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:#e11d2e;
+}
+
+.footer-email{
+    font-size:13px;
+
+    color:#cbd5e1;
+
+    margin-bottom:7px;
+}
+
+.footer-follow{
+    font-size:12px;
+
+    color:#94a3b8;
+
+    margin-bottom:12px;
+}
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,.12);
+
+    padding-top:13px;
+
+    font-size:12px;
+
+    color:#94a3b8;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+    .header-inner{
+        min-height:58px;
+
+        padding:7px 10px;
+    }
+
+    .brand img{
+        width:42px;
+
+        height:42px;
+    }
+
+    .brand-title{
+        font-size:18px;
+    }
+
+    .tagline{
+        font-size:8px;
+    }
+
+    .header-actions{
+        gap:4px;
+    }
+
+    .theme-btn,
+    .live-btn{
+        padding:6px 8px;
+
+        font-size:10px;
+    }
+
+
+    /* NAV */
+
+    .nav-inner{
+        justify-content:flex-start;
+
+        overflow-x:auto;
+
+        scrollbar-width:none;
+
+        padding:4px 7px;
+    }
+
+    .nav-inner::-webkit-scrollbar{
+        display:none;
+    }
+
+    .nav a{
+        font-size:11px;
+
+        padding:7px 10px;
+    }
+
+
+    /* BREAKING */
+
+    .breaking{
+        min-height:36px;
+    }
+
+    .breaking-label{
+        padding:8px 9px;
+
+        font-size:10px;
+    }
+
+    .breaking-text{
+        font-size:10px;
+
+        padding:0 8px;
+    }
+
+
+    /* MAIN */
+
+    .container{
+        width:calc(100% - 14px);
+
+        margin:15px auto 30px;
+    }
+
+
+    /* PAGE TITLE */
+
+    .page-title{
+        padding:10px 12px;
+
+        margin-bottom:15px;
+    }
+
+    .page-title h1{
+        font-size:19px;
+    }
+
+    .page-title p{
+        font-size:11px;
+    }
+
+
+    /* SECTION */
+
+    .section{
+        margin-bottom:22px;
+    }
+
+    .section-title{
+        font-size:16px;
+
+        margin-bottom:9px;
+
+        padding-left:7px;
+    }
+
+
+    /* 3 CARDS */
+
+    .news-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+
+        gap:7px;
+    }
+
+    .news-card{
+        border-radius:5px;
+    }
+
+    .news-content{
+        padding:6px;
+    }
+
+    .news-tag{
+        font-size:7px;
+
+        margin-bottom:2px;
+    }
+
+    .news-title{
+        font-size:10px;
+
+        line-height:1.35;
+
+        -webkit-line-clamp:3;
+    }
+
+
+    /* AD */
+
+    .ad-space{
+        min-height:70px;
+
+        margin:18px 0;
+    }
+
+
+    /* FOOTER */
+
+    .footer-inner{
+        padding:22px 10px;
+    }
+
+    .footer-links{
+        gap:7px 12px;
+    }
+
+    .footer-links a{
+        font-size:11px;
+    }
+
+    .footer-email,
+    .footer-follow,
+    .copyright{
+        font-size:11px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+    .brand-title{
+        font-size:16px;
+    }
+
+    .theme-btn{
+        display:none;
+    }
+
+    .news-grid{
+        gap:5px;
+    }
+
+    .news-content{
+        padding:5px;
+    }
+
+    .news-title{
+        font-size:9px;
+    }
+
+    .news-tag{
+        font-size:6.5px;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
@@ -612,7 +791,7 @@
             <div class="brand-text">
 
                 <div class="brand-title">
-                    BS 360 NEWS
+                    BS <span>360</span> NEWS
                 </div>
 
                 <div class="tagline">
@@ -634,8 +813,11 @@
             </button>
 
             <a href="#" class="live-btn">
+
                 <span class="live-dot"></span>
+
                 LIVE
+
             </a>
 
         </div>
@@ -654,23 +836,23 @@
     <div class="nav-inner">
 
         <a href="./">
-             హోమ్
+            హోమ్
         </a>
 
         <a href="movies.html">
-             సినిమా
+            సినిమా
         </a>
 
         <a href="sports.html">
-             స్పోర్ట్స్
+            స్పోర్ట్స్
         </a>
 
         <a href="AP&TS.html" class="active">
-             AP & TS
+            AP & TS
         </a>
 
         <a href="business.html">
-             బిజినెస్
+            బిజినెస్
         </a>
 
     </div>
@@ -695,7 +877,6 @@
 </div>
 
 
-
 <!-- =========================================================
      MAIN CONTENT
 ========================================================= -->
@@ -703,179 +884,172 @@
 <main class="container">
 
 
-    <!-- PAGE TITLE -->
+<!-- PAGE TITLE -->
 
-    <div class="page-title">
+<div class="page-title">
 
-        <h1>
-             AP & Telangana News
-        </h1>
+    <h1>
+        AP & Telangana News
+    </h1>
 
-        <p>
-            ఆంధ్రప్రదేశ్ మరియు తెలంగాణ రాష్ట్రాల తాజా వార్తలు
-        </p>
+    <p>
+        ఆంధ్రప్రదేశ్ మరియు తెలంగాణ రాష్ట్రాల తాజా వార్తలు
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     ANDHRA PRADESH
+====================================================== -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        ఆంధ్రప్రదేశ్ వార్తలు
+    </h2>
+
+
+    <div class="news-grid">
+
+
+        <!-- AP 1 -->
+
+        <a href="laddu.html" class="news-card">
+
+            <div class="news-image">
+
+                <img
+                    src="laddu.jpg"
+                    alt="తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో చర్చ"
+                    loading="lazy">
+
+            </div>
+
+            <div class="news-content">
+
+                <span class="news-tag">
+                    ANDHRA PRADESH
+                </span>
+
+                <div class="news-title">
+                    తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో వేడెక్కిన చర్చ.. సమగ్ర విచారణ అవసరమన్న చంద్రబాబు, పవన్
+                </div>
+
+            </div>
+
+        </a>
+
 
     </div>
 
+</section>
 
 
-    <!-- =====================================================
-         ANDHRA PRADESH
-    ====================================================== -->
+<!-- =====================================================
+     ADVERTISEMENT
+====================================================== -->
 
-    <section class="section">
-
-        <h2 class="section-title">
-             ఆంధ్రప్రదేశ్ వార్తలు
-        </h2>
+<div class="ad-space">
+    Advertisement
+</div>
 
 
-        <div class="news-grid">
+<!-- =====================================================
+     TELANGANA
+====================================================== -->
+
+<section class="section ts-section">
+
+    <h2 class="section-title ts-title">
+        తెలంగాణ వార్తలు
+    </h2>
 
 
-    
-            <!-- AP 2 -->
+    <div class="news-grid">
 
-            <a href="laddu.html" class="news-card">
 
-                <div class="news-image">
+        <!-- TS 1 -->
 
-                    <img
-                        src="laddu.jpg"
-                        alt="తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో చర్చ"
-                        loading="lazy">
+        <a href="ts2.html" class="news-card">
 
+            <div class="news-image">
+
+                <img
+                    src="ts2.jpeg"
+                    alt="తెలంగాణ అసెంబ్లీలో దుద్దిళ్ల శ్రీపాదరావు సెంట్రల్ హాల్ ప్రారంభం"
+                    loading="lazy">
+
+            </div>
+
+            <div class="news-content">
+
+                <span class="news-tag">
+                    TELANGANA
+                </span>
+
+                <div class="news-title">
+                    🏛️ తెలంగాణ అసెంబ్లీలో దుద్దిళ్ల శ్రీపాదరావు సెంట్రల్ హాల్ ప్రారంభం.. సీఎం రేవంత్‌రెడ్డి చేతుల మీదుగా ప్రారంభోత్సవం
                 </div>
 
-                <div class="news-content">
+            </div>
 
-                    <span class="news-tag">
-                        ANDHRA PRADESH
-                    </span>
-
-                    <div class="news-title">
-                         తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో వేడెక్కిన చర్చ.. సమగ్ర విచారణ అవసరమన్న చంద్రబాబు, పవన్
-                    </div>
-
-                </div>
-
-            </a>
+        </a>
 
 
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         ADVERTISEMENT
-    ====================================================== -->
-
-    <div class="ad-space">
-        Advertisement
     </div>
 
+</section>
 
 
-    <!-- =====================================================
-         TELANGANA
-    ====================================================== -->
+<!-- =====================================================
+     ALL AP & TS NEWS
+====================================================== -->
 
-    <section class="section ts-section">
+<section class="section">
 
-        <h2 class="section-title ts-title">
-             తెలంగాణ వార్తలు
-        </h2>
-
-
-        <div class="news-grid">
+    <h2 class="section-title">
+        AP & TS తాజా వార్తలు
+    </h2>
 
 
-            <!-- TS 1 -->
+    <div class="news-grid">
 
-            <a href="ts2.html" class="news-card">
 
-                <div class="news-image">
+        <!-- AP -->
 
-                    <img
-                        src="ts2.jpeg"
-                        alt="తెలంగాణ అసెంబ్లీలో దుద్దిళ్ల శ్రీపాదరావు సెంట్రల్ హాల్ ప్రారంభం"
-                        loading="lazy">
+        <a href="laddu.html" class="news-card">
 
+            <div class="news-image">
+
+                <img
+                    src="laddu.jpg"
+                    alt="తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో చర్చ"
+                    loading="lazy">
+
+            </div>
+
+            <div class="news-content">
+
+                <span class="news-tag">
+                    ANDHRA PRADESH
+                </span>
+
+                <div class="news-title">
+                    తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో వేడెక్కిన చర్చ.. సమగ్ర విచారణ అవసరమన్న చంద్రబాబు, పవన్
                 </div>
 
-                <div class="news-content">
+            </div>
 
-                    <span class="news-tag">
-                        TELANGANA
-                    </span>
-
-                    <div class="news-title">
-                        🏛️ తెలంగాణ అసెంబ్లీలో దుద్దిళ్ల శ్రీపాదరావు సెంట్రల్ హాల్ ప్రారంభం.. సీఎం రేవంత్‌రెడ్డి చేతుల మీదుగా ప్రారంభోత్సవం
-                    </div>
-
-                </div>
-
-            </a>
+        </a>
 
 
-        </div>
+    </div>
 
-    </section>
-
-
-
-    <!-- =====================================================
-         ALL AP & TS NEWS
-    ====================================================== -->
-
-    <section class="section">
-
-        <h2 class="section-title">
-             AP & TS తాజా వార్తలు
-        </h2>
-
-
-        <div class="news-grid">
-
-
-
-            <!-- 2 -->
-
-            <a href="laddu.html" class="news-card">
-
-                <div class="news-image">
-
-                    <img
-                        src="laddu.jpg"
-                        alt="తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో చర్చ"
-                        loading="lazy">
-
-                </div>
-
-                <div class="news-content">
-
-                    <span class="news-tag">
-                        ANDHRA PRADESH
-                    </span>
-
-                    <div class="news-title">
-                         తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో వేడెక్కిన చర్చ.. సమగ్ర విచారణ అవసరమన్న చంద్రబాబు, పవన్
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
- 
+</section>
 
 
 </main>
-
 
 
 <!-- =========================================================
@@ -932,62 +1106,99 @@
 </footer>
 
 
-
 <script>
 
-    /* =====================================================
-       SIMPLE DARK MODE
-    ===================================================== */
+/* =====================================================
+   SIMPLE DARK MODE
+===================================================== */
 
-    const themeButton = document.getElementById("themeButton");
+const themeButton = document.getElementById("themeButton");
 
-    themeButton.addEventListener("click", function(){
+themeButton.addEventListener("click", function(){
 
-        document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
 
-        if(document.body.classList.contains("dark-mode")){
-            themeButton.textContent = "☀️ Light";
-        }else{
-            themeButton.textContent = "🌙 Dark";
-        }
+    if(document.body.classList.contains("dark-mode")){
 
-    });
+        themeButton.textContent = "☀️ Light";
+
+    }else{
+
+        themeButton.textContent = "🌙 Dark";
+
+    }
+
+});
 
 </script>
 
 
 <style>
 
-    /* =====================================================
-       DARK MODE
-    ===================================================== */
+/* =====================================================
+   DARK MODE
+===================================================== */
 
-    body.dark-mode{
-        background:#111827;
-        color:#f9fafb;
-    }
+body.dark-mode{
+    background:#111827;
+    color:#f9fafb;
+}
 
-    body.dark-mode .page-title,
-    body.dark-mode .news-card,
-    body.dark-mode .breaking,
-    body.dark-mode .ad-space{
-        background:#1f2937;
-        border-color:#374151;
-    }
+body.dark-mode .header,
+body.dark-mode .nav{
+    background:#111827;
+}
 
-    body.dark-mode .page-title p{
-        color:#cbd5e1;
-    }
+body.dark-mode .brand-title{
+    color:#f9fafb;
+}
 
-    body.dark-mode .news-title{
-        color:#f9fafb;
-    }
+body.dark-mode .tagline{
+    color:#cbd5e1;
+}
 
-    body.dark-mode .breaking-text{
-        color:#f9fafb;
-    }
+body.dark-mode .theme-btn,
+body.dark-mode .live-btn{
+    background:#1f2937;
+    color:#fff;
+    border-color:#374151;
+}
+
+body.dark-mode .nav{
+    border-color:#374151;
+}
+
+body.dark-mode .nav a{
+    color:#f9fafb;
+}
+
+body.dark-mode .nav a.active{
+    color:#e11d2e;
+    background:#111827;
+}
+
+body.dark-mode .page-title,
+body.dark-mode .news-card,
+body.dark-mode .breaking,
+body.dark-mode .ad-space{
+    background:#1f2937;
+    border-color:#374151;
+}
+
+body.dark-mode .page-title p{
+    color:#cbd5e1;
+}
+
+body.dark-mode .news-title{
+    color:#f9fafb;
+}
+
+body.dark-mode .breaking-text{
+    color:#f9fafb;
+}
 
 </style>
+
 
 </body>
 </html>
