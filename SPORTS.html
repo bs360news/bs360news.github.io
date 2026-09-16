@@ -103,53 +103,42 @@ button{
 
 
 /* =========================================================
-   NAVIGATION
+   DESKTOP NAVIGATION - BIG SIZE
 ========================================================= */
 
-.nav-bar{
-    background:#fff;
-    border-bottom:1px solid #ddd;
+@media(min-width:1101px){
 
-    position:sticky;
-    top:0;
-    z-index:1000;
+    .nav-inner{
+        gap:8px;
+    }
+
+    .nav-inner a{
+        padding:14px 20px;
+
+        font-size:17px;
+
+        font-weight:800;
+
+        white-space:nowrap;
+
+        color:#111827;
+
+        border-bottom:3px solid transparent;
+    }
+
+    .nav-inner a:hover{
+        color:#e50914;
+    }
+
+    .nav-inner a.active{
+        color:#e50914;
+
+        border-bottom:3px solid #e50914;
+
+        background:#fff;
+    }
+
 }
-
-.nav-inner{
-    max-width:1400px;
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-
-    overflow-x:auto;
-    scrollbar-width:none;
-}
-
-.nav-inner::-webkit-scrollbar{
-    display:none;
-}
-
-.nav-inner a{
-    white-space:nowrap;
-
-    padding:12px 17px;
-
-    font-size:14px;
-    font-weight:700;
-
-    border-bottom:3px solid transparent;
-}
-
-.nav-inner a:hover{
-    color:#e50914;
-}
-
-.nav-inner a.active{
-    color:#e50914;
-    border-bottom-color:#e50914;
-}
-
 
 /* =========================================================
    BREAKING NEWS
