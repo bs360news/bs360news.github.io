@@ -1796,3 +1796,739 @@ body.dark-mode .theme-button{
         font-size:17px;
     }
 }
+/* =========================================================
+   BS 360 NEWS
+   LAPTOP ONLY
+   HERO LEFT + 3 ARTICLES RIGHT
+   AP & TS / SPORTS / ENTERTAINMENT / BUSINESS
+========================================================= */
+
+@media (min-width: 769px){
+
+    /* =====================================================
+       COMMON SECTION
+    ===================================================== */
+
+    #aptsSection,
+    #sportsSection,
+    #cinemaSection,
+    #businessSection{
+        width:100%;
+        margin-bottom:40px;
+    }
+
+
+    /* =====================================================
+       AP & TS
+       Actual structure:
+       .news-slider
+          .slider-track
+    ===================================================== */
+
+    #aptsSection .carousel-wrap{
+        width:100%;
+        display:block;
+        position:relative;
+    }
+
+    #aptsSection .news-slider{
+        width:100%;
+        overflow:visible !important;
+    }
+
+    #aptsSection .slider-track{
+
+        width:100% !important;
+
+        display:grid !important;
+
+        grid-template-columns:
+            minmax(0,2fr)
+            minmax(0,1fr)
+            minmax(0,1fr)
+            minmax(0,1fr);
+
+        gap:15px;
+
+        transform:none !important;
+
+        transition:none !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+
+        overflow:visible !important;
+    }
+
+
+    /* AP & TS first article = BIG HERO */
+
+    #aptsSection .slider-track > *:first-child{
+
+        grid-column:1;
+
+        grid-row:1;
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        max-width:none !important;
+
+        height:390px !important;
+
+        overflow:hidden;
+
+        position:relative;
+    }
+
+
+    /* AP & TS remaining 3 articles */
+
+    #aptsSection .slider-track > *:nth-child(2),
+    #aptsSection .slider-track > *:nth-child(3),
+    #aptsSection .slider-track > *:nth-child(4){
+
+        grid-row:1;
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        max-width:none !important;
+
+        height:auto !important;
+
+        overflow:hidden;
+    }
+
+
+    /* Hide extra AP & TS articles on laptop */
+
+    #aptsSection .slider-track > *:nth-child(n+5){
+        display:none !important;
+    }
+
+
+    /* AP & TS Hero image */
+
+    #aptsSection .slider-track > *:first-child img{
+
+        width:100% !important;
+
+        height:390px !important;
+
+        object-fit:cover !important;
+
+        border-radius:10px;
+    }
+
+
+    /* AP & TS small images */
+
+    #aptsSection .slider-track > *:nth-child(2) img,
+    #aptsSection .slider-track > *:nth-child(3) img,
+    #aptsSection .slider-track > *:nth-child(4) img{
+
+        width:100% !important;
+
+        height:120px !important;
+
+        object-fit:cover !important;
+
+        border-radius:8px;
+    }
+
+
+    /* AP & TS small article text */
+
+    #aptsSection .slider-track > *:nth-child(2) h3,
+    #aptsSection .slider-track > *:nth-child(3) h3,
+    #aptsSection .slider-track > *:nth-child(4) h3,
+    #aptsSection .slider-track > *:nth-child(2) p,
+    #aptsSection .slider-track > *:nth-child(3) p,
+    #aptsSection .slider-track > *:nth-child(4) p{
+
+        margin:7px 0 0;
+
+        padding:0;
+
+        font-size:16px;
+
+        line-height:1.4;
+
+        font-weight:700;
+
+        color:#111827;
+
+        display:-webkit-box;
+
+        -webkit-line-clamp:3;
+
+        -webkit-box-orient:vertical;
+
+        overflow:hidden;
+    }
+
+
+    /* AP & TS Hero text */
+
+    #aptsSection .slider-track > *:first-child h3,
+    #aptsSection .slider-track > *:first-child p{
+
+        margin:0;
+
+        padding:12px;
+
+        font-size:22px;
+
+        line-height:1.4;
+
+        font-weight:900;
+
+        color:#fff;
+
+        position:absolute;
+
+        left:0;
+
+        right:0;
+
+        bottom:0;
+
+        z-index:5;
+
+        background:linear-gradient(
+            to top,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,0)
+        );
+    }
+
+
+
+    /* =====================================================
+       SPORTS
+    ===================================================== */
+
+    #sportsGrid{
+
+        width:100% !important;
+
+        display:grid !important;
+
+        grid-template-columns:
+            minmax(0,2fr)
+            minmax(0,1fr)
+            minmax(0,1fr)
+            minmax(0,1fr);
+
+        gap:15px;
+
+        overflow:visible !important;
+
+        transform:none !important;
+
+        transition:none !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+    }
+
+
+    #sportsGrid > *:first-child{
+
+        grid-column:1;
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        height:390px !important;
+
+        overflow:hidden;
+
+        position:relative;
+    }
+
+
+    #sportsGrid > *:nth-child(2),
+    #sportsGrid > *:nth-child(3),
+    #sportsGrid > *:nth-child(4){
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        height:auto !important;
+
+        overflow:hidden;
+    }
+
+
+    #sportsGrid > *:nth-child(n+5){
+        display:none !important;
+    }
+
+
+    #sportsGrid > *:first-child img{
+
+        width:100% !important;
+
+        height:390px !important;
+
+        object-fit:cover !important;
+
+        border-radius:10px;
+    }
+
+
+    #sportsGrid > *:nth-child(2) img,
+    #sportsGrid > *:nth-child(3) img,
+    #sportsGrid > *:nth-child(4) img{
+
+        width:100% !important;
+
+        height:120px !important;
+
+        object-fit:cover !important;
+
+        border-radius:8px;
+    }
+
+
+    #sportsGrid > *:nth-child(2) h3,
+    #sportsGrid > *:nth-child(3) h3,
+    #sportsGrid > *:nth-child(4) h3,
+    #sportsGrid > *:nth-child(2) p,
+    #sportsGrid > *:nth-child(3) p,
+    #sportsGrid > *:nth-child(4) p{
+
+        margin:7px 0 0;
+
+        padding:0;
+
+        font-size:16px;
+
+        line-height:1.4;
+
+        font-weight:700;
+
+        color:#111827;
+
+        display:-webkit-box;
+
+        -webkit-line-clamp:3;
+
+        -webkit-box-orient:vertical;
+
+        overflow:hidden;
+    }
+
+
+    #sportsGrid > *:first-child h3,
+    #sportsGrid > *:first-child p{
+
+        position:absolute;
+
+        left:0;
+
+        right:0;
+
+        bottom:0;
+
+        z-index:5;
+
+        margin:0;
+
+        padding:12px;
+
+        color:#fff;
+
+        font-size:22px;
+
+        line-height:1.4;
+
+        font-weight:900;
+
+        background:linear-gradient(
+            to top,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,0)
+        );
+    }
+
+
+
+    /* =====================================================
+       ENTERTAINMENT
+    ===================================================== */
+
+    #cinemaGrid{
+
+        width:100% !important;
+
+        display:grid !important;
+
+        grid-template-columns:
+            minmax(0,2fr)
+            minmax(0,1fr)
+            minmax(0,1fr)
+            minmax(0,1fr);
+
+        gap:15px;
+
+        overflow:visible !important;
+
+        transform:none !important;
+
+        transition:none !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+    }
+
+
+    #cinemaGrid > *:first-child{
+
+        grid-column:1;
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        height:390px !important;
+
+        overflow:hidden;
+
+        position:relative;
+    }
+
+
+    #cinemaGrid > *:nth-child(2),
+    #cinemaGrid > *:nth-child(3),
+    #cinemaGrid > *:nth-child(4){
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        height:auto !important;
+
+        overflow:hidden;
+    }
+
+
+    #cinemaGrid > *:nth-child(n+5){
+        display:none !important;
+    }
+
+
+    #cinemaGrid > *:first-child img{
+
+        width:100% !important;
+
+        height:390px !important;
+
+        object-fit:cover !important;
+
+        border-radius:10px;
+    }
+
+
+    #cinemaGrid > *:nth-child(2) img,
+    #cinemaGrid > *:nth-child(3) img,
+    #cinemaGrid > *:nth-child(4) img{
+
+        width:100% !important;
+
+        height:120px !important;
+
+        object-fit:cover !important;
+
+        border-radius:8px;
+    }
+
+
+    #cinemaGrid > *:nth-child(2) h3,
+    #cinemaGrid > *:nth-child(3) h3,
+    #cinemaGrid > *:nth-child(4) h3,
+    #cinemaGrid > *:nth-child(2) p,
+    #cinemaGrid > *:nth-child(3) p,
+    #cinemaGrid > *:nth-child(4) p{
+
+        margin:7px 0 0;
+
+        padding:0;
+
+        font-size:16px;
+
+        line-height:1.4;
+
+        font-weight:700;
+
+        color:#111827;
+
+        display:-webkit-box;
+
+        -webkit-line-clamp:3;
+
+        -webkit-box-orient:vertical;
+
+        overflow:hidden;
+    }
+
+
+    #cinemaGrid > *:first-child h3,
+    #cinemaGrid > *:first-child p{
+
+        position:absolute;
+
+        left:0;
+
+        right:0;
+
+        bottom:0;
+
+        z-index:5;
+
+        margin:0;
+
+        padding:12px;
+
+        color:#fff;
+
+        font-size:22px;
+
+        line-height:1.4;
+
+        font-weight:900;
+
+        background:linear-gradient(
+            to top,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,0)
+        );
+    }
+
+
+
+    /* =====================================================
+       BUSINESS
+    ===================================================== */
+
+    #businessGrid{
+
+        width:100% !important;
+
+        display:grid !important;
+
+        grid-template-columns:
+            minmax(0,2fr)
+            minmax(0,1fr)
+            minmax(0,1fr)
+            minmax(0,1fr);
+
+        gap:15px;
+
+        overflow:visible !important;
+
+        transform:none !important;
+
+        transition:none !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+    }
+
+
+    #businessGrid > *:first-child{
+
+        grid-column:1;
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        height:390px !important;
+
+        overflow:hidden;
+
+        position:relative;
+    }
+
+
+    #businessGrid > *:nth-child(2),
+    #businessGrid > *:nth-child(3),
+    #businessGrid > *:nth-child(4){
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        height:auto !important;
+
+        overflow:hidden;
+    }
+
+
+    #businessGrid > *:nth-child(n+5){
+        display:none !important;
+    }
+
+
+    #businessGrid > *:first-child img{
+
+        width:100% !important;
+
+        height:390px !important;
+
+        object-fit:cover !important;
+
+        border-radius:10px;
+    }
+
+
+    #businessGrid > *:nth-child(2) img,
+    #businessGrid > *:nth-child(3) img,
+    #businessGrid > *:nth-child(4) img{
+
+        width:100% !important;
+
+        height:120px !important;
+
+        object-fit:cover !important;
+
+        border-radius:8px;
+    }
+
+
+    #businessGrid > *:nth-child(2) h3,
+    #businessGrid > *:nth-child(3) h3,
+    #businessGrid > *:nth-child(4) h3,
+    #businessGrid > *:nth-child(2) p,
+    #businessGrid > *:nth-child(3) p,
+    #businessGrid > *:nth-child(4) p{
+
+        margin:7px 0 0;
+
+        padding:0;
+
+        font-size:16px;
+
+        line-height:1.4;
+
+        font-weight:700;
+
+        color:#111827;
+
+        display:-webkit-box;
+
+        -webkit-line-clamp:3;
+
+        -webkit-box-orient:vertical;
+
+        overflow:hidden;
+    }
+
+
+    #businessGrid > *:first-child h3,
+    #businessGrid > *:first-child p{
+
+        position:absolute;
+
+        left:0;
+
+        right:0;
+
+        bottom:0;
+
+        z-index:5;
+
+        margin:0;
+
+        padding:12px;
+
+        color:#fff;
+
+        font-size:22px;
+
+        line-height:1.4;
+
+        font-weight:900;
+
+        background:linear-gradient(
+            to top,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,0)
+        );
+    }
+
+
+    /* =====================================================
+       REMOVE OLD CAROUSEL ARROWS ON LAPTOP
+    ===================================================== */
+
+    #aptsSection .carousel-btn{
+        display:none !important;
+    }
+
+
+    /* =====================================================
+       REMOVE OLD HORIZONTAL CAROUSEL BEHAVIOUR
+    ===================================================== */
+
+    #sportsGrid,
+    #cinemaGrid,
+    #businessGrid{
+
+        flex-wrap:unset !important;
+
+        flex-direction:unset !important;
+
+        white-space:normal !important;
+
+        scroll-behavior:auto !important;
+
+        scrollbar-width:none;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   KEEP EXISTING MOBILE DESIGN
+========================================================= */
+
+@media (max-width:768px){
+
+    #aptsSection .slider-track{
+        display:flex !important;
+        transform:none;
+    }
+
+    #sportsGrid,
+    #cinemaGrid,
+    #businessGrid{
+
+        display:grid !important;
+
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+
+        gap:10px !important;
+
+        overflow:visible !important;
+
+        transform:none !important;
+    }
+
+    #aptsSection .carousel-btn{
+        display:none;
+    }
+
+}
