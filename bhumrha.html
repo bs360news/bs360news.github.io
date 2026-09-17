@@ -784,76 +784,60 @@ document.addEventListener(
 
 
         /* =================================================
-           HELPERS
+           CREATE ARTICLE OBJECT
         ================================================= */
 
-        function getTitle(item) {
+        function readArticle(item) {
+
+            const image =
+                item.querySelector("img");
 
             const title =
                 item.querySelector(
                     ".news-content p"
                 );
 
-            return title
-                ? title.textContent.trim()
-                : "";
+            return {
 
-        }
+                category:
+                    (
+                        item.dataset.category ||
+                        ""
+                    )
+                    .trim()
+                    .toLowerCase(),
 
+                url:
+                    (
+                        item.dataset.url ||
+                        "#"
+                    ).trim(),
 
-        function getImage(item) {
+                image:
+                    image
+                        ? image.getAttribute("src")
+                        : "",
 
-            const image =
-                item.querySelector("img");
+                alt:
+                    image
+                        ? (
+                            image.getAttribute("alt") ||
+                            ""
+                        )
+                        : "",
 
-            return image
-                ? image.getAttribute("src")
-                : "";
+                title:
+                    title
+                        ? title.textContent.trim()
+                        : ""
 
-        }
-
-
-        function getAlt(item) {
-
-            const image =
-                item.querySelector("img");
-
-            return image
-                ? (
-                    image.getAttribute("alt") ||
-                    ""
-                )
-                : "";
-
-        }
-
-
-        function getCategory(item) {
-
-            return (
-                item.dataset.category ||
-                ""
-            )
-            .trim()
-            .toLowerCase();
-
-        }
-
-
-        function getUrl(item) {
-
-            return (
-                item.dataset.url ||
-                "#"
-            ).trim();
+            };
 
         }
 
 
         /* =================================================
-           READ HOME ARTICLES
-           
-           SAME SOURCE AS HOME script.js
+           LOAD HOME PAGE
         ================================================= */
 
         async function loadHomeNews() {
@@ -894,6 +878,10 @@ document.addEventListener(
                     );
 
 
+                /* =================================================
+                   HOME LEGACY SOURCE
+                ================================================= */
+
                 const source =
                     doc.querySelector(
                         "#legacyNewsSource"
@@ -911,9 +899,9 @@ document.addEventListener(
                 }
 
 
-                /* =============================================
-                   EXACT SAME ARTICLE ARRAY AS HOME script.js
-                ============================================= */
+                /* =================================================
+                   SAME ARTICLES AS HOME SCRIPT
+                ================================================= */
 
                 const articles =
                     Array.from(
@@ -921,72 +909,20 @@ document.addEventListener(
                             ".news-item.post"
                         )
                     )
-                    .map(item => {
-
-                        const image =
-                            item.querySelector(
-                                "img"
-                            );
-
-                        const title =
-                            item.querySelector(
-                                ".news-content p"
-                            );
-
-
-                        return {
-
-                            category:
-                                (
-                                    item.dataset.category ||
-                                    ""
-                                )
-                                .trim()
-                                .toLowerCase(),
-
-                            url:
-                                item.dataset.url ||
-                                "#",
-
-                            image:
-                                image
-                                    ? image.getAttribute(
-                                        "src"
-                                    )
-                                    : "",
-
-                            alt:
-                                image
-                                    ? (
-                                        image.getAttribute(
-                                            "alt"
-                                        ) || ""
-                                    )
-                                    : "",
-
-                            title:
-                                title
-                                    ? title.textContent.trim()
-                                    : ""
-
-                        };
-
-                    })
+                    .map(readArticle)
                     .filter(article =>
                         article.title &&
                         article.image
                     );
 
 
-                /* =============================================
-                   EXACT HOME LATEST LOGIC
+                /* =================================================
+                   HOME LATEST
                    
-                   articles.filter(
-                       category !== bigboss10
-                   )
-
-                   slice(0,7)
-                ============================================= */
+                   SAME LOGIC:
+                   FILTER BIG BOSS
+                   THEN FIRST 7
+                ================================================= */
 
                 const latestArticles =
                     articles.filter(
@@ -1000,35 +936,86 @@ document.addEventListener(
                     latestArticles.slice(0, 7);
 
 
-                /* =============================================
-                   EXACT HOME TRENDING LOGIC
-                   
-                   Home script.js:
-                   
-                   articles
-                   .filter(category !== bigboss10)
-                   .slice(0,10)
-                ============================================= */
+                /* =================================================
+                   HOME TRENDING
+
+                   IMPORTANT:
+                   READ THE ACTUAL VISIBLE TRENDING
+                   SECTION FROM INDEX.HTML.
+
+                   NOT EXTRA ARTICLES.
+                ================================================= */
+
+                const homeTrendingCards =
+                    Array.from(
+                        doc.querySelectorAll(
+                            ".trending-section .trending-grid .trending-card"
+                        )
+                    );
+
 
                 const trendingArticles =
-                    articles
-                        .filter(
-                            article =>
-                                article.category !==
-                                "bigboss10"
-                        )
-                        .slice(0, 10);
+                    homeTrendingCards
+                        .map(card => {
+
+                            const image =
+                                card.querySelector(
+                                    "img"
+                                );
+
+                            const title =
+                                card.querySelector(
+                                    "h3"
+                                );
 
 
-                /* =============================================
-                   EXACT HOME MOST READ LOGIC
+                            return {
+
+                                category: "",
+
+                                url:
+                                    (
+                                        card.getAttribute(
+                                            "href"
+                                        ) || "#"
+                                    ).trim(),
+
+                                image:
+                                    image
+                                        ? image.getAttribute(
+                                            "src"
+                                        )
+                                        : "",
+
+                                alt:
+                                    image
+                                        ? (
+                                            image.getAttribute(
+                                                "alt"
+                                            ) || ""
+                                        )
+                                        : "",
+
+                                title:
+                                    title
+                                        ? title.textContent.trim()
+                                        : ""
+
+                            };
+
+                        })
+                        .filter(article =>
+                            article.title &&
+                            article.image
+                        );
+
+
+                /* =================================================
+                   HOME MOST READ
                    
-                   Home script.js:
-                   
-                   articles
-                   .filter(category !== bigboss10)
-                   .slice(0,10)
-                ============================================= */
+                   SAME SOURCE + SAME ORDER
+                   AS HOME SCRIPT.
+                ================================================= */
 
                 const mostReadArticles =
                     articles
@@ -1040,24 +1027,26 @@ document.addEventListener(
                         .slice(0, 10);
 
 
-                /* =============================================
+                /* =================================================
                    REMOVE CURRENT ARTICLE ONLY
-                   
-                   Home order does NOT change.
-                   bhumrha is simply hidden from this
-                   article page sidebar.
-                ============================================= */
 
-                const sidebarLatest =
-                    latestSeven.filter(
+                   IMPORTANT:
+                   FIRST HOME SELECTION IS DONE.
+                   AFTER THAT CURRENT ARTICLE IS REMOVED.
+
+                   HOME ORDER IS NOT CHANGED.
+                ================================================= */
+
+                const sidebarTrending =
+                    trendingArticles.filter(
                         article =>
                             article.url !==
                             currentPage
                     );
 
 
-                const sidebarTrending =
-                    trendingArticles.filter(
+                const sidebarLatest =
+                    latestSeven.filter(
                         article =>
                             article.url !==
                             currentPage
@@ -1072,15 +1061,16 @@ document.addEventListener(
                     );
 
 
-                /* =============================================
+                /* =================================================
                    SIDEBAR ITEM
-                ============================================= */
+                ================================================= */
 
                 function createSidebarItem(
                     article
                 ) {
 
                     return `
+
                         <a
                             href="${article.url}"
                             class="sidebar-item"
@@ -1097,14 +1087,17 @@ document.addEventListener(
                             </div>
 
                         </a>
+
                     `;
 
                 }
 
 
-                /* =============================================
+                /* =================================================
                    TRENDING SIDEBAR
-                ============================================= */
+
+                   EXACT HOME TRENDING
+                ================================================= */
 
                 const trendingTarget =
                     document.getElementById(
@@ -1116,7 +1109,6 @@ document.addEventListener(
 
                     trendingTarget.innerHTML =
                         sidebarTrending
-                            .slice(0, 5)
                             .map(
                                 createSidebarItem
                             )
@@ -1125,9 +1117,11 @@ document.addEventListener(
                 }
 
 
-                /* =============================================
+                /* =================================================
                    LATEST SIDEBAR
-                ============================================= */
+
+                   EXACT HOME LATEST
+                ================================================= */
 
                 const latestTarget =
                     document.getElementById(
@@ -1148,13 +1142,11 @@ document.addEventListener(
                 }
 
 
-                /* =============================================
+                /* =================================================
                    MOST READ SIDEBAR
-                   
-                   IMPORTANT:
-                   Numbering starts again after removing
-                   current article.
-                ============================================= */
+
+                   EXACT HOME MOST READ
+                ================================================= */
 
                 const mostReadTarget =
                     document.getElementById(
@@ -1183,13 +1175,11 @@ document.addEventListener(
                                                 ${index + 1}
                                             </div>
 
-
                                             <img
                                                 src="${article.image}"
                                                 alt="${article.alt || article.title}"
                                                 loading="lazy"
                                             >
-
 
                                             <div
                                                 class="most-read-title"
@@ -1208,9 +1198,9 @@ document.addEventListener(
                 }
 
 
-                /* =============================================
+                /* =================================================
                    RELATED LATEST
-                ============================================= */
+                ================================================= */
 
                 const latestGrid =
                     document.getElementById(
@@ -1259,9 +1249,9 @@ document.addEventListener(
                 }
 
 
-                /* =============================================
+                /* =================================================
                    RELATED SPORTS
-                ============================================= */
+                ================================================= */
 
                 const sportsGrid =
                     document.getElementById(
@@ -1318,9 +1308,9 @@ document.addEventListener(
                 }
 
 
-                /* =============================================
+                /* =================================================
                    RELATED ENTERTAINMENT
-                ============================================= */
+                ================================================= */
 
                 const moviesGrid =
                     document.getElementById(
@@ -1377,6 +1367,7 @@ document.addEventListener(
                             .join("");
 
                 }
+
 
             } catch (error) {
 
