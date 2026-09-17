@@ -182,6 +182,7 @@
     border-bottom: 1px solid #ddd;
     text-decoration: none;
     color: #111;
+    align-items: center;
 }
 
 .sidebar-item img {
@@ -205,6 +206,7 @@
     border-bottom: 1px solid #ddd;
     text-decoration: none;
     color: #111;
+    align-items: center;
 }
 
 .most-read-number {
@@ -225,6 +227,7 @@
     height: 50px;
     object-fit: cover;
     border-radius: 4px;
+    flex: 0 0 70px;
 }
 
 .most-read-title {
@@ -541,12 +544,9 @@
 
 <h1 class="article-title">
 
-🏏 బుమ్రా రీఎంట్రీతో టీమిండియా బౌలింగ్‌కు బలం.. అఫ్గాన్ సిరీస్‌లో కీలకంగా మారిన స్టార్ ప్లేయర్
+బుమ్రా రీఎంట్రీతో టీమిండియా బౌలింగ్‌కు బలం.. అఫ్గాన్ సిరీస్‌లో కీలకంగా మారిన స్టార్ ప్లేయర్
 
 </h1>
-
-
-
 
 
 <div class="article-content">
@@ -560,12 +560,15 @@
 బుమ్రా తన ప్రత్యేక బౌలింగ్ యాక్షన్, కచ్చితమైన యార్కర్లతో ప్రపంచ క్రికెట్‌లో ప్రత్యేక గుర్తింపు తెచ్చుకున్నాడు. కొత్త బంతితోనే కాకుండా చివరి ఓవర్లలోనూ ప్రత్యర్థి బ్యాటర్లపై ఒత్తిడి పెంచగలడు. అందుకే టీ20 ఫార్మాట్‌లో అతడి అనుభవం భారత జట్టుకు ఉపయోగపడనుంది.
 </p>
 
+
 <img
     class="article-image"
     src="bhumrha.jpg"
     alt="బుమ్రా"
     loading="eager"
 >
+
+
 <p>
 అఫ్గానిస్థాన్ జట్టులో టీ20 ఫార్మాట్‌లో వేగంగా పరుగులు చేయగల బ్యాటర్లు ఉన్న నేపథ్యంలో భారత బౌలర్లకు సవాల్ ఎదురయ్యే అవకాశం ఉంది. అలాంటి సమయంలో బుమ్రా అనుభవం ఎంతో కీలకంగా మారనుంది. ముఖ్యంగా కీలక వికెట్లను తీయడంతో పాటు పరుగుల వేగాన్ని నియంత్రించడంలో అతడి పాత్ర ఉండనుంది.
 
@@ -579,6 +582,7 @@
 అఫ్గానిస్థాన్‌తో జరిగే టీ20 సిరీస్ యువ ఆటగాళ్లకు కూడా మంచి అవకాశం కానుంది. సీనియర్ ప్లేయర్ల అనుభవంతో పాటు యువ ఆటగాళ్ల ప్రదర్శనపై కూడా టీమ్ మేనేజ్‌మెంట్ దృష్టి పెట్టనుంది. బుమ్రా వంటి అనుభవజ్ఞుడైన ప్లేయర్ తిరిగి రావడంతో బౌలింగ్ యూనిట్‌కు మరింత నమ్మకం పెరగనుంది.
 
 భారత జట్టు టీ20 ఫార్మాట్‌లో బలమైన బౌలింగ్ కాంబినేషన్‌ను ఏర్పాటు చేసుకోవడంపై దృష్టి పెడుతోంది. ఈ నేపథ్యంలో బుమ్రా తిరిగి రావడం కీలక పరిణామంగా మారింది. అతడి బౌలింగ్‌తో పాటు ఇతర పేసర్లు, స్పిన్నర్లు కూడా తమ పాత్రను సమర్థంగా నిర్వహిస్తే భారత బౌలింగ్ యూనిట్ మరింత ప్రభావవంతంగా మారనుంది.
+
 అఫ్గానిస్థాన్‌తో జరిగే మ్యాచ్‌లలో బుమ్రా ఎలాంటి ప్రదర్శన ఇస్తాడన్నదే ఇప్పుడు అభిమానుల్లో ఆసక్తిని పెంచుతోంది. చాలా కాలం తర్వాత తిరిగి జాతీయ జట్టులోకి వచ్చిన స్టార్ ప్లేయర్‌పై అంచనాలు ఉన్నాయి. అయితే సిరీస్‌లో అతడి వినియోగం, మ్యాచ్‌ల్లో అతడి బౌలింగ్ స్పెల్స్ ఎలా ఉంటాయన్నది చూడాల్సి ఉంది.
 </p>
 
@@ -595,7 +599,6 @@
 
 <!-- =====================================================
      SIDEBAR
-     HOME INDEX BASED
 ===================================================== -->
 
 <aside class="article-sidebar">
@@ -604,7 +607,7 @@
 <div class="sidebar-box">
 
     <div class="sidebar-title">
-         Trending News
+        Trending News
     </div>
 
     <div id="trendingSidebar"></div>
@@ -615,8 +618,7 @@
 <div class="sidebar-box">
 
     <div class="sidebar-title">
-        
-     Latest News
+        Latest News
     </div>
 
     <div id="latestSidebar"></div>
@@ -765,547 +767,757 @@
 
 
 <!-- =====================================================
-     JAVASCRIPT
+     ARTICLE PAGE JAVASCRIPT
 ===================================================== -->
 
 <script>
 
-/* =====================================================
-   CURRENT ARTICLE
-===================================================== */
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-const currentPage = "bhumrha.html";
+        "use strict";
 
 
-/* =====================================================
-   HELPERS
-===================================================== */
-
-function getTitle(post) {
-
-    const p = post.querySelector(".news-content p");
-
-    if (p && p.textContent.trim()) {
-        return p.textContent.trim();
-    }
-
-    const h3 = post.querySelector("h3");
-
-    if (h3 && h3.textContent.trim()) {
-        return h3.textContent.trim();
-    }
-
-    return "తాజా వార్త";
-}
-
-
-function getImage(post) {
-
-    const img = post.querySelector("img");
-
-    return img
-        ? img.getAttribute("src")
-        : "dp.png.png";
-}
-
-
-function getCategory(post) {
-
-    return (
-        post.getAttribute("data-category") ||
-        ""
-    ).toLowerCase();
-
-}
-
-
-function getUrl(post) {
-
-    return (
-        post.getAttribute("data-url") ||
-        ""
-    ).trim();
-
-}
-
-
-/* =====================================================
-   UNIQUE POSTS
-===================================================== */
-
-function uniquePosts(posts) {
-
-    const seen = new Set();
-
-    return posts.filter(post => {
-
-        const url = getUrl(post);
-
-        if (!url) {
-            return false;
-        }
-
-        if (url === currentPage) {
-            return false;
-        }
-
-        if (seen.has(url)) {
-            return false;
-        }
-
-        seen.add(url);
-
-        return true;
-
-    });
-
-}
-
-
-/* =====================================================
-   SIDEBAR ITEM
-===================================================== */
-
-function makeSidebarItem(post) {
-
-    const title = getTitle(post);
-    const image = getImage(post);
-    const url = getUrl(post);
-
-    return `
-        <a
-            class="sidebar-item"
-            href="${url}"
-        >
-
-            <img
-                src="${image}"
-                alt="${title}"
-                loading="lazy"
-            >
-
-            <div class="sidebar-item-title">
-                ${title}
-            </div>
-
-        </a>
-    `;
-
-}
-
-
-/* =====================================================
-   MOST READ ITEM
-===================================================== */
-
-function makeMostReadItem(post, index) {
-
-    const title = getTitle(post);
-    const image = getImage(post);
-    const url = getUrl(post);
-
-    return `
-        <a
-            class="most-read-item"
-            href="${url}"
-        >
-
-            <div class="most-read-number">
-                ${index + 1}
-            </div>
-
-            <img
-                src="${image}"
-                alt="${title}"
-                loading="lazy"
-            >
-
-            <div class="most-read-title">
-                ${title}
-            </div>
-
-        </a>
-    `;
-
-}
-
-
-/* =====================================================
-   NEWS CARD
-===================================================== */
-
-function makeNewsCard(post) {
-
-    const title = getTitle(post);
-    const image = getImage(post);
-    const url = getUrl(post);
-
-    return `
-        <a
-            class="news-card"
-            href="${url}"
-        >
-
-            <img
-                src="${image}"
-                alt="${title}"
-                loading="lazy"
-            >
-
-            <h3>
-                ${title}
-            </h3>
-
-        </a>
-    `;
-
-}
-
-
-/* =====================================================
-   LOAD HOME PAGE
-===================================================== */
-
-async function loadNews() {
-
-    try {
-
-        const response = await fetch(
-            "index.html?v=" + Date.now(),
-            {
-                cache: "no-store"
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error("Home page load failed");
-        }
-
-
-        const html = await response.text();
-
-
-        const parser = new DOMParser();
-
-        const doc = parser.parseFromString(
-            html,
-            "text/html"
-        );
+        const currentPage =
+            "bhumrha.html";
 
 
         /* =================================================
-           HOME LEGACY SOURCE
+           HELPERS
         ================================================= */
 
-        const sourcePosts = Array.from(
-            doc.querySelectorAll(
-                "#legacyNewsSource .news-item.post[data-url]"
-            )
-        );
+        function getTitle(item) {
+
+            const title =
+                item.querySelector(
+                    ".news-content p"
+                );
+
+            return title
+                ? title.textContent.trim()
+                : "";
+
+        }
 
 
-        const posts = uniquePosts(sourcePosts);
+        function getImage(item) {
+
+            const image =
+                item.querySelector("img");
+
+            return image
+                ? image.getAttribute("src")
+                : "";
+
+        }
 
 
-        /* =================================================
-           HOME LATEST NEWS
-           
-           Same source used by Home Latest section.
-        ================================================= */
+        function getAlt(item) {
 
-        const latestPosts = posts.slice(0, 7);
+            const image =
+                item.querySelector("img");
 
-
-        /* =================================================
-           HOME TRENDING NEWS
-           
-           Read directly from Home Trending section.
-        ================================================= */
-
-        const trendingCards = Array.from(
-            doc.querySelectorAll(
-                ".trending-section .trending-grid .trending-card"
-            )
-        );
-
-
-        let trendingPosts = [];
-
-
-        if (trendingCards.length) {
-
-            trendingCards.forEach(card => {
-
-                const url = (
-                    card.getAttribute("href") ||
+            return image
+                ? (
+                    image.getAttribute("alt") ||
                     ""
-                ).trim();
+                )
+                : "";
+
+        }
 
 
-                if (!url || url === currentPage) {
-                    return;
+        function getCategory(item) {
+
+            return (
+                item.dataset.category ||
+                ""
+            )
+            .trim()
+            .toLowerCase();
+
+        }
+
+
+        function getUrl(item) {
+
+            return (
+                item.dataset.url ||
+                "#"
+            ).trim();
+
+        }
+
+
+        /* =================================================
+           READ HOME ARTICLES
+           
+           SAME SOURCE AS HOME script.js
+        ================================================= */
+
+        async function loadHomeNews() {
+
+            try {
+
+                const response =
+                    await fetch(
+                        "index.html?v=" +
+                        Date.now(),
+                        {
+                            cache: "no-store"
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Home page could not be loaded"
+                    );
+
                 }
 
 
-                const imageElement =
-                    card.querySelector("img");
-
-                const titleElement =
-                    card.querySelector("h3");
+                const html =
+                    await response.text();
 
 
-                const image =
-                    imageElement
-                        ? imageElement.getAttribute("src")
-                        : "dp.png.png";
+                const parser =
+                    new DOMParser();
 
 
-                const title =
-                    titleElement
-                        ? titleElement.textContent.trim()
-                        : "Trending News";
+                const doc =
+                    parser.parseFromString(
+                        html,
+                        "text/html"
+                    );
 
 
-                const fakePost =
-                    document.createElement("article");
+                const source =
+                    doc.querySelector(
+                        "#legacyNewsSource"
+                    );
 
 
-                fakePost.className =
-                    "news-item post";
+                if (!source) {
+
+                    console.error(
+                        "BS360: #legacyNewsSource not found"
+                    );
+
+                    return;
+
+                }
 
 
-                fakePost.setAttribute(
-                    "data-url",
-                    url
-                );
+                /* =============================================
+                   EXACT SAME ARTICLE ARRAY AS HOME script.js
+                ============================================= */
 
-
-                fakePost.innerHTML = `
-
-                    <img
-                        src="${image}"
-                        alt="${title}"
-                    >
-
-                    <div class="news-content">
-
-                        <p>
-                            ${title}
-                        </p>
-
-                    </div>
-
-                `;
-
-
-                trendingPosts.push(fakePost);
-
-            });
-
-        }
-
-
-        /* =================================================
-           FALLBACK TRENDING
-        ================================================= */
-
-        if (!trendingPosts.length) {
-
-            trendingPosts =
-                posts.slice(0, 5);
-
-        }
-
-
-        /* =================================================
-           HOME MOST READ
-           
-           Home Most Read is generated from the same
-           Home article source.
-        ================================================= */
-
-        let mostReadPosts =
-            posts.slice(0, 10);
-
-
-        /* =================================================
-           TRENDING SIDEBAR
-        ================================================= */
-
-        const trendingSidebar =
-            document.getElementById(
-                "trendingSidebar"
-            );
-
-
-        if (trendingSidebar) {
-
-            trendingSidebar.innerHTML =
-                trendingPosts
-                    .slice(0, 5)
-                    .map(makeSidebarItem)
-                    .join("");
-
-        }
-
-
-        /* =================================================
-           LATEST SIDEBAR
-        ================================================= */
-
-        const latestSidebar =
-            document.getElementById(
-                "latestSidebar"
-            );
-
-
-        if (latestSidebar) {
-
-            latestSidebar.innerHTML =
-                latestPosts
-                    .slice(0, 5)
-                    .map(makeSidebarItem)
-                    .join("");
-
-        }
-
-
-        /* =================================================
-           MOST READ SIDEBAR
-        ================================================= */
-
-        const mostReadSidebar =
-            document.getElementById(
-                "mostReadSidebar"
-            );
-
-
-        if (mostReadSidebar) {
-
-            mostReadSidebar.innerHTML =
-                mostReadPosts
-                    .slice(0, 5)
-                    .map(
-                        (post, index) =>
-                            makeMostReadItem(
-                                post,
-                                index
-                            )
+                const articles =
+                    Array.from(
+                        source.querySelectorAll(
+                            ".news-item.post"
+                        )
                     )
-                    .join("");
+                    .map(item => {
+
+                        const image =
+                            item.querySelector(
+                                "img"
+                            );
+
+                        const title =
+                            item.querySelector(
+                                ".news-content p"
+                            );
+
+
+                        return {
+
+                            category:
+                                (
+                                    item.dataset.category ||
+                                    ""
+                                )
+                                .trim()
+                                .toLowerCase(),
+
+                            url:
+                                item.dataset.url ||
+                                "#",
+
+                            image:
+                                image
+                                    ? image.getAttribute(
+                                        "src"
+                                    )
+                                    : "",
+
+                            alt:
+                                image
+                                    ? (
+                                        image.getAttribute(
+                                            "alt"
+                                        ) || ""
+                                    )
+                                    : "",
+
+                            title:
+                                title
+                                    ? title.textContent.trim()
+                                    : ""
+
+                        };
+
+                    })
+                    .filter(article =>
+                        article.title &&
+                        article.image
+                    );
+
+
+                /* =============================================
+                   EXACT HOME LATEST LOGIC
+                   
+                   articles.filter(
+                       category !== bigboss10
+                   )
+
+                   slice(0,7)
+                ============================================= */
+
+                const latestArticles =
+                    articles.filter(
+                        article =>
+                            article.category !==
+                            "bigboss10"
+                    );
+
+
+                const latestSeven =
+                    latestArticles.slice(0, 7);
+
+
+                /* =============================================
+                   EXACT HOME TRENDING LOGIC
+                   
+                   Home script.js:
+                   
+                   articles
+                   .filter(category !== bigboss10)
+                   .slice(0,10)
+                ============================================= */
+
+                const trendingArticles =
+                    articles
+                        .filter(
+                            article =>
+                                article.category !==
+                                "bigboss10"
+                        )
+                        .slice(0, 10);
+
+
+                /* =============================================
+                   EXACT HOME MOST READ LOGIC
+                   
+                   Home script.js:
+                   
+                   articles
+                   .filter(category !== bigboss10)
+                   .slice(0,10)
+                ============================================= */
+
+                const mostReadArticles =
+                    articles
+                        .filter(
+                            article =>
+                                article.category !==
+                                "bigboss10"
+                        )
+                        .slice(0, 10);
+
+
+                /* =============================================
+                   REMOVE CURRENT ARTICLE ONLY
+                   
+                   Home order does NOT change.
+                   bhumrha is simply hidden from this
+                   article page sidebar.
+                ============================================= */
+
+                const sidebarLatest =
+                    latestSeven.filter(
+                        article =>
+                            article.url !==
+                            currentPage
+                    );
+
+
+                const sidebarTrending =
+                    trendingArticles.filter(
+                        article =>
+                            article.url !==
+                            currentPage
+                    );
+
+
+                const sidebarMostRead =
+                    mostReadArticles.filter(
+                        article =>
+                            article.url !==
+                            currentPage
+                    );
+
+
+                /* =============================================
+                   SIDEBAR ITEM
+                ============================================= */
+
+                function createSidebarItem(
+                    article
+                ) {
+
+                    return `
+                        <a
+                            href="${article.url}"
+                            class="sidebar-item"
+                        >
+
+                            <img
+                                src="${article.image}"
+                                alt="${article.alt || article.title}"
+                                loading="lazy"
+                            >
+
+                            <div class="sidebar-item-title">
+                                ${article.title}
+                            </div>
+
+                        </a>
+                    `;
+
+                }
+
+
+                /* =============================================
+                   TRENDING SIDEBAR
+                ============================================= */
+
+                const trendingTarget =
+                    document.getElementById(
+                        "trendingSidebar"
+                    );
+
+
+                if (trendingTarget) {
+
+                    trendingTarget.innerHTML =
+                        sidebarTrending
+                            .slice(0, 5)
+                            .map(
+                                createSidebarItem
+                            )
+                            .join("");
+
+                }
+
+
+                /* =============================================
+                   LATEST SIDEBAR
+                ============================================= */
+
+                const latestTarget =
+                    document.getElementById(
+                        "latestSidebar"
+                    );
+
+
+                if (latestTarget) {
+
+                    latestTarget.innerHTML =
+                        sidebarLatest
+                            .slice(0, 5)
+                            .map(
+                                createSidebarItem
+                            )
+                            .join("");
+
+                }
+
+
+                /* =============================================
+                   MOST READ SIDEBAR
+                   
+                   IMPORTANT:
+                   Numbering starts again after removing
+                   current article.
+                ============================================= */
+
+                const mostReadTarget =
+                    document.getElementById(
+                        "mostReadSidebar"
+                    );
+
+
+                if (mostReadTarget) {
+
+                    mostReadTarget.innerHTML =
+                        sidebarMostRead
+                            .slice(0, 5)
+                            .map(
+                                (article, index) => {
+
+                                    return `
+
+                                        <a
+                                            href="${article.url}"
+                                            class="most-read-item"
+                                        >
+
+                                            <div
+                                                class="most-read-number"
+                                            >
+                                                ${index + 1}
+                                            </div>
+
+
+                                            <img
+                                                src="${article.image}"
+                                                alt="${article.alt || article.title}"
+                                                loading="lazy"
+                                            >
+
+
+                                            <div
+                                                class="most-read-title"
+                                            >
+                                                ${article.title}
+                                            </div>
+
+                                        </a>
+
+                                    `;
+
+                                }
+                            )
+                            .join("");
+
+                }
+
+
+                /* =============================================
+                   RELATED LATEST
+                ============================================= */
+
+                const latestGrid =
+                    document.getElementById(
+                        "latestGrid"
+                    );
+
+
+                if (latestGrid) {
+
+                    latestGrid.innerHTML =
+                        latestArticles
+                            .filter(
+                                article =>
+                                    article.url !==
+                                    currentPage
+                            )
+                            .slice(0, 4)
+                            .map(
+                                article => {
+
+                                    return `
+
+                                        <a
+                                            href="${article.url}"
+                                            class="news-card"
+                                        >
+
+                                            <img
+                                                src="${article.image}"
+                                                alt="${article.alt || article.title}"
+                                                loading="lazy"
+                                            >
+
+                                            <h3>
+                                                ${article.title}
+                                            </h3>
+
+                                        </a>
+
+                                    `;
+
+                                }
+                            )
+                            .join("");
+
+                }
+
+
+                /* =============================================
+                   RELATED SPORTS
+                ============================================= */
+
+                const sportsGrid =
+                    document.getElementById(
+                        "sportsGrid"
+                    );
+
+
+                if (sportsGrid) {
+
+                    const sportsArticles =
+                        articles.filter(
+                            article =>
+                                article.category ===
+                                "sports"
+                        );
+
+
+                    sportsGrid.innerHTML =
+                        sportsArticles
+                            .filter(
+                                article =>
+                                    article.url !==
+                                    currentPage
+                            )
+                            .slice(0, 4)
+                            .map(
+                                article => {
+
+                                    return `
+
+                                        <a
+                                            href="${article.url}"
+                                            class="news-card"
+                                        >
+
+                                            <img
+                                                src="${article.image}"
+                                                alt="${article.alt || article.title}"
+                                                loading="lazy"
+                                            >
+
+                                            <h3>
+                                                ${article.title}
+                                            </h3>
+
+                                        </a>
+
+                                    `;
+
+                                }
+                            )
+                            .join("");
+
+                }
+
+
+                /* =============================================
+                   RELATED ENTERTAINMENT
+                ============================================= */
+
+                const moviesGrid =
+                    document.getElementById(
+                        "moviesGrid"
+                    );
+
+
+                if (moviesGrid) {
+
+                    const movieArticles =
+                        articles.filter(
+                            article =>
+                                article.category ===
+                                "cinema" ||
+                                article.category ===
+                                "movies"
+                        );
+
+
+                    moviesGrid.innerHTML =
+                        movieArticles
+                            .filter(
+                                article =>
+                                    article.url !==
+                                    currentPage
+                            )
+                            .slice(0, 4)
+                            .map(
+                                article => {
+
+                                    return `
+
+                                        <a
+                                            href="${article.url}"
+                                            class="news-card"
+                                        >
+
+                                            <img
+                                                src="${article.image}"
+                                                alt="${article.alt || article.title}"
+                                                loading="lazy"
+                                            >
+
+                                            <h3>
+                                                ${article.title}
+                                            </h3>
+
+                                        </a>
+
+                                    `;
+
+                                }
+                            )
+                            .join("");
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "BS360 HOME NEWS ERROR:",
+                    error
+                );
+
+            }
 
         }
 
 
         /* =================================================
-           LATEST GRID
+           START
         ================================================= */
 
-        const latestGrid =
-            document.getElementById(
-                "latestGrid"
-            );
-
-
-        if (latestGrid) {
-
-            latestGrid.innerHTML =
-                latestPosts
-                    .slice(0, 4)
-                    .map(makeNewsCard)
-                    .join("");
-
-        }
+        loadHomeNews();
 
 
         /* =================================================
-           SPORTS GRID
+           MOBILE NAV
         ================================================= */
 
-        const sportsGrid =
-            document.getElementById(
-                "sportsGrid"
-            );
+        window.toggleMobileNav =
+            function () {
+
+                const nav =
+                    document.getElementById(
+                        "navLinks"
+                    );
+
+                if (!nav) {
+                    return;
+                }
+
+                nav.classList.toggle(
+                    "mobile-open"
+                );
+
+            };
 
 
-        if (sportsGrid) {
+        /* =================================================
+           DARK MODE
+        ================================================= */
 
-            const sportsPosts =
-                posts.filter(
-                    post =>
-                        getCategory(post) === "sports"
+        window.toggleTheme =
+            function () {
+
+                document.body.classList.toggle(
+                    "dark-mode"
                 );
 
 
-            sportsGrid.innerHTML =
-                sportsPosts
-                    .slice(0, 4)
-                    .map(makeNewsCard)
-                    .join("");
+                const button =
+                    document.getElementById(
+                        "themeButton"
+                    );
 
-        }
+
+                if (
+                    document.body.classList.contains(
+                        "dark-mode"
+                    )
+                ) {
+
+                    if (button) {
+
+                        button.textContent =
+                            "☀️ Light";
+
+                    }
+
+
+                    localStorage.setItem(
+                        "bs360-theme",
+                        "dark"
+                    );
+
+                } else {
+
+                    if (button) {
+
+                        button.textContent =
+                            "🌙 Dark";
+
+                    }
+
+
+                    localStorage.setItem(
+                        "bs360-theme",
+                        "light"
+                    );
+
+                }
+
+            };
 
 
         /* =================================================
-           MOVIES GRID
+           LOAD SAVED THEME
         ================================================= */
 
-        const moviesGrid =
-            document.getElementById(
-                "moviesGrid"
+        const savedTheme =
+            localStorage.getItem(
+                "bs360-theme"
             );
 
 
-        if (moviesGrid) {
+        if (
+            savedTheme === "dark"
+        ) {
 
-            const moviePosts =
-                posts.filter(
-                    post =>
-                        getCategory(post) === "cinema"
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+
+            const button =
+                document.getElementById(
+                    "themeButton"
                 );
 
 
-            moviesGrid.innerHTML =
-                moviePosts
-                    .slice(0, 4)
-                    .map(makeNewsCard)
-                    .join("");
+            if (button) {
+
+                button.textContent =
+                    "☀️ Light";
+
+            }
 
         }
-
-
-    } catch (error) {
-
-        console.error(
-            "BS 360 NEWS:",
-            error
-        );
 
     }
 
-}
-
-
-/* =====================================================
-   START
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    loadNews
 );
 
 </script>
 
 
-<!-- =====================================================
-     MAIN SITE SCRIPT
-===================================================== -->
-
-<script
-    src="script.js?v=20260914"
-></script>
-
-
 </body>
+
 </html>
