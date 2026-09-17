@@ -900,7 +900,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   SAME ARTICLES AS HOME SCRIPT
+                   SAME ARTICLES AS HOME
                 ================================================= */
 
                 const articles =
@@ -918,10 +918,6 @@ document.addEventListener(
 
                 /* =================================================
                    HOME LATEST
-                   
-                   SAME LOGIC:
-                   FILTER BIG BOSS
-                   THEN FIRST 7
                 ================================================= */
 
                 const latestArticles =
@@ -937,13 +933,10 @@ document.addEventListener(
 
 
                 /* =================================================
-                   HOME TRENDING
+                   HOME VISIBLE TRENDING
 
-                   IMPORTANT:
-                   READ THE ACTUAL VISIBLE TRENDING
-                   SECTION FROM INDEX.HTML.
-
-                   NOT EXTRA ARTICLES.
+                   index.html లో ఉన్న
+                   .trending-section మాత్రమే చదువుతుంది.
                 ================================================= */
 
                 const homeTrendingCards =
@@ -1011,30 +1004,18 @@ document.addEventListener(
 
 
                 /* =================================================
-                   HOME MOST READ
-                   
-                   SAME SOURCE + SAME ORDER
-                   AS HOME SCRIPT.
+                   MOST READ
+
+                   HOME PAGE లో Most Read articles లేవు.
+                   అందువల్ల ARTICLE PAGE లో కూడా
+                   ఏ Most Read articles చూపించకూడదు.
                 ================================================= */
 
-                const mostReadArticles =
-                    articles
-                        .filter(
-                            article =>
-                                article.category !==
-                                "bigboss10"
-                        )
-                        .slice(0, 10);
+                const sidebarMostRead = [];
 
 
                 /* =================================================
-                   REMOVE CURRENT ARTICLE ONLY
-
-                   IMPORTANT:
-                   FIRST HOME SELECTION IS DONE.
-                   AFTER THAT CURRENT ARTICLE IS REMOVED.
-
-                   HOME ORDER IS NOT CHANGED.
+                   CURRENT ARTICLE REMOVE
                 ================================================= */
 
                 const sidebarTrending =
@@ -1047,14 +1028,6 @@ document.addEventListener(
 
                 const sidebarLatest =
                     latestSeven.filter(
-                        article =>
-                            article.url !==
-                            currentPage
-                    );
-
-
-                const sidebarMostRead =
-                    mostReadArticles.filter(
                         article =>
                             article.url !==
                             currentPage
@@ -1095,8 +1068,6 @@ document.addEventListener(
 
                 /* =================================================
                    TRENDING SIDEBAR
-
-                   EXACT HOME TRENDING
                 ================================================= */
 
                 const trendingTarget =
@@ -1119,8 +1090,6 @@ document.addEventListener(
 
                 /* =================================================
                    LATEST SIDEBAR
-
-                   EXACT HOME LATEST
                 ================================================= */
 
                 const latestTarget =
@@ -1145,7 +1114,7 @@ document.addEventListener(
                 /* =================================================
                    MOST READ SIDEBAR
 
-                   EXACT HOME MOST READ
+                   ALWAYS EMPTY
                 ================================================= */
 
                 const mostReadTarget =
@@ -1156,44 +1125,7 @@ document.addEventListener(
 
                 if (mostReadTarget) {
 
-                    mostReadTarget.innerHTML =
-                        sidebarMostRead
-                            .slice(0, 5)
-                            .map(
-                                (article, index) => {
-
-                                    return `
-
-                                        <a
-                                            href="${article.url}"
-                                            class="most-read-item"
-                                        >
-
-                                            <div
-                                                class="most-read-number"
-                                            >
-                                                ${index + 1}
-                                            </div>
-
-                                            <img
-                                                src="${article.image}"
-                                                alt="${article.alt || article.title}"
-                                                loading="lazy"
-                                            >
-
-                                            <div
-                                                class="most-read-title"
-                                            >
-                                                ${article.title}
-                                            </div>
-
-                                        </a>
-
-                                    `;
-
-                                }
-                            )
-                            .join("");
+                    mostReadTarget.innerHTML = "";
 
                 }
 
