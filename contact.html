@@ -1,218 +1,253 @@
+
 <!DOCTYPE html>
 <html lang="te">
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contact Us | BS 360 NEWS</title>
+<title>Contact Us | BS 360 NEWS</title>
 
-    <meta name="description"
-        content="BS 360 NEWSను సంప్రదించండి. సూచనలు, ఫీడ్‌బ్యాక్, వార్తల సవరణలు మరియు ఇతర ప్రశ్నల కోసం మమ్మల్ని సంప్రదించవచ్చు.">
+<meta name="description"
+content="BS 360 NEWSను సంప్రదించండి. వార్తల సవరణలు, సూచనలు, ఫీడ్‌బ్యాక్ మరియు ఇతర ప్రశ్నల కోసం మమ్మల్ని సంప్రదించవచ్చు.">
 
-    <meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow">
 
-    <link rel="canonical"
-        href="https://bs360news.com/contact.html">
+<link rel="canonical"
+href="https://bs360news.com/contact.html">
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        body {
-            margin: 0;
-            background: #f5f5f5;
-            color: #222;
-            font-family: Arial, "Noto Sans Telugu", sans-serif;
-            line-height: 1.8;
-        }
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
 
-        .header {
-            background: #111;
-            color: #fff;
-            border-bottom: 3px solid #e00000;
-        }
+body{
+    font-family:Arial,"Noto Sans Telugu",sans-serif;
+    background:#fff;
+    color:#222;
+    line-height:1.8;
+}
 
-        .header-inner {
-            width: min(1100px, 94%);
-            min-height: 65px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
+/* HEADER */
 
-        .logo {
-            color: #fff;
-            text-decoration: none;
-            font-size: 25px;
-            font-weight: 700;
-        }
+.header{
+    width:100%;
+    background:#111;
+    color:#fff;
+    border-bottom:3px solid #e00000;
+}
 
-        .home {
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 7px 12px;
-            border: 1px solid #555;
-            border-radius: 5px;
-        }
+.header-inner{
+    width:100%;
+    min-height:65px;
+    padding:0 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
 
-        .home:hover {
-            background: #fff;
-            color: #111;
-        }
+.logo{
+    color:#fff;
+    text-decoration:none;
+    font-size:25px;
+    font-weight:700;
+}
 
-        .container {
-            width: min(850px, 94%);
-            margin: 28px auto 45px;
-        }
+.home{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    padding:7px 12px;
+    border:1px solid #555;
+    border-radius:5px;
+}
 
-        .card {
-            background: #fff;
-            border: 1px solid #e2e2e2;
-            border-radius: 8px;
-            padding: 28px;
-        }
+.home:hover{
+    background:#fff;
+    color:#111;
+}
 
-        h1 {
-            margin: 0 0 8px;
-            font-size: 28px;
-            color: #111;
-        }
+/* MAIN CONTENT */
 
-        .red-line {
-            width: 55px;
-            height: 3px;
-            background: #e00000;
-            margin-bottom: 22px;
-        }
+.container{
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:35px 6% 45px;
+}
 
-        .intro {
-            margin: 0 0 22px;
-            color: #555;
-            font-size: 16px;
-        }
+.content{
+    width:100%;
+    background:transparent;
+}
 
-        .contact-box {
-            padding: 20px 0;
-            border-top: 1px solid #e5e5e5;
-        }
+/* TITLE */
 
-        .contact-box:first-of-type {
-            border-top: 0;
-            padding-top: 5px;
-        }
+h1{
+    margin:0 0 8px;
+    font-size:30px;
+    color:#111;
+    font-weight:700;
+}
 
-        .contact-box h2 {
-            margin: 0 0 7px;
-            font-size: 20px;
-            color: #111;
-        }
+.red-line{
+    width:55px;
+    height:3px;
+    background:#e00000;
+    margin-bottom:25px;
+}
 
-        .contact-box p {
-            margin: 5px 0;
-            color: #555;
-            font-size: 15px;
-        }
+/* INTRO */
 
-        .email {
-            color: #d00000 !important;
-            font-size: 16px !important;
-            font-weight: 600;
-            word-break: break-word;
-        }
+.intro{
+    margin:0 0 25px;
+    color:#444;
+    font-size:16px;
+    max-width:1000px;
+}
 
-        .note {
-            margin-top: 18px;
-            padding: 14px 16px;
-            background: #fafafa;
-            border-left: 3px solid #e00000;
-        }
+/* SECTIONS */
 
-        .note p {
-            margin: 0;
-            color: #555;
-            font-size: 14px;
-        }
+.contact-box{
+    padding:22px 0;
+    border-top:1px solid #e5e5e5;
+}
 
-        .footer {
-            background: #111;
-            color: #aaa;
-            padding: 22px 15px;
-            text-align: center;
-            font-size: 13px;
-        }
+.contact-box:first-of-type{
+    border-top:0;
+    padding-top:5px;
+}
 
-        .footer p {
-            margin: 0 0 10px;
-        }
+.contact-box h2{
+    margin:0 0 8px;
+    font-size:21px;
+    color:#111;
+    font-weight:700;
+}
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
+.contact-box p{
+    margin:5px 0;
+    color:#444;
+    font-size:16px;
+    max-width:1100px;
+}
 
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-        }
+/* EMAIL */
 
-        .footer-links a:hover {
-            color: #fff;
-        }
+.email{
+    color:#d00000 !important;
+    font-size:17px !important;
+    font-weight:600;
+    word-break:break-word;
+}
 
-        @media (max-width: 600px) {
+/* NOTE */
 
-            .header-inner {
-                min-height: 58px;
-            }
+.note{
+    margin-top:15px;
+    padding:14px 16px;
+    background:#fafafa;
+    border-left:3px solid #e00000;
+    max-width:1100px;
+}
 
-            .logo {
-                font-size: 21px;
-            }
+.note p{
+    margin:0;
+    color:#555;
+    font-size:14px;
+}
 
-            .home {
-                font-size: 13px;
-                padding: 6px 9px;
-            }
+/* FOOTER */
 
-            .container {
-                width: 94%;
-                margin: 20px auto 35px;
-            }
+.footer{
+    width:100%;
+    background:#111;
+    color:#aaa;
+    padding:22px 15px;
+    text-align:center;
+    font-size:13px;
+}
 
-            .card {
-                padding: 20px 17px;
-            }
+.footer p{
+    margin:0 0 10px;
+}
 
-            h1 {
-                font-size: 24px;
-            }
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
 
-            .intro,
-            .contact-box p {
-                font-size: 15px;
-            }
+.footer-links a{
+    color:#ccc;
+    text-decoration:none;
+}
 
-            .contact-box h2 {
-                font-size: 19px;
-            }
+.footer-links a:hover{
+    color:#fff;
+}
 
-        }
+/* MOBILE */
 
-    </style>
+@media(max-width:600px){
+
+    .header-inner{
+        min-height:58px;
+        padding:0 4%;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .home{
+        font-size:13px;
+        padding:6px 9px;
+    }
+
+    .container{
+        padding:25px 5% 35px;
+    }
+
+    h1{
+        font-size:25px;
+    }
+
+    .intro,
+    .contact-box p{
+        font-size:15px;
+    }
+
+    .contact-box h2{
+        font-size:19px;
+    }
+
+    .note p{
+        font-size:14px;
+    }
+
+}
+
+</style>
 
 </head>
 
 <body>
 
+
+<!-- HEADER -->
 
 <header class="header">
 
@@ -231,88 +266,114 @@
 </header>
 
 
+<!-- CONTENT -->
+
 <main class="container">
 
-    <section class="card">
+<div class="content">
 
-        <h1>
-            Contact Us
-        </h1>
+    <h1>Contact Us</h1>
 
-        <div class="red-line"></div>
+    <div class="red-line"></div>
 
 
-        <p class="intro">
-            BS 360 NEWSకు సంబంధించి మీకు ఏవైనా ప్రశ్నలు,
-            సూచనలు లేదా అభిప్రాయాలు ఉంటే మమ్మల్ని
-            సంప్రదించవచ్చు. మా వెబ్‌సైట్‌లో ప్రచురించిన
-            వార్తలకు సంబంధించి ఏదైనా సవరణ అవసరమని
-            భావించినా మాకు తెలియజేయవచ్చు.
+    <p class="intro">
+        BS 360 NEWSలో ప్రచురించే వార్తలు, కథనాలు మరియు ఇతర
+        సమాచారంపై మీకు ఏవైనా సూచనలు లేదా అభిప్రాయాలు ఉంటే
+        మాకు తెలియజేయవచ్చు. వార్తలో ఏదైనా సవరణ అవసరమని
+        గుర్తించినా, వివరాలతో మమ్మల్ని సంప్రదించవచ్చు.
+    </p>
+
+
+    <!-- EMAIL -->
+
+    <div class="contact-box">
+
+        <h2>Email</h2>
+
+        <p>
+            వార్తలకు సంబంధించిన సమాచారం, సూచనలు, ఫీడ్‌బ్యాక్
+            లేదా ఇతర ప్రశ్నలను మా emailకి పంపవచ్చు.
         </p>
 
+        <p class="email">
+            newsb386@gmail.com
+        </p>
 
-        <div class="contact-box">
-
-            <h2>
-                Email
-            </h2>
-
-            <p>
-                మీ సందేశం, ప్రశ్న లేదా సూచనను ఈ
-                email addressకి పంపవచ్చు.
-            </p>
-
-            <p class="email">
-                newsb386@gmail.com
-            </p>
-
-        </div>
+    </div>
 
 
-        <div class="contact-box">
+    <!-- NEWS CORRECTION -->
 
-            <h2>
-                News Correction
-            </h2>
+    <div class="contact-box">
 
-            <p>
-                మా వెబ్‌సైట్‌లోని ఏదైనా వార్తలో తప్పు
-                సమాచారం కనిపిస్తే, ఆ వార్త శీర్షికతో పాటు
-                సరిచేయాల్సిన వివరాలను email ద్వారా పంపండి.
-            </p>
+        <h2>News Correction</h2>
 
-        </div>
+        <p>
+            మా వెబ్‌సైట్‌లో ప్రచురించిన ఏదైనా వార్తలో తప్పు
+            సమాచారం లేదా సరిచేయాల్సిన వివరాలు కనిపిస్తే,
+            ఆ వార్తకు సంబంధించిన వివరాలతో పాటు సవరణ అవసరమైన
+            అంశాన్ని email ద్వారా మాకు తెలియజేయండి.
+        </p>
 
+        <p>
+            అందిన సమాచారాన్ని పరిశీలించి, అవసరమైతే సంబంధిత
+            వార్తలో మార్పులు చేయడానికి ప్రయత్నిస్తాము.
+        </p>
 
-        <div class="contact-box">
-
-            <h2>
-                Suggestions & Feedback
-            </h2>
-
-            <p>
-                మా వెబ్‌సైట్‌లోని కంటెంట్ లేదా ఇతర
-                విషయాలపై మీ సూచనలు, అభిప్రాయాలను
-                మాతో పంచుకోవచ్చు.
-            </p>
-
-        </div>
+    </div>
 
 
-        <div class="note">
+    <!-- SUGGESTIONS -->
 
-            <p>
-                మీ సందేశాన్ని పరిశీలించిన తర్వాత
-                అవసరాన్ని బట్టి వీలైనంత త్వరగా
-                స్పందించడానికి ప్రయత్నిస్తాము.
-            </p>
+    <div class="contact-box">
 
-        </div>
+        <h2>Suggestions & Feedback</h2>
 
-    </section>
+        <p>
+            BS 360 NEWSలో వార్తల ఎంపిక, కథనాల ప్రదర్శన లేదా
+            వెబ్‌సైట్‌కు సంబంధించిన ఏవైనా సూచనలు ఉంటే
+            మాతో పంచుకోవచ్చు. పాఠకుల అభిప్రాయాలు మా
+            వెబ్‌సైట్‌ను మరింత మెరుగుపరచడంలో ఉపయోగపడతాయి.
+        </p>
+
+    </div>
+
+
+    <!-- OTHER QUESTIONS -->
+
+    <div class="contact-box">
+
+        <h2>Other Queries</h2>
+
+        <p>
+            వార్తలు, కథనాలు, వెబ్‌సైట్ లేదా ఇతర సాధారణ
+            విషయాలకు సంబంధించిన ప్రశ్నల కోసం కూడా
+            పై email address ద్వారా మమ్మల్ని సంప్రదించవచ్చు.
+        </p>
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <div class="note">
+
+        <p>
+            మీ నుంచి వచ్చే ప్రతి సందేశాన్ని వీలైనంత త్వరగా
+            పరిశీలించడానికి ప్రయత్నిస్తాము. అవసరాన్ని బట్టి
+            సంబంధిత సమాచారాన్ని పరిశీలించిన తర్వాత స్పందిస్తాము.
+        </p>
+
+    </div>
+
+
+</div>
 
 </main>
 
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
@@ -350,3 +411,4 @@
 </body>
 
 </html>
+
