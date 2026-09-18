@@ -37,12 +37,10 @@
     href="dp.png.png"
 >
 
-
-<!-- =====================================================
-     OPEN GRAPH
-===================================================== -->
-
-<meta property="og:type" content="article">
+<meta
+    property="og:type"
+    content="article"
+>
 
 <meta
     property="og:title"
@@ -51,7 +49,7 @@
 
 <meta
     property="og:description"
-    content="జాంబీరెడ్డి-2 NXT LVL నుంచి రియల్ స్టార్ ఉపేంద్ర వారియర్ లుక్‌లో ఉన్న స్పెషల్ పోస్టర్ విడుదలైంది. ఉపేంద్ర లుక్ సినిమాపై ఆసక్తిని పెంచుతోంది."
+    content="జాంబీరెడ్డి-2 NXT LVL నుంచి రియల్ స్టార్ ఉపేంద్ర వారియర్ లుక్‌లో ఉన్న స్పెషల్ పోస్టర్ విడుదలైంది."
 >
 
 <meta
@@ -79,11 +77,6 @@
     content="జాంబీరెడ్డి-2లో ఉపేంద్ర వారియర్ లుక్"
 >
 
-
-<!-- =====================================================
-     TWITTER
-===================================================== -->
-
 <meta
     name="twitter:card"
     content="summary_large_image"
@@ -104,11 +97,6 @@
     content="https://bs360news.com/upendra1.jpg"
 >
 
-
-<!-- =====================================================
-     MAIN CSS
-===================================================== -->
-
 <link
     rel="stylesheet"
     href="style.css?v=20260918"
@@ -117,986 +105,865 @@
 
 <style>
 
-/* =====================================================
-   ARTICLE PAGE
-===================================================== */
-
-.article-page {
-    padding: 20px 0 40px;
-}
-
-.article-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        320px;
-
-    gap: 25px;
-
-    align-items: start;
-
-}
-
-.article-main {
-
-    min-width: 0;
-
-    width: 100%;
-
-}
-
-.article-title {
-
-    font-size: 32px;
-
-    line-height: 1.35;
-
-    margin: 0 0 15px;
-
-    color: #111;
-
-    font-weight: 800;
-
-}
-
-.article-content {
-
-    font-size: 18px;
-
-    line-height: 2;
-
-    color: #222;
-
-    width: 100%;
-
-}
-
-/* =====================================================
-   PARAGRAPH GAP FIX
-===================================================== */
-
-.article-content p {
-
-    margin: 0 0 10px;
-
-    padding: 0;
-
-}
-
-.article-content p:last-child {
-
-    margin-bottom: 0;
-
-}
-
-
-/* =====================================================
-   ARTICLE IMAGE
-===================================================== */
-
-.article-image {
-
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    object-fit: cover;
-
-    display: block;
-
-    border-radius: 8px;
-
-    margin: 15px 0;
-
-}
-
-
-/* =====================================================
-   SIDEBAR
-===================================================== */
-
-.article-sidebar {
-
-    width: 100%;
-
-    min-width: 0;
-
-}
-
-.sidebar-box {
-
-    margin-bottom: 22px;
-
-}
-
-.sidebar-title {
-
-    background: #075aaa;
-
-    color: #fff;
-
-    font-size: 20px;
-
-    font-weight: 800;
-
-    padding: 10px 12px;
-
-    border-left: 5px solid #e60000;
-
-    margin-bottom: 8px;
-
-}
-
-.sidebar-item {
-
-    display: flex;
-
-    gap: 10px;
-
-    padding: 9px 0;
-
-    border-bottom: 1px solid #ddd;
-
-    text-decoration: none;
-
-    color: #111;
-
-    align-items: center;
-
-}
-
-.sidebar-item img {
-
-    width: 78px;
-
-    height: 55px;
-
-    object-fit: cover;
-
-    flex: 0 0 78px;
-
-    border-radius: 4px;
-
-}
-
-.sidebar-item-title {
-
-    font-size: 14px;
-
-    line-height: 1.45;
-
-    font-weight: 700;
-
-}
-
-
-/* =====================================================
-   MOST READ
-===================================================== */
-
-.most-read-item {
-
-    display: flex;
-
-    gap: 9px;
-
-    padding: 9px 0;
-
-    border-bottom: 1px solid #ddd;
-
-    text-decoration: none;
-
-    color: #111;
-
-    align-items: center;
-
-}
-
-.most-read-number {
-
-    width: 28px;
-
-    height: 28px;
-
-    background: #075aaa;
-
-    color: #fff;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-weight: 800;
-
-    border-radius: 3px;
-
-    flex: 0 0 28px;
-
-}
-
-.most-read-item img {
-
-    width: 70px;
-
-    height: 50px;
-
-    object-fit: cover;
-
-    border-radius: 4px;
-
-    flex: 0 0 70px;
-
-}
-
-.most-read-title {
-
-    font-size: 13px;
-
-    line-height: 1.4;
-
-    font-weight: 700;
-
-}
-
-
-/* =====================================================
-   DESKTOP SIDEBAR
-===================================================== */
-
-@media (min-width: 801px) {
-
-    #latestSidebar .sidebar-item,
-    #entertainmentSidebar .sidebar-item {
-
-        display: block !important;
-
-        width: 100%;
-
-        padding: 9px 0 11px;
-
-        border-bottom: 1px solid #ddd;
-
-    }
-
-    #latestSidebar .sidebar-item img,
-    #entertainmentSidebar .sidebar-item img {
-
-        display: block;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        aspect-ratio: 16 / 9;
-
-        object-fit: cover;
-
-        margin: 0 0 6px;
-
-        border-radius: 5px;
-
-    }
-
-    #latestSidebar .sidebar-item-title,
-    #entertainmentSidebar .sidebar-item-title {
-
-        display: block;
-
-        width: 100%;
-
-        font-size: 14px;
-
-        line-height: 1.45;
-
-        font-weight: 700;
-
-        margin: 0;
-
-    }
-
-}
-
-
-/* =====================================================
-   RELATED SECTIONS
-===================================================== */
-
-.related-section {
-
-    margin-top: 30px;
-
-}
-
-.related-title {
-
-    font-size: 24px;
-
-    font-weight: 800;
-
-    border-left: 5px solid #e60000;
-
-    padding-left: 10px;
-
-    margin-bottom: 15px;
-
-}
-
-.news-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 15px;
-
-}
-
-
-/* =====================================================
-   RELATED NEWS CARDS
-===================================================== */
-
-.related-section .news-grid .news-card {
-
-    display: block !important;
-
-    width: 100% !important;
-
-    text-decoration: none !important;
-
-    color: #111 !important;
-
-    min-width: 0 !important;
-
-}
-
-.related-section .news-grid .news-card img {
-
-    width: 100% !important;
-
-    height: auto !important;
-
-    aspect-ratio: 16 / 9 !important;
-
-    object-fit: cover !important;
-
-    display: block !important;
-
-    border-radius: 6px !important;
-
-    margin: 0 !important;
-
-}
-
-.related-section .news-grid .news-card h3 {
-
-    display: block !important;
-
-    width: 100% !important;
-
-    font-size: 15px !important;
-
-    line-height: 1.45 !important;
-
-    margin: 8px 0 0 !important;
-
-    padding: 0 !important;
-
-    font-weight: 700 !important;
-
-}
-
-
-/* =====================================================
-   EMPTY MESSAGE
-===================================================== */
-
-.auto-empty {
-
-    font-size: 14px;
-
-    color: #777;
-
-    padding: 10px 0;
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 800px) {
-
-    /* ================================================
-       IMPORTANT GAP FIX
-       ARTICLE + SIDEBAR MUST BE ONE COLUMN
-    ================================================ */
-
-    .article-page {
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        padding:
-            12px
-            12px
-            30px !important;
-
-        margin: 0 !important;
-
-    }
-
-    .article-layout {
-
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        grid-template-columns: none !important;
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        gap: 0 !important;
-
-        margin: 0 !important;
-
-        padding: 0 !important;
-
-    }
-
-    .article-main {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        min-width: 0 !important;
-
-        margin: 0 !important;
-
-        padding: 0 !important;
-
-    }
-
-    .article-sidebar {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        min-width: 0 !important;
-
-        margin: 25px 0 0 !important;
-
-        padding: 0 !important;
-
-        order: 2 !important;
-
-    }
-
-
-    /* ================================================
-       TITLE
-    ================================================ */
-
-    .article-title {
-
-        width: 100% !important;
-
-        font-size: 24px;
-
-        line-height: 1.4;
-
-        margin:
-            0
-            0
-            12px !important;
-
-    }
-
-
-    /* ================================================
-       ARTICLE TEXT
-    ================================================ */
-
-    .article-content {
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        font-size: 17px;
-
-        line-height: 1.9;
-
-        margin: 0 !important;
-
-        padding: 0 !important;
-
-    }
-
-    .article-content p {
-
-        margin:
-            0
-            0
-            8px !important;
-
-        padding: 0 !important;
-
-    }
-
-
-    /* ================================================
-       ARTICLE IMAGE
-    ================================================ */
-
-    .article-image {
-
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        height: auto !important;
-
-        aspect-ratio: 16 / 9 !important;
-
-        object-fit: cover !important;
-
-        display: block !important;
-
-        border-radius: 5px !important;
-
-        margin:
-            12px
-            0 !important;
-
-    }
-
-
-    /* ================================================
-       SIDEBAR
-    ================================================ */
-
-    .sidebar-box {
-
-        width: 100% !important;
-
-        margin:
-            0
-            0
-            20px !important;
-
-        padding: 0 !important;
-
-    }
-
-    .sidebar-title {
-
-        width: 100% !important;
-
-        font-size: 18px;
-
-        padding:
-            9px
-            11px;
-
-        margin-bottom: 5px;
-
-    }
-
-    .sidebar-item {
-
-        display: flex !important;
-
-        flex-direction: row !important;
-
-        width: 100% !important;
-
-        gap: 10px;
-
-        padding:
-            8px
-            0;
-
-        align-items: center;
-
-    }
-
-    .sidebar-item img {
-
-        width: 75px !important;
-
-        height: 53px !important;
-
-        aspect-ratio: auto !important;
-
-        object-fit: cover;
-
-        flex:
-            0
-            0
-            75px !important;
-
-        margin: 0 !important;
-
-    }
-
-    .sidebar-item-title {
-
-        display: block !important;
-
-        width: auto !important;
-
-        flex: 1;
-
-        font-size: 14px;
-
-        line-height: 1.45;
-
-        font-weight: 700;
-
-    }
-
-
-    /* ================================================
-       RELATED GRID
-    ================================================ */
-
-    .related-section {
-
-        width: 100% !important;
-
-        margin-top: 25px;
-
-    }
-
-    .news-grid {
-
-        width: 100% !important;
-
-        display: grid !important;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 12px !important;
-
-    }
-
-    .related-section .news-grid {
-
-        display: grid !important;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 12px !important;
-
-        width: 100% !important;
-
-    }
-
-    .related-section .news-grid .news-card {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        min-width: 0 !important;
-
-    }
-
-    .related-section .news-grid .news-card img {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        aspect-ratio: 16 / 9 !important;
-
-        object-fit: cover !important;
-
-        border-radius: 6px !important;
-
-        margin: 0 !important;
-
-    }
-
-    .related-section .news-grid .news-card h3 {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        margin:
-            7px
-            0
-            0 !important;
-
-        font-size: 14px !important;
-
-        line-height: 1.45 !important;
-
-        font-weight: 700 !important;
-
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE SMALL
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .article-page {
-
-        padding:
-            10px
-            10px
-            25px !important;
-
-    }
-
-    .article-title {
-
-        font-size: 22px;
-
-        line-height: 1.4;
-
-        margin-bottom: 10px !important;
-
-    }
-
-    .article-content {
-
-        font-size: 16px;
-
-        line-height: 1.85;
-
-    }
-
-    .article-content p {
-
-        margin-bottom:
-            7px !important;
-
-    }
-
-    .article-image {
-
-        border-radius: 5px;
-
-        margin:
-            10px
-            0 !important;
-
-    }
-
-    .sidebar-item img {
-
-        width: 75px !important;
-
-        height: 53px !important;
-
-        flex-basis: 75px !important;
-
-    }
-
-    .sidebar-item-title {
-
-        font-size: 14px;
-
-    }
-
-    .sidebar-title {
-
-        font-size: 18px;
-
-    }
-
-    .related-section .news-grid {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 12px !important;
-
-    }
-
-    .related-section .news-grid .news-card img {
-
-        width: 100% !important;
-
-        aspect-ratio: 16 / 9 !important;
-
-        height: auto !important;
-
-        object-fit: cover !important;
-
-        display: block !important;
-
-    }
-
-    .related-section .news-grid .news-card h3 {
-
-        font-size: 14px !important;
-
-        line-height: 1.45 !important;
-
-        margin-top: 7px !important;
-
-    }
-
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .article-page {
-
-        padding-left: 8px !important;
-
-        padding-right: 8px !important;
-
-    }
-
-    .news-grid {
-
-        gap: 9px;
-
-    }
-
-    .news-card h3 {
-
-        font-size: 13px;
-
-    }
-
-    .related-section .news-grid {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 9px !important;
-
-    }
-
-    .related-section .news-grid .news-card h3 {
-
-        font-size: 13px !important;
-
-        line-height: 1.4 !important;
-
-    }
-
-}
 /* =========================================================
-   LAPTOP / DESKTOP - ARTICLE & SIDEBAR GAP REMOVE
+   ARTICLE PAGE - BASE
 ========================================================= */
 
-@media screen and (min-width: 801px) {
+.article-page{
+    padding:20px 0 40px;
+}
 
-    .article-layout {
-        display: grid !important;
+.article-layout{
+    display:grid;
 
+    grid-template-columns:
+        minmax(0,1fr)
+        320px;
+
+    gap:0;
+
+    width:100%;
+    max-width:100%;
+
+    margin:0;
+    padding:0;
+
+    align-items:start;
+}
+
+.article-main{
+    width:100%;
+    min-width:0;
+
+    margin:0;
+    padding:0;
+}
+
+.article-sidebar{
+    width:100%;
+    min-width:0;
+
+    margin:0;
+    padding:0;
+}
+
+
+/* =========================================================
+   ARTICLE TITLE
+========================================================= */
+
+.article-title{
+    font-size:32px;
+    line-height:1.4;
+
+    margin:0 0 15px;
+    padding:0;
+
+    color:#111;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   ARTICLE CONTENT
+========================================================= */
+
+.article-content{
+    width:100%;
+
+    font-size:18px;
+    line-height:2;
+
+    color:#222;
+
+    margin:0;
+    padding:0;
+}
+
+.article-content p{
+    margin:0 0 10px;
+    padding:0;
+}
+
+.article-content p:last-child{
+    margin-bottom:0;
+}
+
+
+/* =========================================================
+   ARTICLE IMAGE
+========================================================= */
+
+.article-image{
+    display:block;
+
+    width:100%;
+    max-width:100%;
+
+    aspect-ratio:16 / 9;
+
+    height:auto;
+
+    object-fit:cover;
+
+    border-radius:7px;
+
+    margin:15px 0;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.article-sidebar{
+    overflow:hidden;
+}
+
+.sidebar-box{
+    width:100%;
+
+    margin:0 0 22px;
+    padding:0;
+}
+
+.sidebar-title{
+    width:100%;
+
+    background:#075aaa;
+
+    color:#fff;
+
+    font-size:20px;
+    font-weight:800;
+
+    padding:10px 12px;
+
+    border-left:5px solid #e60000;
+
+    margin:0 0 8px;
+}
+
+
+/* =========================================================
+   SIDEBAR ITEM
+========================================================= */
+
+.sidebar-item{
+    display:flex;
+
+    width:100%;
+
+    gap:10px;
+
+    padding:9px 0;
+
+    border-bottom:1px solid #ddd;
+
+    text-decoration:none;
+
+    color:#111;
+
+    align-items:center;
+
+    box-sizing:border-box;
+}
+
+.sidebar-item img{
+    width:78px;
+    height:55px;
+
+    object-fit:cover;
+
+    flex:0 0 78px;
+
+    border-radius:4px;
+
+    display:block;
+}
+
+.sidebar-item-title{
+    width:auto;
+
+    flex:1;
+
+    font-size:14px;
+
+    line-height:1.45;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   MOST READ
+========================================================= */
+
+.most-read-item{
+    display:flex;
+
+    width:100%;
+
+    gap:9px;
+
+    padding:9px 0;
+
+    border-bottom:1px solid #ddd;
+
+    text-decoration:none;
+
+    color:#111;
+
+    align-items:center;
+
+    box-sizing:border-box;
+}
+
+.most-read-number{
+    width:28px;
+    height:28px;
+
+    background:#075aaa;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-weight:800;
+
+    border-radius:3px;
+
+    flex:0 0 28px;
+}
+
+.most-read-item img{
+    width:70px;
+    height:50px;
+
+    object-fit:cover;
+
+    border-radius:4px;
+
+    flex:0 0 70px;
+
+    display:block;
+}
+
+.most-read-title{
+    flex:1;
+
+    font-size:13px;
+
+    line-height:1.4;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   DESKTOP SIDEBAR
+========================================================= */
+
+@media screen and (min-width:801px){
+
+    .article-layout{
         grid-template-columns:
-            minmax(0, 1fr) 320px !important;
+            minmax(0,1fr)
+            320px !important;
 
-        column-gap: 0 !important;
-        row-gap: 0 !important;
+        gap:0 !important;
+        column-gap:0 !important;
 
-        gap: 0 !important;
+        width:100% !important;
+        max-width:100% !important;
 
-        align-items: start !important;
+        margin:0 !important;
+        padding:0 !important;
+    }
 
-        width: 100% !important;
-        max-width: 100% !important;
+    .article-main{
+        width:100% !important;
+        min-width:0 !important;
 
-        margin: 0 !important;
-        padding: 0 !important;
+        margin:0 !important;
+        padding:0 !important;
+    }
+
+    .article-sidebar{
+        width:320px !important;
+        min-width:320px !important;
+
+        margin:0 !important;
+        padding:0 !important;
     }
 
 
-    .article-main {
-        width: 100% !important;
-        min-width: 0 !important;
+    /* ---------------------------------------------
+       DESKTOP SIDEBAR CARDS
+    --------------------------------------------- */
 
-        margin: 0 !important;
-        padding: 0 !important;
+    #trendingSidebar .sidebar-item,
+    #latestSidebar .sidebar-item,
+    #entertainmentSidebar .sidebar-item{
+
+        display:block !important;
+
+        width:100% !important;
+
+        padding:9px 0 11px !important;
+
+        border-bottom:1px solid #ddd;
+    }
+
+    #trendingSidebar .sidebar-item img,
+    #latestSidebar .sidebar-item img,
+    #entertainmentSidebar .sidebar-item img{
+
+        display:block !important;
+
+        width:100% !important;
+        height:auto !important;
+
+        aspect-ratio:16 / 9 !important;
+
+        object-fit:cover !important;
+
+        margin:0 0 6px !important;
+
+        border-radius:5px !important;
+    }
+
+    #trendingSidebar .sidebar-item-title,
+    #latestSidebar .sidebar-item-title,
+    #entertainmentSidebar .sidebar-item-title{
+
+        display:block !important;
+
+        width:100% !important;
+
+        font-size:14px !important;
+
+        line-height:1.45 !important;
+
+        font-weight:700 !important;
+
+        margin:0 !important;
     }
 
 
-    .article-sidebar {
-        width: 100% !important;
-        min-width: 0 !important;
+    /* ---------------------------------------------
+       DESKTOP MOST READ
+    --------------------------------------------- */
 
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+    #mostReadSidebar .most-read-item{
+        display:flex !important;
 
+        width:100% !important;
 
-    .sidebar-box {
-        width: 100% !important;
-
-        margin: 0 0 22px 0 !important;
-        padding: 0 !important;
-    }
-
-
-    /* Sidebar first item also no extra left/right gap */
-
-    #trendingSidebar,
-    #latestSidebar,
-    #mostReadSidebar,
-    #entertainmentSidebar {
-        width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-
-    /* Article content no unwanted horizontal gap */
-
-    .article-content {
-        width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-
-    .article-image {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        padding:9px 0 !important;
     }
 
 }
+
+
+/* =========================================================
+   RELATED SECTION
+========================================================= */
+
+.related-section{
+    width:100%;
+
+    margin-top:30px;
+
+    padding:0;
+}
+
+.related-title{
+    font-size:24px;
+
+    font-weight:800;
+
+    border-left:5px solid #e60000;
+
+    padding-left:10px;
+
+    margin:0 0 15px;
+}
+
+
+/* =========================================================
+   DESKTOP RELATED GRID
+========================================================= */
+
+.news-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap:15px;
+
+    width:100%;
+}
+
+
+/* =========================================================
+   NEWS CARD
+========================================================= */
+
+.related-section .news-grid .news-card{
+
+    display:block !important;
+
+    width:100% !important;
+
+    min-width:0 !important;
+
+    text-decoration:none !important;
+
+    color:#111 !important;
+}
+
+.related-section .news-grid .news-card img{
+
+    display:block !important;
+
+    width:100% !important;
+
+    height:auto !important;
+
+    aspect-ratio:16 / 9 !important;
+
+    object-fit:cover !important;
+
+    border-radius:6px !important;
+
+    margin:0 !important;
+}
+
+.related-section .news-grid .news-card h3{
+
+    display:block !important;
+
+    width:100% !important;
+
+    font-size:15px !important;
+
+    line-height:1.45 !important;
+
+    margin:8px 0 0 !important;
+
+    padding:0 !important;
+
+    font-weight:700 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width:800px){
+
+    .article-page{
+        width:100% !important;
+        max-width:100% !important;
+
+        padding:12px 12px 30px !important;
+
+        margin:0 !important;
+    }
+
+    .article-layout{
+
+        display:flex !important;
+
+        flex-direction:column !important;
+
+        width:100% !important;
+        max-width:100% !important;
+
+        gap:0 !important;
+
+        margin:0 !important;
+        padding:0 !important;
+    }
+
+    .article-main{
+
+        display:block !important;
+
+        width:100% !important;
+        max-width:100% !important;
+
+        min-width:0 !important;
+
+        margin:0 !important;
+        padding:0 !important;
+    }
+
+    .article-sidebar{
+
+        display:block !important;
+
+        width:100% !important;
+        max-width:100% !important;
+
+        min-width:0 !important;
+
+        margin:25px 0 0 !important;
+        padding:0 !important;
+
+        order:2 !important;
+    }
+
+
+    /* ---------------------------------------------
+       MOBILE TITLE
+    --------------------------------------------- */
+
+    .article-title{
+
+        width:100% !important;
+
+        font-size:24px;
+
+        line-height:1.4;
+
+        margin:0 0 12px !important;
+    }
+
+
+    /* ---------------------------------------------
+       MOBILE CONTENT
+    --------------------------------------------- */
+
+    .article-content{
+
+        width:100% !important;
+        max-width:100% !important;
+
+        font-size:17px;
+
+        line-height:1.9;
+
+        margin:0 !important;
+        padding:0 !important;
+    }
+
+    .article-content p{
+
+        margin:0 0 8px !important;
+        padding:0 !important;
+    }
+
+
+    /* ---------------------------------------------
+       MOBILE IMAGE
+    --------------------------------------------- */
+
+    .article-image{
+
+        display:block !important;
+
+        width:100% !important;
+        max-width:100% !important;
+
+        height:auto !important;
+
+        aspect-ratio:16 / 9 !important;
+
+        object-fit:cover !important;
+
+        border-radius:5px !important;
+
+        margin:12px 0 !important;
+    }
+
+
+    /* ---------------------------------------------
+       MOBILE SIDEBAR
+    --------------------------------------------- */
+
+    .sidebar-box{
+
+        width:100% !important;
+
+        margin:0 0 20px !important;
+
+        padding:0 !important;
+    }
+
+    .sidebar-title{
+
+        width:100% !important;
+
+        font-size:18px;
+
+        padding:9px 11px;
+
+        margin:0 0 5px;
+    }
+
+    .sidebar-item{
+
+        display:flex !important;
+
+        flex-direction:row !important;
+
+        width:100% !important;
+
+        gap:10px;
+
+        padding:8px 0;
+
+        align-items:center;
+    }
+
+    .sidebar-item img{
+
+        width:75px !important;
+        height:53px !important;
+
+        aspect-ratio:auto !important;
+
+        object-fit:cover !important;
+
+        flex:0 0 75px !important;
+
+        margin:0 !important;
+    }
+
+    .sidebar-item-title{
+
+        display:block !important;
+
+        width:auto !important;
+
+        flex:1;
+
+        font-size:14px;
+
+        line-height:1.45;
+
+        font-weight:700;
+    }
+
+
+    /* ---------------------------------------------
+       MOBILE RELATED
+    --------------------------------------------- */
+
+    .related-section{
+
+        width:100% !important;
+
+        margin-top:25px;
+
+    }
+
+    .related-title{
+
+        font-size:21px;
+
+        margin-bottom:12px;
+    }
+
+    .news-grid{
+
+        width:100% !important;
+
+        display:grid !important;
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr)) !important;
+
+        gap:12px !important;
+    }
+
+    .related-section .news-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr)) !important;
+
+        gap:12px !important;
+    }
+
+    .related-section .news-grid .news-card{
+
+        display:block !important;
+
+        width:100% !important;
+
+        min-width:0 !important;
+    }
+
+    .related-section .news-grid .news-card img{
+
+        display:block !important;
+
+        width:100% !important;
+
+        height:auto !important;
+
+        aspect-ratio:16 / 9 !important;
+
+        object-fit:cover !important;
+
+        border-radius:6px !important;
+
+        margin:0 !important;
+    }
+
+    .related-section .news-grid .news-card h3{
+
+        display:block !important;
+
+        width:100% !important;
+
+        margin:7px 0 0 !important;
+
+        font-size:14px !important;
+
+        line-height:1.45 !important;
+
+        font-weight:700 !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width:600px){
+
+    .article-page{
+
+        padding:10px 10px 25px !important;
+    }
+
+    .article-title{
+
+        font-size:22px;
+
+        line-height:1.4;
+
+        margin-bottom:10px !important;
+    }
+
+    .article-content{
+
+        font-size:16px;
+
+        line-height:1.85;
+    }
+
+    .article-content p{
+
+        margin-bottom:7px !important;
+    }
+
+    .article-image{
+
+        border-radius:5px;
+
+        margin:10px 0 !important;
+    }
+
+    .sidebar-item img{
+
+        width:75px !important;
+        height:53px !important;
+
+        flex-basis:75px !important;
+    }
+
+    .sidebar-item-title{
+
+        font-size:14px;
+    }
+
+    .sidebar-title{
+
+        font-size:18px;
+    }
+
+    .related-section .news-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr)) !important;
+
+        gap:12px !important;
+    }
+
+    .related-section .news-grid .news-card img{
+
+        width:100% !important;
+
+        aspect-ratio:16 / 9 !important;
+
+        height:auto !important;
+
+        object-fit:cover !important;
+    }
+
+    .related-section .news-grid .news-card h3{
+
+        font-size:14px !important;
+
+        line-height:1.45 !important;
+
+        margin-top:7px !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width:380px){
+
+    .article-page{
+
+        padding-left:8px !important;
+        padding-right:8px !important;
+    }
+
+    .news-grid{
+
+        gap:9px;
+    }
+
+    .news-card h3{
+
+        font-size:13px;
+    }
+
+    .related-section .news-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr)) !important;
+
+        gap:9px !important;
+    }
+
+    .related-section .news-grid .news-card h3{
+
+        font-size:13px !important;
+
+        line-height:1.4 !important;
+    }
+
+}
+
 </style>
 
 </head>
@@ -1105,9 +972,9 @@
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header class="brand-header">
 
@@ -1127,7 +994,6 @@
                 >
 
             </div>
-
 
             <div class="logo-name">
 
@@ -1161,7 +1027,6 @@
                 🌙 Dark
             </button>
 
-
             <div class="live-button">
 
                 <span class="live-dot"></span>
@@ -1187,9 +1052,9 @@
 </header>
 
 
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
 <nav
     class="main-nav"
@@ -1200,7 +1065,10 @@
 
         <div class="lang-selector">
 
-            <a href="./" class="active">
+            <a
+                href="./"
+                class="active"
+            >
                 తెలుగు
             </a>
 
@@ -1251,9 +1119,9 @@
 </nav>
 
 
-<!-- =====================================================
+<!-- =========================================================
      TOP HEADLINES
-===================================================== -->
+========================================================= -->
 
 <div class="headlines-bar">
 
@@ -1275,9 +1143,9 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      MAIN
-===================================================== -->
+========================================================= -->
 
 <main class="container article-page">
 
@@ -1285,9 +1153,9 @@
 <div class="article-layout">
 
 
-<!-- =====================================================
-     ARTICLE
-===================================================== -->
+<!-- =========================================================
+     ARTICLE MAIN
+========================================================= -->
 
 <article class="article-main">
 
@@ -1306,11 +1174,9 @@
 తేజా సజ్జ హీరోగా తెరకెక్కుతున్న క్రేజీ సీక్వెల్ <strong>‘జాంబీరెడ్డి-2 NXT LVL’</strong>పై ఆసక్తి పెరుగుతోంది. ఇప్పటికే ‘జాంబీరెడ్డి’ సినిమాతో జాంబీల నేపథ్యంలో తెలుగు ప్రేక్షకులకు కొత్త అనుభూతిని అందించిన చిత్రబృందం.. ఇప్పుడు సీక్వెల్‌ను మరింత భారీగా, విభిన్నమైన కాన్సెప్ట్‌తో తెరకెక్కిస్తున్నట్లు తెలుస్తోంది. ఈ సినిమాలో రియల్ స్టార్ ఉపేంద్ర కీలక పాత్రలో నటిస్తుండటం సినిమాపై అంచనాలను మరింత పెంచుతోంది. తాజాగా ఉపేంద్ర పుట్టినరోజు సందర్భంగా చిత్రబృందం ఆయన పాత్రకు సంబంధించిన ప్రత్యేక పోస్టర్‌ను విడుదల చేసింది.
 </p>
 
-
 <p>
 ఈ పోస్టర్‌లో ఉపేంద్ర కనిపించిన తీరు ఇప్పుడు సోషల్ మీడియాలో వైరల్‌గా మారింది. చెట్టు పైనుంచి తలకిందులుగా వేలాడుతూ, పూర్తిగా వారియర్ లుక్‌లో ఉపేంద్ర కనిపించారు. ఆయన గెటప్, బాడీ లాంగ్వేజ్, పోస్టర్‌లోని ఇంటెన్స్ ఎక్స్‌ప్రెషన్ సినిమాకు సంబంధించి ఆసక్తిని పెంచేలా ఉన్నాయి. ఇప్పటివరకు సినిమాలో ఉపేంద్ర ఎలాంటి పాత్రలో కనిపించబోతున్నారనే విషయంలో పెద్దగా వివరాలు బయటకు రాలేదు. అయితే ఈ ఫస్ట్ లుక్‌తో ఆయన పాత్ర సాధారణంగా ఉండబోదనే సంకేతాలను చిత్రబృందం ఇచ్చింది.
 </p>
-
 
 <p>
 రియల్ స్టార్ ఉపేంద్రకు ప్రత్యేకమైన స్క్రీన్ ప్రెజెన్స్ ఉంది. ఆయన కనిపించే ప్రతి పాత్రలోనూ తనదైన శైలిని చూపించడం అభిమానులకు తెలిసిందే. అలాంటి ఉపేంద్రను ‘జాంబీరెడ్డి-2 NXT LVL’లో ఒక వారియర్‌గా చూపించడం ఇప్పుడు ఆసక్తికరంగా మారింది. పోస్టర్‌లో ఆయన ధరించిన దుస్తులు, ఆయుధాల తరహా గెటప్, చెట్టు నుంచి వేలాడుతున్న విధానం పాత్రపై మరింత క్యూరియాసిటీని పెంచుతున్నాయి. ముఖ్యంగా జాంబీల ప్రపంచానికి ఆయన ఎంట్రీ ఇవ్వడం సినిమాకు కీలకమైన అంశంగా ఉండబోతుందనే అభిప్రాయం వ్యక్తమవుతోంది.
@@ -1329,46 +1195,37 @@
 ఉపేంద్ర పుట్టినరోజును పురస్కరించుకుని విడుదల చేసిన ఈ పోస్టర్‌కు చిత్రబృందం ప్రత్యేకమైన ట్రీట్‌మెంట్ ఇచ్చింది. సాధారణంగా పుట్టినరోజు పోస్టర్లలో హీరో లేదా నటుడి లుక్‌ను మాత్రమే చూపిస్తారు. కానీ ‘జాంబీరెడ్డి-2’ మేకర్స్ మాత్రం ఉపేంద్ర పాత్రలోని వైల్డ్‌నెస్‌ను చూపించేలా పోస్టర్‌ను రూపొందించారు. చెట్టు పైనుంచి తలకిందులుగా వేలాడుతూ కనిపించడం సినిమాకు సంబంధించిన ప్రపంచం ఎంత భిన్నంగా ఉండబోతుందో చెప్పే ప్రయత్నంలా కనిపిస్తోంది.
 </p>
 
-
 <p>
 ఈ సందర్భంగా చిత్రబృందం చేసిన సోషల్ మీడియా పోస్టు కూడా వైరల్‌గా మారింది. జాంబీల ప్రపంచంలోకి ఉపేంద్ర ఎంట్రీ ఇవ్వడంతో ఈ మూవీ <strong>‘NXT LVL’</strong>కు వెళ్లబోతోందని మేకర్స్ పేర్కొన్నారు. ఈ ఒక్క మాటతోనే సినిమాలో ఉపేంద్ర పాత్రకు ఎంత ప్రాధాన్యత ఉందో అర్థమవుతోంది. ఇప్పటికే తేజా సజ్జకు యూత్‌లో మంచి క్రేజ్ ఉండగా.. ఇప్పుడు ఉపేంద్ర కూడా కీలక పాత్రలో చేరడంతో సినిమాపై మరింత ఆసక్తి ఏర్పడింది.
 </p>
-
 
 <p>
 ‘జాంబీరెడ్డి’ మొదటి భాగం తెలుగు ప్రేక్షకులకు కొత్త తరహా జాంబీ కథను పరిచయం చేసింది. కామెడీ, హారర్, యాక్షన్ అంశాలను కలిపి రూపొందించిన ఆ సినిమా ప్రేక్షకులను ఆకట్టుకుంది. ముఖ్యంగా తేజా సజ్జ నటన, కథలోని వినోదాత్మక అంశాలు సినిమాకు ప్రత్యేక గుర్తింపు తీసుకొచ్చాయి. ఇప్పుడు అదే ప్రపంచాన్ని కొనసాగిస్తూ ‘జాంబీరెడ్డి-2 NXT LVL’ను రూపొందిస్తున్నారు. అయితే సీక్వెల్‌లో కథను మరింత విస్తరించి, కొత్త పాత్రలు, కొత్త సంఘటనలు, మరింత యాక్షన్‌ను జోడిస్తున్నట్లు తెలుస్తోంది.
 </p>
 
-
 <p>
 తేజా సజ్జ మరోసారి ఈ సీక్వెల్‌లో ప్రధాన పాత్రలో కనిపించనున్నారు. మొదటి భాగంలో తన పాత్రతో ప్రేక్షకులను అలరించిన తేజా.. ఇప్పుడు సీక్వెల్‌లో ఎలాంటి కొత్త సాహసాలు చేయబోతున్నారనేది ఆసక్తికరంగా మారింది. మొదటి సినిమాకు కొనసాగింపుగా కథ సాగుతుందా? లేక అదే ప్రపంచంలో కొత్త కథను చూపించబోతున్నారా? అనే విషయంపై చిత్రబృందం పూర్తి వివరాలను ఇంకా వెల్లడించలేదు. అయితే విడుదలవుతున్న పోస్టర్లు, ప్రమోషనల్ అప్‌డేట్స్ ద్వారా సినిమాపై ఆసక్తిని కొనసాగిస్తోంది.
 </p>
-
 
 <p>
 మరోవైపు ఉపేంద్ర పాత్రకు సంబంధించిన వివరాలను కూడా మేకర్స్ ప్రస్తుతానికి గోప్యంగా ఉంచుతున్నట్లు తెలుస్తోంది. ఆయన పాత్ర పేరు ఏమిటి? కథలో ఆయన ఎప్పుడు ఎంట్రీ ఇస్తారు? తేజా సజ్జ పాత్రతో ఆయనకు ఎలాంటి సంబంధం ఉంటుంది? జాంబీలతో ఆయన చేసే పోరాటం ఎలా ఉంటుంది? వంటి ప్రశ్నలకు సమాధానాలు సినిమా విడుదలకు దగ్గరయ్యే కొద్దీ తెలుస్తాయని అభిమానులు ఎదురుచూస్తున్నారు. ప్రస్తుతం విడుదలైన ఫస్ట్ లుక్ మాత్రం ఈ ప్రశ్నలకు మరింత ఆసక్తిని జోడించింది.
 </p>
 
-
 <p>
 ఉపేంద్ర లుక్‌ను గమనిస్తే పాత్రలో యాక్షన్‌కు ఎక్కువ ప్రాధాన్యత ఉండొచ్చనే అంచనాలు ఏర్పడుతున్నాయి. అయితే పోస్టర్ ఆధారంగా పాత్ర స్వభావం లేదా కథలో అతడి పూర్తి పాత్రను నిర్ణయించడం కష్టం. చిత్రబృందం అధికారికంగా వెల్లడించిన వివరాల ప్రకారం ఆయన జాంబీల ప్రపంచంలోకి అడుగుపెట్టనున్నారని మాత్రమే స్పష్టమవుతోంది. అందువల్ల సినిమా కథలో ఉపేంద్ర పాత్ర ఎంత కీలకంగా ఉంటుందనేది తెరపై చూడాల్సి ఉంది.
 </p>
-
 
 <p>
 ‘జాంబీరెడ్డి-2 NXT LVL’ అనే టైటిల్ కూడా సీక్వెల్‌పై అంచనాలను పెంచుతోంది. మొదటి భాగంతో పోలిస్తే రెండో భాగాన్ని మరింత పెద్ద స్థాయిలో రూపొందించాలనే ఉద్దేశం టైటిల్‌లోనే కనిపిస్తోంది. జాంబీల కాన్సెప్ట్‌కు కొత్త అంశాలను జోడించి, ప్రేక్షకులకు కొత్త అనుభూతిని అందించేందుకు మేకర్స్ ప్రయత్నిస్తున్నట్లు తెలుస్తోంది. ఉపేంద్ర లాంటి ప్రత్యేకమైన ఇమేజ్ ఉన్న నటుడిని ఈ ప్రపంచంలోకి తీసుకురావడం కూడా అందులో భాగంగానే కనిపిస్తోంది.
 </p>
 
-
 <p>
 తేజా సజ్జతో పాటు ఉపేంద్ర కాంబినేషన్ ఎలా ఉంటుందనేది కూడా ఇప్పుడు అభిమానుల్లో చర్చగా మారింది. ఒకవైపు తేజా సజ్జ యూత్‌కు దగ్గరైన హీరోగా గుర్తింపు తెచ్చుకోగా.. మరోవైపు ఉపేంద్రకు తనదైన భారీ ఫ్యాన్ బేస్ ఉంది. ఈ ఇద్దరూ ఒకే సినిమాలో కనిపించనుండటంతో వారి స్క్రీన్ కాంబినేషన్‌పై ఆసక్తి నెలకొంది. ముఖ్యంగా ఉపేంద్ర వారియర్ గెటప్‌లో కనిపించడంతో ఆయన పాత్రకు సంబంధించిన మరిన్ని అప్‌డేట్స్ కోసం అభిమానులు ఎదురుచూస్తున్నారు.
 </p>
 
-
 <p>
 పుట్టినరోజు సందర్భంగా విడుదల చేసిన ఈ స్పెషల్ పోస్టర్ సినిమాకు మంచి ప్రమోషనల్ బజ్‌ను తీసుకొచ్చింది. సాధారణ అప్‌డేట్‌గా కాకుండా ఉపేంద్ర పాత్రను ప్రత్యేకంగా పరిచయం చేయడం ద్వారా చిత్రబృందం సినిమాపై ఉన్న ఆసక్తిని మరింత పెంచింది. పోస్టర్ విడుదలైన తర్వాత అభిమానులు తమ సోషల్ మీడియా ఖాతాల్లో లుక్‌ను షేర్ చేస్తూ స్పందిస్తున్నారు. ఉపేంద్ర లుక్‌లోని కొత్తదనం, జాంబీ ప్రపంచంతో ఆయన కలయిక ఇప్పుడు ప్రధాన చర్చగా మారింది.
 </p>
-
 
 <p>
 మొత్తంగా చూస్తే ‘జాంబీరెడ్డి-2 NXT LVL’ సీక్వెల్‌పై అంచనాలను పెంచేలా తాజాగా ఉపేంద్ర ఫస్ట్ లుక్ వచ్చింది. చెట్టు పైనుంచి తలకిందులుగా వేలాడుతున్న వారియర్ గెటప్‌లో రియల్ స్టార్ కనిపించడం సినిమాకు సంబంధించిన ఆసక్తిని ఒక్కసారిగా పెంచింది. తేజా సజ్జ హీరోగా కొనసాగుతున్న ఈ సీక్వెల్‌లో ఉపేంద్ర పాత్ర ఎలా ఉండబోతోంది, జాంబీల ప్రపంచంలో ఆయన ఎలాంటి మార్పు తీసుకురాబోతున్నారు, కథలో ఆయన పాత్ర ఎంత కీలకంగా ఉంటుంది అనేది తెలియాలంటే మరిన్ని అధికారిక అప్‌డేట్స్ కోసం ఎదురుచూడాల్సిందే. ప్రస్తుతం మాత్రం ఉపేంద్ర స్పెషల్ లుక్ సినిమాపై కొత్త అంచనాలను తీసుకొచ్చింది.
@@ -1380,9 +1237,9 @@
 </article>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SIDEBAR
-===================================================== -->
+========================================================= -->
 
 <aside class="article-sidebar">
 
@@ -1390,7 +1247,7 @@
 <div class="sidebar-box">
 
     <div class="sidebar-title">
-        Trending News
+        🔥 Trending News
     </div>
 
     <div id="trendingSidebar"></div>
@@ -1401,7 +1258,7 @@
 <div class="sidebar-box">
 
     <div class="sidebar-title">
-        Latest News
+        📰 Latest News
     </div>
 
     <div id="latestSidebar"></div>
@@ -1412,7 +1269,7 @@
 <div class="sidebar-box">
 
     <div class="sidebar-title">
-        Most Read
+        👁️ Most Read
     </div>
 
     <div id="mostReadSidebar"></div>
@@ -1423,7 +1280,7 @@
 <div class="sidebar-box">
 
     <div class="sidebar-title">
-        Entertainment
+        🎬 Entertainment
     </div>
 
     <div id="entertainmentSidebar"></div>
@@ -1433,18 +1290,17 @@
 
 </aside>
 
-
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      LATEST NEWS
-===================================================== -->
+========================================================= -->
 
 <section class="related-section">
 
     <div class="related-title">
-        Latest News
+        📰 Latest News
     </div>
 
     <div
@@ -1455,14 +1311,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SPORTS
-===================================================== -->
+========================================================= -->
 
 <section class="related-section">
 
     <div class="related-title">
-        Sports
+        🏏 Sports
     </div>
 
     <div
@@ -1473,14 +1329,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      ENTERTAINMENT
-===================================================== -->
+========================================================= -->
 
 <section class="related-section">
 
     <div class="related-title">
-        Entertainment
+        🎬 Entertainment
     </div>
 
     <div
@@ -1491,14 +1347,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      AP & TS
-===================================================== -->
+========================================================= -->
 
 <section class="related-section">
 
     <div class="related-title">
-        AP & TS
+        🏛️ AP & TS
     </div>
 
     <div
@@ -1509,14 +1365,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      BUSINESS
-===================================================== -->
+========================================================= -->
 
 <section class="related-section">
 
     <div class="related-title">
-        Business
+        💼 Business
     </div>
 
     <div
@@ -1530,21 +1386,19 @@
 </main>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="site-footer">
 
     <div class="container footer-inner">
-
 
         <div class="footer-column">
 
             <h3>
                 ముఖ్యమైన లింకులు
             </h3>
-
 
             <div class="footer-links">
 
@@ -1605,22 +1459,22 @@
 </footer>
 
 
-<!-- =====================================================
-     AUTOMATIC ARTICLE NEWS SYSTEM
-===================================================== -->
+<!-- =========================================================
+     AUTOMATIC NEWS SYSTEM
+========================================================= -->
 
 <script>
 
 document.addEventListener(
     "DOMContentLoaded",
-    function () {
+    function(){
 
         "use strict";
 
 
-        /* =================================================
+        /* =====================================================
            CURRENT ARTICLE
-        ================================================= */
+        ===================================================== */
 
         const currentPage =
             window.location.pathname
@@ -1629,11 +1483,28 @@ document.addEventListener(
                 .toLowerCase();
 
 
-        /* =================================================
-           READ ARTICLE
-        ================================================= */
+        /* =====================================================
+           NORMALIZE URL
+        ===================================================== */
 
-        function readArticle(item) {
+        function cleanUrl(url){
+
+            return String(url || "")
+                .split("?")[0]
+                .split("#")[0]
+                .split("/")
+                .pop()
+                .trim()
+                .toLowerCase();
+
+        }
+
+
+        /* =====================================================
+           READ ARTICLE FROM INDEX
+        ===================================================== */
+
+        function readArticle(item){
 
             const image =
                 item.querySelector("img");
@@ -1642,7 +1513,6 @@ document.addEventListener(
                 item.querySelector(
                     ".news-content p"
                 );
-
 
             return {
 
@@ -1684,28 +1554,88 @@ document.addEventListener(
         }
 
 
-        /* =================================================
-           LOAD INDEX
-        ================================================= */
+        /* =====================================================
+           CREATE SIDEBAR ITEM
+        ===================================================== */
 
-        async function loadHomeNews() {
+        function createSidebarItem(article){
 
-            try {
+            return `
+
+                <a
+                    href="${article.url}"
+                    class="sidebar-item"
+                >
+
+                    <img
+                        src="${article.image}"
+                        alt="${article.alt || article.title}"
+                        loading="lazy"
+                    >
+
+                    <div class="sidebar-item-title">
+                        ${article.title}
+                    </div>
+
+                </a>
+
+            `;
+
+        }
+
+
+        /* =====================================================
+           CREATE NEWS CARD
+        ===================================================== */
+
+        function createNewsCard(article){
+
+            return `
+
+                <a
+                    href="${article.url}"
+                    class="news-card"
+                >
+
+                    <img
+                        src="${article.image}"
+                        alt="${article.alt || article.title}"
+                        loading="lazy"
+                    >
+
+                    <h3>
+                        ${article.title}
+                    </h3>
+
+                </a>
+
+            `;
+
+        }
+
+
+        /* =====================================================
+           LOAD INDEX.HTML
+        ===================================================== */
+
+        async function loadHomeNews(){
+
+            try{
 
                 const response =
                     await fetch(
                         "index.html?v=" +
                         Date.now(),
                         {
-                            cache: "no-store"
+                            cache:"no-store"
                         }
                     );
 
 
-                if (!response.ok) {
+                if(!response.ok){
 
                     throw new Error(
-                        "index.html could not be loaded"
+                        "index.html load failed"
                     );
 
                 }
@@ -1736,10 +1666,10 @@ document.addEventListener(
                     );
 
 
-                if (!source) {
+                if(!source){
 
                     console.error(
-                        "BS360: #legacyNewsSource not found"
+                        "BS360: legacyNewsSource not found"
                     );
 
                     return;
@@ -1785,16 +1715,13 @@ document.addEventListener(
                 const latestArticles =
                     normalArticles.filter(
                         article =>
-                            article.url
-                                .split("/")
-                                .pop()
-                                .toLowerCase() !==
+                            cleanUrl(article.url) !==
                             currentPage
                     );
 
 
                 /* =================================================
-                   TRENDING
+                   TRENDING FROM HOMEPAGE
                 ================================================= */
 
                 const trendingCards =
@@ -1807,54 +1734,44 @@ document.addEventListener(
 
                 const trendingArticles =
                     trendingCards
-                        .map(
-                            function (card) {
+                        .map(function(card){
 
-                                const image =
-                                    card.querySelector(
-                                        "img"
-                                    );
+                            const image =
+                                card.querySelector("img");
 
-                                const title =
-                                    card.querySelector(
-                                        "h3"
-                                    );
+                            const title =
+                                card.querySelector("h3");
 
+                            return {
 
-                                return {
+                                url:
+                                    (
+                                        card.getAttribute(
+                                            "href"
+                                        ) || "#"
+                                    ).trim(),
 
-                                    url:
-                                        (
-                                            card.getAttribute(
-                                                "href"
-                                            ) || "#"
-                                        ).trim(),
+                                image:
+                                    image
+                                        ? image.getAttribute("src")
+                                        : "",
 
-                                    image:
-                                        image
-                                            ? image.getAttribute(
-                                                "src"
-                                            )
-                                            : "",
+                                alt:
+                                    image
+                                        ? (
+                                            image.getAttribute("alt") ||
+                                            ""
+                                        )
+                                        : "",
 
-                                    alt:
-                                        image
-                                            ? (
-                                                image.getAttribute(
-                                                    "alt"
-                                                ) || ""
-                                            )
-                                            : "",
+                                title:
+                                    title
+                                        ? title.textContent.trim()
+                                        : ""
 
-                                    title:
-                                        title
-                                            ? title.textContent.trim()
-                                            : ""
+                            };
 
-                                };
-
-                            }
-                        )
+                        })
                         .filter(
                             article =>
                                 article.title &&
@@ -1864,7 +1781,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   MOST READ
+                   MOST READ FROM HOMEPAGE
                 ================================================= */
 
                 const mostReadCards =
@@ -1877,92 +1794,50 @@ document.addEventListener(
 
                 const mostReadArticles =
                     mostReadCards
-                        .map(
-                            function (card) {
+                        .map(function(card){
 
-                                const image =
-                                    card.querySelector(
-                                        "img"
-                                    );
+                            const image =
+                                card.querySelector("img");
 
-                                const title =
-                                    card.querySelector(
-                                        "h3"
-                                    );
+                            const title =
+                                card.querySelector("h3");
 
+                            return {
 
-                                return {
+                                url:
+                                    (
+                                        card.getAttribute(
+                                            "href"
+                                        ) || "#"
+                                    ).trim(),
 
-                                    url:
-                                        (
-                                            card.getAttribute(
-                                                "href"
-                                            ) || "#"
-                                        ).trim(),
+                                image:
+                                    image
+                                        ? image.getAttribute("src")
+                                        : "",
 
-                                    image:
-                                        image
-                                            ? image.getAttribute(
-                                                "src"
-                                            )
-                                            : "",
+                                alt:
+                                    image
+                                        ? (
+                                            image.getAttribute("alt") ||
+                                            ""
+                                        )
+                                        : "",
 
-                                    alt:
-                                        image
-                                            ? (
-                                                image.getAttribute(
-                                                    "alt"
-                                                ) || ""
-                                            )
-                                            : "",
+                                title:
+                                    title
+                                        ? title.textContent.trim()
+                                        : ""
 
-                                    title:
-                                        title
-                                            ? title.textContent.trim()
-                                            : ""
+                            };
 
-                                };
-
-                            }
-                        )
+                        })
                         .filter(
                             article =>
                                 article.title &&
                                 article.image &&
                                 article.url
                         );
-
-
-                /* =================================================
-                   SIDEBAR ITEM
-                ================================================= */
-
-                function createSidebarItem(
-                    article
-                ) {
-
-                    return `
-
-                        <a
-                            href="${article.url}"
-                            class="sidebar-item"
-                        >
-
-                            <img
-                                src="${article.image}"
-                                alt="${article.alt || article.title}"
-                                loading="lazy"
-                            >
-
-                            <div class="sidebar-item-title">
-                                ${article.title}
-                            </div>
-
-                        </a>
-
-                    `;
-
-                }
 
 
                 /* =================================================
@@ -1975,25 +1850,20 @@ document.addEventListener(
                     );
 
 
-                if (trendingTarget) {
+                if(trendingTarget){
 
-                    const filteredTrending =
+                    const filtered =
                         trendingArticles.filter(
                             article =>
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
+                                cleanUrl(article.url) !==
                                 currentPage
                         );
 
 
                     trendingTarget.innerHTML =
-                        filteredTrending
-                            .slice(0, 5)
-                            .map(
-                                createSidebarItem
-                            )
+                        filtered
+                            .slice(0,5)
+                            .map(createSidebarItem)
                             .join("");
 
                 }
@@ -2009,14 +1879,12 @@ document.addEventListener(
                     );
 
 
-                if (latestTarget) {
+                if(latestTarget){
 
                     latestTarget.innerHTML =
                         latestArticles
-                            .slice(0, 5)
-                            .map(
-                                createSidebarItem
-                            )
+                            .slice(0,5)
+                            .map(createSidebarItem)
                             .join("");
 
                 }
@@ -2032,27 +1900,21 @@ document.addEventListener(
                     );
 
 
-                if (mostReadTarget) {
+                if(mostReadTarget){
 
-                    const filteredMostRead =
+                    const filtered =
                         mostReadArticles.filter(
                             article =>
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
+                                cleanUrl(article.url) !==
                                 currentPage
                         );
 
 
                     mostReadTarget.innerHTML =
-                        filteredMostRead
-                            .slice(0, 5)
+                        filtered
+                            .slice(0,5)
                             .map(
-                                function (
-                                    article,
-                                    index
-                                ) {
+                                function(article,index){
 
                                     return `
 
@@ -2096,64 +1958,29 @@ document.addEventListener(
                     );
 
 
-                if (entertainmentTarget) {
+                if(entertainmentTarget){
 
                     const entertainmentArticles =
                         normalArticles.filter(
                             article =>
+
                                 (
-                                    article.category ===
-                                    "cinema" ||
-                                    article.category ===
-                                    "movies"
-                                ) &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
+                                    article.category === "cinema" ||
+                                    article.category === "movies"
+                                )
+
+                                &&
+
+                                cleanUrl(article.url) !==
                                 currentPage
                         );
 
 
                     entertainmentTarget.innerHTML =
                         entertainmentArticles
-                            .slice(0, 5)
-                            .map(
-                                createSidebarItem
-                            )
+                            .slice(0,5)
+                            .map(createSidebarItem)
                             .join("");
-
-                }
-
-
-                /* =================================================
-                   NORMAL NEWS CARD
-                ================================================= */
-
-                function createNewsCard(
-                    article
-                ) {
-
-                    return `
-
-                        <a
-                            href="${article.url}"
-                            class="news-card"
-                        >
-
-                            <img
-                                src="${article.image}"
-                                alt="${article.alt || article.title}"
-                                loading="lazy"
-                            >
-
-                            <h3>
-                                ${article.title}
-                            </h3>
-
-                        </a>
-
-                    `;
 
                 }
 
@@ -2168,14 +1995,12 @@ document.addEventListener(
                     );
 
 
-                if (latestGrid) {
+                if(latestGrid){
 
                     latestGrid.innerHTML =
                         latestArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
+                            .slice(0,4)
+                            .map(createNewsCard)
                             .join("");
 
                 }
@@ -2191,27 +2016,26 @@ document.addEventListener(
                     );
 
 
-                if (sportsGrid) {
+                if(sportsGrid){
 
                     const sportsArticles =
                         normalArticles.filter(
                             article =>
+
                                 article.category ===
-                                "sports" &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
+                                "sports"
+
+                                &&
+
+                                cleanUrl(article.url) !==
                                 currentPage
                         );
 
 
                     sportsGrid.innerHTML =
                         sportsArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
+                            .slice(0,4)
+                            .map(createNewsCard)
                             .join("");
 
                 }
@@ -2227,31 +2051,28 @@ document.addEventListener(
                     );
 
 
-                if (moviesGrid) {
+                if(moviesGrid){
 
                     const movieArticles =
                         normalArticles.filter(
                             article =>
+
                                 (
-                                    article.category ===
-                                    "cinema" ||
-                                    article.category ===
-                                    "movies"
-                                ) &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
+                                    article.category === "cinema" ||
+                                    article.category === "movies"
+                                )
+
+                                &&
+
+                                cleanUrl(article.url) !==
                                 currentPage
                         );
 
 
                     moviesGrid.innerHTML =
                         movieArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
+                            .slice(0,4)
+                            .map(createNewsCard)
                             .join("");
 
                 }
@@ -2267,31 +2088,30 @@ document.addEventListener(
                     );
 
 
-                if (aptsGrid) {
+                if(aptsGrid){
 
                     const aptsArticles =
                         normalArticles.filter(
                             article =>
+
                                 (
-                                    article.category ===
-                                    "ap/ts" ||
-                                    article.category ===
-                                    "apts"
-                                ) &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
+                                    article.category === "ap/ts" ||
+                                    article.category === "apts" ||
+                                    article.category === "aptsnews" ||
+                                    article.category === "ap-ts"
+                                )
+
+                                &&
+
+                                cleanUrl(article.url) !==
                                 currentPage
                         );
 
 
                     aptsGrid.innerHTML =
                         aptsArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
+                            .slice(0,4)
+                            .map(createNewsCard)
                             .join("");
 
                 }
@@ -2307,33 +2127,34 @@ document.addEventListener(
                     );
 
 
-                if (businessGrid) {
+                if(businessGrid){
 
                     const businessArticles =
                         normalArticles.filter(
                             article =>
+
                                 article.category ===
-                                "business" &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
+                                "business"
+
+                                &&
+
+                                cleanUrl(article.url) !==
                                 currentPage
                         );
 
 
                     businessGrid.innerHTML =
                         businessArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
+                            .slice(0,4)
+                            .map(createNewsCard)
                             .join("");
 
                 }
 
 
-            } catch (error) {
+            }
+
+            catch(error){
 
                 console.error(
                     "BS360 AUTO NEWS ERROR:",
@@ -2346,7 +2167,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           START
+           START AUTO NEWS
         ===================================================== */
 
         loadHomeNews();
@@ -2357,14 +2178,14 @@ document.addEventListener(
         ===================================================== */
 
         window.toggleMobileNav =
-            function () {
+            function(){
 
                 const nav =
                     document.getElementById(
                         "navLinks"
                     );
 
-                if (!nav) {
+                if(!nav){
                     return;
                 }
 
@@ -2380,7 +2201,7 @@ document.addEventListener(
         ===================================================== */
 
         window.toggleTheme =
-            function () {
+            function(){
 
                 document.body.classList.toggle(
                     "dark-mode"
@@ -2393,34 +2214,34 @@ document.addEventListener(
                     );
 
 
-                if (
+                if(
                     document.body.classList.contains(
                         "dark-mode"
                     )
-                ) {
+                ){
 
-                    if (button) {
+                    if(button){
 
                         button.textContent =
                             "☀️ Light";
 
                     }
 
-
                     localStorage.setItem(
                         "bs360-theme",
                         "dark"
                     );
 
-                } else {
+                }
 
-                    if (button) {
+                else{
+
+                    if(button){
 
                         button.textContent =
                             "🌙 Dark";
 
                     }
-
 
                     localStorage.setItem(
                         "bs360-theme",
@@ -2433,7 +2254,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           LOAD SAVED THEME
+           SAVED THEME
         ===================================================== */
 
         const savedTheme =
@@ -2442,9 +2263,7 @@ document.addEventListener(
             );
 
 
-        if (
-            savedTheme === "dark"
-        ) {
+        if(savedTheme === "dark"){
 
             document.body.classList.add(
                 "dark-mode"
@@ -2457,7 +2276,7 @@ document.addEventListener(
                 );
 
 
-            if (button) {
+            if(button){
 
                 button.textContent =
                     "☀️ Light";
