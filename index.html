@@ -298,6 +298,8 @@ gtag('config', 'G-EWXPS1N2TL');
     }
 
 }
+
+
 /* =====================================================
    MOST READ - DESKTOP / LAPTOP FIX
 ===================================================== */
@@ -407,65 +409,43 @@ gtag('config', 'G-EWXPS1N2TL');
         font-size: 22px !important;
     }
 
+    /*
+       MOBILE MOST READ
+       ONE CARD PER ROW
+       IMAGE LEFT + TEXT RIGHT
+    */
+
     .most-read-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .most-read-list .trending-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: auto !important;
+        overflow: hidden !important;
+        text-decoration: none !important;
+        color: #111 !important;
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
         gap: 12px !important;
     }
 
     .most-read-list .trending-card img {
-        height: auto !important;
-        aspect-ratio: 16 / 9 !important;
-    }
-
-    .most-read-list .trending-card h3 {
-        font-size: 14px !important;
-        line-height: 1.45 !important;
-        padding: 9px !important;
-    }
-
-}
-
-
-/* =====================================================
-   MOST READ - VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .most-read-list {
-        gap: 9px !important;
-    }
-
-    .most-read-list .trending-card h3 {
-        font-size: 13px !important;
-    }
-
-}
-  /* =====================================================
-   MOST READ - MOBILE FIX
-   IMAGE TOP + TEXT BELOW
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .most-read-list {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 14px !important;
-        width: 100% !important;
-    }
-
-    .most-read-list .trending-card {
         display: block !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        text-decoration: none !important;
-    }
-
-    .most-read-list .trending-card img {
-        display: block !important;
-        width: 100% !important;
+        flex: 0 0 46% !important;
+        width: 46% !important;
+        max-width: 46% !important;
         height: auto !important;
         aspect-ratio: 16 / 9 !important;
         object-fit: cover !important;
@@ -474,14 +454,20 @@ gtag('config', 'G-EWXPS1N2TL');
     }
 
     .most-read-list .trending-card h3 {
-        display: block !important;
-        width: 100% !important;
-        margin: 7px 0 0 !important;
+        display: -webkit-box !important;
+        flex: 1 1 auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+        margin: 0 !important;
         padding: 0 !important;
-        font-size: 14px !important;
+        color: #111 !important;
+        font-size: 15px !important;
         line-height: 1.45 !important;
         font-weight: 700 !important;
         text-align: left !important;
+        overflow: hidden !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 3 !important;
     }
 
 }
@@ -494,8 +480,17 @@ gtag('config', 'G-EWXPS1N2TL');
 @media (max-width: 380px) {
 
     .most-read-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 10px !important;
+    }
+
+    .most-read-list .trending-card {
+        gap: 9px !important;
+    }
+
+    .most-read-list .trending-card img {
+        flex: 0 0 45% !important;
+        width: 45% !important;
+        max-width: 45% !important;
     }
 
     .most-read-list .trending-card h3 {
