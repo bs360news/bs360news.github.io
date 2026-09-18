@@ -219,6 +219,30 @@ img{
 
 
 /* =========================================================
+   MAIN DESKTOP LAYOUT
+   LEFT = LATEST + MEN + WOMEN
+   RIGHT = MOST READ
+========================================================= */
+
+.main-layout{
+    display:grid;
+
+    grid-template-columns:minmax(0,1fr) 300px;
+
+    gap:22px;
+
+    align-items:start;
+}
+
+
+/* LEFT CONTENT */
+
+.left-content{
+    min-width:0;
+}
+
+
+/* =========================================================
    SECTION TITLE
 ========================================================= */
 
@@ -229,7 +253,7 @@ img{
 
     justify-content:space-between;
 
-    margin:28px 0 14px;
+    margin:0 0 14px;
 
     border-bottom:2px solid #e50914;
 
@@ -248,30 +272,17 @@ img{
 
 
 /* =========================================================
-   LATEST + MOST READ
-   DESKTOP
-========================================================= */
-
-.latest-mostread{
-    display:grid;
-
-    grid-template-columns:minmax(0,1fr) 300px;
-
-    gap:22px;
-
-    align-items:start;
-}
-
-
-/* =========================================================
    LATEST NEWS
-   7 CARDS
 ========================================================= */
+
+.latest-section{
+    margin:0;
+}
 
 .latest-grid{
     display:grid;
 
-    grid-template-columns:repeat(7,1fr);
+    grid-template-columns:repeat(7,minmax(0,1fr));
 
     gap:12px;
 }
@@ -315,9 +326,7 @@ img{
 
 /* =========================================================
    MOST READ
-   NO BORDER
-   NO BOX
-   NO NUMBERS
+   RIGHT SIDE FROM TOP
 ========================================================= */
 
 .most-read{
@@ -327,9 +336,11 @@ img{
 
     padding:0;
 
-    position:sticky;
+    margin:0;
 
-    top:10px;
+    border:0;
+
+    position:static;
 }
 
 .most-read-title{
@@ -345,20 +356,22 @@ img{
 
     padding-bottom:7px;
 
-    margin-bottom:13px;
+    margin:0 0 10px;
 }
 
 
-/* EACH ARTICLE */
+/* MOST READ ITEM */
 
 .most-read-item{
     display:block;
 
-    padding-bottom:13px;
+    padding:0 0 13px;
 
-    margin-bottom:13px;
+    margin:0 0 13px;
 
     border-bottom:1px solid #ddd;
+
+    background:transparent;
 }
 
 .most-read-item:last-child{
@@ -368,7 +381,7 @@ img{
 }
 
 
-/* IMAGE */
+/* MOST READ IMAGE */
 
 .most-read-item img{
     width:100%;
@@ -377,13 +390,13 @@ img{
 
     object-fit:cover;
 
-    border-radius:6px;
+    border-radius:5px;
 
     background:#eee;
 }
 
 
-/* TEXT BELOW IMAGE */
+/* MOST READ TEXT */
 
 .most-read-item h3{
     margin-top:7px;
@@ -411,7 +424,7 @@ img{
 ========================================================= */
 
 .sports-section{
-    margin-top:30px;
+    margin-top:32px;
 }
 
 
@@ -423,7 +436,7 @@ img{
 .sports-grid{
     display:grid;
 
-    grid-template-columns:repeat(6,1fr);
+    grid-template-columns:repeat(6,minmax(0,1fr));
 
     gap:18px 12px;
 }
@@ -549,16 +562,18 @@ img{
 
 @media(max-width:1100px){
 
-    .latest-mostread{
+    .main-layout{
         grid-template-columns:minmax(0,1fr) 280px;
+
+        gap:18px;
     }
 
     .latest-grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:repeat(4,minmax(0,1fr));
     }
 
     .sports-grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:repeat(4,minmax(0,1fr));
     }
 
 }
@@ -655,6 +670,20 @@ img{
     }
 
 
+    /* =====================================================
+       MAIN LAYOUT
+       MOBILE = ONE COLUMN
+    ===================================================== */
+
+    .main-layout{
+        display:block;
+    }
+
+    .left-content{
+        width:100%;
+    }
+
+
     /* SECTION TITLE */
 
     .section-head{
@@ -669,19 +698,11 @@ img{
 
 
     /* =====================================================
-       LATEST + MOST READ
-       MOBILE = STACK
+       LATEST NEWS
     ===================================================== */
 
-    .latest-mostread{
-        display:block;
-    }
-
-
-    /* LATEST */
-
     .latest-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,minmax(0,1fr));
 
         gap:15px 10px;
 
@@ -703,53 +724,16 @@ img{
     }
 
 
-    /* MOST READ */
-
-    .most-read{
-        position:static;
-
-        margin:28px 10px 0;
-
-        width:auto;
-    }
-
-    .most-read-title{
-        font-size:19px;
-
-        margin-bottom:12px;
-    }
-
-    .most-read-item{
-        padding-bottom:12px;
-
-        margin-bottom:12px;
-    }
-
-    .most-read-item img{
-        aspect-ratio:16 / 9;
-
-        border-radius:6px;
-    }
-
-    .most-read-item h3{
-        font-size:13px;
-
-        line-height:1.3;
-
-        margin-top:6px;
-    }
-
-
     /* =====================================================
        SPORTS
     ===================================================== */
 
     .sports-section{
-        margin-top:25px;
+        margin-top:27px;
     }
 
     .sports-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,minmax(0,1fr));
 
         gap:16px 10px;
 
@@ -768,6 +752,60 @@ img{
         line-height:1.3;
 
         margin-top:5px;
+    }
+
+
+    /* =====================================================
+       MOST READ
+       MOBILE = AFTER ALL SPORTS
+    ===================================================== */
+
+    .most-read{
+        margin:30px 10px 0;
+
+        width:auto;
+    }
+
+    .most-read-title{
+        font-size:19px;
+
+        margin-bottom:12px;
+    }
+
+    .most-read-item{
+        display:grid;
+
+        grid-template-columns:105px minmax(0,1fr);
+
+        gap:10px;
+
+        align-items:start;
+
+        padding-bottom:12px;
+
+        margin-bottom:12px;
+    }
+
+    .most-read-item img{
+        width:105px;
+
+        height:66px;
+
+        aspect-ratio:auto;
+
+        object-fit:cover;
+
+        border-radius:5px;
+    }
+
+    .most-read-item h3{
+        margin:0;
+
+        font-size:13px;
+
+        line-height:1.35;
+
+        -webkit-line-clamp:3;
     }
 
 
@@ -936,187 +974,56 @@ img{
 
 
 <!-- ======================================================
-     LATEST NEWS + MOST READ
+     MAIN LAYOUT
+     LEFT:
+       LATEST NEWS
+       ALL SPORTS MEN
+       ALL SPORTS WOMEN
+
+     RIGHT:
+       MOST READ
 ====================================================== -->
 
-<div class="latest-mostread">
+<div class="main-layout">
 
 
-    <!-- ==================================================
-         LATEST NEWS
-    ================================================== -->
+<!-- ======================================================
+     LEFT CONTENT
+====================================================== -->
 
-    <section>
-
-        <div class="section-head">
-
-            <h2>
-                Latest News
-            </h2>
-
-        </div>
+<div class="left-content">
 
 
-        <div class="latest-grid">
+<!-- ======================================================
+     LATEST NEWS
+====================================================== -->
+
+<section class="latest-section">
+
+    <div class="section-head">
+
+        <h2>
+            Latest News
+        </h2>
+
+    </div>
 
 
-            <a
-                href="bhumrha.html"
-                class="latest-card"
-            >
-
-                <img
-                    src="bhumrha.jpg"
-                    alt="బుమ్రా"
-                >
-
-                <h3>
-                    🏏 బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు
-                </h3>
-
-            </a>
-
-
-
-            <a
-                href="hardik97.html"
-                class="latest-card"
-            >
-
-                <img
-                    src="hardik.jpg"
-                    alt="హార్దిక్ పాండ్యా"
-                >
-
-                <h3>
-                    🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. భారత్ A జట్టులో చోటు
-                </h3>
-
-            </a>
-
-
-
-            <a
-                href="bcci.html"
-                class="latest-card"
-            >
-
-                <img
-                    src="bcci.webp"
-                    alt="భారత్ అఫ్గానిస్థాన్"
-                >
-
-                <h3>
-                    🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
-                </h3>
-
-            </a>
-
-
-
-            <a
-                href="bhumrha.html"
-                class="latest-card"
-            >
-
-                <img
-                    src="bhumrha.jpg"
-                    alt="టీమిండియా"
-                >
-
-                <h3>
-                    టీమిండియా బౌలింగ్‌పై ఆసక్తికర చర్చ.. స్టార్ పేసర్‌పై అందరి దృష్టి
-                </h3>
-
-            </a>
-
-
-
-            <a
-                href="hardik97.html"
-                class="latest-card"
-            >
-
-                <img
-                    src="hardik.jpg"
-                    alt="క్రికెట్"
-                >
-
-                <h3>
-                    భారత క్రికెట్‌లో కీలక మార్పులు.. ఆటగాళ్ల ఎంపికపై చర్చ
-                </h3>
-
-            </a>
-
-
-
-            <a
-                href="bcci.html"
-                class="latest-card"
-            >
-
-                <img
-                    src="bcci.webp"
-                    alt="క్రికెట్ వార్తలు"
-                >
-
-                <h3>
-                    క్రికెట్ అభిమానులకు కీలక అప్‌డేట్.. సిరీస్‌పై పెరిగిన ఆసక్తి
-                </h3>
-
-            </a>
-
-
-
-            <a
-                href="bhumrha.html"
-                class="latest-card"
-            >
-
-                <img
-                    src="bhumrha.jpg"
-                    alt="స్పోర్ట్స్"
-                >
-
-                <h3>
-                    స్పోర్ట్స్ ప్రపంచంలో తాజా పరిణామాలు.. ఆటగాళ్లపై ఫోకస్
-                </h3>
-
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================================
-         MOST READ
-         NO NUMBERS
-    ================================================== -->
-
-    <aside class="most-read">
-
-
-        <div class="most-read-title">
-            Most Read
-        </div>
-
+    <div class="latest-grid">
 
 
         <a
             href="bhumrha.html"
-            class="most-read-item"
+            class="latest-card"
         >
 
             <img
                 src="bhumrha.jpg"
-                alt="బుమ్రా వార్త"
+                alt="బుమ్రా"
             >
 
             <h3>
-                బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు
+                🏏 బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు
             </h3>
 
         </a>
@@ -1125,7 +1032,7 @@ img{
 
         <a
             href="hardik97.html"
-            class="most-read-item"
+            class="latest-card"
         >
 
             <img
@@ -1134,7 +1041,7 @@ img{
             >
 
             <h3>
-                హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. భారత్ A జట్టులో చోటు
+                🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. భారత్ A జట్టులో చోటు
             </h3>
 
         </a>
@@ -1143,7 +1050,7 @@ img{
 
         <a
             href="bcci.html"
-            class="most-read-item"
+            class="latest-card"
         >
 
             <img
@@ -1152,7 +1059,7 @@ img{
             >
 
             <h3>
-                భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
+                🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
             </h3>
 
         </a>
@@ -1161,7 +1068,7 @@ img{
 
         <a
             href="bhumrha.html"
-            class="most-read-item"
+            class="latest-card"
         >
 
             <img
@@ -1170,7 +1077,7 @@ img{
             >
 
             <h3>
-                టీమిండియా బౌలింగ్‌లో స్టార్ పేసర్‌పై అందరి దృష్టి
+                టీమిండియా బౌలింగ్‌పై ఆసక్తికర చర్చ.. స్టార్ పేసర్‌పై అందరి దృష్టి
             </h3>
 
         </a>
@@ -1179,7 +1086,7 @@ img{
 
         <a
             href="hardik97.html"
-            class="most-read-item"
+            class="latest-card"
         >
 
             <img
@@ -1188,7 +1095,7 @@ img{
             >
 
             <h3>
-                భారత క్రికెట్‌లో కీలక పరిణామాలు.. ఆటగాళ్లపై ఫోకస్
+                భారత క్రికెట్‌లో కీలక మార్పులు.. ఆటగాళ్ల ఎంపికపై చర్చ
             </h3>
 
         </a>
@@ -1197,16 +1104,16 @@ img{
 
         <a
             href="bcci.html"
-            class="most-read-item"
+            class="latest-card"
         >
 
             <img
                 src="bcci.webp"
-                alt="క్రికెట్ వార్త"
+                alt="క్రికెట్ వార్తలు"
             >
 
             <h3>
-                క్రికెట్ అభిమానులకు కీలక అప్‌డేట్
+                క్రికెట్ అభిమానులకు కీలక అప్‌డేట్.. సిరీస్‌పై పెరిగిన ఆసక్తి
             </h3>
 
         </a>
@@ -1215,79 +1122,24 @@ img{
 
         <a
             href="bhumrha.html"
-            class="most-read-item"
+            class="latest-card"
         >
 
             <img
                 src="bhumrha.jpg"
-                alt="స్పోర్ట్స్ వార్త"
+                alt="స్పోర్ట్స్"
             >
 
             <h3>
-                స్పోర్ట్స్ ప్రపంచంలో తాజా పరిణామాలు
+                స్పోర్ట్స్ ప్రపంచంలో తాజా పరిణామాలు.. ఆటగాళ్లపై ఫోకస్
             </h3>
 
         </a>
 
 
+    </div>
 
-        <a
-            href="hardik97.html"
-            class="most-read-item"
-        >
-
-            <img
-                src="hardik.jpg"
-                alt="హార్దిక్"
-            >
-
-            <h3>
-                జట్టులో స్థానాల కోసం పెరిగిన పోటీ
-            </h3>
-
-        </a>
-
-
-
-        <a
-            href="bcci.html"
-            class="most-read-item"
-        >
-
-            <img
-                src="bcci.webp"
-                alt="BCCI"
-            >
-
-            <h3>
-                రాబోయే సిరీస్‌లపై అభిమానుల్లో ఆసక్తి
-            </h3>
-
-        </a>
-
-
-
-        <a
-            href="bhumrha.html"
-            class="most-read-item"
-        >
-
-            <img
-                src="bhumrha.jpg"
-                alt="క్రికెట్ అప్‌డేట్"
-            >
-
-            <h3>
-                క్రీడా ప్రపంచంలోని తాజా అప్‌డేట్స్
-            </h3>
-
-        </a>
-
-
-    </aside>
-
-
-</div>
+</section>
 
 
 
@@ -1651,11 +1503,11 @@ img{
 
             <img
                 src="bhumrha.jpg"
-                alt="విమెన்ஸ் స్పోర్ట్స్"
+                alt="విమెన్స్ స్పోర్ట్స్"
             >
 
             <h3>
-                విమెన்ஸ் స్పోర్ట్స్‌లో తాజా అప్‌డేట్స్
+                విమెన్స్ స్పోర్ట్స్‌లో తాజా అప్‌డేట్స్
             </h3>
 
         </a>
@@ -1694,6 +1546,210 @@ img{
     </div>
 
 </section>
+
+
+</div>
+<!-- END LEFT CONTENT -->
+
+
+<!-- ======================================================
+     MOST READ
+     RIGHT SIDE - CONTINUES FROM LATEST NEWS
+====================================================== -->
+
+<aside class="most-read">
+
+
+    <div class="most-read-title">
+        Most Read
+    </div>
+
+
+    <a
+        href="bhumrha.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="bhumrha.jpg"
+            alt="బుమ్రా వార్త"
+        >
+
+        <h3>
+            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="hardik97.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="hardik.jpg"
+            alt="హార్దిక్ పాండ్యా"
+        >
+
+        <h3>
+            హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. భారత్ A జట్టులో చోటు
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="bcci.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="bcci.webp"
+            alt="భారత్ అఫ్గానిస్థాన్"
+        >
+
+        <h3>
+            భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="bhumrha.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="bhumrha.jpg"
+            alt="టీమిండియా"
+        >
+
+        <h3>
+            టీమిండియా బౌలింగ్‌లో స్టార్ పేసర్‌పై అందరి దృష్టి
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="hardik97.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="hardik.jpg"
+            alt="క్రికెట్"
+        >
+
+        <h3>
+            భారత క్రికెట్‌లో కీలక పరిణామాలు.. ఆటగాళ్లపై ఫోకస్
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="bcci.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="bcci.webp"
+            alt="క్రికెట్ వార్త"
+        >
+
+        <h3>
+            క్రికెట్ అభిమానులకు కీలక అప్‌డేట్
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="bhumrha.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="bhumrha.jpg"
+            alt="స్పోర్ట్స్ వార్త"
+        >
+
+        <h3>
+            స్పోర్ట్స్ ప్రపంచంలో తాజా పరిణామాలు
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="hardik97.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="hardik.jpg"
+            alt="హార్దిక్"
+        >
+
+        <h3>
+            జట్టులో స్థానాల కోసం పెరిగిన పోటీ
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="bcci.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="bcci.webp"
+            alt="BCCI"
+        >
+
+        <h3>
+            రాబోయే సిరీస్‌లపై అభిమానుల్లో ఆసక్తి
+        </h3>
+
+    </a>
+
+
+
+    <a
+        href="bhumrha.html"
+        class="most-read-item"
+    >
+
+        <img
+            src="bhumrha.jpg"
+            alt="క్రికెట్ అప్‌డేట్"
+        >
+
+        <h3>
+            క్రీడా ప్రపంచంలోని తాజా అప్‌డేట్స్
+        </h3>
+
+    </a>
+
+
+</aside>
+<!-- END MOST READ -->
+
+
+</div>
+<!-- END MAIN LAYOUT -->
 
 
 </main>
