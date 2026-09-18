@@ -1012,7 +1012,91 @@
     }
 
 }
+/* =========================================================
+   LAPTOP / DESKTOP - ARTICLE & SIDEBAR GAP REMOVE
+========================================================= */
 
+@media screen and (min-width: 801px) {
+
+    .article-layout {
+        display: grid !important;
+
+        grid-template-columns:
+            minmax(0, 1fr) 320px !important;
+
+        column-gap: 0 !important;
+        row-gap: 0 !important;
+
+        gap: 0 !important;
+
+        align-items: start !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    .article-main {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    .article-sidebar {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    .sidebar-box {
+        width: 100% !important;
+
+        margin: 0 0 22px 0 !important;
+        padding: 0 !important;
+    }
+
+
+    /* Sidebar first item also no extra left/right gap */
+
+    #trendingSidebar,
+    #latestSidebar,
+    #mostReadSidebar,
+    #entertainmentSidebar {
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    /* Article content no unwanted horizontal gap */
+
+    .article-content {
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    .article-image {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+}
 </style>
 
 </head>
