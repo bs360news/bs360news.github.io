@@ -204,6 +204,11 @@
     font-weight: 700;
 }
 
+
+/* =====================================================
+   MOST READ
+===================================================== */
+
 .most-read-item {
     display: flex;
     gap: 9px;
@@ -243,6 +248,74 @@
 
 
 /* =====================================================
+   DESKTOP SIDEBAR
+   LATEST + ENTERTAINMENT
+   IMAGE TOP + TEXT BELOW
+===================================================== */
+
+@media (min-width: 801px) {
+
+    /*
+       Latest News మరియు Entertainment మాత్రమే
+       desktopలో image పైన
+       text కింద చూపిస్తుంది.
+    */
+
+    #latestSidebar .sidebar-item,
+    #entertainmentSidebar .sidebar-item {
+
+        display: block !important;
+
+        width: 100%;
+
+        padding: 9px 0 11px;
+
+        border-bottom: 1px solid #ddd;
+
+    }
+
+
+    #latestSidebar .sidebar-item img,
+    #entertainmentSidebar .sidebar-item img {
+
+        display: block;
+
+        width: 100% !important;
+
+        height: auto !important;
+
+        aspect-ratio: 16 / 9;
+
+        object-fit: cover;
+
+        margin: 0 0 6px;
+
+        border-radius: 5px;
+
+    }
+
+
+    #latestSidebar .sidebar-item-title,
+    #entertainmentSidebar .sidebar-item-title {
+
+        display: block;
+
+        width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.45;
+
+        font-weight: 700;
+
+        margin: 0;
+
+    }
+
+}
+
+
+/* =====================================================
    RELATED SECTIONS
 ===================================================== */
 
@@ -266,36 +339,58 @@
 
 
 /* =====================================================
-   LATEST / ENTERTAINMENT / SPORTS / AP&TS / BUSINESS
+   RELATED NEWS CARDS
    IMAGE TOP + TEXT BELOW
 ===================================================== */
 
 .related-section .news-grid .news-card {
+
     display: block !important;
+
     width: 100% !important;
+
     text-decoration: none !important;
+
     color: #111 !important;
+
     min-width: 0 !important;
+
 }
 
 .related-section .news-grid .news-card img {
+
     width: 100% !important;
+
     height: auto !important;
+
     aspect-ratio: 16 / 9 !important;
+
     object-fit: cover !important;
+
     display: block !important;
+
     border-radius: 6px !important;
+
     margin: 0 !important;
+
 }
 
 .related-section .news-grid .news-card h3 {
+
     display: block !important;
+
     width: 100% !important;
+
     font-size: 15px !important;
+
     line-height: 1.45 !important;
+
     margin: 8px 0 0 !important;
+
     padding: 0 !important;
+
     font-weight: 700 !important;
+
 }
 
 
@@ -304,9 +399,13 @@
 ===================================================== */
 
 .auto-empty {
+
     font-size: 14px;
+
     color: #777;
+
     padding: 10px 0;
+
 }
 
 
@@ -317,100 +416,97 @@
 @media (max-width: 800px) {
 
     .article-layout {
+
         grid-template-columns: 1fr;
+
         gap: 25px;
+
     }
+
 
     .article-title {
+
         font-size: 24px;
+
         line-height: 1.4;
+
     }
+
 
     .article-content {
+
         font-size: 17px;
+
         line-height: 1.9;
+
     }
+
 
     .article-sidebar {
+
         order: 2;
+
     }
 
+
     .news-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
         gap: 12px;
+
     }
 
 
     /* =================================================
-       MOBILE IMAGE TOP + TEXT BELOW
+       MOBILE SIDEBAR
+       ORIGINAL IMAGE LEFT + TEXT RIGHT
     ================================================= */
 
-    .related-section .news-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 12px !important;
-        width: 100% !important;
+    .sidebar-item {
+
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        gap: 10px;
+
+        padding: 9px 0;
+
+        align-items: center;
+
     }
 
-    .related-section .news-grid .news-card {
-        display: block !important;
-        width: 100% !important;
-        min-width: 0 !important;
-    }
-
-    .related-section .news-grid .news-card img {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16 / 9 !important;
-        object-fit: cover !important;
-        border-radius: 6px !important;
-        margin: 0 !important;
-    }
-
-    .related-section .news-grid .news-card h3 {
-        display: block !important;
-        width: 100% !important;
-        margin: 7px 0 0 !important;
-        font-size: 14px !important;
-        line-height: 1.45 !important;
-        font-weight: 700 !important;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .article-page {
-        padding-top: 12px;
-    }
-
-    .article-title {
-        font-size: 22px;
-    }
-
-    .article-image {
-        border-radius: 5px;
-    }
-
-    .article-content {
-        font-size: 16px;
-        line-height: 1.85;
-    }
 
     .sidebar-item img {
-        width: 75px;
-        height: 53px;
-        flex-basis: 75px;
+
+        width: 75px !important;
+
+        height: 53px !important;
+
+        aspect-ratio: auto !important;
+
+        object-fit: cover;
+
+        flex: 0 0 75px;
+
+        margin: 0 !important;
+
     }
+
 
     .sidebar-item-title {
-        font-size: 14px;
-    }
 
-    .sidebar-title {
-        font-size: 18px;
+        display: block !important;
+
+        width: auto !important;
+
+        font-size: 14px;
+
+        line-height: 1.45;
+
+        font-weight: 700;
+
     }
 
 
@@ -419,45 +515,207 @@
     ================================================= */
 
     .related-section .news-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
         gap: 12px !important;
+
+        width: 100% !important;
+
     }
+
+
+    .related-section .news-grid .news-card {
+
+        display: block !important;
+
+        width: 100% !important;
+
+        min-width: 0 !important;
+
+    }
+
 
     .related-section .news-grid .news-card img {
-        width: 100% !important;
-        aspect-ratio: 16 / 9 !important;
-        height: auto !important;
-        object-fit: cover !important;
+
         display: block !important;
+
+        width: 100% !important;
+
+        height: auto !important;
+
+        aspect-ratio: 16 / 9 !important;
+
+        object-fit: cover !important;
+
+        border-radius: 6px !important;
+
+        margin: 0 !important;
+
     }
 
+
     .related-section .news-grid .news-card h3 {
+
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 7px 0 0 !important;
+
         font-size: 14px !important;
+
         line-height: 1.45 !important;
-        margin-top: 7px !important;
+
+        font-weight: 700 !important;
+
     }
 
 }
 
 
+/* =====================================================
+   MOBILE SMALL
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .article-page {
+
+        padding-top: 12px;
+
+    }
+
+
+    .article-title {
+
+        font-size: 22px;
+
+    }
+
+
+    .article-image {
+
+        border-radius: 5px;
+
+    }
+
+
+    .article-content {
+
+        font-size: 16px;
+
+        line-height: 1.85;
+
+    }
+
+
+    .sidebar-item img {
+
+        width: 75px !important;
+
+        height: 53px !important;
+
+        flex-basis: 75px !important;
+
+    }
+
+
+    .sidebar-item-title {
+
+        font-size: 14px;
+
+    }
+
+
+    .sidebar-title {
+
+        font-size: 18px;
+
+    }
+
+
+    /* =================================================
+       MOBILE RELATED CARDS
+    ================================================= */
+
+    .related-section .news-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 12px !important;
+
+    }
+
+
+    .related-section .news-grid .news-card img {
+
+        width: 100% !important;
+
+        aspect-ratio: 16 / 9 !important;
+
+        height: auto !important;
+
+        object-fit: cover !important;
+
+        display: block !important;
+
+    }
+
+
+    .related-section .news-grid .news-card h3 {
+
+        font-size: 14px !important;
+
+        line-height: 1.45 !important;
+
+        margin-top: 7px !important;
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
 @media (max-width: 380px) {
 
     .news-grid {
+
         gap: 9px;
+
     }
+
 
     .news-card h3 {
+
         font-size: 13px;
+
     }
+
 
     .related-section .news-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
         gap: 9px !important;
+
     }
 
+
     .related-section .news-grid .news-card h3 {
+
         font-size: 13px !important;
+
         line-height: 1.4 !important;
+
     }
 
 }
@@ -757,7 +1015,6 @@
 
 <!-- =====================================================
      SIDEBAR
-     AUTOMATIC FROM INDEX.HTML
 ===================================================== -->
 
 <aside class="article-sidebar">
@@ -828,7 +1085,7 @@
 <section class="related-section">
 
     <div class="related-title">
-         Latest News
+        Latest News
     </div>
 
     <div
@@ -846,7 +1103,7 @@
 <section class="related-section">
 
     <div class="related-title">
-         Sports
+        Sports
     </div>
 
     <div
@@ -1003,7 +1260,7 @@ document.addEventListener(
 
 
         /* =================================================
-           CURRENT ARTICLE AUTOMATICALLY DETECT
+           CURRENT ARTICLE
         ================================================= */
 
         const currentPage =
@@ -1014,7 +1271,7 @@ document.addEventListener(
 
 
         /* =================================================
-           READ ARTICLE FROM HOMEPAGE
+           READ ARTICLE
         ================================================= */
 
         function readArticle(item) {
@@ -1069,7 +1326,7 @@ document.addEventListener(
 
 
         /* =================================================
-           LOAD INDEX.HTML
+           LOAD INDEX
         ================================================= */
 
         async function loadHomeNews() {
@@ -1111,7 +1368,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   LEGACY NEWS SOURCE
+                   LEGACY SOURCE
                 ================================================= */
 
                 const source =
@@ -1178,7 +1435,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   TRENDING FROM HOMEPAGE
+                   TRENDING
                 ================================================= */
 
                 const trendingCards =
@@ -1248,7 +1505,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   MOST READ FROM HOMEPAGE
+                   MOST READ
                 ================================================= */
 
                 const mostReadCards =
@@ -1318,7 +1575,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   CREATE SIDEBAR ITEM
+                   SIDEBAR ITEM
                 ================================================= */
 
                 function createSidebarItem(
@@ -1511,7 +1768,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   CREATE NORMAL NEWS CARD
+                   NORMAL NEWS CARD
                 ================================================= */
 
                 function createNewsCard(
@@ -1543,7 +1800,7 @@ document.addEventListener(
 
 
                 /* =================================================
-                   LATEST NEWS GRID
+                   LATEST GRID
                 ================================================= */
 
                 const latestGrid =
