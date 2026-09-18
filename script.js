@@ -1,6 +1,6 @@
 /* =========================================================
    BS 360 NEWS - HOMEPAGE JAVASCRIPT
-   CLEAN DESKTOP + MOBILE SAFE VERSION
+   CATEGORY SAFE + FALLBACK VERSION
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -82,38 +82,156 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       CATEGORY NORMALIZER
+    ===================================================== */
+
+    function normalizeCategory(category) {
+
+        const value =
+            (category || "")
+                .trim()
+                .toLowerCase()
+                .replace(/\s+/g, "");
+
+        if (
+            value === "ap" ||
+            value === "ts" ||
+            value === "apts" ||
+            value === "ap/ts" ||
+            value === "ap-ts" ||
+            value === "ap&ts" ||
+            value === "apandts"
+        ) {
+            return "apts";
+        }
+
+        if (
+            value === "sports" ||
+            value === "sport"
+        ) {
+            return "sports";
+        }
+
+        if (
+            value === "cinema" ||
+            value === "movies" ||
+            value === "movie" ||
+            value === "entertainment"
+        ) {
+            return "cinema";
+        }
+
+        if (
+            value === "business" ||
+            value === "businessnews"
+        ) {
+            return "business";
+        }
+
+        if (
+            value === "bigboss10" ||
+            value === "bigboss"
+        ) {
+            return "bigboss10";
+        }
+
+        return value;
+    }
+
+
+    /* =====================================================
+       GET CATEGORY ARTICLES
+    ===================================================== */
+
+    function getCategoryArticles(category) {
+
+        return articles.filter(article =>
+            normalizeCategory(article.category) === category
+        );
+
+    }
+
+
+    /* =====================================================
        CATEGORY FILTERS
     ===================================================== */
 
-    const apTsArticles = articles.filter(article =>
-        article.category === "ap" ||
-        article.category === "ts"
-    );
+    let apTsArticles =
+        getCategoryArticles("apts");
 
-    const sportsArticles = articles.filter(article =>
-        article.category === "sports"
-    );
+    let sportsArticles =
+        getCategoryArticles("sports");
 
-    const entertainmentArticles = articles.filter(article =>
-        article.category === "cinema" ||
-        article.category === "movies"
-    );
+    let entertainmentArticles =
+        getCategoryArticles("cinema");
 
-    const businessArticles = articles.filter(article =>
-        article.category === "business"
-    );
+    let businessArticles =
+        getCategoryArticles("business");
+
+
+    /* =====================================================
+       FALLBACK ARTICLE
+       
+       If category has ZERO articles,
+       take ONE article from another category.
+    ===================================================== */
+
+    function getFallbackArticle(
+        categoryArticles,
+        usedArticles = []
+    ) {
+
+        if (categoryArticles.length > 0) {
+            return categoryArticles;
+        }
+
+        const usedUrls =
+            usedArticles.map(article => article.url);
+
+        const fallback =
+            articles.find(article => {
+
+                const normalized =
+                    normalizeCategory(
+                        article.category
+                    );
+
+                return (
+                    normalized !== "bigboss10" &&
+                    !usedUrls.includes(article.url)
+                );
+
+            });
+
+        if (fallback) {
+
+            console.log(
+                "BS360 FALLBACK ARTICLE USED:",
+                fallback.title
+            );
+
+            return [fallback];
+        }
+
+        return [];
+    }
 
 
     /* =====================================================
        LATEST NEWS
        BIGBOSS EXCLUDED
-       ===================================================== */
+    ===================================================== */
 
-    const latestArticles = articles.filter(article =>
-        article.category !== "bigboss10"
-    );
+    const latestArticles =
+        articles.filter(article =>
+            normalizeCategory(
+                article.category
+            ) !== "bigboss10"
+        );
 
-    const latestTarget = $("#topStory");
+
+    const latestTarget =
+        $("#topStory");
 
 
     /* =====================================================
@@ -127,27 +245,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 href="${article.url}"
                 class="latest-news-card"
             >
+
                 <img
                     src="${article.image}"
                     alt="${article.alt || article.title}"
                     loading="lazy"
                 >
 
-                <h3>${article.title}</h3>
+                <h3>
+                    ${article.title}
+                </h3>
+
             </a>
         `;
     }
 
 
     /* =====================================================
-       RENDER LATEST
-       
-       DESKTOP:
-       CSS decides number of columns
-
-       MOBILE:
-       Existing mobile CSS remains unchanged
-       ===================================================== */
+       RENDER LATEST NEWS
+    ===================================================== */
 
     function renderLatestNews() {
 
@@ -159,18 +275,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (!latestArticles.length) {
+
             latestTarget.innerHTML = `
                 <p class="latest-empty">
                     తాజా వార్తలు అందుబాటులో లేవు
                 </p>
             `;
+
             return;
         }
-
-        /*
-           Keep 7 latest articles for desktop.
-           Mobile layout is controlled by CSS.
-        */
 
         const latestSeven =
             latestArticles.slice(0, 7);
@@ -208,7 +321,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="category-feature-content">
 
-                    <h3>${article.title}</h3>
+                    <h3>
+                        ${article.title}
+                    </h3>
 
                 </div>
 
@@ -237,7 +352,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="category-card-content">
 
-                    <h3>${article.title}</h3>
+                    <h3>
+                        ${article.title}
+                    </h3>
 
                 </div>
 
@@ -249,16 +366,18 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =====================================================
        CATEGORY RENDER
        
-       1 BIG
-       2 | 3
-       4 | 5
+       NORMAL:
+       1 BIG + SMALL ARTICLES
 
-       If only 4 articles exist,
-       it will show only 4.
-       No fake articles.
+       EMPTY:
+       1 FALLBACK ARTICLE
     ===================================================== */
 
-    function renderCategory(target, data) {
+    function renderCategory(
+        target,
+        data,
+        fallbackPool
+    ) {
 
         if (!target) {
             return;
@@ -266,12 +385,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
         target.innerHTML = "";
 
-        if (!data.length) {
+        let categoryArticles =
+            [...data];
+
+
+        /* =================================================
+           FALLBACK
+        ================================================= */
+
+        if (!categoryArticles.length) {
+
+            const fallback =
+                getFallbackArticle(
+                    [],
+                    fallbackPool || []
+                );
+
+            if (fallback.length) {
+                categoryArticles =
+                    fallback;
+            }
+        }
+
+
+        if (!categoryArticles.length) {
             return;
         }
 
-        const categoryArticles =
-            data.slice(0, 5);
+
+        const categoryArticlesLimited =
+            categoryArticles.slice(0, 5);
+
 
         const wrapper =
             document.createElement("div");
@@ -280,19 +424,23 @@ document.addEventListener("DOMContentLoaded", function () {
             "category-news-layout";
 
 
-        /* BIG ARTICLE */
+        /* =================================================
+           BIG ARTICLE
+        ================================================= */
 
         wrapper.insertAdjacentHTML(
             "beforeend",
             createCategoryFeature(
-                categoryArticles[0]
+                categoryArticlesLimited[0]
             )
         );
 
 
-        /* SMALL ARTICLES */
+        /* =================================================
+           SMALL ARTICLES
+        ================================================= */
 
-        categoryArticles
+        categoryArticlesLimited
             .slice(1)
             .forEach(article => {
 
@@ -309,12 +457,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       USED FALLBACK TRACKER
+    ===================================================== */
+
+    const fallbackUsed = [];
+
+
+    /* =====================================================
        AP & TS
     ===================================================== */
 
+    if (!apTsArticles.length) {
+
+        apTsArticles =
+            getFallbackArticle(
+                [],
+                fallbackUsed
+            );
+
+        fallbackUsed.push(
+            ...apTsArticles
+        );
+    }
+
+
     renderCategory(
         $("#sliderTrack"),
-        apTsArticles
+        apTsArticles,
+        fallbackUsed
     );
 
 
@@ -322,9 +492,24 @@ document.addEventListener("DOMContentLoaded", function () {
        SPORTS
     ===================================================== */
 
+    if (!sportsArticles.length) {
+
+        sportsArticles =
+            getFallbackArticle(
+                [],
+                fallbackUsed
+            );
+
+        fallbackUsed.push(
+            ...sportsArticles
+        );
+    }
+
+
     renderCategory(
         $("#sportsGrid"),
-        sportsArticles
+        sportsArticles,
+        fallbackUsed
     );
 
 
@@ -332,9 +517,24 @@ document.addEventListener("DOMContentLoaded", function () {
        ENTERTAINMENT
     ===================================================== */
 
+    if (!entertainmentArticles.length) {
+
+        entertainmentArticles =
+            getFallbackArticle(
+                [],
+                fallbackUsed
+            );
+
+        fallbackUsed.push(
+            ...entertainmentArticles
+        );
+    }
+
+
     renderCategory(
         $("#cinemaGrid"),
-        entertainmentArticles
+        entertainmentArticles,
+        fallbackUsed
     );
 
 
@@ -342,17 +542,30 @@ document.addEventListener("DOMContentLoaded", function () {
        BUSINESS
     ===================================================== */
 
+    if (!businessArticles.length) {
+
+        businessArticles =
+            getFallbackArticle(
+                [],
+                fallbackUsed
+            );
+
+        fallbackUsed.push(
+            ...businessArticles
+        );
+    }
+
+
     renderCategory(
         $("#businessGrid"),
-        businessArticles
+        businessArticles,
+        fallbackUsed
     );
 
 
     /* =====================================================
        AFTER MOST READ
        3 COLUMN SECTION
-       
-       ONLY IF HTML CONTAINERS EXIST
     ===================================================== */
 
     function createThreeColumnCard(article) {
@@ -369,14 +582,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     loading="lazy"
                 >
 
-                <h3>${article.title}</h3>
+                <h3>
+                    ${article.title}
+                </h3>
 
             </a>
         `;
     }
 
 
-    function renderThreeColumnGrid(target, data) {
+    function renderThreeColumnGrid(
+        target,
+        data,
+        fallbackPool
+    ) {
 
         if (!target) {
             return;
@@ -384,12 +603,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
         target.innerHTML = "";
 
-        if (!data.length) {
+        let finalData =
+            [...data];
+
+
+        /* =================================================
+           FALLBACK
+        ================================================= */
+
+        if (!finalData.length) {
+
+            finalData =
+                getFallbackArticle(
+                    [],
+                    fallbackPool || []
+                );
+        }
+
+
+        if (!finalData.length) {
             return;
         }
 
+
         const nineArticles =
-            data.slice(0, 9);
+            finalData.slice(0, 9);
+
 
         target.innerHTML =
             nineArticles
@@ -398,44 +637,69 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* =====================================================
+       AFTER AP & TS
+    ===================================================== */
+
     renderThreeColumnGrid(
         $("#afterApTsGrid"),
-        apTsArticles
+        apTsArticles,
+        fallbackUsed
     );
+
+
+    /* =====================================================
+       AFTER SPORTS
+    ===================================================== */
 
     renderThreeColumnGrid(
         $("#afterSportsGrid"),
-        sportsArticles
+        sportsArticles,
+        fallbackUsed
     );
+
+
+    /* =====================================================
+       AFTER ENTERTAINMENT
+    ===================================================== */
 
     renderThreeColumnGrid(
         $("#afterEntertainmentGrid"),
-        entertainmentArticles
+        entertainmentArticles,
+        fallbackUsed
     );
+
+
+    /* =====================================================
+       AFTER BUSINESS
+    ===================================================== */
 
     renderThreeColumnGrid(
         $("#afterBusinessGrid"),
-        businessArticles
+        businessArticles,
+        fallbackUsed
     );
 
 
     /* =====================================================
        TRENDING
-       10 ARTICLES
-       ONLY IF HTML EXISTS
     ===================================================== */
 
     const trendingTarget =
         $("#trendingGrid");
+
 
     if (trendingTarget) {
 
         const trendingArticles =
             articles
                 .filter(article =>
-                    article.category !== "bigboss10"
+                    normalizeCategory(
+                        article.category
+                    ) !== "bigboss10"
                 )
                 .slice(0, 10);
+
 
         trendingTarget.innerHTML =
             trendingArticles
@@ -467,21 +731,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        MOST READ
-       10 ARTICLES
-       ONLY IF HTML EXISTS
     ===================================================== */
 
     const mostReadTarget =
         $("#mostReadList");
+
 
     if (mostReadTarget) {
 
         const mostReadArticles =
             articles
                 .filter(article =>
-                    article.category !== "bigboss10"
+                    normalizeCategory(
+                        article.category
+                    ) !== "bigboss10"
                 )
                 .slice(0, 10);
+
 
         mostReadTarget.innerHTML =
             mostReadArticles
@@ -517,20 +783,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        PHOTO GALLERY
-       ONLY IF HTML EXISTS
     ===================================================== */
 
     const photoTarget =
         $("#photoGallery");
+
 
     if (photoTarget) {
 
         const photoArticles =
             articles
                 .filter(article =>
-                    article.category !== "bigboss10"
+                    normalizeCategory(
+                        article.category
+                    ) !== "bigboss10"
                 )
                 .slice(0, 8);
+
 
         photoTarget.innerHTML =
             photoArticles
@@ -562,20 +831,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        VIDEO NEWS
-       ONLY IF HTML EXISTS
     ===================================================== */
 
     const videoTarget =
         $("#videoNewsGrid");
+
 
     if (videoTarget) {
 
         const videoArticles =
             articles
                 .filter(article =>
-                    article.category !== "bigboss10"
+                    normalizeCategory(
+                        article.category
+                    ) !== "bigboss10"
                 )
                 .slice(0, 6);
+
 
         videoTarget.innerHTML =
             videoArticles
@@ -628,12 +900,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         box.classList.toggle("show");
 
+
         if (
             box.classList.contains("show")
         ) {
 
             const input =
                 $("#searchInput");
+
 
             if (input) {
 
@@ -656,18 +930,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const input =
             $("#searchInput");
 
+
         if (!input) {
             return;
         }
+
 
         const query =
             input.value
                 .trim()
                 .toLowerCase();
 
+
         if (!query) {
             return;
         }
+
 
         const result =
             articles.find(article =>
@@ -675,6 +953,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     .toLowerCase()
                     .includes(query)
             );
+
 
         if (result) {
 
@@ -691,11 +970,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       SEARCH ENTER KEY
+       SEARCH ENTER
     ===================================================== */
 
     const searchInput =
         $("#searchInput");
+
 
     if (searchInput) {
 
@@ -711,6 +991,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     window.searchNews();
                 }
+
             }
         );
     }
@@ -726,12 +1007,15 @@ document.addEventListener("DOMContentLoaded", function () {
             "dark-mode"
         );
 
+
         const button =
             $("#themeButton");
+
 
         if (!button) {
             return;
         }
+
 
         if (
             document.body.classList.contains(
@@ -742,6 +1026,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button.textContent =
                 "☀️ Light";
 
+
             localStorage.setItem(
                 "bs360-theme",
                 "dark"
@@ -751,6 +1036,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             button.textContent =
                 "🌙 Dark";
+
 
             localStorage.setItem(
                 "bs360-theme",
@@ -769,6 +1055,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "bs360-theme"
         );
 
+
     if (
         savedTheme === "dark"
     ) {
@@ -777,8 +1064,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "dark-mode"
         );
 
+
         const button =
             $("#themeButton");
+
 
         if (button) {
 
@@ -797,9 +1086,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const nav =
             $("#navLinks");
 
+
         if (!nav) {
             return;
         }
+
 
         nav.classList.toggle(
             "mobile-open"
@@ -821,8 +1112,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+
             const search =
                 $("#searchBox");
+
 
             if (
                 search &&
@@ -835,7 +1128,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     "show"
                 );
             }
+
         }
     );
+
 
 });
