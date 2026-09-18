@@ -1362,16 +1362,16 @@ body.dark-mode .theme-button{
         font-size:17px;
     }
 }
-
 /* =========================================================
-   TRENDING NEWS - FINAL FIX
-   LAPTOP / DESKTOP = 3 COLUMNS × 4 ROWS
+   TRENDING NEWS
+   LAPTOP: 2 x 6 = 12
+   MOBILE: 3 x 4 = 12
 ========================================================= */
 
 .trending-grid{
     display:grid !important;
-    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-    gap:20px 14px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:20px 16px !important;
     width:100% !important;
 }
 
@@ -1380,24 +1380,20 @@ body.dark-mode .theme-button{
     min-width:0 !important;
 }
 
-
-/* =========================================================
-   MOBILE = 2 COLUMNS × 6 ROWS
-========================================================= */
-
+/* MOBILE */
 @media(max-width:700px){
 
     .trending-grid{
         display:grid !important;
-        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        grid-template-columns:repeat(3,minmax(0,1fr)) !important;
         gap:10px !important;
+        width:100% !important;
     }
 
     .trending-card{
         width:100% !important;
         min-width:0 !important;
     }
-
 }
 
 
