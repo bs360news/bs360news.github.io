@@ -722,6 +722,19 @@
 </div>
 
 
+<!-- ENTERTAINMENT -->
+
+<div class="sidebar-box">
+
+    <div class="sidebar-title">
+        Entertainment
+    </div>
+
+    <div id="entertainmentSidebar"></div>
+
+</div>
+
+
 </aside>
 
 
@@ -1371,6 +1384,46 @@ document.addEventListener(
                                     `;
 
                                 }
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   ENTERTAINMENT SIDEBAR
+                ================================================= */
+
+                const entertainmentTarget =
+                    document.getElementById(
+                        "entertainmentSidebar"
+                    );
+
+
+                if (entertainmentTarget) {
+
+                    const entertainmentArticles =
+                        normalArticles.filter(
+                            article =>
+                                (
+                                    article.category ===
+                                    "cinema" ||
+                                    article.category ===
+                                    "movies"
+                                ) &&
+                                article.url
+                                    .split("/")
+                                    .pop()
+                                    .toLowerCase() !==
+                                currentPage
+                        );
+
+
+                    entertainmentTarget.innerHTML =
+                        entertainmentArticles
+                            .slice(0, 5)
+                            .map(
+                                createSidebarItem
                             )
                             .join("");
 
