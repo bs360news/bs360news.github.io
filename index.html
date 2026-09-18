@@ -298,7 +298,150 @@ gtag('config', 'G-EWXPS1N2TL');
     }
 
 }
+/* =====================================================
+   MOST READ - DESKTOP / LAPTOP FIX
+===================================================== */
 
+.most-read-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin: 30px 0 !important;
+    padding: 0 !important;
+}
+
+.most-read-section .section-title-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+}
+
+.most-read-section .section-title-row h2 {
+    display: block !important;
+    visibility: visible !important;
+    color: #111 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+}
+
+.most-read-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    width: 100% !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.most-read-list .trending-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+    color: #111 !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+    border: 1px solid #e1e1e1 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.most-read-list .trending-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 170px !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.most-read-list .trending-card h3 {
+    display: block !important;
+    color: #111 !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+/* =====================================================
+   MOST READ - TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .most-read-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 15px !important;
+    }
+
+    .most-read-list .trending-card img {
+        height: 150px !important;
+    }
+
+}
+
+
+/* =====================================================
+   MOST READ - MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .most-read-section {
+        margin: 25px 0 !important;
+    }
+
+    .most-read-section .section-title-row h2 {
+        font-size: 22px !important;
+    }
+
+    .most-read-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+    .most-read-list .trending-card img {
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+    }
+
+    .most-read-list .trending-card h3 {
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+        padding: 9px !important;
+    }
+
+}
+
+
+/* =====================================================
+   MOST READ - VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .most-read-list {
+        gap: 9px !important;
+    }
+
+    .most-read-list .trending-card h3 {
+        font-size: 13px !important;
+    }
+
+}
+    
 </style>
 
 </head>
