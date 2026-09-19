@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="te">
 
@@ -11,24 +12,36 @@
 
 <meta
     name="description"
-    content="BS 360 NEWS Sports - క్రికెట్, IPL, భారత జట్టు, మహిళల క్రికెట్ మరియు తాజా స్పోర్ట్స్ వార్తలు."
+    content="BS 360 NEWS Sports News - తెలుగు స్పోర్ట్స్ తాజా వార్తలు, క్రికెట్, క్రీడా వార్తలు, ఆటగాళ్ల అప్డేట్స్."
 >
 
-<link rel="canonical" href="https://bs360news.com/sports.html">
+<meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+>
 
-<link rel="icon" href="dp.png.png">
+<link
+    rel="icon"
+    type="image/png"
+    href="dp.png.png"
+>
 
+<link
+    rel="apple-touch-icon"
+    href="dp.png.png"
+>
 
 <style>
 
 /* =========================================================
-   RESET
+   BS 360 NEWS - SPORTS PAGE
+   SAME ARTICLE DESIGN AS MOVIES PAGE
+   DESKTOP = 6 COLUMNS
+   MOBILE  = 3 COLUMNS
 ========================================================= */
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 html{
@@ -36,16 +49,19 @@ html{
 }
 
 body{
-    background:#fff;
-    color:#111;
-    font-family:Arial,"Noto Sans Telugu","Segoe UI",sans-serif;
-    line-height:1.5;
-    overflow-x:hidden;
-}
+    margin:0;
+    padding:0;
 
-a{
-    color:inherit;
-    text-decoration:none;
+    background:#f3f5f7;
+    color:#111827;
+
+    font-family:
+        Arial,
+        "Noto Sans Telugu",
+        "Segoe UI",
+        sans-serif;
+
+    line-height:1.6;
 }
 
 img{
@@ -54,59 +70,72 @@ img{
     max-width:100%;
 }
 
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
 
 /* =========================================================
    HEADER
 ========================================================= */
 
 .top-header{
-    width:100%;
-    background:#111;
-    color:#fff;
+
+    background:#fff;
+
+    border-bottom:1px solid #e5e7eb;
 }
 
 .header-inner{
-    max-width:1400px;
-    min-height:78px;
+
+    width:min(1400px,96%);
 
     margin:auto;
-    padding:9px 20px;
+
+    min-height:68px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    gap:20px;
+    gap:15px;
 }
 
+.logo{
 
-/* LOGO */
+    font-size:30px;
 
-.logo-image{
-    width:190px;
-    height:60px;
+    font-weight:900;
 
-    object-fit:contain;
-    object-position:left center;
+    letter-spacing:.5px;
+
+    color:#111827;
 }
 
+.logo span{
 
-/* HOME */
+    color:#e50914;
+}
 
 .home-btn{
+
     background:#e50914;
+
     color:#fff;
 
-    padding:9px 18px;
+    padding:8px 16px;
 
-    border-radius:5px;
+    border-radius:6px;
 
-    font-size:15px;
     font-weight:700;
 }
 
 .home-btn:hover{
-    background:#c90812;
+
+    background:#c7000b;
 }
 
 
@@ -115,30 +144,49 @@ img{
 ========================================================= */
 
 .nav-bar{
-    width:100%;
+
     background:#fff;
 
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #e5e7eb;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
 }
 
 .nav-inner{
-    max-width:1400px;
+
+    width:min(1400px,96%);
 
     margin:auto;
 
     display:flex;
+
     align-items:center;
 
-    gap:8px;
+    gap:5px;
 
-    padding:0 20px;
+    overflow-x:auto;
+
+    scrollbar-width:none;
+}
+
+.nav-inner::-webkit-scrollbar{
+
+    display:none;
 }
 
 .nav-inner a{
-    padding:13px 20px;
 
-    font-size:16px;
-    font-weight:800;
+    flex:0 0 auto;
+
+    padding:11px 15px;
+
+    font-size:14px;
+
+    font-weight:700;
 
     white-space:nowrap;
 
@@ -148,10 +196,12 @@ img{
 }
 
 .nav-inner a:hover{
+
     color:#e50914;
 }
 
 .nav-inner a.active{
+
     color:#e50914;
 
     border-bottom:3px solid #e50914;
@@ -163,28 +213,33 @@ img{
 ========================================================= */
 
 .breaking{
-    max-width:1400px;
+
+    width:min(1400px,96%);
 
     margin:12px auto 0;
 
-    display:flex;
-    align-items:center;
-
     background:#fff;
+
+    display:flex;
+
+    align-items:center;
 
     overflow:hidden;
 
-    border-bottom:1px solid #ddd;
+    border-radius:6px;
+
+    border:1px solid #e5e7eb;
 }
 
 .breaking-title{
+
     background:#e50914;
 
     color:#fff;
 
-    padding:10px 16px;
+    padding:8px 16px;
 
-    font-size:14px;
+    font-size:13px;
 
     font-weight:900;
 
@@ -192,17 +247,18 @@ img{
 }
 
 .breaking-text{
-    padding:9px 15px;
+
+    padding:8px 15px;
 
     font-size:14px;
-
-    font-weight:600;
 
     white-space:nowrap;
 
     overflow:hidden;
 
     text-overflow:ellipsis;
+
+    color:#111827;
 }
 
 
@@ -211,23 +267,44 @@ img{
 ========================================================= */
 
 .page{
-    width:96%;
-    max-width:1400px;
 
-    margin:18px auto 40px;
+    width:min(1400px,96%);
+
+    margin:15px auto 35px;
 }
 
 
 /* =========================================================
-   MAIN DESKTOP LAYOUT
-   LEFT = LATEST + MEN + WOMEN
-   RIGHT = MOST READ
+   PAGE TITLE
+========================================================= */
+
+.page-title{
+
+    background:#fff;
+
+    border-left:5px solid #e50914;
+
+    padding:12px 15px;
+
+    margin-bottom:18px;
+
+    font-size:24px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
 ========================================================= */
 
 .main-layout{
+
     display:grid;
 
-    grid-template-columns:minmax(0,1fr) 300px;
+    grid-template-columns:
+        minmax(0,1fr)
+        320px;
 
     gap:22px;
 
@@ -235,25 +312,24 @@ img{
 }
 
 
-/* LEFT CONTENT */
-
-.left-content{
-    min-width:0;
-}
-
-
 /* =========================================================
-   SECTION TITLE
+   SECTION
 ========================================================= */
 
+.section{
+
+    margin-bottom:30px;
+}
+
 .section-head{
+
     display:flex;
 
     align-items:center;
 
     justify-content:space-between;
 
-    margin:0 0 14px;
+    margin-bottom:12px;
 
     border-bottom:2px solid #e50914;
 
@@ -261,62 +337,196 @@ img{
 }
 
 .section-head h2{
-    font-size:23px;
 
-    line-height:1.2;
+    margin:0;
+
+    font-size:21px;
 
     font-weight:900;
+
+    color:#111827;
+}
+
+.section-head h2 span{
 
     color:#e50914;
 }
 
 
 /* =========================================================
-   LATEST NEWS
+   ALL ARTICLE GRIDS
+   DESKTOP = 6
 ========================================================= */
 
-.latest-section{
-    margin:0;
-}
+.movies-grid{
 
-.latest-grid{
     display:grid;
 
-    grid-template-columns:repeat(7,minmax(0,1fr));
+    grid-template-columns:
+        repeat(6,minmax(0,1fr));
 
     gap:12px;
 }
 
-.latest-card{
+
+/* =========================================================
+   ARTICLE CARD
+   SAME AS MOVIES PAGE
+========================================================= */
+
+.movie-card{
+
+    display:block;
+
+    background:#fff;
+
+    border-radius:7px;
+
+    overflow:hidden;
+
     min-width:0;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
-.latest-card img{
+.movie-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.10);
+}
+
+.movie-card img{
+
     width:100%;
 
-    aspect-ratio:16 / 10;
+    aspect-ratio:16 / 9;
+
+    object-fit:cover;
+}
+
+.movie-card-content{
+
+    padding:9px;
+}
+
+.movie-card-title{
+
+    margin:0;
+
+    color:#111827;
+
+    font-size:14px;
+
+    line-height:1.45;
+
+    font-weight:800;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:4;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.article-sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.sidebar-box{
+
+    background:#fff;
+
+    border-radius:8px;
+
+    padding:14px;
+
+    border:1px solid #e5e7eb;
+}
+
+.sidebar-title{
+
+    font-size:19px;
+
+    line-height:1.3;
+
+    font-weight:900;
+
+    color:#111827;
+
+    padding-bottom:9px;
+
+    margin-bottom:5px;
+
+    border-bottom:3px solid #e50914;
+}
+
+
+/* =========================================================
+   SIDEBAR ARTICLE
+========================================================= */
+
+.sidebar-item{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:10px 0;
+
+    border-bottom:1px solid #e5e7eb;
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+.sidebar-item:last-child{
+
+    border-bottom:none;
+}
+
+.sidebar-item img{
+
+    width:100px;
+
+    height:65px;
 
     object-fit:cover;
 
     border-radius:6px;
 
-    background:#eee;
+    flex-shrink:0;
 }
 
-.latest-card h3{
-    margin-top:7px;
+.sidebar-item-title{
 
-    font-size:15px;
+    font-size:14px;
 
-    line-height:1.35;
+    line-height:1.4;
 
-    font-weight:800;
+    font-weight:700;
 
-    color:#111;
+    color:#1f2937;
 
     display:-webkit-box;
 
-    -webkit-line-clamp:2;
+    -webkit-line-clamp:3;
 
     -webkit-box-orient:vertical;
 
@@ -326,155 +536,81 @@ img{
 
 /* =========================================================
    MOST READ
-   RIGHT SIDE FROM TOP
+   NO NUMBERS
 ========================================================= */
 
-.most-read{
-    width:100%;
-
-    background:transparent;
-
-    padding:0;
-
-    margin:0;
-
-    border:0;
-
-    position:static;
-}
-
-.most-read-title{
-    color:#e50914;
-
-    font-size:23px;
-
-    line-height:1.2;
-
-    font-weight:900;
-
-    border-bottom:2px solid #e50914;
-
-    padding-bottom:7px;
-
-    margin:0 0 10px;
-}
-
-
-/* MOST READ ITEM */
-
 .most-read-item{
-    display:block;
 
-    padding:0 0 13px;
+    display:flex;
 
-    margin:0 0 13px;
+    align-items:center;
 
-    border-bottom:1px solid #ddd;
+    gap:10px;
 
-    background:transparent;
+    padding:10px 0;
+
+    border-bottom:1px solid #e5e7eb;
+
+    text-decoration:none;
+
+    color:inherit;
 }
 
 .most-read-item:last-child{
-    border-bottom:0;
 
-    margin-bottom:0;
+    border-bottom:none;
 }
-
-
-/* MOST READ IMAGE */
 
 .most-read-item img{
-    width:100%;
 
-    aspect-ratio:16 / 9;
+    width:95px;
 
-    object-fit:cover;
-
-    border-radius:5px;
-
-    background:#eee;
-}
-
-
-/* MOST READ TEXT */
-
-.most-read-item h3{
-    margin-top:7px;
-
-    font-size:14px;
-
-    line-height:1.35;
-
-    font-weight:800;
-
-    color:#111;
-
-    display:-webkit-box;
-
-    -webkit-line-clamp:2;
-
-    -webkit-box-orient:vertical;
-
-    overflow:hidden;
-}
-
-
-/* =========================================================
-   SPORTS SECTIONS
-========================================================= */
-
-.sports-section{
-    margin-top:32px;
-}
-
-
-/* =========================================================
-   SPORTS GRID
-   DESKTOP = 6 CARDS
-========================================================= */
-
-.sports-grid{
-    display:grid;
-
-    grid-template-columns:repeat(6,minmax(0,1fr));
-
-    gap:18px 12px;
-}
-
-.sports-card{
-    min-width:0;
-}
-
-.sports-card img{
-    width:100%;
-
-    aspect-ratio:16 / 10;
+    height:65px;
 
     object-fit:cover;
 
     border-radius:6px;
 
-    background:#eee;
+    flex-shrink:0;
 }
 
-.sports-card h3{
-    margin-top:7px;
+.most-read-title{
 
-    font-size:15px;
+    font-size:14px;
 
-    line-height:1.35;
+    line-height:1.4;
 
-    font-weight:800;
+    font-weight:700;
 
-    color:#111;
+    color:#1f2937;
 
     display:-webkit-box;
 
-    -webkit-line-clamp:2;
+    -webkit-line-clamp:3;
 
     -webkit-box-orient:vertical;
 
     overflow:hidden;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+
+    grid-column:1 / -1;
+
+    background:#fff;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:8px;
+
+    color:#666;
 }
 
 
@@ -483,17 +619,19 @@ img{
 ========================================================= */
 
 .site-footer{
-    background:#111;
+
+    background:#111827;
 
     color:#fff;
 
-    margin-top:45px;
+    margin-top:35px;
 
-    padding:35px 20px 18px;
+    padding:30px 0 15px;
 }
 
 .footer-inner{
-    max-width:1400px;
+
+    width:min(1400px,96%);
 
     margin:auto;
 
@@ -506,53 +644,101 @@ img{
 
 .footer-column h3,
 .footer-contact h3{
-    color:#fff;
+
+    margin:0 0 12px;
 
     font-size:18px;
-
-    margin-bottom:15px;
 }
 
 .footer-links{
+
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:8px 18px;
+    gap:8px 15px;
 }
 
 .footer-links a{
-    color:#ddd;
+
+    color:#d1d5db;
 
     font-size:14px;
 }
 
 .footer-links a:hover{
-    color:#e50914;
+
+    color:#fff;
 }
 
 .footer-contact p{
-    color:#ccc;
+
+    margin:5px 0;
+
+    color:#d1d5db;
 
     font-size:14px;
-
-    margin-bottom:7px;
 }
 
-.site-footer > p{
-    max-width:1400px;
+.copyright{
 
-    margin:30px auto 0;
+    width:min(1400px,96%);
+
+    margin:25px auto 0;
 
     padding-top:15px;
 
-    border-top:1px solid #333;
+    border-top:1px solid #374151;
 
     text-align:center;
 
-    color:#aaa;
+    color:#9ca3af;
 
     font-size:13px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode{
+
+    background:#0b1120;
+
+    color:#f9fafb;
+}
+
+body.dark-mode .top-header,
+body.dark-mode .nav-bar,
+body.dark-mode .breaking,
+body.dark-mode .page-title,
+body.dark-mode .movie-card,
+body.dark-mode .sidebar-box{
+
+    background:#111827;
+
+    color:#f9fafb;
+
+    border-color:#374151;
+}
+
+body.dark-mode .logo,
+body.dark-mode .nav-inner a,
+body.dark-mode .breaking-text,
+body.dark-mode .section-head h2,
+body.dark-mode .movie-card-title,
+body.dark-mode .sidebar-title,
+body.dark-mode .sidebar-item-title,
+body.dark-mode .most-read-title{
+
+    color:#f9fafb;
+}
+
+body.dark-mode .sidebar-item,
+body.dark-mode .most-read-item{
+
+    border-color:#374151;
 }
 
 
@@ -560,20 +746,27 @@ img{
    TABLET
 ========================================================= */
 
-@media(max-width:1100px){
+@media(min-width:601px) and (max-width:1100px){
 
     .main-layout{
-        grid-template-columns:minmax(0,1fr) 280px;
 
-        gap:18px;
+        grid-template-columns:1fr;
     }
 
-    .latest-grid{
-        grid-template-columns:repeat(4,minmax(0,1fr));
+    .movies-grid{
+
+        grid-template-columns:
+            repeat(4,minmax(0,1fr));
     }
 
-    .sports-grid{
-        grid-template-columns:repeat(4,minmax(0,1fr));
+    .article-sidebar{
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        align-items:start;
     }
 
 }
@@ -581,30 +774,24 @@ img{
 
 /* =========================================================
    MOBILE
+   3 COLUMNS
 ========================================================= */
 
-@media(max-width:768px){
-
-    body{
-        background:#fff;
-    }
-
-
-    /* HEADER */
+@media(max-width:600px){
 
     .header-inner{
-        min-height:58px;
 
-        padding:7px 12px;
+        min-height:58px;
     }
 
-    .logo-image{
-        width:145px;
-        height:48px;
+    .logo{
+
+        font-size:22px;
     }
 
     .home-btn{
-        padding:7px 12px;
+
+        padding:6px 11px;
 
         font-size:13px;
     }
@@ -612,26 +799,9 @@ img{
 
     /* NAV */
 
-    .nav-bar{
-        overflow-x:auto;
-
-        scrollbar-width:none;
-    }
-
-    .nav-bar::-webkit-scrollbar{
-        display:none;
-    }
-
-    .nav-inner{
-        width:max-content;
-
-        padding:0 7px;
-
-        gap:0;
-    }
-
     .nav-inner a{
-        padding:10px 13px;
+
+        padding:9px 11px;
 
         font-size:12px;
     }
@@ -640,193 +810,144 @@ img{
     /* BREAKING */
 
     .breaking{
-        width:100%;
 
-        margin:0;
-
-        border-left:0;
-        border-right:0;
+        margin-top:8px;
     }
 
     .breaking-title{
-        padding:9px 11px;
 
-        font-size:11px;
+        padding:7px 10px;
+
+        font-size:10px;
     }
 
     .breaking-text{
-        padding:8px 10px;
 
         font-size:12px;
+
+        padding:7px 10px;
     }
 
 
     /* PAGE */
 
     .page{
-        width:100%;
 
-        margin:0 auto 30px;
+        width:94%;
+
+        margin-top:10px;
+    }
+
+    .page-title{
+
+        font-size:20px;
+
+        padding:10px 12px;
     }
 
 
-    /* =====================================================
-       MAIN LAYOUT
-       MOBILE = ONE COLUMN
-    ===================================================== */
+    /* MAIN */
 
     .main-layout{
+
         display:block;
     }
 
-    .left-content{
-        width:100%;
+
+    /* ALL GRIDS = 3 */
+
+    .movies-grid{
+
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
+        gap:7px;
     }
 
 
-    /* SECTION TITLE */
+    /* CARD */
 
-    .section-head{
-        margin:20px 10px 12px;
-
-        padding-bottom:6px;
-    }
-
-    .section-head h2{
-        font-size:19px;
-    }
-
-
-    /* =====================================================
-       LATEST NEWS
-    ===================================================== */
-
-    .latest-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-
-        gap:15px 10px;
-
-        padding:0 10px;
-    }
-
-    .latest-card img{
-        aspect-ratio:16 / 10;
-
-        border-radius:6px;
-    }
-
-    .latest-card h3{
-        font-size:13px;
-
-        line-height:1.3;
-
-        margin-top:5px;
-    }
-
-
-    /* =====================================================
-       SPORTS
-    ===================================================== */
-
-    .sports-section{
-        margin-top:27px;
-    }
-
-    .sports-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-
-        gap:16px 10px;
-
-        padding:0 10px;
-    }
-
-    .sports-card img{
-        aspect-ratio:16 / 10;
-
-        border-radius:6px;
-    }
-
-    .sports-card h3{
-        font-size:13px;
-
-        line-height:1.3;
-
-        margin-top:5px;
-    }
-
-
-    /* =====================================================
-       MOST READ
-       MOBILE = AFTER ALL SPORTS
-    ===================================================== */
-
-    .most-read{
-        margin:30px 10px 0;
-
-        width:auto;
-    }
-
-    .most-read-title{
-        font-size:19px;
-
-        margin-bottom:12px;
-    }
-
-    .most-read-item{
-        display:grid;
-
-        grid-template-columns:105px minmax(0,1fr);
-
-        gap:10px;
-
-        align-items:start;
-
-        padding-bottom:12px;
-
-        margin-bottom:12px;
-    }
-
-    .most-read-item img{
-        width:105px;
-
-        height:66px;
-
-        aspect-ratio:auto;
-
-        object-fit:cover;
+    .movie-card{
 
         border-radius:5px;
     }
 
-    .most-read-item h3{
-        margin:0;
+    .movie-card-content{
 
-        font-size:13px;
+        padding:6px;
+    }
+
+    .movie-card-title{
+
+        font-size:10px;
 
         line-height:1.35;
 
-        -webkit-line-clamp:3;
+        -webkit-line-clamp:4;
+    }
+
+
+    /* SIDEBAR */
+
+    .article-sidebar{
+
+        margin-top:22px;
+
+        gap:12px;
+    }
+
+    .sidebar-box{
+
+        padding:11px;
+    }
+
+    .sidebar-title{
+
+        font-size:17px;
+    }
+
+    .sidebar-item img{
+
+        width:90px;
+
+        height:62px;
+    }
+
+    .sidebar-item-title{
+
+        font-size:13px;
+    }
+
+
+    /* MOST READ */
+
+    .most-read-item img{
+
+        width:90px;
+
+        height:62px;
+    }
+
+    .most-read-title{
+
+        font-size:13px;
     }
 
 
     /* FOOTER */
 
     .footer-inner{
+
         grid-template-columns:1fr;
 
-        gap:25px;
-    }
-
-    .site-footer{
-        padding:28px 15px 15px;
+        gap:22px;
     }
 
     .footer-links{
+
         display:grid;
 
         grid-template-columns:1fr 1fr;
-
-        gap:9px;
     }
 
 }
@@ -834,45 +955,31 @@ img{
 
 /* =========================================================
    SMALL MOBILE
+   STILL 3 COLUMNS
 ========================================================= */
 
-@media(max-width:480px){
+@media(max-width:380px){
 
-    .logo-image{
-        width:135px;
+    .movies-grid{
 
-        height:45px;
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
+        gap:5px;
     }
 
-    .home-btn{
-        font-size:12px;
+    .movie-card-content{
 
-        padding:6px 10px;
+        padding:5px;
     }
 
-    .latest-card h3{
-        font-size:12px;
+    .movie-card-title{
+
+        font-size:9px;
+
+        line-height:1.3;
     }
 
-    .sports-card h3{
-        font-size:12px;
-    }
-
-    .most-read-item h3{
-        font-size:12.5px;
-    }
-
-}
-
-
-/* =========================================================
-   PREVENT IMAGE DRAG
-========================================================= */
-
-img{
-    user-select:none;
-
-    -webkit-user-drag:none;
 }
 
 </style>
@@ -883,24 +990,19 @@ img{
 <body>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HEADER
-====================================================== -->
+===================================================== -->
 
 <header class="top-header">
 
     <div class="header-inner">
 
-        <a href="index.html">
+        <div class="logo">
 
-            <img
-                src="dp.png.png"
-                alt="BS 360 NEWS"
-                class="logo-image"
-            >
+            BS <span>360</span> NEWS
 
-        </a>
-
+        </div>
 
         <a
             href="index.html"
@@ -914,21 +1016,20 @@ img{
 </header>
 
 
-
-<!-- ======================================================
+<!-- =====================================================
      NAVIGATION
-====================================================== -->
+===================================================== -->
 
 <nav class="nav-bar">
 
     <div class="nav-inner">
 
         <a href="index.html">
-            HOME
+            Home
         </a>
 
         <a href="MOVIES.html">
-            ENTERTAINMENT
+            MOVIES
         </a>
 
         <a
@@ -951,10 +1052,9 @@ img{
 </nav>
 
 
-
-<!-- ======================================================
+<!-- =====================================================
      BREAKING NEWS
-====================================================== -->
+===================================================== -->
 
 <div class="breaking">
 
@@ -963,731 +1063,220 @@ img{
     </div>
 
     <div class="breaking-text">
-        క్రీడా ప్రపంచంలోని తాజా వార్తలు.. క్రికెట్, IPL, భారత జట్టు, మహిళల క్రికెట్ మరియు ఇతర స్పోర్ట్స్ అప్‌డేట్స్
+        క్రికెట్, స్పోర్ట్స్ ప్రపంచంలోని తాజా వార్తలు, మ్యాచ్ అప్డేట్స్, ఆటగాళ్ల వార్తలు...
     </div>
 
 </div>
 
 
+<!-- =====================================================
+     MAIN PAGE
+===================================================== -->
 
 <main class="page">
 
 
-<!-- ======================================================
-     MAIN LAYOUT
-     LEFT:
-       LATEST NEWS
-       ALL SPORTS MEN
-       ALL SPORTS WOMEN
-
-     RIGHT:
-       MOST READ
-====================================================== -->
-
-<div class="main-layout">
-
-
-<!-- ======================================================
-     LEFT CONTENT
-====================================================== -->
-
-<div class="left-content">
-
-
-<!-- ======================================================
-     LATEST NEWS
-====================================================== -->
-
-<section class="latest-section">
-
-    <div class="section-head">
-
-        <h2>
-            Latest News
-        </h2>
-
+    <div class="page-title">
+        Sports News
     </div>
 
 
-    <div class="latest-grid">
+    <!-- =================================================
+         LEFT ARTICLES + RIGHT SIDEBAR
+    ================================================== -->
+
+    <div class="main-layout">
 
 
-        <a
-            href="bhumrha.html"
-            class="latest-card"
-        >
+        <!-- =============================================
+             LEFT SIDE
+        ============================================== -->
 
-            <img
-                src="bhumrha.jpg"
-                alt="బుమ్రా"
-            >
-
-            <h3>
-                🏏 బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు
-            </h3>
-
-        </a>
+        <div class="movies-main">
 
 
+            <!-- =========================================
+                 SPORTS
+            ========================================== -->
 
-        <a
-            href="hardik97.html"
-            class="latest-card"
-        >
+            <section class="section">
 
-            <img
-                src="hardik.jpg"
-                alt="హార్దిక్ పాండ్యా"
-            >
+                <div class="section-head">
 
-            <h3>
-                🏏 హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. భారత్ A జట్టులో చోటు
-            </h3>
+                    <h2>
+                        <span>LATEST</span> Sports
+                    </h2>
 
-        </a>
+                </div>
 
 
+                <div
+                    id="sportsGrid"
+                    class="movies-grid"
+                >
 
-        <a
-            href="bcci.html"
-            class="latest-card"
-        >
+                    <div class="loading">
+                        Sports News Loading...
+                    </div>
 
-            <img
-                src="bcci.webp"
-                alt="భారత్ అఫ్గానిస్థాన్"
-            >
+                </div>
 
-            <h3>
-                🏏 భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
-            </h3>
-
-        </a>
+            </section>
 
 
+            <!-- =========================================
+                 MOVIES
+            ========================================== -->
 
-        <a
-            href="bhumrha.html"
-            class="latest-card"
-        >
+            <section class="section">
 
-            <img
-                src="bhumrha.jpg"
-                alt="టీమిండియా"
-            >
+                <div class="section-head">
 
-            <h3>
-                టీమిండియా బౌలింగ్‌పై ఆసక్తికర చర్చ.. స్టార్ పేసర్‌పై అందరి దృష్టి
-            </h3>
+                    <h2>
+                        <span>MOVIES</span> News
+                    </h2>
 
-        </a>
+                </div>
 
 
+                <div
+                    id="moviesGrid"
+                    class="movies-grid"
+                >
 
-        <a
-            href="hardik97.html"
-            class="latest-card"
-        >
+                    <div class="loading">
+                        Movies News Loading...
+                    </div>
 
-            <img
-                src="hardik.jpg"
-                alt="క్రికెట్"
-            >
+                </div>
 
-            <h3>
-                భారత క్రికెట్‌లో కీలక మార్పులు.. ఆటగాళ్ల ఎంపికపై చర్చ
-            </h3>
-
-        </a>
+            </section>
 
 
+            <!-- =========================================
+                 AP & TS
+            ========================================== -->
 
-        <a
-            href="bcci.html"
-            class="latest-card"
-        >
+            <section class="section">
 
-            <img
-                src="bcci.webp"
-                alt="క్రికెట్ వార్తలు"
-            >
+                <div class="section-head">
 
-            <h3>
-                క్రికెట్ అభిమానులకు కీలక అప్‌డేట్.. సిరీస్‌పై పెరిగిన ఆసక్తి
-            </h3>
+                    <h2>
+                        <span>AP & TS</span> News
+                    </h2>
 
-        </a>
+                </div>
 
 
+                <div
+                    id="aptsGrid"
+                    class="movies-grid"
+                >
 
-        <a
-            href="bhumrha.html"
-            class="latest-card"
-        >
+                    <div class="loading">
+                        AP & TS News Loading...
+                    </div>
 
-            <img
-                src="bhumrha.jpg"
-                alt="స్పోర్ట్స్"
-            >
+                </div>
 
-            <h3>
-                స్పోర్ట్స్ ప్రపంచంలో తాజా పరిణామాలు.. ఆటగాళ్లపై ఫోకస్
-            </h3>
+            </section>
 
-        </a>
+
+            <!-- =========================================
+                 BUSINESS
+            ========================================== -->
+
+            <section class="section">
+
+                <div class="section-head">
+
+                    <h2>
+                        <span>BUSINESS</span> News
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="businessGrid"
+                    class="movies-grid"
+                >
+
+                    <div class="loading">
+                        Business News Loading...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- =============================================
+             RIGHT SIDEBAR
+        ============================================== -->
+
+        <aside class="article-sidebar">
+
+
+            <!-- =========================================
+                 MOST READ
+            ========================================== -->
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-title">
+                    Most Read
+                </div>
+
+                <div id="mostReadSidebar"></div>
+
+            </div>
+
+
+            <!-- =========================================
+                 TRENDING
+            ========================================== -->
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-title">
+                    Trending News
+                </div>
+
+                <div id="trendingSidebar"></div>
+
+            </div>
+
+
+            <!-- =========================================
+                 LATEST
+            ========================================== -->
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-title">
+                    Latest News
+                </div>
+
+                <div id="latestSidebar"></div>
+
+            </div>
+
+
+        </aside>
 
 
     </div>
-
-</section>
-
-
-
-<!-- ======================================================
-     ALL SPORTS MEN
-====================================================== -->
-
-<section class="sports-section">
-
-    <div class="section-head">
-
-        <h2>
-            ALL SPORTS MEN
-        </h2>
-
-    </div>
-
-
-    <div class="sports-grid">
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="బుమ్రా"
-            >
-
-            <h3>
-                బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="హార్దిక్"
-            >
-
-            <h3>
-                హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. భారత్ A జట్టులో చోటు
-            </h3>
-
-        </a>
-
-
-
-        <a href="bcci.html" class="sports-card">
-
-            <img
-                src="bcci.webp"
-                alt="BCCI"
-            >
-
-            <h3>
-                భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
-            </h3>
-
-        </a>
-
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="టీమిండియా"
-            >
-
-            <h3>
-                టీమిండియా బౌలింగ్‌లో కీలకంగా మారనున్న స్టార్ పేసర్
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="హార్దిక్"
-            >
-
-            <h3>
-                హార్దిక్ పాండ్యా రీఎంట్రీపై అభిమానుల్లో ఆసక్తి
-            </h3>
-
-        </a>
-
-
-
-        <a href="bcci.html" class="sports-card">
-
-            <img
-                src="bcci.webp"
-                alt="క్రికెట్"
-            >
-
-            <h3>
-                భారత క్రికెట్‌కు మరో కీలక అప్‌డేట్
-            </h3>
-
-        </a>
-
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="క్రికెట్"
-            >
-
-            <h3>
-                క్రికెట్‌లో స్టార్ ఆటగాళ్ల ప్రదర్శనపై ఫోకస్
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="క్రికెట్"
-            >
-
-            <h3>
-                భారత జట్టులో స్థానాల కోసం పెరిగిన పోటీ
-            </h3>
-
-        </a>
-
-
-
-        <a href="bcci.html" class="sports-card">
-
-            <img
-                src="bcci.webp"
-                alt="సిరీస్"
-            >
-
-            <h3>
-                రాబోయే సిరీస్‌లపై క్రికెట్ అభిమానుల్లో ఆసక్తి
-            </h3>
-
-        </a>
-
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="బౌలింగ్"
-            >
-
-            <h3>
-                బౌలింగ్ విభాగంలో కీలక మార్పులపై చర్చ
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="భారత జట్టు"
-            >
-
-            <h3>
-                టీమిండియా ఆటగాళ్లకు కీలక సవాలు
-            </h3>
-
-        </a>
-
-
-
-        <a href="bcci.html" class="sports-card">
-
-            <img
-                src="bcci.webp"
-                alt="స్పోర్ట్స్"
-            >
-
-            <h3>
-                స్పోర్ట్స్ ప్రపంచంలోని తాజా వార్తలు
-            </h3>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ======================================================
-     ALL SPORTS WOMEN
-====================================================== -->
-
-<section class="sports-section">
-
-    <div class="section-head">
-
-        <h2>
-            ALL SPORTS WOMEN
-        </h2>
-
-    </div>
-
-
-    <div class="sports-grid">
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="మహిళల క్రికెట్"
-            >
-
-            <h3>
-                మహిళల క్రికెట్‌లో కీలక పోటీ.. ఆటగాళ్ల ప్రదర్శనపై ఫోకస్
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="మహిళల స్పోర్ట్స్"
-            >
-
-            <h3>
-                మహిళల స్పోర్ట్స్‌లో కొత్త సవాళ్లు.. పెరుగుతున్న ఆసక్తి
-            </h3>
-
-        </a>
-
-
-
-        <a href="bcci.html" class="sports-card">
-
-            <img
-                src="bcci.webp"
-                alt="మహిళల క్రికెట్"
-            >
-
-            <h3>
-                మహిళల జట్టు తదుపరి సిరీస్‌పై కీలక అప్‌డేట్
-            </h3>
-
-        </a>
-
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="మహిళల జట్టు"
-            >
-
-            <h3>
-                మహిళల క్రికెట్‌లో స్టార్ ప్లేయర్లపై అందరి దృష్టి
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="విమెన్స్ క్రికెట్"
-            >
-
-            <h3>
-                విమెన్స్ క్రికెట్‌లో ఆసక్తికర పరిణామాలు
-            </h3>
-
-        </a>
-
-
-
-        <a href="bcci.html" class="sports-card">
-
-            <img
-                src="bcci.webp"
-                alt="మహిళల స్పోర్ట్స్"
-            >
-
-            <h3>
-                మహిళల క్రీడలకు మరింత ప్రాధాన్యం.. కీలక మ్యాచ్‌లపై ఫోకస్
-            </h3>
-
-        </a>
-
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="మహిళల క్రికెట్"
-            >
-
-            <h3>
-                మహిళల క్రికెట్‌లో పోటీ రసవత్తరం
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="మహిళల జట్టు"
-            >
-
-            <h3>
-                జట్టు ఎంపికపై ఆసక్తికర చర్చ
-            </h3>
-
-        </a>
-
-
-
-        <a href="bcci.html" class="sports-card">
-
-            <img
-                src="bcci.webp"
-                alt="మహిళల క్రికెట్"
-            >
-
-            <h3>
-                మహిళల క్రికెట్‌లో మరో కీలక మ్యాచ్‌కు రంగం సిద్ధం
-            </h3>
-
-        </a>
-
-
-
-        <a href="bhumrha.html" class="sports-card">
-
-            <img
-                src="bhumrha.jpg"
-                alt="విమెన్స్ స్పోర్ట్స్"
-            >
-
-            <h3>
-                విమెన్స్ స్పోర్ట్స్‌లో తాజా అప్‌డేట్స్
-            </h3>
-
-        </a>
-
-
-
-        <a href="hardik97.html" class="sports-card">
-
-            <img
-                src="hardik.jpg"
-                alt="మహిళల జట్టు"
-            >
-
-            <h3>
-                మహిళల జట్టు ప్రదర్శనపై అభిమానుల్లో ఆసక్తి
-            </h3>
-
-        </a>
-
-
-
-        <a href="cwomen1.html" class="sports-card">
-
-            <img
-                src="cwomen1.jpg"
-                alt="మహిళల స్పోర్ట్స్"
-            >
-
-            <h3>
-           మంధాన విధ్వంసం.. హాంకాంగ్‌పై భారత్ ఘన విజయం
-            </h3>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-</div>
-<!-- END LEFT CONTENT -->
-
-
-<!-- ======================================================
-     MOST READ
-     RIGHT SIDE - CONTINUES FROM LATEST NEWS
-====================================================== -->
-
-<aside class="most-read">
-
-
-    <div class="most-read-title">
-        TOP NEWS
-    </div>
-
-
-    <a
-        href="bhumrha.html"
-        class="most-read-item"
-    >
-
-        <img
-            src="bhumrha.jpg"
-            alt="బుమ్రా వార్త"
-        >
-
-        <h3>
-            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై ప్రశ్నలు
-        </h3>
-
-    </a>
-
-
-
-    <a
-        href="hardik97.html"
-        class="most-read-item"
-    >
-
-        <img
-            src="hardik.jpg"
-            alt="హార్దిక్ పాండ్యా"
-        >
-
-        <h3>
-            హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. భారత్ A జట్టులో చోటు
-        </h3>
-
-    </a>
-
-
-
-    <a
-        href="bcci.html"
-        class="most-read-item"
-    >
-
-        <img
-            src="bcci.webp"
-            alt="భారత్ అఫ్గానిస్థాన్"
-        >
-
-        <h3>
-            భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
-        </h3>
-
-    </a>
-
-
-
-    <a
-        href="bhumrha.html"
-        class="most-read-item"
-    >
-
-        <img
-            src="bhumrha.jpg"
-            alt="టీమిండియా"
-        >
-
-        <h3>
-            టీమిండియా బౌలింగ్‌లో స్టార్ పేసర్‌పై అందరి దృష్టి
-        </h3>
-
-    </a>
-
-
-
-    <a
-        href="hardik97.html"
-        class="most-read-item"
-    >
-
-        <img
-            src="hardik.jpg"
-            alt="క్రికెట్"
-        >
-
-        <h3>
-            భారత క్రికెట్‌లో కీలక పరిణామాలు.. ఆటగాళ్లపై ఫోకస్
-        </h3>
-
-    </a>
-
-
-
-    <a
-        href="cwomen1.html"
-        class="most-read-item"
-    >
-
-        <img
-            src="cwomen1.jpg"
-            alt="క్రికెట్ వార్త"
-        >
-
-        <h3>
-           మంధాన విధ్వంసం.. హాంకాంగ్‌పై భారత్ ఘన విజయం..
-        </h3>
-
-    </a>
-
-
-
-</aside>
-<!-- END MOST READ -->
-
-
-</div>
-<!-- END MAIN LAYOUT -->
-
 
 </main>
 
 
-
-<!-- ======================================================
+<!-- =====================================================
      FOOTER
-====================================================== -->
+===================================================== -->
 
 <footer class="site-footer">
 
@@ -1747,27 +1336,626 @@ img{
 
         </div>
 
-
     </div>
 
 
-    <p>
+    <div class="copyright">
+
         © 2026 BS 360 NEWS. All Rights Reserved.
-    </p>
+
+    </div>
 
 </footer>
 
 
+<!-- =====================================================
+     SPORTS PAGE JAVASCRIPT
+     ALL ARTICLES FROM INDEX.HTML
+===================================================== -->
+
 <script>
 
-document.querySelectorAll("img").forEach(function(img){
+document.addEventListener("DOMContentLoaded", function(){
 
-    img.addEventListener(
-        "dragstart",
-        function(e){
-            e.preventDefault();
+    "use strict";
+
+
+    /* =====================================================
+       HELPERS
+    ===================================================== */
+
+    function cleanText(text){
+
+        return String(text || "")
+            .replace(/\s+/g," ")
+            .trim();
+
+    }
+
+
+    /* =====================================================
+       GET ARTICLES
+    ===================================================== */
+
+    function getArticles(home,sourceId){
+
+        const source =
+            home.getElementById(sourceId);
+
+
+        if(!source){
+
+            console.warn(
+                "BS360 Source not found:",
+                sourceId
+            );
+
+            return [];
+
         }
-    );
+
+
+        return Array.from(
+
+            source.querySelectorAll(
+                ".news-item.post"
+            )
+
+        )
+
+        .map(function(item){
+
+            const image =
+                item.querySelector("img");
+
+
+            const title =
+                item.querySelector(
+                    ".news-content p"
+                ) ||
+
+                item.querySelector(
+                    ".news-content h3"
+                ) ||
+
+                item.querySelector("p");
+
+
+            return {
+
+                title:
+                    cleanText(
+                        title
+                            ? title.textContent
+                            : ""
+                    ),
+
+                image:
+                    image
+                        ? image.getAttribute(
+                            "src"
+                        ) || ""
+                        : "",
+
+                alt:
+                    image
+                        ? image.getAttribute(
+                            "alt"
+                        ) || ""
+                        : "",
+
+                url:
+                    item.getAttribute(
+                        "data-url"
+                    ) || ""
+
+            };
+
+        })
+
+        .filter(function(article){
+
+            return (
+
+                article.title &&
+
+                article.image &&
+
+                article.url
+
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       NORMAL ARTICLE CARD
+       SAME AS MOVIES
+    ===================================================== */
+
+    function cardHTML(article){
+
+        return `
+
+            <a
+                href="${article.url}"
+                class="movie-card"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="movie-card-content">
+
+                    <h3 class="movie-card-title">
+
+                        ${article.title}
+
+                    </h3>
+
+                </div>
+
+            </a>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       SIDEBAR CARD
+    ===================================================== */
+
+    function sidebarHTML(article){
+
+        return `
+
+            <a
+                href="${article.url}"
+                class="sidebar-item"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="sidebar-item-title">
+
+                    ${article.title}
+
+                </div>
+
+            </a>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       MOST READ
+       NO NUMBERS
+    ===================================================== */
+
+    function mostReadHTML(article){
+
+        return `
+
+            <a
+                href="${article.url}"
+                class="most-read-item"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="most-read-title">
+
+                    ${article.title}
+
+                </div>
+
+            </a>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       SHOW
+    ===================================================== */
+
+    function show(id,html){
+
+        const element =
+            document.getElementById(id);
+
+
+        if(element){
+
+            element.innerHTML = html;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       LOAD INDEX.HTML
+    ===================================================== */
+
+    fetch(
+
+        "index.html?v=" + Date.now(),
+
+        {
+            cache:"no-store"
+        }
+
+    )
+
+    .then(function(response){
+
+        if(!response.ok){
+
+            throw new Error(
+                "index.html load failed"
+            );
+
+        }
+
+        return response.text();
+
+    })
+
+
+    .then(function(html){
+
+        const parser =
+            new DOMParser();
+
+
+        const home =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
+
+
+        /* =================================================
+           SPORTS = MAIN
+        ================================================= */
+
+        const sports =
+            getArticles(
+                home,
+                "sportsSource"
+            );
+
+
+        /* =================================================
+           MOVIES
+        ================================================= */
+
+        const movies =
+            getArticles(
+                home,
+                "entertainmentSource"
+            );
+
+
+        /* =================================================
+           AP & TS
+        ================================================= */
+
+        const apts =
+            getArticles(
+                home,
+                "aptsSource"
+            );
+
+
+        /* =================================================
+           BUSINESS
+        ================================================= */
+
+        const business =
+            getArticles(
+                home,
+                "businessSource"
+            );
+
+
+        /* =================================================
+           LATEST
+        ================================================= */
+
+        const latest =
+            getArticles(
+                home,
+                "latestNewsSource"
+            );
+
+
+        /* =================================================
+           TRENDING
+        ================================================= */
+
+        const trending =
+            getArticles(
+                home,
+                "trendingSource"
+            );
+
+
+        /* =================================================
+           MOST READ
+        ================================================= */
+
+        const mostRead =
+            getArticles(
+                home,
+                "mostReadSource"
+            );
+
+
+        /* =================================================
+           SPORTS
+        ================================================= */
+
+        show(
+
+            "sportsGrid",
+
+            sports
+                .map(cardHTML)
+                .join("")
+
+        );
+
+
+        /* =================================================
+           MOVIES
+        ================================================= */
+
+        show(
+
+            "moviesGrid",
+
+            movies
+                .map(cardHTML)
+                .join("")
+
+        );
+
+
+        /* =================================================
+           AP & TS
+        ================================================= */
+
+        show(
+
+            "aptsGrid",
+
+            apts
+                .map(cardHTML)
+                .join("")
+
+        );
+
+
+        /* =================================================
+           BUSINESS
+        ================================================= */
+
+        show(
+
+            "businessGrid",
+
+            business
+                .map(cardHTML)
+                .join("")
+
+        );
+
+
+        /* =================================================
+           MOST READ
+        ================================================= */
+
+        show(
+
+            "mostReadSidebar",
+
+            mostRead
+                .slice(0,8)
+                .map(mostReadHTML)
+                .join("")
+
+        );
+
+
+        /* =================================================
+           TRENDING
+        ================================================= */
+
+        show(
+
+            "trendingSidebar",
+
+            trending
+                .slice(0,8)
+                .map(sidebarHTML)
+                .join("")
+
+        );
+
+
+        /* =================================================
+           LATEST
+        ================================================= */
+
+        show(
+
+            "latestSidebar",
+
+            latest
+                .slice(0,8)
+                .map(sidebarHTML)
+                .join("")
+
+        );
+
+
+        /* =================================================
+           DEBUG
+        ================================================= */
+
+        console.log(
+            "================================"
+        );
+
+        console.log(
+            "BS360 SPORTS PAGE LOADED"
+        );
+
+        console.log(
+            "Sports:",
+            sports.length
+        );
+
+        console.log(
+            "Movies:",
+            movies.length
+        );
+
+        console.log(
+            "AP & TS:",
+            apts.length
+        );
+
+        console.log(
+            "Business:",
+            business.length
+        );
+
+        console.log(
+            "Latest:",
+            latest.length
+        );
+
+        console.log(
+            "Trending:",
+            trending.length
+        );
+
+        console.log(
+            "Most Read:",
+            mostRead.length
+        );
+
+        console.log(
+            "================================"
+        );
+
+    })
+
+
+    /* =====================================================
+       ERROR
+    ===================================================== */
+
+    .catch(function(error){
+
+        console.error(
+            "BS360 SPORTS ERROR:",
+            error
+        );
+
+
+        show(
+
+            "sportsGrid",
+
+            `
+                <div class="loading">
+                    Sports News load కాలేదు.
+                </div>
+            `
+
+        );
+
+
+        show(
+
+            "moviesGrid",
+
+            `
+                <div class="loading">
+                    Movies News load కాలేదు.
+                </div>
+            `
+
+        );
+
+
+        show(
+
+            "aptsGrid",
+
+            `
+                <div class="loading">
+                    AP & TS News load కాలేదు.
+                </div>
+            `
+
+        );
+
+
+        show(
+
+            "businessGrid",
+
+            `
+                <div class="loading">
+                    Business News load కాలేదు.
+                </div>
+            `
+
+        );
+
+    });
+
+
+    /* =====================================================
+       DISABLE IMAGE DRAG
+    ===================================================== */
+
+    document
+        .querySelectorAll("img")
+        .forEach(function(img){
+
+            img.addEventListener(
+                "dragstart",
+                function(e){
+
+                    e.preventDefault();
+
+                }
+            );
+
+        });
 
 });
 
@@ -1777,3 +1965,4 @@ document.querySelectorAll("img").forEach(function(img){
 </body>
 
 </html>
+```
