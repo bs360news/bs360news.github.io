@@ -723,662 +723,505 @@ FOOTER
 
 <!-- =====================================================
 ARTICLE PAGE JAVASCRIPT
-===================================================== -->
-
-<script>
-
-document.addEventListener(
-"DOMContentLoaded",
-function () {
+===================================================== --><script>
+document.addEventListener("DOMContentLoaded", function () {
 
     "use strict";
 
+    /* =====================================================
+       HELPERS
+    ===================================================== */
 
-    const currentPage =
-        "bcci.html";
+    function cleanText(text) {
+        return String(text || "")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
 
+    function getArticles(home, sourceId) {
 
-    /* =================================================
-       CREATE ARTICLE OBJECT
-    ================================================= */
+        const source = home.getElementById(sourceId);
 
-    function readArticle(item) {
+        if (!source) {
+            return [];
+        }
 
-        const image =
-            item.querySelector("img");
+        return Array.from(
+            source.querySelectorAll(".news-item.post")
+        )
+        .map(function (item) {
 
-        const title =
-            item.querySelector(
-                ".news-content p"
+            const image = item.querySelector("img");
+
+            const title =
+                item.querySelector(".news-content p") ||
+                item.querySelector(".news-content h3") ||
+                item.querySelector("p");
+
+            return {
+                title: cleanText(
+                    title ? title.textContent : ""
+                ),
+
+                image: image
+                    ? image.getAttribute("src") || ""
+                    : "",
+
+                alt: image
+                    ? image.getAttribute("alt") || ""
+                    : "",
+
+                url:
+                    item.getAttribute("data-url") || ""
+            };
+
+        })
+        .filter(function (item) {
+
+            return (
+                item.title &&
+                item.image &&
+                item.url
             );
 
-        return {
-
-            category:
-                (
-                    item.dataset.category ||
-                    ""
-                )
-                .trim()
-                .toLowerCase(),
-
-            url:
-                (
-                    item.dataset.url ||
-                    "#"
-                ).trim(),
-
-            image:
-                image
-                    ? image.getAttribute("src")
-                    : "",
-
-            alt:
-                image
-                    ? (
-                        image.getAttribute("alt") ||
-                        ""
-                    )
-                    : "",
-
-            title:
-                title
-                    ? title.textContent.trim()
-                    : ""
-
-        };
+        });
 
     }
 
 
-    /* =================================================
-       LOAD HOME PAGE
-    ================================================= */
+    function sidebarHTML(article) {
 
-    async function loadHomeNews() {
+        return `
+            <a
+                href="${article.url}"
+                class="sidebar-item"
+            >
 
-        try {
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
 
-            const response =
-                await fetch(
-                    "index.html?v=" +
-                    Date.now(),
-                    {
-                        cache: "no-store"
-                    }
-                );
+                <div class="sidebar-item-title">
+                    ${article.title}
+                </div>
 
+            </a>
+        `;
 
-            if (!response.ok) {
+    }
 
-                throw new Error(
-                    "Home page could not be loaded"
-                );
 
-            }
+    function cardHTML(article) {
 
+        return `
+            <a
+                href="${article.url}"
+                class="news-card"
+            >
 
-            const html =
-                await response.text();
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
 
+                <h3>
+                    ${article.title}
+                </h3>
 
-            const parser =
-                new DOMParser();
+            </a>
+        `;
 
+    }
 
-            const doc =
-                parser.parseFromString(
-                    html,
-                    "text/html"
-                );
 
+    function mostReadHTML(article, number) {
 
-            /* =================================================
-               HOME LEGACY SOURCE
-            ================================================= */
+        return `
+            <a
+                href="${article.url}"
+                class="most-read-item"
+            >
 
-            const source =
-                doc.querySelector(
-                    "#legacyNewsSource"
-                );
+                <div class="most-read-number">
+                    ${number}
+                </div>
 
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
 
-            if (!source) {
+                <div class="most-read-title">
+                    ${article.title}
+                </div>
 
-                console.error(
-                    "BS360: #legacyNewsSource not found"
-                );
+            </a>
+        `;
 
-                return;
+    }
 
-            }
 
+    function show(id, html) {
 
-            /* =================================================
-               SAME ARTICLES AS HOME
-            ================================================= */
+        const element =
+            document.getElementById(id);
 
-            const articles =
-                Array.from(
-                    source.querySelectorAll(
-                        ".news-item.post"
-                    )
-                )
-                .map(readArticle)
-                .filter(article =>
-                    article.title &&
-                    article.image
-                );
-
-
-            /* =================================================
-               HOME LATEST
-            ================================================= */
-
-            const latestArticles =
-                articles.filter(
-                    article =>
-                        article.category !==
-                        "bigboss10"
-                );
-
-
-            const latestSeven =
-                latestArticles.slice(0, 7);
-
-
-            /* =================================================
-               HOME VISIBLE TRENDING
-
-               index.html లో ఉన్న
-               .trending-section మాత్రమే చదువుతుంది.
-            ================================================= */
-
-            const homeTrendingCards =
-                Array.from(
-                    doc.querySelectorAll(
-                        ".trending-section .trending-grid .trending-card"
-                    )
-                );
-
-
-            const trendingArticles =
-                homeTrendingCards
-                    .map(card => {
-
-                        const image =
-                            card.querySelector(
-                                "img"
-                            );
-
-                        const title =
-                            card.querySelector(
-                                "h3"
-                            );
-
-
-                        return {
-
-                            category: "",
-
-                            url:
-                                (
-                                    card.getAttribute(
-                                        "href"
-                                    ) || "#"
-                                ).trim(),
-
-                            image:
-                                image
-                                    ? image.getAttribute(
-                                        "src"
-                                    )
-                                    : "",
-
-                            alt:
-                                image
-                                    ? (
-                                        image.getAttribute(
-                                            "alt"
-                                        ) || ""
-                                    )
-                                    : "",
-
-                            title:
-                                title
-                                    ? title.textContent.trim()
-                                    : ""
-
-                        };
-
-                    })
-                    .filter(article =>
-                        article.title &&
-                        article.image
-                    );
-
-
-            /* =================================================
-               MOST READ
-
-               HOME PAGE లో Most Read articles లేవు.
-               అందువల్ల ARTICLE PAGE లో కూడా
-               ఏ Most Read articles చూపించకూడదు.
-            ================================================= */
-
-            const sidebarMostRead = [];
-
-
-            /* =================================================
-               CURRENT ARTICLE REMOVE
-            ================================================= */
-
-            const sidebarTrending =
-                trendingArticles.filter(
-                    article =>
-                        article.url !==
-                        currentPage
-                );
-
-
-            const sidebarLatest =
-                latestSeven.filter(
-                    article =>
-                        article.url !==
-                        currentPage
-                );
-
-
-            /* =================================================
-               SIDEBAR ITEM
-            ================================================= */
-
-            function createSidebarItem(
-                article
-            ) {
-
-                return `
-
-                    <a
-                        href="${article.url}"
-                        class="sidebar-item"
-                    >
-
-                        <img
-                            src="${article.image}"
-                            alt="${article.alt || article.title}"
-                            loading="lazy"
-                        >
-
-                        <div class="sidebar-item-title">
-                            ${article.title}
-                        </div>
-
-                    </a>
-
-                `;
-
-            }
-
-
-            /* =================================================
-               TRENDING SIDEBAR
-            ================================================= */
-
-            const trendingTarget =
-                document.getElementById(
-                    "trendingSidebar"
-                );
-
-
-            if (trendingTarget) {
-
-                trendingTarget.innerHTML =
-                    sidebarTrending
-                        .map(
-                            createSidebarItem
-                        )
-                        .join("");
-
-            }
-
-
-            /* =================================================
-               LATEST SIDEBAR
-            ================================================= */
-
-            const latestTarget =
-                document.getElementById(
-                    "latestSidebar"
-                );
-
-
-            if (latestTarget) {
-
-                latestTarget.innerHTML =
-                    sidebarLatest
-                        .slice(0, 5)
-                        .map(
-                            createSidebarItem
-                        )
-                        .join("");
-
-            }
-
-
-            /* =================================================
-               MOST READ SIDEBAR
-
-               ALWAYS EMPTY
-            ================================================= */
-
-            const mostReadTarget =
-                document.getElementById(
-                    "mostReadSidebar"
-                );
-
-
-            if (mostReadTarget) {
-
-                mostReadTarget.innerHTML = "";
-
-            }
-
-
-            /* =================================================
-               RELATED LATEST
-            ================================================= */
-
-            const latestGrid =
-                document.getElementById(
-                    "latestGrid"
-                );
-
-
-            if (latestGrid) {
-
-                latestGrid.innerHTML =
-                    latestArticles
-                        .filter(
-                            article =>
-                                article.url !==
-                                currentPage
-                        )
-                        .slice(0, 4)
-                        .map(
-                            article => {
-
-                                return `
-
-                                    <a
-                                        href="${article.url}"
-                                        class="news-card"
-                                    >
-
-                                        <img
-                                            src="${article.image}"
-                                            alt="${article.alt || article.title}"
-                                            loading="lazy"
-                                        >
-
-                                        <h3>
-                                            ${article.title}
-                                        </h3>
-
-                                    </a>
-
-                                `;
-
-                            }
-                        )
-                        .join("");
-
-            }
-
-
-            /* =================================================
-               RELATED SPORTS
-            ================================================= */
-
-            const sportsGrid =
-                document.getElementById(
-                    "sportsGrid"
-                );
-
-
-            if (sportsGrid) {
-
-                const sportsArticles =
-                    articles.filter(
-                        article =>
-                            article.category ===
-                            "sports"
-                    );
-
-
-                sportsGrid.innerHTML =
-                    sportsArticles
-                        .filter(
-                            article =>
-                                article.url !==
-                                currentPage
-                        )
-                        .slice(0, 4)
-                        .map(
-                            article => {
-
-                                return `
-
-                                    <a
-                                        href="${article.url}"
-                                        class="news-card"
-                                    >
-
-                                        <img
-                                            src="${article.image}"
-                                            alt="${article.alt || article.title}"
-                                            loading="lazy"
-                                        >
-
-                                        <h3>
-                                            ${article.title}
-                                        </h3>
-
-                                    </a>
-
-                                `;
-
-                            }
-                        )
-                        .join("");
-
-            }
-
-
-            /* =================================================
-               RELATED ENTERTAINMENT
-            ================================================= */
-
-            const moviesGrid =
-                document.getElementById(
-                    "moviesGrid"
-                );
-
-
-            if (moviesGrid) {
-
-                const movieArticles =
-                    articles.filter(
-                        article =>
-                            article.category ===
-                            "cinema" ||
-                            article.category ===
-                            "movies"
-                    );
-
-
-                moviesGrid.innerHTML =
-                    movieArticles
-                        .filter(
-                            article =>
-                                article.url !==
-                                currentPage
-                        )
-                        .slice(0, 4)
-                        .map(
-                            article => {
-
-                                return `
-
-                                    <a
-                                        href="${article.url}"
-                                        class="news-card"
-                                    >
-
-                                        <img
-                                            src="${article.image}"
-                                            alt="${article.alt || article.title}"
-                                            loading="lazy"
-                                        >
-
-                                        <h3>
-                                            ${article.title}
-                                        </h3>
-
-                                    </a>
-
-                                `;
-
-                            }
-                        )
-                        .join("");
-
-            }
-
-
-        } catch (error) {
-
-            console.error(
-                "BS360 HOME NEWS ERROR:",
-                error
-            );
-
+        if (element) {
+            element.innerHTML = html;
         }
 
     }
 
 
-    /* =================================================
-       START
-    ================================================= */
+    /* =====================================================
+       LOAD HOME PAGE
+    ===================================================== */
 
-    loadHomeNews();
+    fetch(
+        "index.html?v=" + Date.now(),
+        {
+            cache: "no-store"
+        }
+    )
+
+    .then(function (response) {
+
+        if (!response.ok) {
+            throw new Error(
+                "index.html load failed"
+            );
+        }
+
+        return response.text();
+
+    })
+
+    .then(function (html) {
+
+        const parser =
+            new DOMParser();
+
+        const home =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
 
 
-    /* =================================================
+        /* =================================================
+           HOME PAGE SOURCES
+        ================================================= */
+
+        const latest =
+            getArticles(
+                home,
+                "latestNewsSource"
+            );
+
+        const trending =
+            getArticles(
+                home,
+                "trendingSource"
+            );
+
+        const mostRead =
+            getArticles(
+                home,
+                "mostReadSource"
+            );
+
+        const apts =
+            getArticles(
+                home,
+                "aptsSource"
+            );
+
+        const sports =
+            getArticles(
+                home,
+                "sportsSource"
+            );
+
+        const entertainment =
+            getArticles(
+                home,
+                "entertainmentSource"
+            );
+
+        const business =
+            getArticles(
+                home,
+                "businessSource"
+            );
+
+
+        /* =================================================
+           TRENDING NEWS - RIGHT SIDE
+        ================================================= */
+
+        show(
+            "trendingSidebar",
+
+            trending
+                .slice(0, 8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           LATEST NEWS - RIGHT SIDE
+        ================================================= */
+
+        show(
+            "latestSidebar",
+
+            latest
+                .slice(0, 8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           MOST READ - RIGHT SIDE
+        ================================================= */
+
+        show(
+            "mostReadSidebar",
+
+            mostRead
+                .slice(0, 8)
+                .map(function (article, index) {
+
+                    return mostReadHTML(
+                        article,
+                        index + 1
+                    );
+
+                })
+                .join("")
+        );
+
+
+        /* =================================================
+           ENTERTAINMENT - RIGHT SIDE
+        ================================================= */
+
+        show(
+            "entertainmentSidebar",
+
+            entertainment
+                .slice(0, 8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           LATEST GRID
+        ================================================= */
+
+        show(
+            "latestGrid",
+
+            latest
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           SPORTS GRID
+        ================================================= */
+
+        show(
+            "sportsGrid",
+
+            sports
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           ENTERTAINMENT GRID
+        ================================================= */
+
+        show(
+            "moviesGrid",
+
+            entertainment
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           AP & TS GRID
+        ================================================= */
+
+        show(
+            "aptsGrid",
+
+            apts
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           BUSINESS GRID
+        ================================================= */
+
+        show(
+            "businessGrid",
+
+            business
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           CONSOLE CHECK
+        ================================================= */
+
+        console.log(
+            "BS360 HOME ARTICLES LOADED"
+        );
+
+        console.log(
+            "Latest:",
+            latest.length
+        );
+
+        console.log(
+            "Trending:",
+            trending.length
+        );
+
+        console.log(
+            "Most Read:",
+            mostRead.length
+        );
+
+        console.log(
+            "AP & TS:",
+            apts.length
+        );
+
+        console.log(
+            "Sports:",
+            sports.length
+        );
+
+        console.log(
+            "Entertainment:",
+            entertainment.length
+        );
+
+        console.log(
+            "Business:",
+            business.length
+        );
+
+    })
+
+    .catch(function (error) {
+
+        console.error(
+            "BS360 NEWS ERROR:",
+            error
+        );
+
+    });
+
+
+    /* =====================================================
        MOBILE NAV
-    ================================================= */
+    ===================================================== */
 
-    window.toggleMobileNav =
-        function () {
+    window.toggleMobileNav = function () {
 
-            const nav =
-                document.getElementById(
-                    "navLinks"
-                );
+        const nav =
+            document.getElementById(
+                "navLinks"
+            );
 
-            if (!nav) {
-                return;
-            }
+        if (nav) {
 
             nav.classList.toggle(
                 "mobile-open"
             );
 
-        };
+        }
+
+    };
 
 
-    /* =================================================
+    /* =====================================================
        DARK MODE
-    ================================================= */
+    ===================================================== */
 
-    window.toggleTheme =
-        function () {
+    window.toggleTheme = function () {
 
-            document.body.classList.toggle(
-                "dark-mode"
-            );
-
-
-            const button =
-                document.getElementById(
-                    "themeButton"
-                );
-
-
-            if (
-                document.body.classList.contains(
-                    "dark-mode"
-                )
-            ) {
-
-                if (button) {
-
-                    button.textContent =
-                        "☀️ Light";
-
-                }
-
-
-                localStorage.setItem(
-                    "bs360-theme",
-                    "dark"
-                );
-
-            } else {
-
-                if (button) {
-
-                    button.textContent =
-                        "🌙 Dark";
-
-                }
-
-
-                localStorage.setItem(
-                    "bs360-theme",
-                    "light"
-                );
-
-            }
-
-        };
-
-
-    /* =================================================
-       LOAD SAVED THEME
-    ================================================= */
-
-    const savedTheme =
-        localStorage.getItem(
-            "bs360-theme"
-        );
-
-
-    if (
-        savedTheme === "dark"
-    ) {
-
-        document.body.classList.add(
+        document.body.classList.toggle(
             "dark-mode"
         );
-
 
         const button =
             document.getElementById(
                 "themeButton"
             );
 
+        const dark =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+
+        if (button) {
+
+            button.textContent =
+                dark
+                    ? "☀️ Light"
+                    : "🌙 Dark";
+
+        }
+
+        localStorage.setItem(
+            "bs360-theme",
+            dark
+                ? "dark"
+                : "light"
+        );
+
+    };
+
+
+    if (
+        localStorage.getItem(
+            "bs360-theme"
+        ) === "dark"
+    ) {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+        const button =
+            document.getElementById(
+                "themeButton"
+            );
 
         if (button) {
 
@@ -1389,12 +1232,8 @@ function () {
 
     }
 
-}
-
-);
-
+});
 </script>
-
 </body>
 
 </html>
