@@ -110,616 +110,1117 @@
 
 
 <style>
+<script>
 
-/* =====================================================
-   ARTICLE PAGE
-===================================================== */
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-.article-page {
-    padding: 20px 0 40px;
-}
-
-.article-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 25px;
-    align-items: start;
-}
-
-.article-main {
-    min-width: 0;
-}
-
-.article-title {
-    font-size: 32px;
-    line-height: 1.35;
-    margin: 0 0 15px;
-    color: #111;
-    font-weight: 800;
-}
-
-.article-content {
-    font-size: 18px;
-    line-height: 2;
-    color: #222;
-}
-
-.article-content p {
-    margin: 0 0 18px;
-}
-
-.article-image {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-    margin: 20px 0;
-}
+        "use strict";
 
 
-/* =====================================================
-   SIDEBAR
-===================================================== */
+        /* =================================================
+           CURRENT ARTICLE
+        ================================================= */
 
-.article-sidebar {
-    width: 100%;
-}
-
-.sidebar-box {
-    margin-bottom: 22px;
-}
-
-.sidebar-title {
-    background: #075aaa;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 800;
-    padding: 10px 12px;
-    border-left: 5px solid #e60000;
-    margin-bottom: 8px;
-}
-
-.sidebar-item {
-    display: flex;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 1px solid #ddd;
-    text-decoration: none;
-    color: #111;
-    align-items: center;
-}
-
-.sidebar-item img {
-    width: 78px;
-    height: 55px;
-    object-fit: cover;
-    flex: 0 0 78px;
-    border-radius: 4px;
-}
-
-.sidebar-item-title {
-    font-size: 14px;
-    line-height: 1.45;
-    font-weight: 700;
-}
+        const currentPage =
+            window.location.pathname
+                .split("/")
+                .pop()
+                .toLowerCase()
+                .split("?")[0]
+                .split("#")[0];
 
 
-/* =====================================================
-   MOST READ
-===================================================== */
+        /* =================================================
+           NORMALIZE URL
+        ================================================= */
 
-.most-read-item {
-    display: flex;
-    gap: 9px;
-    padding: 9px 0;
-    border-bottom: 1px solid #ddd;
-    text-decoration: none;
-    color: #111;
-    align-items: center;
-}
+        function normalizeUrl(url) {
 
-.most-read-number {
-    width: 28px;
-    height: 28px;
-    background: #075aaa;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    border-radius: 3px;
-    flex: 0 0 28px;
-}
+            return String(url || "")
+                .trim()
+                .replace(/^\.?\//, "")
+                .split("?")[0]
+                .split("#")[0]
+                .toLowerCase();
 
-.most-read-item img {
-    width: 70px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
-    flex: 0 0 70px;
-}
-
-.most-read-title {
-    font-size: 13px;
-    line-height: 1.4;
-    font-weight: 700;
-}
+        }
 
 
-/* =====================================================
-   DESKTOP SIDEBAR
-   LATEST + ENTERTAINMENT
-   IMAGE TOP + TEXT BELOW
-===================================================== */
+        /* =================================================
+           NORMALIZE CATEGORY
+        ================================================= */
 
-@media (min-width: 801px) {
+        function normalizeCategory(category) {
 
-    /*
-       Latest News మరియు Entertainment మాత్రమే
-       desktopలో image పైన
-       text కింద చూపిస్తుంది.
-    */
+            const value =
+                String(category || "")
+                    .trim()
+                    .toLowerCase()
+                    .replace(/\s+/g, "");
 
-    #latestSidebar .sidebar-item,
-    #entertainmentSidebar .sidebar-item {
+            if (
+                value === "ap" ||
+                value === "ts" ||
+                value === "apts" ||
+                value === "ap/ts" ||
+                value === "ap-ts" ||
+                value === "ap&ts" ||
+                value === "apandts"
+            ) {
 
-        display: block !important;
+                return "apts";
 
-        width: 100%;
+            }
 
-        padding: 9px 0 11px;
 
-        border-bottom: 1px solid #ddd;
+            if (
+                value === "sports" ||
+                value === "sport"
+            ) {
+
+                return "sports";
+
+            }
+
+
+            if (
+                value === "cinema" ||
+                value === "movies" ||
+                value === "movie" ||
+                value === "entertainment"
+            ) {
+
+                return "cinema";
+
+            }
+
+
+            if (
+                value === "business" ||
+                value === "businessnews"
+            ) {
+
+                return "business";
+
+            }
+
+
+            if (
+                value === "bigboss10" ||
+                value === "bigboss"
+            ) {
+
+                return "bigboss10";
+
+            }
+
+
+            return value;
+
+        }
+
+
+        /* =================================================
+           READ ARTICLE
+        ================================================= */
+
+        function readArticle(item) {
+
+            const image =
+                item.querySelector("img");
+
+
+            const title =
+                item.querySelector(
+                    ".news-content p"
+                );
+
+
+            return {
+
+                category:
+                    (
+                        item.dataset.category ||
+                        ""
+                    )
+                    .trim()
+                    .toLowerCase(),
+
+                url:
+                    (
+                        item.dataset.url ||
+                        "#"
+                    )
+                    .trim(),
+
+                image:
+                    image
+                        ? image.getAttribute("src")
+                        : "",
+
+                alt:
+                    image
+                        ? (
+                            image.getAttribute("alt") ||
+                            ""
+                        )
+                        : "",
+
+                title:
+                    title
+                        ? title.textContent.trim()
+                        : ""
+
+            };
+
+        }
+
+
+        /* =================================================
+           REMOVE DUPLICATES
+        ================================================= */
+
+        function uniqueArticles(data) {
+
+            const used =
+                new Set();
+
+
+            return data.filter(
+                function (article) {
+
+                    const url =
+                        normalizeUrl(
+                            article.url
+                        );
+
+
+                    if (
+                        !url ||
+                        used.has(url)
+                    ) {
+
+                        return false;
+
+                    }
+
+
+                    used.add(url);
+
+                    return true;
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           CHECK CURRENT ARTICLE
+        ================================================= */
+
+        function isCurrentArticle(article) {
+
+            return (
+                normalizeUrl(article.url) ===
+                currentPage
+            );
+
+        }
+
+
+        /* =================================================
+           LOAD INDEX
+        ================================================= */
+
+        async function loadHomeNews() {
+
+            try {
+
+                const response =
+                    await fetch(
+                        "index.html?v=" +
+                        Date.now(),
+                        {
+                            cache: "no-store"
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "index.html could not be loaded"
+                    );
+
+                }
+
+
+                const html =
+                    await response.text();
+
+
+                const parser =
+                    new DOMParser();
+
+
+                const doc =
+                    parser.parseFromString(
+                        html,
+                        "text/html"
+                    );
+
+
+                /* =================================================
+                   LEGACY SOURCE
+                ================================================= */
+
+                const source =
+                    doc.querySelector(
+                        "#legacyNewsSource"
+                    );
+
+
+                if (!source) {
+
+                    console.error(
+                        "BS360: #legacyNewsSource not found"
+                    );
+
+                    return;
+
+                }
+
+
+                /* =================================================
+                   ALL HOME ARTICLES
+                ================================================= */
+
+                const articles =
+                    Array.from(
+                        source.querySelectorAll(
+                            ".news-item.post"
+                        )
+                    )
+                    .map(readArticle)
+                    .filter(
+                        function (article) {
+
+                            return (
+                                article.title &&
+                                article.image &&
+                                article.url &&
+                                article.url !== "#"
+                            );
+
+                        }
+                    );
+
+
+                console.log(
+                    "BS360 ARTICLE PAGE ARTICLES:",
+                    articles.length
+                );
+
+
+                /* =================================================
+                   NORMAL ARTICLES
+                ================================================= */
+
+                const normalArticles =
+                    articles.filter(
+                        function (article) {
+
+                            return (
+                                normalizeCategory(
+                                    article.category
+                                ) !== "bigboss10"
+                            );
+
+                        }
+                    );
+
+
+                /* =================================================
+                   REMOVE CURRENT ARTICLE
+                ================================================= */
+
+                const availableArticles =
+                    normalArticles.filter(
+                        function (article) {
+
+                            return !isCurrentArticle(
+                                article
+                            );
+
+                        }
+                    );
+
+
+                /* =================================================
+                   CATEGORY ARTICLES
+                ================================================= */
+
+                const sportsArticles =
+                    uniqueArticles(
+                        availableArticles.filter(
+                            function (article) {
+
+                                return (
+                                    normalizeCategory(
+                                        article.category
+                                    ) === "sports"
+                                );
+
+                            }
+                        )
+                    );
+
+
+                const entertainmentArticles =
+                    uniqueArticles(
+                        availableArticles.filter(
+                            function (article) {
+
+                                return (
+                                    normalizeCategory(
+                                        article.category
+                                    ) === "cinema"
+                                );
+
+                            }
+                        )
+                    );
+
+
+                const aptsArticles =
+                    uniqueArticles(
+                        availableArticles.filter(
+                            function (article) {
+
+                                return (
+                                    normalizeCategory(
+                                        article.category
+                                    ) === "apts"
+                                );
+
+                            }
+                        )
+                    );
+
+
+                const businessArticles =
+                    uniqueArticles(
+                        availableArticles.filter(
+                            function (article) {
+
+                                return (
+                                    normalizeCategory(
+                                        article.category
+                                    ) === "business"
+                                );
+
+                            }
+                        )
+                    );
+
+
+                /* =================================================
+                   LATEST NEWS
+
+                   Homepage latest section currently uses:
+
+                   unique normal articles
+                   first 6
+
+                   We reproduce the same logic here because
+                   homepage JavaScript does not execute inside
+                   fetched index.html.
+                ================================================= */
+
+                const latestArticles =
+                    uniqueArticles(
+                        availableArticles
+                    );
+
+
+                /* =================================================
+                   TRENDING NEWS
+
+                   Read ONLY homepage Trending cards.
+                   Do NOT mix category articles.
+                ================================================= */
+
+                const trendingCards =
+                    Array.from(
+                        doc.querySelectorAll(
+                            ".trending-section .trending-grid .trending-card"
+                        )
+                    );
+
+
+                const trendingArticles =
+                    uniqueArticles(
+                        trendingCards
+                            .map(
+                                function (card) {
+
+                                    const image =
+                                        card.querySelector(
+                                            "img"
+                                        );
+
+
+                                    const title =
+                                        card.querySelector(
+                                            "h3"
+                                        );
+
+
+                                    return {
+
+                                        url:
+                                            (
+                                                card.getAttribute(
+                                                    "href"
+                                                ) || "#"
+                                            ).trim(),
+
+                                        image:
+                                            image
+                                                ? image.getAttribute(
+                                                    "src"
+                                                )
+                                                : "",
+
+                                        alt:
+                                            image
+                                                ? (
+                                                    image.getAttribute(
+                                                        "alt"
+                                                    ) || ""
+                                                )
+                                                : "",
+
+                                        title:
+                                            title
+                                                ? title.textContent.trim()
+                                                : ""
+
+                                    };
+
+                                }
+                            )
+                            .filter(
+                                function (article) {
+
+                                    return (
+                                        article.title &&
+                                        article.image &&
+                                        article.url &&
+                                        article.url !== "#"
+                                    );
+
+                                }
+                            )
+                    )
+                    .filter(
+                        function (article) {
+
+                            return !isCurrentArticle(
+                                article
+                            );
+
+                        }
+                    );
+
+
+                /* =================================================
+                   MOST READ
+
+                   Read ONLY homepage Most Read cards.
+                   Do NOT mix Latest / Category articles.
+                ================================================= */
+
+                const mostReadCards =
+                    Array.from(
+                        doc.querySelectorAll(
+                            ".most-read-section .most-read-list .trending-card"
+                        )
+                    );
+
+
+                const mostReadArticles =
+                    uniqueArticles(
+                        mostReadCards
+                            .map(
+                                function (card) {
+
+                                    const image =
+                                        card.querySelector(
+                                            "img"
+                                        );
+
+
+                                    const title =
+                                        card.querySelector(
+                                            "h3"
+                                        );
+
+
+                                    return {
+
+                                        url:
+                                            (
+                                                card.getAttribute(
+                                                    "href"
+                                                ) || "#"
+                                            ).trim(),
+
+                                        image:
+                                            image
+                                                ? image.getAttribute(
+                                                    "src"
+                                                )
+                                                : "",
+
+                                        alt:
+                                            image
+                                                ? (
+                                                    image.getAttribute(
+                                                        "alt"
+                                                    ) || ""
+                                                )
+                                                : "",
+
+                                        title:
+                                            title
+                                                ? title.textContent.trim()
+                                                : ""
+
+                                    };
+
+                                }
+                            )
+                            .filter(
+                                function (article) {
+
+                                    return (
+                                        article.title &&
+                                        article.image &&
+                                        article.url &&
+                                        article.url !== "#"
+                                    );
+
+                                }
+                            )
+                    )
+                    .filter(
+                        function (article) {
+
+                            return !isCurrentArticle(
+                                article
+                            );
+
+                        }
+                    );
+
+
+                /* =================================================
+                   SIDEBAR ITEM
+                ================================================= */
+
+                function createSidebarItem(
+                    article
+                ) {
+
+                    return `
+
+                        <a
+                            href="${article.url}"
+                            class="sidebar-item"
+                        >
+
+                            <img
+                                src="${article.image}"
+                                alt="${article.alt || article.title}"
+                                loading="lazy"
+                            >
+
+                            <div class="sidebar-item-title">
+                                ${article.title}
+                            </div>
+
+                        </a>
+
+                    `;
+
+                }
+
+
+                /* =================================================
+                   TRENDING SIDEBAR
+                ================================================= */
+
+                const trendingTarget =
+                    document.getElementById(
+                        "trendingSidebar"
+                    );
+
+
+                if (trendingTarget) {
+
+                    trendingTarget.innerHTML =
+                        trendingArticles
+                            .slice(0, 5)
+                            .map(
+                                createSidebarItem
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   LATEST SIDEBAR
+                ================================================= */
+
+                const latestTarget =
+                    document.getElementById(
+                        "latestSidebar"
+                    );
+
+
+                if (latestTarget) {
+
+                    latestTarget.innerHTML =
+                        latestArticles
+                            .slice(0, 5)
+                            .map(
+                                createSidebarItem
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   MOST READ SIDEBAR
+                ================================================= */
+
+                const mostReadTarget =
+                    document.getElementById(
+                        "mostReadSidebar"
+                    );
+
+
+                if (mostReadTarget) {
+
+                    mostReadTarget.innerHTML =
+                        mostReadArticles
+                            .slice(0, 5)
+                            .map(
+                                function (
+                                    article,
+                                    index
+                                ) {
+
+                                    return `
+
+                                        <a
+                                            href="${article.url}"
+                                            class="most-read-item"
+                                        >
+
+                                            <div class="most-read-number">
+                                                ${index + 1}
+                                            </div>
+
+                                            <img
+                                                src="${article.image}"
+                                                alt="${article.alt || article.title}"
+                                                loading="lazy"
+                                            >
+
+                                            <div class="most-read-title">
+                                                ${article.title}
+                                            </div>
+
+                                        </a>
+
+                                    `;
+
+                                }
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   ENTERTAINMENT SIDEBAR
+
+                   ONLY ENTERTAINMENT ARTICLES
+                ================================================= */
+
+                const entertainmentTarget =
+                    document.getElementById(
+                        "entertainmentSidebar"
+                    );
+
+
+                if (entertainmentTarget) {
+
+                    entertainmentTarget.innerHTML =
+                        entertainmentArticles
+                            .slice(0, 5)
+                            .map(
+                                createSidebarItem
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   NORMAL NEWS CARD
+                ================================================= */
+
+                function createNewsCard(
+                    article
+                ) {
+
+                    return `
+
+                        <a
+                            href="${article.url}"
+                            class="news-card"
+                        >
+
+                            <img
+                                src="${article.image}"
+                                alt="${article.alt || article.title}"
+                                loading="lazy"
+                            >
+
+                            <h3>
+                                ${article.title}
+                            </h3>
+
+                        </a>
+
+                    `;
+
+                }
+
+
+                /* =================================================
+                   LATEST GRID
+
+                   ONLY LATEST ARTICLES
+                ================================================= */
+
+                const latestGrid =
+                    document.getElementById(
+                        "latestGrid"
+                    );
+
+
+                if (latestGrid) {
+
+                    latestGrid.innerHTML =
+                        latestArticles
+                            .slice(0, 4)
+                            .map(
+                                createNewsCard
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   SPORTS GRID
+
+                   ONLY SPORTS
+                ================================================= */
+
+                const sportsGrid =
+                    document.getElementById(
+                        "sportsGrid"
+                    );
+
+
+                if (sportsGrid) {
+
+                    sportsGrid.innerHTML =
+                        sportsArticles
+                            .slice(0, 4)
+                            .map(
+                                createNewsCard
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   ENTERTAINMENT GRID
+
+                   ONLY ENTERTAINMENT
+                ================================================= */
+
+                const moviesGrid =
+                    document.getElementById(
+                        "moviesGrid"
+                    );
+
+
+                if (moviesGrid) {
+
+                    moviesGrid.innerHTML =
+                        entertainmentArticles
+                            .slice(0, 4)
+                            .map(
+                                createNewsCard
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   AP & TS GRID
+
+                   ONLY AP & TS
+                ================================================= */
+
+                const aptsGrid =
+                    document.getElementById(
+                        "aptsGrid"
+                    );
+
+
+                if (aptsGrid) {
+
+                    aptsGrid.innerHTML =
+                        aptsArticles
+                            .slice(0, 4)
+                            .map(
+                                createNewsCard
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   BUSINESS GRID
+
+                   ONLY BUSINESS
+                ================================================= */
+
+                const businessGrid =
+                    document.getElementById(
+                        "businessGrid"
+                    );
+
+
+                if (businessGrid) {
+
+                    businessGrid.innerHTML =
+                        businessArticles
+                            .slice(0, 4)
+                            .map(
+                                createNewsCard
+                            )
+                            .join("");
+
+                }
+
+
+                /* =================================================
+                   DEBUG
+                ================================================= */
+
+                console.log(
+                    "BS360 Latest:",
+                    latestArticles.length
+                );
+
+                console.log(
+                    "BS360 Trending:",
+                    trendingArticles.length
+                );
+
+                console.log(
+                    "BS360 Most Read:",
+                    mostReadArticles.length
+                );
+
+                console.log(
+                    "BS360 Sports:",
+                    sportsArticles.length
+                );
+
+                console.log(
+                    "BS360 Entertainment:",
+                    entertainmentArticles.length
+                );
+
+                console.log(
+                    "BS360 AP & TS:",
+                    aptsArticles.length
+                );
+
+                console.log(
+                    "BS360 Business:",
+                    businessArticles.length
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "BS360 AUTO NEWS ERROR:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        loadHomeNews();
+
+
+        /* =====================================================
+           MOBILE NAV
+        ===================================================== */
+
+        window.toggleMobileNav =
+            function () {
+
+                const nav =
+                    document.getElementById(
+                        "navLinks"
+                    );
+
+
+                if (!nav) {
+                    return;
+                }
+
+
+                nav.classList.toggle(
+                    "mobile-open"
+                );
+
+            };
+
+
+        /* =====================================================
+           DARK MODE
+        ===================================================== */
+
+        window.toggleTheme =
+            function () {
+
+                document.body.classList.toggle(
+                    "dark-mode"
+                );
+
+
+                const button =
+                    document.getElementById(
+                        "themeButton"
+                    );
+
+
+                if (
+                    document.body.classList.contains(
+                        "dark-mode"
+                    )
+                ) {
+
+                    if (button) {
+
+                        button.textContent =
+                            "☀️ Light";
+
+                    }
+
+
+                    localStorage.setItem(
+                        "bs360-theme",
+                        "dark"
+                    );
+
+                } else {
+
+                    if (button) {
+
+                        button.textContent =
+                            "🌙 Dark";
+
+                    }
+
+
+                    localStorage.setItem(
+                        "bs360-theme",
+                        "light"
+                    );
+
+                }
+
+            };
+
+
+        /* =====================================================
+           LOAD SAVED THEME
+        ===================================================== */
+
+        const savedTheme =
+            localStorage.getItem(
+                "bs360-theme"
+            );
+
+
+        if (
+            savedTheme === "dark"
+        ) {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+
+            const button =
+                document.getElementById(
+                    "themeButton"
+                );
+
+
+            if (button) {
+
+                button.textContent =
+                    "☀️ Light";
+
+            }
+
+        }
 
     }
 
+);
 
-    #latestSidebar .sidebar-item img,
-    #entertainmentSidebar .sidebar-item img {
-
-        display: block;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        aspect-ratio: 16 / 9;
-
-        object-fit: cover;
-
-        margin: 0 0 6px;
-
-        border-radius: 5px;
-
-    }
-
-
-    #latestSidebar .sidebar-item-title,
-    #entertainmentSidebar .sidebar-item-title {
-
-        display: block;
-
-        width: 100%;
-
-        font-size: 14px;
-
-        line-height: 1.45;
-
-        font-weight: 700;
-
-        margin: 0;
-
-    }
-
-}
-
-
-/* =====================================================
-   RELATED SECTIONS
-===================================================== */
-
-.related-section {
-    margin-top: 35px;
-}
-
-.related-title {
-    font-size: 24px;
-    font-weight: 800;
-    border-left: 5px solid #e60000;
-    padding-left: 10px;
-    margin-bottom: 15px;
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-
-/* =====================================================
-   RELATED NEWS CARDS
-   IMAGE TOP + TEXT BELOW
-===================================================== */
-
-.related-section .news-grid .news-card {
-
-    display: block !important;
-
-    width: 100% !important;
-
-    text-decoration: none !important;
-
-    color: #111 !important;
-
-    min-width: 0 !important;
-
-}
-
-.related-section .news-grid .news-card img {
-
-    width: 100% !important;
-
-    height: auto !important;
-
-    aspect-ratio: 16 / 9 !important;
-
-    object-fit: cover !important;
-
-    display: block !important;
-
-    border-radius: 6px !important;
-
-    margin: 0 !important;
-
-}
-
-.related-section .news-grid .news-card h3 {
-
-    display: block !important;
-
-    width: 100% !important;
-
-    font-size: 15px !important;
-
-    line-height: 1.45 !important;
-
-    margin: 8px 0 0 !important;
-
-    padding: 0 !important;
-
-    font-weight: 700 !important;
-
-}
-
-
-/* =====================================================
-   EMPTY MESSAGE
-===================================================== */
-
-.auto-empty {
-
-    font-size: 14px;
-
-    color: #777;
-
-    padding: 10px 0;
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 800px) {
-
-    .article-layout {
-
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-
-    }
-
-
-    .article-title {
-
-        font-size: 24px;
-
-        line-height: 1.4;
-
-    }
-
-
-    .article-content {
-
-        font-size: 17px;
-
-        line-height: 1.9;
-
-    }
-
-
-    .article-sidebar {
-
-        order: 2;
-
-    }
-
-
-    .news-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 12px;
-
-    }
-
-
-    /* =================================================
-       MOBILE SIDEBAR
-       ORIGINAL IMAGE LEFT + TEXT RIGHT
-    ================================================= */
-
-    .sidebar-item {
-
-        display: flex !important;
-
-        flex-direction: row !important;
-
-        gap: 10px;
-
-        padding: 9px 0;
-
-        align-items: center;
-
-    }
-
-
-    .sidebar-item img {
-
-        width: 75px !important;
-
-        height: 53px !important;
-
-        aspect-ratio: auto !important;
-
-        object-fit: cover;
-
-        flex: 0 0 75px;
-
-        margin: 0 !important;
-
-    }
-
-
-    .sidebar-item-title {
-
-        display: block !important;
-
-        width: auto !important;
-
-        font-size: 14px;
-
-        line-height: 1.45;
-
-        font-weight: 700;
-
-    }
-
-
-    /* =================================================
-       MOBILE RELATED CARDS
-    ================================================= */
-
-    .related-section .news-grid {
-
-        display: grid !important;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 12px !important;
-
-        width: 100% !important;
-
-    }
-
-
-    .related-section .news-grid .news-card {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        min-width: 0 !important;
-
-    }
-
-
-    .related-section .news-grid .news-card img {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        aspect-ratio: 16 / 9 !important;
-
-        object-fit: cover !important;
-
-        border-radius: 6px !important;
-
-        margin: 0 !important;
-
-    }
-
-
-    .related-section .news-grid .news-card h3 {
-
-        display: block !important;
-
-        width: 100% !important;
-
-        margin: 7px 0 0 !important;
-
-        font-size: 14px !important;
-
-        line-height: 1.45 !important;
-
-        font-weight: 700 !important;
-
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE SMALL
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .article-page {
-
-        padding-top: 12px;
-
-    }
-
-
-    .article-title {
-
-        font-size: 22px;
-
-    }
-
-
-    .article-image {
-
-        border-radius: 5px;
-
-    }
-
-
-    .article-content {
-
-        font-size: 16px;
-
-        line-height: 1.85;
-
-    }
-
-
-    .sidebar-item img {
-
-        width: 75px !important;
-
-        height: 53px !important;
-
-        flex-basis: 75px !important;
-
-    }
-
-
-    .sidebar-item-title {
-
-        font-size: 14px;
-
-    }
-
-
-    .sidebar-title {
-
-        font-size: 18px;
-
-    }
-
-
-    /* =================================================
-       MOBILE RELATED CARDS
-    ================================================= */
-
-    .related-section .news-grid {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 12px !important;
-
-    }
-
-
-    .related-section .news-grid .news-card img {
-
-        width: 100% !important;
-
-        aspect-ratio: 16 / 9 !important;
-
-        height: auto !important;
-
-        object-fit: cover !important;
-
-        display: block !important;
-
-    }
-
-
-    .related-section .news-grid .news-card h3 {
-
-        font-size: 14px !important;
-
-        line-height: 1.45 !important;
-
-        margin-top: 7px !important;
-
-    }
-
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .news-grid {
-
-        gap: 9px;
-
-    }
-
-
-    .news-card h3 {
-
-        font-size: 13px;
-
-    }
-
-
-    .related-section .news-grid {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 9px !important;
-
-    }
-
-
-    .related-section .news-grid .news-card h3 {
-
-        font-size: 13px !important;
-
-        line-height: 1.4 !important;
-
-    }
-
-}
-
+</script>
 </style>
 
 </head>
