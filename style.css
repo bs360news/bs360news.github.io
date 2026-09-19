@@ -638,7 +638,124 @@ section{
     gap:20px 14px;
     width:100%;
 }
+/* =========================================================
+   TRENDING NEWS - 12 CARDS
+   MOBILE  = 3 x 4
+   LAPTOP  = 6 x 2
+========================================================= */
 
+.trending-grid{
+    display:grid !important;
+    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    gap:14px !important;
+    width:100% !important;
+}
+
+
+/* =========================================================
+   TRENDING CARD
+========================================================= */
+
+.trending-grid .trending-card{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+    text-decoration:none !important;
+}
+
+
+/* IMAGE */
+
+.trending-grid .trending-card img{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16 / 9 !important;
+    height:auto !important;
+    object-fit:cover !important;
+    border-radius:6px !important;
+}
+
+
+/* TITLE */
+
+.trending-grid .trending-card h3{
+    display:-webkit-box !important;
+    -webkit-box-orient:vertical !important;
+    -webkit-line-clamp:2 !important;
+    overflow:hidden !important;
+
+    width:100% !important;
+
+    font-size:14px !important;
+    line-height:1.4 !important;
+
+    margin:7px 0 0 !important;
+    padding:0 !important;
+
+    font-weight:700 !important;
+}
+
+
+/* =========================================================
+   LAPTOP / DESKTOP
+   6 COLUMNS x 2 ROWS = 12
+========================================================= */
+
+@media screen and (min-width:801px){
+
+    .trending-grid{
+        grid-template-columns:
+            repeat(6,minmax(0,1fr)) !important;
+
+        gap:14px !important;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   3 COLUMNS x 4 ROWS = 12
+========================================================= */
+
+@media screen and (max-width:800px){
+
+    .trending-grid{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr)) !important;
+
+        gap:10px !important;
+    }
+
+    .trending-grid .trending-card h3{
+        font-size:13px !important;
+        line-height:1.35 !important;
+        margin-top:5px !important;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width:500px){
+
+    .trending-grid{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr)) !important;
+
+        gap:8px !important;
+    }
+
+    .trending-grid .trending-card h3{
+        font-size:12px !important;
+        line-height:1.35 !important;
+    }
+
+}
 .three-column-news-card{
     display:block;
     width:100%;
