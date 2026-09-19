@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="te">
+
 <head>
 
 <meta charset="UTF-8">
@@ -8,18 +9,26 @@
 
 <title>Movies News | BS 360 NEWS</title>
 
-<meta name="description"
-content="BS 360 NEWS Movies News - తెలుగు సినిమా తాజా వార్తలు, మూవీ అప్డేట్స్, హీరో హీరోయిన్ల వార్తలు.">
+<meta
+    name="description"
+    content="BS 360 NEWS Movies News - తెలుగు సినిమా తాజా వార్తలు, మూవీ అప్డేట్స్, హీరో హీరోయిన్ల వార్తలు."
+>
 
-<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="icon" type="image/png" href="dp.png.png">
+
+<link
+    rel="apple-touch-icon"
+    href="dp.png.png"
+>
 
 <style>
 
 /* =========================================================
    BS 360 NEWS - MOVIES PAGE
-   DESKTOP = HERO + 4 SIDE ARTICLES
-   MOBILE = ORIGINAL HERO + 3 ARTICLES
-   BLUE COLOR REMOVED
+   DESKTOP = 6 MOVIE COLUMNS
+   MOBILE  = 3 MOVIE COLUMNS
 ========================================================= */
 
 *{
@@ -32,9 +41,17 @@ html{
 
 body{
     margin:0;
+    padding:0;
+
     background:#f3f5f7;
     color:#111827;
-    font-family:Arial,"Noto Sans Telugu","Segoe UI",sans-serif;
+
+    font-family:
+        Arial,
+        "Noto Sans Telugu",
+        "Segoe UI",
+        sans-serif;
+
     line-height:1.6;
 }
 
@@ -56,18 +73,19 @@ a{
 
 .top-header{
     background:#fff;
-    color:#111827;
     border-bottom:1px solid #e5e7eb;
 }
 
 .header-inner{
     width:min(1400px,96%);
     margin:auto;
+
     min-height:68px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     gap:15px;
 }
 
@@ -75,6 +93,7 @@ a{
     font-size:30px;
     font-weight:900;
     letter-spacing:.5px;
+
     color:#111827;
 }
 
@@ -87,11 +106,10 @@ a{
     color:#fff;
 
     padding:8px 16px;
+
     border-radius:6px;
 
     font-weight:700;
-
-    transition:.2s;
 }
 
 .home-btn:hover{
@@ -105,10 +123,12 @@ a{
 
 .nav-bar{
     background:#fff;
+
     border-bottom:1px solid #e5e7eb;
 
     position:sticky;
     top:0;
+
     z-index:100;
 }
 
@@ -122,6 +142,7 @@ a{
     gap:5px;
 
     overflow-x:auto;
+
     scrollbar-width:none;
 }
 
@@ -150,8 +171,8 @@ a{
 
 .nav-inner a.active{
     color:#e50914;
+
     border-bottom:3px solid #e50914;
-    background:#fff;
 }
 
 
@@ -177,6 +198,7 @@ a{
 
 .breaking-title{
     background:#e50914;
+
     color:#fff;
 
     padding:8px 16px;
@@ -193,7 +215,9 @@ a{
     font-size:14px;
 
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 
     color:#111827;
@@ -201,13 +225,19 @@ a{
 
 
 /* =========================================================
-   PAGE
+   MAIN PAGE
 ========================================================= */
 
 .page{
     width:min(1400px,96%);
+
     margin:15px auto 35px;
 }
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
 
 .page-title{
     background:#fff;
@@ -216,7 +246,7 @@ a{
 
     padding:12px 15px;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
 
     font-size:24px;
     font-weight:900;
@@ -224,15 +254,35 @@ a{
 
 
 /* =========================================================
-   SECTION HEAD
+   MAIN LAYOUT
+   LEFT = MOVIES
+   RIGHT = SIDEBAR
+========================================================= */
+
+.main-layout{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        320px;
+
+    gap:22px;
+
+    align-items:start;
+}
+
+
+/* =========================================================
+   SECTION
 ========================================================= */
 
 .section{
-    margin-top:25px;
+    margin-bottom:28px;
 }
 
 .section-head{
     display:flex;
+
     align-items:center;
     justify-content:space-between;
 
@@ -247,6 +297,7 @@ a{
     margin:0;
 
     font-size:21px;
+
     font-weight:900;
 
     color:#111827;
@@ -256,198 +307,36 @@ a{
     color:#e50914;
 }
 
-.more{
-    color:#e50914;
-
-    font-size:13px;
-    font-weight:800;
-}
-
 
 /* =========================================================
-   TOP MOVIE LAYOUT
-   DESKTOP:
-   LEFT = SMALL HERO
-   RIGHT = 4 SIDE ARTICLES
+   MOVIES GRID
+   DESKTOP = 6
 ========================================================= */
 
-.movie-top-layout{
+.movies-grid{
+
     display:grid;
 
     grid-template-columns:
-        minmax(0,1.15fr)
-        minmax(0,1fr);
+        repeat(6,minmax(0,1fr));
 
-    gap:14px;
-
-    align-items:stretch;
+    gap:12px;
 }
 
 
 /* =========================================================
-   HERO
+   MOVIE CARD
 ========================================================= */
 
-.hero{
-    position:relative;
+.movie-card{
 
-    width:100%;
+    display:block;
 
-    height:390px;
+    background:#fff;
 
-    min-height:0;
+    border-radius:7px;
 
     overflow:hidden;
-
-    background:#111;
-
-    border-radius:8px;
-}
-
-.hero-slide{
-    position:absolute;
-
-    inset:0;
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:opacity .5s ease;
-}
-
-.hero-slide.active{
-    opacity:1;
-    visibility:visible;
-}
-
-.hero-slide img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-}
-
-.hero-overlay{
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    padding:55px 25px 30px;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.90),
-        rgba(0,0,0,.55),
-        transparent
-    );
-
-    color:#fff;
-}
-
-.hero-category{
-    display:inline-block;
-
-    background:#e50914;
-    color:#fff;
-
-    padding:4px 9px;
-
-    border-radius:4px;
-
-    font-size:11px;
-    font-weight:800;
-
-    margin-bottom:8px;
-}
-
-.hero-title{
-    max-width:850px;
-
-    font-size:24px;
-
-    line-height:1.35;
-
-    font-weight:900;
-
-    margin-bottom:12px;
-}
-
-.hero-read{
-    display:inline-block;
-
-    background:#fff;
-    color:#111;
-
-    padding:7px 13px;
-
-    border-radius:4px;
-
-    font-size:13px;
-    font-weight:800;
-}
-
-.hero-dots{
-    position:absolute;
-
-    bottom:13px;
-    right:20px;
-
-    display:flex;
-
-    gap:5px;
-
-    z-index:5;
-}
-
-.hero-dot{
-    width:8px;
-    height:8px;
-
-    padding:0;
-
-    border:0;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    opacity:.55;
-
-    cursor:pointer;
-}
-
-.hero-dot.active{
-    background:#e50914;
-    opacity:1;
-}
-
-
-/* =========================================================
-   SIDE ARTICLES
-   DESKTOP ONLY
-========================================================= */
-
-.movie-side-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    gap:14px;
-}
-
-.movie-side-card{
-    background:#fff;
-
-    border-radius:8px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
 
     min-width:0;
 
@@ -456,45 +345,143 @@ a{
         box-shadow .2s ease;
 }
 
-.movie-side-card:hover{
+.movie-card:hover{
+
     transform:translateY(-3px);
 
     box-shadow:
         0 5px 18px rgba(0,0,0,.10);
 }
 
-.movie-side-card img{
+
+.movie-card img{
+
     width:100%;
 
-    height:165px;
+    aspect-ratio:16 / 9;
 
     object-fit:cover;
 }
 
-.movie-side-content{
-    padding:9px 10px 11px;
+
+.movie-card-content{
+
+    padding:9px;
 }
 
-.movie-side-tag{
-    color:#e50914;
 
-    font-size:9px;
+.movie-card-title{
+
+    margin:0;
+
+    color:#111827;
+
+    font-size:14px;
+
+    line-height:1.45;
+
+    font-weight:800;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:4;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.article-sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+
+.sidebar-box{
+
+    background:#fff;
+
+    border-radius:8px;
+
+    padding:14px;
+}
+
+
+.sidebar-title{
+
+    font-size:19px;
+
+    line-height:1.3;
 
     font-weight:900;
 
-    margin-bottom:3px;
+    color:#111827;
+
+    padding-bottom:9px;
+
+    margin-bottom:5px;
+
+    border-bottom:3px solid #e50914;
 }
 
-.movie-side-title{
-    margin:0;
+
+/* =========================================================
+   SIDEBAR ARTICLE
+========================================================= */
+
+.sidebar-item{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:10px 0;
+
+    border-bottom:1px solid #e5e7eb;
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+.sidebar-item:last-child{
+
+    border-bottom:none;
+}
+
+
+.sidebar-item img{
+
+    width:100px;
+
+    height:65px;
+
+    object-fit:cover;
+
+    border-radius:6px;
+
+    flex-shrink:0;
+}
+
+
+.sidebar-item-title{
 
     font-size:14px;
 
     line-height:1.4;
 
-    font-weight:800;
+    font-weight:700;
 
-    color:#111827;
+    color:#1f2937;
 
     display:-webkit-box;
 
@@ -507,193 +494,77 @@ a{
 
 
 /* =========================================================
-   ALL ARTICLE GRIDS
-   DESKTOP = 7
+   MOST READ
 ========================================================= */
 
-.news-grid,
-.feature-grid,
-.video-grid{
-    display:grid;
+.most-read-item{
 
-    grid-template-columns:
-        repeat(7,minmax(0,1fr));
+    display:flex;
 
-    gap:12px;
+    align-items:center;
+
+    gap:9px;
+
+    padding:10px 0;
+
+    border-bottom:1px solid #e5e7eb;
+
+    text-decoration:none;
+}
+
+.most-read-item:last-child{
+
+    border-bottom:none;
 }
 
 
-/* =========================================================
-   NEWS CARD
-========================================================= */
+.most-read-number{
 
-.news-card{
-    background:#fff;
+    width:29px;
+    height:29px;
 
-    overflow:hidden;
+    min-width:29px;
 
-    border-radius:7px;
-
-    transition:transform .2s ease;
-}
-
-.news-card:hover{
-    transform:translateY(-3px);
-}
-
-.news-card img{
-    aspect-ratio:16 / 9;
-
-    object-fit:cover;
-}
-
-.card-content{
-    padding:9px;
-}
-
-.card-tag{
-    color:#e50914;
-
-    font-size:9px;
-
-    font-weight:900;
-
-    text-transform:uppercase;
-
-    margin-bottom:3px;
-}
-
-.card-title{
-    margin:0;
-
-    color:#111827;
-
-    font-size:13px;
-
-    line-height:1.4;
-
-    font-weight:800;
-
-    display:-webkit-box;
-
-    -webkit-line-clamp:4;
-
-    -webkit-box-orient:vertical;
-
-    overflow:hidden;
-}
-
-
-/* =========================================================
-   FEATURE CARD
-========================================================= */
-
-.feature-card{
-    background:#fff;
-
-    border-radius:7px;
-
-    overflow:hidden;
-
-    transition:transform .2s ease;
-}
-
-.feature-card:hover{
-    transform:translateY(-3px);
-}
-
-.feature-card img{
-    aspect-ratio:16 / 9;
-
-    object-fit:cover;
-}
-
-.feature-content{
-    padding:9px;
-}
-
-.feature-content h3{
-    margin:0;
-
-    font-size:13px;
-
-    line-height:1.4;
-
-    font-weight:800;
-
-    display:-webkit-box;
-
-    -webkit-line-clamp:4;
-
-    -webkit-box-orient:vertical;
-
-    overflow:hidden;
-}
-
-
-/* =========================================================
-   VIDEO CARD
-========================================================= */
-
-.video-card{
-    background:#fff;
-
-    overflow:hidden;
-
-    border-radius:7px;
-
-    transition:transform .2s ease;
-}
-
-.video-card:hover{
-    transform:translateY(-3px);
-}
-
-.video-image{
-    position:relative;
-}
-
-.video-image img{
-    aspect-ratio:16 / 9;
-
-    object-fit:cover;
-}
-
-.play{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:42px;
-    height:42px;
-
-    border-radius:50%;
-
-    background:rgba(229,9,20,.95);
+    background:#e50914;
 
     color:#fff;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
-    font-size:18px;
+    border-radius:50%;
+
+    font-size:13px;
+
+    font-weight:900;
 }
 
-.video-card h3{
-    margin:0;
 
-    padding:9px;
+.most-read-item img{
+
+    width:75px;
+    height:55px;
+
+    object-fit:cover;
+
+    border-radius:6px;
+
+    flex-shrink:0;
+}
+
+
+.most-read-title{
 
     font-size:13px;
 
     line-height:1.4;
 
-    font-weight:800;
+    font-weight:700;
+
+    color:#1f2937;
 
     display:-webkit-box;
 
@@ -702,6 +573,27 @@ a{
     -webkit-box-orient:vertical;
 
     overflow:hidden;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+
+    grid-column:1 / -1;
+
+    background:#fff;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:8px;
+
+    color:#666;
+
 }
 
 
@@ -710,6 +602,7 @@ a{
 ========================================================= */
 
 .site-footer{
+
     background:#111827;
 
     color:#fff;
@@ -720,6 +613,7 @@ a{
 }
 
 .footer-inner{
+
     width:min(1400px,96%);
 
     margin:auto;
@@ -733,12 +627,14 @@ a{
 
 .footer-column h3,
 .footer-contact h3{
+
     margin:0 0 12px;
 
     font-size:18px;
 }
 
 .footer-links{
+
     display:flex;
 
     flex-wrap:wrap;
@@ -747,16 +643,14 @@ a{
 }
 
 .footer-links a{
+
     color:#d1d5db;
 
     font-size:14px;
 }
 
-.footer-links a:hover{
-    color:#fff;
-}
-
 .footer-contact p{
+
     margin:5px 0;
 
     color:#d1d5db;
@@ -765,6 +659,7 @@ a{
 }
 
 .copyright{
+
     width:min(1400px,96%);
 
     margin:25px auto 0;
@@ -782,22 +677,99 @@ a{
 
 
 /* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode{
+
+    background:#0b1120;
+
+    color:#f9fafb;
+}
+
+body.dark-mode .top-header,
+body.dark-mode .nav-bar,
+body.dark-mode .breaking,
+body.dark-mode .page-title,
+body.dark-mode .movie-card,
+body.dark-mode .sidebar-box{
+
+    background:#111827;
+
+    color:#f9fafb;
+
+    border-color:#374151;
+}
+
+body.dark-mode .logo,
+body.dark-mode .nav-inner a,
+body.dark-mode .breaking-text,
+body.dark-mode .section-head h2,
+body.dark-mode .movie-card-title,
+body.dark-mode .sidebar-title,
+body.dark-mode .sidebar-item-title,
+body.dark-mode .most-read-title{
+
+    color:#f9fafb;
+}
+
+body.dark-mode .sidebar-item,
+body.dark-mode .most-read-item{
+
+    border-color:#374151;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(min-width:601px) and (max-width:1100px){
+
+    .main-layout{
+
+        grid-template-columns:1fr;
+    }
+
+    .movies-grid{
+
+        grid-template-columns:
+            repeat(4,minmax(0,1fr));
+    }
+
+    .article-sidebar{
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        align-items:start;
+    }
+}
+
+
+/* =========================================================
    MOBILE
-   ORIGINAL MOBILE LAYOUT
+   3 COLUMNS
 ========================================================= */
 
 @media(max-width:600px){
 
     .header-inner{
+
         min-height:58px;
     }
 
     .logo{
+
         font-size:22px;
     }
 
     .home-btn{
+
         padding:6px 11px;
+
         font-size:13px;
     }
 
@@ -805,6 +777,7 @@ a{
     /* NAV */
 
     .nav-inner a{
+
         padding:9px 11px;
 
         font-size:12px;
@@ -814,16 +787,19 @@ a{
     /* BREAKING */
 
     .breaking{
+
         margin-top:8px;
     }
 
     .breaking-title{
+
         padding:7px 10px;
 
         font-size:10px;
     }
 
     .breaking-text{
+
         font-size:12px;
 
         padding:7px 10px;
@@ -833,103 +809,32 @@ a{
     /* PAGE */
 
     .page{
+
         width:94%;
 
         margin-top:10px;
     }
 
     .page-title{
+
         font-size:20px;
 
         padding:10px 12px;
     }
 
 
-    /* SECTION */
+    /* MAIN */
 
-    .section{
-        margin-top:20px;
-    }
+    .main-layout{
 
-    .section-head h2{
-        font-size:18px;
-    }
-
-    .more{
-        font-size:11px;
-    }
-
-
-    /* =====================================================
-       TOP MOVIE
-       MOBILE = HERO ONLY
-    ===================================================== */
-
-    .movie-top-layout{
         display:block;
     }
 
-    .movie-side-grid{
-        display:none;
-    }
 
+    /* MOVIES = 3 */
 
-    /* HERO */
+    .movies-grid{
 
-    .hero{
-        aspect-ratio:16 / 9;
-
-        height:auto;
-
-        min-height:0;
-
-        border-radius:6px;
-    }
-
-    .hero-overlay{
-        padding:45px 14px 22px;
-    }
-
-    .hero-title{
-        font-size:18px;
-
-        line-height:1.35;
-
-        margin-bottom:7px;
-    }
-
-    .hero-category{
-        font-size:9px;
-
-        padding:3px 6px;
-
-        margin-bottom:4px;
-    }
-
-    .hero-read{
-        padding:5px 9px;
-
-        font-size:10px;
-    }
-
-    .hero-dots{
-        bottom:8px;
-
-        right:10px;
-    }
-
-    .hero-dot{
-        width:7px;
-
-        height:7px;
-    }
-
-
-    /* EVERY ARTICLE GRID = 3 */
-
-    .news-grid,
-    .feature-grid,
-    .video-grid{
         grid-template-columns:
             repeat(3,minmax(0,1fr));
 
@@ -937,58 +842,84 @@ a{
     }
 
 
-    /* CARDS */
+    /* MOVIE CARD */
 
-    .news-card,
-    .feature-card,
-    .video-card{
+    .movie-card{
+
         border-radius:5px;
     }
 
-    .card-content{
+    .movie-card-content{
+
         padding:6px;
     }
 
-    .feature-content{
-        padding:6px;
-    }
+    .movie-card-title{
 
-    .card-title,
-    .feature-content h3,
-    .video-card h3{
         font-size:10px;
 
         line-height:1.35;
+
+        -webkit-line-clamp:4;
     }
 
-    .card-tag{
-        font-size:7px;
 
-        margin-bottom:2px;
+    /* SIDEBAR */
+
+    .article-sidebar{
+
+        margin-top:22px;
+
+        gap:12px;
     }
 
-    .play{
-        width:32px;
+    .sidebar-box{
 
-        height:32px;
+        padding:11px;
+    }
+
+    .sidebar-title{
+
+        font-size:17px;
+    }
+
+    .sidebar-item img{
+
+        width:90px;
+
+        height:62px;
+    }
+
+    .sidebar-item-title{
 
         font-size:13px;
     }
 
-    .video-card h3{
-        padding:6px;
+
+    .most-read-item img{
+
+        width:70px;
+
+        height:52px;
+    }
+
+    .most-read-title{
+
+        font-size:12px;
     }
 
 
     /* FOOTER */
 
     .footer-inner{
+
         grid-template-columns:1fr;
 
         gap:22px;
     }
 
     .footer-links{
+
         display:grid;
 
         grid-template-columns:1fr 1fr;
@@ -999,120 +930,35 @@ a{
 
 /* =========================================================
    SMALL MOBILE
-   STILL 3 ARTICLES
+   STILL 3 COLUMNS
 ========================================================= */
 
 @media(max-width:380px){
 
-    .news-grid,
-    .feature-grid,
-    .video-grid{
+    .movies-grid{
+
         grid-template-columns:
             repeat(3,minmax(0,1fr));
 
         gap:5px;
     }
 
-    .card-content,
-    .feature-content{
+    .movie-card-content{
+
         padding:5px;
     }
 
-    .card-title,
-    .feature-content h3,
-    .video-card h3{
+    .movie-card-title{
+
         font-size:9px;
 
         line-height:1.3;
     }
 
-    .card-tag{
-        font-size:6px;
-    }
-
-}
-
-
-/* =========================================================
-   TABLET
-   4 ARTICLES
-========================================================= */
-
-@media(min-width:601px) and (max-width:1100px){
-
-    .news-grid,
-    .feature-grid,
-    .video-grid{
-        grid-template-columns:
-            repeat(4,minmax(0,1fr));
-    }
-
-    /*
-       TABLET = ORIGINAL HERO
-       SIDE ARTICLES HIDDEN
-    */
-
-    .movie-top-layout{
-        display:block;
-    }
-
-    .movie-side-grid{
-        display:none;
-    }
-
-    .hero{
-        height:auto;
-
-        aspect-ratio:16 / 8;
-
-        min-height:350px;
-    }
-
-    .hero-title{
-        font-size:23px;
-    }
-
-}
-
-
-/* =========================================================
-   DESKTOP TOP MOVIE TUNING
-========================================================= */
-
-@media(min-width:1101px){
-
-    .movie-top-layout{
-        min-height:390px;
-    }
-
-    .movie-side-card{
-        min-height:188px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY LARGE DESKTOP
-========================================================= */
-
-@media(min-width:1500px){
-
-    .hero{
-        height:410px;
-    }
-
-    .movie-top-layout{
-        min-height:410px;
-    }
-
-    .movie-side-card img{
-        height:175px;
-    }
-
 }
 
 </style>
+
 </head>
 
 
@@ -1128,10 +974,16 @@ a{
     <div class="header-inner">
 
         <div class="logo">
+
             BS <span>360</span> NEWS
+
         </div>
 
-        <a href="index.html" class="home-btn">
+
+        <a
+            href="index.html"
+            class="home-btn"
+        >
             Home
         </a>
 
@@ -1156,16 +1008,15 @@ a{
             Latest News
         </a>
 
-        <a href="movies.html" class="active">
-             Cinema
+        <a
+            href="movies.html"
+            class="active"
+        >
+            Movies
         </a>
 
         <a href="sports.html">
-             Sports
-        </a>
-
-        <a href="index.html#goldSection">
-             Gold Rate
+            Sports
         </a>
 
         <a href="AP&TS.html">
@@ -1173,7 +1024,7 @@ a{
         </a>
 
         <a href="business.html">
-             Business
+            Business
         </a>
 
     </div>
@@ -1192,548 +1043,121 @@ a{
     </div>
 
     <div class="breaking-text">
-        🎬 సినిమా ప్రపంచంలోని తాజా వార్తలు, మూవీ అప్డేట్స్, రివ్యూస్, సెలబ్రిటీ న్యూస్...
+        🎬 సినిమా ప్రపంచంలోని తాజా వార్తలు, మూవీ అప్డేట్స్, హీరో హీరోయిన్ల వార్తలు...
     </div>
 
 </div>
 
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
 
 <main class="page">
 
 
-<!-- =====================================================
-     PAGE TITLE
-===================================================== -->
-
-<div class="page-title">
-     Movies News
-</div>
-
-
-<!-- =====================================================
-     TOP MOVIE NEWS
-     SMALL HERO + 4 SIDE ARTICLES
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <h2>
-            <span>TOP</span> MOVIE NEWS
-        </h2>
-
+    <div class="page-title">
+        Movies News
     </div>
 
 
-    <div class="movie-top-layout">
+    <!-- =================================================
+         MAIN LAYOUT
+    ================================================== -->
+
+    <div class="main-layout">
 
 
-        <!-- =================================================
-             LEFT HERO
-        ================================================== -->
+        <!-- =============================================
+             LEFT - MOVIES
+        ============================================== -->
 
-        <div class="hero">
+        <div class="movies-main">
 
 
+            <section class="section">
 
-           <article class="hero-slide active">
+                <div class="section-head">
 
-                <a href="n1.html">
+                    <h2>
+                        <span>Latest</span> Movies
+                    </h2>
 
-                    <img
-                        src="n1.jpg"
-                        alt="డేవిడ్ రెడ్డి"
-                        loading="eager"
-                    >
+                </div>
 
-                    <div class="hero-overlay">
 
-                        <div class="hero-category">
-                            MOVIES
-                        </div>
+                <div
+                    id="moviesGrid"
+                    class="movies-grid"
+                >
 
-                        <div class="hero-title">
-                            డేవిడ్ రెడ్డి’లో రమ్యకృష్ణ.. కమలా రెడ్డిగా పవర్‌ఫుల్ ఫస్ట్ లుక్
-                        </div>
-
-                        <span class="hero-read">
-                            Read More →
-                        </span>
-
+                    <div class="loading">
+                        Movies News Loading...
                     </div>
 
-                </a>
+                </div>
 
-           </article>
-           
-            <!-- SLIDE 1 -->
-           
+            </section>
 
-            <article class="hero-slide">
-
-                <a href="hm.html">
-
-                    <img
-                        src="hm.jpg"
-                        alt="అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్"
-                        loading="eager"
-                    >
-
-                    <div class="hero-overlay">
-
-                        <div class="hero-category">
-                            MOVIES
-                        </div>
-
-                        <div class="hero-title">
-                            అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.. ‘హనుమాన్ అంష్’ వెనుక అసలు కథ ఇదే!
-                        </div>
-
-                        <span class="hero-read">
-                            Read More →
-                        </span>
-
-                    </div>
-
-                </a>
-
-            </article>
-
-
-            <!-- SLIDE 2 -->
-
-            <article class="hero-slide">
-
-                <a href="tamana.html">
-
-                    <img
-                        src="tamana.jpg"
-                        alt="తమన్నా భాటియా సిద్ధార్థ్ మల్హోత్రా"
-                        loading="lazy"
-                    >
-
-                    <div class="hero-overlay">
-
-                        <div class="hero-category">
-                            MOVIES
-                        </div>
-
-                        <div class="hero-title">
-                            తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!
-                        </div>
-
-                        <span class="hero-read">
-                            Read More →
-                        </span>
-
-                    </div>
-
-                </a>
-
-            </article>
-
-
-            <!-- SLIDE 3 -->
-
-            <article class="hero-slide">
-
-                <a href="sardar.html">
-
-                    <img
-                        src="sardar.jpg"
-                        alt="సర్దార్ 2 కార్తీ"
-                        loading="lazy"
-                    >
-
-                    <div class="hero-overlay">
-
-                        <div class="hero-category">
-                            MOVIES
-                        </div>
-
-                        <div class="hero-title">
-                            సర్దార్ 2పై కార్తీ ఆసక్తికర వ్యాఖ్యలు.. సినిమా కోసం ఫ్యాన్స్ ఎదురుచూపులు!
-                        </div>
-
-                        <span class="hero-read">
-                            Read More →
-                        </span>
-
-                    </div>
-
-                </a>
-
-            </article>
-
-
-            <!-- SLIDE 4 -->
-
-            <article class="hero-slide">
-
-                <a href="paradise6.html">
-
-                    <img
-                        src="paradise6.jpg"
-                        alt="The Paradise యెష నాగుల సాంగ్"
-                        loading="lazy"
-                    >
-
-                    <div class="hero-overlay">
-
-                        <div class="hero-category">
-                            MOVIES
-                        </div>
-
-                        <div class="hero-title">
-                            The Paradise: దుమ్మురేపుతున్న యెష నాగుల సాంగ్.. షేక్ అవుతున్న యూట్యూబ్
-                        </div>
-
-                        <span class="hero-read">
-                            Read More →
-                        </span>
-
-                    </div>
-
-                </a>
-
-            </article>
-
-
-            <!-- SLIDE 5 -->
-
-            <article class="hero-slide">
-
-                <a href="temper.html">
-
-                    <img
-                        src="temper.png"
-                        alt="Bigg Boss Telugu 10 టాలీవుడ్ స్టార్ విలన్"
-                        loading="lazy"
-                    >
-
-                    <div class="hero-overlay">
-
-                        <div class="hero-category">
-                            CINEMA
-                        </div>
-
-                        <div class="hero-title">
-                             Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
-                        </div>
-
-                        <span class="hero-read">
-                            Read More →
-                        </span>
-
-                    </div>
-
-                </a>
-
-            </article>
-
-
-            <!-- DOTS -->
-
-            <div class="hero-dots">
-
-                <button
-                    class="hero-dot active"
-                    aria-label="Slide 1">
-                </button>
-
-                <button
-                    class="hero-dot"
-                    aria-label="Slide 2">
-                </button>
-
-                <button
-                    class="hero-dot"
-                    aria-label="Slide 3">
-                </button>
-
-                <button
-                    class="hero-dot"
-                    aria-label="Slide 4">
-                </button>
-
-                <button
-                    class="hero-dot"
-                    aria-label="Slide 5">
-                </button>
-
-            </div>
 
         </div>
 
 
-        <!-- =================================================
-             RIGHT SIDE 4 ARTICLES
-             DESKTOP ONLY
-        ================================================== -->
+        <!-- =============================================
+             RIGHT SIDEBAR
+        ============================================== -->
 
-        <div class="movie-side-grid">
+        <aside class="article-sidebar">
 
 
-            <!-- SIDE ARTICLE 1 -->
+            <!-- =========================================
+                 MOST READ
+            ========================================== -->
 
-            <a href="tamana.html" class="movie-side-card">
+            <div class="sidebar-box">
 
-                <img
-                    src="tamana.jpg"
-                    alt="తమన్నా భాటియా సిద్ధార్థ్ మల్హోత్రా"
-                    loading="lazy"
-                >
-
-                <div class="movie-side-content">
-
-                    <div class="movie-side-tag">
-                        MOVIES
-                    </div>
-
-                    <h3 class="movie-side-title">
-                        తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!
-                    </h3>
-
+                <div class="sidebar-title">
+                    Most Read
                 </div>
 
-            </a>
-
-
-            <!-- SIDE ARTICLE 2 -->
-
-            <a href="sardar.html" class="movie-side-card">
-
-                <img
-                    src="sardar.jpg"
-                    alt="సర్దార్ 2 కార్తీ"
-                    loading="lazy"
-                >
-
-                <div class="movie-side-content">
-
-                    <div class="movie-side-tag">
-                        MOVIES
-                    </div>
-
-                    <h3 class="movie-side-title">
-                        సర్దార్ 2పై కార్తీ ఆసక్తికర వ్యాఖ్యలు.. సినిమా కోసం ఫ్యాన్స్ ఎదురుచూపులు!
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <!-- SIDE ARTICLE 3 -->
-
-            <a href="paradise6.html" class="movie-side-card">
-
-                <img
-                    src="paradise6.jpg"
-                    alt="The Paradise యెష నాగుల సాంగ్"
-                    loading="lazy"
-                >
-
-                <div class="movie-side-content">
-
-                    <div class="movie-side-tag">
-                        SONG
-                    </div>
-
-                    <h3 class="movie-side-title">
-                        The Paradise: దుమ్మురేపుతున్న యెష నాగుల సాంగ్.. షేక్ అవుతున్న యూట్యూబ్
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-            <!-- SIDE ARTICLE 4 -->
-
-            <a href="temper.html" class="movie-side-card">
-
-                <img
-                    src="temper.png"
-                    alt="Bigg Boss Telugu 10 టాలీవుడ్ స్టార్ విలన్"
-                    loading="lazy"
-                >
-
-                <div class="movie-side-content">
-
-                    <div class="movie-side-tag">
-                        CINEMA
-                    </div>
-
-                    <h3 class="movie-side-title">
-                        🔥 Bigg Boss Telugu 10: ఇదెవ్వరూ ఊహించలేదే.. బిగ్‌బాస్ 10లో టాలీవుడ్ స్టార్ విలన్.. కన్ఫర్మ్ లిస్టులో పేరు ఉందట
-                    </h3>
-
-                </div>
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     LATEST MOVIE NEWS
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <h2>
-             <span>Latest</span> Movie News
-        </h2>
-       <a
-            href="index.html#latest"
-            class="more">
-         
-        </a>
-
-    </div>
-
-
-    <div class="news-grid">
-
-
-        <a href="n1.html" class="news-card">
-
-            <img
-                src="n1.jpg"
-                alt="డేవిడ్ రెడ్డి"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    MOVIES
-                </div>
-
-                <h3 class="card-title">
-                   డేవిడ్ రెడ్డి’లో రమ్యకృష్ణ.. కమలా రెడ్డిగా పవర్‌ఫుల్ ఫస్ట్ లుక్
-                </h3>
+                <div id="mostReadSidebar"></div>
 
             </div>
 
-        </a>
 
+            <!-- =========================================
+                 TRENDING
+            ========================================== -->
 
-        <a
-            href="index.html#latest"
-            class="more">
-         
-        </a>
+            <div class="sidebar-box">
 
-    </div>
-
-
-    <div class="news-grid">
-
-
-        <a href="hm.html" class="news-card">
-
-            <img
-                src="hm.jpg"
-                alt="అసిస్టెంట్ డైరెక్టర్ హీరోగా"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    MOVIES
+                <div class="sidebar-title">
+                    Trending News
                 </div>
 
-                <h3 class="card-title">
-                    🎬 అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.. ‘హనుమాన్ అంష్’ వెనుక అసలు కథ ఇదే!
-                </h3>
+                <div id="trendingSidebar"></div>
 
             </div>
 
-        </a>
 
+            <!-- =========================================
+                 LATEST
+            ========================================== -->
 
-    </div>
+            <div class="sidebar-box">
 
-</section>
-
-
-
-
-<!-- =====================================================
-     MOVIE HIGHLIGHTS
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <h2>
-             <span>ALL</span>MOVIES
-        </h2>
-
-    </div>
-
-
-    <div class="news-grid">
-       
-<a href="n1.html" class="news-card">
-
-            <img
-                src="n1.jpg"
-                alt="డేవిడ్ రెడ్డి"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="card-tag">
-                    UPDATE
+                <div class="sidebar-title">
+                    Latest News
                 </div>
 
-                <h3 class="card-title">
-                    2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అప్డేట్
-                </h3>
+                <div id="latestSidebar"></div>
 
             </div>
-        </a>
-       
 
-        <a href="p.html" class="news-card">
 
-            <img
-                src="p1.jpg"
-                alt="సలార్ 2"
-                loading="lazy"
-            >
+        </aside>
 
-            <div class="card-content">
-
-                <div class="card-tag">
-                    UPDATE
-                </div>
-
-                <h3 class="card-title">
-                    2027లో ‘సలార్-2’ షూటింగ్ పూర్తి చేస్తారా? ప్రభాస్ మూవీపై అప్డేట్
-                </h3>
-
-            </div>
-        </a>
-       
- </div>
-   
-</section>
-
+    </div>
 
 </main>
 
@@ -1811,137 +1235,416 @@ a{
 
 
 <!-- =====================================================
-     HERO JAVASCRIPT
+     MOVIES PAGE JAVASCRIPT
+     HOME PAGE BASED
 ===================================================== -->
 
 <script>
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function(){
 
-    const slides =
-        document.querySelectorAll(".hero-slide");
-
-    const dots =
-        document.querySelectorAll(".hero-dot");
-
-    const hero =
-        document.querySelector(".hero");
-
-    let currentSlide = 0;
-
-    let heroTimer = null;
+    "use strict";
 
 
-    function showSlide(index){
+    /* =====================================================
+       HELPERS
+    ===================================================== */
 
-        slides.forEach(function(slide){
+    function cleanText(text){
 
-            slide.classList.remove("active");
+        return String(text || "")
+            .replace(/\s+/g," ")
+            .trim();
+
+    }
+
+
+    function getArticles(home,sourceId){
+
+        const source =
+            home.getElementById(sourceId);
+
+        if(!source){
+
+            console.warn(
+                "Source not found:",
+                sourceId
+            );
+
+            return [];
+
+        }
+
+
+        return Array.from(
+            source.querySelectorAll(
+                ".news-item.post"
+            )
+        )
+
+        .map(function(item){
+
+            const image =
+                item.querySelector("img");
+
+
+            const title =
+                item.querySelector(
+                    ".news-content p"
+                ) ||
+                item.querySelector(
+                    ".news-content h3"
+                ) ||
+                item.querySelector("p");
+
+
+            return {
+
+                title:
+                    cleanText(
+                        title
+                            ? title.textContent
+                            : ""
+                    ),
+
+                image:
+                    image
+                        ? image.getAttribute("src") || ""
+                        : "",
+
+                alt:
+                    image
+                        ? image.getAttribute("alt") || ""
+                        : "",
+
+                url:
+                    item.getAttribute(
+                        "data-url"
+                    ) || ""
+
+            };
+
+        })
+
+        .filter(function(article){
+
+            return (
+                article.title &&
+                article.image &&
+                article.url
+            );
 
         });
 
-
-        dots.forEach(function(dot){
-
-            dot.classList.remove("active");
-
-        });
+    }
 
 
-        if(slides[index]){
+    /* =====================================================
+       MOVIE CARD
+    ===================================================== */
 
-            slides[index].classList.add("active");
+    function movieCardHTML(article){
 
-        }
+        return `
+
+            <a
+                href="${article.url}"
+                class="movie-card"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="movie-card-content">
+
+                    <h3 class="movie-card-title">
+                        ${article.title}
+                    </h3>
+
+                </div>
+
+            </a>
+
+        `;
+
+    }
 
 
-        if(dots[index]){
+    /* =====================================================
+       SIDEBAR CARD
+    ===================================================== */
 
-            dots[index].classList.add("active");
+    function sidebarHTML(article){
+
+        return `
+
+            <a
+                href="${article.url}"
+                class="sidebar-item"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="sidebar-item-title">
+                    ${article.title}
+                </div>
+
+            </a>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       MOST READ CARD
+    ===================================================== */
+
+    function mostReadHTML(article,number){
+
+        return `
+
+            <a
+                href="${article.url}"
+                class="most-read-item"
+            >
+
+                <div class="most-read-number">
+                    ${number}
+                </div>
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="most-read-title">
+                    ${article.title}
+                </div>
+
+            </a>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       SHOW CONTENT
+    ===================================================== */
+
+    function show(id,html){
+
+        const element =
+            document.getElementById(id);
+
+        if(element){
+
+            element.innerHTML = html;
 
         }
 
     }
 
 
-    function nextSlide(){
+    /* =====================================================
+       LOAD INDEX.HTML
+    ===================================================== */
 
-        currentSlide++;
+    fetch(
+        "index.html?v=" + Date.now(),
+        {
+            cache:"no-store"
+        }
+    )
 
-        if(currentSlide >= slides.length){
+    .then(function(response){
 
-            currentSlide = 0;
+        if(!response.ok){
+
+            throw new Error(
+                "index.html load failed"
+            );
 
         }
 
-        showSlide(currentSlide);
+        return response.text();
 
-    }
+    })
 
+    .then(function(html){
 
-    function startHero(){
-
-        stopHero();
-
-        if(slides.length > 1){
-
-            heroTimer =
-                setInterval(nextSlide,5000);
-
-        }
-
-    }
+        const parser =
+            new DOMParser();
 
 
-    function stopHero(){
-
-        if(heroTimer !== null){
-
-            clearInterval(heroTimer);
-
-            heroTimer = null;
-
-        }
-
-    }
+        const home =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
 
 
-    dots.forEach(function(dot,index){
+        /* =================================================
+           HOME PAGE SOURCES
+        ================================================= */
 
-        dot.addEventListener("click",function(){
+        const movies =
+            getArticles(
+                home,
+                "entertainmentSource"
+            );
 
-            currentSlide = index;
 
-            showSlide(currentSlide);
+        const latest =
+            getArticles(
+                home,
+                "latestNewsSource"
+            );
 
-            startHero();
 
-        });
+        const trending =
+            getArticles(
+                home,
+                "trendingSource"
+            );
+
+
+        const mostRead =
+            getArticles(
+                home,
+                "mostReadSource"
+            );
+
+
+        /* =================================================
+           MOVIES ARTICLES
+           DESKTOP 6
+           MOBILE 3
+        ================================================= */
+
+        show(
+            "moviesGrid",
+
+            movies
+                .map(movieCardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           MOST READ
+        ================================================= */
+
+        show(
+            "mostReadSidebar",
+
+            mostRead
+                .slice(0,8)
+                .map(function(article,index){
+
+                    return mostReadHTML(
+                        article,
+                        index + 1
+                    );
+
+                })
+                .join("")
+        );
+
+
+        /* =================================================
+           TRENDING
+        ================================================= */
+
+        show(
+            "trendingSidebar",
+
+            trending
+                .slice(0,8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           LATEST
+        ================================================= */
+
+        show(
+            "latestSidebar",
+
+            latest
+                .slice(0,8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           CONSOLE
+        ================================================= */
+
+        console.log(
+            "BS360 MOVIES PAGE LOADED"
+        );
+
+        console.log(
+            "Movies:",
+            movies.length
+        );
+
+        console.log(
+            "Latest:",
+            latest.length
+        );
+
+        console.log(
+            "Trending:",
+            trending.length
+        );
+
+        console.log(
+            "Most Read:",
+            mostRead.length
+        );
+
+    })
+
+
+    .catch(function(error){
+
+        console.error(
+            "BS360 MOVIES ERROR:",
+            error
+        );
+
+
+        show(
+            "moviesGrid",
+
+            `
+                <div class="loading">
+                    Movies News load కాలేదు.
+                </div>
+            `
+
+        );
 
     });
 
 
-    if(hero){
-
-        hero.addEventListener(
-            "mouseenter",
-            stopHero
-        );
-
-        hero.addEventListener(
-            "mouseleave",
-            startHero
-        );
-
-    }
-
-
-    showSlide(0);
-
-    startHero();
-
-
-    /* Disable image dragging */
+    /* =====================================================
+       DISABLE IMAGE DRAGGING
+    ===================================================== */
 
     document
         .querySelectorAll("img")
@@ -1964,4 +1667,5 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 </body>
+
 </html>
