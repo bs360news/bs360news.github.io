@@ -283,6 +283,7 @@ gtag('config', 'G-EWXPS1N2TL');
         padding: 5px 8px !important;
         white-space: nowrap !important;
     }
+
 }
 
 
@@ -301,7 +302,7 @@ gtag('config', 'G-EWXPS1N2TL');
 
 
 /* =====================================================
-   MOST READ - DESKTOP / LAPTOP FIX
+   MOST READ
 ===================================================== */
 
 .most-read-section {
@@ -372,8 +373,6 @@ gtag('config', 'G-EWXPS1N2TL');
     font-weight: 800 !important;
     margin: 0 !important;
     padding: 12px !important;
-    visibility: visible !important;
-    opacity: 1 !important;
 }
 
 
@@ -408,12 +407,6 @@ gtag('config', 'G-EWXPS1N2TL');
     .most-read-section .section-title-row h2 {
         font-size: 22px !important;
     }
-
-    /*
-       MOBILE MOST READ
-       ONE CARD PER ROW
-       IMAGE LEFT + TEXT RIGHT
-    */
 
     .most-read-list {
         display: flex !important;
@@ -500,7 +493,71 @@ gtag('config', 'G-EWXPS1N2TL');
 
 }
 
-    
+
+/* =====================================================
+   TRENDING
+   LAPTOP 6 x 2 = 12
+   MOBILE 3 x 4 = 12
+===================================================== */
+
+.trending-grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: 100% !important;
+}
+
+.trending-grid .trending-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+}
+
+.trending-grid .trending-card img {
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+.trending-grid .trending-card h3 {
+    margin: 8px 0 0 !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .trending-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+}
+
+
+/* MOBILE 3 x 4 */
+
+@media (max-width: 600px) {
+
+    .trending-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    .trending-grid .trending-card h3 {
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+    }
+
+}
+
 </style>
 
 </head>
@@ -603,8 +660,6 @@ gtag('config', 'G-EWXPS1N2TL');
     <div class="container nav-container">
 
 
-        <!-- LANGUAGE -->
-
         <div class="lang-selector">
 
             <a
@@ -628,8 +683,6 @@ gtag('config', 'G-EWXPS1N2TL');
 
         </div>
 
-
-        <!-- CATEGORY MENU -->
 
         <div
             class="nav-links"
@@ -895,95 +948,7 @@ gtag('config', 'G-EWXPS1N2TL');
     <div
         class="most-read-list"
         id="mostReadList"
-    >
-<a
-    href="upendra1.html"
-    class="trending-card"
->
-
-    <img
-        src="upendra1.jpg"
-        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర వారియర్ లుక్"
-        loading="lazy"
-    >
-
-    <h3>
-        జాంబీరెడ్డి-2: వారియర్ లుక్లో ఉపేంద్ర
-    </h3>
-
-</a>
-        
-        <a
-            href="n3.html"
-            class="trending-card"
-        >
-
-            <img
-                src="n3.jpg"
-                alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
-                loading="lazy"
-            >
-
-            <h3>
-                అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
-            </h3>
-
-        </a>
-<a
-    href="upendra1.html"
-    class="trending-card"
->
-
-    <img
-        src="upendra1.jpg"
-        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర వారియర్ లుక్"
-        loading="lazy"
-    >
-
-    <h3>
-        జాంబీరెడ్డి-2: వారియర్ లుక్లో ఉపేంద్ర
-    </h3>
-
-</a>
-        
-        <a
-            href="n3.html"
-            class="trending-card"
-        >
-
-            <img
-                src="n3.jpg"
-                alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
-                loading="lazy"
-            >
-
-            <h3>
-                అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
-            </h3>
-
-        </a>
-
-
-        
-        <a
-            href="n1.html"
-            class="trending-card"
-        >
-
-            <img
-                src="n1.jpg"
-                alt="డేవిడ్ రెడ్డి"
-                loading="lazy"
-            >
-
-            <h3>
-                డేవిడ్ రెడ్డిలో రమ్యకృష్ణ.. కమలా రెడ్డిగా పవర్‌ఫుల్ ఫస్ట్ లుక్..
-            </h3>
-
-        </a>
-        
-        
-    </div>
+    ></div>
 
 </section>
 
@@ -1085,114 +1050,7 @@ gtag('config', 'G-EWXPS1N2TL');
     <div
         class="trending-grid"
         id="trendingGrid"
-    >
-<a
-    href="upendra1.html"
-    class="trending-card"
->
-
-    <img
-        src="upendra1.jpg"
-        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర వారియర్ లుక్"
-        loading="lazy"
-    >
-
-    <h3>
-        జాంబీరెడ్డి-2: వారియర్ లుక్లో ఉపేంద్ర
-    </h3>
-
-</a>
-        
-        <a
-            href="n3.html"
-            class="trending-card"
-        >
-
-            <img
-                src="n3.jpg"
-                alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
-                loading="lazy"
-            >
-
-            <h3>
-                అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
-            </h3>
-
-        </a>
-
-
-        <a
-            href="n1.html"
-            class="trending-card"
-        >
-
-            <img
-                src="n1.jpg"
-                alt="డేవిడ్ రెడ్డి"
-                loading="lazy"
-            >
-
-            <h3>
-                డేవిడ్ రెడ్డిలో రమ్యకృష్ణ.. కమలా రెడ్డిగా పవర్‌ఫుల్ ఫస్ట్ లుక్..
-            </h3>
-
-        </a>
-
-        
-<a
-    href="upendra1.html"
-    class="trending-card"
->
-
-    <img
-        src="upendra1.jpg"
-        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర వారియర్ లుక్"
-        loading="lazy"
-    >
-
-    <h3>
-        జాంబీరెడ్డి-2: వారియర్ లుక్లో ఉపేంద్ర
-    </h3>
-
-</a>
-  <a
-            href="n3.html"
-            class="trending-card"
-        >
-
-            <img
-                src="n3.jpg"
-                alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
-                loading="lazy"
-            >
-
-            <h3>
-                అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
-            </h3>
-
-        </a>
-
-        
-
-        <a
-            href="n1.html"
-            class="trending-card"
-        >
-
-            <img
-                src="n1.jpg"
-                alt="డేవిడ్ రెడ్డి"
-                loading="lazy"
-            >
-
-            <h3>
-                డేవిడ్ రెడ్డిలో రమ్యకృష్ణ.. కమలా రెడ్డిగా పవర్‌ఫుల్ ఫస్ట్ లుక్..
-            </h3>
-
-        </a>
-        
-        
-    </div>
+    ></div>
 
 </section>
 
@@ -1304,52 +1162,175 @@ gtag('config', 'G-EWXPS1N2TL');
 
 
 <!-- =====================================================
-     LEGACY NEWS SOURCE
+     SEPARATE ARTICLE SOURCES
 
      IMPORTANT:
-     JS reads all articles from here.
+     EACH SECTION HAS ITS OWN ARTICLES.
+     ARTICLES ARE NOT MIXED AUTOMATICALLY.
 ===================================================== -->
-
-<div
-    id="legacyNewsSource"
-    class="legacy-news-source"
->
 
 
 <!-- =====================================================
-     BUSINESS
+     LATEST NEWS SOURCE
 ===================================================== -->
 
-<article
-    class="news-item post"
-    data-category="ap/ts"
-    data-url="apjob.html"
+<div
+    id="latestNewsSource"
+    class="section-news-source"
+    hidden
 >
 
-    <img
-        src="image.png"
-        alt="ఏపీలో 10 IT ప్రాజెక్టులకు ఆమోదం.. రూ.526.25 కోట్ల పెట్టుబడులు"
+    <!-- Latest article 1 -->
+    <article
+        class="news-item post"
+        data-url="apjob.html"
     >
 
-    <div class="news-content">
+        <img
+            src="image.png"
+            alt="ఏపీలో 10 IT ప్రాజెక్టులకు ఆమోదం"
+        >
 
-        <p>
-        ఏపీలో 10 IT ప్రాజెక్టులకు ఆమోదం.. రూ.526.25 కోట్ల పెట్టుబడులు
-        </p>
+        <div class="news-content">
 
-    </div>
+            <p>
+                ఏపీలో 10 IT ప్రాజెక్టులకు ఆమోదం.. రూ.526.25 కోట్ల పెట్టుబడులు
+            </p>
 
-</article>
-    
-<article
-    class="news-item post"
-    data-category="cinema"
-    data-url="upendra1.html"
+        </div>
+
+    </article>
+
+
+    <!-- Latest article 2 -->
+    <article
+        class="news-item post"
+        data-url="upendra1.html"
+    >
+
+        <img
+            src="upendra1.jpg"
+            alt="జాంబీరెడ్డి-2లో ఉపేంద్ర"
+        >
+
+        <div class="news-content">
+
+            <p>
+                జాంబీరెడ్డి-2: వారియర్ లుక్లో ఉపేంద్ర
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- Latest article 3 -->
+    <article
+        class="news-item post"
+        data-url="ag.html"
+    >
+
+        <img
+            src="ag.png"
+            alt="భారత ఆర్థిక వ్యవస్థ GDP వృద్ధి"
+        >
+
+        <div class="news-content">
+
+            <p>
+                భారత ఆర్థిక వ్యవస్థకు బలం.. తొలి త్రైమాసికంలో 7.8 శాతం GDP వృద్ధి
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- Latest article 4 -->
+    <article
+        class="news-item post"
+        data-url="laddu.html"
+    >
+
+        <img
+            src="laddu.jpg"
+            alt="తిరుమల లడ్డూ నెయ్యి అంశం"
+        >
+
+        <div class="news-content">
+
+            <p>
+                తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో వేడెక్కిన చర్చ.. సమగ్ర విచారణ అవసరమన్న చంద్రబాబు
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- Latest article 5 -->
+    <article
+        class="news-item post"
+        data-url="n3.html"
+    >
+
+        <img
+            src="n3.jpg"
+            alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
+        >
+
+        <div class="news-content">
+
+            <p>
+                అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- Latest article 6 -->
+    <article
+        class="news-item post"
+        data-url="paradaise1.html"
+    >
+
+        <img
+            src="paradaise1.jpg"
+            alt="ది ప్యారడైజ్ సినిమాలో నాని"
+        >
+
+        <div class="news-content">
+
+            <p>
+                ది ప్యారడైజ్‌.. సెప్టెంబర్ 24న థియేటర్లలోకి నాని.. విడుదలకు సిద్ధమైన భారీ యాక్షన్ డ్రామా
+            </p>
+
+        </div>
+
+    </article>
+
+</div>
+
+
+<!-- =====================================================
+     TRENDING SOURCE
+     12 ARTICLES
+===================================================== -->
+
+<div
+    id="trendingSource"
+    class="section-news-source"
+    hidden
 >
+
+
+<article class="news-item post" data-url="upendra1.html">
 
     <img
         src="upendra1.jpg"
-        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర వారియర్ లుక్"
+        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర"
     >
 
     <div class="news-content">
@@ -1361,66 +1342,9 @@ gtag('config', 'G-EWXPS1N2TL');
     </div>
 
 </article>
-    
-
-    
-<article
-    class="news-item post"
-    data-category="business"
-    data-url="ag.html"
->
-
-    <img
-        src="ag.png"
-        alt="భారత ఆర్థిక వ్యవస్థ GDP వృద్ధి"
-    >
-
-    <div class="news-content">
-
-        <p>
-            భారత ఆర్థిక వ్యవస్థకు బలం.. తొలి త్రైమాసికంలో 7.8 శాతం GDP వృద్ధి
-        </p>
-
-    </div>
-
-</article>
 
 
-<!-- =====================================================
-     AP & TS
-===================================================== -->
-
-<article
-    class="news-item post"
-    data-category="ap/ts"
-    data-url="laddu.html"
->
-
-    <img
-        src="laddu.jpg"
-        alt="తిరుమల లడ్డూ నెయ్యి అంశం"
-    >
-
-    <div class="news-content">
-
-        <p>
-            తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో వేడెక్కిన చర్చ.. సమగ్ర విచారణ అవసరమన్న చంద్రబాబు
-        </p>
-
-    </div>
-
-</article>
-
-
-<!-- =====================================================
-     SPORTS
-===================================================== -->
-
-<article
-    class="news-item post"
-    data-category="sports"
-    data-url="n3.html"
->
+<article class="news-item post" data-url="n3.html">
 
     <img
         src="n3.jpg"
@@ -1438,15 +1362,473 @@ gtag('config', 'G-EWXPS1N2TL');
 </article>
 
 
+<article class="news-item post" data-url="n1.html">
+
+    <img
+        src="n1.jpg"
+        alt="డేవిడ్ రెడ్డిలో రమ్యకృష్ణ"
+    >
+
+    <div class="news-content">
+
+        <p>
+            డేవిడ్ రెడ్డిలో రమ్యకృష్ణ.. కమలా రెడ్డిగా పవర్‌ఫుల్ ఫస్ట్ లుక్..
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="paradaise1.html">
+
+    <img
+        src="paradaise1.jpg"
+        alt="ది ప్యారడైజ్"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ది ప్యారడైజ్‌.. సెప్టెంబర్ 24న థియేటర్లలోకి నాని
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="n2.html">
+
+    <img
+        src="n2.png"
+        alt="సాయి పల్లవి రామాయణం"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘రామాయణం’లో సీతగా సాయి పల్లవి.. పాత్రపై ఆసక్తికర చర్చ
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="bhumrha.html">
+
+    <img
+        src="bhumrha.jpg"
+        alt="బుమ్రా ఎంపిక"
+    >
+
+    <div class="news-content">
+
+        <p>
+            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="hardik97.html">
+
+    <img
+        src="hardik.jpg"
+        alt="హార్దిక్ పాండ్యా"
+    >
+
+    <div class="news-content">
+
+        <p>
+            హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="bcci.html">
+
+    <img
+        src="bcci.webp"
+        alt="భారత్ అఫ్గానిస్థాన్ టీ20"
+    >
+
+    <div class="news-content">
+
+        <p>
+            భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="hm.html">
+
+    <img
+        src="hm.jpg"
+        alt="హనుమాన్ అంష్"
+    >
+
+    <div class="news-content">
+
+        <p>
+            అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.. ‘హనుమాన్ అంష్’ వెనుక అసలు కథ ఇదే!
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="tamana.html">
+
+    <img
+        src="tamana.jpg"
+        alt="The Vvaan"
+    >
+
+    <div class="news-content">
+
+        <p>
+            తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="apjob.html">
+
+    <img
+        src="image.png"
+        alt="ఏపీలో IT ప్రాజెక్టులు"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ఏపీలో 10 IT ప్రాజెక్టులకు ఆమోదం.. రూ.526.25 కోట్ల పెట్టుబడులు
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="ag.html">
+
+    <img
+        src="ag.png"
+        alt="GDP వృద్ధి"
+    >
+
+    <div class="news-content">
+
+        <p>
+            భారత ఆర్థిక వ్యవస్థకు బలం.. తొలి త్రైమాసికంలో 7.8 శాతం GDP వృద్ధి
+        </p>
+
+    </div>
+
+</article>
+
+</div>
+
+
 <!-- =====================================================
-     ENTERTAINMENT
+     MOST READ SOURCE
 ===================================================== -->
 
-<article
-    class="news-item post"
-    data-category="cinema"
-    data-url="paradaise1.html"
+<div
+    id="mostReadSource"
+    class="section-news-source"
+    hidden
 >
+
+
+<article class="news-item post" data-url="upendra1.html">
+
+    <img
+        src="upendra1.jpg"
+        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర"
+    >
+
+    <div class="news-content">
+
+        <p>
+            జాంబీరెడ్డి-2: వారియర్ లుక్లో ఉపేంద్ర
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="n3.html">
+
+    <img
+        src="n3.jpg"
+        alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
+    >
+
+    <div class="news-content">
+
+        <p>
+            అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="n1.html">
+
+    <img
+        src="n1.jpg"
+        alt="డేవిడ్ రెడ్డి"
+    >
+
+    <div class="news-content">
+
+        <p>
+            డేవిడ్ రెడ్డిలో రమ్యకృష్ణ.. కమలా రెడ్డిగా పవర్‌ఫుల్ ఫస్ట్ లుక్..
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="paradaise1.html">
+
+    <img
+        src="paradaise1.jpg"
+        alt="ది ప్యారడైజ్"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ది ప్యారడైజ్‌.. సెప్టెంబర్ 24న థియేటర్లలోకి నాని
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="n2.html">
+
+    <img
+        src="n2.png"
+        alt="సాయి పల్లవి"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ‘రామాయణం’లో సీతగా సాయి పల్లవి.. పాత్రపై ఆసక్తికర చర్చ
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="bhumrha.html">
+
+    <img
+        src="bhumrha.jpg"
+        alt="బుమ్రా"
+    >
+
+    <div class="news-content">
+
+        <p>
+            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
+        </p>
+
+    </div>
+
+</article>
+
+</div>
+
+
+<!-- =====================================================
+     AP & TS SOURCE
+===================================================== -->
+
+<div
+    id="aptsSource"
+    class="section-news-source"
+    hidden
+>
+
+
+<article class="news-item post" data-url="apjob.html">
+
+    <img
+        src="image.png"
+        alt="ఏపీలో 10 IT ప్రాజెక్టులకు ఆమోదం"
+    >
+
+    <div class="news-content">
+
+        <p>
+            ఏపీలో 10 IT ప్రాజెక్టులకు ఆమోదం.. రూ.526.25 కోట్ల పెట్టుబడులు
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="laddu.html">
+
+    <img
+        src="laddu.jpg"
+        alt="తిరుమల లడ్డూ నెయ్యి అంశం"
+    >
+
+    <div class="news-content">
+
+        <p>
+            తిరుమల లడ్డూ నెయ్యి అంశంపై అసెంబ్లీలో వేడెక్కిన చర్చ.. సమగ్ర విచారణ అవసరమన్న చంద్రబాబు
+        </p>
+
+    </div>
+
+</article>
+
+</div>
+
+
+<!-- =====================================================
+     SPORTS SOURCE
+===================================================== -->
+
+<div
+    id="sportsSource"
+    class="section-news-source"
+    hidden
+>
+
+
+<article class="news-item post" data-url="n3.html">
+
+    <img
+        src="n3.jpg"
+        alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
+    >
+
+    <div class="news-content">
+
+        <p>
+            అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="bhumrha.html">
+
+    <img
+        src="bhumrha.jpg"
+        alt="బుమ్రా ఎంపిక"
+    >
+
+    <div class="news-content">
+
+        <p>
+            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="hardik97.html">
+
+    <img
+        src="hardik.jpg"
+        alt="హార్దిక్ పాండ్యా"
+    >
+
+    <div class="news-content">
+
+        <p>
+            హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="bcci.html">
+
+    <img
+        src="bcci.webp"
+        alt="భారత్ అఫ్గానిస్థాన్ టీ20 సిరీస్"
+    >
+
+    <div class="news-content">
+
+        <p>
+            భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
+        </p>
+
+    </div>
+
+</article>
+
+</div>
+
+
+<!-- =====================================================
+     ENTERTAINMENT SOURCE
+===================================================== -->
+
+<div
+    id="entertainmentSource"
+    class="section-news-source"
+    hidden
+>
+
+
+<article class="news-item post" data-url="upendra1.html">
+
+    <img
+        src="upendra1.jpg"
+        alt="జాంబీరెడ్డి-2లో ఉపేంద్ర"
+    >
+
+    <div class="news-content">
+
+        <p>
+            జాంబీరెడ్డి-2: వారియర్ లుక్లో ఉపేంద్ర
+        </p>
+
+    </div>
+
+</article>
+
+
+<article class="news-item post" data-url="paradaise1.html">
 
     <img
         src="paradaise1.jpg"
@@ -1462,12 +1844,9 @@ gtag('config', 'G-EWXPS1N2TL');
     </div>
 
 </article>
-    
-<article
-    class="news-item post"
-    data-category="cinema"
-    data-url="n1.html"
->
+
+
+<article class="news-item post" data-url="n1.html">
 
     <img
         src="n1.jpg"
@@ -1485,67 +1864,11 @@ gtag('config', 'G-EWXPS1N2TL');
 </article>
 
 
-<!-- =====================================================
-     SPORTS
-===================================================== -->
-
-<article
-    class="news-item post"
-    data-category="sports"
-    data-url="bhumrha.html"
->
-
-    <img
-        src="bhumrha.jpg"
-        alt="బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ"
-    >
-
-    <div class="news-content">
-
-        <p>
-            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
-        </p>
-
-    </div>
-
-</article>
-
-
-<article
-    class="news-item post"
-    data-category="sports"
-    data-url="hardik97.html"
->
-
-    <img
-        src="hardik.jpg"
-        alt="హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం"
-    >
-
-    <div class="news-content">
-
-        <p>
-            హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
-        </p>
-
-    </div>
-
-</article>
-
-
-<!-- =====================================================
-     ENTERTAINMENT
-===================================================== -->
-
-<article
-    class="news-item post"
-    data-category="cinema"
-    data-url="n2.html"
->
+<article class="news-item post" data-url="n2.html">
 
     <img
         src="n2.png"
-        alt="సాయిపల్లవి"
+        alt="సాయి పల్లవి"
     >
 
     <div class="news-content">
@@ -1559,77 +1882,73 @@ gtag('config', 'G-EWXPS1N2TL');
 </article>
 
 
-<!-- =====================================================
-     SPORTS
-===================================================== -->
-
-<article
-    class="news-item post"
-    data-category="sports"
-    data-url="bcci.html"
->
-
-    <img
-        src="bcci.webp"
-        alt="భారత్ అఫ్గానిస్థాన్ టీ20 సిరీస్"
-    >
-
-    <div class="news-content">
-
-        <p>
-            భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-        </p>
-
-    </div>
-
-</article>
-
-<article
-    class="news-item post"
-    data-category="cinema"
-    data-url="hm.html"
->
+<article class="news-item post" data-url="hm.html">
 
     <img
         src="hm.jpg"
-        alt="అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.."
+        alt="హనుమాన్ అంష్"
     >
 
     <div class="news-content">
 
         <p>
-        అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.. ‘హనుమాన్ అంష్’ వెనుక అసలు కథ ఇదే!
+            అనుకోకుండా హీరోగా మారిన అసిస్టెంట్ డైరెక్టర్.. ‘హనుమాన్ అంష్’ వెనుక అసలు కథ ఇదే!
         </p>
 
     </div>
 
 </article>
 
-    
-<article
-    class="news-item post"
-    data-category="cinema"
-    data-url="tamana.html"
->
+
+<article class="news-item post" data-url="tamana.html">
 
     <img
         src="tamana.jpg"
-        alt=" ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!"
+        alt="The Vvaan"
     >
 
     <div class="news-content">
 
         <p>
-           తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!ర
+            తమన్నా భాటియా, సిద్ధార్థ్ మల్హోత్రా జోడీ.. ‘The Vvaan’పై పెరుగుతున్న ఆసక్తి.. సెప్టెంబర్ 25న థియేటర్లలోకి!
         </p>
 
     </div>
 
 </article>
-    
-    
+
 </div>
-<!-- END legacyNewsSource -->
+
+
+<!-- =====================================================
+     BUSINESS SOURCE
+===================================================== -->
+
+<div
+    id="businessSource"
+    class="section-news-source"
+    hidden
+>
+
+
+<article class="news-item post" data-url="ag.html">
+
+    <img
+        src="ag.png"
+        alt="భారత ఆర్థిక వ్యవస్థ GDP వృద్ధి"
+    >
+
+    <div class="news-content">
+
+        <p>
+            భారత ఆర్థిక వ్యవస్థకు బలం.. తొలి త్రైమాసికంలో 7.8 శాతం GDP వృద్ధి
+        </p>
+
+    </div>
+
+</article>
+
+</div>
 
 
 </section>
