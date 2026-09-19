@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="te">
 
@@ -20,24 +19,10 @@
     content="index, follow, max-image-preview:large"
 >
 
-<link
-    rel="icon"
-    type="image/png"
-    href="dp.png.png"
->
-
-<link
-    rel="apple-touch-icon"
-    href="dp.png.png"
->
+<link rel="icon" type="image/png" href="dp.png.png">
+<link rel="apple-touch-icon" href="dp.png.png">
 
 <style>
-
-/* =========================================================
-   BS 360 NEWS - MOVIES PAGE
-   DESKTOP = 6 COLUMNS
-   MOBILE  = 3 COLUMNS
-========================================================= */
 
 *{
     box-sizing:border-box;
@@ -50,16 +35,9 @@ html{
 body{
     margin:0;
     padding:0;
-
     background:#f3f5f7;
     color:#111827;
-
-    font-family:
-        Arial,
-        "Noto Sans Telugu",
-        "Segoe UI",
-        sans-serif;
-
+    font-family:Arial,"Noto Sans Telugu","Segoe UI",sans-serif;
     line-height:1.6;
 }
 
@@ -75,637 +53,393 @@ a{
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .top-header{
-
     background:#fff;
-
     border-bottom:1px solid #e5e7eb;
 }
 
 .header-inner{
-
     width:min(1400px,96%);
-
     margin:auto;
-
     min-height:68px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:15px;
 }
 
 .logo{
-
     font-size:30px;
-
     font-weight:900;
-
     letter-spacing:.5px;
-
     color:#111827;
 }
 
 .logo span{
-
     color:#e50914;
 }
 
 .home-btn{
-
     background:#e50914;
-
     color:#fff;
-
     padding:8px 16px;
-
     border-radius:6px;
-
     font-weight:700;
 }
 
 .home-btn:hover{
-
     background:#c7000b;
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAVIGATION */
 
 .nav-bar{
-
     background:#fff;
-
     border-bottom:1px solid #e5e7eb;
-
     position:sticky;
-
     top:0;
-
     z-index:100;
 }
 
 .nav-inner{
-
     width:min(1400px,96%);
-
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
     gap:5px;
-
     overflow-x:auto;
-
     scrollbar-width:none;
 }
 
 .nav-inner::-webkit-scrollbar{
-
     display:none;
 }
 
 .nav-inner a{
-
     flex:0 0 auto;
-
     padding:11px 15px;
-
     font-size:14px;
-
     font-weight:700;
-
     white-space:nowrap;
-
     color:#111827;
-
     border-bottom:3px solid transparent;
 }
 
 .nav-inner a:hover{
-
     color:#e50914;
 }
 
 .nav-inner a.active{
-
     color:#e50914;
-
     border-bottom:3px solid #e50914;
 }
 
 
-/* =========================================================
-   BREAKING NEWS
-========================================================= */
+/* BREAKING NEWS */
 
 .breaking{
-
     width:min(1400px,96%);
-
     margin:12px auto 0;
-
     background:#fff;
-
     display:flex;
-
     align-items:center;
-
     overflow:hidden;
-
     border-radius:6px;
-
     border:1px solid #e5e7eb;
 }
 
 .breaking-title{
-
     background:#e50914;
-
     color:#fff;
-
     padding:8px 16px;
-
     font-size:13px;
-
     font-weight:900;
-
     white-space:nowrap;
 }
 
 .breaking-text{
-
     padding:8px 15px;
-
     font-size:14px;
-
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
-
     color:#111827;
 }
 
 
-/* =========================================================
-   PAGE
-========================================================= */
+/* PAGE */
 
 .page{
-
     width:min(1400px,96%);
-
     margin:15px auto 35px;
 }
 
-
-/* =========================================================
-   PAGE TITLE
-========================================================= */
-
 .page-title{
-
     background:#fff;
-
     border-left:5px solid #e50914;
-
     padding:12px 15px;
-
     margin-bottom:18px;
-
     font-size:24px;
-
     font-weight:900;
 }
 
 
-/* =========================================================
-   MAIN LAYOUT
-   LEFT  = ARTICLES
-   RIGHT = SIDEBAR
-========================================================= */
+/* MAIN LAYOUT */
 
 .main-layout{
-
     display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        320px;
-
+    grid-template-columns:minmax(0,1fr) 320px;
     gap:22px;
-
     align-items:start;
 }
 
 
-/* =========================================================
-   SECTION
-========================================================= */
+/* SECTION */
 
 .section{
-
     margin-bottom:30px;
 }
 
 .section-head{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     margin-bottom:12px;
-
     border-bottom:2px solid #e50914;
-
     padding-bottom:7px;
 }
 
 .section-head h2{
-
     margin:0;
-
     font-size:21px;
-
     font-weight:900;
-
     color:#111827;
 }
 
 .section-head h2 span{
-
     color:#e50914;
 }
 
 
-/* =========================================================
-   ALL ARTICLE GRIDS
-   DESKTOP = 6
-========================================================= */
+/* ALL ARTICLE GRIDS */
 
 .movies-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(6,minmax(0,1fr));
-
+    grid-template-columns:repeat(6,minmax(0,1fr));
     gap:12px;
 }
 
 
-/* =========================================================
-   ARTICLE CARD
-========================================================= */
+/* ARTICLE CARD */
 
 .movie-card{
-
     display:block;
-
     background:#fff;
-
     border-radius:7px;
-
     overflow:hidden;
-
     min-width:0;
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+    transition:transform .2s ease,box-shadow .2s ease;
 }
 
 .movie-card:hover{
-
     transform:translateY(-3px);
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.10);
+    box-shadow:0 5px 18px rgba(0,0,0,.10);
 }
 
 .movie-card img{
-
     width:100%;
-
     aspect-ratio:16 / 9;
-
     object-fit:cover;
 }
 
 .movie-card-content{
-
     padding:9px;
 }
 
 .movie-card-title{
-
     margin:0;
-
     color:#111827;
-
     font-size:14px;
-
     line-height:1.45;
-
     font-weight:800;
-
     display:-webkit-box;
-
     -webkit-line-clamp:4;
-
     -webkit-box-orient:vertical;
-
     overflow:hidden;
 }
 
 
-/* =========================================================
-   SIDEBAR
-========================================================= */
+/* SIDEBAR */
 
 .article-sidebar{
-
     display:flex;
-
     flex-direction:column;
-
     gap:18px;
 }
 
 .sidebar-box{
-
     background:#fff;
-
     border-radius:8px;
-
     padding:14px;
-
     border:1px solid #e5e7eb;
 }
 
 .sidebar-title{
-
     font-size:19px;
-
     line-height:1.3;
-
     font-weight:900;
-
     color:#111827;
-
     padding-bottom:9px;
-
     margin-bottom:5px;
-
     border-bottom:3px solid #e50914;
 }
 
 
-/* =========================================================
-   SIDEBAR ARTICLE
-========================================================= */
+/* SIDEBAR ARTICLE */
 
 .sidebar-item{
-
     display:flex;
-
     gap:10px;
-
     padding:10px 0;
-
     border-bottom:1px solid #e5e7eb;
-
     text-decoration:none;
-
     color:inherit;
 }
 
 .sidebar-item:last-child{
-
     border-bottom:none;
 }
 
 .sidebar-item img{
-
     width:100px;
-
     height:65px;
-
     object-fit:cover;
-
     border-radius:6px;
-
     flex-shrink:0;
 }
 
 .sidebar-item-title{
-
     font-size:14px;
-
     line-height:1.4;
-
     font-weight:700;
-
     color:#1f2937;
-
     display:-webkit-box;
-
     -webkit-line-clamp:3;
-
     -webkit-box-orient:vertical;
-
     overflow:hidden;
 }
 
 
-/* =========================================================
-   MOST READ
-   NO NUMBERS
-========================================================= */
+/* MOST READ */
 
 .most-read-item{
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:10px 0;
-
     border-bottom:1px solid #e5e7eb;
-
     text-decoration:none;
-
     color:inherit;
 }
 
 .most-read-item:last-child{
-
     border-bottom:none;
 }
 
 .most-read-item img{
-
     width:95px;
-
     height:65px;
-
     object-fit:cover;
-
     border-radius:6px;
-
     flex-shrink:0;
 }
 
 .most-read-title{
-
     font-size:14px;
-
     line-height:1.4;
-
     font-weight:700;
-
     color:#1f2937;
-
     display:-webkit-box;
-
     -webkit-line-clamp:3;
-
     -webkit-box-orient:vertical;
-
     overflow:hidden;
 }
 
 
-/* =========================================================
-   LOADING
-========================================================= */
+/* LOADING */
 
 .loading{
-
     grid-column:1 / -1;
-
     background:#fff;
-
     padding:25px;
-
     text-align:center;
-
     border-radius:8px;
-
     color:#666;
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .site-footer{
-
     background:#111827;
-
     color:#fff;
-
     margin-top:35px;
-
     padding:30px 0 15px;
 }
 
 .footer-inner{
-
     width:min(1400px,96%);
-
     margin:auto;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:40px;
 }
 
 .footer-column h3,
 .footer-contact h3{
-
     margin:0 0 12px;
-
     font-size:18px;
 }
 
 .footer-links{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:8px 15px;
 }
 
 .footer-links a{
-
     color:#d1d5db;
-
     font-size:14px;
 }
 
 .footer-links a:hover{
-
     color:#fff;
 }
 
 .footer-contact p{
-
     margin:5px 0;
-
     color:#d1d5db;
-
     font-size:14px;
 }
 
 .copyright{
-
     width:min(1400px,96%);
-
     margin:25px auto 0;
-
     padding-top:15px;
-
     border-top:1px solid #374151;
-
     text-align:center;
-
     color:#9ca3af;
-
     font-size:13px;
 }
 
 
-/* =========================================================
-   DARK MODE
-========================================================= */
+/* DARK MODE */
 
 body.dark-mode{
-
     background:#0b1120;
-
     color:#f9fafb;
 }
 
@@ -715,11 +449,8 @@ body.dark-mode .breaking,
 body.dark-mode .page-title,
 body.dark-mode .movie-card,
 body.dark-mode .sidebar-box{
-
     background:#111827;
-
     color:#f9fafb;
-
     border-color:#374151;
 }
 
@@ -731,252 +462,164 @@ body.dark-mode .movie-card-title,
 body.dark-mode .sidebar-title,
 body.dark-mode .sidebar-item-title,
 body.dark-mode .most-read-title{
-
     color:#f9fafb;
 }
 
 body.dark-mode .sidebar-item,
 body.dark-mode .most-read-item{
-
     border-color:#374151;
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* TABLET */
 
 @media(min-width:601px) and (max-width:1100px){
 
     .main-layout{
-
         grid-template-columns:1fr;
     }
 
     .movies-grid{
-
-        grid-template-columns:
-            repeat(4,minmax(0,1fr));
+        grid-template-columns:repeat(4,minmax(0,1fr));
     }
 
     .article-sidebar{
-
         display:grid;
-
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
-
+        grid-template-columns:repeat(2,minmax(0,1fr));
         align-items:start;
     }
 
 }
 
 
-/* =========================================================
-   MOBILE
-   3 COLUMNS
-========================================================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
     .header-inner{
-
         min-height:58px;
     }
 
     .logo{
-
         font-size:22px;
     }
 
     .home-btn{
-
         padding:6px 11px;
-
         font-size:13px;
     }
 
-
-    /* NAV */
-
     .nav-inner a{
-
         padding:9px 11px;
-
         font-size:12px;
     }
 
-
-    /* BREAKING */
-
     .breaking{
-
         margin-top:8px;
     }
 
     .breaking-title{
-
         padding:7px 10px;
-
         font-size:10px;
     }
 
     .breaking-text{
-
         font-size:12px;
-
         padding:7px 10px;
     }
 
-
-    /* PAGE */
-
     .page{
-
         width:94%;
-
         margin-top:10px;
     }
 
     .page-title{
-
         font-size:20px;
-
         padding:10px 12px;
     }
 
-
-    /* MAIN */
-
     .main-layout{
-
         display:block;
     }
 
-
-    /* ALL GRIDS = 3 */
-
     .movies-grid{
-
-        grid-template-columns:
-            repeat(3,minmax(0,1fr));
-
+        grid-template-columns:repeat(3,minmax(0,1fr));
         gap:7px;
     }
 
-
-    /* CARD */
-
     .movie-card{
-
         border-radius:5px;
     }
 
     .movie-card-content{
-
         padding:6px;
     }
 
     .movie-card-title{
-
         font-size:10px;
-
         line-height:1.35;
-
         -webkit-line-clamp:4;
     }
 
-
-    /* SIDEBAR */
-
     .article-sidebar{
-
         margin-top:22px;
-
         gap:12px;
     }
 
     .sidebar-box{
-
         padding:11px;
     }
 
     .sidebar-title{
-
         font-size:17px;
     }
 
     .sidebar-item img{
-
         width:90px;
-
         height:62px;
     }
 
     .sidebar-item-title{
-
         font-size:13px;
     }
 
-
-    /* MOST READ */
-
     .most-read-item img{
-
         width:90px;
-
         height:62px;
     }
 
     .most-read-title{
-
         font-size:13px;
     }
 
-
-    /* FOOTER */
-
     .footer-inner{
-
         grid-template-columns:1fr;
-
         gap:22px;
     }
 
     .footer-links{
-
         display:grid;
-
         grid-template-columns:1fr 1fr;
     }
 
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-   STILL 3 COLUMNS
-========================================================= */
+/* SMALL MOBILE */
 
 @media(max-width:380px){
 
     .movies-grid{
-
-        grid-template-columns:
-            repeat(3,minmax(0,1fr));
-
+        grid-template-columns:repeat(3,minmax(0,1fr));
         gap:5px;
     }
 
     .movie-card-content{
-
         padding:5px;
     }
 
     .movie-card-title{
-
         font-size:9px;
-
         line-height:1.3;
     }
 
@@ -990,24 +633,15 @@ body.dark-mode .most-read-item{
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="top-header">
 
     <div class="header-inner">
 
         <div class="logo">
-
             BS <span>360</span> NEWS
-
         </div>
 
-        <a
-            href="index.html"
-            class="home-btn"
-        >
+        <a href="index.html" class="home-btn">
             Home
         </a>
 
@@ -1015,10 +649,6 @@ body.dark-mode .most-read-item{
 
 </header>
 
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
 
 <nav class="nav-bar">
 
@@ -1028,10 +658,7 @@ body.dark-mode .most-read-item{
             Home
         </a>
 
-        <a
-            href="MOVIES.html"
-            class="active"
-        >
+        <a href="MOVIES.html" class="active">
             MOVIES
         </a>
 
@@ -1052,10 +679,6 @@ body.dark-mode .most-read-item{
 </nav>
 
 
-<!-- =====================================================
-     BREAKING NEWS
-===================================================== -->
-
 <div class="breaking">
 
     <div class="breaking-title">
@@ -1069,35 +692,87 @@ body.dark-mode .most-read-item{
 </div>
 
 
-<!-- =====================================================
-     MAIN PAGE
-===================================================== -->
-
 <main class="page">
-
 
     <div class="page-title">
         Movies News
     </div>
 
 
-    <!-- =================================================
-         LEFT ARTICLES + RIGHT SIDEBAR
-    ================================================== -->
-
     <div class="main-layout">
 
-
-        <!-- =============================================
-             LEFT SIDE
-        ============================================== -->
 
         <div class="movies-main">
 
 
-            <!-- =========================================
-                 MOVIES
-            ========================================== -->
+            <!-- =====================================================
+                 DIRECT MOVIE ARTICLES
+                 
+                 >>>>>> 2 ARTICLES IKKADA PETTALI <<<<<<
+                 
+                 Article 1
+                 Article 2
+            ====================================================== -->
+
+            <div id="localMoviesSource" hidden>
+
+
+                <!-- =========================
+                     MOVIE ARTICLE 1
+                ========================== -->
+
+                <article
+                    class="news-item post"
+                    data-category="movies"
+                    data-url="movie1.html"
+                >
+
+                    <img
+                        src="movie1.jpg"
+                        alt="మూవీ వార్త టైటిల్ 1"
+                    >
+
+                    <div class="news-content">
+
+                        <p>
+                            మూవీ వార్త టైటిల్ 1 ఇక్కడ రాయండి
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     MOVIE ARTICLE 2
+                ========================== -->
+
+                <article
+                    class="news-item post"
+                    data-category="movies"
+                    data-url="movie2.html"
+                >
+
+                    <img
+                        src="movie2.jpg"
+                        alt="మూవీ వార్త టైటిల్ 2"
+                    >
+
+                    <div class="news-content">
+
+                        <p>
+                            మూవీ వార్త టైటిల్ 2 ఇక్కడ రాయండి
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- MOVIES -->
 
             <section class="section">
 
@@ -1108,7 +783,6 @@ body.dark-mode .most-read-item{
                     </h2>
 
                 </div>
-
 
                 <div
                     id="moviesGrid"
@@ -1122,7 +796,11 @@ body.dark-mode .most-read-item{
                 </div>
 
             </section>
- <section class="section">
+
+
+            <!-- SPORTS -->
+
+            <section class="section">
 
                 <div class="section-head">
 
@@ -1131,66 +809,6 @@ body.dark-mode .most-read-item{
                     </h2>
 
                 </div>
-
-
-                <!-- =================================================
-                     SPORTS POSTS START
-                     
-                     >>>>>> NEW SPORTS POST CODE IKKADA <<<<<<
-                ================================================== -->
-
-                <div
-                    id="sportsGrid"
-                    class="movies-grid"
-                >
-
-
-                    <!-- =================================================
-                         SPORTS POST 1
-                    ================================================== -->
-
-                    <a
-                        href="bhumrha.html"
-                        class="movie-card"
-                    >
-
-                        <img
-                            src="bhumrha.jpg"
-                            alt="బుమ్రా ఎంపికపై చర్చ"
-                            loading="lazy"
-                        >
-
-                        <div class="movie-card-content">
-
-                            <h3 class="movie-card-title">
-
-                                బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్న
-
-                            </h3>
-
-                        </div>
-
-                    </a>
-
-</div>
-
-            </section>
-
-
-            <!-- =========================================
-                 SPORTS
-            ========================================== -->
-
-            <section class="section">
-
-                <div class="section-head">
-
-                    <h2>
-                        <span>SPORTS</span> News
-                    </h2>
-
-                </div>
-
 
                 <div
                     id="sportsGrid"
@@ -1206,9 +824,7 @@ body.dark-mode .most-read-item{
             </section>
 
 
-            <!-- =========================================
-                 AP & TS
-            ========================================== -->
+            <!-- AP & TS -->
 
             <section class="section">
 
@@ -1219,7 +835,6 @@ body.dark-mode .most-read-item{
                     </h2>
 
                 </div>
-
 
                 <div
                     id="aptsGrid"
@@ -1235,9 +850,7 @@ body.dark-mode .most-read-item{
             </section>
 
 
-            <!-- =========================================
-                 BUSINESS
-            ========================================== -->
+            <!-- BUSINESS -->
 
             <section class="section">
 
@@ -1248,7 +861,6 @@ body.dark-mode .most-read-item{
                     </h2>
 
                 </div>
-
 
                 <div
                     id="businessGrid"
@@ -1267,16 +879,10 @@ body.dark-mode .most-read-item{
         </div>
 
 
-        <!-- =============================================
-             RIGHT SIDEBAR
-        ============================================== -->
+        <!-- SIDEBAR -->
 
         <aside class="article-sidebar">
 
-
-            <!-- =========================================
-                 MOST READ
-            ========================================== -->
 
             <div class="sidebar-box">
 
@@ -1289,10 +895,6 @@ body.dark-mode .most-read-item{
             </div>
 
 
-            <!-- =========================================
-                 TRENDING
-            ========================================== -->
-
             <div class="sidebar-box">
 
                 <div class="sidebar-title">
@@ -1303,10 +905,6 @@ body.dark-mode .most-read-item{
 
             </div>
 
-
-            <!-- =========================================
-                 LATEST
-            ========================================== -->
 
             <div class="sidebar-box">
 
@@ -1326,10 +924,6 @@ body.dark-mode .most-read-item{
 
 </main>
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer class="site-footer">
 
@@ -1393,18 +987,11 @@ body.dark-mode .most-read-item{
 
 
     <div class="copyright">
-
         © 2026 BS 360 NEWS. All Rights Reserved.
-
     </div>
 
 </footer>
 
-
-<!-- =====================================================
-     MOVIES PAGE JAVASCRIPT
-     HOME PAGE BASED
-===================================================== -->
 
 <script>
 
@@ -1427,33 +1014,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     /* =====================================================
-       GET ARTICLES FROM HOME SOURCE
+       GET ARTICLES
     ===================================================== */
 
-    function getArticles(home,sourceId){
-
-        const source =
-            home.getElementById(sourceId);
-
+    function getArticles(source){
 
         if(!source){
-
-            console.warn(
-                "BS360 Source not found:",
-                sourceId
-            );
-
             return [];
-
         }
 
-
         return Array.from(
-
-            source.querySelectorAll(
-                ".news-item.post"
-            )
-
+            source.querySelectorAll(".news-item.post")
         )
 
         .map(function(item){
@@ -1461,18 +1032,10 @@ document.addEventListener("DOMContentLoaded", function(){
             const image =
                 item.querySelector("img");
 
-
             const title =
-                item.querySelector(
-                    ".news-content p"
-                ) ||
-
-                item.querySelector(
-                    ".news-content h3"
-                ) ||
-
+                item.querySelector(".news-content p") ||
+                item.querySelector(".news-content h3") ||
                 item.querySelector("p");
-
 
             return {
 
@@ -1483,43 +1046,29 @@ document.addEventListener("DOMContentLoaded", function(){
                             : ""
                     ),
 
-
                 image:
                     image
-                        ? image.getAttribute(
-                            "src"
-                        ) || ""
+                        ? image.getAttribute("src") || ""
                         : "",
-
 
                 alt:
                     image
-                        ? image.getAttribute(
-                            "alt"
-                        ) || ""
+                        ? image.getAttribute("alt") || ""
                         : "",
 
-
                 url:
-                    item.getAttribute(
-                        "data-url"
-                    ) || ""
+                    item.getAttribute("data-url") || ""
 
             };
 
         })
 
-
         .filter(function(article){
 
             return (
-
                 article.title &&
-
                 article.image &&
-
                 article.url
-
             );
 
         });
@@ -1549,9 +1098,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 <div class="movie-card-content">
 
                     <h3 class="movie-card-title">
-
                         ${article.title}
-
                     </h3>
 
                 </div>
@@ -1564,7 +1111,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     /* =====================================================
-       SIDEBAR CARD
+       SIDEBAR
     ===================================================== */
 
     function sidebarHTML(article){
@@ -1583,9 +1130,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 >
 
                 <div class="sidebar-item-title">
-
                     ${article.title}
-
                 </div>
 
             </a>
@@ -1597,7 +1142,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     /* =====================================================
        MOST READ
-       NO NUMBER
     ===================================================== */
 
     function mostReadHTML(article){
@@ -1616,9 +1160,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 >
 
                 <div class="most-read-title">
-
                     ${article.title}
-
                 </div>
 
             </a>
@@ -1637,28 +1179,22 @@ document.addEventListener("DOMContentLoaded", function(){
         const element =
             document.getElementById(id);
 
-
         if(element){
-
             element.innerHTML = html;
-
         }
 
     }
 
 
     /* =====================================================
-       LOAD HOME PAGE
+       LOAD INDEX
     ===================================================== */
 
     fetch(
-
         "index.html?v=" + Date.now(),
-
         {
             cache:"no-store"
         }
-
     )
 
     .then(function(response){
@@ -1681,7 +1217,6 @@ document.addEventListener("DOMContentLoaded", function(){
         const parser =
             new DOMParser();
 
-
         const home =
             parser.parseFromString(
                 html,
@@ -1693,52 +1228,92 @@ document.addEventListener("DOMContentLoaded", function(){
            HOME SOURCES
         ================================================= */
 
-        const movies =
+        const homeMovies =
             getArticles(
-                home,
-                "entertainmentSource"
+                home.getElementById(
+                    "entertainmentSource"
+                )
             );
+
+
+        const localMovies =
+            getArticles(
+                document.getElementById(
+                    "localMoviesSource"
+                )
+            );
+
+
+        /* =================================================
+           LOCAL MOVIES FIRST
+           THEN HOME MOVIES
+           
+           DUPLICATE URL REMOVE
+        ================================================= */
+
+        const movies = [
+
+            ...localMovies,
+            ...homeMovies
+
+        ]
+
+        .filter(function(article,index,array){
+
+            return array.findIndex(function(item){
+
+                return item.url === article.url;
+
+            }) === index;
+
+        });
 
 
         const sports =
             getArticles(
-                home,
-                "sportsSource"
+                home.getElementById(
+                    "sportsSource"
+                )
             );
 
 
         const apts =
             getArticles(
-                home,
-                "aptsSource"
+                home.getElementById(
+                    "aptsSource"
+                )
             );
 
 
         const business =
             getArticles(
-                home,
-                "businessSource"
+                home.getElementById(
+                    "businessSource"
+                )
             );
 
 
         const latest =
             getArticles(
-                home,
-                "latestNewsSource"
+                home.getElementById(
+                    "latestNewsSource"
+                )
             );
 
 
         const trending =
             getArticles(
-                home,
-                "trendingSource"
+                home.getElementById(
+                    "trendingSource"
+                )
             );
 
 
         const mostRead =
             getArticles(
-                home,
-                "mostReadSource"
+                home.getElementById(
+                    "mostReadSource"
+                )
             );
 
 
@@ -1747,13 +1322,10 @@ document.addEventListener("DOMContentLoaded", function(){
         ================================================= */
 
         show(
-
             "moviesGrid",
-
             movies
                 .map(cardHTML)
                 .join("")
-
         );
 
 
@@ -1762,13 +1334,10 @@ document.addEventListener("DOMContentLoaded", function(){
         ================================================= */
 
         show(
-
             "sportsGrid",
-
             sports
                 .map(cardHTML)
                 .join("")
-
         );
 
 
@@ -1777,13 +1346,10 @@ document.addEventListener("DOMContentLoaded", function(){
         ================================================= */
 
         show(
-
             "aptsGrid",
-
             apts
                 .map(cardHTML)
                 .join("")
-
         );
 
 
@@ -1792,13 +1358,10 @@ document.addEventListener("DOMContentLoaded", function(){
         ================================================= */
 
         show(
-
             "businessGrid",
-
             business
                 .map(cardHTML)
                 .join("")
-
         );
 
 
@@ -1811,17 +1374,8 @@ document.addEventListener("DOMContentLoaded", function(){
             "mostReadSidebar",
 
             mostRead
-
                 .slice(0,8)
-
-                .map(function(article){
-
-                    return mostReadHTML(
-                        article
-                    );
-
-                })
-
+                .map(mostReadHTML)
                 .join("")
 
         );
@@ -1836,11 +1390,8 @@ document.addEventListener("DOMContentLoaded", function(){
             "trendingSidebar",
 
             trending
-
                 .slice(0,8)
-
                 .map(sidebarHTML)
-
                 .join("")
 
         );
@@ -1855,11 +1406,8 @@ document.addEventListener("DOMContentLoaded", function(){
             "latestSidebar",
 
             latest
-
                 .slice(0,8)
-
                 .map(sidebarHTML)
-
                 .join("")
 
         );
@@ -1875,6 +1423,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
         console.log(
             "BS360 MOVIES PAGE LOADED"
+        );
+
+        console.log(
+            "Local Movies:",
+            localMovies.length
         );
 
         console.log(
@@ -1928,54 +1481,42 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
         show(
-
             "moviesGrid",
-
             `
                 <div class="loading">
                     Movies News load కాలేదు.
                 </div>
             `
-
         );
 
 
         show(
-
             "sportsGrid",
-
             `
                 <div class="loading">
                     Sports News load కాలేదు.
                 </div>
             `
-
         );
 
 
         show(
-
             "aptsGrid",
-
             `
                 <div class="loading">
                     AP & TS News load కాలేదు.
                 </div>
             `
-
         );
 
 
         show(
-
             "businessGrid",
-
             `
                 <div class="loading">
                     Business News load కాలేదు.
                 </div>
             `
-
         );
 
     });
