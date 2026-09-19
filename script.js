@@ -1,14 +1,17 @@
 /* =========================================================
    BS 360 NEWS - HOMEPAGE JAVASCRIPT
-   SEPARATE ARTICLE SOURCES VERSION
+   FIXED CATEGORY + EXACT ARTICLE COUNTS
 
-   Latest      -> #latestNewsSource
-   Trending    -> #trendingSource
-   Most Read   -> #mostReadSource
-   AP & TS     -> #aptsSource
-   Sports      -> #sportsSource
+   SEPARATE ARTICLE SOURCES
+   Latest       -> #latestNewsSource
+   Trending     -> #trendingSource
+   Most Read    -> #mostReadSource
+   AP & TS      -> #aptsSource
+   Sports       -> #sportsSource
    Entertainment -> #entertainmentSource
-   Business    -> #businessSource
+   Business     -> #businessSource
+
+   OLD STRUCTURE + OLD STYLE PRESERVED
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -23,401 +26,503 @@ document.addEventListener("DOMContentLoaded", function () {
     const $ = (selector, parent = document) =>
         parent.querySelector(selector);
 
-
     const $$ = (selector, parent = document) =>
         Array.from(parent.querySelectorAll(selector));
 
 
     /* =====================================================
-       NORMALIZE URL
+       MAIN OLD SOURCE
+       OLD HTML COMPATIBILITY
     ===================================================== */
 
-    function normalizeUrl(url) {
-
-        return String(url || "")
-            .trim()
-            .replace(/^\.?\//, "")
-            .split("?")[0]
-            .split("#")[0]
-            .toLowerCase();
-
-    }
+    const source =
+        $("#legacyNewsSource");
 
 
     /* =====================================================
-       READ ARTICLES FROM ONE SEPARATE SOURCE
+       READ ARTICLES FROM SOURCE
     ===================================================== */
 
-    function readSource(sourceId) {
+    function readArticlesFromSource(sourceElement) {
 
-        const source = document.getElementById(sourceId);
-
-        if (!source) {
-
-            console.warn(
-                "BS360 SOURCE NOT FOUND:",
-                sourceId
-            );
-
+        if (!sourceElement) {
             return [];
-
         }
 
 
-        const articles = $$(
-            ".news-item.post",
-            source
-        );
+        return $$(".news-item.post", sourceElement)
+            .map(item => {
 
+                const image =
+                    $("img", item);
 
-        const seen = new Set();
-
-
-        return articles
-            .map(function (item) {
-
-                const image = $("img", item);
-
-                const title = $(".news-content p", item);
-
-                const url =
-                    item.getAttribute("data-url") || "";
+                const title =
+                    $(".news-content p", item);
 
 
                 return {
 
-                    url: String(url).trim(),
+                    category:
+                        (item.dataset.category || "")
+                            .trim()
+                            .toLowerCase(),
 
-                    image: image
-                        ? String(
-                            image.getAttribute("src") || ""
-                          ).trim()
-                        : "",
+                    url:
+                        item.dataset.url || "#",
 
-                    alt: image
-                        ? String(
-                            image.getAttribute("alt") || ""
-                          ).trim()
-                        : "",
+                    image:
+                        image
+                            ? image.getAttribute("src")
+                            : "",
 
-                    title: title
-                        ? String(
-                            title.textContent || ""
-                          ).trim()
-                        : ""
+                    alt:
+                        image
+                            ? (
+                                image.getAttribute("alt") ||
+                                ""
+                            )
+                            : "",
+
+                    title:
+                        title
+                            ? title.textContent.trim()
+                            : ""
 
                 };
 
             })
+            .filter(article =>
+                article.title &&
+                article.image
+            );
 
-            .filter(function (article) {
+    }
 
-                return (
-                    article.url &&
-                    article.title
+
+    /* =====================================================
+       READ SEPARATE SOURCE
+    ===================================================== */
+
+    function readSeparateSource(id) {
+
+        const separateSource =
+            document.getElementById(id);
+
+
+        if (!separateSource) {
+            return [];
+        }
+
+
+        return readArticlesFromSource(
+            separateSource
+        );
+
+    }
+
+
+    /* =====================================================
+       OLD LEGACY ARTICLES
+    ===================================================== */
+
+    const articles =
+        source
+            ? readArticlesFromSource(source)
+            : [];
+
+
+    console.log(
+        "BS360 OLD ARTICLES LOADED:",
+        articles.length
+    );
+
+
+    /* =====================================================
+       CATEGORY NORMALIZER
+    ===================================================== */
+
+    function normalizeCategory(category) {
+
+        const value =
+            (category || "")
+                .trim()
+                .toLowerCase()
+                .replace(/\s+/g, "");
+
+
+        if (
+            value === "ap" ||
+            value === "ts" ||
+            value === "apts" ||
+            value === "ap/ts" ||
+            value === "ap-ts" ||
+            value === "ap&ts" ||
+            value === "apandts"
+        ) {
+
+            return "apts";
+
+        }
+
+
+        if (
+            value === "sports" ||
+            value === "sport"
+        ) {
+
+            return "sports";
+
+        }
+
+
+        if (
+            value === "cinema" ||
+            value === "movies" ||
+            value === "movie" ||
+            value === "entertainment"
+        ) {
+
+            return "cinema";
+
+        }
+
+
+        if (
+            value === "business" ||
+            value === "businessnews"
+        ) {
+
+            return "business";
+
+        }
+
+
+        if (
+            value === "bigboss10" ||
+            value === "bigboss"
+        ) {
+
+            return "bigboss10";
+
+        }
+
+
+        return value;
+    }
+
+
+    /* =====================================================
+       UNIQUE ARTICLES
+    ===================================================== */
+
+    function uniqueArticles(data) {
+
+        const usedUrls =
+            new Set();
+
+
+        return data.filter(article => {
+
+            const url =
+                String(article.url || "")
+                    .trim()
+                    .toLowerCase();
+
+
+            if (usedUrls.has(url)) {
+                return false;
+            }
+
+
+            usedUrls.add(url);
+
+            return true;
+
+        });
+
+    }
+
+
+    /* =====================================================
+       GET CATEGORY ARTICLES
+    ===================================================== */
+
+    function getCategoryArticles(category) {
+
+        const used =
+            new Set();
+
+
+        return articles.filter(article => {
+
+            const normalized =
+                normalizeCategory(
+                    article.category
                 );
 
-            })
 
-            .filter(function (article) {
+            if (
+                normalized !== category
+            ) {
 
-                const key =
-                    normalizeUrl(article.url);
+                return false;
 
-
-                if (seen.has(key)) {
-                    return false;
-                }
+            }
 
 
-                seen.add(key);
+            if (
+                used.has(article.url)
+            ) {
 
-                return true;
+                return false;
 
-            });
+            }
+
+
+            used.add(article.url);
+
+            return true;
+
+        });
 
     }
 
 
     /* =====================================================
-       SEPARATE SOURCES
+       CATEGORY DATA
+       
+       OLD STRUCTURE PRESERVED
     ===================================================== */
 
-    const latestArticles =
-        readSource("latestNewsSource");
+    let apTsArticles =
+        getCategoryArticles("apts");
 
 
-    const trendingArticles =
-        readSource("trendingSource");
+    let sportsArticles =
+        getCategoryArticles("sports");
 
 
-    const mostReadArticles =
-        readSource("mostReadSource");
+    let entertainmentArticles =
+        getCategoryArticles("cinema");
 
 
-    const apTsArticles =
-        readSource("aptsSource");
-
-
-    const sportsArticles =
-        readSource("sportsSource");
-
-
-    const entertainmentArticles =
-        readSource("entertainmentSource");
-
-
-    const businessArticles =
-        readSource("businessSource");
+    let businessArticles =
+        getCategoryArticles("business");
 
 
     /* =====================================================
-       CARD HELPERS
+       SEPARATE CATEGORY SOURCES
+       
+       IF THEY EXIST, THEY WILL BE USED.
+       
+       OTHERWISE OLD LEGACY CATEGORY ARTICLES CONTINUE.
     ===================================================== */
 
-    function imageHTML(article) {
+    const separateApTs =
+        readSeparateSource("aptsSource");
 
-        return `
-            <img
-                src="${article.image}"
-                alt="${article.alt || article.title}"
-                loading="lazy"
-            >
-        `;
+
+    const separateSports =
+        readSeparateSource("sportsSource");
+
+
+    const separateEntertainment =
+        readSeparateSource(
+            "entertainmentSource"
+        );
+
+
+    const separateBusiness =
+        readSeparateSource(
+            "businessSource"
+        );
+
+
+    if (separateApTs.length) {
+
+        apTsArticles =
+            uniqueArticles(
+                separateApTs
+            );
 
     }
+
+
+    if (separateSports.length) {
+
+        sportsArticles =
+            uniqueArticles(
+                separateSports
+            );
+
+    }
+
+
+    if (separateEntertainment.length) {
+
+        entertainmentArticles =
+            uniqueArticles(
+                separateEntertainment
+            );
+
+    }
+
+
+    if (separateBusiness.length) {
+
+        businessArticles =
+            uniqueArticles(
+                separateBusiness
+            );
+
+    }
+
+
+    /* =====================================================
+       NON BIGBOSS ARTICLES
+       
+       OLD STRUCTURE PRESERVED
+    ===================================================== */
+
+    const normalArticles =
+        articles.filter(article =>
+            normalizeCategory(
+                article.category
+            ) !== "bigboss10"
+        );
 
 
     /* =====================================================
        LATEST NEWS
+       
+       IMPORTANT:
+       Latest uses ONLY #latestNewsSource
+       
+       If source does not exist,
+       OLD legacy behavior is used.
     ===================================================== */
 
-    function renderLatestNews() {
-
-        const target =
-            document.getElementById("topStory");
+    const latestTarget =
+        $("#topStory");
 
 
-        if (!target) {
-            return;
-        }
+    const separateLatest =
+        readSeparateSource(
+            "latestNewsSource"
+        );
 
 
-        const articles =
-            latestArticles.slice(0, 6);
+    function createLatestCard(article) {
 
+        return `
+            <a
+                href="${article.url}"
+                class="latest-news-card"
+            >
 
-        if (!articles.length) {
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
 
-            target.innerHTML = "";
+                <h3>
+                    ${article.title}
+                </h3>
 
-            return;
-
-        }
-
-
-        target.innerHTML = `
-
-            <div class="latest-news-grid">
-
-                ${articles.map(function (article) {
-
-                    return `
-
-                        <a
-                            href="${article.url}"
-                            class="latest-news-card"
-                        >
-
-                            ${imageHTML(article)}
-
-                            <div class="card-content">
-
-                                <h3>
-                                    ${article.title}
-                                </h3>
-
-                            </div>
-
-                        </a>
-
-                    `;
-
-                }).join("")}
-
-            </div>
-
+            </a>
         `;
 
     }
 
 
-    /* =====================================================
-       LATEST SIDEBAR
-    ===================================================== */
+    function renderLatestNews() {
 
-    function renderLatestSidebar() {
-
-        const target =
-            document.getElementById("latestSidebar");
-
-
-        if (!target) {
+        if (!latestTarget) {
             return;
         }
 
 
-        const articles =
-            latestArticles.slice(0, 5);
+        /*
+         * Separate Latest source exists
+         * -> ONLY those articles
+         */
+
+        let latestArticles;
 
 
-        target.innerHTML =
-            articles.map(function (article) {
+        if (separateLatest.length) {
 
-                return `
+            latestArticles =
+                uniqueArticles(
+                    separateLatest
+                ).slice(0, 6);
 
-                    <a
-                        href="${article.url}"
-                        class="sidebar-item"
-                    >
+        }
 
-                        ${imageHTML(article)}
+        /*
+         * Separate Latest source doesn't exist
+         * -> OLD system continues
+         */
 
-                        <span>
-                            ${article.title}
-                        </span>
+        else {
 
-                    </a>
+            latestArticles =
+                uniqueArticles(
+                    normalArticles
+                ).slice(0, 6);
 
-                `;
+        }
 
-            }).join("");
+
+        if (!latestArticles.length) {
+
+            latestTarget.innerHTML = `
+                <p class="latest-empty">
+                    తాజా వార్తలు అందుబాటులో లేవు
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        latestTarget.innerHTML = `
+            <div class="latest-news-grid">
+
+                ${latestArticles
+                    .map(createLatestCard)
+                    .join("")}
+
+            </div>
+        `;
 
     }
 
 
-    /* =====================================================
-       TRENDING
-       SEPARATE SOURCE ONLY
-    ===================================================== */
-
-    function renderTrending() {
-
-        const target =
-            document.getElementById("trendingGrid");
-
-
-        if (!target) {
-            return;
-        }
-
-
-        const articles =
-            trendingArticles.slice(0, 12);
-
-
-        if (!articles.length) {
-
-            target.innerHTML = "";
-
-            return;
-
-        }
-
-
-        target.innerHTML =
-            articles.map(function (article) {
-
-                return `
-
-                    <a
-                        href="${article.url}"
-                        class="trending-card"
-                    >
-
-                        ${imageHTML(article)}
-
-                        <h3>
-                            ${article.title}
-                        </h3>
-
-                    </a>
-
-                `;
-
-            }).join("");
-
-    }
+    renderLatestNews();
 
 
     /* =====================================================
-       MOST READ
-       SEPARATE SOURCE ONLY
+       CATEGORY BIG CARD
+       
+       SAME OLD DESIGN
     ===================================================== */
 
-    function renderMostRead() {
-
-        const target =
-            document.getElementById("mostReadList");
-
-
-        if (!target) {
-            return;
-        }
-
-
-        const articles =
-            mostReadArticles.slice(0, 6);
-
-
-        if (!articles.length) {
-
-            target.innerHTML = "";
-
-            return;
-
-        }
-
-
-        target.innerHTML =
-            articles.map(function (article) {
-
-                return `
-
-                    <a
-                        href="${article.url}"
-                        class="trending-card"
-                    >
-
-                        ${imageHTML(article)}
-
-                        <h3>
-                            ${article.title}
-                        </h3>
-
-                    </a>
-
-                `;
-
-            }).join("");
-
-    }
-
-
-    /* =====================================================
-       CATEGORY FEATURE CARD
-    ===================================================== */
-
-    function categoryFeature(article) {
+    function createCategoryFeature(article) {
 
         return `
-
             <a
                 href="${article.url}"
                 class="category-feature"
             >
 
-                ${imageHTML(article)}
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
 
                 <div class="category-feature-content">
 
@@ -428,7 +533,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
             </a>
-
         `;
 
     }
@@ -436,20 +540,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        CATEGORY SMALL CARD
+       
+       SAME OLD DESIGN
     ===================================================== */
 
-    function categorySmall(article) {
+    function createCategoryCard(article) {
 
         return `
-
             <a
                 href="${article.url}"
-                class="category-small-card"
+                class="category-card"
             >
 
-                ${imageHTML(article)}
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
 
-                <div class="category-small-content">
+                <div class="category-card-content">
 
                     <h3>
                         ${article.title}
@@ -458,373 +567,328 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
             </a>
-
         `;
 
     }
 
 
     /* =====================================================
-       RENDER MAIN CATEGORY
-       1 BIG + UP TO 4 SMALL
+       CATEGORY RENDER
+       
+       EXACTLY 5
+       1 BIG + 4 SMALL
+
+       SAME OLD STRUCTURE
     ===================================================== */
 
-    function renderCategory(targetId, articles) {
-
-        const target =
-            document.getElementById(targetId);
-
+    function renderCategory(
+        target,
+        data
+    ) {
 
         if (!target) {
             return;
         }
 
 
-        const list =
-            articles.slice(0, 5);
+        const categoryArticles =
+            uniqueArticles(data)
+                .slice(0, 5);
 
 
-        if (!list.length) {
+        target.innerHTML = "";
 
-            target.innerHTML = "";
+
+        if (!categoryArticles.length) {
+
+            target.innerHTML = `
+                <p class="category-empty">
+                    వార్తలు అందుబాటులో లేవు
+                </p>
+            `;
 
             return;
-
         }
 
 
-        const big =
-            list[0];
+        const wrapper =
+            document.createElement(
+                "div"
+            );
 
 
-        const small =
-            list.slice(1, 5);
+        wrapper.className =
+            "category-news-layout";
 
 
-        target.innerHTML = `
+        /* =================================================
+           BIG ARTICLE
+        ================================================= */
 
-            <div class="category-layout">
+        wrapper.insertAdjacentHTML(
+            "beforeend",
+            createCategoryFeature(
+                categoryArticles[0]
+            )
+        );
 
-                <div class="category-feature-wrap">
 
-                    ${categoryFeature(big)}
+        /* =================================================
+           4 SMALL ARTICLES
+        ================================================= */
 
-                </div>
+        categoryArticles
+            .slice(1, 5)
+            .forEach(article => {
 
-                <div class="category-small-grid">
+                wrapper.insertAdjacentHTML(
+                    "beforeend",
+                    createCategoryCard(
+                        article
+                    )
+                );
 
-                    ${small.map(function (article) {
+            });
 
-                        return categorySmall(article);
 
-                    }).join("")}
-
-                </div>
-
-            </div>
-
-        `;
+        target.appendChild(wrapper);
 
     }
 
 
     /* =====================================================
        AP & TS
-       ONLY APTS SOURCE
+       ONLY AP & TS ARTICLES
     ===================================================== */
 
-    function renderApTs() {
-
-        renderCategory(
-            "sliderTrack",
-            apTsArticles
-        );
-
-    }
+    renderCategory(
+        $("#sliderTrack"),
+        apTsArticles
+    );
 
 
     /* =====================================================
        SPORTS
-       ONLY SPORTS SOURCE
+       ONLY SPORTS ARTICLES
     ===================================================== */
 
-    function renderSports() {
-
-        renderCategory(
-            "sportsGrid",
-            sportsArticles
-        );
-
-    }
+    renderCategory(
+        $("#sportsGrid"),
+        sportsArticles
+    );
 
 
     /* =====================================================
        ENTERTAINMENT
-       ONLY ENTERTAINMENT SOURCE
+       ONLY ENTERTAINMENT ARTICLES
     ===================================================== */
 
-    function renderEntertainment() {
-
-        renderCategory(
-            "cinemaGrid",
-            entertainmentArticles
-        );
-
-    }
+    renderCategory(
+        $("#cinemaGrid"),
+        entertainmentArticles
+    );
 
 
     /* =====================================================
        BUSINESS
-       ONLY BUSINESS SOURCE
+       ONLY BUSINESS ARTICLES
     ===================================================== */
 
-    function renderBusiness() {
-
-        renderCategory(
-            "businessGrid",
-            businessArticles
-        );
-
-    }
+    renderCategory(
+        $("#businessGrid"),
+        businessArticles
+    );
 
 
     /* =====================================================
        AFTER MOST READ
        
-       These also use ONLY their respective category source.
+       EXISTING STRUCTURE PRESERVED
     ===================================================== */
 
-    function renderAfterGrid(
-        targetId,
-        articles
+    function createThreeColumnCard(
+        article
     ) {
 
-        const target =
-            document.getElementById(targetId);
+        return `
+            <a
+                href="${article.url}"
+                class="three-column-news-card"
+            >
 
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <h3>
+                    ${article.title}
+                </h3>
+
+            </a>
+        `;
+
+    }
+
+
+    function renderThreeColumnGrid(
+        target,
+        data
+    ) {
 
         if (!target) {
             return;
         }
 
 
-        const list =
-            articles.slice(0, 9);
-
-
-        if (!list.length) {
-
-            target.innerHTML = "";
-
-            return;
-
-        }
+        const finalData =
+            uniqueArticles(data)
+                .slice(0, 9);
 
 
         target.innerHTML =
-            list.map(function (article) {
+            finalData
+                .map(
+                    createThreeColumnCard
+                )
+                .join("");
 
-                return `
+    }
 
-                    <a
-                        href="${article.url}"
-                        class="news-card"
-                    >
 
-                        ${imageHTML(article)}
+    renderThreeColumnGrid(
+        $("#afterApTsGrid"),
+        apTsArticles
+    );
 
-                        <div class="news-card-content">
+
+    renderThreeColumnGrid(
+        $("#afterSportsGrid"),
+        sportsArticles
+    );
+
+
+    renderThreeColumnGrid(
+        $("#afterEntertainmentGrid"),
+        entertainmentArticles
+    );
+
+
+    renderThreeColumnGrid(
+        $("#afterBusinessGrid"),
+        businessArticles
+    );
+
+
+    /* =====================================================
+       TRENDING NEWS
+       
+       IMPORTANT:
+       ONLY #trendingSource
+
+       If separate source does NOT exist,
+       EXISTING HTML CARDS ARE PRESERVED.
+
+       JS WILL NOT MIX LATEST ARTICLES HERE.
+    ===================================================== */
+
+    const trendingTarget =
+        $("#trendingGrid");
+
+
+    const separateTrending =
+        readSeparateSource(
+            "trendingSource"
+        );
+
+
+    if (
+        trendingTarget &&
+        separateTrending.length
+    ) {
+
+        const trendingArticles =
+            uniqueArticles(
+                separateTrending
+            ).slice(0, 12);
+
+
+        trendingTarget.innerHTML =
+            trendingArticles
+                .map(article => {
+
+                    return `
+                        <a
+                            href="${article.url}"
+                            class="trending-card"
+                        >
+
+                            <img
+                                src="${article.image}"
+                                alt="${article.alt || article.title}"
+                                loading="lazy"
+                            >
 
                             <h3>
                                 ${article.title}
                             </h3>
 
-                        </div>
+                        </a>
+                    `;
 
-                    </a>
-
-                `;
-
-            }).join("");
+                })
+                .join("");
 
     }
 
 
     /* =====================================================
-       RENDER AFTER CATEGORY SECTIONS
-    ===================================================== */
-
-    function renderAfterCategories() {
-
-        renderAfterGrid(
-            "afterApTsGrid",
-            apTsArticles
-        );
-
-
-        renderAfterGrid(
-            "afterSportsGrid",
-            sportsArticles
-        );
-
-
-        renderAfterGrid(
-            "afterEntertainmentGrid",
-            entertainmentArticles
-        );
-
-
-        renderAfterGrid(
-            "afterBusinessGrid",
-            businessArticles
-        );
-
-    }
-
-
-    /* =====================================================
-       RENDER EVERYTHING
-    ===================================================== */
-
-    renderLatestNews();
-
-    renderLatestSidebar();
-
-    renderApTs();
-
-    renderSports();
-
-    renderMostRead();
-
-    renderEntertainment();
-
-    renderBusiness();
-
-    renderTrending();
-
-    renderAfterCategories();
-
-
-    /* =====================================================
-       SEARCH
+       MOST READ
        
-       SEARCHES ALL SEPARATE SOURCES
-       WITHOUT MIXING SECTION DISPLAY
+       IMPORTANT:
+       ONLY #mostReadSource
+
+       If separate source does NOT exist,
+       EXISTING HTML CARDS ARE PRESERVED.
+
+       JS WILL NOT MIX LATEST ARTICLES HERE.
     ===================================================== */
 
-    const searchInput =
-        document.getElementById("searchInput");
+    const mostReadTarget =
+        $("#mostReadList");
 
 
-    const searchBox =
-        document.getElementById("searchBox");
+    const separateMostRead =
+        readSeparateSource(
+            "mostReadSource"
+        );
 
 
-    function getAllSearchArticles() {
+    if (
+        mostReadTarget &&
+        separateMostRead.length
+    ) {
 
-        return [
-
-            ...latestArticles,
-
-            ...trendingArticles,
-
-            ...mostReadArticles,
-
-            ...apTsArticles,
-
-            ...sportsArticles,
-
-            ...entertainmentArticles,
-
-            ...businessArticles
-
-        ];
-
-    }
+        const mostReadArticles =
+            uniqueArticles(
+                separateMostRead
+            ).slice(0, 6);
 
 
-    function searchNews() {
-
-        if (!searchInput) {
-            return;
-        }
-
-
-        const query =
-            String(searchInput.value || "")
-                .trim()
-                .toLowerCase();
-
-
-        if (!query) {
-            return;
-        }
-
-
-        const all =
-            getAllSearchArticles();
-
-
-        const seen =
-            new Set();
-
-
-        const results =
-            all.filter(function (article) {
-
-                const key =
-                    normalizeUrl(article.url);
-
-
-                if (seen.has(key)) {
-                    return false;
-                }
-
-
-                if (
-                    !article.title
-                        .toLowerCase()
-                        .includes(query)
-                ) {
-
-                    return false;
-
-                }
-
-
-                seen.add(key);
-
-                return true;
-
-            });
-
-
-        /*
-         * Search results page / popup
-         * existing website behavior can use this.
-         */
-
-        const oldResults =
-            document.getElementById(
-                "searchResults"
-            );
-
-
-        if (oldResults) {
-
-            oldResults.innerHTML =
-                results.map(function (article) {
+        mostReadTarget.innerHTML =
+            mostReadArticles
+                .map(article => {
 
                     return `
-
                         <a
                             href="${article.url}"
-                            class="search-result-item"
+                            class="most-read-item"
                         >
 
-                            ${imageHTML(article)}
-
-                            <div>
+                            <div
+                                class="most-read-text"
+                            >
 
                                 <h3>
                                     ${article.title}
@@ -832,57 +896,169 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             </div>
 
-                        </a>
+                            <img
+                                src="${article.image}"
+                                alt="${article.alt || article.title}"
+                                loading="lazy"
+                            >
 
+                        </a>
                     `;
 
-                }).join("");
-
-        }
-
-
-        if (
-            !oldResults &&
-            results.length === 1
-        ) {
-
-            window.location.href =
-                results[0].url;
-
-        }
+                })
+                .join("");
 
     }
 
 
-    window.searchNews =
-        searchNews;
+    /* =====================================================
+       PHOTO GALLERY
+       
+       OLD FUNCTION PRESERVED
+    ===================================================== */
+
+    const photoTarget =
+        $("#photoGallery");
+
+
+    if (photoTarget) {
+
+        const photoArticles =
+            uniqueArticles(
+                normalArticles
+            ).slice(0, 8);
+
+
+        photoTarget.innerHTML =
+            photoArticles
+                .map(article => {
+
+                    return `
+                        <a
+                            href="${article.url}"
+                            class="photo-gallery-card"
+                        >
+
+                            <img
+                                src="${article.image}"
+                                alt="${article.alt || article.title}"
+                                loading="lazy"
+                            >
+
+                            <h3>
+                                ${article.title}
+                            </h3>
+
+                        </a>
+                    `;
+
+                })
+                .join("");
+
+    }
 
 
     /* =====================================================
-       SEARCH TOGGLE
+       VIDEO NEWS
+       
+       OLD FUNCTION PRESERVED
+    ===================================================== */
+
+    const videoTarget =
+        $("#videoNewsGrid");
+
+
+    if (videoTarget) {
+
+        const videoArticles =
+            uniqueArticles(
+                normalArticles
+            ).slice(0, 6);
+
+
+        videoTarget.innerHTML =
+            videoArticles
+                .map(article => {
+
+                    return `
+                        <a
+                            href="${article.url}"
+                            class="video-news-card"
+                        >
+
+                            <div
+                                class="video-thumbnail"
+                            >
+
+                                <img
+                                    src="${article.image}"
+                                    alt="${article.alt || article.title}"
+                                    loading="lazy"
+                                >
+
+                                <span
+                                    class="video-play"
+                                >
+                                    ▶
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                ${article.title}
+                            </h3>
+
+                        </a>
+                    `;
+
+                })
+                .join("");
+
+    }
+
+
+    /* =====================================================
+       SEARCH OPEN / CLOSE
+       
+       OLD FUNCTION
     ===================================================== */
 
     window.toggleSearch =
         function () {
 
-            if (!searchBox) {
+            const box =
+                $("#searchBox");
+
+
+            if (!box) {
                 return;
             }
 
 
-            searchBox.classList.toggle(
-                "active"
+            box.classList.toggle(
+                "show"
             );
 
 
             if (
-                searchBox.classList.contains(
-                    "active"
-                ) &&
-                searchInput
+                box.classList.contains(
+                    "show"
+                )
             ) {
 
-                searchInput.focus();
+                const input =
+                    $("#searchInput");
+
+
+                if (input) {
+
+                    setTimeout(
+                        () =>
+                            input.focus(),
+                        100
+                    );
+
+                }
 
             }
 
@@ -890,8 +1066,93 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       ENTER KEY SEARCH
+       SEARCH NEWS
+       
+       SEARCH ALL ARTICLES
     ===================================================== */
+
+    window.searchNews =
+        function () {
+
+            const input =
+                $("#searchInput");
+
+
+            if (!input) {
+                return;
+            }
+
+
+            const query =
+                input.value
+                    .trim()
+                    .toLowerCase();
+
+
+            if (!query) {
+                return;
+            }
+
+
+            /*
+             * Include separate source articles
+             * also in search.
+             */
+
+            const allSearchArticles =
+                uniqueArticles([
+
+                    ...articles,
+
+                    ...separateLatest,
+
+                    ...separateTrending,
+
+                    ...separateMostRead,
+
+                    ...separateApTs,
+
+                    ...separateSports,
+
+                    ...separateEntertainment,
+
+                    ...separateBusiness
+
+                ]);
+
+
+            const result =
+                allSearchArticles.find(
+                    article =>
+                        article.title
+                            .toLowerCase()
+                            .includes(query)
+                );
+
+
+            if (result) {
+
+                window.location.href =
+                    result.url;
+
+            } else {
+
+                alert(
+                    "ఈ వార్త ప్రస్తుతం అందుబాటులో లేదు."
+                );
+
+            }
+
+        };
+
+
+    /* =====================================================
+       SEARCH ENTER
+    ===================================================== */
+
+    const searchInput =
+        $("#searchInput");
+
 
     if (searchInput) {
 
@@ -899,11 +1160,13 @@ document.addEventListener("DOMContentLoaded", function () {
             "keydown",
             function (event) {
 
-                if (event.key === "Enter") {
+                if (
+                    event.key === "Enter"
+                ) {
 
                     event.preventDefault();
 
-                    searchNews();
+                    window.searchNews();
 
                 }
 
@@ -914,75 +1177,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       THEME
+       DARK MODE
+       OLD FUNCTION
     ===================================================== */
-
-    const themeButton =
-        document.getElementById(
-            "themeButton"
-        );
-
-
-    function applyTheme(theme) {
-
-        if (theme === "dark") {
-
-            document.body.classList.add(
-                "dark-mode"
-            );
-
-
-            if (themeButton) {
-
-                themeButton.textContent =
-                    "☀️ Light";
-
-            }
-
-        } else {
-
-            document.body.classList.remove(
-                "dark-mode"
-            );
-
-
-            if (themeButton) {
-
-                themeButton.textContent =
-                    "🌙 Dark";
-
-            }
-
-        }
-
-    }
-
 
     window.toggleTheme =
         function () {
 
-            const isDark =
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+
+            const button =
+                $("#themeButton");
+
+
+            if (!button) {
+                return;
+            }
+
+
+            if (
                 document.body.classList.contains(
                     "dark-mode"
+                )
+            ) {
+
+                button.textContent =
+                    "☀️ Light";
+
+
+                localStorage.setItem(
+                    "bs360-theme",
+                    "dark"
                 );
 
+            } else {
 
-            const newTheme =
-                isDark
-                    ? "light"
-                    : "dark";
-
-
-            applyTheme(newTheme);
+                button.textContent =
+                    "🌙 Dark";
 
 
-            localStorage.setItem(
-                "bs360-theme",
-                newTheme
-            );
+                localStorage.setItem(
+                    "bs360-theme",
+                    "light"
+                );
+
+            }
 
         };
 
+
+    /* =====================================================
+       LOAD SAVED THEME
+    ===================================================== */
 
     const savedTheme =
         localStorage.getItem(
@@ -990,124 +1239,84 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-    applyTheme(
-        savedTheme || "light"
-    );
+    if (
+        savedTheme === "dark"
+    ) {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+
+        const button =
+            $("#themeButton");
+
+
+        if (button) {
+
+            button.textContent =
+                "☀️ Light";
+
+        }
+
+    }
 
 
     /* =====================================================
-       MOBILE NAVIGATION
+       MOBILE NAV
+       OLD FUNCTION
     ===================================================== */
-
-    const navLinks =
-        document.getElementById(
-            "navLinks"
-        );
-
 
     window.toggleMobileNav =
         function () {
 
-            if (!navLinks) {
+            const nav =
+                $("#navLinks");
+
+
+            if (!nav) {
                 return;
             }
 
 
-            navLinks.classList.toggle(
-                "mobile-active"
+            nav.classList.toggle(
+                "mobile-open"
             );
 
         };
 
 
     /* =====================================================
-       CAROUSEL BUTTONS
-    ===================================================== */
-
-    const newsSlider =
-        document.getElementById(
-            "newsSlider"
-        );
-
-
-    const sliderPrev =
-        document.getElementById(
-            "sliderPrev"
-        );
-
-
-    const sliderNext =
-        document.getElementById(
-            "sliderNext"
-        );
-
-
-    if (newsSlider && sliderPrev) {
-
-        sliderPrev.addEventListener(
-            "click",
-            function () {
-
-                newsSlider.scrollBy({
-
-                    left: -320,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
-    }
-
-
-    if (newsSlider && sliderNext) {
-
-        sliderNext.addEventListener(
-            "click",
-            function () {
-
-                newsSlider.scrollBy({
-
-                    left: 320,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
        ESC KEY
+       OLD FUNCTION
     ===================================================== */
 
     document.addEventListener(
         "keydown",
         function (event) {
 
-            if (event.key !== "Escape") {
+            if (
+                event.key !== "Escape"
+            ) {
+
                 return;
-            }
-
-
-            if (searchBox) {
-
-                searchBox.classList.remove(
-                    "active"
-                );
 
             }
 
 
-            if (navLinks) {
+            const search =
+                $("#searchBox");
 
-                navLinks.classList.remove(
-                    "mobile-active"
+
+            if (
+                search &&
+                search.classList.contains(
+                    "show"
+                )
+            ) {
+
+                search.classList.remove(
+                    "show"
                 );
 
             }
@@ -1118,29 +1327,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        DEBUG
+       
+       CHECK WHICH SECTIONS HAVE ARTICLES
     ===================================================== */
 
     console.log(
-        "===================================="
+        "========================================"
     );
 
     console.log(
-        "BS360 SEPARATE SOURCE SYSTEM"
+        "BS360 SEPARATE ARTICLE SYSTEM"
     );
 
     console.log(
         "Latest:",
-        latestArticles.length
+        separateLatest.length
+            ? separateLatest.length
+            : "OLD LEGACY"
     );
 
     console.log(
         "Trending:",
-        trendingArticles.length
+        separateTrending.length
+            ? separateTrending.length
+            : "HTML CARDS"
     );
 
     console.log(
         "Most Read:",
-        mostReadArticles.length
+        separateMostRead.length
+            ? separateMostRead.length
+            : "HTML CARDS"
     );
 
     console.log(
@@ -1164,7 +1381,8 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     console.log(
-        "===================================="
+        "========================================"
     );
+
 
 });
