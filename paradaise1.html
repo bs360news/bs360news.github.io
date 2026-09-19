@@ -595,115 +595,78 @@ loading="eager"  >   <p>
      AUTOMATIC ARTICLE NEWS SYSTEM        
 ===================================================== -->  
 <script>
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
+
     "use strict";
 
-    const currentPage =
-        window.location.pathname.split("/").pop().toLowerCase();
+    /* =====================================================
+       HELPERS
+    ===================================================== */
 
-    function clean(value) {
-        return String(value || "")
+    function cleanText(text) {
+        return String(text || "")
             .replace(/\s+/g, " ")
             .trim();
     }
 
-    function cleanUrl(value) {
-        return String(value || "")
-            .trim()
-            .replace(/^\.?\//, "")
-            .split("?")[0]
-            .split("#")[0]
-            .toLowerCase();
-    }
+    function getArticles(home, sourceId) {
 
-    function category(value) {
-        const c = clean(value)
-            .toLowerCase()
-            .replace(/\s+/g, "");
+        const source = home.getElementById(sourceId);
 
-        if (
-            c === "sports" ||
-            c === "sport"
-        ) return "sports";
+        if (!source) {
+            return [];
+        }
 
-        if (
-            c === "cinema" ||
-            c === "movies" ||
-            c === "movie" ||
-            c === "entertainment"
-        ) return "entertainment";
+        return Array.from(
+            source.querySelectorAll(".news-item.post")
+        )
+        .map(function (item) {
 
-        if (
-            c === "business" ||
-            c === "businessnews"
-        ) return "business";
+            const image = item.querySelector("img");
 
-        if (
-            c === "ap" ||
-            c === "ts" ||
-            c === "apts" ||
-            c === "ap/ts" ||
-            c === "ap-ts" ||
-            c === "ap&ts" ||
-            c === "apandts"
-        ) return "apts";
+            const title =
+                item.querySelector(".news-content p") ||
+                item.querySelector(".news-content h3") ||
+                item.querySelector("p");
 
-        return c;
-    }
+            return {
+                title: cleanText(
+                    title ? title.textContent : ""
+                ),
 
-    function getArticle(item) {
+                image: image
+                    ? image.getAttribute("src") || ""
+                    : "",
 
-        const img = item.querySelector("img");
+                alt: image
+                    ? image.getAttribute("alt") || ""
+                    : "",
 
-        const titleElement =
-            item.querySelector(".news-content p") ||
-            item.querySelector(".news-content h3") ||
-            item.querySelector("p") ||
-            item.querySelector("h3") ||
-            item.querySelector("h2");
+                url:
+                    item.getAttribute("data-url") || ""
+            };
 
-        const url =
-            item.getAttribute("data-url") ||
-            item.querySelector("a")?.getAttribute("href") ||
-            "";
+        })
+        .filter(function (item) {
 
-        return {
-            title: clean(titleElement?.textContent),
-            image: img?.getAttribute("src") || "",
-            alt: img?.getAttribute("alt") || "",
-            url: url.trim(),
-            category: category(
-                item.getAttribute("data-category")
-            )
-        };
-    }
+            return (
+                item.title &&
+                item.image &&
+                item.url
+            );
 
-    function removeCurrent(list) {
-        return list.filter(function (item) {
-            return cleanUrl(item.url) !== currentPage;
         });
+
     }
 
-    function unique(list) {
-        const seen = new Set();
 
-        return list.filter(function (item) {
-
-            const key = cleanUrl(item.url);
-
-            if (!key || seen.has(key)) {
-                return false;
-            }
-
-            seen.add(key);
-            return true;
-        });
-    }
-
-    function sidebarItem(article) {
+    function sidebarHTML(article) {
 
         return `
-            <a href="${article.url}" class="sidebar-item">
+            <a
+                href="${article.url}"
+                class="sidebar-item"
+            >
 
                 <img
                     src="${article.image}"
@@ -717,12 +680,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             </a>
         `;
+
     }
 
-    function newsCard(article) {
+
+    function cardHTML(article) {
 
         return `
-            <a href="${article.url}" class="news-card">
+            <a
+                href="${article.url}"
+                class="news-card"
+            >
 
                 <img
                     src="${article.image}"
@@ -736,473 +704,345 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             </a>
         `;
+
     }
 
-    function put(id, html) {
 
-        const element = document.getElementById(id);
+    function mostReadHTML(article, number) {
+
+        return `
+            <a
+                href="${article.url}"
+                class="most-read-item"
+            >
+
+                <div class="most-read-number">
+                    ${number}
+                </div>
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="most-read-title">
+                    ${article.title}
+                </div>
+
+            </a>
+        `;
+
+    }
+
+
+    function show(id, html) {
+
+        const element =
+            document.getElementById(id);
 
         if (element) {
             element.innerHTML = html;
         }
+
     }
 
-    try {
 
-        const response = await fetch(
-            "index.html?v=" + Date.now(),
-            {
-                cache: "no-store"
-            }
-        );
+    /* =====================================================
+       LOAD HOME PAGE
+    ===================================================== */
+
+    fetch(
+        "index.html?v=" + Date.now(),
+        {
+            cache: "no-store"
+        }
+    )
+
+    .then(function (response) {
 
         if (!response.ok) {
-            throw new Error("index.html not found");
+            throw new Error(
+                "index.html load failed"
+            );
         }
 
-        const html = await response.text();
+        return response.text();
 
-        const parser = new DOMParser();
+    })
 
-        const home = parser.parseFromString(
-            html,
-            "text/html"
-        );
+    .then(function (html) {
 
-        /*
-        ==========================================
-        HOME PAGE MASTER ARTICLES
-        ==========================================
-        */
+        const parser =
+            new DOMParser();
 
-        let articles = [];
+        const home =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
 
-        const legacy =
-            home.querySelector("#legacyNewsSource");
 
-        if (legacy) {
+        /* =================================================
+           HOME PAGE SOURCES
+        ================================================= */
 
-            articles = Array.from(
-                legacy.querySelectorAll(
-                    ".news-item.post"
-                )
-            )
-            .map(getArticle)
-            .filter(function (item) {
+        const latest =
+            getArticles(
+                home,
+                "latestNewsSource"
+            );
 
-                return (
-                    item.title &&
-                    item.image &&
-                    item.url
-                );
+        const trending =
+            getArticles(
+                home,
+                "trendingSource"
+            );
 
-            });
+        const mostRead =
+            getArticles(
+                home,
+                "mostReadSource"
+            );
 
-        }
+        const apts =
+            getArticles(
+                home,
+                "aptsSource"
+            );
 
-        /*
-        ==========================================
-        FALLBACK
-        If legacy source is not available,
-        read all news-item.post from HOME
-        ==========================================
-        */
+        const sports =
+            getArticles(
+                home,
+                "sportsSource"
+            );
 
-        if (!articles.length) {
+        const entertainment =
+            getArticles(
+                home,
+                "entertainmentSource"
+            );
 
-            articles = Array.from(
-                home.querySelectorAll(
-                    ".news-item.post"
-                )
-            )
-            .map(getArticle)
-            .filter(function (item) {
+        const business =
+            getArticles(
+                home,
+                "businessSource"
+            );
 
-                return (
-                    item.title &&
-                    item.image &&
-                    item.url
-                );
 
-            });
+        /* =================================================
+           TRENDING NEWS - RIGHT SIDE
+        ================================================= */
 
-        }
-
-        articles = unique(
-            removeCurrent(articles)
-        );
-
-        /*
-        ==========================================
-        CATEGORY ARTICLES
-        ==========================================
-        */
-
-        const sports = articles.filter(function (item) {
-            return item.category === "sports";
-        });
-
-        const entertainment = articles.filter(function (item) {
-            return item.category === "entertainment";
-        });
-
-        const apts = articles.filter(function (item) {
-            return item.category === "apts";
-        });
-
-        const business = articles.filter(function (item) {
-            return item.category === "business";
-        });
-
-        /*
-        ==========================================
-        LATEST
-        ==========================================
-        */
-
-        const latest = articles.slice(0, 8);
-
-        put(
-            "latestSidebar",
-            latest
-                .map(sidebarItem)
-                .join("")
-        );
-
-        put(
-            "latestGrid",
-            latest
-                .map(newsCard)
-                .join("")
-        );
-
-        /*
-        ==========================================
-        SPORTS
-        ==========================================
-        */
-
-        put(
-            "sportsGrid",
-            sports
-                .slice(0, 8)
-                .map(newsCard)
-                .join("")
-        );
-
-        /*
-        ==========================================
-        ENTERTAINMENT
-        ==========================================
-        */
-
-        put(
-            "entertainmentSidebar",
-            entertainment
-                .slice(0, 8)
-                .map(sidebarItem)
-                .join("")
-        );
-
-        put(
-            "moviesGrid",
-            entertainment
-                .slice(0, 8)
-                .map(newsCard)
-                .join("")
-        );
-
-        /*
-        ==========================================
-        AP & TS
-        ==========================================
-        */
-
-        put(
-            "aptsGrid",
-            apts
-                .slice(0, 8)
-                .map(newsCard)
-                .join("")
-        );
-
-        /*
-        ==========================================
-        BUSINESS
-        ==========================================
-        */
-
-        put(
-            "businessGrid",
-            business
-                .slice(0, 8)
-                .map(newsCard)
-                .join("")
-        );
-
-        /*
-        ==========================================
-        TRENDING
-        ==========================================
-        */
-
-        let trending = [];
-
-        const trendingSelectors = [
-            ".trending-section .trending-card",
-            "#trendingGrid .trending-card",
-            ".trending-card"
-        ];
-
-        for (const selector of trendingSelectors) {
-
-            const cards =
-                Array.from(
-                    home.querySelectorAll(selector)
-                );
-
-            if (cards.length) {
-
-                trending = cards
-                    .map(function (card) {
-
-                        const img =
-                            card.querySelector("img");
-
-                        const titleElement =
-                            card.querySelector("h3") ||
-                            card.querySelector("h2") ||
-                            card.querySelector("p") ||
-                            card.querySelector(
-                                ".trending-card-title"
-                            );
-
-                        const link =
-                            card.querySelector("a");
-
-                        return {
-                            title: clean(
-                                titleElement?.textContent
-                            ),
-                            image:
-                                img?.getAttribute("src") || "",
-                            alt:
-                                img?.getAttribute("alt") || "",
-                            url:
-                                link?.getAttribute("href") ||
-                                card.getAttribute(
-                                    "data-url"
-                                ) ||
-                                ""
-                        };
-
-                    })
-                    .filter(function (item) {
-
-                        return (
-                            item.title &&
-                            item.image &&
-                            item.url &&
-                            item.url !== "#"
-                        );
-
-                    });
-
-                if (trending.length) {
-                    break;
-                }
-            }
-        }
-
-        /*
-        ==========================================
-        TRENDING FALLBACK
-        ==========================================
-        */
-
-        if (!trending.length) {
-            trending = articles.slice(0, 8);
-        }
-
-        trending = unique(
-            removeCurrent(trending)
-        );
-
-        put(
+        show(
             "trendingSidebar",
+
             trending
                 .slice(0, 8)
-                .map(sidebarItem)
+                .map(sidebarHTML)
                 .join("")
         );
 
-        /*
-        ==========================================
-        MOST READ
-        ==========================================
-        */
 
-        let mostRead = [];
+        /* =================================================
+           LATEST NEWS - RIGHT SIDE
+        ================================================= */
 
-        const mostReadSelectors = [
-            ".most-read-section .trending-card",
-            "#mostReadList .trending-card",
-            ".most-read-list .trending-card"
-        ];
+        show(
+            "latestSidebar",
 
-        for (const selector of mostReadSelectors) {
-
-            const cards =
-                Array.from(
-                    home.querySelectorAll(selector)
-                );
-
-            if (cards.length) {
-
-                mostRead = cards
-                    .map(function (card) {
-
-                        const img =
-                            card.querySelector("img");
-
-                        const titleElement =
-                            card.querySelector("h3") ||
-                            card.querySelector("h2") ||
-                            card.querySelector("p");
-
-                        const link =
-                            card.querySelector("a");
-
-                        return {
-                            title: clean(
-                                titleElement?.textContent
-                            ),
-                            image:
-                                img?.getAttribute("src") || "",
-                            alt:
-                                img?.getAttribute("alt") || "",
-                            url:
-                                link?.getAttribute("href") ||
-                                card.getAttribute(
-                                    "data-url"
-                                ) ||
-                                ""
-                        };
-
-                    })
-                    .filter(function (item) {
-
-                        return (
-                            item.title &&
-                            item.image &&
-                            item.url &&
-                            item.url !== "#"
-                        );
-
-                    });
-
-                if (mostRead.length) {
-                    break;
-                }
-            }
-        }
-
-        /*
-        ==========================================
-        MOST READ FALLBACK
-        ==========================================
-        */
-
-        if (!mostRead.length) {
-            mostRead = articles.slice(0, 8);
-        }
-
-        mostRead = unique(
-            removeCurrent(mostRead)
+            latest
+                .slice(0, 8)
+                .map(sidebarHTML)
+                .join("")
         );
 
-        put(
+
+        /* =================================================
+           MOST READ - RIGHT SIDE
+        ================================================= */
+
+        show(
             "mostReadSidebar",
+
             mostRead
                 .slice(0, 8)
                 .map(function (article, index) {
 
-                    return `
-                        <a
-                            href="${article.url}"
-                            class="most-read-item"
-                        >
-
-                            <div class="most-read-number">
-                                ${index + 1}
-                            </div>
-
-                            <img
-                                src="${article.image}"
-                                alt="${article.alt || article.title}"
-                                loading="lazy"
-                            >
-
-                            <div class="most-read-title">
-                                ${article.title}
-                            </div>
-
-                        </a>
-                    `;
+                    return mostReadHTML(
+                        article,
+                        index + 1
+                    );
 
                 })
                 .join("")
         );
 
+
+        /* =================================================
+           ENTERTAINMENT - RIGHT SIDE
+        ================================================= */
+
+        show(
+            "entertainmentSidebar",
+
+            entertainment
+                .slice(0, 8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           LATEST GRID
+        ================================================= */
+
+        show(
+            "latestGrid",
+
+            latest
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           SPORTS GRID
+        ================================================= */
+
+        show(
+            "sportsGrid",
+
+            sports
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           ENTERTAINMENT GRID
+        ================================================= */
+
+        show(
+            "moviesGrid",
+
+            entertainment
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           AP & TS GRID
+        ================================================= */
+
+        show(
+            "aptsGrid",
+
+            apts
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           BUSINESS GRID
+        ================================================= */
+
+        show(
+            "businessGrid",
+
+            business
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           CONSOLE CHECK
+        ================================================= */
+
         console.log(
-            "BS360 HOME ARTICLES LOADED:",
-            articles.length
+            "BS360 HOME ARTICLES LOADED"
         );
 
         console.log(
-            "SPORTS:",
-            sports.length,
-            "ENTERTAINMENT:",
-            entertainment.length,
-            "APTS:",
-            apts.length,
-            "BUSINESS:",
+            "Latest:",
+            latest.length
+        );
+
+        console.log(
+            "Trending:",
+            trending.length
+        );
+
+        console.log(
+            "Most Read:",
+            mostRead.length
+        );
+
+        console.log(
+            "AP & TS:",
+            apts.length
+        );
+
+        console.log(
+            "Sports:",
+            sports.length
+        );
+
+        console.log(
+            "Entertainment:",
+            entertainment.length
+        );
+
+        console.log(
+            "Business:",
             business.length
         );
 
-    } catch (error) {
+    })
+
+    .catch(function (error) {
 
         console.error(
-            "BS360 ARTICLE LOAD ERROR:",
+            "BS360 NEWS ERROR:",
             error
         );
 
-    }
+    });
 
-    /*
-    ==========================================
-    MOBILE NAV
-    ==========================================
-    */
+
+    /* =====================================================
+       MOBILE NAV
+    ===================================================== */
 
     window.toggleMobileNav = function () {
 
         const nav =
-            document.getElementById("navLinks");
+            document.getElementById(
+                "navLinks"
+            );
 
         if (nav) {
+
             nav.classList.toggle(
                 "mobile-open"
             );
+
         }
 
     };
 
-    /*
-    ==========================================
-    DARK MODE
-    ==========================================
-    */
+
+    /* =====================================================
+       DARK MODE
+    ===================================================== */
 
     window.toggleTheme = function () {
 
@@ -1211,7 +1051,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
 
         const button =
-            document.getElementById("themeButton");
+            document.getElementById(
+                "themeButton"
+            );
 
         const dark =
             document.body.classList.contains(
@@ -1229,10 +1071,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         localStorage.setItem(
             "bs360-theme",
-            dark ? "dark" : "light"
+            dark
+                ? "dark"
+                : "light"
         );
 
     };
+
 
     if (
         localStorage.getItem(
@@ -1250,8 +1095,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             );
 
         if (button) {
+
             button.textContent =
                 "☀️ Light";
+
         }
 
     }
