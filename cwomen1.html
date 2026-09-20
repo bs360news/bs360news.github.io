@@ -11,7 +11,7 @@
 
 <meta
     name="description"
-    content="మహిళల ఆసియా కప్ 2026లో హాంకాంగ్‌పై భారత మహిళల జట్టు 137 పరుగుల భారీ విజయం సాధించింది. స్మృతి మంధాన 124 పరుగులతో అదరగొట్టగా, భారత బౌలర్లు హాంకాంగ్‌ను 56 పరుగులకే ఆలౌట్ చేశారు."
+    content="మహిళల ఆసియా కప్‌ 2026లో భారత మహిళల జట్టు హాంకాంగ్‌పై 137 పరుగుల భారీ తేడాతో విజయం సాధించింది. స్మృతి మంధాన 124 పరుగులతో విధ్వంసకర ఇన్నింగ్స్ ఆడింది."
 >
 
 <meta name="author" content="BS 360 NEWS">
@@ -51,7 +51,7 @@
 
 <meta
     property="og:description"
-    content="మహిళల ఆసియా కప్ 2026లో హాంకాంగ్‌పై భారత మహిళల జట్టు 137 పరుగుల భారీ విజయం సాధించింది. స్మృతి మంధాన 124 పరుగులతో అదరగొట్టింది."
+    content="మహిళల ఆసియా కప్‌ 2026లో హాంకాంగ్‌పై భారత్ 137 పరుగుల భారీ విజయం సాధించింది. స్మృతి మంధాన 124 పరుగులతో అదరగొట్టింది."
 >
 
 <meta
@@ -70,7 +70,7 @@
 
 <meta
     property="og:image:alt"
-    content="హాంకాంగ్‌పై భారత మహిళల జట్టు విజయం"
+    content="స్మృతి మంధాన"
 >
 
 
@@ -90,7 +90,7 @@
 
 <meta
     name="twitter:description"
-    content="మహిళల ఆసియా కప్ 2026లో హాంకాంగ్‌పై భారత్ 137 పరుగుల భారీ విజయం సాధించింది."
+    content="మహిళల ఆసియా కప్‌ 2026లో హాంకాంగ్‌పై భారత్ 137 పరుగుల భారీ విజయం సాధించింది."
 >
 
 <meta
@@ -204,11 +204,6 @@
     font-weight: 700;
 }
 
-
-/* =====================================================
-   MOST READ
-===================================================== */
-
 .most-read-item {
     display: flex;
     gap: 9px;
@@ -248,50 +243,6 @@
 
 
 /* =====================================================
-   DESKTOP SIDEBAR
-===================================================== */
-
-@media (min-width: 801px) {
-
-    #latestSidebar .sidebar-item,
-    #entertainmentSidebar .sidebar-item {
-
-        display: block !important;
-        width: 100%;
-        padding: 9px 0 11px;
-        border-bottom: 1px solid #ddd;
-
-    }
-
-    #latestSidebar .sidebar-item img,
-    #entertainmentSidebar .sidebar-item img {
-
-        display: block;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        margin: 0 0 6px;
-        border-radius: 5px;
-
-    }
-
-    #latestSidebar .sidebar-item-title,
-    #entertainmentSidebar .sidebar-item-title {
-
-        display: block;
-        width: 100%;
-        font-size: 14px;
-        line-height: 1.45;
-        font-weight: 700;
-        margin: 0;
-
-    }
-
-}
-
-
-/* =====================================================
    RELATED SECTIONS
 ===================================================== */
 
@@ -313,43 +264,25 @@
     gap: 15px;
 }
 
-
-/* =====================================================
-   RELATED NEWS CARDS
-===================================================== */
-
-.related-section .news-grid .news-card {
-
-    display: block !important;
-    width: 100% !important;
-    text-decoration: none !important;
-    color: #111 !important;
-    min-width: 0 !important;
-
+.news-card {
+    text-decoration: none;
+    color: #111;
+    display: block;
 }
 
-.related-section .news-grid .news-card img {
-
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9 !important;
-    object-fit: cover !important;
-    display: block !important;
-    border-radius: 6px !important;
-    margin: 0 !important;
-
+.news-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
 }
 
-.related-section .news-grid .news-card h3 {
-
-    display: block !important;
-    width: 100% !important;
-    font-size: 15px !important;
-    line-height: 1.45 !important;
-    margin: 8px 0 0 !important;
-    padding: 0 !important;
-    font-weight: 700 !important;
-
+.news-card h3 {
+    font-size: 15px;
+    line-height: 1.45;
+    margin: 8px 0 0;
+    font-weight: 700;
 }
 
 
@@ -360,153 +293,80 @@
 @media (max-width: 800px) {
 
     .article-layout {
-
         grid-template-columns: 1fr;
         gap: 25px;
-
     }
 
     .article-title {
-
         font-size: 24px;
         line-height: 1.4;
-
     }
 
     .article-content {
-
         font-size: 17px;
         line-height: 1.9;
-
     }
 
     .article-sidebar {
-
         order: 2;
-
     }
 
     .news-grid {
-
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
-
-    }
-
-    .sidebar-item {
-
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 10px;
-        padding: 9px 0;
-        align-items: center;
-
-    }
-
-    .sidebar-item img {
-
-        width: 75px !important;
-        height: 53px !important;
-        aspect-ratio: auto !important;
-        object-fit: cover;
-        flex: 0 0 75px;
-        margin: 0 !important;
-
-    }
-
-    .sidebar-item-title {
-
-        display: block !important;
-        width: auto !important;
-        font-size: 14px;
-        line-height: 1.45;
-        font-weight: 700;
-
-    }
-
-    .related-section .news-grid {
-
-        display: grid !important;
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-        gap: 12px !important;
-        width: 100% !important;
-
     }
 
 }
 
-
-/* =====================================================
-   MOBILE SMALL
-===================================================== */
 
 @media (max-width: 600px) {
 
     .article-page {
-
         padding-top: 12px;
-
     }
 
     .article-title {
-
         font-size: 22px;
-
     }
 
     .article-image {
-
         border-radius: 5px;
-
     }
 
     .article-content {
-
         font-size: 16px;
         line-height: 1.85;
-
     }
 
     .sidebar-item img {
-
-        width: 75px !important;
-        height: 53px !important;
-        flex-basis: 75px !important;
-
+        width: 75px;
+        height: 53px;
+        flex-basis: 75px;
     }
 
     .sidebar-item-title {
-
         font-size: 14px;
-
     }
 
     .sidebar-title {
-
         font-size: 18px;
+    }
 
+    .news-card h3 {
+        font-size: 14px;
     }
 
 }
 
 
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
 @media (max-width: 380px) {
 
     .news-grid {
-
         gap: 9px;
-
     }
 
     .news-card h3 {
-
         font-size: 13px;
-
     }
 
 }
@@ -695,6 +555,7 @@
 
 <main class="container article-page">
 
+
 <div class="article-layout">
 
 
@@ -733,7 +594,7 @@
 <img
     class="article-image"
     src="cwomen1.jpg"
-    alt="హాంకాంగ్‌పై భారత మహిళల జట్టు విజయం"
+    alt="స్మృతి మంధాన హాంకాంగ్‌పై బ్యాటింగ్"
     loading="eager"
 >
 
@@ -818,18 +679,8 @@
 </div>
 
 
-<div class="sidebar-box">
-
-    <div class="sidebar-title">
-        Entertainment
-    </div>
-
-    <div id="entertainmentSidebar"></div>
-
-</div>
-
-
 </aside>
+
 
 </div>
 
@@ -841,7 +692,7 @@
 <section class="related-section">
 
     <div class="related-title">
-        Latest News
+        📰 Latest News
     </div>
 
     <div
@@ -859,7 +710,7 @@
 <section class="related-section">
 
     <div class="related-title">
-        Sports
+        🏏 Sports
     </div>
 
     <div
@@ -877,7 +728,7 @@
 <section class="related-section">
 
     <div class="related-title">
-        Entertainment
+        🎬 Entertainment
     </div>
 
     <div
@@ -895,7 +746,7 @@
 <section class="related-section">
 
     <div class="related-title">
-        AP & TS
+        🏛️ AP & TS
     </div>
 
     <div
@@ -913,7 +764,7 @@
 <section class="related-section">
 
     <div class="related-title">
-        Business
+        💼 Business
     </div>
 
     <div
@@ -1008,851 +859,558 @@
 
 <script>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        "use strict";
+    "use strict";
 
 
-        /* =================================================
-           CURRENT ARTICLE
-        ================================================= */
+    /* =====================================================
+       HELPERS
+    ===================================================== */
 
-        const currentPage =
-            window.location.pathname
-                .split("/")
-                .pop()
-                .toLowerCase();
+    function cleanText(text) {
+
+        return String(text || "")
+            .replace(/\s+/g, " ")
+            .trim();
+
+    }
 
 
-        /* =================================================
-           READ ARTICLE
-        ================================================= */
+    function getArticles(home, sourceId) {
 
-        function readArticle(item) {
+        const source =
+            home.getElementById(sourceId);
+
+        if (!source) {
+            return [];
+        }
+
+
+        return Array.from(
+            source.querySelectorAll(".news-item.post")
+        )
+
+        .map(function (item) {
 
             const image =
                 item.querySelector("img");
 
+
             const title =
-                item.querySelector(
-                    ".news-content p"
-                );
+                item.querySelector(".news-content p") ||
+                item.querySelector(".news-content h3") ||
+                item.querySelector("p");
 
 
             return {
 
-                category:
-                    (
-                        item.dataset.category ||
-                        ""
-                    )
-                    .trim()
-                    .toLowerCase(),
-
-                url:
-                    (
-                        item.dataset.url ||
-                        "#"
-                    )
-                    .trim(),
+                title:
+                    cleanText(
+                        title
+                            ? title.textContent
+                            : ""
+                    ),
 
                 image:
                     image
-                        ? image.getAttribute("src")
+                        ? image.getAttribute("src") || ""
                         : "",
 
                 alt:
                     image
-                        ? (
-                            image.getAttribute("alt") ||
-                            ""
-                        )
+                        ? image.getAttribute("alt") || ""
                         : "",
 
-                title:
-                    title
-                        ? title.textContent.trim()
-                        : ""
+                url:
+                    item.getAttribute("data-url") || ""
 
             };
 
-        }
+        })
 
+        .filter(function (item) {
 
-        /* =================================================
-           LOAD INDEX
-        ================================================= */
-
-        async function loadHomeNews() {
-
-            try {
-
-                const response =
-                    await fetch(
-                        "index.html?v=" +
-                        Date.now(),
-                        {
-                            cache: "no-store"
-                        }
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        "index.html could not be loaded"
-                    );
-
-                }
-
-
-                const html =
-                    await response.text();
-
-
-                const parser =
-                    new DOMParser();
-
-
-                const doc =
-                    parser.parseFromString(
-                        html,
-                        "text/html"
-                    );
-
-
-                const source =
-                    doc.querySelector(
-                        "#legacyNewsSource"
-                    );
-
-
-                if (!source) {
-
-                    console.error(
-                        "BS360: #legacyNewsSource not found"
-                    );
-
-                    return;
-
-                }
-
-
-                const articles =
-                    Array.from(
-                        source.querySelectorAll(
-                            ".news-item.post"
-                        )
-                    )
-                    .map(readArticle)
-                    .filter(
-                        article =>
-                            article.title &&
-                            article.image &&
-                            article.url
-                    );
-
-
-                const normalArticles =
-                    articles.filter(
-                        article =>
-                            article.category !==
-                            "bigboss10"
-                    );
-
-
-                const latestArticles =
-                    normalArticles.filter(
-                        article =>
-                            article.url
-                                .split("/")
-                                .pop()
-                                .toLowerCase() !==
-                            currentPage
-                    );
-
-
-                /* =================================================
-                   TRENDING
-                ================================================= */
-
-                const trendingCards =
-                    Array.from(
-                        doc.querySelectorAll(
-                            ".trending-section .trending-grid .trending-card"
-                        )
-                    );
-
-
-                const trendingArticles =
-                    trendingCards
-                        .map(
-                            function (card) {
-
-                                const image =
-                                    card.querySelector(
-                                        "img"
-                                    );
-
-                                const title =
-                                    card.querySelector(
-                                        "h3"
-                                    );
-
-
-                                return {
-
-                                    url:
-                                        (
-                                            card.getAttribute(
-                                                "href"
-                                            ) || "#"
-                                        ).trim(),
-
-                                    image:
-                                        image
-                                            ? image.getAttribute(
-                                                "src"
-                                            )
-                                            : "",
-
-                                    alt:
-                                        image
-                                            ? (
-                                                image.getAttribute(
-                                                    "alt"
-                                                ) || ""
-                                            )
-                                            : "",
-
-                                    title:
-                                        title
-                                            ? title.textContent.trim()
-                                            : ""
-
-                                };
-
-                            }
-                        )
-                        .filter(
-                            article =>
-                                article.title &&
-                                article.image &&
-                                article.url
-                        );
-
-
-                /* =================================================
-                   MOST READ
-                ================================================= */
-
-                const mostReadCards =
-                    Array.from(
-                        doc.querySelectorAll(
-                            ".most-read-section .most-read-list .trending-card"
-                        )
-                    );
-
-
-                const mostReadArticles =
-                    mostReadCards
-                        .map(
-                            function (card) {
-
-                                const image =
-                                    card.querySelector(
-                                        "img"
-                                    );
-
-                                const title =
-                                    card.querySelector(
-                                        "h3"
-                                    );
-
-
-                                return {
-
-                                    url:
-                                        (
-                                            card.getAttribute(
-                                                "href"
-                                            ) || "#"
-                                        ).trim(),
-
-                                    image:
-                                        image
-                                            ? image.getAttribute(
-                                                "src"
-                                            )
-                                            : "",
-
-                                    alt:
-                                        image
-                                            ? (
-                                                image.getAttribute(
-                                                    "alt"
-                                                ) || ""
-                                            )
-                                            : "",
-
-                                    title:
-                                        title
-                                            ? title.textContent.trim()
-                                            : ""
-
-                                };
-
-                            }
-                        )
-                        .filter(
-                            article =>
-                                article.title &&
-                                article.image &&
-                                article.url
-                        );
-
-
-                /* =================================================
-                   SIDEBAR ITEM
-                ================================================= */
-
-                function createSidebarItem(
-                    article
-                ) {
-
-                    return `
-
-                        <a
-                            href="${article.url}"
-                            class="sidebar-item"
-                        >
-
-                            <img
-                                src="${article.image}"
-                                alt="${article.alt || article.title}"
-                                loading="lazy"
-                            >
-
-                            <div class="sidebar-item-title">
-                                ${article.title}
-                            </div>
-
-                        </a>
-
-                    `;
-
-                }
-
-
-                /* =================================================
-                   TRENDING SIDEBAR
-                ================================================= */
-
-                const trendingTarget =
-                    document.getElementById(
-                        "trendingSidebar"
-                    );
-
-
-                if (trendingTarget) {
-
-                    const filteredTrending =
-                        trendingArticles.filter(
-                            article =>
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
-                                currentPage
-                        );
-
-
-                    trendingTarget.innerHTML =
-                        filteredTrending
-                            .slice(0, 5)
-                            .map(
-                                createSidebarItem
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   LATEST SIDEBAR
-                ================================================= */
-
-                const latestTarget =
-                    document.getElementById(
-                        "latestSidebar"
-                    );
-
-
-                if (latestTarget) {
-
-                    latestTarget.innerHTML =
-                        latestArticles
-                            .slice(0, 5)
-                            .map(
-                                createSidebarItem
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   MOST READ SIDEBAR
-                ================================================= */
-
-                const mostReadTarget =
-                    document.getElementById(
-                        "mostReadSidebar"
-                    );
-
-
-                if (mostReadTarget) {
-
-                    const filteredMostRead =
-                        mostReadArticles.filter(
-                            article =>
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
-                                currentPage
-                        );
-
-
-                    mostReadTarget.innerHTML =
-                        filteredMostRead
-                            .slice(0, 5)
-                            .map(
-                                function (
-                                    article,
-                                    index
-                                ) {
-
-                                    return `
-
-                                        <a
-                                            href="${article.url}"
-                                            class="most-read-item"
-                                        >
-
-                                            <div class="most-read-number">
-                                                ${index + 1}
-                                            </div>
-
-                                            <img
-                                                src="${article.image}"
-                                                alt="${article.alt || article.title}"
-                                                loading="lazy"
-                                            >
-
-                                            <div class="most-read-title">
-                                                ${article.title}
-                                            </div>
-
-                                        </a>
-
-                                    `;
-
-                                }
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   ENTERTAINMENT SIDEBAR
-                ================================================= */
-
-                const entertainmentTarget =
-                    document.getElementById(
-                        "entertainmentSidebar"
-                    );
-
-
-                if (entertainmentTarget) {
-
-                    const entertainmentArticles =
-                        normalArticles.filter(
-                            article =>
-                                (
-                                    article.category ===
-                                    "cinema" ||
-                                    article.category ===
-                                    "movies"
-                                ) &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
-                                currentPage
-                        );
-
-
-                    entertainmentTarget.innerHTML =
-                        entertainmentArticles
-                            .slice(0, 5)
-                            .map(
-                                createSidebarItem
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   NORMAL NEWS CARD
-                ================================================= */
-
-                function createNewsCard(
-                    article
-                ) {
-
-                    return `
-
-                        <a
-                            href="${article.url}"
-                            class="news-card"
-                        >
-
-                            <img
-                                src="${article.image}"
-                                alt="${article.alt || article.title}"
-                                loading="lazy"
-                            >
-
-                            <h3>
-                                ${article.title}
-                            </h3>
-
-                        </a>
-
-                    `;
-
-                }
-
-
-                /* =================================================
-                   LATEST GRID
-                ================================================= */
-
-                const latestGrid =
-                    document.getElementById(
-                        "latestGrid"
-                    );
-
-
-                if (latestGrid) {
-
-                    latestGrid.innerHTML =
-                        latestArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   SPORTS
-                ================================================= */
-
-                const sportsGrid =
-                    document.getElementById(
-                        "sportsGrid"
-                    );
-
-
-                if (sportsGrid) {
-
-                    const sportsArticles =
-                        normalArticles.filter(
-                            article =>
-                                article.category ===
-                                "sports" &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
-                                currentPage
-                        );
-
-
-                    sportsGrid.innerHTML =
-                        sportsArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   ENTERTAINMENT
-                ================================================= */
-
-                const moviesGrid =
-                    document.getElementById(
-                        "moviesGrid"
-                    );
-
-
-                if (moviesGrid) {
-
-                    const movieArticles =
-                        normalArticles.filter(
-                            article =>
-                                (
-                                    article.category ===
-                                    "cinema" ||
-                                    article.category ===
-                                    "movies"
-                                ) &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
-                                currentPage
-                        );
-
-
-                    moviesGrid.innerHTML =
-                        movieArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   AP & TS
-                ================================================= */
-
-                const aptsGrid =
-                    document.getElementById(
-                        "aptsGrid"
-                    );
-
-
-                if (aptsGrid) {
-
-                    const aptsArticles =
-                        normalArticles.filter(
-                            article =>
-                                (
-                                    article.category ===
-                                    "ap/ts" ||
-                                    article.category ===
-                                    "apts"
-                                ) &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
-                                currentPage
-                        );
-
-
-                    aptsGrid.innerHTML =
-                        aptsArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
-                            .join("");
-
-                }
-
-
-                /* =================================================
-                   BUSINESS
-                ================================================= */
-
-                const businessGrid =
-                    document.getElementById(
-                        "businessGrid"
-                    );
-
-
-                if (businessGrid) {
-
-                    const businessArticles =
-                        normalArticles.filter(
-                            article =>
-                                article.category ===
-                                "business" &&
-                                article.url
-                                    .split("/")
-                                    .pop()
-                                    .toLowerCase() !==
-                                currentPage
-                        );
-
-
-                    businessGrid.innerHTML =
-                        businessArticles
-                            .slice(0, 4)
-                            .map(
-                                createNewsCard
-                            )
-                            .join("");
-
-                }
-
-
-            } catch (error) {
-
-                console.error(
-                    "BS360 AUTO NEWS ERROR:",
-                    error
-                );
-
-            }
-
-        }
-
-
-        /* =====================================================
-           START
-        ===================================================== */
-
-        loadHomeNews();
-
-
-        /* =====================================================
-           MOBILE NAV
-        ===================================================== */
-
-        window.toggleMobileNav =
-            function () {
-
-                const nav =
-                    document.getElementById(
-                        "navLinks"
-                    );
-
-                if (!nav) {
-                    return;
-                }
-
-                nav.classList.toggle(
-                    "mobile-open"
-                );
-
-            };
-
-
-        /* =====================================================
-           DARK MODE
-        ===================================================== */
-
-        window.toggleTheme =
-            function () {
-
-                document.body.classList.toggle(
-                    "dark-mode"
-                );
-
-
-                const button =
-                    document.getElementById(
-                        "themeButton"
-                    );
-
-
-                if (
-                    document.body.classList.contains(
-                        "dark-mode"
-                    )
-                ) {
-
-                    if (button) {
-
-                        button.textContent =
-                            "☀️ Light";
-
-                    }
-
-
-                    localStorage.setItem(
-                        "bs360-theme",
-                        "dark"
-                    );
-
-                } else {
-
-                    if (button) {
-
-                        button.textContent =
-                            "🌙 Dark";
-
-                    }
-
-
-                    localStorage.setItem(
-                        "bs360-theme",
-                        "light"
-                    );
-
-                }
-
-            };
-
-
-        /* =====================================================
-           LOAD SAVED THEME
-        ===================================================== */
-
-        const savedTheme =
-            localStorage.getItem(
-                "bs360-theme"
+            return (
+                item.title &&
+                item.image &&
+                item.url
             );
 
+        });
 
-        if (
-            savedTheme === "dark"
-        ) {
-
-            document.body.classList.add(
-                "dark-mode"
-            );
+    }
 
 
-            const button =
-                document.getElementById(
-                    "themeButton"
-                );
+    function sidebarHTML(article) {
+
+        return `
+
+            <a
+                href="${article.url}"
+                class="sidebar-item"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <div class="sidebar-item-title">
+
+                    ${article.title}
+
+                </div>
+
+            </a>
+
+        `;
+
+    }
 
 
-            if (button) {
+    function cardHTML(article) {
 
-                button.textContent =
-                    "☀️ Light";
+        return `
 
-            }
+            <a
+                href="${article.url}"
+                class="news-card"
+            >
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+                <h3>
+
+                    ${article.title}
+
+                </h3>
+
+            </a>
+
+        `;
+
+    }
+
+
+    function mostReadHTML(article, number) {
+
+        return `
+
+            <a
+                href="${article.url}"
+                class="most-read-item"
+            >
+
+                <div class="most-read-number">
+
+                    ${number}
+
+                </div>
+
+
+                <img
+                    src="${article.image}"
+                    alt="${article.alt || article.title}"
+                    loading="lazy"
+                >
+
+
+                <div class="most-read-title">
+
+                    ${article.title}
+
+                </div>
+
+            </a>
+
+        `;
+
+    }
+
+
+    function show(id, html) {
+
+        const element =
+            document.getElementById(id);
+
+        if (element) {
+
+            element.innerHTML =
+                html;
 
         }
 
     }
 
-);
+
+    /* =====================================================
+       LOAD HOME PAGE
+    ===================================================== */
+
+    fetch(
+        "index.html?v=" + Date.now(),
+        {
+            cache: "no-store"
+        }
+    )
+
+    .then(function (response) {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "index.html load failed"
+            );
+
+        }
+
+        return response.text();
+
+    })
+
+
+    .then(function (html) {
+
+        const parser =
+            new DOMParser();
+
+
+        const home =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
+
+
+        /* =================================================
+           HOME PAGE SOURCES
+        ================================================= */
+
+        const latest =
+            getArticles(
+                home,
+                "latestNewsSource"
+            );
+
+
+        const trending =
+            getArticles(
+                home,
+                "trendingSource"
+            );
+
+
+        const mostRead =
+            getArticles(
+                home,
+                "mostReadSource"
+            );
+
+
+        const apts =
+            getArticles(
+                home,
+                "aptsSource"
+            );
+
+
+        const sports =
+            getArticles(
+                home,
+                "sportsSource"
+            );
+
+
+        const entertainment =
+            getArticles(
+                home,
+                "entertainmentSource"
+            );
+
+
+        const business =
+            getArticles(
+                home,
+                "businessSource"
+            );
+
+
+        /* =================================================
+           TRENDING SIDEBAR
+        ================================================= */
+
+        show(
+            "trendingSidebar",
+
+            trending
+                .slice(0, 8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           LATEST SIDEBAR
+        ================================================= */
+
+        show(
+            "latestSidebar",
+
+            latest
+                .slice(0, 8)
+                .map(sidebarHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           MOST READ SIDEBAR
+        ================================================= */
+
+        show(
+            "mostReadSidebar",
+
+            mostRead
+                .slice(0, 8)
+                .map(function (article, index) {
+
+                    return mostReadHTML(
+                        article,
+                        index + 1
+                    );
+
+                })
+                .join("")
+        );
+
+
+        /* =================================================
+           LATEST GRID
+        ================================================= */
+
+        show(
+            "latestGrid",
+
+            latest
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           SPORTS GRID
+        ================================================= */
+
+        show(
+            "sportsGrid",
+
+            sports
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           ENTERTAINMENT GRID
+        ================================================= */
+
+        show(
+            "moviesGrid",
+
+            entertainment
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           AP & TS GRID
+        ================================================= */
+
+        show(
+            "aptsGrid",
+
+            apts
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           BUSINESS GRID
+        ================================================= */
+
+        show(
+            "businessGrid",
+
+            business
+                .slice(0, 8)
+                .map(cardHTML)
+                .join("")
+        );
+
+
+        /* =================================================
+           CONSOLE CHECK
+        ================================================= */
+
+        console.log(
+            "BS360 HOME ARTICLES LOADED"
+        );
+
+        console.log(
+            "Latest:",
+            latest.length
+        );
+
+        console.log(
+            "Trending:",
+            trending.length
+        );
+
+        console.log(
+            "Most Read:",
+            mostRead.length
+        );
+
+        console.log(
+            "AP & TS:",
+            apts.length
+        );
+
+        console.log(
+            "Sports:",
+            sports.length
+        );
+
+        console.log(
+            "Entertainment:",
+            entertainment.length
+        );
+
+        console.log(
+            "Business:",
+            business.length
+        );
+
+    })
+
+
+    .catch(function (error) {
+
+        console.error(
+            "BS360 NEWS ERROR:",
+            error
+        );
+
+    });
+
+
+    /* =====================================================
+       MOBILE NAV
+    ===================================================== */
+
+    window.toggleMobileNav = function () {
+
+        const nav =
+            document.getElementById(
+                "navLinks"
+            );
+
+
+        if (nav) {
+
+            nav.classList.toggle(
+                "mobile-open"
+            );
+
+        }
+
+    };
+
+
+    /* =====================================================
+       DARK MODE
+    ===================================================== */
+
+    window.toggleTheme = function () {
+
+        document.body.classList.toggle(
+            "dark-mode"
+        );
+
+
+        const button =
+            document.getElementById(
+                "themeButton"
+            );
+
+
+        const dark =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+
+
+        if (button) {
+
+            button.textContent =
+                dark
+                    ? "☀️ Light"
+                    : "🌙 Dark";
+
+        }
+
+
+        localStorage.setItem(
+            "bs360-theme",
+            dark
+                ? "dark"
+                : "light"
+        );
+
+    };
+
+
+    if (
+        localStorage.getItem(
+            "bs360-theme"
+        ) === "dark"
+    ) {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+
+        const button =
+            document.getElementById(
+                "themeButton"
+            );
+
+
+        if (button) {
+
+            button.textContent =
+                "☀️ Light";
+
+        }
+
+    }
+
+});
 
 </script>
-
 
 </body>
 
