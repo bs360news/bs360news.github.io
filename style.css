@@ -968,7 +968,7 @@ section{
     #cinemaSection,
     #businessSection{
         display:block;
-        width:calc(100% - 12px);
+        width:calc(50% - 12px);
         float:left;
         vertical-align:top;
         box-sizing:border-box;
