@@ -1512,5 +1512,13 @@ body.dark-mode .theme-button{
         min-width:0 !important;
     }
 }
-
+#sportsGrid,
+#cinemaGrid,
+#businessGrid,
+#entertainmentGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    width: 100%;
+}
 
