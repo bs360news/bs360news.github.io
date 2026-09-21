@@ -873,7 +873,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const mostReadArticles =
             uniqueArticles(
                 separateMostRead
-            ).slice(0, 6);
+            ).slice(0, 8);
 
 
         mostReadTarget.innerHTML =
