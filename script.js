@@ -744,7 +744,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const finalData =
             uniqueArticles(data)
-                .slice(0, 9);
+                .slice(0, 6);
 
 
         target.innerHTML =
