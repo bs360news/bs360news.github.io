@@ -30,13 +30,14 @@
     href="dp.png.png"
 >
 
+
 <style>
 
 /* =========================================================
    BS 360 NEWS - SPORTS PAGE
-   SAME ARTICLE DESIGN
-   DESKTOP = 6 COLUMNS
-   MOBILE  = 3 COLUMNS
+   DESKTOP = 3 COLUMNS + RIGHT SIDEBAR
+   TABLET  = 2 COLUMNS
+   MOBILE  = 2 COLUMNS
 ========================================================= */
 
 *{
@@ -87,6 +88,7 @@ a{
 .header-inner{
     width:min(1400px,96%);
     margin:auto;
+
     min-height:68px;
 
     display:flex;
@@ -100,6 +102,7 @@ a{
     font-size:30px;
     font-weight:900;
     letter-spacing:.5px;
+
     color:#111827;
 }
 
@@ -114,6 +117,7 @@ a{
     padding:8px 16px;
 
     border-radius:6px;
+
     font-weight:700;
 }
 
@@ -128,23 +132,29 @@ a{
 
 .nav-bar{
     background:#fff;
+
     border-bottom:1px solid #e5e7eb;
 
     position:sticky;
+
     top:0;
+
     z-index:100;
 }
 
 .nav-inner{
     width:min(1400px,96%);
+
     margin:auto;
 
     display:flex;
+
     align-items:center;
 
     gap:5px;
 
     overflow-x:auto;
+
     scrollbar-width:none;
 }
 
@@ -158,6 +168,7 @@ a{
     padding:11px 15px;
 
     font-size:14px;
+
     font-weight:700;
 
     white-space:nowrap;
@@ -173,6 +184,7 @@ a{
 
 .nav-inner a.active{
     color:#e50914;
+
     border-bottom:3px solid #e50914;
 }
 
@@ -183,11 +195,13 @@ a{
 
 .breaking{
     width:min(1400px,96%);
+
     margin:12px auto 0;
 
     background:#fff;
 
     display:flex;
+
     align-items:center;
 
     overflow:hidden;
@@ -199,11 +213,13 @@ a{
 
 .breaking-title{
     background:#e50914;
+
     color:#fff;
 
     padding:8px 16px;
 
     font-size:13px;
+
     font-weight:900;
 
     white-space:nowrap;
@@ -215,7 +231,9 @@ a{
     font-size:14px;
 
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 
     color:#111827;
@@ -228,6 +246,7 @@ a{
 
 .page{
     width:min(1400px,96%);
+
     margin:15px auto 35px;
 }
 
@@ -246,12 +265,14 @@ a{
     margin-bottom:18px;
 
     font-size:24px;
+
     font-weight:900;
 }
 
 
 /* =========================================================
    MAIN LAYOUT
+   LEFT CONTENT + RIGHT SIDEBAR
 ========================================================= */
 
 .main-layout{
@@ -279,6 +300,7 @@ a{
     display:flex;
 
     align-items:center;
+
     justify-content:space-between;
 
     margin-bottom:12px;
@@ -292,6 +314,7 @@ a{
     margin:0;
 
     font-size:21px;
+
     font-weight:900;
 
     color:#111827;
@@ -303,17 +326,22 @@ a{
 
 
 /* =========================================================
-   ALL ARTICLE GRIDS
-   DESKTOP = 6
+   ARTICLE GRID
+   DESKTOP = 3 COLUMNS
 ========================================================= */
 
 .movies-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(6,minmax(0,1fr));
+        repeat(3,minmax(0,1fr));
 
-    gap:12px;
+    column-gap:14px;
+
+    row-gap:18px;
+
+    width:100%;
 }
 
 
@@ -322,6 +350,7 @@ a{
 ========================================================= */
 
 .movie-card{
+
     display:block;
 
     background:#fff;
@@ -338,6 +367,7 @@ a{
 }
 
 .movie-card:hover{
+
     transform:translateY(-3px);
 
     box-shadow:
@@ -345,6 +375,7 @@ a{
 }
 
 .movie-card img{
+
     width:100%;
 
     aspect-ratio:16 / 9;
@@ -353,10 +384,12 @@ a{
 }
 
 .movie-card-content{
+
     padding:9px;
 }
 
 .movie-card-title{
+
     margin:0;
 
     color:#111827;
@@ -382,14 +415,20 @@ a{
 ========================================================= */
 
 .article-sidebar{
+
     display:flex;
 
     flex-direction:column;
 
     gap:18px;
+
+    position:sticky;
+
+    top:80px;
 }
 
 .sidebar-box{
+
     background:#fff;
 
     border-radius:8px;
@@ -400,6 +439,7 @@ a{
 }
 
 .sidebar-title{
+
     font-size:19px;
 
     line-height:1.3;
@@ -421,6 +461,7 @@ a{
 ========================================================= */
 
 .sidebar-item{
+
     display:flex;
 
     gap:10px;
@@ -435,10 +476,12 @@ a{
 }
 
 .sidebar-item:last-child{
+
     border-bottom:none;
 }
 
 .sidebar-item img{
+
     width:100px;
 
     height:65px;
@@ -451,6 +494,7 @@ a{
 }
 
 .sidebar-item-title{
+
     font-size:14px;
 
     line-height:1.4;
@@ -474,6 +518,7 @@ a{
 ========================================================= */
 
 .most-read-item{
+
     display:flex;
 
     align-items:center;
@@ -490,10 +535,12 @@ a{
 }
 
 .most-read-item:last-child{
+
     border-bottom:none;
 }
 
 .most-read-item img{
+
     width:95px;
 
     height:65px;
@@ -506,6 +553,7 @@ a{
 }
 
 .most-read-title{
+
     font-size:14px;
 
     line-height:1.4;
@@ -529,6 +577,7 @@ a{
 ========================================================= */
 
 .loading{
+
     grid-column:1 / -1;
 
     background:#fff;
@@ -548,6 +597,7 @@ a{
 ========================================================= */
 
 .site-footer{
+
     background:#111827;
 
     color:#fff;
@@ -558,6 +608,7 @@ a{
 }
 
 .footer-inner{
+
     width:min(1400px,96%);
 
     margin:auto;
@@ -571,12 +622,14 @@ a{
 
 .footer-column h3,
 .footer-contact h3{
+
     margin:0 0 12px;
 
     font-size:18px;
 }
 
 .footer-links{
+
     display:flex;
 
     flex-wrap:wrap;
@@ -585,16 +638,19 @@ a{
 }
 
 .footer-links a{
+
     color:#d1d5db;
 
     font-size:14px;
 }
 
 .footer-links a:hover{
+
     color:#fff;
 }
 
 .footer-contact p{
+
     margin:5px 0;
 
     color:#d1d5db;
@@ -603,6 +659,7 @@ a{
 }
 
 .copyright{
+
     width:min(1400px,96%);
 
     margin:25px auto 0;
@@ -624,7 +681,9 @@ a{
 ========================================================= */
 
 body.dark-mode{
+
     background:#0b1120;
+
     color:#f9fafb;
 }
 
@@ -656,26 +715,37 @@ body.dark-mode .most-read-title{
 
 body.dark-mode .sidebar-item,
 body.dark-mode .most-read-item{
+
     border-color:#374151;
 }
 
 
 /* =========================================================
    TABLET
+   601px - 1100px
 ========================================================= */
 
 @media(min-width:601px) and (max-width:1100px){
 
     .main-layout{
+
         grid-template-columns:1fr;
     }
 
     .movies-grid{
+
         grid-template-columns:
-            repeat(4,minmax(0,1fr));
+            repeat(2,minmax(0,1fr));
+
+        column-gap:12px;
+
+        row-gap:16px;
     }
 
     .article-sidebar{
+
+        position:static;
+
         display:grid;
 
         grid-template-columns:
@@ -694,120 +764,163 @@ body.dark-mode .most-read-item{
 @media(max-width:600px){
 
     .header-inner{
+
         min-height:58px;
     }
 
     .logo{
+
         font-size:22px;
     }
 
     .home-btn{
+
         padding:6px 11px;
+
         font-size:13px;
     }
 
 
     .nav-inner a{
+
         padding:9px 11px;
+
         font-size:12px;
     }
 
 
     .breaking{
+
         margin-top:8px;
     }
 
     .breaking-title{
+
         padding:7px 10px;
+
         font-size:10px;
     }
 
     .breaking-text{
+
         font-size:12px;
+
         padding:7px 10px;
     }
 
 
     .page{
+
         width:94%;
+
         margin-top:10px;
     }
 
     .page-title{
+
         font-size:20px;
+
         padding:10px 12px;
     }
 
 
     .main-layout{
+
         display:block;
     }
 
 
-    .movies-grid{
-        grid-template-columns:
-            repeat(3,minmax(0,1fr));
+    /* =========================================
+       MOBILE = 2 COLUMNS
+    ========================================= */
 
-        gap:7px;
+    .movies-grid{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        column-gap:8px;
+
+        row-gap:12px;
     }
 
 
     .movie-card{
+
         border-radius:5px;
     }
 
     .movie-card-content{
-        padding:6px;
+
+        padding:7px;
     }
 
     .movie-card-title{
-        font-size:10px;
-        line-height:1.35;
+
+        font-size:11px;
+
+        line-height:1.4;
 
         -webkit-line-clamp:4;
     }
 
 
     .article-sidebar{
+
+        position:static;
+
         margin-top:22px;
+
         gap:12px;
     }
 
     .sidebar-box{
+
         padding:11px;
     }
 
     .sidebar-title{
+
         font-size:17px;
     }
 
     .sidebar-item img{
+
         width:90px;
+
         height:62px;
     }
 
     .sidebar-item-title{
+
         font-size:13px;
     }
 
 
     .most-read-item img{
+
         width:90px;
+
         height:62px;
     }
 
     .most-read-title{
+
         font-size:13px;
     }
 
 
     .footer-inner{
+
         grid-template-columns:1fr;
+
         gap:22px;
     }
 
     .footer-links{
+
         display:grid;
+
         grid-template-columns:1fr 1fr;
     }
 
@@ -821,19 +934,25 @@ body.dark-mode .most-read-item{
 @media(max-width:380px){
 
     .movies-grid{
-        grid-template-columns:
-            repeat(3,minmax(0,1fr));
 
-        gap:5px;
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        column-gap:6px;
+
+        row-gap:10px;
     }
 
     .movie-card-content{
-        padding:5px;
+
+        padding:6px;
     }
 
     .movie-card-title{
-        font-size:9px;
-        line-height:1.3;
+
+        font-size:10px;
+
+        line-height:1.35;
     }
 
 }
@@ -941,21 +1060,12 @@ body.dark-mode .most-read-item{
 
 
         <!-- =================================================
-             LEFT SIDE
+             LEFT CONTENT
         ================================================== -->
 
         <div class="movies-main">
 
 
-            <!-- =================================================
-                 SPORTS DIRECT POSTS
-                 
-                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                 >>> NEW SPORTS ARTICLES IKKADA PETTALI <<<
-                 >>> 2 POSTS ONLY
-                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-            ================================================== --
-            
             <!-- =================================================
                  SPORTS
             ================================================== -->
@@ -965,7 +1075,7 @@ body.dark-mode .most-read-item{
                 <div class="section-head">
 
                     <h2>
-                        <span> ALL</span> Sports
+                        <span>ALL</span> Sports
                     </h2>
 
                 </div>
@@ -983,106 +1093,137 @@ body.dark-mode .most-read-item{
                 </div>
 
             </section>
-           
+
+
+            <!-- =================================================
+                 LOCAL SPORTS SOURCE
+            ================================================== -->
 
             <div id="localSportsSource" hidden>
 
 
-                <!-- =================================================
-                     SPORTS ARTICLE 1
-                ================================================== -->
+                <!-- SPORTS ARTICLE 1 -->
+
+                <article
+                    class="news-item post"
+                    data-category="sports"
+                    data-url="cwomen1.html"
+                >
+
+                    <img
+                        src="cwomen1.jpg"
+                        alt="హాంకాంగ్‌పై భారత్ ఘన విజయం"
+                    >
+
+                    <div class="news-content">
+
+                        <p>
+                            మంధాన విధ్వంసం.. హాంకాంగ్‌పై భారత్ ఘన విజయం
+                        </p>
+
+                    </div>
+
+                </article>
 
 
-<article class="news-item post" data-url="cwomen1.html">
+                <!-- SPORTS ARTICLE 2 -->
 
-    <img
-        src="cwomen1.jpg"
-        alt="హాంకాంగ్‌పై భారత్ ఘన విజయం"
-    >
+                <article
+                    class="news-item post"
+                    data-category="sports"
+                    data-url="n3.html"
+                >
 
-    <div class="news-content">
+                    <img
+                        src="n3.jpg"
+                        alt="అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
+                    >
 
-        <p>
-            మంధాన విధ్వంసం.. హాంకాంగ్‌పై భారత్ ఘన విజయం
-        </p>
+                    <div class="news-content">
 
-    </div>
+                        <p>
+                            అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
+                        </p>
 
-</article>
+                    </div>
 
-    
-<article class="news-item post" data-url="n3.html">
-
-    <img
-        src="n3.jpg"
-        alt=" అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం"
-    >
-
-    <div class="news-content">
-
-        <p>
-            అఫ్గానిస్థాన్‌పై భారత్ ఘన విజయం.. 3-0తో టీ20 సిరీస్ క్లీన్‌స్వీప్
-        </p>
-
-    </div>
-
-</article>
+                </article>
 
 
-<article class="news-item post" data-url="bhumrha.html">
+                <!-- SPORTS ARTICLE 3 -->
 
-    <img
-        src="bhumrha.jpg"
-        alt="బుమ్రా ఎంపిక"
-    >
+                <article
+                    class="news-item post"
+                    data-category="sports"
+                    data-url="bhumrha.html"
+                >
 
-    <div class="news-content">
+                    <img
+                        src="bhumrha.jpg"
+                        alt="బుమ్రా ఎంపిక"
+                    >
 
-        <p>
-            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
-        </p>
+                    <div class="news-content">
 
-    </div>
+                        <p>
+                            బుమ్రా ఎంపికపై పెరుగుతున్న చర్చ.. సెలక్షన్ విధానంపై మాజీ క్రికెటర్ల ప్రశ్నలు
+                        </p>
 
-</article>
+                    </div>
 
-
-<article class="news-item post" data-url="hardik97.html">
-
-    <img
-        src="hardik.jpg"
-        alt="హార్దిక్ పాండ్యా"
-    >
-
-    <div class="news-content">
-
-        <p>
-            హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
-        </p>
-
-    </div>
-
-</article>
+                </article>
 
 
-<article class="news-item post" data-url="bcci.html">
+                <!-- SPORTS ARTICLE 4 -->
 
-    <img
-        src="bcci.webp"
-        alt="భారత్ అఫ్గానిస్థాన్ టీ20 సిరీస్"
-    >
+                <article
+                    class="news-item post"
+                    data-category="sports"
+                    data-url="hardik97.html"
+                >
 
-    <div class="news-content">
+                    <img
+                        src="hardik.jpg"
+                        alt="హార్దిక్ పాండ్యా"
+                    >
 
-        <p>
-            భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
-        </p>
+                    <div class="news-content">
 
-    </div>
+                        <p>
+                            హార్దిక్ పాండ్యాకు మళ్లీ అవకాశం.. ఆస్ట్రేలియా Aతో సిరీస్‌కు ఎంపిక
+                        </p>
 
-</article>
-                
-                
+                    </div>
+
+                </article>
+
+
+                <!-- SPORTS ARTICLE 5 -->
+
+                <article
+                    class="news-item post"
+                    data-category="sports"
+                    data-url="bcci.html"
+                >
+
+                    <img
+                        src="bcci.webp"
+                        alt="భారత్ అఫ్గానిస్థాన్ టీ20 సిరీస్"
+                    >
+
+                    <div class="news-content">
+
+                        <p>
+                            భారత్–అఫ్గానిస్థాన్ టీ20 సిరీస్‌కు రంగం సిద్ధం.. సెప్టెంబర్ 13 నుంచి ఢిల్లీలో హోరాహోరీ పోరు
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SPORTS ARTICLE 6 -->
+
                 <article
                     class="news-item post"
                     data-category="sports"
@@ -1097,14 +1238,16 @@ body.dark-mode .most-read-item{
                     <div class="news-content">
 
                         <p>
-                           ఎంఎస్ ధోనీకి CSKలో 25 శాతం వాటా కావాలా? తగ్గించిన డిమాండ్‌తోనూ ముందుకు సాగని చర్చలు!
+                            ఎంఎస్ ధోనీకి CSKలో 25 శాతం వాటా కావాలా? తగ్గించిన డిమాండ్‌తోనూ ముందుకు సాగని చర్చలు!
                         </p>
 
                     </div>
 
                 </article>
 
-                
+
+                <!-- SPORTS ARTICLE 7 -->
+
                 <article
                     class="news-item post"
                     data-category="sports"
@@ -1127,9 +1270,7 @@ body.dark-mode .most-read-item{
                 </article>
 
 
-                <!-- =================================================
-                     SPORTS ARTICLE 2
-                ================================================== -->
+                <!-- SPORTS ARTICLE 8 -->
 
                 <article
                     class="news-item post"
@@ -1145,15 +1286,17 @@ body.dark-mode .most-read-item{
                     <div class="news-content">
 
                         <p>
-                           ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన
-          
+                            ఉమెన్స్ హాకీ వరల్డ్ కప్: జర్మనీపై భారత్ ఘన విజయం.. 1974 తర్వాత ఇదే అత్యుత్తమ ప్రదర్శన
                         </p>
 
                     </div>
 
                 </article>
 
-<article
+
+                <!-- SPORTS ARTICLE 9 -->
+
+                <article
                     class="news-item post"
                     data-category="sports"
                     data-url="dhoni7.html"
@@ -1161,24 +1304,22 @@ body.dark-mode .most-read-item{
 
                     <img
                         src="dhoni.jpg"
-                        alt="ధోనీ IPL 2027 ఆడతాడా?
+                        alt="ధోనీ IPL 2027 ఆడతాడా?"
                     >
 
                     <div class="news-content">
 
                         <p>
-                           
-          ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు 
+                            ధోనీ IPL 2027 ఆడతాడా? ఇంపాక్ట్ ప్లేయర్‌గా మాత్రం వద్దంటున్న ధోనీ.. మాజీ CSK ఆటగాడి కీలక వ్యాఖ్యలు
                         </p>
 
                     </div>
 
                 </article>
 
+
             </div>
 
-
-            
 
             <!-- =================================================
                  MOVIES
@@ -1511,7 +1652,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     /* =====================================================
-       CARD
+       CARD HTML
     ===================================================== */
 
     function cardHTML(article){
@@ -1547,7 +1688,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     /* =====================================================
-       SIDEBAR
+       SIDEBAR HTML
     ===================================================== */
 
     function sidebarHTML(article){
@@ -1579,7 +1720,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     /* =====================================================
-       MOST READ
+       MOST READ HTML
     ===================================================== */
 
     function mostReadHTML(article){
@@ -1697,14 +1838,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
         /* =================================================
            LOCAL SPORTS FIRST
-           THEN INDEX SPORTS
-           
-           SAME URL DUPLICATES REMOVE
+           DUPLICATE URLS REMOVED
         ================================================= */
 
         const sports = [
 
             ...localSports,
+
             ...indexSports
 
         ]
