@@ -142,7 +142,529 @@ gtag('config', 'G-EWXPS1N2TL');
     href="style.css?v=20260914" 
 > 
  
- 
+ <!-- ================= BS 360 NEWS HEADER ================= -->
+
+<header class="bs-header">
+
+    <!-- TOP HEADER -->
+    <div class="bs-header-top">
+
+        <!-- LOGO + NAME -->
+        <div class="bs-brand">
+
+            <a href="index.html">
+                <img
+                    src="dp.png.png"
+                    alt="BS 360 NEWS"
+                    class="bs-logo"
+                >
+            </a>
+
+            <div class="bs-brand-name">
+
+                <a href="index.html">
+                    BS 360 NEWS
+                </a>
+
+                <span>
+                    Fast | Fair | Fearless
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- DARK + LIVE -->
+        <div class="bs-header-actions">
+
+            <button
+                type="button"
+                id="themeToggle"
+                class="bs-dark-btn"
+            >
+                🌙 Dark
+            </button>
+
+            <div class="bs-live">
+                <span class="bs-live-dot"></span>
+                LIVE
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="bs-navigation">
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="MOVIES.html">
+            ENTERTAINMENT
+        </a>
+
+        <a href="SPORTS.html">
+            SPORTS
+        </a>
+
+        <a href="AP%26TS.html">
+            🏛 AP &amp; TS
+        </a>
+
+        <a href="business.html">
+            BUSINESS
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HEADER CSS ================= -->
+
+<style>
+
+/* =========================================
+   HEADER
+========================================= */
+
+.bs-header {
+    width: 100%;
+    background: #fff;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* =========================================
+   TOP HEADER
+========================================= */
+
+.bs-header-top {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+
+    min-height: 82px;
+
+    padding: 12px 22px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.bs-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.bs-brand a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+.bs-logo {
+    width: 54px;
+    height: 54px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+.bs-brand-name {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.bs-brand-name > a {
+    font-size: 25px;
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -0.5px;
+}
+
+
+.bs-brand-name span {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    color: #555;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.bs-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+/* DARK BUTTON */
+
+.bs-dark-btn {
+    border: 1px solid #222;
+
+    background: #fff;
+
+    color: #000;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.bs-dark-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+
+/* =========================================
+   LIVE
+========================================= */
+
+.bs-live {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    color: #000;
+}
+
+
+.bs-live-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #000;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    animation: bsLivePulse 1.2s infinite;
+}
+
+
+@keyframes bsLivePulse {
+
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.bs-navigation {
+    width: 100%;
+
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+}
+
+
+.bs-navigation::-webkit-scrollbar {
+    display: none;
+}
+
+
+.bs-navigation a {
+    color: #000;
+
+    text-decoration: none;
+
+    padding: 14px 24px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    border-right: 1px solid #eee;
+
+    transition: 0.2s ease;
+}
+
+
+.bs-navigation a:first-child {
+    border-left: 1px solid #eee;
+}
+
+
+.bs-navigation a:hover {
+    background: #000;
+    color: #fff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .bs-header-top {
+        min-height: 68px;
+
+        padding: 9px 12px;
+    }
+
+
+    .bs-logo {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .bs-brand {
+        gap: 8px;
+    }
+
+
+    .bs-brand-name > a {
+        font-size: 19px;
+    }
+
+
+    .bs-brand-name span {
+        font-size: 9px;
+
+        margin-top: 2px;
+    }
+
+
+    .bs-header-actions {
+        gap: 8px;
+    }
+
+
+    .bs-dark-btn {
+        padding: 6px 9px;
+
+        font-size: 11px;
+    }
+
+
+    .bs-live {
+        font-size: 10px;
+
+        gap: 4px;
+    }
+
+
+    .bs-live-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+
+    .bs-navigation {
+        justify-content: flex-start;
+    }
+
+
+    .bs-navigation a {
+        padding: 12px 15px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .bs-brand-name span {
+        display: none;
+    }
+
+
+    .bs-brand-name > a {
+        font-size: 17px;
+    }
+
+
+    .bs-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .bs-dark-btn span {
+        display: none;
+    }
+
+}
+
+</style>
+
+
+<!-- ================= DARK MODE ================= -->
+
+<script>
+
+const themeButton =
+    document.getElementById("themeToggle");
+
+if (themeButton) {
+
+    themeButton.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (
+            document.body.classList.contains("dark-mode")
+        ) {
+
+            themeButton.innerHTML = "☀️ Light";
+
+        } else {
+
+            themeButton.innerHTML = "🌙 Dark";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+<!-- ================= DARK MODE CSS ================= -->
+
+<style>
+
+body.dark-mode {
+    background: #111;
+    color: #fff;
+}
+
+
+body.dark-mode .bs-header {
+    background: #111;
+    color: #fff;
+    border-color: #333;
+}
+
+
+body.dark-mode .bs-brand a {
+    color: #fff;
+}
+
+
+body.dark-mode .bs-brand-name span {
+    color: #aaa;
+}
+
+
+body.dark-mode .bs-dark-btn {
+    background: #111;
+    color: #fff;
+    border-color: #777;
+}
+
+
+body.dark-mode .bs-dark-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+
+body.dark-mode .bs-live {
+    color: #fff;
+}
+
+
+body.dark-mode .bs-live-dot {
+    background: #fff;
+}
+
+
+body.dark-mode .bs-navigation {
+    border-color: #333;
+}
+
+
+body.dark-mode .bs-navigation a {
+    color: #fff;
+    border-color: #333;
+}
+
+
+body.dark-mode .bs-navigation a:hover {
+    background: #fff;
+    color: #000;
+}
+
+</style>
 <!-- ===================================================== 
      NAVIGATION FIX 
 ===================================================== --> 
