@@ -162,9 +162,12 @@ gtag('config', 'G-EWXPS1N2TL');
 
             <div class="bs-brand-name">
 
-                <a href="index.html">
-                    BS 360 NEWS
-                </a>
+            <a href="index.html" class="bs-brand-title">
+    <span class="brand-bs">BS</span>
+    <span class="brand-360">360</span>
+    <span class="brand-news">NEWS</span>
+</a>
+                
 
                 <span>
                     Fast | Fair | Fearless
@@ -227,7 +230,43 @@ gtag('config', 'G-EWXPS1N2TL');
 <!-- ================= HEADER CSS ================= -->
 
 <style>
+/* ================= BS 360 NEWS BRAND COLORS ================= */
 
+.bs-brand-title {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+}
+
+.brand-bs {
+    color: #111;
+}
+
+.brand-360 {
+    color: #e60000;
+    margin-left: 2px;
+}
+
+.brand-news {
+    color: #111;
+    margin-left: 3px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode .brand-bs,
+body.dark-mode .brand-news {
+    color: #fff;
+}
+
+body.dark-mode .brand-360 {
+    color: #ff3333;
+}
 /* =========================================
    HEADER
 ========================================= */
@@ -483,11 +522,9 @@ gtag('config', 'G-EWXPS1N2TL');
         gap: 8px;
     }
 
-
-    .bs-brand-name > a {
-        font-size: 19px;
-    }
-
+.bs-brand-title {
+    font-size: 19px;
+}
 
     .bs-brand-name span {
         font-size: 9px;
@@ -703,40 +740,8 @@ body.dark-mode .bs-navigation a:hover {
 <main class="container"> 
  
  
-<!-- ===================================================== 
-     SEARCH 
-===================================================== --> 
- 
-<div class="search-container"> 
- 
-    <button 
-        class="search-icon" 
-        onclick="toggleSearch()" 
-        aria-label="Search" 
-    > 
-        🔎 
-    </button> 
- 
- 
-    <div 
-        class="search-box" 
-        id="searchBox" 
-    > 
- 
-        <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="వార్తలు వెతకండి..." 
-        > 
- 
-        <button onclick="searchNews()"> 
-            Search 
-        </button> 
- 
-    </div> 
- 
-</div> 
- 
+
+
  
 <!-- ===================================================== 
      PORTAL CONTENT 
