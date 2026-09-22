@@ -2,7 +2,68 @@
    BS 360 NEWS - CLEAN HOMEPAGE CSS
    MOBILE VERSION PRESERVED
 ========================================================= */
+/* ================= BS 360 NEWS BRAND COLOR FIX ================= */
 
+.bs-brand-name .bs-brand-title {
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+
+    font-size: 25px !important;
+    line-height: 1.1 !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.5px !important;
+
+    color: #111 !important;
+}
+
+.bs-brand-name .bs-brand-title .brand-bs {
+    color: #111 !important;
+}
+
+.bs-brand-name .bs-brand-title .brand-360 {
+    color: #e60000 !important;
+    margin-left: 2px;
+}
+
+.bs-brand-name .bs-brand-title .brand-news {
+    color: #111 !important;
+    margin-left: 3px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode .bs-brand-name .bs-brand-title .brand-bs {
+    color: #fff !important;
+}
+
+body.dark-mode .bs-brand-name .bs-brand-title .brand-360 {
+    color: #ff3333 !important;
+}
+
+body.dark-mode .bs-brand-name .bs-brand-title .brand-news {
+    color: #fff !important;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .bs-brand-name .bs-brand-title {
+        font-size: 19px !important;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .bs-brand-name .bs-brand-title {
+        font-size: 17px !important;
+    }
+
+}
 *{
     box-sizing:border-box;
 }
