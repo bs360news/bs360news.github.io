@@ -1637,6 +1637,34 @@ body.dark-mode .theme-button{
     }
 }
 
+/* =========================================================
+   MOST READ - BELOW SPORTS ON DESKTOP
+   MOBILE UNCHANGED
+========================================================= */
+
+@media screen and (min-width:701px){
+
+    #sportsSection{
+        float:left !important;
+    }
+
+    .most-read-section{
+        clear:both !important;
+        float:none !important;
+        display:block !important;
+        width:100% !important;
+        position:relative !important;
+        margin-top:40px !important;
+    }
+
+    .most-read-section .most-read-list{
+        display:flex !important;
+        flex-direction:column !important;
+        width:100% !important;
+    }
+
+}
+
 
 
 
