@@ -1574,3 +1574,70 @@ body.dark-mode .theme-button{
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   MOST READ - DESKTOP FIX
+   MOBILE LAYOUT UNCHANGED
+========================================================= */
+
+@media screen and (min-width:701px){
+
+    .most-read-section{
+        display:block !important;
+        width:100% !important;
+        height:auto !important;
+        min-height:100px !important;
+        overflow:visible !important;
+        visibility:visible !important;
+        opacity:1 !important;
+    }
+
+    .most-read-list{
+        display:flex !important;
+        flex-direction:column !important;
+        width:100% !important;
+        height:auto !important;
+        min-height:50px !important;
+        overflow:visible !important;
+        visibility:visible !important;
+        opacity:1 !important;
+    }
+
+    .most-read-item{
+        display:flex !important;
+        width:100% !important;
+        height:auto !important;
+        min-height:85px !important;
+        visibility:visible !important;
+        opacity:1 !important;
+        overflow:visible !important;
+    }
+
+    .most-read-item img{
+        display:block !important;
+        visibility:visible !important;
+        opacity:1 !important;
+    }
+
+    .most-read-item h3{
+        display:-webkit-box !important;
+        visibility:visible !important;
+        opacity:1 !important;
+    }
+}
+
+
+
+
+
